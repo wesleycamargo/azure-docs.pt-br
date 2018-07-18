@@ -10,12 +10,11 @@
 ## Como
 ### [Configuração de alta disponibilidade com STONITH](ha-setup-with-stonith.md)
 ### [Backup do sistema operacional para SKUs do tipo II](os-backup-type-ii-skus.md)
+### [Atualização do sistema operacional para grandes instâncias do HANA](os-upgrade-hana-large-instance.md)
 # SAP HANA em Máquinas Virtuais do Azure
 ## [Instalação da única instância SAP HANA](hana-get-started.md)
 ## [Guia de implantação do HANA S/4 ou HANA BW/4 SAP CAL](cal-s4h.md)
 ## [SAP HANA no guia de operações do Azure](hana-vm-operations.md)
-### Como
-#### [Acelerador de gravação do Azure para implantações do SAP](how-to-enable-write-accelerator.md)
 ## Disponibilidade do SAP HANA em Máquinas Virtuais do Azure
 ### [SAP HANA na visão geral de disponibilidade do Azure](sap-hana-availability-overview.md)
 ### [SAP HANA na disponibilidade do Azure dentro de uma região do Azure](sap-hana-availability-one-region.md)
@@ -39,7 +38,7 @@
 ### Preparação da Infraestrutura do Azure
 #### [Windows com Disco Compartilhado para a Instância do (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows com Compartilhamento de Arquivos SOFS para a Instância do (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
-#### [SUSE Linux com NFS para a Instância do (A)SCS](high-availability-guide-suse.md)
+#### [Alta disponibilidade do NFS em VMs do Azure no SLES](high-availability-guide-suse-nfs.md)
 #### [Pacemaker em SLES](high-availability-guide-suse-pacemaker.md)
 ### Instalação do SAP
 #### [Windows com Disco Compartilhado para a Instância do (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)

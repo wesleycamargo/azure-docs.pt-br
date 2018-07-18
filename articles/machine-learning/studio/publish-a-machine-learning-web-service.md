@@ -1,10 +1,11 @@
 ---
-title: "Implantar um serviço Web do Machine Learning | Microsoft Docs"
-description: "Como converter um teste de treinamento em um teste preditivo, prepará-lo para implantação e implantá-lo como um serviço Web de Azure Machine Learning."
+title: Implantar um serviço Web do Machine Learning | Microsoft Docs
+description: Como converter um teste de treinamento em um teste preditivo, prepará-lo para implantação e implantá-lo como um serviço Web de Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implantar um serviço Web de Azure Machine Learning
 O Azure Machine Learning permite compilar, testar e implantar soluções de análise preditiva.

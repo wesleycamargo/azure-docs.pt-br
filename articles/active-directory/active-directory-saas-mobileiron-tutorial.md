@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao MobileIron | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o MobileIron."
+title: 'Tutorial: Integração do Azure Active Directory ao MobileIron | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o MobileIron.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 214cc59b0a0d1cb55758e11f7fa87c8457531113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5d98e57a2af71345b404f02b81762d5e0bc0961b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integração do Azure Active Directory com o MobileIron
 
@@ -30,9 +30,9 @@ A integração do MobileIron ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no MobileIron (Logon Único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao MobileIron, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando MobileIron da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Adicionando MobileIron da galeria
 Para configurar a integração do MobileIron ao Azure AD, você precisará adicionar o MobileIron da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -245,7 +245,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

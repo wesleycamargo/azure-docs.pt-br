@@ -1,12 +1,12 @@
 ---
-title: "CLI do Azure Service Fabric - composição sfctl | Microsoft Docs"
-description: "Descreve os comandos de composição do sfctl da CLI do Service Fabric."
+title: CLI do Azure Service Fabric - composição sfctl | Microsoft Docs
+description: Descreve os comandos de composição do sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-compose"></a>composição sfctl
 Criar, excluir e gerenciar implantações do Docker Compose.
 
 ## <a name="commands"></a>Comandos
 
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 |    create| Implante um aplicativo do Service Fabric de um arquivo de Composição.|
 |    list  | Obtém a lista de implantação de composição criada no cluster do Service Fabric.|
@@ -56,7 +56,7 @@ Cria uma implantação de composição do Service Fabric.
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Para mais informações e exemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-compose-list"></a>lista de composição sfctl
@@ -79,7 +79,7 @@ Obtém o status sobre as implantações de composição que foram criadas ou est
 | --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h        | Mostrar esta mensagem de ajuda e sair.|
 | --output -o      | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query          | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query          | Cadeia de caracteres de consulta JMESPath. Para mais informações e exemplos, consulte http://jmespath.org/.|
 | --verbose        | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-compose-remove"></a>remoção de composição sfctl
@@ -101,7 +101,7 @@ Exclui uma implantação de composição existente do Service Fabric.
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Para mais informações e exemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-compose-status"></a>status de composição sfctl
@@ -123,7 +123,7 @@ Retorna o statu de implantação de composição criado ou que está sendo criad
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de caracteres de consulta JMESPath. Para saber mais e obter exemplos, consulte http://jmespath.org/.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Para mais informações e exemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-compose-upgrade"></a>upgrade de composição sfctl
@@ -161,7 +161,7 @@ Valida os parâmetros de upgrade fornecidos e inicia a atualização da implanta
 |   --debug                      | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 |    --help -h                    | Mostrar esta mensagem de ajuda e sair.|
 |   --output -o                  | O formato da saída.  Valores permitidos: json, jsonc, table, tsv. Padrão: json.|
-|   --query                      | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+|   --query                      | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 |   --verbose                    | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

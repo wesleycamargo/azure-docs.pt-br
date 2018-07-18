@@ -1,9 +1,9 @@
 ---
-title: "O ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "As etapas necessárias para executar os projetos de ciência de dados"
+title: O ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: As etapas necessárias para executar os projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 5d69d4d2371b42b3595cf3dc71d99d913e225c59
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 9471522bc1e26f7816807429e4f1d5aef446b670
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do Processo de Ciência de Dados de Equipe
 

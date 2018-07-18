@@ -1,21 +1,21 @@
 ---
-title: "Executar cargas de trabalho do Lote do Azure em VMs econômicas de baixa prioridade | Microsoft Docs"
+title: Executar cargas de trabalho do Lote do Azure em VMs econômicas de baixa prioridade | Microsoft Docs
 description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Lote do Azure.
 services: batch
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a05c816bd876f7c66a1e62515dea44c6fd969c8c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -26,12 +26,6 @@ VMs de baixa prioridade tiram proveito da capacidade excedente do Azure. Quando 
 A desvantagem do uso de VMs de prioridade baixa é que elas podem não estar disponíveis para serem alocadas ou podem admitir preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncronas e em lote, em que o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre várias VMs.
  
 VMs de prioridade baixa são oferecidas a um preço consideravelmente menor em comparação com VMs dedicadas. Para ver detalhes dos preços, consulte [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Atualmente, as VMs de baixa prioridade estão disponíveis apenas para cargas de trabalho em execução no Lote. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Casos de uso para VMs de baixa prioridade
 

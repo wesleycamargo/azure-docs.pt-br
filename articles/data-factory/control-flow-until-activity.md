@@ -1,11 +1,11 @@
 ---
 title: Atividade Until no Azure Data Factory | Microsoft Docs
-description: "A atividade Until executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira ou atinja o tempo limite."
+description: A atividade Until executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira ou atinja o tempo limite.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f3462bfda5437ed66f58025deb98e4dbb3860f1d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade Until no Azure Data Factory
 A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory. 
@@ -253,7 +253,7 @@ Os pipeline define o **folderPath** com o valor do parâmetro **outputPath1** ou
 Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

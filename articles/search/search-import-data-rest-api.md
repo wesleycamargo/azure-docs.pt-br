@@ -1,25 +1,19 @@
 ---
 title: Carregar dados (API REST - Azure Search) | Microsoft Docs
-description: "Aprenda a carregar dados em um índice no Azure Search usando a API REST."
+description: Aprenda a carregar dados em um índice no Azure Search usando a API REST.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.topic: quickstart
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carregar dados para o Azure Search usando a API REST
 > [!div class="op_single_selector"]
@@ -55,7 +49,7 @@ Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solici
 
 Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir, etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
 
-| @search.action | Descrição | Campos necessários para cada documento | Observações |
+| @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | --- | --- | --- | --- |
 | `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
@@ -66,9 +60,9 @@ Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada 
 Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
 
 #### <a name="request-and-request-headers"></a>Solicitação e Cabeçalhos de Solicitação
-Na URL, você precisará fornecer o nome do serviço, nome do índice ("hotéis", neste caso), bem como a versão da API apropriada (a versão atual da API é `2016-09-01` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
+Na URL, você precisará fornecer o nome do serviço, nome do índice ("hotéis", neste caso), bem como a versão da API apropriada (a versão atual da API é `2017-11-11` no momento da publicação deste documento). Você precisará definir os cabeçalhos de solicitação `Content-Type` e `api-key`. Para a última opção, use uma das chaves de administração do serviço.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

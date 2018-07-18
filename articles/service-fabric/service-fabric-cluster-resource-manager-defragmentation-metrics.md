@@ -1,24 +1,24 @@
 ---
-title: "Desfragmentação de métricas no Azure Service Fabric | Microsoft Docs"
-description: "Uma visão geral do uso de desfragmentação ou como uma estratégia de métricas no Service Fabric"
+title: Desfragmentação de métricas no Azure Service Fabric | Microsoft Docs
+description: Uma visão geral do uso de desfragmentação ou como uma estratégia de métricas no Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 A estratégia padrão do Gerenciador de Recursos do Service Fabric para gerenciar métricas de carga no cluster é distribuir a carga. Garantir que os nós sejam utilizados de maneira uniforme evita pontos altos e baixos que levam à contenção e ao desperdício de recursos. A distribuição das cargas de trabalho no cluster também é a opção mais segura em termos de sobrevivência a falhas, uma vez que garante que uma falha não destruirá um grande percentual de uma determinada carga de trabalho. 
@@ -74,7 +74,7 @@ ClusterManifest.xml:
 </Section>
 ```
 
-via ClusterConfig.json para implantações autônomas ou Template.json para clusters hospedados pelo Azure:
+via ClusterConfig.json para implantações Autônomas ou Template.json para clusters hospedados pelo Azure:
 
 ```json
 "fabricSettings": [

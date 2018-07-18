@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário do Monitor em Funções Duráveis - Exemplo de observador meteorológico
 
@@ -26,8 +26,8 @@ O padrão de monitoramento refere-se a um processo *recorrente* flexível em um 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
-* Este artigo pressupõe que você já tenha passado pelo passo a passo do exemplo [Sequência Hello](durable-functions-sequence.md).
+* [Instalar Funções Duráveis](durable-functions-install.md).
+* Complete a [Sequência Hello](durable-functions-sequence.md) passo a passo.
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -38,7 +38,7 @@ Este exemplo monitora as condições meteorológicas atuais de um local e alerta
 * Os monitores poderão terminar quando alguma condição for atendida ou terminada por outro processo.
 * Monitores podem receber parâmetros. O exemplo mostra como o mesmo processo de monitoramento meteorológico pode ser aplicado a qualquer número do telefone e localização solicitados.
 * Monitores são escalonáveis. Como cada monitor é uma instância de orquestração, vários monitores podem ser criados sem a necessidade de criar novas funções ou definir mais código.
-* Os monitores integram-se facilmente em fluxos de trabalho maiores. Um monitor pode ser uma seção de uma função de orquestração mais complexa ou uma [sub-orquestração](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Os monitores integram-se facilmente em fluxos de trabalho maiores. Um monitor pode ser uma seção de uma função de orquestração mais complexa ou uma [sub-orquestração](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Configurando a integração com o Twilio
 
@@ -64,7 +64,7 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E3_GetIsClear`: uma função de atividade que verifica as condições meteorológicas atuais de um local.
 * `E3_SendGoodWeatherAlert`: uma função de atividade que envia uma mensagem SMS via Twilio.
 
-As seções a seguir explicam a configuração e o código que são usados para desenvolvimento no portal do Azure. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+As seções a seguir explicam a configuração e o código utilizados para o script C#. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A orquestração de monitoramento meteorológico (Código de exemplo do Portal do Azure e Visual Studio Code)
 
@@ -113,7 +113,7 @@ E aqui está o código que envia a mensagem SMS:
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, é possível iniciar a orquestração enviando a seguinte solicitação HTTP POST:
+Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor

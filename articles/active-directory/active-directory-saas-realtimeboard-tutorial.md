@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o RealtimeBoard | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o RealtimeBoard."
+title: 'Tutorial: Integração do Azure Active Directory com o RealtimeBoard | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o RealtimeBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f3ab54ced6376d675b9ab79aa395a95ea1c905b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34346914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integração do Azure Active Directory com o RealtimeBoard
 
@@ -30,9 +31,9 @@ A integração do RealtimeBoard ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no RealtimeBoard (Logon Único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o RealtimeBoard, você precisará dos seguintes itens:
 
@@ -51,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando RealtimeBoard pela galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-realtimeboard-from-the-gallery"></a>Adicionando RealtimeBoard pela galeria
 Para configurar a integração de RealtimeBoard ao Azure AD, você precisa adicionar RealtimeBoard por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -112,7 +113,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. Marque **Mostrar configurações avançadas de URL**, se quiser configurar o aplicativo no modo iniciado em **SP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
+    ![Configurar o logon único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL como: `https://realtimeboard.com/sso/saml`
 
@@ -124,7 +125,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Para configurar o logon único no lado do **RealtimeBoard**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do RealtimeBoard](mailto:support@realtimeboard.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. Para configurar o logon único no lado **RealtimeBoard**, execute as [instruções RealtimeBoard](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-)e use os dados de seu **XML Metadata** baixado.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +209,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

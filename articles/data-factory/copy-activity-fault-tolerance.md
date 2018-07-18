@@ -1,23 +1,23 @@
 ---
-title: "Tolerância a falhas da atividade de cópia no Azure Data Factory | Microsoft Docs"
-description: "Saiba como adicionar a tolerância a falhas na atividade de cópia no Azure Data Factory ignorando linhas incompatíveis."
+title: Tolerância a falhas da atividade de cópia no Azure Data Factory | Microsoft Docs
+description: Saiba como adicionar a tolerância a falhas na atividade de cópia no Azure Data Factory ignorando linhas incompatíveis.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4fef9a9d30adb48f8f68d34e35a7436c04b63125
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ A Atividade de Cópia dá suporte a três cenários para detectar, ignorar e reg
 
     Por exemplo: copiar dados de um arquivo CSV no armazenamento de Blobs em um banco de dados SQL com uma definição de esquema que contém seis colunas. As linhas do arquivo CSV que contêm seis colunas são copiadas com êxito no armazenamento do coletor. As linhas do arquivo CSV que contêm mais ou menos de seis colunas são detectadas como incompatíveis e ignoradas.
 
-- **Violação de chave primária ao gravar em banco de dados relacional**.
+- **Violação de chave primária ao gravar no SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
     Por exemplo: copiar dados de um servidor SQL em um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A Atividade de Cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 

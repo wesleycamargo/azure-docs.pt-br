@@ -1,26 +1,26 @@
 ---
-title: "Elemento de interface do usuário SizeSelector de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Compute.SizeSelector da interface do usuário para aplicativos gerenciados do Azure"
-services: azure-resource-manager
+title: Elemento de interface do usuário SizeSelector do Azure | Microsoft Docs
+description: Descreve o elemento de interface do usuário Microsoft.Compute.SizeSelector para o Portal do Azure.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72278b1999f89e5bd5f203794ba3a403a695c933
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d1b4974c78a5cdb7b4eb885797319b283be2d393
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.SizeSelector
-Um controle para selecionar um tamanho de uma ou mais instâncias de máquina virtual. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](publish-service-catalog-app.md).
+Um controle para selecionar um tamanho de uma ou mais instâncias de máquina virtual.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
@@ -39,7 +39,9 @@ Um controle para selecionar um tamanho de uma ou mais instâncias de máquina vi
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -60,6 +62,7 @@ Um controle para selecionar um tamanho de uma ou mais instâncias de máquina vi
 - `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**. Ela é usada para determinar os custos de hardware das máquinas virtuais.
 - `imageReference` é omitida para imagens próprias, mas fornecida para imagens de terceiros. Ela é usada para determinar os custos de software das máquinas virtuais.
 - `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').vmCount]`. O valor padrão é **1**.
+- O `numAvailabilityZonesRequired` pode ser 1, 2 ou 3.
 
 ## <a name="sample-output"></a>Saída de exemplo
 ```json
@@ -67,6 +70,5 @@ Um controle para selecionar um tamanho de uma ou mais instâncias de máquina vi
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](overview.md).
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

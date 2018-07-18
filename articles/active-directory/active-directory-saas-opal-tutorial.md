@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Opal | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Opal."
+title: 'Tutorial: integração do Azure Active Directory ao Opal | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Opal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e82d7bf5c453196357b9fa83aa9c8d68c6968f9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 9aed2a2fc80872af984bba7e9c4e88fa6fb8f5e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Tutorial: integração do Azure Active Directory ao Opal
 
@@ -30,7 +30,7 @@ A integração do Opal ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon no Opal automaticamente (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -229,7 +229,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

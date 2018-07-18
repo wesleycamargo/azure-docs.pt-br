@@ -1,26 +1,25 @@
 ---
-title: "Usar a Ação de Script para instalar o Solr no HDInsight baseado em Linux – Azure | Microsoft Docs"
-description: "Saiba como instalar o Solr em clusters baseados Hadoop HDInsight baseados em Linux usando as ações de script."
+title: Usar a Ação de Script para instalar o Solr no HDInsight baseado em Linux – Azure | Microsoft Docs
+description: Saiba como instalar o Solr em clusters baseados Hadoop HDInsight baseados em Linux usando as ações de script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/20/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77d3964dd54d63db58c63b567ebbe7e529473999
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201553"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Solr em clusters HDInsight do Hadoop
 
@@ -61,7 +60,7 @@ Para criar um cluster com Solr instalado, use as etapas no documento [Criar clus
 1. Na seção __Resumo do cluster__, selecione__Configurações avançadas__ e __Ações de script__. Use as informações a seguir para popular o formulário:
 
    * **NOME**: insira um nome amigável para a ação de script.
-   * **URI do SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **URI DO SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **CABEÇALHO**: marque esta opção
    * **TRABALHO**: marque esta opção
    * **ZOOKEEPER**: marque esta opção para instalar no nó Zookeeper
@@ -82,14 +81,17 @@ Use as etapas a seguir para adicionar dados de exemplo para Solr e, em seguida, 
 
 1. Conecte-se ao cluster HDInsight usando SSH:
 
+    > [!NOTE]
+    > Substitua `sshuser` pelo usuário SSH para o cluster. Substitua `clustername` pelo nome do cluster.
+
     ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
     Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Etapas posteriormente nesse documento usam um túnel SSL para conectar-se à interface do usuário da Web do Solr. Para usar essas etapas, você deve estabelecer um túnel SSL e configurar seu navegador para usá-lo.
+     > Etapas posteriores neste documento usam um túnel SSL para se conectar à interface do usuário da Web do Solr. Para usar essas etapas, você deve estabelecer um túnel SSH e configurar seu navegador para usá-lo.
      >
      > Para obter mais informações, consulte o documento [Usar túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -194,7 +196,7 @@ Depois de estabelecer um túnel SSH, use as seguintes etapas para usar o painel 
 
         Salve o valor retornado, pois ele será usado posteriormente.
 
-2. Em seu navegador, conecte **http://HOSTNAME:8983/solr/#/**, onde **HOSTNAME** é o nome determinado nas etapas anteriores.
+2. No navegador, conecte **http://HOSTNAME:8983/solr/#/**, onde o **NOME DO HOST** é o nome determinado nas etapas anteriores.
 
     A solicitação é roteada através do túnel SSH para a interface do usuário da Web do Solr no cluster. A página exibida é semelhante à imagem a seguir:
 
@@ -319,7 +321,7 @@ Use as etapas a seguir para fazer backup de dados do Solr no armazenamento padr�
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Para obter mais informações sobre como trabalhar com backups e restaurações do Solr, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Para obter mais informações sobre como trabalhar com restaurações e backup de Solr, consulte [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Próximas etapas
 

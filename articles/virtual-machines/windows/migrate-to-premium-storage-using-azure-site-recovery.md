@@ -1,12 +1,12 @@
 ---
 title: Migrar suas VMs Windows para o Armazenamento Premium do Azure com o Azure Site Recovery | Microsoft Docs
-description: "Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
+description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779444"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -80,7 +81,7 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Etapa 1: criar um cofre dos Serviços de Recuperação
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup** e **Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**. 
+2. Selecione **Criar um recurso** > **Gerenciamento** > **Backup e Site Recovery (OMS)**. Como alternativa, você pode selecionar **Procurar** > **Cofre dos Serviços de Recuperação** > **Adicionar**. 
 3. Especifique uma região para a qual as VMs serão replicadas. Para fins de migração na mesma região, selecione a região em que estão as VMs e as contas de armazenamento de origem. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Etapa 2: escolher as metas de proteção 
@@ -202,7 +203,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
    * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no Portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
    * Para uma VM criada pelo modelo de implantação do Resource Manager: salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar esse script, verifique as limitações dele e planeje o tempo de inatividade.
 
-2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema que não permita a exclusão do disco mesmo após excluir a VM, consulte [Solucionar erros ao excluir VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema no qual o disco não é excluído, mesmo que você exclua a VM, consulte [Solucionar problemas de erros de exclusão de recursos de armazenamento](storage-resource-deletion-errors.md).
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 

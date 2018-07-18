@@ -1,24 +1,24 @@
 ---
 title: API do coletor de dados HTTP do Log Analytics | Microsoft Docs
-description: "Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação."
+description: Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados ao Log Analytics com a API do Coletor de dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados ao Log Analytics de um cliente da API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Log Analytics.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -57,7 +57,7 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 | Cabeçalho | DESCRIÇÃO |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
+| Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. O limite de tamanho para esse parâmetro é de 100 caracteres. |
 | x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
 | time-generated-field |O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
@@ -328,7 +328,7 @@ namespace OIAPIExample
         {
             // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
-            var jsonBytes = Encoding.UTF8.GetBytes(message);
+            var jsonBytes = Encoding.UTF8.GetBytes(json);
             string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;

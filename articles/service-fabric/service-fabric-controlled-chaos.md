@@ -1,6 +1,6 @@
 ---
 title: Induzir o Chaos em clusters do Service Fabric | Microsoft Docs
-description: "Como usar as APIs de serviço de Injeção de falhas e análise de cluster para gerenciar o Chaos no cluster."
+description: Como usar as APIs de serviço de Injeção de falhas e análise de cluster para gerenciar o Chaos no cluster.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -9,16 +9,16 @@ editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26a954412b8755cd112bf2931ed9bdda291fd727
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
 Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços distribuídos confiáveis sobre uma infraestrutura não confiável. Para gravar serviços distribuídos robustos sobre uma infraestrutura não confiável, os desenvolvedores precisam poder testar a estabilidade de seus serviços enquanto a infraestrutura subjacente não confiável está passando por transições de estado complicadas devido a falhas.
@@ -33,7 +33,7 @@ Depois que tiver configurado o Chaos com a taxa e o tipo de falhas, você pode i
 > Em sua forma atual, o Chaos induz apenas falhas seguras, o que significa que, na ausência de falhas externas, uma perda de quórum ou uma perda de dados nunca ocorrerá.
 >
 
-Enquanto o Chaos estiver em execução, ele produzirá eventos diferentes que capturam o estado da execução no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que o Chaos decidiu executar na iteração. Um ValidationFailedEvent contém os detalhes de uma falha de validação (problemas de integridade ou estabilidade) encontrada durante a validação do cluster. Você pode invocar a API GetChaosReport (C# ou PowerShell, ou REST) para obter o relatório de execuções do Chaos. Esses eventos são persistidos em um [dicionário confiável](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tem uma política de truncamento determinada por duas configurações: **MaxStoredChaosEventCount** (o valor padrão é 25000) e **StoredActionCleanupIntervalInSeconds** (o valor padrão é 3600). Todas as verificações do Chaos *StoredActionCleanupIntervalInSeconds* e todos os eventos *MaxStoredChaosEventCount*, exceto os mais recentes, são limpos do dicionário confiável.
+Enquanto o Chaos estiver em execução, ele produzirá eventos diferentes que capturam o estado da execução no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que o Chaos decidiu executar na iteração. Um ValidationFailedEvent contém os detalhes de uma falha de validação (problemas de integridade ou estabilidade) encontrada durante a validação do cluster. Você pode invocar a API GetChaosReport (C# ou PowerShell, ou REST) para obter o relatório de execuções do Chaos. Esses eventos são persistidos em um [dicionário confiável](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tem uma política de truncamento determinada por duas configurações: **MaxStoredChaosEventCount** (o valor padrão é 25000) e **StoredActionCleanupIntervalInSeconds** (o valor padrão é 3600). Todas as verificações do Chaos *StoredActionCleanupIntervalInSeconds* e todos os eventos *MaxStoredChaosEventCount*, exceto os mais recentes, são limpos do dicionário confiável.
 
 ## <a name="faults-induced-in-chaos"></a>Falhas induzidas no Chaos
 O Chaos gera falhas em todo o cluster do Service Fabric e compacta as falhas vistas em meses ou anos em poucas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Esse exercício do Chaos leva a uma melhoria significativa na qualidade do código do serviço.

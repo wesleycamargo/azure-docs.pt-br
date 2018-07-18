@@ -1,8 +1,8 @@
 ---
 title: Configurar fontes de dados no Azure Log Analytics | Microsoft Docs
-description: "As fontes de dados definem os dados que o Log Analytics coleta de agentes e outras fontes conectadas.  Este artigo descreve o conceito de como o Log Analytics usa fontes de dados, explica os detalhes de como configurá-las e fornece um resumo das diferentes fontes de dados disponíveis."
+description: As fontes de dados definem os dados que o Log Analytics coleta de agentes e outras fontes conectadas.  Este artigo descreve o conceito de como o Log Analytics usa fontes de dados, explica os detalhes de como configurá-las e fornece um resumo das diferentes fontes de dados disponíveis.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
 O Log Analytics coleta dados de suas fontes conectadas e armazena-os no seu espaço de trabalho do Log Analytics.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no Log Analytics são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -29,16 +29,19 @@ As fontes de dados são diferentes das [soluções de gerenciamento](log-analyti
 
 
 ## <a name="summary-of-data-sources"></a>Resumo das fontes de dados
-As fontes de dados que estão disponíveis no momento no Log Analytics são listadas na tabela a seguir.  Cada uma tem um link para um artigo à parte que fornece detalhes para aquela fonte de dados.
+A tabela a seguir lista as fontes de dados atualmente disponíveis no Log Analytics.  Cada uma tem um link para um artigo à parte que fornece detalhes para aquela fonte de dados.   Fornece também informações sobre o método e a frequência de coleta de dados no Log Analytics.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. Para obter explicações sobre as colunas, consulte [Detalhes da coleta de dados para soluções de gerenciamento no Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| Fonte de dados | Tipo de evento | DESCRIÇÃO |
-|:--- |:--- |:--- |
-| [Logs personalizados](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Arquivos de texto em agentes do Windows ou Linux que contenham informações de log. |
-| [Logs de eventos do Windows](log-analytics-data-sources-windows-events.md) |Evento |Eventos coletados do log de eventos em computadores Windows. |
-| [Contadores de desempenho do Windows](log-analytics-data-sources-performance-counters.md) |Perf |Contadores de desempenho coletados de computadores Windows. |
-| [Contadores de desempenho do Linux](log-analytics-data-sources-performance-counters.md) |Perf |Contadores de desempenho coletados de computadores Linux. |
-| [Logs do IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Serviços de Informações da Internet em formato W3C. |
-| [Syslog](log-analytics-data-sources-syslog.md) |syslog |Eventos de syslog em computadores Windows ou Linux. |
+
+| Fonte de dados | Plataforma | Agente de monitoramento da Microsoft | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Logs personalizados](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | na chegada |
+| [Logs personalizados](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | na chegada |
+| [Logs do IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |conforme agendado, mínimo de 10 segundos |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |conforme agendado, mínimo de 10 segundos |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |do armazenamento do Azure: 10 minutos; do agente: na chegada |
+| [Logs de eventos do Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | na chegada |
+
 
 ## <a name="configuring-data-sources"></a>Configurando fontes de dados
 Configure fontes de dados no menu **Dados** nas **Configurações Avançadas** do Log Analytics.  Todas as configurações são entregues a todas as fontes conectadas em seu espaço de trabalho.  No momento, você não pode excluir nenhum agente dessa configuração.

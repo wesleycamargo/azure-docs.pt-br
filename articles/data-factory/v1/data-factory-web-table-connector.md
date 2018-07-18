@@ -1,11 +1,10 @@
 ---
 title: Mover dados da Tabela da Web usando o Azure Data Factory | Microsoft Docs
-description: "Saiba mais sobre como mover dados de uma tabela em uma página da Web usando o Azure Data Factory."
+description: Saiba mais sobre como mover dados de uma tabela em uma página da Web usando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ Atualmente, o data factory dá suporte apenas para a movimentação de dados de 
 > [!IMPORTANT]
 > No momento, esse conector da Web dá suporte apenas à extração do conteúdo da tabela de uma página HTML. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](data-factory-http-connector.md) em vez disso.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para usar este conector de tabela da Web, você precisa configurar um Tempo de Execução de Integração Auto-hospedado (também conhecido como Gateway de Gerenciamento de Dados) e configurar a propriedade `gatewayName` no serviço vinculado do coletor. Por exemplo, para copiar da tabela da Web para o Armazenamento de Blobs do Azure, configure o serviço vinculado do Armazenamento do Azure da seguinte forma:
 
@@ -74,9 +73,9 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **Web** |Sim |
-| Url |URL para a origem da Web |Sim |
-| authenticationType |Anônima. |Sim |
+| Tipo |A propriedade type deve ser definida como: **Web** |sim |
+| Url |URL para a origem da Web |sim |
+| authenticationType |Anônima. |sim |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
@@ -102,9 +101,9 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
+| Tipo |tipo do conjunto de dados. Deve ser definido como **WebTable** |sim |
 | caminho |Uma URL relativa para o recurso que contém a tabela. |Nº Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
+| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |sim |
 
 **Exemplo:**
 
@@ -290,7 +289,7 @@ Confira [Propriedades do tipo WebSource](#copy-activity-type-properties) para ob
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 
     ![Menu do Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
+3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/)) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
 
     ![Do diálogo da Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

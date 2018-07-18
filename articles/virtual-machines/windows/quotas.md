@@ -1,12 +1,12 @@
 ---
 title: Cotas de vCPU do Azure | Microsoft Docs
 description: Saiba mais sobre as cotas de vCPU do Azure.
-keywords: 
+keywords: ''
 services: virtual-machines-windows
-documentationcenter: 
-author: Drewm3
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
-ms.author: drewm
-ms.openlocfilehash: b481299b62d452bc306c1f9c1fa2cdccd49b818e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: cynthn
+ms.openlocfilehash: 50f28fcb2d7945949134d89f6bcc4238cf625bd1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cotas de vCPU de máquina virtual
 
@@ -81,7 +81,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Instâncias de máquina virtual reservada
 Instâncias de máquina virtual reservada, que têm o escopo voltado para uma assinatura única, adicionarão um novo aspecto às cotas de vCPU. Esses valores descrevem o número de instâncias de tamanho indicado que devem ser implantadas na assinatura. Elas funcionam como um espaço reservado no sistema de cota para garantir que essa cota seja reservada para garantir que instâncias reservadas sejam implantadas na assinatura. Por exemplo, se uma assinatura específica tiver 10 instâncias reservadas Standard_D1, os limites de uso para as instâncias reservadas Standard_D1 será 10. Isso fará com que o Azure garanta que haja sempre pelo menos 10 vCPUs disponíveis na cota de vCPUs Regionais Totais para serem usados para instâncias Standard_D1 e pelo menos 10 VCPUs disponíveis na cota de vCPU Família D padrão para serem usados para as instâncias Standard_D1.
 
-Se um aumento de cota for necessário para adquirir um RI assinatura única, você pode [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) na sua assinatura.
+Se um aumento de cota for necessário para comprar uma RI de Assinatura Única, você poderá [solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) na sua assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

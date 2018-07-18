@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757250"
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -36,7 +37,7 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 ## <a name="before-you-begin"></a>Antes de começar    
 > [!IMPORTANT]    
-> Não tente criar máquinas virtuais durante a instalação dessa atualização. Para obter mais informações sobre como gerenciar atualizações, consulte [gerenciar atualizações na visão geral do Azure pilha](/azure-stack-updates#plan-for-updates).
+> Não tente criar máquinas virtuais durante a instalação dessa atualização. Para obter mais informações sobre como gerenciar atualizações, consulte [gerenciar atualizações na visão geral do Azure pilha](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -56,7 +57,10 @@ Este artigo descreve as melhorias e correções no pacote de atualização de 18
 
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
-*Não há nenhuma etapa de pós-atualização para atualização 1802.*
+Após a instalação do 1802, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md). 
+- Hotfix de pilha do Azure **1.0.180302.4**. [KB 4131152 - conjuntos de escala de máquinas virtuais existentes pode se tornar inutilizável]( https://support.microsoft.com/help/4131152) 
+
+  Essa correção também resolve os problemas detalhados na [KB 4103348 - falha do serviço de API do controlador de rede ao tentar instalar uma atualização do Azure pilha](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Novos recursos e correções
@@ -82,6 +86,8 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 
 - **Adicionado suporte para vários domínios de falha**.  Para obter mais informações, consulte [alta disponibilidade para o Azure pilha](azure-stack-key-features.md#high-availability-for-azure-stack).
 
+- **Suporte para atualizações de memória física** -agora você pode expandir a capacidade de memória do sistema de pilha do Azure integradas após a implantação inicial. Para obter mais informações, consulte [gerenciar a capacidade de memória física para o Azure pilha](azure-stack-manage-storage-physical-memory-capacity.md).
+
 - **Várias correções de** de desempenho, estabilidade, segurança e sistema operacional que é usado pela pilha do Azure.
 
 <!--
@@ -102,6 +108,9 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 A seguir são problemas conhecidos de pós-instalação para compilação **20180302.1**
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solução alternativa: Para resolver esse problema, depois de instalar esta atualização, use a etapa 3 do [na pilha do Azure de confiança do provedor de declarações de automação de gatilho para configurar](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para redefinir o proprietário da assinatura do provedor padrão.   
+
 - A capacidade de [para abrir uma nova solicitação de suporte na lista suspensa](azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Azure pilha sistemas integrados, use https://aka.ms/newsupportrequest.
 
@@ -110,8 +119,6 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 - Ele não poderá exibir os recursos de computação ou armazenamento no portal do administrador. A causa desse problema é um erro durante a instalação da atualização que faz com que a atualização a ser informada incorretamente como bem-sucedido. Se esse problema ocorrer, entre em contato com o Atendimento Microsoft para obter assistência.
 
 - Você pode ver um painel em branco no portal. Para recuperar o painel de controle, selecione o ícone de engrenagem no canto superior direito do portal e, em seguida, selecione **restaurar as configurações padrão**.
-
-- Quando você exibir as propriedades de um recurso ou grupo de recursos, o **mover** botão será desabilitado. Esse comportamento é esperado. Atualmente não há suporte para a movimentação ou grupos de recursos entre grupos de recursos ou assinaturas.
 
 - Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 
@@ -130,9 +137,26 @@ A seguir são problemas conhecidos de pós-instalação para compilação **2018
 
   Como alternativa, use o PowerShell para executar o **ResourceSynchronization.ps1 início** script para restaurar o acesso para os detalhes da conta de armazenamento. [O script está disponível no GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e deve ser executada com as credenciais de administrador de serviço no ponto de extremidade com privilégios. 
 
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
+
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
-Não há nenhum problema conhecido depois de atualizar para 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alerta #1:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+
+  Ambos os alertas podem ser ignorados. Ele será fechado automaticamente ao longo do tempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Usuários podem procurar o marketplace completo sem uma assinatura e podem ver itens administrativos como planos e ofertas. Esses itens não estão funcionando para os usuários.
@@ -140,13 +164,17 @@ Não há nenhum problema conhecido depois de atualizar para 1802.
 #### <a name="compute"></a>Computação
 - As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
 
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Esse problema é resolvido na versão 1803. Para resolver esse problema para a versão 1802, instale o hotfix de pilha do Azure **1.0.180302.4**. Para obter mais informações, consulte [4131152 KB: conjuntos de escala de máquinas virtuais existentes podem se tornar inutilizáveis]( https://support.microsoft.com/help/4131152). 
+
 - A pilha do Azure oferece suporte ao uso somente VHDs de tipo fixo. Algumas imagens oferecidas por meio do marketplace na pilha do Azure usam VHDs dinâmicos, mas aqueles foram removidos. Redimensionamento de uma máquina virtual (VM) com um disco dinâmico anexado a ele deixa a VM em um estado de falha.
 
   Para atenuar esse problema, exclua a máquina virtual sem excluir o disco da VM, um blob VHD em uma conta de armazenamento. Em seguida, converter o VHD de um disco dinâmico em um disco fixo e, em seguida, recrie a máquina virtual.
 
 - Quando você cria uma conjunto de disponibilidade no portal do indo para **novo** > **de computação** > **conjunto de disponibilidade**, você pode criar apenas um conjunto de disponibilidade com um domínio de falha e o domínio de atualização de 1. Como alternativa, ao criar uma nova máquina virtual, crie a disponibilidade definida usando o PowerShell, CLI, ou de dentro do portal.
 
-- Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que podem ser anexados a uma VM da série DS. As VMs da série DS podem acomodar quantos discos de dados como a configuração do Azure.
+- Ao criar máquinas virtuais no portal do usuário de pilha do Azure, o portal exibe um número incorreto de discos de dados que pode se conectar a uma série D VM. Todas as séries de D VMs com suporte podem acomodar quantos discos de dados como a configuração do Azure.
 
 - Quando uma imagem de VM Falha ao ser criado, um item com falha que você não pode excluir pode ser adicionado para a folha de computação de imagens VM.
 
@@ -251,6 +279,7 @@ Não há nenhum problema conhecido depois de atualizar para 1802.
 
 - O provedor de recursos é suportado para criar itens em servidores que o host SQL ou MySQL. Itens criados em um servidor de host que não são criados pelo provedor de recursos podem resultar em um estado não correspondente.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Depois de atualizar para o Azure 1802 de pilha, você pode continuar a usar os provedores de recursos SQL e MySQL implantado anteriormente.  Recomendamos que você atualize o SQL e MySQL quando uma nova versão estiver disponível. Como a pilha do Azure, aplica atualizações a provedores de recursos do SQL e MySQL sequencialmente.  Por exemplo, se você usar a versão 1710, primeiro aplique versão 1711 e, em seguida, 1712 e, em seguida, atualize para 1802.      
@@ -267,6 +296,8 @@ Não há nenhum problema conhecido depois de atualizar para 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Baixar ferramentas de pilha do Azure do GitHub
 - Ao usar o *invoke-webrequest* das ferramentas de cmdlet do PowerShell para baixar a pilha do Azure do Github, você receberá um erro:     

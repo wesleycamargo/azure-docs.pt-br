@@ -1,24 +1,21 @@
 ---
 title: Entrada na Web com o OpenID Connect - Azure AD B2C | Microsoft Docs
-description: "Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect"
+description: Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e787ea36ab5099705f151504385dd5dc97029e37
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: entrada na Web com o OpenID Connect
 O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web. Ao usar a implementação do Azure AD B2C (Azure Active Directory B2C) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade em seus aplicativos Web para o Azure AD (Azure Active Directory). Este guia mostra como fazer isso de maneira independente da linguagem. Ele descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
@@ -29,7 +26,7 @@ Como ele estende o OAuth 2.0, também permite que os aplicativos adquiram *token
 
 O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [parâmetro de política](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário, como o gerenciamento de inscrição, de entrada e de perfis, ao seu aplicativo. Aqui, mostramos como usar o OpenID Connect e as políticas para implementar cada uma dessas experiências em seus aplicativos Web. Também mostraremos como obter tokens de acesso para acessar APIs Web.
 
-As solicitações HTTP de exemplo na próxima sessão usam nosso diretório B2C de exemplo, fabrikamb2c.onmicrosoft.com, bem como nossas políticas e nosso aplicativo de exemplo https://aadb2cplayground.azurewebsites.net. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios.
+As solicitações HTTP de exemplo na próxima seção usam o diretório B2C de exemplo, fabrikamb2c.onmicrosoft.com, bem como o aplicativo de exemplo, https://aadb2cplayground.azurewebsites.net e as políticas. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios.
 Saiba como [obter seus próprios locatário, aplicativo e políticas B2C](#use-your-own-b2c-directory).
 
 ## <a name="send-authentication-requests"></a>Enviar solicitações de autenticação
@@ -76,7 +73,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | client_id |Obrigatório |A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
 | response_type |Obrigatório |O tipo de resposta, que deve incluir token de ID para o OpenID Connect. Se seu aplicativo Web também precisa de tokens para chamar uma API Web, você pode usar `code+id_token`, como fizemos aqui. |
@@ -101,7 +98,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | id_token |O token de ID que o aplicativo solicitou. Você pode usar o token de ID para verificar a identidade do usuário e iniciar uma sessão com o usuário. Mais detalhes sobre tokens de ID e respectivo conteúdo estão incluídos na [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 | código |O código de autorização que o aplicativo solicitou, se você usou `response_type=code+id_token`. O aplicativo pode usar o código de autorização para solicitar um token de acesso para um recurso de destino. Os códigos de autorização têm uma duração muito curta. Normalmente, eles expiram depois de cerca de 10 minutos. |
@@ -116,11 +113,11 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
-| state |Confira a descrição completa da primeira tabela nesta seção. Se um parâmetro `state` estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e resposta são idênticos. |
+| state |Confira a descrição completa da primeira tabela nesta seção. Se um parâmetro `state` estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 Apenas o recebimento de um tokend de ID não é suficiente para autenticar o usuário. Você deve validar a assinatura do token de ID e verificar as declarações no token, de acordo com os requisitos do seu aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
@@ -170,7 +167,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | p |Obrigatório |A política que foi usada para adquirir o código de autorização. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à cadeia de caracteres de consulta e não ao corpo do `POST`. |
 | client_id |Obrigatório |A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
@@ -192,7 +189,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | not_before |A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type |O valor do tipo de token. O único tipo com suporte do Azure AD é o `Bearer`. |
@@ -210,7 +207,7 @@ As respostas de erro se parecem com:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -235,7 +232,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parâmetro | Obrigatório | Descrição |
+| Parâmetro | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | p |Obrigatório |A política que foi usada para adquirir o token de atualização original. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à cadeia de caracteres de consulta e não ao corpo do POST. |
 | client_id |Obrigatório |A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
@@ -257,7 +254,7 @@ Uma resposta de token bem-sucedida tem a seguinte aparência:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | not_before |A hora em que o token é considerado válido, nos valores de hora da época. |
 | token_type |O valor do tipo de token. O único tipo com suporte do Azure AD é o `Bearer`. |
@@ -275,7 +272,7 @@ As respostas de erro se parecem com:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -291,7 +288,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parâmetro | Obrigatório? | Descrição |
+| Parâmetro | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
 | p |Obrigatório |A política que você deseja usar para desconectar o usuário de seu aplicativo. |
 | post_logout_redirect_uri |Recomendadas |A URL para a qual o usuário deve ser redirecionado após a saída com êxito. Se não for incluída, o Azure AD B2C mostrará uma mensagem genérica ao usuário. |

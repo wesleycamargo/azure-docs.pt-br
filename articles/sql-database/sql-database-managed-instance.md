@@ -8,17 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193277"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
-A Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) é um novo recurso do Banco de Dados SQL do Azure que proporciona quase 100% de compatibilidade com o SQL Server local, fornecendo uma implementação de [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) nativa que aborda questões de segurança comuns e um [modelo corporativo](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do Cliente do Microsoft SQL Server local. A Instância Gerenciada permite que os clientes do SQL Server existentes façam lift-and-shift dos aplicativos locais para a nuvem com alterações mínimas do banco de dados e aplicativo. Ao mesmo tempo, a Instância Gerenciada preserva todos os recursos de PaaS (aplicação automática de patches e atualizações de versões, backup, alta disponibilidade), que reduz drasticamente a sobrecarga de gerenciamento e o TCO.
+A Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) é um novo recurso do Banco de Dados SQL do Azure que proporciona quase 100% de compatibilidade com o SQL Server local (Enterprise Edition), fornecendo uma implementação de [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) nativa que aborda questões de segurança comuns e um [modelo corporativo](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do Cliente do Microsoft SQL Server local. A Instância Gerenciada permite que os clientes do SQL Server existentes façam lift-and-shift dos aplicativos locais para a nuvem com alterações mínimas do banco de dados e aplicativo. Ao mesmo tempo, a Instância Gerenciada preserva todos os recursos de PaaS (aplicação automática de patches e atualizações de versões, backup, alta disponibilidade), que reduz drasticamente a sobrecarga de gerenciamento e o TCO.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões nas quais a Instância Gerenciada está disponível no momento, consulte [Migrar os bancos de dados para um serviço totalmente gerenciado com a Instância Gerenciada do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -34,16 +35,14 @@ A Instância Gerenciada é idealizada como plataforma preferencial para os segui
 
 Por Disponibilidade Geral, a Instância Gerenciada visa entregar aproximadamente 100% de compatibilidade de área de superfície com a última versão do SQL Server local por meio de um plano de lançamento em etapas. 
 
-A tabela a seguir apresenta as principais diferenças e os cenários de uso previstos entre SQL IaaS, Banco de Dados SQL do Azure e Instância Gerenciada:
+A tabela a seguir apresenta as principais diferenças e os cenários de uso previstos entre SQL IaaS, Banco de Dados SQL do Azure e Instância Gerenciada do Banco de Dados SQL:
 
 | | Cenário de uso | 
 | --- | --- | 
-|Instância Gerenciada |Para clientes que procuram migrar uma grande quantidade de aplicativos locais ou IaaS, auto-compilados, ou ISV fornecidos, com o menor esforço de migração possível, propõe-se a Instância Gerenciada. Utilizando o [DMS (Serviço de Migração de Dados) ](/sql/dma/dma-overview) totalmente automatizado no Azure, os clientes podem fazer lift-and-shift do SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo de VNET.  Com o Software Assurance, é possível trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício de uso híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada. |
-|Banco de Dados SQL do Azure |**Pools Elásticos**: para os clientes que desenvolvem novos aplicativos multilocatários SaaS ou intencionalmente transformando seus aplicativos locais existentes em um aplicativo multilocatário SaaS, propõe-se pools elásticos. Os benefícios desse modelo são: <br><ul><li>Conversão do modelo de negócios da venda de licenças para venda de assinaturas de serviços (para ISVs)</li></ul><ul><li>Isolamento de locatário fácil e à prova de marcador</li></ul><ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul><ul><li>O potencial para escalar horizontalmente atingir um limite rígido</li></ul>**Banco de dados individuais**: para clientes que desenvolvem novos aplicativos diferentes do multilocatário SaaS, cuja carga de trabalho é estável e previsível, propõe-se bancos de dados individuais. Os benefícios desse modelo são:<ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul>  <ul><li>Desempenho previsível para cada banco de dados</li></ul>|
-|SQL IaaS |Para clientes que necessitam personalizar o sistema operacional ou o servidor de banco de dados, assim como clientes que possuem requisitos específicos em termos de execução de aplicativos de terceiros junto com SQL Server (na mesma VM), propõe-se IaaS/VMs do SQL como a solução ideal|
+|Instância Gerenciada do Banco de Dados SQL |Para clientes que procuram migrar uma grande quantidade de aplicativos locais ou IaaS, auto-compilados, ou ISV fornecidos, com o menor esforço de migração possível, propõe-se a Instância Gerenciada. Utilizando o [DMS (Serviço de Migração de Dados) ](/sql/dma/dma-overview) totalmente automatizado no Azure, os clientes podem fazer lift-and-shift do SQL Server local para uma Instância Gerenciada que oferece compatibilidade com o SQL Server local e isolamento completo de instâncias do cliente com suporte nativo de VNET.  Com o Software Assurance, é possível trocar suas licenças existentes por tarifas com desconto em uma Instância Gerenciada do Banco de Dados SQL usando o [Benefício de uso híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  A Instância Gerenciada do Banco de Dados SQL é o melhor destino da migração na nuvem para instâncias do SQL Server que exigem alta segurança e uma superfície de programação avançada. |
+|Banco de Dados SQL do Azure (único ou pool) |**Pools Elásticos**: para os clientes que desenvolvem novos aplicativos multilocatários SaaS ou intencionalmente transformando seus aplicativos locais existentes em um aplicativo multilocatário SaaS, propõe-se pools elásticos. Os benefícios desse modelo são: <br><ul><li>Conversão do modelo de negócios da venda de licenças para venda de assinaturas de serviços (para ISVs)</li></ul><ul><li>Isolamento de locatário fácil e à prova de marcador</li></ul><ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul><ul><li>O potencial para escalar horizontalmente atingir um limite rígido</li></ul>**Banco de dados individuais**: para clientes que desenvolvem novos aplicativos diferentes do multilocatário SaaS, cuja carga de trabalho é estável e previsível, propõe-se bancos de dados individuais. Os benefícios desse modelo são:<ul><li>Um modelo de programação centrada em banco de dados simplificado</li></ul>  <ul><li>Desempenho previsível para cada banco de dados</li></ul>|
+|Máquina virtual de IaaS do SQL|Para clientes que necessitam personalizar o sistema operacional ou o servidor de banco de dados, assim como clientes que possuem requisitos específicos em termos de execução de aplicativos de terceiros junto com SQL Server (na mesma VM), propõe-se IaaS/VMs do SQL como a solução ideal|
 |||
-
-![posicionamento](./media/sql-database-managed-instance/positioning.png)
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar programaticamente uma Instância Gerenciada
 
@@ -58,6 +57,9 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Principais recursos e capacidades de uma Instância Gerenciada 
 
+> [!IMPORTANT]
+> Uma Instância Gerenciada executa com todos os recursos da versão mais recente do SQL Server, incluindo operações online, correções de plano automático e outros aprimoramentos de desempenho do enterprise. 
+
 | **Benefícios de PaaS** | **Continuidade dos negócios** |
 | --- | --- |
 |Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>Compilado em alta disponibilidade <br>Dados protegidos com backups automatizados <br>Período de retenção de backup configurável pelo cliente (corrigido para 7 dias na Visualização Pública) <br>Backups iniciados pelo usuário <br>Capacidade de restauração pontual do banco de dados |
@@ -65,6 +67,23 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-
 |Ambiente isolado (integração de VNet, serviço de locatário único, computação dedicada e armazenamento <br>Criptografia dos dados em trânsito <br>Autenticação do Microsoft Azure AD, suporte de logon único <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>Auditoria do SQL <br>Detecção de ameaças |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados 
 
 ![logon único](./media/sql-database-managed-instance/sso.png) 
+
+## <a name="vcore-based-purchasing-model-preview"></a>Modelo de compra baseado em vCore (versão prévia)
+
+O modelo de compra baseado em vCore (versão prévia) proporciona flexibilidade, controle e transparência, além de ser uma maneira simples de mover os requisitos das cargas de trabalho locais para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. O modelo vCore também pode ser usado para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware.
+- As CPUs Lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz.
+- As CPUs Lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz.
+
+A tabela a seguir o ajudará a entender como selecionar a configuração ideal de seus recursos de computação, memória, armazenamento e E/S.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Hardware|Processadores Intel E5-2673 v3 (Haswell) 2,4 GHz, SSD anexado vCore = 1 PP (núcleo físico)|Processadores V4 Intel E5-2673 (Broadwell) 2,3 GHz, SSD eNVM rápido, vCore = 1 LP (hyper-thread)|
+|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Memória|7 GB por vCore|5,5 GB por vCore|
+||||
 
 ## <a name="managed-instance-service-tier"></a>Camada de serviço de Instância Gerenciada
 
@@ -86,10 +105,11 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 
 |Recurso | DESCRIÇÃO|
 |---|---|
-| Número de vCores* | 8, 16, 24|
+| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40 (Geração 5)|
 | Compilação/versão do SQL Server | SQL Server (mais recente disponível) |
 | Tamanho mínimo de armazenamento | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
+| Armazenamento máximo por banco de dados | 8 TB |
 | IOPS de armazenamento esperado | 500-7500 IOPS por arquivo de dados (depende do arquivo de dados). Consulte [Armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 
@@ -102,7 +122,7 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 | Suporte do Portal | sim|
 |||
 
-\* Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.  
+\* Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 
@@ -110,7 +130,7 @@ A seguir, são descritos os principais recursos da camada de serviço de Uso Ger
 
 A Instância Gerenciada fornece isolamento de segurança adicional de outros locatários na nuvem do Azure. O isolamento de segurança inclui: 
 
-- Implementação e conectividade de rede virtual nativa com o ambiente local usando a Rota Expressa do Azure ou Gateway de VPN 
+- [Implementação e conectividade de rede virtual nativa](sql-database-managed-instance-vnet-configuration.md) com o ambiente local usando a Rota Expressa do Azure ou Gateway de VPN 
 - O ponto de extremidade do SQL é exposto apenas por meio de um endereço IP privado, permitindo conectividade segura a partir de redes híbridas ou privadas do Azure
 - Locatário único com infraestrutura subjacente dedicada (computação, armazenamento)
 
@@ -120,7 +140,7 @@ O diagrama a seguir apresenta o design de isolamento:
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria de segurança e conformidade 
 
-A [auditoria](sql-database-auditing.md) de Instância Gerenciada rastreia eventos de banco de dados e os grava em um log de auditoria na conta de armazenamento do Azure. A auditoria pode ajudar a manter conformidade com as normas, entender a atividade do banco de dados e ter ideia das discrepâncias e anomalias que podem gerar preocupações comerciais ou violações suspeitas de seguranças. 
+A [auditoria de Instância Gerenciada](sql-database-managed-instance-auditing.md) rastreia eventos de banco de dados e os grava em um log de auditoria na conta de armazenamento do Azure. A auditoria pode ajudar a manter conformidade com as normas, entender a atividade do banco de dados e ter ideia das discrepâncias e anomalias que podem gerar preocupações comerciais ou violações suspeitas de seguranças. 
 
 ### <a name="data-encryption-in-motion"></a>Criptografia dos dados em trânsito 
 
@@ -138,7 +158,7 @@ A [segurança em nível de linha](/sql/relational-databases/security/row-level-s
 
 ### <a name="threat-detection"></a>Detecção de ameaças 
 
-A [Detecção de Ameaças](sql-database-threat-detection.md) do Banco de Dados SQL do Azure complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança compilada para o serviço que detecta tentativas incomuns e potencialmente perigosas de acessar ou explorar bancos de dados. Você é alertado sobre atividades suspeitas, vulnerabilidades potenciais, ataques de injeção de SQL, bem como padrões de acesso do banco de dados anormais. Os alertas da Detecção de Ameaças podem ser exibidos no [Azure Security Center](https://azure.microsoft.com/services/security-center/) e fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.  
+A [Detecção de Ameaças de Instância Gerenciada](sql-database-managed-instance-threat-detection.md) complementa a [auditoria de Instância Gerenciada](sql-database-managed-instance-auditing.md), fornecendo uma camada adicional de inteligência de segurança compilada para o serviço que detecta tentativas incomuns e potencialmente perigosas de acessar ou explorar bancos de dados. Você é alertado sobre atividades suspeitas, vulnerabilidades potenciais, ataques de injeção de SQL, bem como padrões de acesso do banco de dados anormais. Os alertas da Detecção de Ameaças podem ser exibidos no [Azure Security Center](https://azure.microsoft.com/services/security-center/) e fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator 
 
@@ -148,7 +168,7 @@ O Banco de Dados SQL permite gerenciar centralmente as identidades de usuário d
 A autenticação do Banco de Dados SQL refere-se a como os usuários comprovam a identidade ao conectarem-se ao banco de dados. O Banco de Dados SQL dá suporte a dois tipos de autenticação:  
 
 - Autenticação do SQL, que usa um nome de usuário e senha.
-- Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados.  
+- Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados. 
 
 ### <a name="authorization"></a>Autorização
 
@@ -156,21 +176,27 @@ Autorização refere-se ao que um usuário pode fazer em um Banco de Dados SQL d
 
 ## <a name="database-migration"></a>Migração de banco de dados 
 
-A Instância Gerenciada direciona cenários de usuários com migração de banco de dados em massa de implementações de bancos de dados locais ou IaaS.  A Instância Gerenciada oferece suporte a várias opções de migração de banco de dados: 
+A Instância Gerenciada direciona cenários de usuários com migração de banco de dados em massa de implementações de bancos de dados locais ou IaaS. A Instância Gerenciada oferece suporte a várias opções de migração de banco de dados: 
 
 ### <a name="data-migration-service"></a>Serviço de Migração de Dados
 
-O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo.   Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação incluem Banco de Dados SQL do Azure, Instance Gerenciada e SQL Server na VM do Azure em Visualização Pública. Consulte [Como migrar o banco de dados local para a Instância Gerenciada usando DMS](https://aka.ms/migratetoMIusingDMS).  
+O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação incluem Banco de Dados SQL do Azure, Instance Gerenciada e SQL Server na VM do Azure em Visualização Pública. Consulte [Como migrar o banco de dados local para a Instância Gerenciada usando DMS](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Backup e restauração  
 
-A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Backups armazenados no Azure Storage Blob podem ser restaurados diretamente na Instância Gerenciada. 
+A abordagem de migração aproveita backups do SQL para Azure Storage Blob. Backups armazenados no Azure Storage Blob podem ser restaurados diretamente na Instância Gerenciada. Para restaurar um banco de dados SQL existente para uma Instância Gerenciada, você pode:
+
+- Usar o [DMS (Serviço de Migração de Dados)](/sql/dma/dma-overview). Para obter um tutorial, consulte [Migrar para uma Instância Gerenciada usando o DMS (Serviço de Migração de Dados) do Azure](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um arquivo de backup do banco de dados
+- Use o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Para obter um tutorial mostrando como restaurar a Wide World Importers - Arquivo de backup do banco de dados padrão, consulte [Restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que você precisa carregar um arquivo de backup para o armazenamento de blog do Azure e o proteja usando uma Chave de assinatura de acesso compartilhado (SAS).
+  - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importar de um arquivo BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Recursos do SQL com suporte 
 
 A Instância Gerenciada visa entregar aproximadamente 100% de compatibilidade de área de superfície com o SQL Server local em etapas, até a disponibilidade geral do serviço. Para um recurso e lista de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
  
-A Instância Gerenciada tem suporte para compatibilidade com versões anteriores para Bancos de Dados do SQL 2008.  A migração direta dos servidores do Banco de Dados do SQL 2005 tem suporte, o nível de compatibilidade para Bancos de Dados do SQL 2005 migrados é atualizado para o SQL 2008. 
+A Instância Gerenciada tem suporte para compatibilidade com versões anteriores para Bancos de Dados do SQL 2008. A migração direta dos servidores do Banco de Dados do SQL 2005 tem suporte, o nível de compatibilidade para Bancos de Dados do SQL 2005 migrados é atualizado para o SQL 2008. 
  
 O diagrama a seguir apresenta a compatibilidade da área de superfície na Instância Gerenciada:  
 
@@ -178,7 +204,7 @@ O diagrama a seguir apresenta a compatibilidade da área de superfície na Inst�
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Principais diferenças entre SQL Server local e Instância Gerenciada 
 
-A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que significa que alguns recursos no SQL Server local podem estar obsoletos, desativados ou ter alternativas.  Há casos específicos em que as ferramentas precisam reconhecer que um recurso particular funciona de forma ligeiramente diferente ou que o serviço não está executando em um ambiente que não totalmente controlado: 
+A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que significa que alguns recursos no SQL Server local podem estar obsoletos, desativados ou ter alternativas. Há casos específicos em que as ferramentas precisam reconhecer que um recurso particular funciona de forma ligeiramente diferente ou que o serviço não está executando em um ambiente que não totalmente controlado: 
 
 - Alta disponibilidade é compilada e pré-configurada. Alta disponibilidade Always On não são expostos da mesma forma que nas implementações SQL IaaS 
 - Backups automatizados e restauração pontual. O cliente pode iniciar backups `copy-only` que não interferem na cadeia de backup automático. 
@@ -188,7 +214,7 @@ A Instância Gerenciada se beneficia de estar sempre atualizada na nuvem, o que 
  
 ### <a name="managed-instance-administration-features"></a>Recursos de administração de Instância Gerenciada do Banco de Dados SQL do Azure  
 
-A Instância Gerenciada permite que o administrador do sistema concentre-se no que é mais importante para os negócios. Muitas atividades DBA/administrador do sistema não são necessárias ou são simples. Por exemplo, instalação do RDBMS/SO e aplicação de patch, redimensionamento de instância dinâmica e configuração, backups, replicação de banco de dados (incluindo bancos de dados do sistema), configuração de alta disponibilidade e configuração de fluxos de dados de monitoramento de desempenho e integridade.  
+A Instância Gerenciada permite que o administrador do sistema concentre-se no que é mais importante para os negócios. Muitas atividades DBA/administrador do sistema não são necessárias ou são simples. Por exemplo, instalação do RDBMS/SO e aplicação de patch, redimensionamento de instância dinâmica e configuração, backups, replicação de banco de dados (incluindo bancos de dados do sistema), configuração de alta disponibilidade e configuração de fluxos de dados de monitoramento de desempenho e integridade. 
 
 > [!IMPORTANT]
 > Para obter uma lista de recursos com suporte, suporte parcial e sem suporte, consulte [Recursos do Banco de Dados SQL](sql-database-features.md). Para obter uma lista de diferenças T-SQL em Instâncias Gerenciadas em comparação com SQL Server, consulte [Diferenças T-SQL de Instância Gerenciada do SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -196,5 +222,6 @@ A Instância Gerenciada permite que o administrador do sistema concentre-se no q
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
-- Para obter um tutorial que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+- Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md).
+- Para obter um tutorial que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
 - Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para migração, consulte [Migração de Instância Gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).

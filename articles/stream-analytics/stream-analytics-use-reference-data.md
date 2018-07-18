@@ -1,31 +1,26 @@
 ---
-title: Usar tabelas de pesquisa e dados de referência no Stream Analytics | Microsoft Docs
-description: Usar dados de referência em uma consulta do Stream Analytics
-keywords: tabela de pesquisa, dados de referência
+title: Usar dados de referência para pesquisas no Azure Stream Analytics
+description: Este artigo descreve como usar dados de referência para pesquisar ou correlacionar dados no design de consulta de um trabalho do Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: f7366b4b7d78add47ebab4a6fc72717107814f1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/25/2018
+ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Usando dados de referência e tabelas de pesquisa em um fluxo de entrada do Stream Analytics
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua Consulta. O Stream Analytics usa o armazenamento de Blobs do Azure como a camada de armazenamento para dados de referência e com os dados de referência do Azure Data Factory podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
 
 O Stream Analytics tem uma **limite de 100 MB por blob** mas trabalhos podem processar vários blobs de referência usando o **padrão de caminho** propriedade.
 
+O suporte para a compactação não está disponível para os dados de referência. 
 
 ## <a name="configuring-reference-data"></a>Configurando os dados de referência
 Para configurar os dados de referência, você primeiro precisa criar uma entrada que seja do tipo **Dados de Referência**. A tabela a seguir explica cada propriedade que você precisará fornecer ao criar os entrada de dados de referência com sua descrição:
@@ -97,16 +92,9 @@ Se os seus dados de referência são um conjunto de dados de alteração lenta, 
 2. Blobs de dados de referência **não** são ordenados pela hora da "Última modificação" do blob, mas apenas pela hora e data especificadas no nome do blob usando as substituições {date} e {time}.
 3. Para evitar a necessidade de listar um grande número de blobs, considere excluir blobs muito antigos para os quais o processamento não será mais feito. Observe que o ASA talvez tenha que reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
-## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
-
 ## <a name="next-steps"></a>Próximas etapas
-Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise de streaming em dados da Internet das coisas. Para saber mais sobre esse serviço, consulte:
-
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

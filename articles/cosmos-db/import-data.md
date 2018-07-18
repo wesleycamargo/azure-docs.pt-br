@@ -4,7 +4,7 @@ description: Saiba como usar as ferramentas de migração de dados de software l
 keywords: csv em json, ferramentas de migração de banco de dados, converter csv em json
 services: cosmos-db
 author: andrewhoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: ferramenta de migração de dados
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este tutorial fornece instruções sobre como usar a ferramenta de Migração de dados do Azure Cosmos DB, a qual pode importar dados de várias fontes para as coleções e tabelas do Azure Cosmos DB. Você pode importar de arquivos JSON ou CSV, SQL, MongoDB, armazenamento da tabela do Azure, Amazon DynamoDB e até mesmo coleções da API do SQL do Azure Cosmos DB, além de migrar esses dados para coleções e tabelas para usar com o Azure Cosmos DB. A ferramenta de Migração de Dados também pode ser usada ao migrar de uma coleção de partição única para uma coleção de várias partições na API do SQL.
 
@@ -46,6 +44,8 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
 
+* Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, consulte Níveis de desempenho e tipos de preço no Azure Cosmos DB.
+
 ## <a id="Overviewl"></a>Visão geral
 A ferramenta de Migração de Dados é uma solução de software livre que importa dados para o Azure Cosmos DB de uma variedade de fontes, incluindo:
 
@@ -61,7 +61,7 @@ A ferramenta de Migração de Dados é uma solução de software livre que impor
 Embora a ferramenta de importação inclua uma interface gráfica do usuário (dtui.exe), ela também pode ser controlada pela linha de comando (dt.exe). Na verdade, há uma opção de extrair o comando associado depois de configurar uma importação por meio da interface do usuário. Dados de origem em tabela (por exemplo, arquivos do SQL Server ou CSV) podem ser transformados, de forma que relações hierárquicas (subdocumentos) podem ser criadas durante a importação. Continue lendo para saber mais sobre as opções de origem, linhas de comando de exemplo para importar de cada origem, opções de destino e resultados de importação de visualização.
 
 ## <a id="Install"></a>Instalação
-O código-fonte da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Você pode baixar e compilar a solução localmente e, em seguida, executar:
+O código-fonte da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). É possível baixar e compilar a solução localmente ou [baixar um binário pré-compilado](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) e, em seguida, executar:
 
 * **Dtui.exe**: Versão da interface gráfica da ferramenta
 * **Dt.exe**: Versão de linha de comando da ferramenta
@@ -435,7 +435,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, consulte [Níveis de desempenho no Azure Cosmos DB](performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de 10.000 RUs exige uma chave de partição. Se optar por ter mais de 250.000 RUs, você precisa fazer uma solicitação no portal para aumento da conta.
 
 > [!NOTE]
-> A configuração de taxa de transferência só se aplica à criação da coleção. Se a coleção especificada já existir, sua taxa de transferência não será modificada.
+> A configuração de taxa de transferência só se aplica à criação da coleção ou do banco de dados. Se a coleção especificada já existir, sua taxa de transferência não será modificada.
 > 
 > 
 

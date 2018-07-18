@@ -1,31 +1,25 @@
 ---
-title: Monitorar trabalhos programaticamente no Stream Analytics | Microsoft Docs
-description: Saiba como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do PowerShell.
-keywords: monitor .net, monitor de trabalhos, aplicativo de monitoramento
+title: Monitorar e gerenciar programaticamente trabalhos do Azure Stream Analytics
+description: Este artigo descreve como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, SDK do Azure ou PowerShell.
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: 7e9d2f6f03fd539c59b105108fb46697bcd60f1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de trabalhos do Stream Analytics
 
 Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream Analytics. Os trabalhos de Stream Analytics criados por meio de APIs REST, do SDK do Azure ou do PowerShell não têm monitoramento habilitado por padrão. Você pode habilitá-lo manualmente no Portal do Azure indo até a página de Monitor do trabalho e clicando no botão Habilitar ou então pode automatizar esse processo seguindo as etapas neste artigo. Os dados de monitoramento serão exibidos na guia Métricas no Portal do Azure para o trabalho do Stream Analytics.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar este processo, você deve ter o seguinte:
 
@@ -175,7 +169,7 @@ O código a seguir habilita o monitoramento para um trabalho de Stream Analytics
 
 ## <a name="get-support"></a>Obtenha suporte
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 

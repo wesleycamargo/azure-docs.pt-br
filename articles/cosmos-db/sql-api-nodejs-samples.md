@@ -1,10 +1,10 @@
 ---
 title: Exemplos de Node.js para o Azure Cosmos DB | Microsoft Docs
-description: "Encontre exemplos do Node.js no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD."
+description: Encontre exemplos do Node.js no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD.
 keywords: Exemplos do Node.js
 services: cosmos-db
 author: moderakh
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: nodejs
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 1df7008b1b8bf8bac116fd41b61c6bc954cf3254
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3d18e9bde7c8e5a5b8c3f192678f62eedf5fb693
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Exemplos do Node.js no Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples). Esse artigo fornece:
 

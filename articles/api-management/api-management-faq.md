@@ -1,11 +1,11 @@
 ---
 title: Perguntas frequentes sobre Gerenciamento de API do Azure | Microsoft Docs
-description: "Conheça as respostas a perguntas frequentes (FAQ), padrões e práticas recomendadas no Gerenciamento de API do Azure."
+description: Conheça as respostas a perguntas frequentes (FAQ), padrões e práticas recomendadas no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -88,7 +88,7 @@ Veja como você pode adicionar um usuário ao grupo Administradores:
 
 Agora o colaborador recém-adicionado pode usar [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) do Azure PowerShell. Veja como conectar-se como um administrador:
 
-1. Use o cmdlet `Login-AzureRmAccount` para entrar.
+1. Use o cmdlet `Connect-AzureRmAccount` para entrar.
 2. Defina o contexto para a assinatura com o serviço usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obter uma única URL de logon usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Use a URL para acessar o portal de administração.

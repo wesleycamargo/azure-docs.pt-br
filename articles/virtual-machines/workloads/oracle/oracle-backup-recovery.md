@@ -1,13 +1,13 @@
 ---
-title: "Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure | Microsoft Docs"
+title: Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure | Microsoft Docs
 description: Saiba como fazer backup e recuperar um banco de dados Oracle Database 12c em seu ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193097"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure
 
@@ -138,7 +139,7 @@ Os backups consistentes com aplicativo são um novo recurso do Backup do Azure. 
 
 1. Baixe o arquivo JSON.
 
-    Baixe VMSnapshotScriptPluginConfig.json em https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. O conteúdo do arquivo deve ser semelhante ao seguinte:
+    Baixar VMSnapshotScriptPluginConfig.json do https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. O conteúdo do arquivo deve ser semelhante ao seguinte:
 
     ```azurecli
     {
@@ -169,7 +170,7 @@ Os backups consistentes com aplicativo são um novo recurso do Backup do Azure. 
 
 4. Edite o arquivo JSON.
 
-    Edite o arquivo VMSnapshotScriptPluginConfig.json para incluir os parâmetros `PreScriptLocation` e `PostScriptlocation`. Por exemplo:
+    Edite o arquivo VMSnapshotScriptPluginConfig.json para incluir os parâmetros `PreScriptLocation` e `PostScriptlocation`. Por exemplo: 
 
     ```azurecli
     {
@@ -262,7 +263,7 @@ Os backups consistentes com aplicativo são um novo recurso do Backup do Azure. 
     # /etc/azure/post_script.sh
     ```
 
-Para saber mais, consulte [Backup consistente com aplicativo para VMs Linux](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+Para saber mais, consulte [Backup consistente com aplicativo para VMs Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Etapa 5: Usar cofres dos Serviços de Recuperação do Azure para fazer backup da VM

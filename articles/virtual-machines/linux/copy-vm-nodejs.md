@@ -1,10 +1,10 @@
 ---
 title: Criar e copiar da sua VM Linux com a CLI do Azure 1.0 | Microsoft Docs
-description: "Saiba como criar uma cópia de sua máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implantação do Resource Manager"
+description: Saiba como criar uma cópia de sua máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implantação do Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb350f8d14ad451ad3ff7cd617ca3f90967aaa4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Criar uma cópia de uma máquina virtual Linux em execução no Azure com a CLI do Azure 1.0
 Este artigo mostra como criar uma cópia de sua VM (máquina virtual) do Azure executando o Linux no modelo de implantação do Resource Manager. Primeiro, você copia o sistema operacional e os discos de dados para um novo contêiner e, em seguida, configura os recursos de rede para criar a nova máquina virtual.
@@ -41,7 +41,7 @@ Verifique se você atende os seguintes pré-requisitos antes de iniciar as etapa
 | --- | --- |
 | Nome da VM |`azure vm list` |
 | Nome do Grupo de Recursos |`azure vm list` |
-| Local |`azure vm list` |
+| Local padrão |`azure vm list` |
 | Nome da Conta de Armazenamento |`azure storage account list -g <resourceGroup>` |
 | Nome do contêiner |`azure storage container list -a <sourcestorageaccountname>` |
 | Nome do arquivo VHD da VM de origem |`azure storage blob list --container <containerName>` |

@@ -1,12 +1,12 @@
 ---
-title: "Solucionar problemas de um objeto que não está sincronizando com o Azure AD | Microsoft Docs"
-description: "Solucione problemas de um objeto que não está sincronizando com o Azure AD."
+title: Solucionar problemas de um objeto que não está sincronizando com o Azure AD | Microsoft Docs
+description: Solucione problemas de um objeto que não está sincronizando com o Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solucionar problemas de um objeto que não está sincronizando com o Azure AD
 
@@ -110,7 +110,7 @@ A página de visualização é usada para sincronizar um único objeto. Isso ser
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Registro
-A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+A página de Registro é usada para verificar o status de sincronização da senha e o histórico. Para obter mais informações, consulte [Solucionar problemas de sincronização de senha hash](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades do objeto do metaverso
 Em geral, é melhor começar a pesquisa no [espaço conector](#connector-space) de origem do Active Directory. Mas também é possível começar a pesquisa no metaverso.
@@ -139,7 +139,7 @@ A guia Conectores mostra todos os espaços conectores que contêm uma representa
 - Cada floresta do Active Directory em que o usuário está representado. Essa representação pode incluir os objetos foreignSecurityPrincipals e Contact.
 - Um conector no Azure AD.
 
-Se você não tiver o conector do Azure AD, leia [Atributos do MV](#MV-attributes) para verificar os critérios de provisionamento no Azure AD.
+Se você não tiver o conector do Azure AD, leia [Atributos do MV](#mv-attributes) para verificar os critérios de provisionamento no Azure AD.
 
 Essa guia também permite navegar até o [objeto do espaço conector](#connector-space-object-properties). Selecione uma linha e clique em **Propriedades**.
 

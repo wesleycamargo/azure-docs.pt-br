@@ -1,23 +1,24 @@
 ---
-title: "Gestão do acesso do usuário com revisões de acesso do Azure AD | Microsoft Docs"
-description: "Saiba como gerenciar o acesso de usuários como membros de um grupo ou a atribuição de um aplicativo com revisões de acesso do Azure Active Directory"
+title: Gestão do acesso do usuário com revisões de acesso do Azure AD | Microsoft Docs
+description: Saiba como gerenciar o acesso de usuários como membros de um grupo ou a atribuição de um aplicativo com revisões de acesso do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192482"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestão do acesso do usuário com revisões de acesso do Azure AD
 
@@ -28,9 +29,13 @@ Com o Azure Active Directory (Azure AD), você pode garantir facilmente que os u
 >
 >
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>pré-requisitos 
 
-As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md). Cada usuário que interage com esse recurso para criar, acessar ou aplicar uma revisão deve ter uma licença.
+
+As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md). Cada usuário que interage com esse recurso, incluindo para criar uma revisão, preencher uma revisão ou confirmar o seu acesso, deve ter uma licença. 
+
+As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-whatis.md). Cada usuário que interage com esse recurso para criar, acessar ou aplicar uma revisão deve ter uma licença.
+
 
 
 ## <a name="create-and-perform-an-access-review"></a>Criar e executar uma revisão de acesso

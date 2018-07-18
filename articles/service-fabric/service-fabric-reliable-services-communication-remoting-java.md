@@ -1,23 +1,24 @@
 ---
-title: "Comunicação remota do serviço no Azure Service Fabric | Microsoft Docs"
-description: "A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços que usam a chamada de procedimento remoto."
+title: Comunicação remota do serviço no Azure Service Fabric | Microsoft Docs
+description: A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços que usam a chamada de procedimento remoto.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212969"
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota de serviço com o Reliable Services
 > [!div class="op_single_selector"]
@@ -101,7 +102,7 @@ Todas as exceções remotas lançadas pela API de serviço são reenviadas para 
 ServiceProxy trata todas as exceções de failover da partição de serviço para a qual foi criado. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e repetirá a chamada com o ponto de extremidade correto. O número de tentativas da exceção de failover é indefinido.
 No caso de TransientExceptions, ele repete apenas a chamada.
 
-Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) O usuário pode configurar esses valores passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
+Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)O usuário pode configurar esses valores, passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

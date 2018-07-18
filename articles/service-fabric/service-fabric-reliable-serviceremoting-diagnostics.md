@@ -1,6 +1,6 @@
 ---
-title: "Diagnóstico e monitoramento do Azure ServiceFabric| Microsoft Docs"
-description: "Este artigo descreve os recursos de monitoramento de desempenho no tempo de execução de Service Fabric Reliable ServiceRemoting, como os contadores de desempenho emitidos por ele."
+title: Diagnóstico e monitoramento do Azure ServiceFabric| Microsoft Docs
+description: Este artigo descreve os recursos de monitoramento de desempenho no tempo de execução de Service Fabric Reliable ServiceRemoting, como os contadores de desempenho emitidos por ele.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,25 +9,25 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para Reliable Service Remoting
 O tempo de execução do Reliable ServiceRemoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Esses recursos fornecem informações sobre como o ServiceRemoting está operando e ajudam na solução de problemas e no monitoramento de desempenho.
 
 
-## <a name="performance-counters"></a>Contadores de desempenho
+## <a name="performance-counters"></a>contadores de desempenho
 O tempo de execução do Reliable ServiceRemoting define as seguintes categorias de contador de desempenho:
 
-| Categoria | Descrição |
+| Categoria | DESCRIÇÃO |
 | --- | --- |
 | Serviço do Service Fabric |Contadores específicos do Azure Service Fabric Remoting, por exemplo, média de tempo gasto para processar a solicitação |
 | Método de Serviço do Service Fabric |Contadores específicos aos métodos implementados pelo Service Fabric Remoting Service; por exemplo, quantas vezes um método de serviço é invocado |
@@ -82,7 +82,7 @@ No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do méto
 
 O tempo de execução do Reliable Service publica os contadores de desempenho relacionados à execução dos métodos de serviço a seguir.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | DESCRIÇÃO |
 | --- | --- | --- |
 | Método de Serviço do Service Fabric |Invocação/s |Número de vezes que o método de serviço é invocado por segundo |
 | Método de Serviço do Service Fabric |Média de milissegundos por invocação |Tempo usado para executar o método de serviço em milissegundos |
@@ -91,7 +91,7 @@ O tempo de execução do Reliable Service publica os contadores de desempenho re
 ### <a name="service-request-processing-performance-counters"></a>Solicitação de serviço processando contadores de desempenho
 Quando um cliente chama um método por meio de um objeto de proxy do serviço, isso resulta no envio de uma mensagem de solicitação pela rede para o serviço de comunicação remota. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O tempo de execução do Reliable ServiceRemoting publica os seguintes contadores de desempenho relacionados ao processamento de solicitação de serviço.
 
-| Nome da categoria | Nome do contador | Descrição |
+| Nome da categoria | Nome do contador | DESCRIÇÃO |
 | --- | --- | --- |
 | Serviço do Service Fabric |nº de solicitações pendentes |Número de solicitações sendo processadas no serviço |
 | Serviço do Service Fabric |Média de milissegundos por solicitação |Tempo (em milissegundos) que o serviço leva para processar uma solicitação |

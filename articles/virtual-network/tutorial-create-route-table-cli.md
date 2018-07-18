@@ -1,12 +1,13 @@
 ---
 title: Rotear tráfego - CLI do Azure | Microsoft Docs
-description: Saiba como rotear tráfego com uma tabela de rotas utilizando a CLI do Azure.
+description: Neste artigo, saiba como rotear tráfego com uma tabela de rotas utilizando a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
-Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de um solução de virtualização de rede (NVA). Neste artigo, você aprenderá a:
+Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de uma NVA (solução de virtualização de rede). Neste artigo, você aprenderá a:
 
-> [!div class="checklist"]
-> * Criar uma tabela de rotas
-> * Criar uma rota
-> * Criar uma rede virtual com várias sub-redes
-> * Associar uma tabela de rotas a uma sub-rede
-> * Criar uma NVA que roteia o tráfego
-> * Implantar máquinas virtuais (VM) em diferentes sub-redes
-> * Rotear o tráfego de uma sub-rede para outra por meio de uma NVA
+* Criar uma tabela de rotas
+* Criar uma rota
+* Criar uma rede virtual com várias sub-redes
+* Associar uma tabela de rotas a uma sub-rede
+* Criar uma NVA que roteia o tráfego
+* Implantar VMs (máquinas virtuais) em diferentes sub-redes
+* Rotear o tráfego de uma sub-rede para outra por meio de uma NVA
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -120,7 +120,7 @@ az network vnet subnet update \
 
 Uma NVA é uma VM que executa uma função de rede, como roteamento, firewall ou otimização de WAN.
 
-Criar uma NVA na sub-rede *DMZ* com [az vm create](/cli/azure/vm#az_vm_create). Quando você cria uma VM, o Azure cria e atribui um endereço IP público para a VM, por padrão. O `--public-ip-address ""` parâmetro instrui o Azure para não criar e atribuir um endereço IP público para a VM, pois a VM não precisa estar conectada à Internet. Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
+Criar uma NVA na sub-rede *DMZ* com [az vm create](/cli/azure/vm#az_vm_create). Quando você cria uma VM, o Azure cria e atribui um endereço IP público para a VM, por padrão. O parâmetro `--public-ip-address ""` instrui o Azure para não criar e atribuir um endereço IP público para a VM, pois a VM não precisa estar conectada à internet. Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -176,7 +176,7 @@ az vm create \
   --no-wait
 ```
 
-Criar uma VM na sub-rede *Privada*.
+Crie uma VM na sub-rede *Privada*.
 
 ```azurecli-interactive
 az vm create \
@@ -203,9 +203,9 @@ A VM demora alguns minutos para criar. Quando a VM estiver criada, a CLI do Azur
   "resourceGroup": "myResourceGroup"
 }
 ```
-Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da Internet em uma etapa posterior.
+Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da internet em uma etapa posterior.
 
-## <a name="route-traffic-through-an-nva"></a>Rotear novamente o tráfego por uma NVA
+## <a name="route-traffic-through-an-nva"></a>Rotear o tráfego por meio de uma NVA
 
 Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *<publicIpAddress>* pelo endereço IP público de sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma NVA simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de NVAs pré-configuradas que executem funções de rede, como firewall e otimização de WAN pelo [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implantar as tabelas de rotas para uso em produção, é recomendável que você cuidadosamente se familiarizar com o [Roteamento no Azure](virtual-networks-udr-overview.md), [Gerenciar tabelas de rotas](manage-route-table.md) e [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma NVA simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de NVAs pré-configuradas que executem funções de rede, como firewall e otimização de WAN pelo [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md) e [Gerenciar uma tabela de rotas](manage-route-table.md).
 
-Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Avance para o próximo tutorial para aprender como restringir o acesso à rede para recursos PaaS do Azure.
-
-> [!div class="nextstepaction"]
-> [Restringir o acesso à rede para recursos PaaS](virtual-network-service-endpoints-configure.md#azure-cli)
+Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Para saber como, veja [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources-cli.md).

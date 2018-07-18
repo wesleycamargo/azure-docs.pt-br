@@ -1,95 +1,41 @@
 ---
-title: "Documentação da Cobrança do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Aprenda a compreender sua cobrança do Azure, bem como gerenciar e monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações."
-services: billing
-author: czeumault
-manager: carolz
 layout: LandingPage
-ms.assetid: 
+title: Documentação do gerenciamento de custos e cobrança do Azure |Microsoft Docs
+description: Saiba como entender sua cobrança do Azure, gerenciar e monitorar o uso e os custos, e gerenciar sua conta e assinaturas.
+services: billing
+author: cwatson-cat
+manager: dougeby
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 70aac3b0544e652ca92219fba9e6bfb405c2eadc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 05/24/2018
+ms.author: cwatson
+ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807247"
 ---
-# <a name="azure-billing-documentation"></a>Documentação da Cobrança do Azure
+# <a name="azure-billing-and-cost-management-documentation"></a>Documentação do gerenciamento de custos e cobrança do Azure
 
-Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tutoriais, perguntas frequentes, referências de API e outras documentações mostram como gerenciar sua conta.
+Saiba como entender sua cobrança do Azure, monitorar o uso e os custos, e gerenciar sua conta e assinaturas.
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/billing/billing-getting-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/billing.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Saiba mais sobre a Cobrança do Azure</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/free">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Criar uma conta gratuita</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/billing-download-azure-invoice-daily-usage-date">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Baixar fatura e uso</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
-
-<h2>Referência</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linha de comando</h3>
-                        <p><a href="/powershell/module/azurerm.billing/?view=azurermps-3.8.0">PowerShell para download de fatura</a></p>
+                        <h3>Entender a cobrança do Azure</h3>
+                        <p>
+                        <a href="/azure/billing/billing-understand-your-bill">Entenda sua cobrança</a><br/>
+                        <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Obter fatura e dados de uso</a><br/>
+                        <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">Encargos de serviço de terceiros</a><br/>
+                        <a href="/azure/billing/billing-understand-your-usage">Termos de uso explicados</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -100,8 +46,13 @@ Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.billing">Referência do .NET para download de fatura</a></p>
+                        <h3>Gerenciar os custos</h3>
+                        <p>
+                        <a href="/azure/billing/billing-getting-started">Evitar custos inesperados</a><br/>
+                        <a href="/azure/billing/billing-set-up-alerts">Configurar alertas de cobrança</a><br/>
+                        <a href="https://azure.microsoft.com/pricing/calculator/">Calcular preços</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Usar marcações de recursos</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -112,9 +63,13 @@ Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">API de Uso e RateCard</a></p>
-                        <p><a href="/rest/api/billing/">API de download de fatura</a></p>
+                        <h3>Gerenciar conta + assinatura</h3>
+                        <p>
+                        <a href="/azure/billing/billing-subscription-become-disable">Reativar assinatura</a><br/>
+                        <a href="/azure/billing/billing-subscription-transfer">Transferir propriedade</a><br/>
+                        <a href="/azure/billing/billing-how-to-cancel-azure-subscription">Cancelar assinatura</a><br/>
+                        <a href="/azure/billing/billing-how-to-change-credit-card">Mudar cartão de crédito</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -125,13 +80,102 @@ Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Aprenda a usar as APIs</h3>
-                        <p><a href="/azure/billing-usage-rate-card-overview">Visão geral da API</a></p>
-                        <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Solução de parceiro: Cloud Cruiser</a></p>
-                        <p><a href="/azure/billing-usage-rate-card-partner-solution-cloudyn">Solução de parceiro: Cloudyn</a></p>
+                        <h3>Conta gratuita</h3>
+                        <p>
+                        <a href="/azure/billing/billing-create-free-services-included-free-account">Criar serviços gratuitos</a><br/>
+                        <a href="/azure/billing/billing-avoid-charges-free-account">Evitar encargos</a><br/>
+                        <a href="/azure/billing/billing-check-free-service-usage">Verificar uso</a><br/>
+                        <a href="/azure/billing/billing-upgrade-azure-subscription">Atualizar assinatura</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Administrador de cobrança</h3>
+                        <p>
+                        <a href="/azure/billing/billing-manage-access">Conceder acesso à cobrança</a><br/>
+                        <a href="/azure/billing/billing-how-to-pay-by-invoice">Pagar por fatura</a><br/>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gerenciar instâncias reservadas</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Uso das instâncias reservadas</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Desenvolvedor + ISV</h3>
+                        <p>
+                        <a href="/azure/billing/billing-usage-rate-card-overview">APIs de Cobrança do Azure</a><br/>
+                        <a href="/rest/api/consumption/">APIs de Consumo do Azure </a><br/>
+                        <a href="/azure/billing/billing-enterprise-api">APIs dos Relatórios Corporativos</a><br/>
+                        <a href="/azure/azure-resource-manager/programmatically-create-subscription?toc=/azure/billing/TOC.json">Criar programaticamente as assinaturas do Enterprise</a>                       
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Salvar com instâncias de VM Reservadas</h3>
+                        <p>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">O que são instâncias reservadas?</a><br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Comprar uma instância reservada</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Como o desconto é aplicado</a><br/>
+                        <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Custos do software não incluídos</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Organizar recursos do Azure</h3>
+                        <p>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Usar marcações de recursos</a><br/>
+                        <a href="/azure/azure-resource-manager/management-groups-overview?toc=/azure/billing/TOC.json">Criar grupos de gerenciamento</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/billing/TOC.json">Mover recursos do Azure</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment?toc=/azure/billing/TOC.json">Implantar recursos do Azure</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Solucionar problemas</h3>
+                        <p>
+                        <a href="/azure/billing/billing-no-subscriptions-found">“Nenhuma assinatura encontrada”</a><br/>
+                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Cartão recusado</a><br/>
+                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Problemas na inscrição</a><br/>
+                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Problemas de entrada</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    
 </ul>

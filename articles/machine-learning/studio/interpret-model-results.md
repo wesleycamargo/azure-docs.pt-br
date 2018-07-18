@@ -1,10 +1,11 @@
 ---
 title: Interpretar resultados de modelo no Machine Learning | Microsoft Azure
-description: "Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação."
+description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Interpretar os resultados do modelo no Azure Machine Learning
 Este tópico explica como visualizar e interpretar os resultados de previsão no Azure Machine Learning Studio. Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
@@ -28,8 +28,8 @@ Este tópico explica como visualizar e interpretar os resultados de previsão no
 Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning:
 
 * classificação
-* clustering
-* regressão
+* Clustering
+* Regressão
 * Sistemas de recomendação
 
 Os módulos usados para previsão sobre esses modelos são:
@@ -177,7 +177,7 @@ Executando o serviço Web, o resultado é semelhante à Figura 14. O preço prev
 
 Figura 14. Resultado do serviço Web de um problema de regressão do preço de automóveis
 
-## <a name="clustering"></a>clustering
+## <a name="clustering"></a>Clustering
 **Teste de exemplo**
 
 Vamos usar novamente o conjunto de dados Íris para criar um teste de clustering. Aqui, é possível filtrar os rótulos de classe no conjunto de dados para que ele tenha apenas as características e possa ser usado para clustering. Neste caso de uso de Íris, especifique o número de clusters como dois durante o processo de treinamento, o que significa que você agruparia as flores em duas classes. O teste é mostrado na Figura 15.

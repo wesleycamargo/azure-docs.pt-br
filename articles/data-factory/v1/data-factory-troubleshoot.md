@@ -2,10 +2,9 @@
 title: Solucionar problemas do Data Factory do Azure
 description: Saiba como solucionar problemas com o uso do Azure Data Factory.
 services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d65787c0db2b4e6c7c7d30d69dc77fe25b1ae8d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
 > [!NOTE]
@@ -35,7 +34,7 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
 2. Faça logon na conta do Azure usando o comando a seguir.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Execute o seguinte comando para registrar o provedor do Azure Data Factory.
 
@@ -46,7 +45,7 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
 Você provavelmente não está usando a assinatura ou conta do Azure correta com o Azure PowerShell. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas para usar com o Azure PowerShell.
 
-1. Login-AzureRmAccount - Use a ID de usuário e a senha corretas
+1. Connect-AzureRmAccount - Use a ID de usuário e a senha corretas
 2. Get-AzureRmSubscription: exiba todas as assinaturas da conta.
 3. Select-AzureRmSubscription &lt;nome da assinatura&gt; - Selecione a assinatura correta. Use a mesma assinatura usada para criar um data factory no portal do Azure.
 

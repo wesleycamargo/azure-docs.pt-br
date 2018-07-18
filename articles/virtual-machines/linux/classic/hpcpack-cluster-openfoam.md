@@ -1,11 +1,11 @@
 ---
 title: Executar o OpenFOAM com o HPC Pack nas VMs do Linux | Microsoft Docs
-description: "Implante um cluster do Microsoft HPC Pack no Azure e execute um trabalho OpenFOAM em vários nós de computação do Linux em uma rede RDMA."
+description: Implante um cluster do Microsoft HPC Pack no Azure e execute um trabalho OpenFOAM em vários nós de computação do Linux em uma rede RDMA.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o OpenFoam com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 Este artigo mostra uma maneira de executar OpenFoam em máquinas virtuais do Azure. Aqui, você implanta um cluster do Microsoft HPC Pack com nós de computação do Linux no Azure e executa um trabalho [OpenFoam](http://openfoam.com/) com Intel MPI. Você pode usar VMs do Azure compatíveis com RDMA para os nós de computação, para que eles se comuniquem pela rede RDMA do Azure. Outras opções para executar o OpenFoam no Azure incluem imagens comerciais totalmente configuradas disponíveis no Marketplace, como [OpenFoam 2.3 no CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/) da UberCloud e executando no [Lote do Azure](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -35,7 +35,7 @@ O Microsoft HPC Pack fornece recursos para executar aplicativos de HPC e paralel
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Cluster HPC Pack com nós de computação do Linux compatíveis com RDMA** – Implante um cluster HPC Pack com nós de computação do Linux do tamanho A8, A9, H16r ou H16rm usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](hpcpack-cluster.md) para encontrar os pré-requisitos e etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, consulte o arquivo de configuração de exemplo nos arquivos de exemplo no final deste artigo. Use esta configuração para implantar um cluster de HPC Pack com base no Azure consistindo em um nó principal do tamanho do A8 Windows Server 2012 R2 e dois nós de computação do tamanho do A8 SUSE Linux Enterprise Server 12. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
   
   **Informações adicionais importantes**
@@ -110,7 +110,7 @@ Agora, configure um compartilhamento SMB padrão em uma pasta no nó principal. 
 O primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo LinuxNodes. O segundo comando monta a pasta compartilhada //SUSE12RDMA-HN/OpenFOAM nos nós do Linux com os bits dir_mode e file_mode definidos como 777. O *nome de usuário* e a *senha* no comando devem ser as credenciais de um usuário no nó principal.
 
 > [!NOTE]
-> O símbolo "\`" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
+> O símbolo \"\`\" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
 > 
 > 
 
@@ -353,7 +353,7 @@ Agora, você pode enviar um trabalho no Gerenciador de Cluster de HPC. Você pre
    ```
 9. O trabalho leva de alguns minutos a várias horas de acordo com os parâmetros que você definiu para o exemplo. No mapa de calor, você vê o trabalho em execução em dois nós do Linux. 
    
-   ![Mapa de calor][heat_map]
+   ![Mapa de Calor][heat_map]
    
    Em cada nó, oito processos são iniciados.
    

@@ -4,7 +4,7 @@ description: Saiba como criar um Load Balancer Standard público com frontend de
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f3f479de8bc3975f4da07a7761ffc99f976db20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Criar um Load Balancer Standard público com frontend com redundância de zona usando a CLI do Azure
 
@@ -27,28 +27,20 @@ Este artigo segue as etapas para a criação de um [Load Balancer Standard](http
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="register-for-availability-zones-load-balancer-standard-and-public-ip-standard-preview"></a>Registrar-se para a versão prévia das Zonas de Disponibilidade, do Load Balancer Standard e do IP Público Standard
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.17 ou superior.  Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
->[!NOTE]
-[O SKU do Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. 
+Se você optar por instalar e usar a CLI localmente, certifique-se de que você instalou a versão mais recente da [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e entrou em uma conta do Azure com [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 > [!NOTE]
-> As zonas de disponibilidade estão em versão prévia e prontas para seus cenários de desenvolvimento e teste. O suporte está disponível para famílias de tamanhos de VM, regiões e recursos do Azure selecionados. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+ O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-Antes de selecionar uma opção de zona ou com redundância de zona para Endereço IP Público de front-end para o Load Balancer, você deve concluir as etapas em [Registrar-se para a versão prévia de zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview).
-
-Certifique-se de que você instalou a versão mais recente do [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e entrou em uma conta do Azure com [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos usando o seguinte comando:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroupSLB --location westeurope
 ```
 
 ## <a name="create-a-public-ip-standard"></a>Criar um IP público Standard
@@ -56,7 +48,7 @@ az group create --name myResourceGroup --location westeurope
 Crie um IP Público Standard usando o seguinte comando:
 
 ```azurecli-interactive
-az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku Standard
+az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku Standard
 ```
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
@@ -64,7 +56,7 @@ az network public-ip create --resource-group myResourceGroup --name myPublicIP -
 Crie um Load Balancer Standard Público com o IP Público Standard que você criou na etapa anterior usando o seguinte comando:
 
 ```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --sku Standard
+az network lb create --resource-group myResourceGroupSLB --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard
 ```
 
 ## <a name="create-an-lb-probe-on-port-80"></a>Criar uma investigação do balanceador de carga na porta 80
@@ -72,7 +64,7 @@ az network lb create --resource-group myResourceGroup --name myLoadBalancer --pu
 Crie uma investigação de integridade do balanceador de carga usando o seguinte comando:
 
 ```azurecli-interactive
-az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+az network lb probe create --resource-group myResourceGroupSLB --lb-name myLoadBalancer \
   --name myHealthProbe --protocol tcp --port 80
 ```
 
@@ -82,12 +74,12 @@ Crie uma regra do balanceador de carga usando o seguinte comando:
 
 ```azurecli-interactive
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
-  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
+  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEnd \
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba como [criar um IP público em uma zona de disponibilidade](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Saiba mais sobre o [Load Balancer Standard e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
 
 
 

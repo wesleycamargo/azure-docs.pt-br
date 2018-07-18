@@ -1,8 +1,8 @@
 ---
-title: "Instalar e usar o Giraph em clusters HDInsight (Hadoop) – Azure | Microsoft Docs"
-description: "Saiba como instalar o Giraph em clusters HDInsight baseados em Linux usando as Ações de Script. Ações de script permitem que você personalize o cluster durante a criação, alterando a configuração do cluster ou instalando serviços e utilitários."
+title: Instalar e usar o Giraph em clusters HDInsight (Hadoop) – Azure | Microsoft Docs
+description: Saiba como instalar o Giraph em clusters HDInsight baseados em Linux usando as Ações de Script. Ações de script permitem que você personalize o cluster durante a criação, alterando a configuração do cluster ou instalando serviços e utilitários.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 03e72c29bedf6a3125a5ae0272e93cdf58632bc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar grafos em grande escala
 
@@ -76,7 +74,7 @@ Esta seção fornece instruções sobre como usar o exemplo de script durante a 
 
    * **NOME**: insira um nome amigável para a ação de script.
 
-   * **URI do SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **URI DO SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **CABEÇALHO**: marque esta entrada
 
@@ -160,7 +158,7 @@ Quando o cluster tiver sido criado, use as etapas a seguir para executar o exemp
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    A saída deve ter aparência similar ao seguinte texto:
+    A saída é semelhante ao texto a seguir:
 
         0    1.0
         4    5.0

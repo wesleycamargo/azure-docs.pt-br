@@ -3,19 +3,19 @@ title: Tutorial do Kubernetes no Azure – Implantar cluster
 description: Tutorial do AKS - Implantar cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ea26a2d4214c41faa5d63b7c72667955a43d6a2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c793aa02e614ead146806888d26a18867ff2eebb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: implantar um cluster do Serviço de Kubernetes do Azure (AKS)
 
 Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Com o AKS, o provisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, a terceira parte de oito, um cluster Kubernetes é implantado no AKS. As etapas concluídas incluem:
 
@@ -24,7 +24,7 @@ Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres.
 > * Instalação da CLI Kubernetes (kubectl)
 > * Configuração de kubectl
 
-Nos tutoriais subsequentes, o aplicativo Azure Vote é implantado no cluster, escalado, atualizado e o Operations Management Suite é configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo Azure Vote é implantado no cluster, dimensionado e atualizado, e o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -65,7 +65,7 @@ az aks install-cli
 Para configurar o kubectl e se conectar ao cluster Kubernetes, execute este comando:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Para verificar a conexão ao seu cluster, execute o comando [kubectl get nodes][kubectl-get].

@@ -2,10 +2,9 @@
 title: Monitorar e gerenciar pipelines de dados - Azure | Microsoft Docs
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -31,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [monitorar e gerenciar pipelines do Data Factory na versão 2](../monitor-visually.md).
 
-Este artigo descreve como usar o aplicativo de Monitoramento e Gerenciamento para monitorar, gerenciar e depurar seus pipelines do Data Factory. Ele também fornece informações sobre como criar alertas e ser notificado sobre falhas. Comece a usar o aplicativo assistindo ao seguinte vídeo:
+Este artigo descreve como usar o aplicativo de Monitoramento e Gerenciamento para monitorar, gerenciar e depurar seus pipelines do Data Factory. Comece a usar o aplicativo assistindo ao seguinte vídeo:
 
 > [!NOTE]
 > A interface do usuário mostrada no vídeo pode não corresponder exatamente ao que você vê no portal. Ela é um pouco mais antiga, mas os conceitos permanecem os mesmos. 
@@ -297,42 +296,3 @@ Também é possível escolher várias janelas de atividades na lista e executá-
 Você pode fazer uma seleção múltipla de dois ou mais pipelines usando a tecla Ctrl. Você pode usar os botões de barra de comandos (que são realçados no retângulo vermelho na imagem a seguir) para pausar/retomá-los.
 
 ![Pausar/Retomar na barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Criar alertas
-A página **Alertas** permite criar um alerta e exibir/editar/excluir alertas existentes. Também é possível desabilitar/habilitar um alerta. Para ver a página Alertas, clique na guia **Alertas**.
-
-![Guia Alertas](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Para criar um alerta
-1. Clique em **Adicionar Alerta** para adicionar um alerta. Você verá a página **Detalhes**.
-
-    ![Criar Alertas - página Detalhes](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Especifique o **Nome** e a **Descrição** para o alerta e clique em **Avançar**. Você verá a página **Filtros** .
-
-    ![Criar Alertas - página Filtros](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Escolha o **evento**, o **status** e o **substatus** (opcional) sobre o qual deseja que o serviço Data Factory alerte você e clique em **Avançar**. Você verá a página **Destinatários** .
-
-    ![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Escolha a opção **Enviar email ao administrador da assinatura** e/ou insira um **Email adicional de administrador** e clique em **Concluir**. Você deverá ver o alerta na lista.
-
-    ![Lista Alertas](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Na lista Alertas, use os botões associados ao alerta para editar/excluir/desabilitar/habilitar um alerta.
-
-### <a name="eventstatussubstatus"></a>Evento/status/substatus
-A tabela a seguir fornece a lista de eventos disponíveis e o status (e o substatus).
-
-| Nome do evento | Status | Substatus |
-| --- | --- | --- |
-| Execução de Atividade Iniciada |Iniciado |Iniciando |
-| Execução de Atividade Concluída |Bem-sucedida |Bem-sucedida |
-| Execução de Atividade Concluída |Com falha |Alocação de Recursos com Falha<br/><br/>Execução com falha<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
-| Criação de Cluster HDI sob Demanda Iniciada |Iniciado |-|
-| Cluster HDI sob Demanda Criado com Êxito |Bem-sucedida |-|
-| Cluster HDI sob Demanda Excluído |Bem-sucedida |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Para editar, excluir ou desabilitar um alerta
-
-Use os botões a seguir (realçados em vermelho) para editar, excluir ou desabilitar um alerta.
-
-![Botões Alertas](./media/data-factory-monitor-manage-app/AlertButtons.png)

@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Solucionar problemas de um dispositivo operacional do StorSimple
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo Portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação de portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: migração para o Portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico para StorSimple foi preterido. Os Gerenciadores de Dispositivos do StorSimple migrarão automaticamente para o novo portal do Azure, seguindo o agendamento definido para preteri-los. Você receberá um email e uma notificação do portal para essa mudança. Este documento também será desativado em breve. Para dúvidas sobre a migração, consulte [Perguntas Frequentes: Migração para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Visão geral
 Este artigo oferece orientações úteis de solução de problemas para resolver problemas de configuração que você poderá encontrar depois que seu dispositivo StorSimple estiver implantado e operacional. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudá-lo a resolver problemas que podem ocorrer durante a execução do Microsoft Azure StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
@@ -65,5 +65,5 @@ Os erros estão listados em ordem numérica.
 ## <a name="next-steps"></a>Próximas etapas
 Se não for possível resolver o problema, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência. 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

@@ -1,23 +1,23 @@
 ---
 title: Copiar dados do Hive usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Hive para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados do Hive para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 758da9ceb86e26d373f71e4f89a47d67d1cefe2d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados do Hive usando o Azure Data Factory 
 
@@ -46,7 +46,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **Hive** | sim |
 | host | Endereço IP ou nome de host do servidor Hive, separado por ';' para vários hosts (somente quando serviceDiscoveryMode estiver habilitado).  | sim |
-| porta | A porta TCP usada pelo servidor Hive para ouvir conexões de cliente.  | Não  |
+| porta | A porta TCP usada pelo servidor Hive para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | sim |
 | serverType | O tipo do servidor Hive. <br/>Os valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não  |
 | thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Os valores permitidos são: **Binário**, **SASL**, **HTTP** | Não  |
 | authenticationType | O método de autenticação usado para acessar o servidor do Hive. <br/>Valores permitidos são: **Anônimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
@@ -78,8 +78,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de Hive:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

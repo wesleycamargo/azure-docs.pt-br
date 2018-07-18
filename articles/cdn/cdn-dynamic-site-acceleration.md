@@ -1,24 +1,25 @@
 ---
-title: "Aceleração de site dinâmico via CDN do Azure"
-description: "Aprofundamento em aceleração de site dinâmico"
+title: Aceleração de site dinâmico via CDN do Azure
+description: A CDN do Azure dá suporte à DSA (Aceleração de Site Dinâmico) para arquivos com conteúdo dinâmico.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rli; v-deasim
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359978"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
 
@@ -29,11 +30,11 @@ A funcionalidade da CDN (rede de distribuição de conteúdo) padrão inclui a c
 A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade.
 
 > [!Important]
-> Para perfis da **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após ter sido criado.
+> Para perfis **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
 >   
-> Perfis da **CDN do Azure do Verizon**, não é possível alterar a otimização de um ponto de extremidade CDN após ter sido criado.
+> Para perfis **CDN do Azure do Verizon**, não é possível alterar a otimização de um ponto de extremidade CDN depois que ele foi criado.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configurar o ponto de extremidade CDN para acelerar a entrega de arquivos dinâmicos
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração do ponto de extremidade CDN para acelerar a entrega de arquivos dinâmicos
 
 Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos dinâmicos, você pode usar o Portal do Azure, as APIs REST ou qualquer um dos SDK clientes para fazer o mesmo programaticamente. 
 
@@ -104,7 +105,7 @@ O protocolo TCP é o padrão do pacote de protocolos IP usado para fornecer info
 
 O *início lento* de TCP é um algoritmo do protocolo TCP que evita o congestionamento da rede, limitando a quantidade de dados enviados pela rede. Ele começa com tamanhos de janela de congestionamento pequenos entre remetente e receptor até que o máximo seja atingido ou que perda de pacotes seja detectada.
 
- Ambas as **CDN do Azure da Akamai** e **CDN do Azure do Verizon** eliminam o início lento de TCP com as três etapas a seguir:
+ Ambos os perfis **CDN do Azure da Akamai** e **CDN do Azure do Verizon** eliminam o início lento de TCP com as três etapas a seguir:
 
 1. O monitoramento de largura de banda e integridade é usado para medir a largura de banda das conexões entre servidores PoP de borda.
     
@@ -152,27 +153,37 @@ Com o DSA, o cache é desativado por padrão na CDN, mesmo quando a origem inclu
 
 Se você tiver um site com uma mistura de ativos estáticos e dinâmicos, é melhor usar uma abordagem híbrida para obter o melhor desempenho. 
 
-Para perfis de **CDN do Azure do Verizon Premium**, é possível ativar cache para casos específicos utilizando o [mecanismo de regras](cdn-rules-engine.md) para pontos de extremidade de DSA. Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
+Para perfis **CDN Standard do Azure do Verizon** e **CDN Standard do Azure da Akamai**, é possível ativar o cache para pontos de extremidade da DSA específicos usando as [regras de cache](cdn-caching-rules.md).
 
-Para acessar o mecanismo de regras para pontos de extremidade de DSA:
+Para acessar as regras de cache:
+
+1. Na página **Perfil CDN** em configurações, selecione **Regras de cache**.  
+    
+    ![Botão de regras de cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    A página **Regras de cache** abre.
+
+2. Crie uma regra de cache global ou customizada para ativar o cache do ponto de extremidade da DSA. 
+
+Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache para pontos de extremidade da DSA específicos usando o [mecanismo de regras](cdn-rules-engine.md). Quaisquer regras criadas afetam apenas os pontos de extremidade do perfil otimizado para DSA. 
+
+Para acessar o mecanismo de regras:
     
 1. Na página **Perfil CDN**, selecione **Gerenciar**.  
     
-    ![Botão Gerenciar perfil da CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botão Gerenciar perfil da CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     O portal de gerenciamento da CDN é aberto.
 
 2. No portal de gerenciamento de CDN, selecione **ADN** e, em seguida, selecione **Mecanismo de Regras**. 
 
-    ![Mecanismo de regras para DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Mecanismo de regras para DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Como alternativa, é possível utilizar dois pontos de extremidade CDN: um ponto de extremidade otimizado com DSA para fornecer ativos dinâmicos e outro ponto de extremidade otimizado com um tipo de otimização estática, como entrega Web geral, para entrega de ativos armazenáveis em cache. Modifique as URLs da página da Web para conectar-se diretamente ao ativo no ponto de extremidade CDN que você planeja usar. 
 
 Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregado do ponto de extremidade DSA.  A página HTML faz referência a vários ativos estáticos como bibliotecas JavaScript ou imagens que são carregadas do ponto de extremidade CDN estático, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
-
-Para obter um exemplo sobre como usar controladores em um aplicativo Web ASP.NET para exibir conteúdo através de uma URL específica da CDN, consulte [Servir conteúdo das ações do controlador através da CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

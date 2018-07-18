@@ -1,8 +1,8 @@
 ---
 title: Gerenciar o Azure Data Lake Analytics usando o Azure PowerShell | Microsoft Docs
-description: "Saiba como gerenciar contas, fontes de dados, trabalhos e itens de catálogo do Azure Data Lake Analytics. "
+description: 'Saiba como gerenciar contas, fontes de dados, trabalhos e itens de catálogo do Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205237"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -50,16 +51,16 @@ $location = "<Location>"
 Faça logon usando uma ID de assinatura.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Faça logon usando um nome de assinatura.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-O cmdlet `Login-AzureRmAccount` sempre solicitará as credenciais. Você pode evitar o recebimento de avisos usando os cmdlets a seguir:
+O cmdlet `Connect-AzureRmAccount` sempre solicitará as credenciais. Você pode evitar o recebimento de avisos usando os cmdlets a seguir:
 
 ```powershell
 # Save login session information
@@ -69,7 +70,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="managing-accounts"></a>Gerenciamento de contas
+## <a name="manage-accounts"></a>Gerenciar Contas
 
 ### <a name="create-a-data-lake-analytics-account"></a>Criar uma conta da Análise Data Lake
 
@@ -91,7 +92,7 @@ Quando um Grupo de Recursos e uma conta do Data Lake Store estiverem disponívei
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-information-about-an-account"></a>Obter informações sobre uma conta
+### <a name="get-acount-information"></a>Obter informações de conta
 
 Obtenha detalhes sobre uma conta.
 
@@ -111,7 +112,7 @@ Verifique a existência de uma conta específica do Data Lake Store. O cmdlet re
 Test-AdlStoreAccount -Name $adls
 ```
 
-### <a name="listing-accounts"></a>Listar contas
+### <a name="list-accounts"></a>Listar contas
 
 Liste contas do Data Lake Analytics na assinatura atual.
 
@@ -125,48 +126,7 @@ Liste contas do Data Lake Analytics em um grupo de recursos específico.
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## <a name="managing-firewall-rules"></a>Gerenciar regras de firewall
-
-Liste regras de firewall.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-Adicione uma regra de firewall.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Altere uma regra de firewall.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Remova uma regra de firewall.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Permita endereços IP do Azure.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## <a name="managing-data-sources"></a>Gerenciar fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
 No momento, o Azure Data Lake Analytics dá suporte às seguintes fontes de dados:
 
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
@@ -517,6 +477,48 @@ Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
 
+## <a name="manage-firewall-rules"></a>Verificar regras de firewall
+
+### <a name="list-firewall-rules"></a>Listar regras de firewall
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### <a name="add-a-firewall-rule"></a>Adicione uma regra de firewall
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="change-a-firewall-rule"></a>Altere uma regra de firewall
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="remove-a-firewall-rule"></a>Remova uma regra de firewall
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### <a name="allow-azure-ip-addresses"></a>Permita endereços IP do Azure.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
+
 ## <a name="working-with-azure"></a>Trabalhando com o Azure
 
 ### <a name="get-details-of-azurerm-errors"></a>Obter os detalhes de erros do AzureRm
@@ -590,90 +592,8 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Criar uma conta do Data Lake Analytics usando um modelo
 
-Você também pode utilizar um modelo do grupo de recursos do Azure usando o seguinte script do PowerShell:
+Você também pode usar um modelo de grupo de recursos do Azure usando o exemplo a seguir: [Criar uma conta no Data Lake Analytics usando um modelo](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
-```powershell
-$subId = "<Your Azure Subscription ID>"
-
-$rg = "<New Azure Resource Group Name>"
-$location = "<Location (such as East US 2)>"
-$adls = "<New Data Lake Store Account Name>"
-$adla = "<New Data Lake Analytics Account Name>"
-
-$deploymentName = "MyDataLakeAnalyticsDeployment"
-$armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
-
-# Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
-
-# Create the resource group
-New-AzureRmResourceGroup -Name $rg -Location $location
-
-# Create the Data Lake Analytics account with the default Data Lake Store account.
-$parameters = @{"adlAnalyticsName"=$adla; "adlStoreName"=$adls}
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $rg -TemplateFile $armTemplateFile -TemplateParameterObject $parameters 
-```
-
-Para saber mais, confira [Implantar um aplicativo com um modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md) e [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
-
-**Modelo de exemplo**
-
-Salve o texto a seguir como um arquivo `.json` e, em seguida, utilize o script anterior do PowerShell para usar o modelo. 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "adlAnalyticsName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the Data Lake Analytics account to create."
-      }
-    },
-    "adlStoreName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the Data Lake Store account to create."
-      }
-    }
-  },
-  "resources": [
-    {
-      "name": "[parameters('adlStoreName')]",
-      "type": "Microsoft.DataLakeStore/accounts",
-      "location": "East US 2",
-      "apiVersion": "2015-10-01-preview",
-      "dependsOn": [ ],
-      "tags": { }
-    },
-    {
-      "name": "[parameters('adlAnalyticsName')]",
-      "type": "Microsoft.DataLakeAnalytics/accounts",
-      "location": "East US 2",
-      "apiVersion": "2015-10-01-preview",
-      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
-      "tags": { },
-      "properties": {
-        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
-        "dataLakeStoreAccounts": [
-          { "name": "[parameters('adlStoreName')]" }
-        ]
-      }
-    }
-  ],
-  "outputs": {
-    "adlAnalyticsAccount": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-    },
-    "adlStoreAccount": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-    }
-  }
-}
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)

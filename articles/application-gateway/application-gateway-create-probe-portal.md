@@ -1,11 +1,11 @@
 ---
-title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o portal"
+title: Criar uma investigação personalizada - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs
+description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203892"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o Gateway de Aplicativo usando o portal
 
@@ -53,7 +54,7 @@ As investigações são configuradas em um processo de duas etapas pelo portal. 
   |**Nome**|customProbe|Este valor é um nome amigável para a investigação que está acessível no portal.|
   |**Protocolo**|HTTP ou HTTPS | O protocolo que a investigação de integridade usa.|
   |**Host**|ou seja contoso.com|Este valor é o nome do host usado para a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM.|
-  |**Caminho**|/ ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com "/". Para o caminho padrão de http://contoso.com use apenas '/' |
+  |**Caminho**|/ ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com "/". Para o caminho padrão do http://contoso.com usar apenas '/' |
   |**Intervalo (segundos)**|30|Frequência com que a investigação é executada para verificar a integridade. Não é recomendável defini-la abaixo de 30 segundos.|
   |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação espera antes de atingir o tempo limite. O intervalo de tempo limite deve ser alto o suficiente para que uma chamada http possa ser feita a fim de garantir que a página de integridade do back-end estará disponível.|
   |**Limite não íntegro**|3|Número de tentativas com falha para ser considerado não íntegro. Um limite de 0 significa que, em caso de falha de verificação de integridade, o back-end é considerado não íntegro imediatamente.|

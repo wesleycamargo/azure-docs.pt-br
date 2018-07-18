@@ -1,8 +1,8 @@
 ---
 title: 'Kit de Ferramentas do Azure para IntelliJ: criar aplicativos Spark para um cluster HDInsight | Microsoft Docs'
-description: "Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight."
+description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb78808b515bb3385f7cf56725441a2b228f0aba
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de Ferramentas do Azure para IntelliJ a fim de criar aplicativos Spark para um cluster HDInsight
 
@@ -44,6 +42,10 @@ Para criar seu projeto, veja o vídeo [Create Spark Applications with the Azure 
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Instalar Kit de Ferramentas do Azure para IntelliJ
 Para obter instruções de instalação, confira [Instalação do Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Introdução
+O usuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscription), ou [vincular um cluster HDInsight](#link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 
@@ -69,18 +71,20 @@ Para obter instruções de instalação, confira [Instalação do Kit de Ferrame
    
     ![Um nó de nome de cluster expandido](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Vincular um cluster
+<h2 id="linkcluster">Vincular um cluster</h2>
 É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com). 
 1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
 
    ![menu de contexto para vincular cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Insira o **Nome do Cluster**, **Conta de Armazenamento**, **Chave de Armazenamento**e, em seguida, selecione um contêiner do **Contêiner de Armazenamento**, finalmente, insira o nome de usuário e senha. É necessário verificar o nome de usuário e senha, se obter a falha de autenticação.
+2. Insira o **Nome do Cluster**, o **Nome do Usuário** e a **Senha**. É necessário verificar o nome de usuário e senha, se obter a falha de autenticação. Como opção, adicione a Conta de Armazenamento, Chave de Armazenamento, e selecione um contêiner do Contêiner de Armazenamento. As informações de armazenamento são para o gerenciador de armazenamento na árvore à esquerda
    
    ![caixa de diálogo para vincular cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster. 
+   > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster.
+   > ![gerenciador de armazenamento no IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. Se as informações de entrada estiverem corretas, será possível ver um cluster vinculado no nó **HDInsight**. Agora, você pode enviar um aplicativo para esse cluster vinculado.
 
@@ -279,11 +283,15 @@ Esses erros acontecem porque o tamanho do heap não é grande o suficiente para 
 ![Adicionando opções à caixa "Opções de VM" no IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>Perguntas frequentes
-Para enviar um aplicativo ao Azure Data Lake Store, escolha o modo **Interativo** durante o processo de entrada no Azure. Se você selecionar o modo **Automatizado**, obterá um erro.
+Ao vincular um cluster, sugiro que você forneça credenciais de armazenamento.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Vincular cluster, fornecer credencial de armazenamento](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Isso já está resolvido. Você pode escolher um Cluster do Azure Data Lake para enviar seu aplicativo com qualquer método de entrada.
+Há dois modos para enviar os trabalhos. Se a credencial de armazenamento for fornecida, o modo de lote será usado para enviar o trabalho. Caso contrário, o modo interativo será usado. Se o cluster estiver ocupado, poderá receber o erro abaixo.
+
+![IntelliJ recebe um erro quando o cluster estiver ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![IntelliJ recebe um erro quando o cluster estiver ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>Comentários e problemas conhecidos
 Atualmente, não há suporte para exibir saídas do Spark diretamente.
@@ -320,4 +328,3 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 ### <a name="managing-resources"></a>Gerenciando recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
-

@@ -1,58 +1,68 @@
 ---
-title: Gerenciamento de estatísticas em tabelas no SQL Data Warehouse | Microsoft Docs
-description: Introdução às estatísticas em tabelas no Azure SQL Data Warehouse.
+title: Criação e atualização de estatísticas — SQL Data Warehouse do Azure | Microsoft Docs
+description: Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.component: implement
+ms.date: 05/09/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011757"
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Visão geral][Overview]
-> * [Tipos de Dados][Data Types]
-> * [Distribuir][Distribute]
-> * [Índice][Index]
-> * [Partição][Partition]
-> * [Estatísticas][Statistics]
-> * [Temporário][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criação e atualização de estatísticas em tabelas no SQL Data Warehouse do Azure
+Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
 
+## <a name="why-use-statistics"></a>Por que usar estatísticas?
 Quanto mais o SQL Data Warehouse do Azure souber sobre seus dados, mais rápido ele poderá executar as consultas. Coletar estatísticas em seus dados e, em seguida, carregá-los no SQL Data Warehouse é uma das coisas mais importantes que você pode fazer para otimizar as consultas. Isso porque o otimizador de consulta do SQL Data Warehouse é um otimizador baseado em custo. Ele compara o custo de vários planos de consulta e, em seguida, escolhe o plano com o menor custo que, na maioria dos casos, é o plano que executa mais rápido. Por exemplo, se o otimizador estimar que a data usada para filtrar sua consulta retornará uma linha, ele poderá escolher um plano diferente do que se estimar que a data selecionada retornará 1 milhão de linhas.
 
-Atualmente, o processo de criação e atualização de estatísticas é um processo manual, mas é simples de fazer.  Em breve você será capaz de criar e atualizar as estatísticas em colunas únicas e índices automaticamente.  Ao usar as seguintes informações, você poderá automatizar bastante o gerenciamento das estatísticas em seus dados. 
+## <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
+Quando a opção de estatísticas criadas automaticamente está on, AUTO_CREATE_STATISTICS, SQL Data Warehouse analisa consultas de usuários nas quais estatísticas de uma coluna são criadas para colunas nas quais estejam faltando estatísticas. O otimizador de consulta cria estatísticas em colunas individuais no predicado de consulta ou na condição de junção para melhorar as estimativas da cardinalidade para o plano de consulta. Criação automática de estatísticas está atualmente ativada por padrão.
 
-## <a name="getting-started-with-statistics"></a>Introdução às estatísticas
-Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar. Estatísticas desatualizadas resultam em um desempenho abaixo do ideal. No entanto, atualizar estatísticas em todas as colunas à medida que seus dados crescem pode consumir memória. 
+Você pode verificar se a sua data warehouse tem esta configuração executando o seguinte comando:
 
-As seguintes são recomendações para diferentes cenários:
-| **Cenário** | Recomendações |
-|:--- |:--- |
-| **Introdução** | Atualizar todas as colunas após a migração para SQL Data Warehouse |
-| **Coluna mais importante para estatísticas** | Chave de distribuição de hash |
-| **Segunda coluna mais importante para estatísticas** | Chave de partição |
-| **Outras colunas importantes para estatísticas** | Data, JOINs frequentes, GROUP BY, HAVING e WHERE |
-| **Frequência de atualizações de estatísticas**  | Conservadora: diária <br></br> Depois de carregar ou transformar os dados |
-| **Amostragem** |  Menos de 1 bilhão de linhas, usar a amostragem padrão (20%) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Se a sua data warehouse não tiver AUTO_CREATE_STATISTICS configurado, nós recomendamos que você habilite esta propriedade executando o seguinte comando:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+As instruções seguintes irão disparar a criação automática de estatísticas: SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE, e EXPLAIN quando uma junção ou a presença de um predicado for detectada. 
+
+> [!NOTE]
+> Criação automática de estatísticas não é criada em tabelas temporárias ou externas.
+> 
+
+Criação automática de estatísticas é gerada de forma síncrona portanto você pode encontrar pequenas quedas na performance da consulta se suas colunas não tiverem estatísticas criadas para elas ainda. Criar estatísticas pode levar alguns segundos em uma única coluna dependendo do tamanho da tabela. Para evitar a medir a degradação do desempenho, especialmente na comparação de desempenho, você deve garantir estatísticas foram criadas pela primeira vez executando a carga de trabalho de benchmark antes da criação de perfil do sistema.
+
+> [!NOTE]
+> A criação de estatísticas também será registrada [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) em um contexto de usuário diferente.
+> 
+
+Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o seguinte comando:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>Atualização de estatísticas
 
 Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso altera a distribuição de dados e torna as estatísticas desatualizadas. Por outro lado, as estatísticas de uma coluna de país em uma tabela de clientes talvez nunca precisem ser atualizadas, porque a distribuição de valores geralmente não se altera. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse apenas contiver um país e você trouxer dados de um novo país, resultando em dados de vários países sendo armazenados, então, será necessário atualizar estatísticas na coluna do país.
+
+O seguinte são recomendações atualizando estatísticas:
+
+| **Frequência de atualizações de estatísticas** | Conservadora: Diária <br></br> Depois de carregar ou transformar os dados | | **Amostragem** | Menos de 1 bilhão de linhas, usar a amostragem padrão (20 por cento) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 
@@ -94,7 +104,7 @@ WHERE
 
 As **colunas de data** em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso altera a distribuição de dados e torna as estatísticas desatualizadas.  Por outro lado, as estatísticas de uma coluna de gênero em uma tabela de clientes talvez nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o seu data warehouse contiver apenas um gênero e um novo requisito resultar em gêneros múltiplos, então, será necessário atualizar estatísticas sobre a coluna de gênero.
 
-Para obter mais explicações, veja [Estatísticas][Statistics] no MSDN.
+Para obter mais informações, consulte as diretrizes gerais para [Estatísticas](/sql/relational-databases/statistics/statistics).
 
 ## <a name="implementing-statistics-management"></a>Implementação do gerenciamento de estatísticas
 Geralmente, convém estender os processos de carregamento de dados a fim de garantir que as estatísticas estejam atualizadas ao final do carregamento. É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. Portanto, esse é um momento lógico para implementar alguns processos de gerenciamento.
@@ -107,7 +117,7 @@ Os seguintes princípios orientadores são fornecidos para atualizar suas estat�
 * Considere atualizar as colunas de distribuição estática com menos frequência.
 * Lembre-se, cada objeto estatístico é atualizado em sequência. Simplesmente implementar `UPDATE STATISTICS <TABLE_NAME>` nem sempre é ideal, especialmente para tabelas amplas com muitos objetos de estatística.
 
-Para obter mais explicações, veja [Estimativa de cardinalidade][Cardinality Estimation] no MSDN.
+Para obter mais informações, consulte [Estimativa de cardinalidade](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="examples-create-statistics"></a>Exemplos: criar estatísticas
 Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
@@ -172,7 +182,7 @@ Também é possível combinar as opções juntas. O exemplo a seguir cria um obj
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Para obter a referência completa, veja [CREATE STATISTICS][CREATE STATISTICS] no MSDN.
+Para obter a referência completa, consulte [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### <a name="create-multi-column-statistics"></a>Criar estatísticas de várias colunas
 Para criar um objeto estatístico de várias colunas, use os exemplos anteriores, mas especifique mais colunas.
@@ -362,9 +372,9 @@ Esta instrução é fácil de usar. Lembre-se de que isso atualizará *todas* as
 > 
 > 
 
-Para uma implementação de um `UPDATE STATISTICS` procedimento, consulte [Tabelas Temporárias][Temporary]. O método de implementação é ligeiramente diferente do procedimento anterior `CREATE STATISTICS`, mas o resultado é o mesmo.
+Para ver uma implementação de um procedimento `UPDATE STATISTICS`, consulte [Tabelas Temporárias](sql-data-warehouse-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento anterior `CREATE STATISTICS`, mas o resultado é o mesmo.
 
-Para obter a sintaxe completa, veja [Atualizar estatísticas][Update Statistics] no MSDN.
+Para ver a sintaxe completa, consulte [Atualizar estatísticas](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## <a name="statistics-metadata"></a>Metadados de estatísticas
 Há várias exibições e funções do sistema que podem ser utilizadas para localizar informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas está desatualizado usando a função stats-date para ver quando as estatísticas foram criadas ou atualizadas pela última vez.
@@ -374,21 +384,21 @@ Essas exibições do sistema fornecem informações sobre estatísticas:
 
 | Exibição do catálogo | DESCRIÇÃO |
 |:--- |:--- |
-| [sys.columns][sys.columns] |Uma linha para cada coluna. |
-| [sys.objects][sys.objects] |Uma linha para cada objeto no banco de dados. |
-| [sys.schemas][sys.schemas] |Uma linha para cada esquema no banco de dados. |
-| [sys.stats][sys.stats] |Uma linha para cada objeto de estatísticas. |
-| [sys.stats_columns][sys.stats_columns] |Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
-| [sys.tables][sys.tables] |Uma linha para cada tabela (inclui tabelas externas). |
-| [sys.table_types][sys.table_types] |Uma linha para cada tipo de dados. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Uma linha para cada coluna. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada objeto no banco de dados. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Uma linha para cada esquema no banco de dados. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Uma linha para cada objeto de estatísticas. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |Uma linha para cada tabela (inclui tabelas externas). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |Uma linha para cada tipo de dados. |
 
 ### <a name="system-functions-for-statistics"></a>Funções de sistema para estatísticas
 Essas funções de sistema são úteis para trabalhar com estatísticas:
 
 | Função do sistema | DESCRIÇÃO |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Data da última atualização do objeto de estatísticas. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Nível de resumo e informações detalhadas sobre a distribuição de valores conforme entendido pelo objeto de estatísticas. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Data da última atualização do objeto de estatísticas. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Nível de resumo e informações detalhadas sobre a distribuição de valores conforme entendido pelo objeto de estatísticas. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combinar colunas de estatísticas e funções em uma exibição
 Essa exibição une as colunas relacionadas às estatísticas e os resultados da função STATS_DATE() em conjunto.
@@ -476,37 +486,5 @@ DBCC SHOW_STATISTICS() é implementado mais estritamente no SQL Data Warehouse c
 - Não há suporte para o erro personalizado 2767.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais detalhes, veja [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no MSDN.
+Para melhorar ainda mais o desempenho da consulta, veja [Monitorar sua carga de trabalho](sql-data-warehouse-manage-monitor.md)
 
-  Para saber mais, consulte os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados da tabela][Data Types], [Distribuição de uma tabela][Distribute], [Indexação de uma tabela][Index], [Particionamento de uma tabela][Partition] e [Tabelas temporárias][Temporary].
-  
-   Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

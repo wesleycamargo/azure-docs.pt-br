@@ -1,26 +1,26 @@
 ---
-title: "Solucionar problemas de exibições de custo empresarial – Azure | Microsoft Docs"
-description: "Saiba como resolver quaisquer problemas com modos de exibição de custo organizacional no Portal do Azure."
+title: Solucionar problemas de exibições de custo empresarial – Azure | Microsoft Docs
+description: Saiba como resolver quaisquer problemas com modos de exibição de custo organizacional no Portal do Azure.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 193e4691d2e10dd1c5ad16c26ad25534e3156745
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solucionar problemas de exibições de custo empresarial 
 
-Nas inscrições empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam exibir os custos.  Essas configurações são gerenciadas pelo administrador de registro ou pelo parceiro, se o registro não foi adquirido diretamente da Microsoft.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das [Funções de RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Nas inscrições empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam exibir os custos.  Essas configurações são gerenciadas pelo administrador de registro ou pelo parceiro, se o registro não foi adquirido diretamente da Microsoft.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das [Funções de RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Habilitando o acesso aos custos
@@ -44,4 +44,4 @@ Se você estiver recebendo uma mensagem de erro "Este ativo está indisponível"
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Entre em contato com o administrador da assinatura ou dos grupos de gerenciamento para obter acesso.  
-* Para assinaturas, consulte o documento [RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para obter ajuda sobre qual função é necessária.
+* Para assinaturas, consulte o documento [RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para obter ajuda sobre qual função é necessária.

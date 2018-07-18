@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Domain Services: Resolução de problemas de configuração do Grupo de Segurança de Rede | Microsoft Docs"
-description: "Resolução de problemas de configuração do NSG para o Azure AD Domain Services"
+title: 'Azure Active Directory Domain Services: Resolução de problemas de configuração do Grupo de Segurança de Rede | Microsoft Docs'
+description: Resolução de problemas de configuração do NSG para o Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: b7010c2e8d5ca479411d101ce237709ad26d7bcc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2336277a960925a92af3578850453ba6ae78abda
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201259"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de rede inválida para o domínio gerenciado
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à rede que resultam na seguinte mensagem de alerta:
@@ -28,6 +29,13 @@ Este artigo ajuda você a solucionar problemas e resolver erros de configuraçã
 
 Configurações inválidas do NSG são a causa mais comum de erros de rede para o Azure AD Domain Services. O NSG (Grupo de Segurança de Rede) configurado para a sua rede virtual deve permitir o acesso ao [portas específicas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Se essas portas são bloqueadas, a Microsoft não é capaz de monitorar ou atualizar o domínio gerenciado. Além disso, a sincronização entre o seu diretório do Azure AD e seu domínio gerenciado é afetada. Ao criar o NSG, mantenha essas portas abertas para evitar interrupção no serviço.
 
+### <a name="checking-your-nsg-for-compliance"></a>Verificando o NSG para fins de conformidade
+
+1. Navegue até a página [Grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) no portal do Azure
+2. Na tabela, escolha o NSG associado à sub-rede na qual o domínio gerenciado está habilitado.
+3. Em **Configurações** no painel esquerdo, clique em **Regras de segurança de entrada**
+4. Examine as regras em vigor e identifique quais regras estão bloqueando o acesso a [essas portas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+5. Edite o NSG para garantir a conformidade excluindo a regra, adicionando uma regra, ou criando um NSG completamente novo. As etapas para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [criar um novo NSG compatível](#create-a-nsg-for-azure-ad-domain-services-using-powershell) estão abaixo.
 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um exemplo de NSG que manteria seu domínio gerenciado seguro ao mesmo tempo em que permitiria o monitoramento, gestão e atualização das informações pela Microsoft.
@@ -47,7 +55,7 @@ Se você não quiser usar o PowerShell, você pode adicionar manualmente regras 
 5. Verifique se a regra foi criada localizando-a na tabela de regras.
 
 
-## <a name="create-an-nsg-for-azure-ad-domain-services-using-powershell"></a>Criar um NSG para o Azure AD Domain Services usando o PowerShell
+## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>Criar um NSG para o Azure AD Domain Services usando o PowerShell
 Este NSG está configurado para permitir o tráfego de entrada para as portas necessárias pelo Azure AD Domain Services, negando qualquer outro acesso de entrada indesejado.
 
 **Pré-requisito: Instalar e configurar o Azure PowerShell** Siga as instruções para [instalar o módulo do Azure PowerShell e conectar-se à sua assinatura do Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
@@ -61,7 +69,7 @@ Use as etapas a seguir para criar um novo NSG usando o PowerShell.
 
   ```PowerShell
   # Log in to your Azure subscription.
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Crie um NSG com três regras. O script a seguir define três regras para o NSG que permitem o acesso às portas necessárias para executar o Azure Active Directory Domain Services. Em seguida, o script cria um novo NSG que contém essas regras. Use o mesmo formato para adicionar mais regras que permitem outros tráfegos de entrada, se requerido por cargas de trabalho implantadas na rede virtual.
@@ -123,7 +131,7 @@ $VnetName = "exampleVnet"
 $SubnetName = "exampleSubnet"
 
 # Log in to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
 $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `
@@ -137,7 +145,7 @@ $PSRemotingRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowPSRemoting -De
 -SourceAddressPrefix 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 -SourcePortRange * -DestinationAddressPrefix * `
 -DestinationPortRange 5986
 
-#The following two rules are optional and needed only in certain situations.
+# The following two rules are optional and needed only in certain situations.
 
 # Allow management of your domain over port 3389 (remote desktop).
 $RemoteDesktopRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowRD -Description "Allow management of domain through port 3389" `

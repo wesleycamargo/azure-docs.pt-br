@@ -1,12 +1,12 @@
 ---
-title: "Backup do Azure: restaurar máquinas virtuais usando o portal do Azure | Microsoft Docs"
-description: "Restaure uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure"
+title: 'Backup do Azure: restaurar máquinas virtuais usando o portal do Azure | Microsoft Docs'
+description: Restaure uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "restaurar o backup; como restaurar; ponto de recuperação;"
+editor: ''
+keywords: restaurar o backup; como restaurar; ponto de recuperação;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -90,12 +90,12 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
 
     A folha **Restaurar** mostra que o ponto de restauração foi definido.
 
-9. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
+9. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Escolha uma configuração de restauração de VM
 Após selecionar o ponto de restauração, escolha uma configuração de restauração de VM. Para configurar a VM restaurada, você pode usar o portal do Azure ou o PowerShell.
 
-1. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
+1. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
 
     ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Na folha **Restaurar configuração**, você tem duas opções:
@@ -211,7 +211,7 @@ O Backup do Azure permite restaurar backups de VMs para o data center emparelhad
 ## <a name="restore-domain-controller-vms"></a>Restaurar VMs do controlador de domínio
 O backup de VMs do DC (controlador de domínio) é um cenário com suporte no Backup. No entanto, é necessário ter cuidado durante o processo de restauração. O processo de restauração correto depende da estrutura do domínio. No caso mais simples, você tem um único DC em um único domínio. Mais comumente para cargas de produção, você terá um único domínio com vários DCs, talvez com alguns DCs locais. Por fim, você pode ter uma floresta com vários domínios. 
 
-Da perspectiva do Active Directory, a VM do Azure é como qualquer outra VM em um hipervisor moderno com suporte. A principal diferença com hipervisores locais é que nenhum console da VM está disponível no Azure. Um console é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração de VM do cofre de backup é uma substituição completa para a BMR. O DSRM (Modo de Restauração dos Serviços de Diretório) também está disponível, portanto, todos os cenários de recuperação do Active Directory são viáveis. Para obter mais informações, consulte as [Considerações de backup e restauração para controladores de domínio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) e [Planejamento para recuperação de floresta do Active Directory](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Da perspectiva do Active Directory, a VM do Azure é como qualquer outra VM em um hipervisor moderno com suporte. A principal diferença com hipervisores locais é que nenhum console da VM está disponível no Azure. Um console é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração de VM do cofre de backup é uma substituição completa para a BMR. O DSRM (Modo de Restauração dos Serviços de Diretório) também está disponível, portanto, todos os cenários de recuperação do Active Directory são viáveis. Para obter mais informações, consulte as [Considerações de backup e restauração para controladores de domínio virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) e [Planejamento para recuperação de floresta do Active Directory](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Controlador de domínio único em um único domínio
 A VM pode ser restaurada (como qualquer outra VM) do portal do Azure ou usando o PowerShell.
@@ -242,7 +242,7 @@ Para recriar completamente as VMs após restaurar para o disco, siga estas etapa
 
    a. Criar uma VM no serviço de nuvem com um [balanceador de carga interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Criar uma VM para se conectar a um [balanceador de carga voltado para a Internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Criar uma VM para se conectar a um [balanceador de carga voltado para a Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Criar uma VM com [diversas NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

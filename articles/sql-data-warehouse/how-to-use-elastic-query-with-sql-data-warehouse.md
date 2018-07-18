@@ -1,31 +1,26 @@
 ---
-title: "Conceitos de Consulta Elástica com o SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Conceitos de Consulta Elástica com o SQL Data Warehouse do Azure"
+title: Consulta elástica - acesso a dados no SQL Data Warehouse do Azure do Banco de Dados SQL do Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre as melhores práticas para usar a Consulta Elástica para o acesso a dados no SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Microsoft Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: igorstan
+ms.openlocfilehash: ceda0399ae98e2a36fd41b954a741e0379c77fe7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Como usar Consulta Elástica com o SQL Data Warehouse
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para usar a Consulta Elástica no Banco de Dados SQL do Microsoft Azure para o acesso a dados no SQL Data Warehouse do Azure
+Saiba mais sobre as melhores práticas para usar a Consulta Elástica para o acesso a dados no SQL Data Warehouse do Azure a partir do Banco de Dados SQL do Microsoft Azure. 
 
-
-
-Consulta Elástica com o SQL Data Warehouse do Azure permite que você grave Transact-SQL em um Banco de Dados SQL enviado remotamente a uma instância do SQL Data Warehouse do Azure usando tabelas externas. Usar esse recurso proporciona economias de custo e arquiteturas de maior desempenho, dependendo do cenário.
+## <a name="what-is-an-elastic-query"></a>O que é uma consulta elástica?
+Uma consulta elástica permite usar tabelas externas e T-SQL para gravar uma consulta em um Banco de Dados SQL do Microsoft Azure que é enviado remotamente para um SQL Data Warehouse do Azure. Usar esse recurso proporciona economias de custo e arquiteturas de maior desempenho, dependendo do cenário.
 
 Esse recurso possibilita dois cenários principais:
 
@@ -46,10 +41,7 @@ Consulta elástica pode permitir a fácil seleção de subconjuntos de dados do 
 
 A consulta elástica permite a execução de consulta remota em uma instância do SQL Data Warehouse. É possível utilizar o melhor do banco de dados SQL e do SQL Data Warehouse, separando os dados quentes e frios entre os dois bancos de dados. Os usuários podem manter os dados mais recentes no banco de dados SQL, que pode atender a relatórios e a um grande número de usuários corporativos padrão. No entanto, quando forem necessário mais dados ou computação, um usuário poderá descarregar a parte da consulta para uma instância do SQL Data Warehouse em que agregações em grande escala podem ser processadas com muito mais rapidez e eficiência.
 
-
-
-## <a name="elastic-query-overview"></a>Visão geral da Consulta Elástica
-
+## <a name="elastic-query-process"></a>Processo de consulta elástica
 Uma consulta elástica pode ser usada para disponibilizar os dados localizados em um SQL Data Warehouse disponíveis a instâncias do banco de dados SQL. Consulta elástica permite que consultas de um banco de dados SQL façam referência a tabelas em uma instância remota do SQL Data Warehouse. 
 
 A primeira etapa é criar uma definição de fonte de dados externa que refira-se à instância do SQL data warehouse, que usa credenciais de usuário existentes dentro do SQL Data Warehouse. Não são necessárias alterações na instância remota do SQL Data Warehouse. 
@@ -58,13 +50,12 @@ A primeira etapa é criar uma definição de fonte de dados externa que refira-s
 > 
 > Você deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS. As permissões ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados remotas.
 
-Em seguida, criamos uma definição de tabela externa remota em uma instância do banco de dados SQL que aponta para uma tabela remota no SQL Data Warehouse. Quando você usa uma consulta que usa uma tabela externa, a parte da consulta que faz referência à tabela externa é enviada para a instância do SQL Data Warehouse a ser processada. Depois que a consulta for concluída, o conjunto de resultados é enviado de volta à instância do banco de dados SQL de chamada. Para obter um breve tutorial da configuração de uma Consulta Elástica entre banco de dados SQL e o SQL data warehouse, consulte [Configurar Consulta Elástica com o SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
+Em seguida, crie uma definição de tabela externa remota em uma instância do Banco de Dados SQL que aponta para uma tabela remota no SQL Data Warehouse. Quando uma consulta usa uma tabela externa, a parte da consulta que faz referência à tabela externa é enviada para a instância do SQL Data Warehouse a ser processada. Depois que a consulta for concluída, o conjunto de resultados é enviado de volta à instância do banco de dados SQL de chamada. Para obter um breve tutorial da configuração de uma Consulta Elástica entre banco de dados SQL e o SQL data warehouse, consulte [Configurar Consulta Elástica com o SQL Data Warehouse][Configure Elastic Query with SQL Data Warehouse].
 
 Para obter mais informações sobre Consulta Elástica com o banco de dados SQL, consulte a [Visão geral de consulta elástica do Banco de Dados SQL do Azure][Azure SQL Database elastic query overview].
 
-
-
 ## <a name="best-practices"></a>Práticas recomendadas
+Use essas melhores práticas para usar a consulta elástica com eficiência.
 
 ### <a name="general"></a>Geral
 
@@ -78,9 +69,9 @@ Para obter mais informações sobre Consulta Elástica com o banco de dados SQL,
 
 ### <a name="elastic-querying"></a>Consulta Elástica
 
-- Em muitos casos, alguém pode querer gerenciar um tipo de tabela ampliada, em que uma parte da sua tabela está no Banco de Dados SQL em cache dados de desempenho com o restante dos dados armazenados no SQL Data Warehouse. Você precisará ter dois objetos no Banco de Dados SQL: uma tabela externa dentro do Banco de Dados SQL que faz referência à tabela base no SQL Data Warehouse, e a parte "em cache" da tabela no Banco de Dados SQL. Considere a criação de uma exibição pela parte superior da parte em cache da tabela e a tabela externa que une as tabelas e aplica os filtros que separam dados materializados no Banco de Dados SQL e no dados expostos do SQL Data Warehouse por meio de tabelas externas.
+- Em muitos casos, alguém pode querer gerenciar um tipo de tabela ampliada, em que uma parte da sua tabela está no Banco de Dados SQL em cache dados de desempenho com o restante dos dados armazenados no SQL Data Warehouse. Você precisa de dois objetos no Banco de Dados SQL: uma tabela externa dentro do Banco de Dados SQL que faz referência à tabela base no SQL Data Warehouse, e a parte "em cache" da tabela no Banco de Dados SQL. Considere a criação de uma exibição pela parte superior da parte em cache da tabela e a tabela externa que une as tabelas e aplica os filtros que separam dados materializados no Banco de Dados SQL e no dados expostos do SQL Data Warehouse por meio de tabelas externas.
 
-  Imagine que gostaríamos de manter o ano mais recente dos dados em uma instância do banco de dados SQL. Temos duas tabelas **ext.Orders**, que referenciam as tabelas de ordem do data warehouse e **dbo.Orders**, que representam os anos mais recentes de dados dentro na instância do banco de dados SQL. Em vez de solicitar que os usuários decidam se vão consultar uma tabela ou outra, criamos uma exibição na parte superior das duas tabelas no ponto de partição do ano mais recente.
+  Imagine que você deseja manter o ano mais recente dos dados em uma instância do Banco de Dados SQL. A tabela **ext.Orders** faz referência às tabelas de pedidos do data warehouse. O **dbo.Orders** representa os anos mais recentes dos dados na instância do Banco de Dados SQL. Em vez de solicitar aos usuários que decidam se desejam consultar uma tabela ou outra, crie uma exibição na parte superior das duas tabelas no ponto de partição do ano mais recente.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -119,19 +110,17 @@ Para obter mais informações sobre Consulta Elástica com o banco de dados SQL,
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Quando escolher o Azure Analysis Services versus Banco de Dados SQL
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+Use o Azure Analysis Services quando:
 
 - Você planeja usar o cache com uma ferramenta de BI que envie grandes números de pequenas consultas
 - Você precisa de uma latência de consulta inferior a um segundo
 - Você têm experiência em gerenciar/desenvolver modelos para o Analysis Services 
 
-#### <a name="sql-database"></a>Banco de dados SQL
+Use o Banco de Dados SQL do Microsoft Azure quando:
 
 - Você deseja consultar os dados do cache com SQL
 - Você precisa de execução remota para determinadas consultas
 - Você precisa de um cache maior
-
-
 
 ## <a name="faq"></a>Perguntas frequentes
 
@@ -161,19 +150,11 @@ R: Você pode armazenar tipos espaciais no SQL Data Warehouse como valores varbi
 
 ![tipos espaciais](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

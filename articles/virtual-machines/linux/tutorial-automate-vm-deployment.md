@@ -1,13 +1,13 @@
 ---
-title: "Personalize uma máquina virtual do Linux na primeira inicialização do Azure | Microsoft Docs"
-description: "Saiba como usar inicialização de nuvem e o Key Vault para personalizar as máquinas virtuais do Linux na primeira vez em que são iniciadas no Azure"
+title: Tutorial – Personalizar uma VM Linux com a inicialização de nuvem no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá como usar a inicialização de nuvem e o Key Vault para personalizar VMs Linux na primeira vez em que são inicializadas no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,15 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fa1e95263559906ebfd0df82b2756043e38852a6
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305150"
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Como personalizar uma máquina virtual de Linux na primeira inicialização
+# <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como usar a inicialização de nuvem para personalizar uma máquina virtual do Linux no Azure na primeira inicialização
+
 Em um tutorial anterior, você aprendeu como SSH em uma máquina virtual (VM) e instalar manualmente o NGINX. Para criar VMs de maneira rápida e consistente, alguma forma de automação, em geral, é desejada. Uma abordagem comum para personalizar uma VM na primeira inicialização é utilizar [inicialização de nuvem](https://cloudinit.readthedocs.io). Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -32,12 +34,9 @@ Em um tutorial anterior, você aprendeu como SSH em uma máquina virtual (VM) e 
 > * Usar o Key Vault para armazenar certificados com segurança
 > * Automatizar implantações seguras de NGINX com cloud-init
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).  
-
-
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Visão geral da inicialização de nuvem
 [Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como a inicialização de nuvem é executada durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.
@@ -179,7 +178,7 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret")
 ```
 
 

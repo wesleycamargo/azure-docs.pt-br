@@ -1,26 +1,24 @@
 ---
-title: "Documentação do Azure Data Lake Analytics - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre a análise de big data com o Data Lake Analytics. Os tutoriais mostram como executar as análises em lote, em tempo real e interativas, e como escrever consultas U-SQL."
+title: Documentação do Azure Data Lake Analytics - Tutoriais, Referência de API
+description: Saiba mais sobre a análise de big data com o Azure Data Lake Analytics. Os tutoriais mostram como executar as análises em lote, em tempo real e interativas, e como escrever consultas U-SQL.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624209"
 ---
-# <a name="data-lake-analytics-documentation"></a>Documentação do Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Documentação do Azure Data Lake Analytics
 
-Saiba como usar Data Lake Analytics para executar trabalhos de análise de big data dimensionados para grandes conjuntos de dados. Os tutoriais e outras documentações mostram como criar e gerenciar trabalhos de análise em lote, em tempo real e interativa, e como consultar usando a linguagem U-SQL.
+Saiba como usar Azure Data Lake Analytics para executar trabalhos de análise de big data se expandem para grandes conjuntos de dados. Os tutoriais e outras documentações mostram como criar e gerenciar trabalhos de análise em lote, em tempo real e interativa, e como consultar usando a linguagem U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +96,6 @@ Saiba como usar Data Lake Analytics para executar trabalhos de análise de big d
         <td><a href="data-lake-analytics-manage-use-cli.md">CLI do Azure</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">SDK .NET</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">SDK do Python</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 

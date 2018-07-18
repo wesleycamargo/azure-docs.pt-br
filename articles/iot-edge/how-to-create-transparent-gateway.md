@@ -1,19 +1,20 @@
 ---
 title: Criar um dispositivo de gateway transparente com o Azure IoT Edge | Microsoft Docs
-description: "Usar o Azure IoT Edge para criar um dispositivo de gateway transparente que pode processar informações de vários dispositivos"
+description: Usar o Azure IoT Edge para criar um dispositivo de gateway transparente que pode processar informações de vários dispositivos
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0378cb2964a496a2bfe5a0bc08296cbab462a409
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32170703"
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Criar um dispositivo do IoT Edge que atua como um gateway transparente - visualização
 
@@ -73,10 +74,10 @@ Use os scripts de exemplo do PowerShell e Bash descritos em [Gerenciando uma amo
 
 ### <a name="bash"></a>Bash
 
-Crie o novo certificado de dispositivo:
+Crie o novo certificado de dispositivo.  **NÃO** nomeie `myGatewayCAName` com o mesmo nome do host do gateway.  Isso fará com que a certificação do cliente em relação a esses certificados falhe.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate myGateway
+   ./certGen.sh create_edge_device_certificate myGatewayCAName
    ```
 
 Novos arquivos são criados: .\certs\new-edge-device.* , que contêm a chave pública e o PFX, e .\private\new-edge-device.key.pem, que contém a chave privada do dispositivo.
@@ -84,6 +85,7 @@ Novos arquivos são criados: .\certs\new-edge-device.* , que contêm a chave pú
 No diretório `certs`, execute o seguinte comando para obter a cadeia completa da chave pública de dispositivo:
 
    ```bash
+   cd ./certs
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
@@ -116,11 +118,11 @@ Forneça as informações do dispositivo e o certificado ao tempo de execução 
 No Linux, usando a saída do Bash:
 
    ```bash
-   sudo iotedgectl setup --connection-string {device connection string}
-        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+   sudo iotedgectl setup --connection-string {device connection string} \
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com} \
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem \
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem \
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem \
         --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
    ```
 

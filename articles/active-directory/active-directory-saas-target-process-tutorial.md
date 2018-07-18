@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao TargetProcess | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o TargetProcess."
+title: 'Tutorial: integração do Azure Active Directory ao TargetProcess | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o TargetProcess.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 78d64f38edb07b9eeffbe444e8bf98845e2df8f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0f2dba144f0b7ff70e7c9996e82d0f841a76854b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: integração do Active Directory do Azure com o TargetProcess
 
@@ -30,9 +30,9 @@ A integração do TargetProcess ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar seus usuários a fazerem logon automaticamente no TargetProcess (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o TargetProcess, você precisa dos seguintes itens:
 
@@ -64,11 +64,11 @@ Para configurar a integração do TargetProcess ao Azure AD, você precisa adici
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **TargetProcess**, selecione **TargetProcess** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -97,7 +97,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **TargetProcess**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
@@ -142,7 +142,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 11. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_08.png)
+    ![Configurar o logon único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_08.png)
     
     a. Clique em **Habilitar Logon Único**.
     
@@ -236,7 +236,7 @@ Quando você clica no bloco TargetProcess no Painel de Acesso, você deve ser co
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

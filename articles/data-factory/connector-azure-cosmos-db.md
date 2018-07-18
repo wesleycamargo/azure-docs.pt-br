@@ -4,20 +4,20 @@ description: Saiba como copiar dados de armazenamentos de dados de origem com su
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB usando o Azure Data Factory
 
@@ -168,7 +168,6 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de coletor na atividade 
 |:--- |:--- |:--- |
 | Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **DocumentDbCollectionSink** |sim |
 | nestingSeparator |Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>Por exemplo, `Name.First` na estrutura do conjunto de dados de saída gera a seguinte estrutura JSON no documento do Cosmos DB:`"Name": {"First": "[value maps to this column from source]"}` quando o nestedSeparator é um ponto. |Não (o padrão é o ponto `.`) |
-| writeBatchTimeout |Tempo de espera para a operação ser concluída antes de atingir o tempo limite.<br/><br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não  |
 
 **Exemplo:**
 

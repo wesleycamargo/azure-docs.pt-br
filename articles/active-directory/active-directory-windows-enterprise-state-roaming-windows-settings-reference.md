@@ -1,9 +1,9 @@
 ---
-title: "Referência de configurações de roaming do Windows 10 | Microsoft Docs"
-description: "Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10."
+title: Referência de configurações de roaming do Windows 10 | Microsoft Docs
+description: Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10.
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159070"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -29,10 +30,10 @@ Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de cont
 
 | Tipo e operação de conta | Desktop | Móvel |
 | --- | --- | --- |
-| Active Directory do Azure: sincronização |Sim |Não |
-| Active Directory do Azure: backup/restauração |Não |Não |
-| Conta da Microsoft: sincronização |Sim |Sim |
-| Conta da Microsoft: backup/restauração |Não |Sim |
+| Active Directory do Azure: sincronização |sim |Não  |
+| Active Directory do Azure: backup/restauração |Não  |Não  |
+| Conta da Microsoft: sincronização |sim |sim |
+| Conta da Microsoft: backup/restauração |Não  |sim |
 
 ## <a name="what-is-backup"></a>O que é backup?
 As configurações do Windows geralmente são sincronizadas por padrão, mas algumas configurações são incluídas apenas no backup, como a lista de aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. O backup usa uma conta da Microsoft e armazena as configurações e dados do aplicativo no OneDrive. Se um usuário desabilitar a sincronização no dispositivo usando o aplicativo Configurações, os dados de aplicativo que normalmente são sincronizados se tornarão somente backup. Os dados de backup só podem ser acessados por meio da operação de restauração durante a primeira execução de um novo dispositivo. Os backups podem ser desabilitados por meio de configurações do dispositivo e podem ser gerenciados e excluídos por meio da conta do OneDrive do usuário.
@@ -47,11 +48,15 @@ Os grupos de configurações a seguir estão disponíveis para que os usuários 
 * Facilidade de Acesso: narrador, teclado virtual, lente de aumento 
 * Outras Configurações do Windows: veja Detalhes das configurações do Windows
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 A sincronização do grupo de configuração (favoritos, lista de leitura) do navegador Edge pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Edge.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Para Windows 10 versão 1803 ou posterior, a sincronização do grupo de configuração do Internet Explorer (favoritos, URLs digitadas) pode ser habilitada ou desabilitada por usuários finais através da opção de menu de configurações do Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Detalhes das configurações do Windows
 Na tabela a seguir, Outras entradas na coluna Grupo de Configurações refere-se às configurações que podem ser desabilitadas, vá para Configurações > Contas > Sincronizar as configurações > Outras configurações do Windows. 
@@ -69,18 +74,18 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
 | **Prompt de comando**: configurações “Padrão” do prompt de comando |sync |X | |
 | **Credenciais**: Cofre de Credenciais |sync |sync |Senha |
-| **Data, Hora e Região**: horário automático (sincronização de horário da Internet) |sync |sync |idioma |
-| **Data, Hora e Região**: relógio de 24 horas |sync |X |idioma |
-| **Data, Hora e Região**: data e hora |sync |X |idioma |
-| **Data, Hora e Região**: fuso horário | |X |idioma |
-| **Data, Hora e Região**: horário de verão |sync |X |idioma |
-| **Data, Hora e Região**: país/região |sync |X |idioma |
-| **Data, Hora e Região**: primeiro dia da semana |sync |X |idioma |
-| **Data, Hora e Região**: formato de região (localidade) |sync |X |idioma |
-| **Data, Hora e Região**: data abreviada |sync |X |idioma |
-| **Data, Hora e Região**: data longa |sync |X |idioma |
+| **Data, Hora e Região**: horário automático (sincronização de horário da Internet) |sync |sync |Linguagem |
+| **Data, Hora e Região**: relógio de 24 horas |sync |X |Linguagem |
+| **Data, Hora e Região**: data e hora |sync |X |Linguagem |
+| **Data, Hora e Região**: fuso horário | |X |Linguagem |
+| **Data, Hora e Região**: horário de verão |sync |X |Linguagem |
+| **Data, Hora e Região**: país/região |sync |X |Linguagem |
+| **Data, Hora e Região**: primeiro dia da semana |sync |X |Linguagem |
+| **Data, Hora e Região**: formato de região (localidade) |sync |X |Linguagem |
+| **Data, Hora e Região**: data abreviada |sync |X |Linguagem |
+| **Data, Hora e Região**: data longa |sync |X |Linguagem |
 | **Data, Hora e Região**: hora abreviada |sync |X |idioma |
-| **Data, Hora e Região**: hora longa |sync |X |idioma |
+| **Data, Hora e Região**: hora longa |sync |X |Linguagem |
 | **Personalização da área de trabalho**: tema da área de trabalho (tela de fundo, cor do sistema, sons do sistema padrão, proteção de tela) |sync |X |Tema |
 | **Personalização da área de trabalho**: papel de parede de apresentação de slides |sync |X |Tema |
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
@@ -115,27 +120,27 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Teclado**: ativar adesivo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de filtro (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de alternância (desativado por padrão) |sync |X |facilidade de acesso |
-| **Internet Explorer**: idioma do domínio: chinês (CHS) QWERTY - habilitar a aprendizagem automática |sync |X |idioma |
-| **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |idioma |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |idioma |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |idioma |
+| **Internet Explorer**: idioma do domínio: chinês (CHS) QWERTY - habilitar a aprendizagem automática |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |Linguagem |
 | **Idioma**: CHS QWERTY - pinyin difuso |sync |backup |Linguagem |
 | **Idioma**: CHS QWERTY - pares difusos |sync |backup |Linguagem |
-| **Idioma**: CHS QWERTY - pinyin completo |sync |X |idioma |
-| **Idioma**: CHS QWERTY - pinyin duplo |sync |X |idioma |
-| **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |idioma |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |idioma |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |idioma |
-| **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |idioma |
+| **Idioma**: CHS QWERTY - pinyin completo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - pinyin duplo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |Linguagem |
+| **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |Linguagem |
 | **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |idioma |
 | **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
-| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |idioma |
-| **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |idioma |
-| **Idioma**: IME coreano (KOR) |X |X |idioma |
-| **Idioma**: reconhecimento de manuscrito |X |X |idioma |
-| **Idioma**: perfil de idioma |sync |backup |idioma |
-| **Idioma**: verificação ortográfica - autocorreção e realçar erros de ortografia |sync |backup |idioma |
-| **Idioma**: lista de teclados |sync |backup |idioma |
+| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |Linguagem |
+| **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |Linguagem |
+| **Idioma**: IME coreano (KOR) |X |X |Linguagem |
+| **Idioma**: reconhecimento de manuscrito |X |X |Linguagem |
+| **Idioma**: perfil de idioma |sync |backup |Linguagem |
+| **Idioma**: verificação ortográfica - autocorreção e realçar erros de ortografia |sync |backup |Linguagem |
+| **Idioma**: lista de teclados |sync |backup |Linguagem |
 | **Tela de bloqueio**: todas as configurações de tela de bloqueio |X |X | |
 | **Lupa**: ativada ou desativada (alternância mestre) |X |X |facilidade de acesso |
 | **Lupa**: ativar ou desativar a cor de inversão (desativado por padrão) |sync |X |facilidade de acesso |
@@ -158,16 +163,16 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Facilidade de acesso**: remover as imagens da tela de fundo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Ligar e Suspensão**: todas as configurações |X |X | |
 | **Iniciar a personalização de tela**: cor de ênfase (apenas telefone) |X |sync |Tema |
-| **Digitação**: dicionário de ortografia |sync |backup |idioma |
-| **Digitação**: autocorreção de palavra incorreta |sync |backup |idioma |
-| **Digitação**: realçar as palavras incorretas |sync |backup |idioma |
-| **Digitação**: mostrar sugestões de texto ao digitar |sync |backup |idioma |
-| **Digitação**: adicionar um espaço depois de escolher uma sugestão de texto |sync |backup |idioma |
-| **Digitação**: adicionar um ponto depois de um toque duplo na barra de espaços |sync |backup |idioma |
-| **Digitação**: colocar a primeira letra de cada frase em maiúscula |sync |backup |idioma |
-| **Digitação**: usar todas as letras maiúsculas quando tocar duas vezes na tecla shift |sync |backup |idioma |
-| **Digitação**: tocar sons de tecla ao digitar |sync |backup |idioma |
-| **Digitação**: dados de personalização para teclado de toque |sync |backup |idioma |
+| **Digitação**: dicionário de ortografia |sync |backup |Linguagem |
+| **Digitação**: autocorreção de palavra incorreta |sync |backup |Linguagem |
+| **Digitação**: realçar as palavras incorretas |sync |backup |Linguagem |
+| **Digitação**: mostrar sugestões de texto ao digitar |sync |backup |Linguagem |
+| **Digitação**: adicionar um espaço depois de escolher uma sugestão de texto |sync |backup |Linguagem |
+| **Digitação**: adicionar um ponto depois de um toque duplo na barra de espaços |sync |backup |Linguagem |
+| **Digitação**: colocar a primeira letra de cada frase em maiúscula |sync |backup |Linguagem |
+| **Digitação**: usar todas as letras maiúsculas quando tocar duas vezes na tecla shift |sync |backup |Linguagem |
+| **Digitação**: tocar sons de tecla ao digitar |sync |backup |Linguagem |
+| **Digitação**: dados de personalização para teclado de toque |sync |backup |Linguagem |
 | **Wi-Fi**: perfis de Wi-Fi (somente WPA) |sync |sync |Senhas |
 
 ###### <a name="footnote-1"></a>Nota de rodapé 1

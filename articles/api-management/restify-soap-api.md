@@ -1,11 +1,11 @@
 ---
 title: Importar uma API SOAP e converter em REST usando o Portal do Azure | Microsoft Docs
-description: "Saiba como importar uma API SOAP e convertê-la em REST com o Gerenciamento de API."
+description: Saiba como importar uma API SOAP e convertê-la em REST com o Gerenciamento de API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 74935f11d5bf3c83aef46c1d41fccd81ad312acb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importar uma API SOAP e converter em REST
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a:
 > * Testar a API no Portal do Azure
 > * Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
 
@@ -53,13 +53,13 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
 6. Adicione um sufixo da URL da API. O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.
 9. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
 
-    Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, você já é um administrador e, portanto, está inscrito em todos os produtos por padrão.
+    Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.
 
     Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web:
 
     * **Inicial**
     * **Ilimitado**   
-10. Selecione **Criar**.
+10. Clique em **Criar**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testar a nova API do APIM no portal do Azure
 

@@ -1,5 +1,5 @@
 ---
-title: "Bibliotecas de conexão para o Banco de Dados do Azure para MySQL"
+title: Bibliotecas de conexão para o Banco de Dados do Azure para MySQL
 description: Este artigo lista cada biblioteca ou driver que os programas de cliente podem usar ao se conectarem ao Banco de Dados do Azure para MySQL.
 services: mysql
 author: mswutao

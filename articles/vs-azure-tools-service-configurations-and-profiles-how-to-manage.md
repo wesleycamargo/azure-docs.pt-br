@@ -1,24 +1,21 @@
 ---
-title: "Como gerenciar perfis e configurações de serviço | Microsoft Docs"
-description: "Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem."
+title: Como gerenciar perfis e configurações de serviço | Microsoft Docs
+description: Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem.
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: 7da8c551-fb06-4057-b5c7-c77f4b39d803
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 7da8c551-fb06-4057-b5c7-c77f4b39d803
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/11/2017
-ms.author: kraigb
-ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 4f2dce7cdbf81718f9ccf0c1b7d52c6678cc847f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Como gerenciar perfis e configurações de serviço
 ## <a name="overview"></a>Visão geral

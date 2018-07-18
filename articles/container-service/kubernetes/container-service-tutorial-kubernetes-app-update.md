@@ -1,19 +1,19 @@
 ---
-title: "Tutorial do Serviço de Contêiner do Azure – atualizar aplicativo"
-description: "Tutorial do Serviço de Contêiner do Azure – atualizar aplicativo"
+title: Tutorial do Serviço de Contêiner do Azure – atualizar aplicativo
+description: Tutorial do Serviço de Contêiner do Azure – atualizar aplicativo
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f54179329b521cc861e90f023ff0b010b7ce1f75
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Atualizar um aplicativo no Kubernetes
 
@@ -29,7 +29,7 @@ Neste tutorial, parte seis de sete, o aplicativo de exemplo Azure Vote é atuali
 > * Enviando a imagem de contêiner por push para o Registro de Contêiner do Azure
 > * Implantando a imagem de contêiner atualizada
 
-Nos tutoriais subsequentes, o Operations Management Suite é configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -166,7 +166,7 @@ Neste tutorial, você atualizou um aplicativo e distribuiu essa atualização pa
 > * Enviamos a imagem de contêiner por push para o Registro de Contêiner do Azure
 > * Implantamos o aplicativo atualizado
 
-Avance para o próximo tutorial para saber mais sobre como monitorar o Kubernetes com o Operations Management Suite.
+Avance para o próximo tutorial para saber mais sobre como monitorar o Kubernetes com o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitorar o Kubernetes com o OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitorar Kubernetes com o Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

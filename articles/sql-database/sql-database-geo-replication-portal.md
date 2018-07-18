@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/06/2016
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 33e67c9415ddf3504d593858d56f15cdc7282d69
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89839d18e90a75f81e78edcb7f54e77a31ea4886
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187184"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
@@ -33,7 +34,7 @@ As etapas a seguir criam um novo banco de dados secundário em uma parceria de r
 
 Para adicionar um banco de dados secundário, você deve ser o proprietário ou coproprietário da assinatura.
 
-O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem o mesmo nível de serviço. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Camadas de serviço](sql-database-service-tiers.md).
+O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem o mesmo nível de serviço. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 Depois que o banco de dados secundário for criado e propagado, os dados começarão a serem replicados desde o banco de dados primário até o novo banco de dados secundário.
 
 > [!NOTE]

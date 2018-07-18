@@ -1,24 +1,24 @@
 ---
-title: "Replicar um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como replicar um aplicativo do SharePoint de várias camadas usando funcionalidades do Azure Site Recovery."
+title: Replicar um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como replicar um aplicativo do SharePoint de várias camadas usando funcionalidades do Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 05/02/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: de787ec5078d4cec53bcd2fcc24129e651c711bc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar um aplicativo do SharePoint de várias camadas para recuperação de desastre usando funcionalidades do Azure Site Recovery
 
@@ -53,7 +53,7 @@ Antes de começar, você precisa entender o seguinte:
 
 ## <a name="sharepoint-architecture"></a>Arquitetura do SharePoint
 
-O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que cumpra metas e objetivos específicos. Um farm grande e de alta demanda típico do SharePoint Server, que dá suporte a um grande número de usuários simultâneos e um grande número de itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, agrupando esses serviços e depois expandindo os servidores como um grupo. A topologia a seguir ilustra o serviço agrupamento de serviços e servidores para um farm do SharePoint Server de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 [neste documento](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

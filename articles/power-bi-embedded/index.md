@@ -1,22 +1,22 @@
 ---
-title: "Documentação do Power BI Embedded do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como incorporar relatórios interativos e visualizações de dados do Power BI em aplicativos. Tutoriais, referências de API e outras documentações."
+title: Documentação do Power BI Embedded do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba como incorporar relatórios interativos e visualizações de dados do Power BI em aplicativos. Tutoriais, referências de API e outras documentações.
 services: power-bi-embedded
-author: czeumault
-manager: carolz
+author: markingmyname
+manager: kfile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/28/2017
-ms.author: carolz
-ms.openlocfilehash: d8e1fafe9b3fecc9822ef6f25d8c527eebe586cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 9f1c80bd0274a9d606e69b19170c62337b68c74a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
 
@@ -134,7 +134,8 @@ Saiba como adicionar relatórios interativos e visualizações de dados para apl
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">referência da API REST (a página pode estar em inglês)</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/power-bi-embedded/">Referência de API REST do Azure Resource Manager</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt147898.aspx">Referência da API REST</a></p>
                     </div>
                 </div>
             </div>

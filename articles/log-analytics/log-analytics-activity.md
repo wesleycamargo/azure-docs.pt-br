@@ -1,24 +1,24 @@
 ---
 title: Coletar e analisar logs de atividades do Azure no Log Analytics | Microsoft Docs
-description: "Você pode usar a solução de Logs de atividade do Azure para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure."
+description: Você pode usar a solução de Logs de atividade do Azure para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Coletar e analisar os logs de atividades do Azure no Log Analytics
 
@@ -40,7 +40,7 @@ Quando você conecta os logs de atividades do Azure ao Log Analytics, é possív
 - Identificar problemas de integridade ou interrupção de serviço que afetam os recursos
 - Usar pesquisa de logs para correlacionar atividades do usuário, operações de dimensionamento automático, alterações de autorização e integridade do serviço a outros logs ou métricas do seu ambiente
 
-<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de espaço de trabalho inferior a 90 dias. Se o seu espaço de trabalho tiver retenção superior a 90 dias, os logs da atividade serão mantidos durante o período de retenção do espaço de trabalho.
+<sup>1</sup>Por padrão, o Log Analytics mantém os logs de atividade do Azure por 90 dias, mesmo que você esteja na camada gratuita. Ou, se você tiver uma configuração de retenção de espaço de trabalho inferior a 90 dias. Se o espaço de trabalho tiver retenção com mais de 90 dias, os logs de atividades serão mantidos com base no período de retenção do espaço de trabalho.
 
 O Log Analytics coleta os logs de atividade e os armazena por 90 dias gratuitamente. Se você armazenar os logs por mais de 90 dias, incorrerá em encargos de retenção de dados para os dados armazenados por mais de 90 dias.
 

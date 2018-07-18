@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento de blobs e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Como começar a usar o Armazenamento de Blobs do Azure em um projeto do ASP.NET Core no Visual Studio após a criação de uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: Introdução ao armazenamento de blobs e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Como começar a usar o Armazenamento de Blobs do Azure em um projeto do ASP.NET Core no Visual Studio após a criação de uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 566e2edc0157ccd02e0b44ae7df86c4b484858b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET Core)
 
@@ -28,7 +25,7 @@ Este artigo descreve como começar a usar o armazenamento de Blobs do Azure no V
 
 Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos. Este artigo descreve como começar a usar o armazenamento de blobs depois de criar uma conta de armazenamento do Azure usando o recurso **Serviços Conectados** do Visual Studio em um projeto do ASP.NET Core.
 
-Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Consulte [Introdução ao Armazenamento de Blobs do Azure usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para obter mais informações sobre como manipular blobs com programação.
+Assim como arquivos residem em pastas, blobs de armazenamento residem em contêineres. Após ter criado um blob, crie um ou mais contêineres nesse blob. Por exemplo, em um blob chamado "Scrapbook", você pode criar contêineres chamados "imagens" para armazenar fotos e "áudio" para armazenar arquivos de áudio. Depois de criar os contêineres, você poderá carregar arquivos individuais para eles. Consulte [Início rápido: Upload, download e blobs de lista usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) para obter mais informações sobre como manipular blobs com programação.
 
 Algumas das APIs de armazenamento do Azure são assíncronas e o código neste artigo supõe que os métodos assíncronos estejam sendo usados. Confira [Programação assíncrona](https://docs.microsoft.com/dotnet/csharp/async) para saber mais.
 
@@ -141,7 +138,7 @@ do
 } while (token != null);
 ```
 
-Veja [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para saber outras formas de listar o conteúdo de um contêiner de blob.
+Consulte [Início rápido: Upload e download e listar blobs usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) para outras formas de listar o conteúdo de um contêiner de blob.
 
 ## <a name="download-a-blob"></a>Baixar um blob
 
@@ -158,7 +155,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Veja [Introdução ao Armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) para obter outras maneiras de salvar blobs como arquivos.
+Consulte [Início rápido: Upload e download e listar blobs usando o .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) para outras formas de salvar blobs como arquivos.
 
 ## <a name="delete-a-blob"></a>Excluir um blob
 

@@ -1,11 +1,11 @@
 ---
 title: Otimizar sua VM Linux no Azure | Microsoft Docs
-description: "Saiba algumas dicas de otimização para certificar-se de que você configurou sua VM do Linux para otimizar o desempenho no Azure"
-keywords: "máquina virtual linux, linux máquina virtual, máquina virtual ubuntu"
+description: Saiba algumas dicas de otimização para certificar-se de que você configurou sua VM do Linux para otimizar o desempenho no Azure
+keywords: máquina virtual linux, linux máquina virtual, máquina virtual ubuntu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
 É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como garantir que você configurou uma VM para otimizar o desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -132,6 +132,6 @@ Lembre-se de que, como com todas as discussões de otimização, você precisar�
 Alguns links úteis para recursos adicionais: 
 
 * [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](premium-storage.md)
-* [Guia do usuário do agente Linux para o Azure](agent-user-guide.md)
+* [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md)
 * [Otimizando o desempenho do MySQL nas VMs Linux do Azure](classic/optimize-mysql.md)
 * [Configurar RAID de software no Linux](configure-raid.md)

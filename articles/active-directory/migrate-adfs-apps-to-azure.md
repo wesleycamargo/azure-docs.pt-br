@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 5eb562901d73974765878024b1107e3b75e9abb5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 93282f3d4a7ca84e59fa8831d5eb650a643d1e83
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
 
@@ -230,10 +230,10 @@ Por causa da configuração criada anteriormente em **Identidade** > **Configura
 ![Selecionando o Azure AD como serviço de autenticação](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: configurar provisionamento de usuários no Azure AD
-Se você quiser que o Azure AD trate diretamente do provisionamento de usuários para um aplicativo SaaS, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
+Se você quiser que o Azure AD trate diretamente do provisionamento de usuários para um aplicativo SaaS, confira [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+- [Gerenciando aplicativos com o Azure Active Directory](manage-apps/what-is-application-management.md)
 - [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 - [Federação do Azure AD Connect](active-directory-aadconnectfed-whatis.md)

@@ -1,25 +1,23 @@
 ---
-title: "Cliente HBase Java – Azure HDInsight | Microsoft Docs"
-description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure."
+title: Cliente HBase Java – Azure HDInsight | Microsoft Docs
+description: Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
-editor: 
+editor: ''
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/25/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 564bfb9c80fe835bd5defb4321607e0970c9f0aa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
@@ -43,9 +41,6 @@ As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e c
 * [Maven](http://maven.apache.org/)
 
 * [Um cluster HDInsight do Azure baseado em Linux com HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > As etapas neste documento foram testadas com as versões 3.4 e 3.5 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se um cluster HDInsight 3.5.
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -576,7 +571,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
         $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
         }
     }
 

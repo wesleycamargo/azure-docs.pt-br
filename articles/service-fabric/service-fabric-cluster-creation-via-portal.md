@@ -3,27 +3,27 @@ title: Criar um cluster do Service Fabric no portal do Azure | Microsoft Docs
 description: Este artigo descreve como configurar um cluster seguro do Service Fabric no Azure usando o portal do Azure e o Cofre de Chaves do Azure.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: vturecek
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
-ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: aljo
+ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -52,7 +52,7 @@ Para servir a essas finalidades, o certificado deverá atender a estes requisito
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
-* O nome de assunto  **do certificado deve corresponder ao domínio**  usado para acessar o cluster do Service Fabric. Isso é necessário para fornecer SSL para pontos de extremidade de gerenciamento de HTTPS e Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio `.cloudapp.azure.com` . Adquira um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
+* O nome de assunto **do certificado deve corresponder ao domínio** usado para acessar o cluster do Service Fabric. Isso é necessário para fornecer SSL para pontos de extremidade de gerenciamento de HTTPS e Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio `.cloudapp.azure.com` . Adquira um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticação de cliente
 Os certificados de cliente adicionais autenticam os administradores para tarefas de gerenciamento de cluster. O Service Fabric tem dois níveis de acesso: **administrador** e **usuário somente leitura**. No mínimo, um único certificado para acesso administrativo deve ser usado. Para acesso de nível de usuário adicional, deve ser fornecido um certificado diferente. Para obter mais informações sobre as funções de acesso, consulte [Controle de acesso baseado em função para clientes do Service Fabric][service-fabric-cluster-security-roles].
@@ -131,7 +131,7 @@ Configure os nós de cluster. Os tipos de nó definem os tamanhos e o número de
 
 Para facilitar a configuração de um cluster de teste seguro para você, oferecemos a opção **Básica**. Se você já tiver um certificado e o tiver carregado no cofre de chaves (e o habilitado para implantação), use a opção **Personalizada**
 
-#####<a name="basic-option"></a>Opção Básica
+##### <a name="basic-option"></a>Opção Básica
 Siga as telas para adicionar ou reutilizar um cofre de chaves existente e adicionar um certificado. A adição do certificado é um processo síncrono e, por isso, você terá que aguardar a criação do certificado.
 
 
@@ -151,7 +151,7 @@ Agora você está pronto para continuar o restante do processo de criação do c
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Opção Personalizada
+##### <a name="custom-option"></a>Opção Personalizada
 Ignore esta seção, caso você já tenha realizado as etapas na opção **Básica**.
 
 ![SecurityCustomOption]

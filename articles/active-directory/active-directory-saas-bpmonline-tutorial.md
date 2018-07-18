@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Bpm’online | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Bpm’online."
+title: 'Tutorial: Integração do Azure Active Directory com o Bpm’online | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Bpm’online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e3cf8b9931665305baa4dc0968cb24394ba7d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integração do Azure Active Directory ao Bpm’online
 
@@ -30,9 +30,9 @@ A integração do Bpm’online ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que usuários façam logon automaticamente no Bpm’online (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Bpm’online, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Bpm’online a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-bpmonline-from-the-gallery"></a>Adicionando o Bpm’online a partir da galeria
 Para configurar a integração do Bpm’online ao Azure AD, você precisa adicionar o Bpm’online a partir da galeria à sua lista de aplicativos de SaaS gerenciados.
@@ -101,7 +101,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. Na seção **Domínio e URLs do Bpm’online**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
@@ -118,37 +118,18 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<client site name>.bpmonline.com/`
      
-    > [!NOTE] 
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte do Cliente Bpm’online](mailto:support@bpmonline.com) para obter esses valores. 
 
-5. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
+5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
     
-    ![Configurar Logon Único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar Logon Único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Configurar o logon único](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Agora, acesse a página de propriedades do **Bpm’online** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
-8. Para configurar o logon único no lado do **Bpm’online**, é necessário enviar o **URL de metadados** para a [equipe de suporte do Bpm’online](mailto:support@bpmonline.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Para configurar logon único no **Bpm’online**, é necessário enviar a **URL de metadados de federação do aplicativo** para a [Equipe de suporte do Bpm’online](mailto:support@bpmonline.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -226,7 +207,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

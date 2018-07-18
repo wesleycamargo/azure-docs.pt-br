@@ -1,24 +1,24 @@
 ---
 title: Gerenciamento de registros
-description: "Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push."
+description: Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="registration-management"></a>Gerenciamento de registros
 ## <a name="overview"></a>Visão geral
@@ -37,12 +37,12 @@ A seguir, algumas vantagens importantes do uso de instalações:
 
 * A criação ou atualização de uma instalação é totalmente idempotente. Portanto, você pode repetir sem as preocupações com registros duplicados.
 * O modelo de instalação facilita a realização de envios individuais por push - direcionando a um dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Portanto, você pode chamar um envio para essa marca a fim de direcionar a um dispositivo específico sem precisar fazer qualquer codificação adicional.
-* O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
+* O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Criar ou Sobrescrever uma Instalação com REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para o .
+Uma instalação pode conter as seguintes propriedades. Para obter uma listagem completa das propriedades da instalação, consulte [Criar ou substituir uma instalação com API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
-    {
+    {,
         installationId: "",
         expirationTime: "",
         tags: [],
@@ -87,7 +87,7 @@ Se você quiser usar [Modelos](notification-hubs-templates-cross-platform-push-m
 Observe que cada nome de modelo é mapeado para um corpo de modelo e um conjunto opcional de marcas. Além disso, cada plataforma pode ter propriedades adicionais de modelo. Para a Windows Store (usando WNS) e o Windows Phone 8 (usando MPNS), um conjunto adicional de cabeçalhos pode fazer parte do modelo. No caso dos APNs, você pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para obter uma lista completa de propriedades de instalação, confira o tópico [Criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) .
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Blocos secundários para aplicativos da Windows Store
-Para aplicativos cliente da Windows Store, o envio de notificações para blocos secundários é igual ao envio delas ao bloco primário. Isso também tem suporte nas instalações. Observe que os blocos secundários têm um ChannelUri diferente, o qual o SDK no aplicativo cliente trata de forma transparente.
+Para aplicativos cliente da Windows Store, o envio de notificações para blocos secundários é igual ao envio delas ao bloco primário. Isso também tem suporte nas instalações. Os blocos secundários têm um ChannelUri diferente, o qual o SDK no aplicativo cliente trata de forma transparente.
 
 O dicionário SecondaryTiles usa o mesmo TileId usado para criar o objeto SecondaryTiles em seu aplicativo da Windows Store.
 Assim como acontece com o ChannelUri primário, os ChannelUris de blocos secundários podem ser alterados a qualquer momento. Para manter as instalações no hub de notificação atualizadas, o dispositivo deve atualizá-las com os ChannelUris atuais dos blocos secundários.
@@ -98,7 +98,7 @@ Ao gerenciar o registro de dispositivos de aplicativos cliente, o back-end é re
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 Primeiro, o dispositivo recupera o identificador PNS do PNS e registra diretamente com o hub de notificação. Após a conclusão do registro, o back-end do aplicativo pode enviar uma notificação visando esse registro. Para saber mais sobre como enviar notificações, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md).
-Observe que, nesse caso, você usará apenas direitos de Escuta para acessar os hubs de notificação do dispositivo. Para saber mais, consulte [Segurança](notification-hubs-push-notification-security.md).
+Nesse caso, você usará apenas direitos de Escuta para acessar os hubs de notificação do dispositivo. Para saber mais, consulte [Segurança](notification-hubs-push-notification-security.md).
 
 O registro do dispositivo é o método mais simples, mas tem algumas desvantagens.
 A primeira desvantagem é que um aplicativo cliente só pode atualizar suas marcas quando está ativo. Por exemplo, se um usuário tiver dois dispositivos que registram marcas relacionadas a equipes esportivas, quando o primeiro dispositivo registrar-se para uma marca adicional (por exemplo, Seahawks), o segundo dispositivo não receberá notificações sobre o Seahawks até que o aplicativo no segundo dispositivo seja executado uma segunda vez. Normalmente, quando as marcas são afetadas por vários dispositivos, o gerenciamento das marcas do back-end é uma opção desejável.
@@ -293,7 +293,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exemplo de código para registrar com um hub de notificação de um dispositivo usando uma ID de registro
-No back-end do aplicativo, você pode executar operações básicas de CRUDS nos registros. Por exemplo:
+No back-end do aplicativo, você pode executar operações básicas de CRUDS nos registros. Por exemplo: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 

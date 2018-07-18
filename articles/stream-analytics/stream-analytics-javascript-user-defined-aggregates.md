@@ -1,24 +1,19 @@
 ---
-title: "Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics | Microsoft Docs"
-description: "Executar o mecanismo de consulta avançada com agregações definidas pelo usuário do JavaScript"
-keywords: "javascript, agregações definidas pelo usuário, uda"
+title: Agregações do JavaScript definidas pelo usuário no Azure Stream Analytics
+description: Este artigo descreve como executar a mecânica de consulta avançada com agregações definidas pelo usuário do JavaScript no Azure Stream Analytics.
 services: stream-analytics
 author: minhe-msft
-manager: santoshb
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/28/2017
 ms.author: minhe
-ms.openlocfilehash: b3863a34ed146e54c6d60e035957b942a1976ff9
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+manager: santoshb
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/28/2017
+ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agregações definidas pelo usuário do JavaScript do Azure Stream Analytics (Versão prévia)
 
@@ -179,7 +174,7 @@ Agora vamos criar uma UDA do JavaScript em um trabalho ASA existente seguindo as
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chamando a UDA do JavaScript em uma consulta ASA
 
-No Portal do Azure, abra seu trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem “uda.”. Por exemplo:
+No Portal do Azure, abra seu trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem “uda.”. Por exemplo: 
 
 ````SQL
 WITH value AS
@@ -231,7 +226,7 @@ Crie um arquivo JSON local com o conteúdo abaixo, carregue o arquivo para o tra
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
 

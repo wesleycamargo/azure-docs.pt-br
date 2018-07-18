@@ -1,62 +1,65 @@
 ---
 title: Criar um servidor do Analysis Services no Azure | Microsoft Docs
-description: "Saiba como criar uma instância do servidor do Analysis Services no Azure."
-services: analysis-services
-documentationcenter: 
+description: Saiba como criar uma instância do servidor do Analysis Services no Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: owend
-ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: c49e886ee5b980e8fd059d72eb2e4a3f0dc895c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150013"
 ---
-# <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Criar um servidor do Azure Analysis Services no portal do Azure
+# <a name="create-an-analysis-services-server-in-azure-portal"></a>Criar um servidor do Analysis Services no portal do Azure
 Este artigo orienta você pela criação de um recurso de servidor do Analysis Services em sua assinatura do Azure.
 
-## <a name="before-you-begin"></a>Antes de começar
-Para concluir este início rápido, você precisa de:
+Antes de começar, você precisa de: 
 
 * **Assinatura do Azure**: visite a [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-* **Azure Active Directory**: sua assinatura deve estar associada a um locatário do Azure Active Directory. Também é preciso estar conectado ao Azure com uma conta no Azure Active Directory em questão. Não há suporte para contas da Microsoft. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
-* **Grupo de recursos**: use um grupo de recursos que você já tem ou [crie um novo](../azure-resource-manager/resource-group-overview.md).
+* **Azure Active Directory**: sua assinatura deve estar associada a um locatário do Azure Active Directory. Também é preciso estar conectado ao Azure com uma conta no Azure Active Directory em questão. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
-> [!NOTE]
-> Criar um servidor pode resultar em um novo serviço faturável. Para saber mais, veja [Preços do Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
-> 
-> 
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure 
 
-## <a name="to-create-a-server-in-azure-portal"></a>Para criar um servidor no portal do Azure
-1. Entre no [Portal do Azure](https://portal.azure.com).  
-2. Clique em **+ Novo** > **Dados + Análise** > **Analysis Services**.
-3. Na folha **Analysis Services**, preencha os campos obrigatórios e pressione **Criar**.
+Faça logon no [Portal do Azure](https://portal.azure.com)
+
+
+## <a name="create-a-server"></a>Criar um servidor
+
+1. Clique em **+ Criar um recurso** > **Dados + Análise** > **Analysis Services**.
+
+    ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
+
+2. Em **Analysis Services**, preencha os campos obrigatórios e pressione **Criar**.
    
     ![Criar servidor](./media/analysis-services-create-server/aas-create-server-blade.png)
    
    * **Nome do servidor**: digite um nome exclusivo usado para fazer referência ao servidor.
-   * **Assinatura**: selecione a assinatura para a qual este servidor é cobrado.
-   * **Grupo de recursos**: esses contêineres são projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Para saber mais, veja [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
+   * **Assinatura**: selecione a assinatura a qual o servidor será associado.
+   * **Grupo de recursos**: crie um novo grupo de recursos ou selecione um que você já tenha. Os grupo de recursos são projetados para ajudar você a gerenciar uma coleção de recursos do Azure. Para saber mais, veja [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
    * **Local**: local do datacenter do Azure que hospeda o servidor. Escolha um local mais próximo da sua maior base de usuários.
-   * **Tipo de preço**: selecione um tipo de preço. Há suporte para modelos tabulares até de 400 GB. Para saber mais, veja [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
-4. Clique em **Criar**.
+   * **Tipo de preço**: selecione um tipo de preço. Se você estiver testando e pretende instalar o banco de dados do modelo de exemplo, selecione a camada gratuita **D1**. Para saber mais, veja [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
+    * **Administrador**: por padrão, essa será a conta com a qual você entrou. Você pode escolher uma conta diferente no Microsoft Azure Active Directory.
+    * **Configuração de armazenamento de backup**: opcional. Se você já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), você pode especificá-la como o padrão para o backup do banco de dados de modelo. Você também pode especificar a configuração de [backup e restauração](analysis-services-backup.md) mais tarde.
+    * **Expiração da chave de armazenamento**: opcional. Especifique um período de expiração para a chave de armazenamento.
+3. Clique em **Criar**.
 
-Normalmente, a criação demora menos de um minuto; com frequência, apenas alguns segundos. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
+Criar geralmente leva menos de um minuto. Se você tiver selecionado **Adicionar ao Portal**, navegue até o portal para ver o novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
 
- ![painel](./media/analysis-services-create-server/aas-create-server-dashboard.png)
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando não for mais necessário, exclua o seu servidor. Em **Visão geral**, clique em **Excluir**. 
+
+ ![Limpeza](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de ter criado seu servidor, você poderá [implantar um modelo](analysis-services-deploy.md) a ele usando o SSDT ou com o SSMS.
 
-Se um modelo implantado em seu servidor se conectar às fontes de dados locais, você precisará instalar um [Gateway de dados local](analysis-services-gateway.md) em um computador em sua rede.
+[Adicionar um modelo de dados de exemplo](analysis-services-create-sample-model.md) ao seu servidor.  
+[Instalar um gateway de dados local](analysis-services-gateway-install.md) se seu modelo de dados se conecta a fontes de dados local.  
+[Implantar um projeto de modelo de tabela](analysis-services-deploy.md) do Visual Studio.   
+
 

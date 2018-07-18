@@ -25,9 +25,15 @@
 ### Balanceador de carga
 #### [O que é o Balanceador de carga?](../load-balancer/load-balancer-standard-overview.md)
 #### [Zonas de disponibilidade e padrão do balanceador de carga](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Criar um Load Balancer Standard público com redundância de zona com o Portal do Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [Criar um Load Balancer Standard público com redundância de zona com o PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [Criar um Load Balancer Standard público com redundância de zona com a CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Criar um Balanceador de Carga Padrão público e redundante da zona](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Criar um Balanceador de Carga Padrão público e redundante da zona (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Criar um Balanceador de Carga Padrão público e redundante da zona (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Criar um Balanceador de Carga Padrão público e da zona](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Criar um Balanceador de Carga Padrão público e da zona (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Criar um Balanceador de Carga Padrão público e redundante da zona (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [VMs com balanceamento de carga entre zonas de disponibilidade](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [VMs com balanceamento de carga entre zonas de disponibilidade com Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Endereço IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [Zonas de disponibilidade com o Banco de Dados SQL](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Armazenamento
-#### [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
 
 # Recuperação de desastre
 ## [Usar o Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

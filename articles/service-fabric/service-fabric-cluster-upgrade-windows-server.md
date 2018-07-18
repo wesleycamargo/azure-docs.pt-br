@@ -1,24 +1,24 @@
 ---
-title: "Atualizar um cluster autônomo do Azure Service Fabric no Windows Server | Microsoft Docs"
-description: "Atualize o código do Azure Service Fabric e/ou a configuração que executa um cluster do Service Fabric autônomo, incluindo a configuração de modo de atualização de cluster."
+title: Atualizar um cluster autônomo do Azure Service Fabric no Windows Server | Microsoft Docs
+description: Atualize o código do Azure Service Fabric e/ou a configuração que executa um cluster do Service Fabric autônomo, incluindo a configuração de modo de atualização de cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Atualizar seu cluster do Azure Service Fabric autônomo no Windows Server 
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Modifique a configuração do cluster para definir a propriedade a seguir como *
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Para obter detalhes de uso, confira o [Comando Start-ServiceFabricClusterConfigurationUpgrade do PowerShell](https://msdn.microsoft.com/en-us/library/mt788302.aspx). Certifique-se de atualizar “clusterConfigurationVersion” no JSON antes de iniciar a atualização de configuração.
+Para obter detalhes de uso, confira o [Comando Start-ServiceFabricClusterConfigurationUpgrade do PowerShell](https://msdn.microsoft.com/library/mt788302.aspx). Certifique-se de atualizar “clusterConfigurationVersion” no JSON antes de iniciar a atualização de configuração.
 
 ```powershell
 

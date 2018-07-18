@@ -1,11 +1,11 @@
 ---
 title: Copiar dados de fontes HTTP usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados de uma fonte HTTP local ou de nuvem para armazenamentos de dados de coletor com suporte, usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados de uma fonte HTTP local ou de nuvem para armazenamentos de dados de coletor com suporte, usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto de extremidade HTTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ Especificamente, este conector de HTTP dá suporte à:
 - Cópia da resposta de HTTP no estado em que se encontra ou a análise dela com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 A diferença entre esse conector e o [Conector de tabela da Web](connector-web-table.md) é que o segundo é usado para extrair o conteúdo de tabela da página HTML da Web.
+
+>[!TIP]
+>Para testar a solicitação HTTP para a recuperação de dados antes de configurar o conector HTTP no ADF, você pode aprender com a especificação de API nos requisitos de cabeçalho e corpo e usar ferramentas como Postman ou navegador da web para validar.
 
 ## <a name="getting-started"></a>Introdução
 

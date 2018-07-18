@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre o Azure Data Factory, um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados."
+title: Introdução ao Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre o Azure Data Factory, um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Após os dados estarem presentes num repositório de dados central na nuvem, pro
 Após os dados brutos terem sido refinados para uma forma consumível pronta para negócios, carregue-os no Data Warehouse do Azure, Banco de Dados SQL do Azure, Azure CosmosDB ou qualquer mecanismo analítico para o qual os seus usuários empresariais possam apontar a partir de suas respectivas ferramentas de business intelligence.
 
 ### <a name="monitor"></a>Monitoramento
-Após ter criado e implantado com sucesso o pipeline de integração de dados, fornecendo valor empresarial a partir de dados refinados, monitore as atividades e pipelines agendados para saber as taxas de sucesso e falha. O Azure Data Factory possui suporte integrado para monitoramento de pipeline através do Azure Monitor, API, PowerShell, Microsoft Operations Management Suite e painéis de integridade no portal do Azure.
+Após ter criado e implantado com sucesso o pipeline de integração de dados, fornecendo valor empresarial a partir de dados refinados, monitore as atividades e pipelines agendados para saber as taxas de sucesso e falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, do Log Analytics e dos painéis de integridade no Portal do Azure.
 
 ## <a name="top-level-concepts"></a>Conceitos de nível superior
 Uma assinatura do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou data factories). O Azure Data Factory é composto de quatro componentes principais. Esses componentes trabalham juntos para oferecer a plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para mover e transformar dados.

@@ -1,24 +1,24 @@
 ---
 title: Todos os artigos sobre gerenciamento de aplicativos no Active Directory do Azure | Microsoft Azure
-description: "Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve."
+description: Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -30,9 +30,9 @@ Os artigos a seguir são bons pontos de partida para quem deseja apenas uma brev
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma introdução aos problemas de gerenciamento de aplicativo solucionados pelo AD do Azure |[Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](active-directory-enable-sso-scenario.md) |
-| Uma visão geral dos vários recursos no AD do Azure relacionados à habilitação do logon único, definição de quem tem acesso aos aplicativos e como os usuários iniciam os aplicativos |[Acesso aos aplicativos e logon único no Active Directory do Azure](active-directory-appssoaccess-whatis.md) |
-| Um exame das diferentes etapas envolvidas na integração de aplicativos ao AD do Azure |[Integrando aplicativos com o Azure Active Directory](active-directory-integrating-applications-getting-started.md)<br /><br />[Habilitar logon único para aplicativos SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md) |
+| Uma introdução aos problemas de gerenciamento de aplicativo solucionados pelo AD do Azure |[Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](manage-apps/what-is-application-management.md) |
+| Uma visão geral dos vários recursos no AD do Azure relacionados à habilitação do logon único, definição de quem tem acesso aos aplicativos e como os usuários iniciam os aplicativos |[Acesso aos aplicativos e logon único no Active Directory do Azure](manage-apps/what-is-single-sign-on.md) |
+| Um exame das diferentes etapas envolvidas na integração de aplicativos ao AD do Azure |[Integrando aplicativos com o Azure Active Directory](manage-apps/plan-an-application-integration.md)<br /><br />[Habilitar logon único para aplicativos SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerenciamento do acesso aos aplicativos](active-directory-managing-access-to-apps.md) |
 | Uma explicação técnica de como os aplicativos são representados no AD do Azure |[Como e por que os aplicativos são adicionados ao AD do Azure](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Artigos de solução de problemas
@@ -43,7 +43,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
 | Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
-| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Logon único entre o AD local e o AD do Azure |[Solução de Problemas de Sincronização de Senha](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Solucionar problemas de write-back de senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO (Logon único)
@@ -52,8 +52,8 @@ O logon único permite aos usuários acessar vários aplicativos e serviços usa
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma introdução à federação e a outros tipos de logon |[Logon único com o AD do Azure](active-directory-appssoaccess-whatis.md) |
-| Milhares de aplicativos SaaS pré-integrados com o AD do Azure com etapas de configuração de logon único simplificadas |[Introdução à galeria de aplicativos do Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de aplicativos pré-integrados que dão suporte à federação](active-directory-saas-tutorial-list.md)<br /><br />[Como adicionar seu aplicativo à galeria de aplicativos do AD do Azure](active-directory-app-gallery-listing.md) |
+| Uma introdução à federação e a outros tipos de logon |[Logon único com o AD do Azure](manage-apps/what-is-single-sign-on.md) |
+| Milhares de aplicativos SaaS pré-integrados com o AD do Azure com etapas de configuração de logon único simplificadas |[Introdução à galeria de aplicativos do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de aplicativos pré-integrados que dão suporte à federação](active-directory-saas-tutorial-list.md)<br /><br />[Como adicionar seu aplicativo à galeria de aplicativos do AD do Azure](active-directory-app-gallery-listing.md) |
 | Mais de 150 tutoriais de aplicativo sobre como configurar o logon único para aplicativos como [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) e muito mais |[Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md) |
 | Como definir e personalizar manualmente a configuração do logon único |[Como configurar logon único federado para aplicativos que não estão na galeria de aplicativos do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar declarações emitidas no token SAML para aplicativos pré-integrados](active-directory-saml-claims-customization.md) |
 | Guia de solução de problemas para aplicativos federados que usam o protocolo SAML |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Para habilitar o logon único em aplicativos que não oferecem suporte à federa
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma introdução ao funcionamento do SSO baseado em senha e uma breve visão geral técnica |[Logon único com base em senha com o AD do Azure](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Uma introdução ao funcionamento do SSO baseado em senha e uma breve visão geral técnica |[Logon único com base em senha com o AD do Azure](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Um resumo dos cenários relacionados ao compartilhamento de conta e como esses problemas são solucionados pelo AD do Azure |[Compartilhar contas com o AD do Azure](active-directory-sharing-accounts.md) |
 | Alterar automaticamente a senha para determinados aplicativos em intervalos regulares |[Substituição de senha automática (visualização)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Guias de implantação e de solução de problemas para a versão do Internet Explorer da extensão de gerenciamento de senha do AD do Azure |[Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -78,10 +78,10 @@ Se você tiver aplicativos em sua rede privada que precisam ser acessados por us
 
 | Guia de artigos |  |
 |:---:| --- |
-| Visão geral do Proxy de Aplicativo do AD do Azure e como ele funciona |[Fornecendo acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md) |
-| Tutoriais sobre como configurar o Proxy de Aplicativo e como publicar seu primeiro aplicativo |[Como configurar o Proxy de aplicativo do Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector de proxy de aplicativo](active-directory-application-proxy-silent-installation.md)<br /><br />[Como publicar aplicativos usando o proxy de aplicativo](active-directory-application-proxy-publish.md)<br /><br />[Como usar o seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md) |
-| Como habilitar o logon único e o acesso condicional para aplicativos publicados com o Proxy de Aplicativo |[Logon único com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Acesso condicional e Proxy de Aplicativo](application-proxy-enable-remote-access-sharepoint.md) |
-| Orientação sobre como usar o Proxy de Aplicativo para os seguintes cenários |[Como dar suporte a aplicativos cliente nativos](active-directory-application-proxy-native-client.md)<br /><br />[Como dar suporte a aplicativos com reconhecimento de declarações](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Como dar suporte a aplicativos publicados em redes e locais separados](active-directory-application-proxy-connectors-azure-portal.md) |
+| Visão geral do Proxy de Aplicativo do AD do Azure e como ele funciona |[Fornecendo acesso remoto seguro a aplicativos locais](manage-apps/application-proxy.md) |
+| Tutoriais sobre como configurar o Proxy de Aplicativo e como publicar seu primeiro aplicativo |[Como configurar o Proxy de aplicativo do Azure AD](manage-apps/application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector de proxy de aplicativo](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[Como publicar aplicativos usando o proxy de aplicativo](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Como usar o seu próprio nome de domínio](manage-apps/application-proxy-configure-custom-domain.md) |
+| Como habilitar o logon único e o acesso condicional para aplicativos publicados com o Proxy de Aplicativo |[Logon único com Proxy de Aplicativo](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Acesso condicional e Proxy de Aplicativo](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Orientação sobre como usar o Proxy de Aplicativo para os seguintes cenários |[Como dar suporte a aplicativos cliente nativos](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[Como dar suporte a aplicativos com reconhecimento de declarações](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[Como dar suporte a aplicativos publicados em redes e locais separados](manage-apps/application-proxy-connector-groups.md) |
 | Guia de solução de problemas de Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
 
 O Proxy de Aplicativo está disponível para todas as edições do AD do Azure para até dez aplicativos por usuário. [AD do Azure Premium](https://azure.microsoft.com/pricing/details/active-directory/) oferece suporte a uma quantidade ilimitada de aplicativos. Se sua organização tiver o [Azure AD Básico](https://azure.microsoft.com/pricing/details/active-directory/) ou o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), você poderá [usar grupos para atribuir acesso a aplicativos](#managing-access-to-applications).
@@ -95,8 +95,8 @@ Se sua organização mantém um Active Directory do Windows Server no local junt
 |:---:| --- |
 | Uma visão geral sobre as opções de logon único oferecidas no Azure AD Connect, bem como informações sobre o gerenciamento de ambientes híbridos |[Opções de logon único do usuário no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Diretrizes gerais para o gerenciamento de ambientes com o Active Directory local e o Active Directory do Azure |[Considerações de design da Identidade Híbrida Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md) |
-| Orientação sobre como usar a Sincronização de Senha para habilitar SSO |[Implementar a sincronização de senha com o Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Solucionar problemas de sincronização de senha](https://support.microsoft.com/en-us/kb/2855271) |
-| Orientação sobre como usar o Write-back de Senha para habilitar SSO |[Introdução ao Gerenciamento de Senhas no Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Solucionar problemas de Write-back de Senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Orientação sobre como usar a Sincronização de Senha para habilitar SSO |[Implementar a sincronização de senha com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Solucionar problemas de sincronização de senha](https://support.microsoft.com/en-us/kb/2855271) |
+| Orientação sobre como usar o Write-back de Senha para habilitar SSO |[Introdução ao Gerenciamento de Senhas no Azure AD](authentication/quickstart-sspr.md)<br /><br />[Solucionar problemas de Write-back de Senha](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Orientação sobre como usar provedores de identidade de terceiros para habilitar SSO |[Lista de provedores de identidade de terceiros compatíveis que podem ser usados para habilitar o logon único](https://aka.ms/ssoproviders) |
 | Como os usuários do Windows 10 podem aproveitar os benefícios do logon único por meio do ingresso no AD do Azure |[Estendendo os recursos de nuvem para dispositivos com Windows 10 por meio do ingresso no Active Directory do Azure](active-directory-azureadjoin-overview.md) |
 
@@ -108,7 +108,7 @@ Depois de configurar o logon único em seus aplicativos e recursos, aplique uma 
 | Guia de artigos |  |
 |:---:| --- |
 | Uma introdução aos recursos de acesso condicional oferecidos no AD do Azure, no Office365 e no Intune |[Gerenciamento de riscos com acesso condicional](active-directory-conditional-access-azure-portal.md) |
-| Como habilitar o acesso condicional aos seguintes tipos de recursos |[Acesso condicional para aplicativos SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicativos locais](active-directory-conditional-access-azure-portal.md)<br /><br />[Acesso condicional para aplicativos locais publicados por meio do Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md) |
+| Como habilitar o acesso condicional aos seguintes tipos de recursos |[Acesso condicional para aplicativos SaaS](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicativos locais](active-directory-conditional-access-azure-portal.md)<br /><br />[Acesso condicional para aplicativos locais publicados por meio do Proxy de Aplicativo do Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Etapas para dispositivos com Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Como usar o aplicativo Microsoft Authenticator para verificação em duas etapas |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
@@ -121,7 +121,7 @@ O Cloud App Discovery ajuda os departamentos de TI a saber quais aplicativos Saa
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma visão geral de como isso funciona |[Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
+| Uma visão geral de como isso funciona |[Encontrando aplicativos em nuvem não autorizados com o Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
 | Um aprofundamento sobre como ele funciona, com respostas a perguntas sobre privacidade |[Considerações de privacidade e segurança](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Perguntas frequentes |[Perguntas frequentes sobre o Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Tutoriais para implantação do Cloud App Discovery |[Guia de implantação de política de grupo](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Guia de implantação do System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Instalação em servidores proxy com portas personalizadas](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
@@ -183,11 +183,11 @@ O Painel de acesso do AD do Azure é o local onde os usuários finais podem inic
 
 | Guia de artigos |  |
 |:---:| --- |
-| Uma comparação das opções diferentes disponíveis para a implantação de aplicativos de logon único aos usuários |[Implantando aplicativos integrados do AD do Azure para usuários](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Uma comparação das opções diferentes disponíveis para a implantação de aplicativos de logon único aos usuários |[Implantando aplicativos integrados do AD do Azure para usuários](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Uma visão geral do Painel de acesso e seu MyApps equivalentes móveis |[Introdução ao Painel de Acesso e aos MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Como acessar os aplicativos do AD do Azure no site do Office 365 |[Usando o Iniciador de Aplicativos do Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Como acessar aplicativos do AD do Azure no aplicativo móvel Navegador Gerenciado do Intune |[Navegador gerenciado do Intune](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Como acessar aplicativos do AD do Azure usando links profundos para iniciar o logon único |[Como obter links de logon direto para seus aplicativos](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Como acessar aplicativos do AD do Azure no aplicativo móvel Navegador Gerenciado do Intune |[Navegador gerenciado do Intune](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Como acessar aplicativos do AD do Azure usando links profundos para iniciar o logon único |[Como obter links de logon direto para seus aplicativos](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 O Painel de Acesso está disponível para [todas as edições do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

@@ -1,24 +1,22 @@
 ---
-title: "Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs"
-description: "Um tópico sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs'
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32138910"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Políticas personalizadas
 
@@ -51,11 +49,11 @@ Recomendamos o uso de três tipos de arquivos de política:
 - **um arquivo RP (Terceira Parte Confiável)** que é o único arquivo centrado na tarefa que é invocado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável).  Leia o artigo sobre definições do arquivo de Política para obter mais informações.  Cada tarefa exclusiva exige seu próprio RP e, dependendo dos requisitos de identidade visual, o número pode ser “total de aplicativos x número total de casos de uso”.
 
 
-As políticas internas do Azure AD B2C seguem o padrão de 3 arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo de EXTensões.
+As políticas internas do Azure AD B2C seguem o padrão de 3 arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo EXTensions.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceitos fundamentais que você deve saber ao usar políticas personalizadas
 
-### <a name="azure-active-directory-b2c"></a>Active Directory B2C do Azure
+### <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
 
 Serviço de CIAM (gerenciamento de identidades e acessos do cliente) do Azure. O serviço inclui:
 

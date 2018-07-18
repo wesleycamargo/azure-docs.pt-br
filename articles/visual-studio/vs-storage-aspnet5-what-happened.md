@@ -1,24 +1,21 @@
 ---
-title: "O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Visual Studio) | Microsoft Docs"
-description: "Descreve o que acontece após a conexão a uma conta de armazenamento do Azure em um projeto do ASP.NET 5 do Visual Studio usando os serviços conectados do Visual Studio"
+title: O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Visual Studio) | Microsoft Docs
+description: Descreve o que acontece após a conexão a uma conta de armazenamento do Azure em um projeto do ASP.NET 5 do Visual Studio usando os serviços conectados do Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 2a25c24fd7625374d269622a805f386fcd52bb5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: f99ba4b6c954ae9faa87b9604c06e94c56e4f631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Armazenamento do Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas

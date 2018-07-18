@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Symantec WSS (Web Security Service) | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Symantec WSS (Web Security Service)."
+title: 'Tutorial: Integração do Azure Active Directory ao Symantec WSS (Web Security Service) | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Symantec WSS (Web Security Service).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0dc75a1091c56ddbbffcd54047b2465ece231254
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Azure Active Directory ao Symantec WSS (Web Security Service)
 
@@ -32,9 +32,9 @@ A integração do Symantec WSS (Web Security Service) ao Azure AD oferece os seg
 
 - Habilitar a imposição de regras de política no nível de usuário e de grupo definidas em sua conta do WSS.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Symantec WSS (Web Security Service), você precisa dos seguintes itens:
 
@@ -54,7 +54,7 @@ Neste tutorial, você vai configurar o Azure AD para habilitar o logon único no
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o aplicativo Symantec WSS (Web Security Service) por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>Adicionando o Symantec WSS (Web Security Service) por meio da galeria
 Para configurar a integração do Symantec WSS (Web Security Service) ao Azure AD, é necessário adicionar o Symantec WSS (Web Security Service) à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -209,7 +209,7 @@ Depois de configurar seu navegador da Web para o tráfego de proxy para WSS, qua
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

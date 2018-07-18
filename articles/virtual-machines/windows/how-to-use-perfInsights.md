@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights 
 
@@ -104,20 +104,20 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Coletar configuração básica | Parâmetros de comparação | Análise de VM lenta | Análise de Arquivos do Azure | Análise de VM lenta personalizada |
-| Informações de logs de eventos       | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Informações do sistema                | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Mapa de volume                        | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Mapa do disco                          | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Tarefas em execução                     | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Contadores de confiabilidade do armazenamento      | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Informações de armazenamento               | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Saída do fsutil                     | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Informações do driver de filtro                | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Saída de Netstat                    | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Configuração de rede             | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Configuração do firewall            | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Configuração do SQL Server          | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
-| Rastreamentos de diagnóstico de desempenho *  | sim                        | Sim                                | Sim                      | Sim                  | sim                  |
+| Informações de logs de eventos       | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Informações do sistema                | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Mapa de volume                        | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Mapa do disco                          | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Tarefas em execução                     | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Contadores de confiabilidade do armazenamento      | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Informações de armazenamento               | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Saída do fsutil                     | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Informações do driver de filtro                | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Saída de Netstat                    | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Configuração de rede             | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Configuração do firewall            | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Configuração do SQL Server          | sim                        | sim                                | sim                      | sim                  | sim                  |
+| Rastreamentos de diagnóstico de desempenho *  | sim                        | sim                                | sim                      | sim                  | sim                  |
 | Rastreamento do contador de desempenho **      |                            |                                    | sim                      |                      | sim                  |
 | Rastreamento do contador SMB **              |                            |                                    |                          | sim                  |                      |
 | Rastreamento do contador do SQL Server **       |                            |                                    | sim                      |                      | sim                  |

@@ -1,31 +1,32 @@
 ---
-title: Controlar máquinas virtuais do Azure com o Azure PowerShell | Microsoft Docs
-description: Tutorial – Gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas com Azure PowerShell
+title: Tutorial – Controlar máquinas virtuais do Azure com o Azure PowerShell | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar o Azure PowerShell para gerenciar máquinas virtuais do Azure, aplicando RBAC, políticas, bloqueios e marcas
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9fbe9318e52f8299c3ef46f73c3be177de6d4a0c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>Governança de máquina virtual com Azure PowerShell
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Saiba mais sobre o controle de máquina virtual do Linux com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. Para instalações locais, você também deve [fazer o download do módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo do Azure Active Directory.
+Se você optar por instalar e usar o PowerShell localmente, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure. Para instalações locais, você também deve [fazer o download do módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo do Azure Active Directory.
 
 ## <a name="understand-scope"></a>Compreender o escopo
 
@@ -43,15 +44,15 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../active-directory/role-based-access-control-what-is.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
+Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../role-based-access-control/overview.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
 
 Para criar e remover as atribuições de função, os usuários devem ter `Microsoft.Authorization/roleAssignments/*` acesso. Esse acesso deve ser concedido pelas funções Proprietário ou Administrador de Acesso do Usuário.
 
 Para gerenciar soluções de máquinas virtuais, há três funções específicas do recurso que fornecem acesso comum:
 
-* [Colaborador de Máquina Virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Colaborador de rede](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Colaborador da Conta de Armazenamento](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Colaborador de rede](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Colaborador da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 

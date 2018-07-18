@@ -1,9 +1,9 @@
 ---
-title: "Detecção Inteligente - anomalias de desempenho | Microsoft Docs"
-description: "O Application Insights executa uma análise inteligente da telemetria do seu aplicativo e o avisa de possíveis problemas. Esse recurso não precisa de nenhuma configuração."
+title: Detecção Inteligente - anomalias de desempenho | Microsoft Docs
+description: O Application Insights executa uma análise inteligente da telemetria do seu aplicativo e o avisa de possíveis problemas. Esse recurso não precisa de nenhuma configuração.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868927"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -87,8 +88,8 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
   * Nº  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
-* *Se não fizer nada em resposta a uma notificação, eu posso receber um lembrete?*
-  * Não, você receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir, ele será atualizado na folha de feed da Detecção Inteligente.
+* *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*
+  * Não, você receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir, ele será atualizado na folha de feed Detecção Inteligente.
 * *Perdi o email. Onde posso encontrar as notificações no portal?*
   * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Inteligente**. Nele, você poderá encontrar todas as notificações de até 90 dias anteriores.
 
@@ -132,7 +133,7 @@ A notificação de degradação do tempo de resposta lhe informa:
 * Links para ajudá-lo a diagnosticar o problema.
   * Rastreamentos do Criador de Perfil para ajudá-lo a exibir onde o tempo de operação é gasto (o link fica disponível se exemplos de rastreamento do Criador de Perfil tiverem sido coletados para essa operação durante o período de detecção). 
   * Relatórios de desempenho no Gerenciador de Métricas, nos quais você pode dividir e os filtros/intervalos de tempo para a operação.
-  * Pesquise por essas chamadas para exibir propriedades de chamadas específicas.
+  * Pesquise essa chamada para exibir propriedades de chamadas específicas.
   * Relatórios de falha – se a contagem for maior que um, houve falhas nessa operação que podem ter contribuído para a degradação do desempenho.
 
 ## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
@@ -152,7 +153,7 @@ Observe o que ele diz:
 * Links para ajudá-lo a diagnosticar o problema
   * Relatórios de desempenho no Explorador de Métricas para essa dependência
   * Pesquise por chamadas dessa dependência para exibir propriedades das chamadas
-  * Relatórios de falha – se a contagem for maior que um, houve chamadas de dependência com falha durante o período de detecção que podem ter contribuído para a degradação da duração. 
+  * Relatórios de falha - Se a contagem for > 1, isso significa que houve chamadas de dependência com falha durante o período de detecção que podem ter contribuído para a degradação da duração. 
   * Abra o Analytics com consultas que calculam a contagem e a duração dessa dependência  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Detecção Inteligente de padrões de desempenho lentos 

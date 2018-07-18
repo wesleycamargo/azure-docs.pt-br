@@ -1,39 +1,52 @@
-Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de SLAs, taxas de transferência, recursos e cargas de trabalho.
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196752"
+---
+Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs.
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+###  <a name="benchmark"></a>SKUs de gateway pelo túnel, a conexão e a taxa de transferência
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-###  <a name="workloads"></a>Produção *versus* Cargas de Trabalho de Desenvolvimento e Teste
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-Devido a diferenças nos SLAs e conjuntos de recursos, é recomendável usar as SKUs a seguir para produção *versus* desenvolvimento e teste:
+###  <a name="feature"></a>SKUs de gateway pelo conjunto de recursos
 
-| **Carga de trabalho**                       | **SKUs**               |
-| ---                                | ---                    |
-| **Produção, cargas de trabalho críticas** | VpnGw1, VpnGw2, VpnGw3 |
-| **Teste de desenvolvimento ou prova de conceito**   | Basic                  |
-|                                    |                        |
-
-Se você estiver usando as SKUs antigas, as recomendações de SKU de produção serão Standard e Alto Desempenho. Para saber mais sobre os SKUs antigos, confira [SKUs de Gateway (SKUs herdados)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
-
-###  <a name="feature"></a>Conjuntos de recursos do SKU de gateway
-
-As novas SKUs do gateway simplificam os conjuntos de recursos oferecidos nos gateways:
+As novas SKUs do gateway VPN simplificam os conjuntos de recursos oferecidos nos gateways:
 
 | **SKU**| **Recursos**|
 | ---    | ---         |
-|**Básico**   | **VPN baseada em rota**: 10 túneis com P2S; nenhuma autenticação RADIUS para P2S; nenhum IKEv2 para P2S<br>**VPN baseada em políticas:** (IKEv1): 1 túnel; sem P2S|
-| **VpnGw1, VpnGw2 e VpnGw3** | **VPN baseada em rota**: até 30 túneis ( * ), P2S, BGP, ativo-ativo, política IPsec/IKE personalizada, coexistência ExpressRoute/VPN |
+|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis com P2S; nenhuma autenticação RADIUS para P2S; nenhum IKEv2 para P2S<br>**VPN baseada em políticas:** (IKEv1): 1 túnel; sem P2S|
+| **VpnGw1, VpnGw2 e VpnGw3** | **VPN baseada em roteamento**: até 30 túneis ( * ), P2S, BGP, ativo-ativo, política IPsec/IKE personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 
 ( * ) Você pode configurar "PolicyBasedTrafficSelectors" para se conectar a um gateway de VPN baseado em rota (VpnGw1, VpnGw2, VpnGw3) para vários dispositivos de firewall baseados em políticas. Confira [Conectar gateways de VPN a vários dispositivos VPN baseados em políticas usando o PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter detalhes.
 
-###  <a name="resize"></a>Redimensionamento de SKUs de gateway
+(\*\*) A SKU básica é considerada uma SKU herdada. A SKU básica tem certas limitações de recurso. Você não pode redimensionar um gateway que usa uma SKU básica para novas SKUs de gateway, em vez disso, você deve alterar para uma nova SKU, que envolve excluir e recriar o gateway VPN.
 
-1. Você pode redimensionar entre as SKUs VpnGw1, VpnGw2 e VpnGw3.
-2. Ao trabalhar com SKUs antigas, você ainda pode redimensionar entre SKUs Básicas, Standard e de Alto Desempenho.
-2. Você **não pode** redimensionar as SKUs Basic/Standard/Alto Desempenho para as novas SKUs VpnGw1/VpnGw2/VpnGw3. Em vez disso, você deve [migrar](#migrate) para as novas SKUs.
+###  <a name="workloads"></a>SKUs de gateway - Vs de produção. Cargas de Trabalho de Desenvolvimento e Teste
 
-###  <a name="migrate"></a>Migrando de SKUs antigas para novas SKUs
+Devido a diferenças nos SLAs e conjuntos de recursos, é recomendável usar as SKUs a seguir para produção versus desenvolvimento e teste:
 
-[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]
+| **Carga de trabalho**                       | **SKUs**               |
+| ---                                | ---                    |
+| **Produção, cargas de trabalho críticas** | VpnGw1, VpnGw2, VpnGw3 |
+| **Teste de desenvolvimento ou prova de conceito**   | Básico (\*\*)                 |
+|                                    |                        |
+
+(\*\*) A SKU básica é considerado uma SKU herdada e tem limitações de recursos. Verifique se o recurso que você precisa é compatível antes de usar a SKU básica.
+
+Se você estiver usando as SKUs antigas (herdadas), as recomendações de SKU de produção serão Standard e HighPerformance. Para saber mais sobre as SKUs antigas, confira [SKUs de Gateway (herdadas)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

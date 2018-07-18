@@ -1,11 +1,11 @@
 ---
 title: Comandos comuns do PowerShell para Redes Virtuais do Azure | Microsoft Docs
-description: "Comandos comuns do PowerShell para ajudar você a criar uma rede virtual e seus recursos associados para VMs."
+description: Comandos comuns do PowerShell para ajudar você a criar uma rede virtual e seus recursos associados para VMs.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 56e1a73c-8299-4996-bd03-f74585caa1dc
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 26378ff9f16af9724db08cc4013654557f1c838b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: cynthn
+ms.openlocfilehash: a5b3f84c27a0a5f6458808940b16a9001097b30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comuns do PowerShell para Redes Virtuais do Azure
 
@@ -34,7 +34,7 @@ Algumas variáveis poderão ser úteis para você se estiver executando mais de 
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-| Tarefa | Command |
+| Tarefa | Comando |
 | ---- | ------- |
 | Criar configurações da sub-rede |$subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>Uma rede típica pode ter uma sub-rede para um [balanceador de carga para a internet](../../load-balancer/load-balancer-internet-overview.md) e uma sub-rede separada para um [balanceador de carga interno](../../load-balancer/load-balancer-internal-overview.md). |
 | Criar uma rede virtual |$vnet = [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
@@ -50,7 +50,7 @@ Algumas variáveis poderão ser úteis para você se estiver executando mais de 
 
 ## <a name="get-information-about-network-resources"></a>Obter informações sobre recursos de rede
 
-| Tarefa | Command |
+| Tarefa | Comando |
 | ---- | ------- |
 | Listar redes virtuais |[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Lista todas as redes virtuais no grupo de recursos. |
 | Obter informações sobre uma rede virtual |Get-AzureRmVirtualNetwork -Name "myVNet" -ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ Algumas variáveis poderão ser úteis para você se estiver executando mais de 
 
 ## <a name="manage-network-resources"></a>Gerenciar recursos de rede
 
-| Tarefa | Command |
+| Tarefa | Comando |
 | ---- | ------- |
 | Adicionar uma sub-rede a uma rede virtual |[Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "mySubnet1" -VirtualNetwork $vnet<BR><BR>Adiciona uma sub-rede a uma rede virtual existente. O valor de $vnet representa o objeto retornado por Get-AzureRmVirtualNetwork. |
 | Excluir uma rede virtual |[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup<BR><BR>Remove a rede virtual especificada do grupo de recursos. |

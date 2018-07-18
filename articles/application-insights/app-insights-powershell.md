@@ -2,7 +2,7 @@
 title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Docs
 description: Automatize criando testes de disponibilidade, alerta e recursos no PowerShell usando um modelo do Azure Resource Manager.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6bc4f69386cc8a9119aa852693456f6465f59ce
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/01/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights usando o PowerShell
 Este artigo mostra como automatizar a criação e atualização de recursos do [Application Insights](app-insights-overview.md) automaticamente usando o Gerenciamento de Recursos do Azure. Por exemplo, você pode fazer isso como parte de um processo de compilação. Juntamente com o recurso básico do Application Insights, é possível criar [testes na Web de disponibilidade](app-insights-monitor-web-app-availability.md), configurar [alertas](app-insights-alerts.md), definir o [esquema de preços](app-insights-pricing.md) e criar outros recursos do Azure.
@@ -52,7 +52,6 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {
@@ -155,7 +154,7 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
 ## <a name="create-application-insights-resources"></a>Criar recursos do Application Insights
 1. No PowerShell, entre no Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Execute um comando como este:
    
     ```PS
@@ -198,13 +197,13 @@ Para criar um recurso de aplicativo com o plano de preço Enterprise, usando o m
 
 |priceCode|plan|
 |---|---|
-|1|Básica|
+|1|Basic|
 |2|Enterprise|
 
 * Se desejar usar apenas o plano de preço Básico padrão, omita o recurso CurrentBillingFeatures do modelo.
 * Se você quiser alterar o plano de preço depois que o recurso do componente tiver sido criado, você poderá usar um modelo que omita o recurso "microsoft.insights/components". Além disso, omita o nó `dependsOn` do recurso de cobrança. 
 
-Para verificar se o plano de preços atualizado, examine a folha "Recursos + preços" no navegador. **Atualize a exibição do navegador** para certificar-se de que você vê o estado mais recente.
+Para verificar o plano de preços atualizado, consulte a página **Uso e custos estimados** no navegador. **Atualize a exibição do navegador** para certificar-se de que você vê o estado mais recente.
 
 
 

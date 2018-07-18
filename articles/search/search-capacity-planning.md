@@ -1,27 +1,21 @@
 ---
-title: Planejamento de capacidade para Azure Search | Microsoft Docs
-description: "Ajusta os recursos de computador de partição e réplica no Azure Search, onde o preço de cada recurso é definido em unidades de pesquisa faturáveis."
-services: search
-documentationcenter: 
+title: Alocar partições e réplicas de consulta e indexação no Azure Search | Microsoft Docs
+description: Ajusta os recursos de computador de partição e réplica no Azure Search, onde o preço de cada recurso é definido em unidades de pesquisa faturáveis.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203086"
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Alocar partições e réplicas de consulta e indexação no Azure Search
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
 
 A configuração de recursos fica disponível quando você configura um serviço na [camada Básica](http://aka.ms/azuresearchbasic) ou em uma das [camadas Standard](search-limits-quotas-capacity.md). Para os serviços nessas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUs), em que cada partição e réplica conta como uma SU. 

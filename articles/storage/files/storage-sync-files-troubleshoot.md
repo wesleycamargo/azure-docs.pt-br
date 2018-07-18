@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213258"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -34,6 +35,14 @@ Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver probl
 Se você fizer uma movimentação de recurso de uma assinatura para outra assinatura, os recursos de sincronização de arquivos (Serviço de Sincronização de Armazenamento) serão impedidos de serem movidos. 
 
 ## <a name="agent-installation-and-server-registration"></a>Instalação do agente e registro do servidor
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Durante o registro do servidor, você terá o error "O termo 'find-AzureRMResource' não é reconhecido como o nome..."
+O problema é que o cmdlet find-AzureRMResource foi mudado no AzureRM v6.  A próxima versão do agente de Sincronização será arrumada para dar suporte ao AzureRM v6.  Até lá, você pode contornar esse problema por:
+1. Parar o atual ServerRegistration.exe via taskmgr
+2. Trazer um prompt de comando PowerShell como Administrador
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -VersãoExigida 5.7.0
+5. Inicie C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Como solucionar problemas de falhas de instalação do agente**  
 Se a instalação do agente de Sincronização de arquivos do Azure estiver falhando, execute o seguinte comando em um prompt de comandos com privilégios elevados para habilitar o registro em log durante a instalação do agente:
 
@@ -146,7 +155,7 @@ Se a sincronização falhar em um servidor:
     2. Verifique se o serviço de Sincronização de arquivos do Azure está em execução no servidor. Abra o snap-in do MMC de Serviços e verifique se o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) está em execução.
 
 <a id="replica-not-ready"></a>**Falha na sincronização com erro: 0x80c8300f – a réplica não está pronta para executar a operação necessária**  
-Esse problema é esperado quando você cria um ponto de extremidade de nuvem e usa um compartilhamento de arquivos do Azure que contém dados. Quando o trabalho de detecção de alteração for concluída em execução no compartilhamento de arquivos do Azure (pode levar até 24 horas), a sincronização deve começar a funcionar corretamente.
+Esse problema é esperado quando você cria um ponto de extremidade de nuvem e usa um compartilhamento de arquivos do Azure que contém dados. O trabalho de detecção de alterações que examina alterações no Compartilhamento de Arquivos do Azure está agendado para um intervalo de uma vez a cada 24 horas.  O tempo para conclusão depende do tamanho do namespace no Compartilhamento de Arquivos do Azure.  Esse erro deverá desaparecer após a conclusão.
 
 
     > [!NOTE]

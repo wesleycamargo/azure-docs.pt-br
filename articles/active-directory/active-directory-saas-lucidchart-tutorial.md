@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Lucidchart | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Lucidchart."
+title: 'Tutorial: Integração do Azure Active Directory com o Lucidchart | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Lucidchart.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: d7c45904fafa5e92a8eb8f8a15c78280f821b1ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d20f61b9e4c97ca4a5743f686b22e0aeb149801
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integração do Active Directory do Azure com o Lucidchart
 
@@ -29,9 +29,9 @@ A integração do Lucidchart ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar que usuários façam logon automaticamente no Lucidchart (logon único) com as respectivas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Lucidchart, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Lucidchart da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-lucidchart-from-the-gallery"></a>Adicionar o Lucidchart da galeria
 Para configurar a integração do Lucidchart ao Azure AD, você precisará adicionar o Lucidchart da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Lucidchart ao Azure AD, você precisará adici
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Lucidchart**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Lucidchart ao Azure AD, você precisará adici
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Lucidchart, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Lucidchart é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Lucidchart.
@@ -86,11 +86,11 @@ No Lucidchart, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do Azure AD com o Lucidchart, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Lucidchart](#creating-a-lucidchart-test-user)** – para ter um equivalente de Brenda Fernandes no Lucidchart que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
 1. No portal do Azure, na página de integração de aplicativos do **Lucidchart**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_samlbase.png)
 
 3. Na seção **Domínio e URLs do Lucidchart**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_url.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL como: `https://chart2.office.lucidchart.com/saml/sso/azure`
 
@@ -118,7 +118,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-lucidchart-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-lucidchart-tutorial/tutorial_general_400.png)
 
 6. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Lucidchart como administrador.
 
@@ -202,7 +202,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **Lucidchart**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -228,7 +228,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

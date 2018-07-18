@@ -1,27 +1,26 @@
 ---
-title: "Componentes e versões do Hadoop – Azure HDInsight | Microsoft Docs"
-description: "Conheça os componentes e versões do Hadoop no HDInsight e os níveis de serviço disponíveis na distribuição de nuvem do Hortonworks Data Platform."
-keywords: "versões do hadoop, componentes do ecossistema do hadoop, componentes do hadoop, como verificar a versão do hadoop"
+title: Componentes e versões do Hadoop – Azure HDInsight | Microsoft Docs
+description: Conheça os componentes e versões do Hadoop no HDInsight e os níveis de serviço disponíveis na distribuição de nuvem do Hortonworks Data Platform.
+keywords: versões do hadoop, componentes do ecossistema do hadoop, componentes do hadoop, como verificar a versão do hadoop
 services: hdinsight
 editor: cgronlun
 manager: asadk
-author: bprakash
+author: kkampf
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
-ms.author: bprakash
-ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: kakampf
+ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271584"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Hadoop disponíveis com o HDInsight?
 
@@ -54,9 +53,10 @@ As versões do componente associadas às versões do cluster HDInsight são list
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0 (somente Linux) |1.6.2 + 2.0 (somente Linux) |1.6.0 (somente Linux) |1.5.2 (somente build experimental do Linux) |1.3.1 (somente Windows) |-|-|
-| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
-| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (somente Windows) |-|-|
+| Apache Livy |0,4 |0.3 |0.3 |0,2 |-|-|-|
+| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
@@ -83,14 +83,14 @@ A tabela a seguir lista as versões do HDInsight estão disponíveis no Portal d
 | Versão do HDInsight | Versão do HDP | SO da VM | Data do lançamento | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no Portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |sim |sim |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |31 de maio de 2018 |sim |sim |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |sim |sim |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |sim |Não  |
 
 > [!NOTE]
 > Depois que o suporte para uma versão tiver expirado, ela poderá não estar disponível por meio do Portal do Microsoft Azure. No entanto, as versões do cluster continuarão disponíveis usando o parâmetro `Version` no comando do Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) e o SDK .NET até a data de baixa da versão.
 >
 
-### <a name="retired-versions"></a>Verões desativadas
+### <a name="retired-versions"></a>Versões desativadas
 
 A tabela a seguir lista as versões do HDInsight que **não** estão disponíveis atualmente no Portal do Azure.
 
@@ -109,13 +109,13 @@ A tabela a seguir lista as versões do HDInsight que **não** estão disponívei
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Pacote de Segurança Enterprise para HDInsight
 
-O Azure HDInsight é um pacote opcional que você pode adicionar em seu cluster HDInsight como parte do fluxo de trabalho do cluster de criação. O Pacote de Segurança Enterprise oferece suporte a:
+O Enterprise Security é um pacote opcional que pode ser adicionado ao cluster HDInsight como parte do fluxo de trabalho de criação de cluster. O Pacote de Segurança Enterprise oferece suporte a:
 
 - Integração com o Active Directory para autenticação.
 
     No passado, você só podia criar clusters de HDInsight com um usuário administrador local e um usuário SSH local. O usuário administrador local podia acessar todos os arquivos, pastas, tabelas e colunas.  Com o Pacote de Segurança Enterprise, você pode habilitar o controle de acesso baseado em função integrando clusters HDInsight com seu próprio Active Directory, que inclui Active Directory local, Azure Active Directory Domain Services ou Active Directory em máquina virtual IaaS. O administrador de domínio no cluster pode permitir que os usuários usem seu próprio nome de usuário corporativo (domínio) e senha para acessar o cluster. 
 
-    Para obter mais informações, confira:
+    Para obter mais informações, consulte:
 
     - [Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md)
     - [Planejar clusters Hadoop do Azure ingressados no domínio no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -127,7 +127,7 @@ O Azure HDInsight é um pacote opcional que você pode adicionar em seu cluster 
     - Integração com o Apache Ranger para autorização de Hive, Spark SQL e filas de Yarn.
     - Você pode configurar o controle de acesso em arquivos e pastas.
 
-    Para obter mais informações, confira:
+    Para obter mais informações, consulte:
 
     - [Configurar políticas do Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
 

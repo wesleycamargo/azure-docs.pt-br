@@ -2,28 +2,26 @@
 title: Complexidade de senha - Azure AD B2C | Microsoft Docs
 description: Como configurar os requisitos de complexidade de senha fornecida pelos consumidores no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: 3906c9fa1def206a8f0a7e155949097242728c2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200375"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: como configurar os requisitos de complexidade de senhas
 
 > [!NOTE]
-> **Esse recurso está em visualização.**  Entre em contato com [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) para habilitar seu locatário de teste com esse recurso.  Não o teste em locatários de produção.
+> **Esse recurso está em uma versão prévia.**
 
 O Azure Active Directory B2C (Azure AD B2C) oferece suporte à alteração de requisitos de complexidade para senhas fornecidas por um usuário final ao criar uma conta.  Por padrão, o Azure AD B2C usa senhas `Strong`.  O Azure AD B2C também oferece suporte a opções de configuração para controlar a complexidade de senhas que os clientes podem usar.
 
@@ -49,7 +47,7 @@ Esses estão os tipos de políticas nas quais a complexidade de senha pode ser c
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 
-| Complexidade | Descrição |
+| Complexidade | DESCRIÇÃO |
 | --- | --- |
 | Simples | Uma senha que tenha 8 a 64 caracteres. |
 | Strong | Uma senha que tenha 8 a 64 caracteres. São necessários de 3 a 4 caracteres minúsculos, maiúsculos, números ou símbolos. |

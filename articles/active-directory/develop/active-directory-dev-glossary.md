@@ -1,25 +1,27 @@
 ---
-title: "Glossário do Desenvolvedor do Azure Active Directory | Microsoft Docs"
-description: "Uma lista de termos referentes a conceitos e recursos de desenvolvedor do Azure Active Directory usados com frequência."
+title: Glossário do desenvolvedor do Azure Active Directory | Microsoft Docs
+description: Uma lista de termos referentes a conceitos e recursos de desenvolvedor do Azure Active Directory usados com frequência.
 services: active-directory
-documentationcenter: 
-author: bryanla
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158142"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de desenvolvedor do Azure Active Directory
 Este artigo contém as definições de alguns dos conceitos básicos para desenvolvedores do Azure Active Directory (AD), que são úteis ao se aprender sobre desenvolvimento de aplicativos para o Azure AD.
@@ -35,7 +37,7 @@ Os tokens de acesso às vezes são chamados de "Usuário+Aplicativo" ou "Somente
 Veja [Referência de token do Azure AD][AAD-Tokens-Claims] para saber mais.
 
 ## <a name="application-id-client-id"></a>ID do aplicativo (ID do cliente)
-Os problemas de identificador exclusivo do Azure AD para um registro de aplicativo que identifica um aplicativo específico e as configurações associadas.  Essa ID de aplicativo ([ID do cliente](https://tools.ietf.org/html/rfc6749#page-15)) é usada ao executar a solicitação de autenticação e é fornecida para as bibliotecas de autenticação em tempo de desenvolvimento. A ID do aplicativo (ID do cliente) não é um segredo. 
+Os problemas de identificador exclusivo do Azure AD para um registro de aplicativo que identifica um aplicativo específico e as configurações associadas. Essa ID de aplicativo ([ID do cliente](https://tools.ietf.org/html/rfc6749#page-15)) é usada ao executar a solicitação de autenticação e é fornecida para as bibliotecas de autenticação em tempo de desenvolvimento. A ID do aplicativo (ID do cliente) não é um segredo. 
 
 ## <a name="application-manifest"></a>manifesto do aplicativo
 Um recurso fornecido pelo [Portal do Azure][AZURE-portal], que produz uma representação JSON da configuração de identidade do aplicativo, usada como um mecanismo para atualizar suas entidades de [Aplicativo][AAD-Graph-App-Entity] e [ServicePrincipal][AAD-Graph-Sp-Entity] associadas. Veja [Noções básicas sobre o manifesto de aplicativo do Azure Active Directory][AAD-App-Manifest] para saber mais.
@@ -54,10 +56,10 @@ Para permitir que um aplicativo se integre e delegue funções de Gerenciamento 
 
 Veja [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps] para saber mais.
 
-## <a name="authentication"></a>autenticação
+## <a name="authentication"></a>Autenticação
 O ato de desafiar uma parte para o fornecimento de credenciais legítimas, fornecendo a base para a criação de uma entidade de segurança a ser usada para controle de identidade e acesso. Durante uma [concessão de autorização OAuth2](#authorization-grant), por exemplo, a parte que está realizando a autenticação está desempenhando a função de [proprietário do recurso](#resource-owner) ou [aplicativo cliente](#client-application), dependendo da concessão usada.
 
-## <a name="authorization"></a>authorization
+## <a name="authorization"></a>autorização
 O ato de conceder a uma entidade de segurança autenticada permissão para fazer algo. Há dois casos de uso principais no modelo de programação do Azure AD:
 
 * Durante um fluxo de [concessão de autorização OAuth2](#authorization-grant): quando o [proprietário do recurso](#resource-owner) concede autorização para o [aplicativo cliente](#client-application), permitindo que o cliente acesse recursos do proprietário do recurso.
@@ -85,7 +87,7 @@ Um [token de segurança](#security-token) contêm declarações, que fornecem as
 Veja [Referência de token do Azure AD][AAD-Tokens-Claims] para saber mais.
 
 ## <a name="client-application"></a>aplicativo cliente
-Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um aplicativo que faz solicitações de recursos protegidas em nome do [proprietário do recurso](#resource-owner). O termo "cliente" não implica características de implementação de hardware específicas (por exemplo, se o aplicativo é executado em um servidor, na área de trabalho ou em outros dispositivos).  
+Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um aplicativo que faz solicitações de recursos protegidas em nome do [proprietário do recurso](#resource-owner). O termo "cliente" não implica características de implementação de hardware específicas (por exemplo, se o aplicativo é executado em um servidor, na área de trabalho ou em outros dispositivos). 
 
 Um aplicativo cliente solicita [autorização](#authorization) de um proprietário de recurso para participar de um fluxo de [concessão de autorização OAuth2](#authorization-grant) e pode acessar APIs/dados em nome do proprietário do recurso. A estrutura de autorização OAuth2 [define dois tipos de clientes][OAuth2-Client-Types], "confidencial" e "público", com base na capacidade do cliente de manter a confidencialidade de suas credenciais. Os aplicativos podem implementar um [cliente Web (confidencial)](#web-client) que é executado em um servidor Web, um [cliente nativo (público)](#native-client) instalado em um dispositivo ou um [cliente baseado em agente de usuário (público)](#user-agent-based-client) que é executado no navegador do dispositivo.
 
@@ -121,7 +123,7 @@ Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], uma
 ## <a name="resource-server"></a>servidor de recursos
 Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um servidor que hospeda recursos protegidos, capaz de aceitar e responder a solicitações de recursos protegidos de [aplicativos cliente](#client-application) que apresentam um [token de acesso](#access-token). Também conhecido como um servidor de recursos protegidos ou aplicativo de recurso.
 
-Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Alguns exemplos são a API do Graph do Azure AD, que fornece acesso aos dados de locatário do Azure AD, e APIs do Office 365, que fornecem acesso a dados como email e calendário. Ambos também são acessíveis por meio da [API do Microsoft Graph][Microsoft-Graph].  
+Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Alguns exemplos são a API do Graph do Azure AD, que fornece acesso aos dados de locatário do Azure AD, e APIs do Office 365, que fornecem acesso a dados como email e calendário. Ambos também são acessíveis por meio da [API do Microsoft Graph][Microsoft-Graph]. 
 
 Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida via [registro](#application-registration) em um locatário do Azure AD, fornecendo o objeto de entidade de serviço e de aplicativo. Algumas APIs fornecidas pela Microsoft, como a API do Graph do Azure AD, têm entidades de serviço previamente registradas disponíveis em todos os locatários durante o provisionamento.
 
@@ -177,7 +179,7 @@ Da mesma forma como um objeto de entidade de serviço é usado para representar 
 Um tipo de [aplicativo cliente](#client-application) que executa todo o código em um servidor Web e pode funcionar como um cliente "confidencial" armazenando com segurança suas credenciais no servidor. Veja [Perfis e tipos de cliente OAuth2][OAuth2-Client-Types] para saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos sobre desenvolvimento do Azure AD, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e as noções básicas de [autenticação do Azure AD e cenários de autenticação com suporte][AAD-Auth-Scenarios].  Você também pode encontrar exemplos de código e tutoriais sobre como iniciar rapidamente o [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide] é a página de aterrissagem a ser usada para todos os tópicos sobre desenvolvimento do Azure AD, incluindo uma visão geral da [integração de aplicativos][AAD-How-To-Integrate] e as noções básicas de [autenticação do Azure AD e cenários de autenticação com suporte][AAD-Auth-Scenarios]. Você também pode encontrar exemplos de código e tutoriais sobre como iniciar rapidamente o [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Use a seção de comentários a seguir para fornecer comentários e nos ajudar a refinar e moldar nosso conteúdo, incluindo solicitações de novas definições ou atualização das existentes.
 
@@ -203,7 +205,7 @@ Use a seção de comentários a seguir para fornecer comentários e nos ajudar a
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

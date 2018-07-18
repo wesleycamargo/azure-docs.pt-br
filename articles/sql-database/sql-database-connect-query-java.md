@@ -3,18 +3,19 @@ title: Como usar o Java para consultar o banco de dados SQL do Azure| Microsoft 
 description: Este tópico mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-los usando instruções do Transact-SQL.
 services: sql-database
 author: ajlam
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/11/2017
+ms.date: 04/01/2018
 ms.author: andrela
-ms.openlocfilehash: 85a42230bb8b13810909f81c1f34a484ca532fac
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e19006d177777b18e1665ec5039f9c28f7e54df5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363665"
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Como usar o Java para consultar um banco de dados SQL do Azure
 
@@ -22,11 +23,11 @@ Este guia de início rápido demonstra como usar o [Java](https://docs.microsoft
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial de início rápido, você precisa ter o seguinte:
+Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
 
 - O Java e o software relacionado para seu sistema operacional instalados:
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939814"
 ---
 # <a name="outbound-connections-classic"></a>Conexões de saída (Clássico)
 
@@ -37,11 +38,11 @@ Há vários [cenários de saída](#scenarios). É possível combinar esses cená
 
 O Azure fornece três métodos diferentes para obter implantações Clássicas de conectividade de saída.  Nem todas as implantações Clássicas têm todos os três cenários disponíveis:
 
-| Cenário | Método | DESCRIÇÃO | Função de trabalho da Web | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. VM com um endereço IP em Nível de Instância](#ilpip) | SNAT, disfarce de porta não usado |O Azure usa a máquina virtual atribuída ao IP público. A instância possui todas as portas efêmeras disponíveis. | Não  | sim |
-| [2. ponto de extremidade público com balanceamento de carga](#publiclbendpoint) | SNAT com disfarce de porta (PAT) para o ponto de extremidade público |O Azure compartilha o ponto de extremidade público do endereço IP público com vários pontos de extremidade privados. O Azure usa portas efêmeras do ponto de extremidade público para PAT. | sim | sim |
-| [3. VM autônoma ](#defaultsnat) | SNAT com disfarce de porta (PAT) | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | sim | sim|
+| Cenário | Método | Protocolos de IP | DESCRIÇÃO | Função de trabalho da Web | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. VM com um endereço IP em Nível de Instância](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa a máquina virtual atribuída ao IP público. A instância possui todas as portas efêmeras disponíveis. | Não  | sim |
+| [2. ponto de extremidade público com balanceamento de carga](#publiclbendpoint) | SNAT com disfarce de porta (PAT) para o ponto de extremidade público | TCP, UDP | O Azure compartilha o ponto de extremidade público do endereço IP público com vários pontos de extremidade privados. O Azure usa portas efêmeras do ponto de extremidade público para PAT. | sim | sim |
+| [3. VM autônoma ](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com toda a implantação e usa portas efêmeras do endereço IP do ponto de extremidade público para PAT. Este é um cenário de fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. | sim | sim |
 
 Este é um subconjunto da funcionalidade de conexão de saída disponível para implantações do Gerenciador de Recursos no Azure.  
 
@@ -60,7 +61,7 @@ O algoritmo utilizado para [pré-alocação de portas efêmeras](#ephemeralports
 
 Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM tem ponto de extremidade com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um ILPIP é usado, a VM usa o ILPIP para todos os fluxos de saída.  
 
-A PAT (disfarce de porta) não é usada e a VM tem todas as portas efêmeras disponíveis para uso.
+Um IP público atribuído a uma VM é uma relação 1:1 (em vez de 1:muitos) e implementado como sem estado 1:1 NAT.  A PAT (disfarce de porta) não é usada e a VM tem todas as portas efêmeras disponíveis para uso.
 
 Se o aplicativo iniciar muitos fluxos de saída e for observado um esgotamento da porta SNAT, considere atribuir um [ILPIP para mitigar as restrições SNAT](#assignilpip). Revise [Gerenciar esgotamento de SNAT](#snatexhaust) completamente.
 
@@ -114,14 +115,24 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1,000 | 32 |
 
 Lembre-se de que o número de portas SNAT disponíveis não movem diretamente em número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário fazer fluxos exclusivos. Para diretrizes de projeto e mitigação, consulte a seção sobre [como gerenciar esse recurso esgotável](#snatexhaust) e a seção que descreve a [PAT](#pat).
 
 Alterar o tamanho da implantação pode afetar alguns dos fluxos estabelecidos. Se o tamanho do pool de back-end aumenta e faz transições para a próxima camada, metade das suas portas SNAT pré-alocadas é recuperada durante a transição para a próxima camada maior de pool de back-end. Os fluxos que estão associados a uma porta SNAT recuperada atingirão limite de tempo e deverão ser restabelecidos. Se um novo fluxo for tentado, o fluxo terá êxito imediato, desde que as portas pré-alocadas estejam disponíveis.
 
 Se o tamanho da implantação diminuir e fizer transição para uma camada mais baixa, o número de portas SNAT disponíveis aumentará. Nesse caso, as portas SNAT alocadas existentes e seus respectivos fluxos não são afetados.
+
+As alocações de portas SNAT são o protocolo de transporte IP específico (TCP e UDP são mantidas separadamente) e são liberadas sob as seguintes condições:
+
+### <a name="tcp-snat-port-release"></a>Liberação da porta TCP SNAT
+
+- Se tanto o servidor/cliente enviar a porta FIN/ACK, SNAT, será liberado após 240 segundos.
+- Se um RST for visto, a porta SNAT será liberada após 15 segundos.
+- o tempo limite de ociosidade foi atingido
+
+### <a name="udp-snat-port-release"></a>Liberação da porta UDP SNAT
+
+- o tempo limite de ociosidade foi atingido
 
 ## <a name="problemsolving"></a> Solução de problemas 
 
@@ -170,3 +181,4 @@ Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.o
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Load Balancer](load-balancer-overview.md) usado nas implantações do Gerenciador de Recursos.
+- Saiba mais sobre os cenários de [conexão saída](load-balancer-outbound-connections.md) disponíveis em implantações do Gerenciador de Recursos.

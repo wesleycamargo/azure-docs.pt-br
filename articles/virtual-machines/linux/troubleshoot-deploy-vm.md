@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de implantação de máquina virtual do Linux no Azure | Microsoft Docs"
-description: "Solução de problemas de implantação de máquina virtual do Linux no modelo de implantação do Azure Resource Manager."
+title: Solução de problemas de implantação de máquina virtual do Linux no Azure | Microsoft Docs
+description: Solução de problemas de implantação de máquina virtual do Linux no modelo de implantação do Azure Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3d0e9a43d9a3c9c770c4ab6159279db1d93f5134
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 18a8c8c543e640af6d66d6075ca3a6c6799d4d64
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Linux no Azure
 

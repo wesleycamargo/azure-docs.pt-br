@@ -1,21 +1,21 @@
 ---
-title: "Tutorial do Kubernetes no Azure – Implantar aplicativo"
-description: "Tutorial de AKS – implantar aplicativo"
+title: Tutorial do Kubernetes no Azure – Implantar aplicativo
+description: Tutorial de AKS – implantar aplicativo
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicativos no AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: executar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
 Neste tutorial, parte quatro de oito, um aplicativo de exemplo é implantado em um cluster Kubernetes. As etapas concluídas incluem:
 
@@ -24,13 +24,13 @@ Neste tutorial, parte quatro de oito, um aplicativo de exemplo é implantado em 
 > * Executar um aplicativo no Kubernetes
 > * Testar o aplicativo
 
-Nos tutoriais subsequentes, esse aplicativo é escalado horizontalmente, atualizado e o Operations Management Suite configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo é escalado horizontalmente, e o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 Este tutorial assume uma compreensão básica dos conceitos de Kubernetes; para obter informações detalhadas sobre Kubernetes consulte a [documentação do Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. 
+Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado.
 
 Para concluir este tutorial, você precisa do arquivo de manifesto do Kubernetes `azure-vote-all-in-one-redis.yaml` pré-criado. Esse arquivo foi baixado com o código-fonte do aplicativo em um tutorial anterior. Verifique se você clonou repositório e se você alterou os diretórios para o repositório clonado.
 
@@ -72,10 +72,10 @@ Salve e feche o arquivo.
 
 ## <a name="deploy-application"></a>Implantar um aplicativo
 
-Use o comando [kubectl create][kubectl-create] para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
+Use o comando [kubectl apply][kubectl-apply] para executar o aplicativo. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Saída:
@@ -89,7 +89,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testar aplicativo
 
-Um [serviço Kubernetes][kubernetes-service] é criado que expõe o aplicativo para a internet. Esse processo pode levar alguns minutos. 
+Um [serviço Kubernetes][kubernetes-service] é criado que expõe o aplicativo para a internet. Esse processo pode levar alguns minutos.
 
 Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -98,12 +98,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente o *EXTERNAL -IP* para o serviço *azure-vote-front* aparece como *pendente*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `CTRL-C` para interromper o processo kubectl watch. 
+Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endereço IP*, use `CTRL-C` para interromper o processo kubectl watch.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -115,23 +115,24 @@ Para consultar o aplicativo, navegue até o endereço IP externo.
 
 Se o aplicativo não foi carregado, ele pode ser devido a um problema de autorização com o registro da imagem.
 
-Siga estas etapas para [permitir acesso por meio de um segredo de Kubernetes](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Siga estas etapas para [permitir acesso por meio de um segredo de Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, o aplicativo Azure vote foi implantado em um cluster Kubernetes no AKS. As tarefas concluídas incluem:  
+Neste tutorial, o aplicativo Azure vote foi implantado em um cluster Kubernetes no AKS. As tarefas concluídas incluem:
 
 > [!div class="checklist"]
 > * Baixar arquivos de manifesto Kubernetes
 > * Executar um aplicativo no Kubernetes
 > * Testado o aplicativo
 
-Avance para o próximo tutorial para saber mais sobre como dimensionar um aplicativo Kubernetes e a infraestrutura do Kubernetes subjacente. 
+Avance para o próximo tutorial para saber mais sobre como dimensionar um aplicativo Kubernetes e a infraestrutura do Kubernetes subjacente.
 
 > [!div class="nextstepaction"]
 > [Dimensionar um aplicativo do Kubernetes e sua infraestrutura][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

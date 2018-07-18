@@ -4,7 +4,7 @@
 ## [O que é o Resource Manager?](resource-group-overview.md)
 ## [Provedores e tipos de recursos](resource-manager-supported-services.md)
 ## [Resource Manager e a implantação clássica](resource-manager-deployment-model.md)
-## [Governança de assinatura](resource-manager-subscription-governance.md)
+## [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organizar recursos com grupos de gerenciamento](management-groups-overview.md)
 
 # Introdução
@@ -47,9 +47,9 @@
 ### [Portal do Azure](resource-group-portal.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
+### [Criar assinaturas de EA de forma programática](programmatically-create-subscription.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
 ### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
-### [Exemplos de governança](resource-manager-subscription-examples.md)
 
 ## Controlar Acesso
 ### Criar uma entidade de serviço
@@ -101,6 +101,7 @@
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Gerenciar dados pessoais](resource-manager-personal-data.md)
 ## [Solicitações de limitação](resource-manager-request-limits.md)
 ## [Rastrear operações assíncronas](resource-manager-async-operations.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

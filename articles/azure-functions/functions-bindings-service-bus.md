@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 02a34111fbab62884c9ecbfc084a55d21d775182
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304106"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -33,6 +34,8 @@ Este artigo explica como trabalhar com associações do Barramento de Serviço d
 As associações de Barramentos de Serviço são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -49,16 +52,22 @@ Consulte o exemplo específico a um idioma:
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
-A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que registra em log uma mensagem de fila do Barramento de Serviço.
+A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ Este exemplo é para o Azure Functions versão 1. x; para 2. x, [omita o parâme
  
 ### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
 
-O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função registra em log uma mensagem de fila do barramento de serviço.
+O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço do Microsoft Azure.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -88,9 +97,19 @@ Aqui estão os dados de associação no arquivo *function.json*:
 Aqui está o código de script do C#:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função registra em log uma mensagem de fila do barramento de serviço. 
+O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço do Microsoft Azure. 
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -148,6 +167,9 @@ Este é o código do script do JavaScript:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -237,6 +259,8 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensa
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
 * `BrokeredMessage` - Fornece a você a mensagem desserializada com o método [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
 
+Esses parâmetros são para a versão 1.x do Azure Functions; para 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+
 No JavaScript, acesse a mensagem da fila ou do tópico usando `context.bindings.<name from function.json>`. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
 
 ## <a name="trigger---poison-messages"></a>Gatilho - mensagens suspeitas
@@ -245,7 +269,30 @@ A manipulação de mensagens suspeitas não pode ser controlada ou configurada n
 
 ## <a name="trigger---peeklock-behavior"></a>Gatilho - Comportamento de PeekLock
 
-O tempo de execução do Functions recebe uma mensagem no [Modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Ele chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock` , o bloqueio é renovado automaticamente.
+O tempo de execução do Functions recebe uma mensagem no [Modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Ele chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock`, o bloqueio é renovado automaticamente. 
+
+As funções de 1. x permitem que você configure `autoRenewTimeout` na *host.json*,os mapas para [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). O máximo permitido para essa configuração é 5 minutos de acordo com a documentação do Barramento de Serviço do Microsoft Azure, enquanto você pode aumentar o limite de tempo de funções do padrão de 5 minutos para 10 minutos. Para funções de Barramento de Serviço você não irá fazer isso, porque excederia o limite de renovação do Barramento de Serviço.
+
+## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
+
+O gatilho Barramento de Serviço fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+
+|Propriedade|type|DESCRIÇÃO|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Número total de entregas.|
+|`DeadLetterSource`|`string`|A origem de mensagens mortas.|
+|`ExpiresAtUtc`|`DateTime`|Tempo de expiração em UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo de enfileiramento no UTC.|
+|`MessageId`|`string`|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e destinatário específico para lógica de aplicativo.|
+|`ReplyTo`|`string`|A resposta para o endereço da fila.|
+|`SequenceNumber`|`Int64`|Número exclusivo atribuído a uma mensagem pelo Barramento de Serviço.|
+|`To`|`string`|Enviar para o endereço.|
+|`Label`|`string`|Rótulo específico do aplicativo.|
+|`CorrelationId`|`string`|ID de correlação.|
+|`Properties`|`IDictionary<String,Object>`|As propriedades de mensagem específica do aplicativo.|
+
+Consulte [exemplos de código](#trigger---example) que usam essas propriedades neste artigo.
 
 ## <a name="trigger---hostjson-properties"></a>Gatilho - propriedades de host.json
 
@@ -402,7 +449,7 @@ Aqui está o código de script JavaScript que cria uma mensagem única:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -413,9 +460,9 @@ Aqui está o código de script JavaScript que cria várias mensagens:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```
@@ -479,6 +526,8 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a assoc
 * `ICollector<T>` ou `IAsyncCollector<T>` - Para a criação de várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
 
 Em funções assíncronas, use o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
+
+Esses parâmetros são para a versão 1.x do Azure Functions; para 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
 No JavaScript, acesse a fila ou o tópico usando `context.bindings.<name from function.json>`. Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto Javascript (desserializado em JSON) para `context.binding.<name>`.
 

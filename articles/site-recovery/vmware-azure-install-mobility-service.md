@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
 
@@ -27,7 +27,7 @@ O serviço de mobilidade está instalado em VMs VMware e servidores físicos que
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs Windows, o instalador do Serviço de Mobilidade também instala o [Agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) mais recente disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> A partir da versão 9.7.0.0, em VMs Windows, o instalador do Serviço de Mobilidade também instala o [Agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) mais recente disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
 
 ## <a name="prerequisites"></a>pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:

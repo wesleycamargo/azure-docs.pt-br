@@ -1,25 +1,25 @@
 ---
 title: Tutorial de MongoDB, React e Node.js para Azure | Microsoft Docs
-description: "Saiba como criar um aplicativo do MongoDB com React e Node.js no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB com esta série de tutoriais em vídeo."
+description: Saiba como criar um aplicativo do MongoDB com React e Node.js no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB com esta série de tutoriais em vídeo.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 96cd397a7f04fe579b9c6331423abe107ad1c6d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c2cb4b30cb056303c07d5e82861e4022489c7072
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com React e Azure Cosmos DB  
 
@@ -39,7 +39,7 @@ Este tutorial com várias partes aborda as seguintes tarefas:
 
 Deseja criar esse mesmo aplicativo com Angular? Confira a [série de tutoriais em vídeo do Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Projeto concluído
@@ -113,5 +113,5 @@ Volte aqui para conferir outros vídeos desta série de tutoriais que abordarão
 Agora, você pode seguir para o próximo tutorial e saber como importar dados do MongoDB para o Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importar dados do MongoDB no BD Cosmos do Azure](mongodb-migrate.md)
+> [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)
  

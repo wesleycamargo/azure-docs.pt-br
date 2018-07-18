@@ -1,11 +1,11 @@
 ---
-title: "Políticas no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Aprenda a criar, editar e configurar políticas de Gerenciamento de API."
+title: Políticas no Gerenciamento de API do Azure | Microsoft Docs
+description: Aprenda a criar, editar e configurar políticas de Gerenciamento de API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na

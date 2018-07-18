@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Gerenciador de armazenamento (visualização) | Microsoft Docs"
-description: "Gerenciar os recursos de armazenamento do Azure com o Gerenciador de Armazenamento (Visualização)"
+title: Introdução ao Gerenciador de Armazenamento | Microsoft Docs
+description: Gerenciar recursos do armazenamento do Azure com o Gerenciador de Armazenamento
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2335872bcd7d3ea64e449d8b1a43f360d86bb4a0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304623"
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de armazenamento (visualização)
+# <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 ## <a name="overview"></a>Visão geral
-O Gerenciador de armazenamento do Azure (visualização) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. Neste artigo, você aprende diversas maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
+O Gerenciador de Armazenamento do Azure é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. Neste artigo, você aprende diversas maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
 
-![Gerenciador de Armazenamento do Microsoft Azure (Preview)][0]
+![Gerenciador do Armazenamento do Microsoft Azure][0]
 
 ## <a name="prerequisites"></a>pré-requisitos
-* [Baixe e instale o Gerenciador de armazenamento (visualização)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário instalar algumas dependências manualmente. Em geral, são necessários os seguintes pacotes:
-> * libgconf-2-4
-> * libsecret
-> * GCC atualizado
->
-> Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+Gerenciador de Armazenamento do Azure tem suporte nas seguintes versões do Windows:
+
+* Windows 10 (recomendado)
+* Windows 8
+* Windows 7
+
+Para todas as versões do Windows, .NET Framework 4.6.2 ou posterior é necessário.
+
+[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Gerenciador de Armazenamento do Azure tem suporte nas seguintes versões do macOS:
+
+* macOS 10.12 “Sierra” e versões posteriores
+
+[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+Gerenciador de Armazenamento do Azure tem suporte nas seguintes distribuições do Linux:
+
+* Ubuntu 16.04 x64 (recomendado)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+O Gerenciador de Armazenamento do Azure pode funcionar em outras distribuições, mas somente aquelas listadas acima são suportadas oficialmente.
+
+Você também deve ter as seguintes dependências/bibliotecas instaladas para executar o Gerenciador de Armazenamento do Azure no Linux:
+
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (Observação: libsecret 1.so.0 deve estar disponível em seu computador. Se você tiver uma versão diferente do libsecret instalado, você pode tentar vinculando seu arquivo .so ao libsecret 1.so.0)
+* libgconf-2-4
+* GCC atualizado
+
+As [Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) do Gerenciador de Armazenamento do Azure contém etapas específicas para algumas distribuições.
+
+[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conectar-se a uma conta de armazenamento ou serviço
-O Gerenciador de armazenamento (visualização) fornece várias maneiras de se conectar às contas de armazenamento. Por exemplo, você pode:
+O Gerenciador de Armazenamento fornece várias maneiras de se conectar às contas de armazenamento. Por exemplo, você pode:
 * Conecte-se às contas de armazenamento associadas às suas assinaturas do Azure.
 * Conecte-se às contas de armazenamento e serviços compartilhados a partir de outras assinaturas do Azure.
 * Conecte-se e gerencie o armazenamento local usando o Emulador de armazenamento do Azure. 
@@ -60,7 +90,7 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 >
 >
 
-1. No Gerenciador de Armazenamento (versão prévia), selecione **Gerenciar Contas** para acessar o **Painel de Gerenciamento de Conta**.
+1. No Gerenciador de Armazenamento, selecione **Gerenciar Contas** para acessar o **Painel de Gerenciamento de Conta**.
 
     ![Gerenciar Contas][1]
 
@@ -79,7 +109,7 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
     ![Assinaturas do Azure selecionadas][4]
 
 ## <a name="work-with-local-development-storage"></a>Trabalhar com o armazenamento de desenvolvimento local
-O Gerenciador de armazenamento (visualização) permite que você trabalhe no armazenamento local usando o Emulador de Armazenamento do Azure. Essa abordagem permite que você simule o trabalho com o Armazenamento do Azure sem, necessariamente, ter uma conta de armazenamento implantada no Azure, uma vez que a conta de armazenamento está sendo emulada pelo Emulador de Armazenamento do Azure.
+O Gerenciador de Armazenamento permite que você trabalhe no armazenamento local usando o Emulador de Armazenamento do Azure. Essa abordagem permite que você simule o trabalho com o Armazenamento do Azure sem, necessariamente, ter uma conta de armazenamento implantada no Azure, uma vez que a conta de armazenamento está sendo emulada pelo Emulador de Armazenamento do Azure.
 
 > [!NOTE]
 > No momento, o Emulador de Armazenamento do Azure tem suporte somente para Windows.
@@ -91,7 +121,7 @@ O Gerenciador de armazenamento (visualização) permite que você trabalhe no ar
 >
 >
 
-1. No painel esquerdo do Gerenciador de Armazenamento (versão prévia), expanda o nó **(Local e Anexado)** > **Contas de Armazenamento** > **(Desenvolvimento)** > **Contêineres de Blob**.
+1. No painel esquerdo do Gerenciador de Armazenamento, expanda o nó **(Local e Anexado)** > **Contas de Armazenamento** > **(Desenvolvimento)** > **Contêineres de Blob**.
 
     ![Nó de desenvolvimento local][5]
 
@@ -102,12 +132,9 @@ O Gerenciador de armazenamento (visualização) permite que você trabalhe no ar
 3. Depois que o emulador está instalado, você pode criar e trabalhar com blobs, filas e tabelas locais. Para saber como trabalhar com cada tipo de conta de armazenamento, consulte os guias a seguir:
 
     * [Gerenciar recursos de Armazenamento de Blobs do Azure](vs-azure-tools-storage-explorer-blobs.md)
-    * Gerenciar recursos de armazenamento de compartilhamento de arquivos do Azure: *em breve*
-    * Gerenciar recursos de armazenamento de filas do Azure: *em breve*
-    * Gerenciar recursos de armazenamento de tabelas do Azure: *em breve*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Conexão ou desconexão de uma conta de armazenamento externo
-O Gerenciador de armazenamento (visualização) permite anexar contas de armazenamento externas para facilitar o compartilhamento das contas de armazenamento. Esta seção explica como anexar e desanexar contas do armazenamento externo.
+O Gerenciador de Armazenamento permite anexar contas de armazenamento externas para facilitar o compartilhamento das contas de armazenamento. Esta seção explica como anexar e desanexar contas do armazenamento externo.
 
 ### <a name="get-the-storage-account-credentials"></a>Obter as credenciais da conta de armazenamento
 Para compartilhar uma conta de armazenamento externo, o proprietário dessa conta precisa primeiro obter as credenciais (nome e chave da conta), para depois compartilhar essas informações com a pessoa que deseja ser anexada a essa conta. Você pode obter as credenciais da conta de armazenamento por meio do Portal do Azure fazendo as seguintes etapas:
@@ -129,9 +156,9 @@ Para compartilhar uma conta de armazenamento externo, o proprietário dessa cont
     ![Chaves de acesso][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Anexação a uma conta de armazenamento externo
-Para anexar a uma conta de armazenamento externo, você precisará do nome da conta e da chave. A seção "Como obter as credenciais de conta de armazenamento" explica como obter esses valores no portal do Azure. No entanto, no portal, a chave de conta é chamada **key1**. Então, quando o Gerenciador de Armazenamento (versão prévia) solicitar uma chave de conta, digite o valor de **key1**.
+Para anexar a uma conta de armazenamento externo, você precisará do nome da conta e da chave. A seção "Como obter as credenciais de conta de armazenamento" explica como obter esses valores no portal do Azure. No entanto, no portal, a chave de conta é chamada **key1**. Então, quando o Gerenciador de Armazenamento solicitar uma chave de conta, digite o valor de **key1**.
 
-1. No Gerenciador de Armazenamento (versão prévia), abra a **Caixa de Diálogo Conectar**.
+1. No Gerenciador de Armazenamento, abra a **Caixa de Diálogo Conectar**.
 
     ![Opção Conectar ao Armazenamento do Azure][9]
 
@@ -172,10 +199,10 @@ Para ilustrar isso, vamos supor que o UsuárioA é um administrador de uma assin
 
 2. O UsuárioA compartilha a SAS com a pessoa (neste exemplo, o UsuárioB) que deseja acessar a conta de armazenamento.  
 
-3. O UsuárioB usa o Gerenciador de armazenamento (visualização) para se anexar à conta pertencente ao UsuárioA usando a SAS fornecida.
+3. O UsuárioB usa o Gerenciador de Armazenamento para se anexar à conta pertencente ao UsuárioA usando a SAS fornecida.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Gerar uma cadeia de conexão de SAS para a conta que você deseja compartilhar
-1. No Gerenciador de Armazenamento (versão prévia), clique o botão direito do mouse na conta de armazenamento que você deseja compartilhar e, então, escolha **Obter Assinatura de Acesso Compartilhado...**.
+1. No Gerenciador de Armazenamento, clique com o botão direito do mouse na conta de armazenamento que você deseja compartilhar e, em seguida, selecione **Obter Assinatura de Acesso Compartilhado...**.
 
     ![Opção do menu de contexto Obter SAS][14]
 
@@ -186,7 +213,7 @@ Para ilustrar isso, vamos supor que o UsuárioA é um administrador de uma assin
 3. Ao lado da caixa de texto **Cadeia de Conexão**, selecione **Copiar** para copiá-la na área de transferência e, em seguida, clique em **Fechar**.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Anexar a uma conta de armazenamento usando uma Cadeia de Conexão de SAS
-1. No Gerenciador de Armazenamento (versão prévia), abra a **Caixa de Diálogo Conectar**.
+1. No Gerenciador de Armazenamento, abra a **Caixa de Diálogo Conectar**.
 
     ![Opção Conectar ao Armazenamento do Azure][9]
 
@@ -213,12 +240,9 @@ A seção "Anexar uma conta de armazenamento usando uma SAS" ilustra como um adm
 Nesse contexto, um serviço pode ser um contêiner de blobs, uma fila, uma tabela ou um compartilhamento de arquivo. Para gerar o SAS para um serviço listado, confira:
 
 * [Obter a SAS para um contêiner de blob](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Obter a SAS para um compartilhamento de arquivos: *em breve*
-* Obter a SAS para uma fila: *em breve*
-* Obter a SAS para uma tabela: *em breve*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Anexar ao serviço de conta compartilhada usando um URI de SAS
-1. No Gerenciador de Armazenamento (versão prévia), abra a **Caixa de Diálogo Conectar**.
+1. No Gerenciador de Armazenamento, abra a **Caixa de Diálogo Conectar**.
 
     ![Opção Conectar ao Armazenamento do Azure][9]
 
@@ -251,7 +275,7 @@ Além de gerenciar contas do Azure Cosmos DB por meio de uma assinatura do Azure
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Conectar-se ao Azure Data Lake Store por URI
 Se você deseja obter acesso aos recursos que não existem na sua assinatura. Mas outras pessoas concedem a você para obter o URI para os recursos. Nesse caso, você pode se conectar ao Data Lake Store usando o URI depois de se conectar. Consulte as etapas a seguir.
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 2. No painel esquerdo, expanda **Local e Conectado**.
 3. Clique com o botão direito do mouse em **Data Lake Store**e, no menu de contexto, selecione **Conectar-se ao Data Lake Store...**.
 
@@ -276,9 +300,9 @@ Se você precisa encontrar um recurso de armazenamento e não sabe onde ele est�
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Como gerenciar os recursos de armazenamento de Blobs do Azure com o Gerenciador de armazenamento (visualização)](vs-azure-tools-storage-explorer-blobs.md)
+* [Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento](vs-azure-tools-storage-explorer-blobs.md)
 * [Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)](./cosmos-db/storage-explorer.md)
-* [Gerenciar os recursos do Azure Data Lake Store com o Gerenciador de Armazenamento (versão prévia)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Gerenciar os recursos do Azure Data Lake Store com o Gerenciador de Armazenamento](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

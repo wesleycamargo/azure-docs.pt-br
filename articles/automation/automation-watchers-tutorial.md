@@ -1,24 +1,18 @@
 ---
-title: "Criar uma tarefa de observador na conta de Automação do Azure | Microsoft Docs"
-description: "Saiba como criar uma tarefa de observador na conta de Automação do Azure para inspecionar novos arquivos criados em uma pasta."
+title: Criar uma tarefa de observador na conta de Automação do Azure
+description: Saiba como criar uma tarefa de observador na conta de Automação do Azure para inspecionar novos arquivos criados em uma pasta.
 services: automation
-documentationcenter: 
-author: eamonoreilly
-manager: 
-editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.component: process-automation
+author: eamonoreilly
 ms.author: eamono
-ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.topic: conceptual
+ms.date: 03/19/2017
+ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas de observador de Automação do Azure para controlar alterações de arquivo em um computador local
 

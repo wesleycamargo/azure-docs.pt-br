@@ -1,26 +1,24 @@
 ---
-title: "Instalar aplicativo publicado – H2O Sparkling Water – HDInsight do Azure | Microsoft Docs"
+title: Instalar aplicativo publicado – H2O Sparkling Water – HDInsight do Azure | Microsoft Docs
 description: Instale e use o aplicativo de Hadoop de terceiros da H2O Sparkling Water.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Instalar aplicativo publicado – H2O Sparkling Water
 
@@ -84,9 +82,9 @@ Para obter instruções passo a passo sobre como instalar esse e outros aplicati
 
     ![Selecionar Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Localizar o caminho que contém **milsongs-cls-train.csv.gz** e substitua todo o caminho por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Localize o caminho que contém **milsongs-cls-train.csv.gz** e substitua todo o caminho por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-8. Localize o caminho que contém **milsongs-cls-test.csv.gz** e substitua todo o caminho por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Localize o caminho que contém **milsongs-cls-test.csv.gz** e substitua-o por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
 9. Para executar todas as instruções dentro das células do bloco de anotações, selecione o botão **Executar Tudo** na barra de ferramentas.
 
@@ -101,7 +99,7 @@ Para obter instruções passo a passo sobre como instalar esse e outros aplicati
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Documentação do H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
-* [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.
+* [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md): Saiba como implantar um aplicativo do HDInsight não publicado no HDInsight.
 * [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
 * [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como definir aplicativos do HDInsight.
 * [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.

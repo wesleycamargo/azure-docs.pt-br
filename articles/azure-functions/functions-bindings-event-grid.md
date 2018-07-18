@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
 Este artigo explica como manipular com eventos de [Grade de Eventos](../event-grid/overview.md) no Azure Functions.
 
-A Grade de Eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobre eventos que acontecem nos *publicadores*. Um publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e uma exclusão ou upload de blob é um evento. Alguns [serviços do Azure têm suporte interno para publicar eventos na Grade de Eventos](../event-grid/overview.md#event-publishers). 
+A Grade de Eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobre eventos que acontecem nos *publicadores*. Um publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [uma exclusão ou upload de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [serviços do Azure têm suporte interno para publicar eventos na Grade de Eventos](../event-grid/overview.md#event-sources). 
 
 Os *manipuladores* de eventos recebem e processam eventos. O Azure Functions é um dos vários serviços do[Azure que possuem suporte interno para manipular eventos da Grande de Eventos](../event-grid/overview.md#event-handlers). Neste artigo, você aprende a usar um gatilho de Grade de Eventos para invocar uma função quando um evento é recebido da Grade de Eventos.
 
@@ -42,6 +42,8 @@ If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` typ
 -->
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -337,6 +339,9 @@ Como alternativa, você mesmo pode enviar uma HTTP PUT para especificar o valor 
 
 ## <a name="local-testing-with-requestbin"></a>Testes locais com RequestBin
 
+> [!NOTE]
+> O site RequestBin não está disponível no momento, mas você pode usar essa abordagem com https://hookbin.com em vez disso. Se esse site estiver inativo, você pode usar [ngrok](#local-testing-with-ngrok).
+
 Para testar um gatilho de Grade de Eventos localmente, você deve receber solicitações HTTP de Grade de Eventos entre suas origens na nuvem para sua máquina local. Uma maneira de fazer isso é capturar solicitações online e manualmente reenviá-las em sua máquina local:
 
 2. [Criar um ponto de extremidade RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +353,7 @@ Quando terminar de testar, você poderá usar a mesma assinatura para a produç�
 
 ### <a name="create-a-requestbin-endpoint"></a>Criar um ponto de extremidade RequestBin
 
-RequestBin é uma ferramenta de software livre que aceita solicitações HTTP e mostra o corpo da solicitação. A URL http://requestb.in obtém tratamento especial pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos para a URL RequestBin, sem requerer uma resposta correta às solicitações de validação de assinatura. Outras duas ferramentas de teste recebem o mesmo tratamento: http://webhookinbox.com e http://hookbin.com.
+RequestBin é uma ferramenta de software livre que aceita solicitações HTTP e mostra o corpo da solicitação. A URL http://requestb.in obtém tratamento especial pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos para a URL RequestBin, sem requerer uma resposta correta às solicitações de validação de assinatura. Outra ferramenta de teste recebe o mesmo tratamento: http://hookbin.com.
 
 RequestBin não se destina a um uso de alta raxa de transferência. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
 
@@ -523,7 +528,7 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: messages[0].data.validationCode }
+        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.

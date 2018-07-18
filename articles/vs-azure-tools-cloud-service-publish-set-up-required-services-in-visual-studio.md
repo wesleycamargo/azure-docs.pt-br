@@ -1,24 +1,21 @@
 ---
-title: "Preparar para publicar ou implantar um serviço de nuvem do Visual Studio | Microsoft Docs"
-description: "Conheça os procedimentos para configurar serviços de conta de armazenamento e de nuvem e configurar seu aplicativo do Azure."
+title: Preparar para publicar ou implantar um serviço de nuvem do Visual Studio | Microsoft Docs
+description: Conheça os procedimentos para configurar serviços de conta de armazenamento e de nuvem e configurar seu aplicativo do Azure.
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/10/2017
-ms.author: kraigb
-ms.openlocfilehash: 5b2043ada193e5a08957656e153b58a61e7eba9e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: 7656f0ea7ddc283d430eacdccb60a1a2df6e3b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparar para publicar ou implantar um serviço de nuvem do Visual Studio
 
@@ -40,7 +37,7 @@ Um serviço de nuvem executa suas funções no ambiente do Azure. Você pode cri
 
 ### <a name="create-a-cloud-service-through-the-azure-portal"></a>Criar um serviço de nuvem no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione **Serviços de Nuvem (clássico)** no lado esquerdo da página.
 1. Selecione **+ Adicionar**, depois forneça as informações necessárias (Nome DNS, assinatura, grupo de recursos e local). Não é necessário carregar um pacote no momento, você pode fazer isso mais tarde no Visual Studio.
 1. Selecione **Criar** para concluir o processo.
@@ -59,7 +56,7 @@ Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. 
 
 ### <a name="create-a-storage-account-through-the-azure-portal"></a>Criar uma conta de armazenamento no Portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione **+ Novo** no painel à esquerda.
 1. Selecione **Armazenamento** em "Azure Marketplace", depois **Conta de Armazenamento - blob, arquivo, tabela, fila** do lado direito.
 1. Forneça as informações necessárias (nome, modelo de implantação e assim por diante.

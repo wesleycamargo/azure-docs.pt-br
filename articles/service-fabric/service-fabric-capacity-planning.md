@@ -1,24 +1,24 @@
 ---
 title: Planejamento de capacidade para aplicativos Service Fabric | Microsoft Docs
-description: "Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric"
+description: Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: markfuss
-editor: 
+editor: ''
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: dc5e81ff7e5466d258624cee80c520c848bd60fa
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para Aplicativos do Service Fabric
 Este documento ensina a você como estimar a quantidade de recursos (CPU, RAM, armazenamento de disco) necessários para a execução dos aplicativos Service Fabric. É comum os requisitos de recursos mudarem ao longo do tempo. Normalmente, você precisa de alguns recursos enquanto desenvolve/testa seu serviço e, posteriormente, precisa de mais recursos à medida que entra na fase de produção e a popularidade de seu aplicativo aumenta. Ao projetar o aplicativo, pense nos requisitos de longo prazo e faça escolhas que permitam a ampliação do serviço, a fim de atender à alta demanda dos clientes.

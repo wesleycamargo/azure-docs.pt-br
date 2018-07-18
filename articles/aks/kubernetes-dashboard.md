@@ -1,21 +1,21 @@
 ---
-title: "Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web"
+title: Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
 description: Usar o painel do Kubernetes no AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Contêiner do Azure)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
 
 A CLI do Azure pode ser usada para iniciar o Painel do Kubernetes. Este documento explica desde o painel do Kubernetes com a CLI do Azure e também aborda algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes][kubernetes-dashboard].
 

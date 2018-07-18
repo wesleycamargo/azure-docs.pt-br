@@ -1,13 +1,13 @@
 ---
 title: Como redimensionar uma VM do Linux com a CLI 1.0 do Azure | Microsoft Docs
-description: "Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM."
+description: Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM.
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72f5a3cd6463befd5108040ed166984281bfc5f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4407a3662e6a50d650ab4ecc6dd1c2dad0c53bdb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>Redimensionar uma VM Linux com a CLI do Azure 1.0
 
@@ -79,6 +79,6 @@ Para obter escalabilidade adicional, execute várias instâncias de VM e expanda
 <!-- links -->
 
 [azure-cli]:../../cli-install-nodejs.md
-[boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]:sizes.md

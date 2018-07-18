@@ -5,24 +5,24 @@ services: machine-learning
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
-A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita o aprendizado aprofundado no Azure. As ferramentas de aprendizado aprofundado incluem:
+A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita a introdução ao aprendizado de máquina, incluindo o aprendizado aprofundado, no Azure. As ferramentas de aprendizado aprofundado incluem:
 
   * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
   * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma cruzada do Caffe
@@ -31,6 +31,7 @@ A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina vir
   * [Keras](https://keras.io/): uma API de rede neural de alto nível em Python para Theano e TensorFlow
   * [MXNet](http://mxnet.io/): uma biblioteca de aprendizado aprofundado flexível e eficiente com muitas associações de linguagem
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): um sistema gráfico que simplifica tarefas comuns de aprendizado aprofundado
+  * [PyTorch](http://pytorch.org/): uma biblioteca Python de alto nível com suporte para redes dinâmicos
   * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de código-fonte aberto para inteligência de máquina do Google
   * [Theano](http://deeplearning.net/software/theano/): uma biblioteca do Python para definir, otimizar e avaliar com eficiência expressões matemáticas que envolvem matrizes multidimensionais
   * [Tocha](http://torch.ch/): uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina
@@ -94,7 +95,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    
    b. **Tamanho**:
    
-   * Selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Selecione **Exibir Tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe NC para treinamento de GPU.
+   * Selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Selecione **Exibir Tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe NC ou ND para treinamento de GPU. A página [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) lista as regiões com GPUs.
    
    c. **Configurações**:
    
@@ -113,6 +114,14 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
 O provisionamento deve levar cerca de 5 a 10 minutos. O status do provisionamento é exibido no Portal do Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como acessar uma Máquina Virtual de Ciência de Dados para Linux
+
+É possível acessar a DSVM do Ubuntu usando três métodos:
+1. SSH para sessões de terminal
+2. X2Go para sessões gráficas
+3. JupyterHub e JupyterLab para notebooks Jupyter
+
+### <a name="ssh"></a>SSH
+
 Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. No Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciai
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Instalando e configurando o cliente X2Go
+### <a name="x2go"></a>X2Go
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM do Linux, realize o seguinte procedimento em seu cliente:
 
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar con
    * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
 Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub e JupyterLab
+
+A DSVM do Ubuntu executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor Jupyter multiusuário. Para se conectar, navegue até https://your-vm-ip:8000 em seu computador desktop ou laptop, insira o nome de usuário e a senha usados para criar a VM e faça logon. Muitos notebooks de exemplo estão disponíveis para você procurar e experimentar.
+
+O JupyterLab, a próxima geração de notebooks Jupyter e JupyterHub, também está disponível. Para acessá-lo, faça logon no JupyterHub e navegue até a URL https://your-vm-ip:8000/lab. É possível definir o JupyterLab como o servidor de Notebook padrão adicionando esta linha a /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Ferramentas Instaladas na Máquina Virtual de Ciência de Dados para Linux
 ### <a name="deep-learning-libraries"></a>Bibliotecas de aprendizado aprofundado
@@ -159,7 +176,7 @@ Caffe2 é uma estrutura de aprendizado do Facebook que se baseia no Caffe. Ele e
 Alguns blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="h2o"></a>H2O
-H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. Para iniciar o H2O da linha de comando, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode configurar. A interface de usuário da Web do Flow pode ser acessada navegando para http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
+H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. Para iniciar o H2O da linha de comando, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode configurar. A interface do usuário da Web do Flow pode ser acessada navegando até http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="keras"></a>Keras
 Keras é uma API de rede neural de alto nível em Python capaz de ser executada sobre TensorFlow ou Theano. Ela está disponível nos ambientes raiz e py35 do Python. 
@@ -193,35 +210,37 @@ Para iniciar o console R, basta digitar **R** no shell. Isso leva você para um 
 Também há um script de R para você instalar os [20 melhores pacotes do R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) , caso queira. Esse script pode ser executado quando você estiver na interface interativa de R, na qual você pode entrar (conforme mencionado) digitando **R** no shell.  
 
 ### <a name="python"></a>Python
-Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar os editores de texto padrão. Além disso, você pode usar o Spyder, um IDE do Python que é fornecido com distribuições do Anaconda Python. O Spyder precisa de uma área de trabalho gráfica ou de encaminhamento X11. Um atalho para o Spyder é fornecido na área de trabalho gráfica.
+O Anaconda Python é instalado com os ambientes Python 2.7 e 3.5. O ambiente 2.7 é chamado _raiz_ e o ambiente 3.5 é chamado _py35_. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. 
 
-Como temos ambos o Python 2.7 e o 3.5, você precisa ativar especificamente a versão desejada do Python (ambiente conda) com a qual você deseja trabalhar na sessão atual. O processo de ativação define a variável PATH para a versão desejada do Python.
+O ambiente py35 é o padrão. Para ativar o ambiente raiz (2.7):
 
-Para ativar o ambiente de conda do Python 2.7, execute o seguinte comando do shell:
+    source activate root
 
-    source /anaconda/bin/activate root
+Para ativar o ambiente py35 novamente:
 
-O Python 2.7 está instalado em */anaconda/bin*.
+    source activate py35
 
-Para ativar o ambiente de conda do Python 3.5, execute o seguinte no shell:
+Para invocar a sessão interativa do Python, basta digitar **Python** no shell. 
 
-    source /anaconda/bin/activate py35
+Instale bibliotecas adicionais do Python usando ```conda``` ou ````pip````. Para pip, ative o ambiente correto primeiro, se não quiser o padrão:
 
+    source activate root
+    pip install <package>
 
-O Python 3.5 está instalado em */anaconda/envs/py35/bin*.
+Ou especifique o caminho completo até o pip:
 
-Para invocar a sessão interativa do Python, basta digitar **Python** no shell. Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python.
+    /anaconda/bin/pip install <package>
+    
+Para conda, você sempre deve especificar o nome do ambiente (_py35_ ou _raiz_):
 
-Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo: 
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python. Você pode usar os editores de texto padrão. Além disso, você pode usar o Spyder, um IDE do Python que é fornecido com distribuições do Anaconda Python. O Spyder precisa de uma área de trabalho gráfica ou de encaminhamento X11. Um atalho para o Spyder é fornecido na área de trabalho gráfica.
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
 A distribuição do Anaconda também acompanha um notebook Jupyter, um ambiente de compartilhamento de código e de análise. O notebook Jupyter é acessado com o JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
 
-O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do notebook. Se você estiver usando a VM por meio de cliente SSH ou X2Go, também poderá visitar [https://localhost:8000/](https://localhost:8000/) para acessar o servidor do notebook Jupyter.
+O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do notebook. Se você estiver na VM via cliente SSH ou X2Go, também poderá visitar [https://localhost:8000/](https://localhost:8000/) para acessar o servidor do Notebook Jupyter.
 
 > [!NOTE]
 > Continue se você obtiver quaisquer avisos de certificado.

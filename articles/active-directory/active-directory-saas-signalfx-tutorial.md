@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 67e9bb69e1e8741e4a4ff7e7b78cb06856d2450f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory com SignalFx
 
@@ -30,7 +30,7 @@ A integração do SignalFx ao Azure Active Directory oferece os benefícios a se
 - Você pode permitir que seus usuários façam logon automaticamente no SignalFx (logon único) com suas contas do Azure Active Directory.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -140,49 +140,33 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     
     e. Clique em **OK**.
  
-6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+6. Na seção **Certificado de Autenticação SAML**, execute as seguintes etapas: 
 
-    ![O link de download do Certificado](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+
+    b. Clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
 
 7. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Para gerar a **URL de Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **SignalFx** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Na seção **Configuração do SignalFx**, clique em **Configurar SignalFx** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
+8. Na seção **Configuração do SignalFx**, clique em **Configurar SignalFx** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
 
     ![Configuração do SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Faça logon no site da empresa SignalFx como administrador.
+9. Faça logon no site da empresa SignalFx como administrador.
 
-11. Em SignalFx, na parte superior, clique em **Integrações** para abrir a página Integrações.
+10. Em SignalFx, na parte superior, clique em **Integrações** para abrir a página Integrações.
 
     ![Integração do SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Clique no bloco **Azure Active Directory** na seção **Serviços de Logon**.
+11. Clique no bloco **Azure Active Directory** na seção **Serviços de Logon**.
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Clique em **NOVA INTEGRAÇÃO** e na guia **INSTALAR** execute as seguintes etapas:
+12. Clique em **NOVA INTEGRAÇÃO** e na guia **INSTALAR** execute as seguintes etapas:
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     d. Na caixa de texto **URL do Emissor**, cole o valor da **ID da Entidade SAML** copiada do Portal do Azure.
 
-    e. Na caixa de texto **URL de Metadados**, cole a **URL de Metadados** que você gerou no Portal do Azure.
+    e. Na caixa de texto **URL de Metadados**, cole a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure.
 
     f. Clique em **Salvar**.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -282,7 +263,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

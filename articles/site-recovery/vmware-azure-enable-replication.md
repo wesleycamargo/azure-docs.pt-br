@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -112,15 +112,15 @@ Em seguida, verifique as propriedades do computador de origem. Lembre-se de que 
     Por exemplo, se um computador de origem tiver dois adaptadores de rede e o tamanho do computador de destino der suporte a quatro, o computador de destino terá dois adaptadores. Se o computador de origem tiver dois adaptadores, mas o tamanho de destino com suporte só aceitar um, o computador de destino terá apenas um adaptador.
     - Se a máquina virtual tiver vários adaptadores de rede, todos eles se conectarão à mesma rede. Além disso, o primeiro deles mostrados na lista se torna o adaptador de rede *Padrão* na máquina virtual do Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Benefício de Uso do Azure Híbrido
+### <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Clientes do Microsoft Software Assurance podem usar o Benefício de Uso do Azure híbrido para economizar nos custos de licenciamento para máquinas do Windows Server que são migradas para o Azure, ou que usam o Azure para recuperação de desastres. Se você está qualificado para usar o Benefício de Uso Híbrido do Azure, pode especificar que a máquina virtual atribuída a esse benefício seja a criada pelo Azure Site Recovery se houver um failover. Para fazer isso:
+Clientes do Microsoft Software Assurance podem usar o Benefício Híbrido do Azure para economizar nos custos de licenciamento para máquinas do Windows Server que são migradas para o Azure, ou que usam o Azure para recuperação de desastres. Se você está qualificado para usar o Benefício Híbrido do Azure, pode especificar que a máquina virtual atribuída a esse benefício seja a criada pelo Azure Site Recovery se houver um failover. Para fazer isso:
 - Vá para a seção de propriedades de Computação e Rede da máquina virtual replicada.
-- Responda à pergunta que pergunta se você tem uma licença do Windows Server que faz com que você tenha direito ao Benefício de Uso Híbrido do Azure.
-- Marque a caixa de seleção para confirmar que você tem uma licença do Windows Server com o Software Assurance que você pode usar para aplicar o Benefício de Uso Híbrido no computador que será criado durante o failover.
+- Responda à pergunta que pergunta se você tem uma licença do Windows Server que faz com que você tenha direito ao Benefício Híbrido do Azure.
+- Marque a caixa de seleção para confirmar que você tem uma licença do Windows Server com o Software Assurance que você pode usar para aplicar o Benefício Híbrido do Azure no computador que será criado durante o failover.
 - Salve as configurações para o computador replicado.
 
-Saiba mais sobre o [Benefício de Uso Híbrido do Azure](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Saiba mais sobre o [Benefício Híbrido do Azure](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Problemas comuns
 

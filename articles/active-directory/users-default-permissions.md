@@ -1,28 +1,27 @@
 ---
-title: "Comparar as permissões padrão de usuário no Active Directory do Azure | Microsoft Docs"
-description: "Comparar o membro, o convidado, proprietário do aplicativo e permissões de proprietário do grupo"
+title: Comparar as permissões padrão de usuário no Active Directory do Azure | Microsoft Docs
+description: Comparar o membro, o convidado, proprietário do aplicativo e permissões de proprietário do grupo
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: a9bf9748de5f390f95b8b672e0cf77afa5c49581
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de usuário padrão no Azure Active Directory
 
-No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [associações de função](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado.
+No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [associações de função](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado.
 
 ## <a name="member-and-guest-users"></a>Usuários membro e convidado
 O conjunto de permissões padrão recebido depende se o usuário é um membro nativo do locatário (usuário membro) ou se o usuário é um convidado de colaboração B2B (usuário convidado). Para obter mais informações sobre a colaboração B2B, consulte [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md) para obter mais informações sobre usuários convidados. 
@@ -77,6 +76,6 @@ Quando um usuário cria um grupo, ele é automaticamente adicionado como um prop
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)
+* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerenciar usuários](active-directory-create-users.md)

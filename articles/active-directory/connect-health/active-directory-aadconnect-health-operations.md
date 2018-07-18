@@ -1,8 +1,8 @@
 ---
-title: "Operações do Azure Active Directory Connect Health"
-description: "Este artigo descreve as operações adicionais que podem ser executadas após a implantação do Azure AD Connect Health."
+title: Operações do Azure Active Directory Connect Health
+description: Este artigo descreve as operações adicionais que podem ser executadas após a implantação do Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -91,9 +91,9 @@ Ao excluir uma instância de serviço, esteja ciente do seguinte:
 4. Clique em **Excluir**.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (Início da seção de RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Gerenciar acesso com controle de acesso baseado em função
-O [RBAC (Controle de acesso baseado em função)](../role-based-access-control-configure.md) do Azure AD Connect Health fornece acesso a usuários e grupos que não sejam administradores globais. O RBAC atribui funções aos usuários e grupos desejados e fornece um mecanismo para limitar os administradores globais em seu diretório.
+O [RBAC (Controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do Azure AD Connect Health fornece acesso a usuários e grupos que não sejam administradores globais. O RBAC atribui funções aos usuários e grupos desejados e fornece um mecanismo para limitar os administradores globais em seu diretório.
 
 ### <a name="roles"></a>Funções
 O Azure AD Connect Health dá suporte às seguintes funções internas:
@@ -153,7 +153,7 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 Você pode remover um usuário ou grupo adicionado ao RBAC do Azure AD Connect Health. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **Remover**.<br>
 ![Captura de tela da janela Usuários do RBAC do Azure AD Connect Health, com Remover realçado](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (Fim da seção de RBAC)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

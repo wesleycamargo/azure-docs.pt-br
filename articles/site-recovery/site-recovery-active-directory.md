@@ -1,19 +1,20 @@
 ---
 title: Proteger o Active Directory e o DNS com o Azure Site Recovery | Microsoft Docs
-description: "Este artigo descreve como implementar uma solução de recuperação de desastre para o Active Directory usando o Azure Site Recovery."
+description: Este artigo descreve como implementar uma solução de recuperação de desastre para o Active Directory usando o Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072599"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usar o Azure Site Recovery para proteger o Active Directory e o DNS
 
@@ -57,16 +58,16 @@ Para a máquina virtual que hospeda o controlador de domínio ou o DNS, no Site 
 Crie um controlador de domínio no site secundário. Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio que está sendo usado no site primário. Você pode usar o snap-in dos **Sites e Serviços do Active Directory** para definir as configurações no objeto de link de site ao qual os sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência isso ocorre. Para saber mais, veja [Agendamento da replicação entre sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Proteção Site ao Azure
-Primeiro, [crie um controlador de domínio em uma rede virtual do Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio usado no site primário.
+Primeiro, crie um controlador de domínio em uma rede virtual do Azure. Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio usado no site primário.
 
-Depois disso, [reconfigure o servidor DNS para a rede virtual](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) para usar o servidor DNS no Azure.
+Depois disso, reconfigure o servidor DNS para a rede virtual para usar o servidor DNS no Azure.
 
 ![Rede do Azure](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Proteção Azure ao Azure
-Primeiro, [crie um controlador de domínio em uma rede virtual do Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio usado no site primário.
+Primeiro, crie um controlador de domínio em uma rede virtual do Azure. Ao promover o servidor para uma função de controlador de domínio, especifique o mesmo nome de domínio usado no site primário.
 
-Depois disso, [reconfigure o servidor DNS para a rede virtual](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) para usar o servidor DNS no Azure.
+Depois disso, reconfigure o servidor DNS para a rede virtual para usar o servidor DNS no Azure.
 
 ## <a name="test-failover-considerations"></a>considerações sobre failover de teste
 Para evitar impactos nas cargas de trabalho de produção, o failover de teste ocorre em uma rede isolada da rede de produção.

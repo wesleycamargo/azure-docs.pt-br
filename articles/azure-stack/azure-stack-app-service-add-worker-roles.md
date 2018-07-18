@@ -1,25 +1,25 @@
 ---
-title: "Expansão de funções de trabalho nos serviços de aplicativo - pilha do Azure | Microsoft Docs"
-description: "Instruções detalhadas para dimensionar os serviços de aplicativos de pilha do Azure"
+title: Expansão de funções de trabalho nos serviços de aplicativo - pilha do Azure | Microsoft Docs
+description: Instruções detalhadas para dimensionar os serviços de aplicativos de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicativo na pilha do Azure: adicionar mais funções de infraestrutura ou de trabalho
 
@@ -51,7 +51,7 @@ Serviço de aplicativo do Azure na pilha do Azure implanta todas as funções us
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

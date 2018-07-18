@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao DigiCert | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o DigiCert."
+title: 'Tutorial: Integração do Azure Active Directory ao DigiCert | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o DigiCert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f471da85a0aa5b4e754e13ce102f803daffb82e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integração do Azure Active Directory com o DigiCert
 
@@ -29,9 +29,9 @@ A integração do DigiCert ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no DigiCert (Logon Único) com as próprias contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao DigiCert, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando DigiCert da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-digicert-from-the-gallery"></a>Adicionando DigiCert da galeria
 Para configurar a integração do DigiCert ao Azure AD, você precisará adicionar o DigiCert da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do DigiCert ao Azure AD, você precisará adicion
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **DigiCert**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do DigiCert ao Azure AD, você precisará adicion
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o DigiCert com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do DigiCert é equivalente a um usuário no Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do DigiCert.
@@ -86,11 +86,11 @@ No DigiCert, atribua o valor do **nome de usuário** no Azure AD como o valor do
 
 Para configurar e testar o logon único do Azure AD com o DigiCert, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do DigiCert](#creating-a-digicert-test-user)** – para ter um equivalente de Brenda Fernandes no DigiCert que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,19 +100,21 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração de aplicativos do **DigiCert**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. Na seção **URLs e Domínio do DigiCert**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está pré-integrado ao Azure.
+3. Na seção **Domínio e URLs do DigiCert**, execute as etapas a seguir:
 
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    Na caixa de texto **Identificador**, digite a URL: `https://www.digicert.com/sso`
 
 4. O aplicativo DigiCert espera que as instruções SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo dessa configuração. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_attributes.png)
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_attributes.png)
     
 5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
@@ -128,7 +130,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_attribute_05.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -142,12 +144,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 7. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_general_400.png)
 
-8. Para configurar o logon único no lado do **DigiCert**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do DigiCert](mailto:support@digicert.com). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+8. Para configurar o logon único no lado do **DigiCert**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do DigiCert](mailto:support@digicert.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -198,7 +197,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **DigiCert**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -224,7 +223,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,25 +1,25 @@
 ---
-title: "Autenticação segura do RADIUS no gateway de VPN do Azure com o servidor NPS para Autenticação Multifator | Microsoft Docs"
-description: "Descreve a integração da autenticação RADIUS do gateway do Azure com o servidor NPS para Autenticação Multifator."
+title: Autenticação segura do RADIUS no gateway de VPN do Azure com o servidor NPS para Autenticação Multifator | Microsoft Docs
+description: Descreve a integração da autenticação RADIUS do gateway do Azure com o servidor NPS para Autenticação Multifator.
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin
 manager: willchen
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 665e1914f44d7c5e650a1b632d8b11c6d8a5931a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar a autenticação RADIUS do gateway de VPN do Azure com o servidor NPS para Autenticação Multifator 
 
@@ -50,7 +50,7 @@ Para habilitar a MFA, os usuários devem estar no Azure AD (Azure Active Directo
  
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Etapa 2: configurar o NPS para o MFA do Azure
 
-1. No servidor de NPS, [instale a extensão NPS para o MFA do Azure](../multi-factor-authentication/multi-factor-authentication-nps-extension.md#install-the-nps-extension).
+1. No servidor de NPS, [instale a extensão NPS para o MFA do Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Abra o console do NSP, clique com o botão direito do mouse em **Clientes RADIUS** e, em seguida, selecione **Novo**. Crie o cliente RADIUS especificando as seguintes configurações:
 
     - **Nome Amigável**: digite um nome qualquer.
@@ -80,5 +80,5 @@ Para habilitar a MFA, os usuários devem estar no Azure AD (Azure Active Directo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
-- [Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-nps-extension.md)
+- [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)
+- [Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure](../active-directory/authentication/howto-mfa-nps-extension.md)

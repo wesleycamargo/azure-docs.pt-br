@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory B2C: proteger seus serviços RESTful usando autenticação básica HTTP"
-description: "Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP"
+title: 'Azure Active Directory B2C: proteger seus serviços RESTful usando autenticação básica HTTP'
+description: Proteger suas trocas de declarações da API REST personalizadas no Azure AD B2C usando a autenticação básica HTTP
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 749157d16c1c394b173545dddb8751d58fdcfd56
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Em um [artigo relacionado do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), você criará um serviço RESTful (API Web) que se integra aos percursos do usuário do Azure AD B2C (Azure Active Directory B2C) sem autenticação. 
 
 Este artigo mostra como adicionar autenticação básica HTTP ao serviço RESTful para que somente usuários verificados, incluindo o B2C, possam acessar a API. Com a autenticação básica HTTP, é possível definir as credenciais do usuário (ID e segredo do aplicativo) em sua política personalizada. 

@@ -1,28 +1,28 @@
 ---
-title: "Redes virtuais do Azure e Máquinas Virtuais do Windows | Microsoft Docs"
-description: "Tutorial – Gerenciar redes virtuais do Azure e Máquinas Virtuais do Windows com o Azure PowerShell"
+title: Tutorial – Criar e gerenciar redes virtuais do Azure para VMs Windows | Microsoft Docs
+description: Neste tutorial, você aprende a usar Microsoft Azure PowerShell para criar e gerenciar redes virtuais do Azure para máquinas virtuais Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3a59d85ea19ba6670ffbb60aa9b764560a3567a0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Gerenciar redes virtuais do Azure e Máquinas Virtuais do Windows com o Azure PowerShell
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: criar e gerenciar redes virtuais do Microsoft Azure para as máquinas virtuais Windows com o Microsoft Azure PowerShell
 
 As máquinas virtuais do Azure usam a rede do Azure para comunicação de rede interna e externa. Este tutorial explica como implantar duas máquinas virtuais e configurar a rede do Azure para essas VMs. Os exemplos neste tutorial supõem que as VMs estão hospedando um aplicativo Web com um back-end de banco de dados. No entanto, não há implantação de aplicativo no tutorial. Neste tutorial, você aprenderá como:
 
@@ -33,9 +33,9 @@ As máquinas virtuais do Azure usam a rede do Azure para comunicação de rede i
 > * Protegem o tráfego de rede
 > * Criar VM back-end
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-Este tutorial requer o módulo AzureRM.Compute versão 4.3.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM.Compute` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="vm-networking-overview"></a>Visão Geral da VM
 
@@ -266,7 +266,7 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "EastUS" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 

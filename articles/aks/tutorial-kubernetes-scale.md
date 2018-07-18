@@ -1,21 +1,21 @@
 ---
 title: Tutorial do Kubernetes no Azure - Dimensionar Aplicativo
-description: "Tutorial de AKS – dimensionar aplicativo"
+description: Tutorial de AKS – dimensionar aplicativo
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7b962ccd8349996cd33cc3960391cba8fce549ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Dimensionar aplicativo no AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Tutorial: dimensionar o aplicativo no AKS (Serviço de Kubernetes do Azure)
 
 Se você estiver seguindo os tutoriais, terá um cluster de Kubernetes operacional no AKS e já implantou o aplicativo Azure Voting.
 
@@ -26,7 +26,7 @@ Neste tutorial, parte cinco de oito, você expandirá os pods no aplicativo e ex
 > * Dimensionamento manual de pods Kubernetes
 > * Configuração de pods com dimensionamento automático executando o front-end do aplicativo
 
-Nos tutoriais subsequentes, o aplicativo Azure Vote é atualizado e o Operations Management Suite configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo Azure Vote é atualizado e o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

@@ -8,13 +8,13 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: 532323a8511bc7ba8c2c322fe9f69d354691136b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Usar Python para consultar um banco de dados SQL do Azure
 
@@ -22,11 +22,11 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial de início rápido, certifique-se de que você tenha o seguinte:
+Para concluir este início rápido, tenha o seguinte:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
 
 - O Python e o software relacionado para seu sistema operacional instalados:
 
@@ -51,7 +51,7 @@ database = 'your_database'
 username = 'your_username'
 password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()

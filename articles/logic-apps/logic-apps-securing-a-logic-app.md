@@ -1,11 +1,11 @@
 ---
-title: "Proteger o acesso aos Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Adicione segurança para proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços usados com fluxos de trabalho em Aplicativos Lógicos do Azure."
+title: Proteger o acesso aos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Adicione segurança para proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços usados com fluxos de trabalho em Aplicativos Lógicos do Azure.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3831c44a52fe4bb428021acac46188966087fdfe
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Proteger o acesso aos aplicativos lógicos
 
@@ -77,7 +77,7 @@ Além da Assinatura de Acesso Compartilhado, talvez você queira restringir cham
 Essa configuração pode ser definida nas configurações de aplicativo lógico:
 
 1. No portal do Azure, abra o aplicativo lógico cuja chave você deseja regenerar
-1. Clique no item de menu **Configuração de Controle de Acesso** em **Configurações**
+1. Clique no item de menu **Configurações de Fluxo de Trabalho** em **Configurações**
 1. Especifique a lista de intervalos de endereços IP a serem aceitos pelo gatilho
 
 Um intervalo IP válido assume o formato `192.168.1.1/255`. Se quiser que o aplicativo lógico seja acionado apenas como um aplicativo lógico aninhado, selecione a opção **Somente outros aplicativos lógicos**. Essa opção grava uma matriz vazia para o recurso, o que significa que somente chamadas do serviço em si (aplicativos lógicos pai) acionam com êxito.
@@ -119,7 +119,7 @@ Para adicionar mais protocolos de autorização sobre um aplicativo lógico, o [
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Proteger o acesso para gerenciar ou editar aplicativos lógicos
 
-Você pode restringir o acesso a operações de gerenciamento em um aplicativo lógico para que somente usuários ou grupos específicos sejam capazes de realizar operações no recurso. Aplicativos lógicos usam o recurso de [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md) do Azure e podem ser personalizados com as mesmas ferramentas.  Há algumas funções internas que você pode aos atribuir membros da sua assinatura:
+Você pode restringir o acesso a operações de gerenciamento em um aplicativo lógico para que somente usuários ou grupos específicos sejam capazes de realizar operações no recurso. Aplicativos lógicos usam o recurso de [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md) do Azure e podem ser personalizados com as mesmas ferramentas.  Há algumas funções internas que você pode aos atribuir membros da sua assinatura:
 
 * **Colaborador do Aplicativo Lógico** - Fornece acesso para exibir, editar e atualizar um aplicativo lógico.  Não pode remover o recurso ou executar operações de administração.
 * **Operador de Aplicativo Lógico** - Pode exibir o aplicativo lógico e histórico de execução e habilitar/desabilitar.  Não é pode editar ou atualizar a definição.
@@ -135,8 +135,8 @@ Todos os dados dentro de uma execução de fluxo de trabalho são criptografados
 Essa configuração pode ser definida nas configurações de recurso do portal do Azure:
 
 1. No portal do Azure, abra o aplicativo lógico cuja chave você deseja regenerar
-1. Clique no item de menu **Configuração de Controle de Acesso** em **Configurações**
-1. Especificar a lista de intervalos de endereços IP para acesso ao conteúdo
+2. Clique no item de menu **Configuração de Controle de Acesso** em **Configurações**
+3. Especificar a lista de intervalos de endereços IP para acesso ao conteúdo
 
 #### <a name="setting-ip-ranges-on-the-resource-definition"></a>Definir intervalos de IP na definição de recurso
 
@@ -183,64 +183,62 @@ O exemplo a seguir mostra uma implantação que faz referência a um parâmetro 
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "secretDeploymentParam": {
-      "type": "securestring"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "secretDeploymentParam": {
+         "type": "securestring"
+      }
+   },
+   "variables": {},
+   "resources": [ {
       "name": "secret-deploy",
       "type": "Microsoft.Logic/workflows",
       "location": "westus",
       "tags": {
-        "displayName": "LogicApp"
+         "displayName": "LogicApp"
       },
       "apiVersion": "2016-06-01",
       "properties": {
-        "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Call_External_API": {
-              "type": "http",
-              "inputs": {
-                "headers": {
-                  "Authorization": "@parameters('secret')"
-                },
-                "body": "This is the request"
-              },
-              "runAfter": {}
-            }
-          },
-          "parameters": {
+         "definition": {
+            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+            "actions": {
+               "Call_External_API": {
+                  "type": "Http",
+                  "inputs": {
+                     "headers": {
+                        "Authorization": "@parameters('secret')"
+                     },
+                     "body": "This is the request"
+                  },
+                  "runAfter": {}
+               }
+            },
+            "parameters": {
+               "secret": {
+                  "type": "SecureString"
+               }
+            },
+            "triggers": {
+               "manual": {
+                  "type": "Request",
+                  "kind": "Http",
+                  "inputs": {
+                     "schema": {}
+                  }
+               }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+         },
+         "parameters": {
             "secret": {
-              "type": "SecureString"
+               "value": "[parameters('secretDeploymentParam')]"
             }
-          },
-          "triggers": {
-            "manual": {
-              "type": "Request",
-              "kind": "Http",
-              "inputs": {
-                "schema": {}
-              }
-            }
-          },
-          "contentVersion": "1.0.0.0",
-          "outputs": {}
-        },
-        "parameters": {
-          "secret": {
-            "value": "[parameters('secretDeploymentParam')]"
-          }
-        }
+         }
       }
-    }
-  ],
-  "outputs": {}
+   } ],
+   "outputs": {}
 }
 ```
 

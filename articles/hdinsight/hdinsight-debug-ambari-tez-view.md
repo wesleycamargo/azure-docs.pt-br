@@ -1,8 +1,8 @@
 ---
-title: "Usar a exibição do Ambari Tez com o HDInsight – Azure | Microsoft Docs"
-description: "Saiba como usar o modo de exibição do Ambari Tez para depurar trabalhos do Tez no HDInsight."
+title: Usar a exibição do Ambari Tez com o HDInsight – Azure | Microsoft Docs
+description: Saiba como usar o modo de exibição do Ambari Tez para depurar trabalhos do Tez no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bf34bc5a65c2beb55c7039868e4d90d83d28de51
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
 
@@ -52,7 +50,7 @@ A exibição do Tez só conterá dados se um trabalho que usa o mecanismo Tez es
 
 Use as etapas a seguir para executar uma consulta do Hive que usa o Tez:
 
-1. Abra um navegador da Web, navegue para https://CLUSTERNAME.azurehdinsight.net, em que **CLUSTERNAME** é o nome do seu cluster HDInsight.
+1. Em um navegador da Web, navegue para https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster HDInsight.
 
 2. No menu na parte superior da página, escolha o ícone **Exibições**. Esse ícone é semelhante a uma série de quadrados. No menu suspenso que aparece, escolha **Exibição do Hive**.
 

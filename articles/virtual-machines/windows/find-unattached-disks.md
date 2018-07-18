@@ -1,25 +1,25 @@
 ---
-title: "Localizar e excluir discos gerenciados e não gerenciados do Azure desconectados | Microsoft Docs"
-description: "Como localizar e excluir discos gerenciados e não gerenciados (VHDs/blobs de páginas) do Azure desconectados usando o Azure PowerShell."
+title: Localizar e excluir discos gerenciados e não gerenciados do Azure desconectados | Microsoft Docs
+description: Como localizar e excluir discos gerenciados e não gerenciados (VHDs/blobs de páginas) do Azure desconectados usando o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankumarlive
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 15c2550472156d5c1f680af77df2fe771edf3444
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a8d2e017ee0b368c2d509ab4bf47ea566ee52a3b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localizar e excluir discos gerenciados e não gerenciados do Azure desconectados
 Quando você exclui uma VM (máquina virtual) no Azure, por padrão, nenhum disco anexado à máquina virtual é excluído. Esse recurso ajuda a evitar a perda de dados devido à exclusão não intencional de VMs. Depois que uma VM for excluída, você continuará a pagar pelos discos desanexados. Este artigo mostra como localizar e excluir discos desanexados e reduzir custos desnecessários. 
@@ -129,8 +129,7 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Excluir conta de armazenamento](../../storage/common/storage-create-storage-account.md)
-
+Para obter mais informações, consulte [Excluir conta de armazenamento](../../storage/common/storage-create-storage-account.md) e [Identificar discos órfãos usando o PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
 
 
 

@@ -1,29 +1,32 @@
 ---
-title: "O que é Azure IoT Edge | Microsoft Docs"
-description: "Visão geral do serviço Azure IoT Edge"
+title: O que é Azure IoT Edge | Microsoft Docs
+description: Visão geral do serviço Azure IoT Edge
 services: iot-Edge
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
 editor: chipalost
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: 5f69041572729d1458a22a855128639056d61586
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>O que é Azure IoT Edge - versão prévia
 
 O Azure IoT Edge move análises de nuvem e lógica de negócios personalizada para dispositivos, de modo que sua organização pode se concentrar em ideias de negócios em vez de gerenciamento de dados. Faça com que a sua solução seja realmente dimensionada configurando o seu software de IoT, implantando-o em dispositivos por meio de contêineres padrão e monitorando tudo pela nuvem.
+
+>[!NOTE]
+>O Azure IoT Edge só está disponível na camada Standard do Hub IoT. A camada gratuita destina-se a testes e avaliação apenas. Para saber mais sobre as camadas Básica e Standard, confira [Como escolher a camada certa do Hub IoT](../iot-hub/iot-hub-scaling.md).
 
 A análise impulsiona o valor comercial em soluções de IoT, mas nem todas as análise precisam estar na nuvem. Se desejar que um dispositivo responda em caso de emergência assim que possível, você pode executar a detecção de anomalias no próprio dispositivo. Da mesma forma, se você deseja reduzir os custos de largura de banda e evitar a transferência de terabytes de dados brutos, você pode executar a limpeza de dados e agregação localmente. Em seguida, envie as informações para a nuvem. 
 

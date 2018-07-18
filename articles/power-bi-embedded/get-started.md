@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao Microsoft Power BI Embedded | Microsoft Docs"
+title: Introdução ao Microsoft Power BI Embedded | Microsoft Docs
 description: O Power BI Embedded em seu aplicativo de business intelligence
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
-ms.author: asaxton
-ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: maghan
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introdução ao Microsoft Power BI Embedded
 
@@ -48,7 +48,7 @@ Temos exemplos para ajudar você a começar. Para uma explicação passo a passo
 Crie capacidade com o Power BI Embedded no Microsoft Azure para passar seu aplicativo à produção. Para saber mais sobre como criar capacidade, confira [Criar capacidade do Power BI Embedded no portal do Azure](create-capacity.md).
 
 > [!IMPORTANT]
-> Como os tokens inseridos se destinam somente a testes de desenvolvimento, o número de tokens inseridos que uma conta mestre do Power BI pode gerar é limitado. Uma [capacidade deve ser adquirida](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para cenários de inserção de produção. Não há nenhum limite para inserir a geração de token quando uma capacidade é adquirida.
+> Como os tokens inseridos se destinam somente a testes de desenvolvimento, o número de tokens inseridos que uma conta mestre do Power BI pode gerar é limitado. Uma [capacidade deve ser adquirida](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para cenários de inserção de produção. Não há nenhum limite para inserir a geração de token quando uma capacidade é adquirida. Vá para [Obter Recursos Disponíveis](https://msdn.microsoft.com/en-us/library/mt846473.aspx) para verificar o uso em porcentagem inserido no momento.
 
 Gerencie sua capacidade no portal de administração do Power BI. Nomeie um atribuidor de espaços de trabalho para ajudá-lo com seus espaços de trabalho do aplicativo. Para saber mais, confira [Gerenciar capacidades no Power BI Premium e no Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

@@ -1,22 +1,23 @@
 ---
-title: "Usar eventos do Hub IoT para disparar Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Usando o serviço de roteamento de evento da Grade de Eventos do Azure, crie processos automatizados para realizar as ações nos Aplicativos Lógicos do Azure com base nos eventos do Hub IoT."
+title: Usar eventos do Hub IoT para disparar Aplicativos Lógicos do Azure | Microsoft Docs
+description: Usando o serviço de roteamento de evento da Grade de Eventos do Azure, crie processos automatizados para realizar as ações nos Aplicativos Lógicos do Azure com base nos eventos do Hub IoT.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aab674f16fcc3fd4869f24f72f66878a8751d892
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301477"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos
 
@@ -156,7 +157,7 @@ Antes de sair do Designer de Aplicativos Lógicos, copie a URL que seus aplicati
 Nesta seção, você configura o Hub IoT para publicar eventos à medida que ocorrem. 
 
 1. No portal do Azure, navegue para o hub IoT. 
-2. Selecione **Grade de Eventos**.
+2. Selecione **Eventos**.
 
    ![Abra os detalhes da Grade de Eventos](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
@@ -189,7 +190,7 @@ Teste seu aplicativo lógico criando um novo dispositivo para ativar um email de
 1. Do seu Hub IoT, selecione **Dispositivos IoT**. 
 2. Selecione **Adicionar**.
 3. Para**IID do dispositivo**, insira `Building1_Floor1_Room1_Temperature`.
-4. Selecione **Salvar**. 
+4. Clique em **Salvar**. 
 5. É possível adicionar vários dispositivos com diferentes IDs de dispositivo para testar os filtros de assinatura de evento. Experimente estes exemplos: 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature

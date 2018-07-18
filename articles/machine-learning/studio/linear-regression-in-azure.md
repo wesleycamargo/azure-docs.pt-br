@@ -1,11 +1,12 @@
 ---
-title: "Usando a Regressão Linear no Machine Learning | Microsoft Docs"
-description: "Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio "
-metakeywords: 
+title: Usando a Regressão Linear no Machine Learning | Microsoft Docs
+description: 'Uma comparação dos modelos de regressão linear no Excel e no Azure Machine Learning Studio '
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Usando regressão linear no Azure Machine Learning
 > *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning. 
@@ -140,9 +140,9 @@ A capacidade de transferir a previsão de análise preditiva do Machine Learning
 ## <a name="resources"></a>Recursos
 Estes são alguns recursos que ajudam a trabalhar com a regressão: 
 
-* Regressão no Excel. Se você nunca experimentou a regressão no Excel, este tutorial facilita tudo: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regressão no Excel. Se você nunca tentou regressão no Excel, este tutorial torna mais fácil: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regressão versus previsão. Tyler Chessman escreveu um artigo no blog explicando como realizar a previsão de série temporal no Excel, que contém uma boa descrição para iniciantes sobre a regressão linear. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regressão linear de quadrados mínimos simples: falhas, problemas e armadilhas. Para obter uma introdução e uma discussão sobre regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressão linear de quadrados mínimos simples: falhas, problemas e armadilhas. Para uma introdução e uma discussão sobre Regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

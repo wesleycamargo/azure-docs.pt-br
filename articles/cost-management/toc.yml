@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Conectar conta do AWS
       href: connect-aws-account.md
+    - name: Configurar contas de armazenamento
+      href: storage-accounts.md
     - name: Usar relatórios do Gerenciamento de Custos
       href: use-reports.md
 - name: Recursos
@@ -53,3 +55,5 @@
       href: 'https://azure.microsoft.com/en-us/regions/services/'
     - name: Perguntas frequentes
       href: cost-mgt-faq.md
+    - name: Contate o suporte
+      href: support-request-cost-management.md

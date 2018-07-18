@@ -1,11 +1,11 @@
 ---
 title: Compilar um aplicativo Web PHP e MySQL no Azure | Microsoft Docs
-description: "Saiba como fazer com que um aplicativo PHP funcione no Azure com conexão a um banco de dados MySQL."
+description: Saiba como fazer com que um aplicativo PHP funcione no Azure com conexão a um banco de dados MySQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web PHP e MySQL no Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web PHP e MySQL no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Criar um aplicativo Web PHP e MySQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-php-mysql-app.md).
@@ -154,7 +154,7 @@ Para parar o servidor PHP, digite `Ctrl + C` no terminal.
 
 ## <a name="create-mysql-in-azure"></a>Criar o MySQL no Azure
 
-Nesta etapa, você cria um banco de dados MySQL no [Banco de dados do Azure para MySQL (versão prévia)](/azure/mysql). Posteriormente, você configura o aplicativo PHP para se conectar a esse banco de dados.
+Nesta etapa, você cria um banco de dados MySQL no [Banco de Dados do Azure para MySQL](/azure/mysql). Posteriormente, você configura o aplicativo PHP para se conectar a esse banco de dados.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -162,12 +162,12 @@ Nesta etapa, você cria um banco de dados MySQL no [Banco de dados do Azure para
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL (versão prévia) com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
-No comando a seguir, substitua o nome do MySQL Server em que o espaço reservado _&lt;mysql_server_name>_ é exibido (os caracteres válidos são `a-z`, `0-9` e `-`). Esse nome faz parte do nome do host do MySQL Server (`<mysql_server_name>.database.windows.net`) e precisa ser global exclusivo.
+No comando a seguir, substitua o espaço reservado  *\<mysql_server_name >* por um nome de servidor exclusivo,*\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 > [!NOTE]
@@ -179,36 +179,41 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ```json
 {
-  "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
-  "location": "northeurope",
+  "location": "westeurope",
   "name": "<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
-  ...
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  ...   +  
+  -  < Output has been truncated for readability >
 }
 ```
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!NOTE]
-> Atualmente, o Banco de Dados do Azure para MySQL (Versão Prévia) não limita as conexões somente aos serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP. O serviço está em versão prévia. Estamos planejando melhores métodos para proteger o banco de dados.
->
+> [!TIP] 
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
 >
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conectar-se ao servidor MySQL de produção localmente
 
-Na janela do terminal local, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;mysql_server_name>_. Quando for solicitada uma senha, use _My5up3r$tr0ngPa$w0rd!_, que você especificou quando criou o banco de dados no Azure.
+Na janela do terminal local, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;mysql_server_name>_. Quando for solicitada uma senha, use a que você especificou quando criou o banco de dados no Azure.
 
 ```bash
-mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com-P 3306 -p
 ```
 
 ### <a name="create-a-production-database"></a>Criar um banco de dados de produção
@@ -236,7 +241,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Conectar o aplicativo ao MySQL do Azure
 
-Nesta etapa, você conecta o aplicativo PHP ao banco de dados MySQL criado no Banco de Dados do Azure para MySQL (Versão Prévia).
+Nesta etapa, você conecta o aplicativo PHP ao banco de dados MySQL criado no Banco de Dados do Azure para MySQL.
 
 <a name="devconfig"></a>
 
@@ -250,7 +255,7 @@ APP_DEBUG=true
 APP_KEY=
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -260,7 +265,7 @@ MYSQL_SSL=true
 Salve as alterações.
 
 > [!TIP]
-> Para proteger as informações de conexão do MySQL, esse arquivo já foi excluído do repositório Git (consulte _.gitignore_ na raiz do repositório). Posteriormente, você aprende a configurar variáveis de ambiente no Serviço de Aplicativo para se conectar ao banco de dados no Banco de Dados do Azure para MySQL (Versão Prévia). Com variáveis de ambiente, você não precisa do arquivo *.env* no Serviço de Aplicativo.
+> Para proteger as informações de conexão do MySQL, esse arquivo já foi excluído do repositório Git (consulte _.gitignore_ na raiz do repositório). Posteriormente, você aprende a configurar variáveis de ambiente no Serviço de Aplicativo para se conectar ao banco de dados no Banco de Dados do Azure para MySQL. Com variáveis de ambiente, você não precisa do arquivo *.env* no Serviço de Aplicativo.
 >
 
 ### <a name="configure-ssl-certificate"></a>Configurar o certificado SSL
@@ -283,7 +288,7 @@ O certificado `BaltimoreCyberTrustRoot.crt.pem` é fornecido no repositório par
 
 ### <a name="test-the-application-locally"></a>Testar o aplicativo localmente
 
-Execute migrações de banco de dados do Laravel com _.env.production_ como arquivo de ambiente para criar as tabelas em seu banco de dados MySQL no Banco de Dados do Azure para MySQL (versão prévia). Lembre-se de que _.env.production_ tem as informações de conexão ao banco de dados MySQL no Azure.
+Execute migrações de banco de dados do Laravel com _.env.production_ como arquivo de ambiente para criar as tabelas em seu banco de dados MySQL no Banco de Dados do Azure para MySQL. Lembre-se de que _.env.production_ tem as informações de conexão ao banco de dados MySQL no Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +310,7 @@ Navegue até `http://localhost:8000`. Se a página for carregada sem erros, o ap
 
 Adicione algumas tarefas à página.
 
-![O PHP se conecta com êxito ao Banco de Dados do Azure para MySQL (versão prévia)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![O PHP se conecta com êxito ao Banco de Dados do Azure para MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 Para interromper o PHP, digite `Ctrl + C` no terminal.
 
@@ -346,7 +351,7 @@ No Cloud Shell, defina as variáveis de ambiente como _configurações do aplica
 O comando a seguir define as configurações do aplicativo `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua os espaços reservados _&lt;appname>_ e _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 É possível usar o método [getenv](http://www.php.net/manual/function.getenv.php) do PHP para acessar as configurações. O código do Laravel usa um wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) em torno do `getenv` do PHP. Por exemplo, a configuração do MySQL em _config/database.php_ é parecida com o seguinte código:

@@ -1,11 +1,11 @@
 ---
 title: Gerenciar conjuntos de registros DNS e registros com o DNS do Azure | Microsoft Docs
-description: "O DNS do Azure fornece a capacidade de gerenciar registros e conjuntos de registros de DNS ao hospedar seu domínio."
+description: O DNS do Azure fornece a capacidade de gerenciar registros e conjuntos de registros de DNS ao hospedar seu domínio.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
-ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
@@ -106,7 +106,7 @@ Os registros NS e SOA que são criados automaticamente são gerenciados de modo 
 
 ### <a name="modify-soa-records"></a>Modificar registros SOA
 
-Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "@"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
+Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "\@\"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 
@@ -118,7 +118,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Excluir conjuntos de registros SOA ou NS
 
-Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "@") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
+Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "\@\") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
 
 ## <a name="next-steps"></a>Próximas etapas
 

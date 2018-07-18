@@ -28,7 +28,7 @@ As [Políticas do Azure](../articles/azure-policy/azure-policy-introduction.md) 
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Com o [RBAC (controle de acesso baseado em função)](../articles/active-directory/role-based-access-control-what-is.md), você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários em sua VM precisam para realizar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../articles/active-directory/role-based-access-control-configure.md), usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/role) ou o [Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Com o [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários em sua VM precisam para realizar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../articles/role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/role) ou o [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

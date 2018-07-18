@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e2db0f36be5c102ebf87a2ca2ed4bb53b81cb742
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory ao Tableau Server
 
@@ -29,7 +29,7 @@ A integração do Tableau Server ao Azure AD oferece os seguintes benefícios:
 - Você pode habilitar os usuários a entrar automaticamente no Tableau Server (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -158,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
   
    b. Marque a caixa de seleção **Usar SAML para logon único**.
    
-   c. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo, http://tableau_server. Não é recomendável usar http://localhost. O uso de URL com barra à direita (por exemplo, http://tableau_server/) não é aceito. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Logon** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
+   c. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo http://tableau_server. Usar http://localhost não é recomendado. Usar uma URL com uma barra à direita (por exemplo, http://tableau_server/) não é aceito. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Logon** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
    
    d. ID de entidade SAML - a ID de entidade identifica com exclusividade sua instalação do Tableau Server para o IdP. Você pode digitar a URL do Tableau Server novamente aqui, se desejar, mas ela não precisa ser sua URL do Tableau Server. Copie a **ID de Entidade do SAML** e cole-a na caixa de texto **Identificador** do Azure AD, na seção **URLs e Domínio do Tableau Server**.
      
@@ -260,7 +260,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -2,7 +2,7 @@
 title: Usar fluxos de trabalho do Hadoop Oozie no HDInsight baseado em Linux | Microsoft Docs
 description: Usar o Oozie do Hadoop no HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -108,6 +106,9 @@ Como esse fluxo de trabalho usa Sqoop para exportar dados para o banco de dados 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
+
+> [!NOTE]
+> Você pode receber uma mensagem de que o arquivo já existe.
 
 Caso o fluxo de trabalho tenha usado outros recursos, como um jar que contém um aplicativo MapReduce, você precisará adicionar esses recursos também.
 
@@ -771,7 +772,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

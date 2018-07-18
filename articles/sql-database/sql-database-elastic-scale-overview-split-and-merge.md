@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
 Se você for um desenvolvedor de Software como Serviço e seu aplicativo sofrer uma imensa demanda repentinamente, será necessário acomodar o crescimento. Por isso você adiciona mais bancos de dados (fragmentos). Como você redistribui os dados para novos bancos de dados sem afetar a integridade dos dados? Use a **ferramenta de divisão/mesclagem** para mover dados de bancos de dados restritos para novos bancos de dados.  

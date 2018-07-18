@@ -1,26 +1,22 @@
 ---
-title: "Configurar políticas do Hive no HDInsight associado ao domínio – Azure | Microsoft Docs"
+title: Configurar políticas do Hive no HDInsight ingressado no domínio - Azure
 description: Saiba como...
 services: hdinsight
-documentationcenter: 
-author: saurinsh
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/25/2016
-ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar políticas do Hive no HDInsight ingressado no domínio
 Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
@@ -45,10 +41,10 @@ Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, voc
     Atualmente, o Ranger só funciona com o Hive e o Yarn.
 
 ## <a name="create-domain-users"></a>Criar usuários de Domínio
-Em [Configurar clusters HDInsight associados ao domínio](apache-domain-joined-configure.md#optional-create-ad-users-and-groups), você criou hiveruser1 e hiveuser2. Você usará a conta de usuário dois neste tutorial.
+Consulte [Criar um cluster HDInsight ingressado no domínio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), para obter informações sobre como criar hiveruser1 e hiveuser2. Você usará as duas contas de usuário neste tutorial.
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
-Nesta seção, você criará duas políticas do Ranger para acessar hivesampletable. Você pode dar permissão select em um conjunto diferente de colunas. Ambos os usuários foram criados em [Configurar clusters HDInsight associados ao domínio](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  Na próxima seção, você testará as duas políticas no Excel.
+Nesta seção, você criará duas políticas do Ranger para acessar hivesampletable. Você pode dar permissão select em um conjunto diferente de colunas. Ambos os usuários foram criados em [Criar um cluster HDInsight ingressado no domínio](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Na próxima seção, você testará as duas políticas no Excel.
 
 **Para criar políticas do Ranger**
 

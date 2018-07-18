@@ -1,30 +1,30 @@
 ---
-title: "Log Analytics para Apache Kafka – Azure HDInsight | Microsoft Docs"
-description: Saiba como usar o Operations Management Suite para analisar logs do cluster Apache Kafka no Azure HDInsight.
+title: Log Analytics para Apache Kafka – Azure HDInsight | Microsoft Docs
+description: Saiba como usar o Log Analytics para analisar logs do cluster Apache Kafka no Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 6fcb925829e33704c94c96209a61346b0404e13b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
-Saiba como usar o Microsoft Operations Management Suite para analisar logs gerados pelo Apache Kafka no HDInsight.
+Saiba como usar o Log Analytics para analisar logs gerados pelo Apache Kafka no HDInsight.
 
-## <a name="enable-oms-for-kafka"></a>Habilitar o OMS para o Kafka
+## <a name="enable-log-analytics-for-kafka"></a>Habilitar Log Analytics para Kafka
 
 As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para todos os clusters HDInsight. Use os links a seguir para entender como criar e configurar os serviços necessários:
 
@@ -38,8 +38,8 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
     > Também é possível configurar o cluster para usar o Log Analytics por meio do o cmdlet `Enable-AzureRmHDInsightOperationsManagementSuite`. Esse cmdlet requer as seguintes informações:
     >
     > * O nome do cluster HDInsight.
-    > * A ID do espaço de trabalho do Log Analytics. É possível encontrar a ID do espaço de trabalho no espaço de trabalho do OMS para o espaço de trabalho do Log Analytics.
-    > * A chave primária da conexão do OMS. Para localizar a chave primária, selecione a instância do Log Analytics e, em seguida, __Portal do OMS__. No portal do OMS, selecione __Configurações__, __Fontes Conectadas__ e, em seguida, __Servidores Linux__.
+    > * A ID do espaço de trabalho do Log Analytics. Você pode encontrar a ID do espaço de trabalho no seu espaço de trabalho do Log Analytics.
+    > * A chave primária da conexão do Log Analytics. Para localizar a chave primária, selecione a instância do Log Analytics e, em seguida, __Portal do OMS__. No portal do OMS, selecione __Configurações__, __Fontes Conectadas__ e, em seguida, __Servidores Linux__.
 
 
 > [!IMPORTANT]
@@ -51,11 +51,15 @@ As etapas para habilitar o Log Analytics para o HDInsight são as mesmas para to
 
 2. Selecione __Pesquisa de Logs__. A partir desse ponto, é possível pesquisar os dados coletados do Kafka. Veja a seguir alguns exemplos de pesquisas:
 
-    * Uso do disco: `Type=Perf ObjectName="Logical Disk" (CounterName="Free Megabytes")  InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by   Computer interval 1HOUR`
-    * Uso da CPU: `Type:Perf CounterName="% Processor Time" InstanceName="_Total" Computer='hn*-*' or Computer='wn*-*' | measure avg(CounterValue) by Computer interval 1HOUR`
-    * Mensagens de entrada por segundo: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s interval 1HOUR`
-    * Bytes de entrada por segundo: `Type=metrics_kafka_CL HostName_s="wn0-kafka" InstanceName_s="kafka-BrokerTopicMetrics-BytesInPerSec-Count" | measure avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) interval 1HOUR`
-    * Bytes de saída por segundo: `Type=metrics_kafka_CL ClusterName_s="your_kafka_cluster_name" InstanceName_s="kafka-BrokerTopicMetrics-BytesOutPerSec-Count" |  measure avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) interval 1HOUR`
+    * Uso do disco: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+
+    * Uso da CPU: `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+
+    * Mensagens de entrada por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)`
+
+    * Bytes de entrada por segundo: `metrics_kafka_CL | where HostName_s == "wn0-kafka" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
+
+    * Bytes de saída por segundo: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
     > [!IMPORTANT]
     > Substitua os valores de consulta com as informações específicas do cluster. Por exemplo, `ClusterName_s` deve ser definido como o nome do cluster. `HostName_s` deve ser definido como o nome de domínio de um nó de trabalho no cluster.

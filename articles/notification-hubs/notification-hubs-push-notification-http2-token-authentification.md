@@ -1,23 +1,23 @@
 ---
-title: "Autenticação baseada em token (HTTP/2) para o APNS em Hubs de Notificação do Azure | Microsoft Docs"
-description: "Este tópico explica como aproveitar a nova autenticação de token para o APNS"
+title: Autenticação baseada em token (HTTP/2) para o APNS em Hubs de Notificação do Azure | Microsoft Docs
+description: Este tópico explica como aproveitar a nova autenticação de token para o APNS
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para o APNS
 ## <a name="overview"></a>Visão geral
@@ -75,8 +75,8 @@ Há uma nova propriedade – *Modo de Autenticação*. Selecionar Token permite 
 Você pode usar nossas [APIs de gerenciamento](https://msdn.microsoft.com/library/azure/dn495827.aspx) para atualizar o hub de notificações para usar a autenticação baseada em token.
 Dependendo se o aplicativo que você está configurando é um aplicativo de Área Restrita ou de Produção (especificado na sua Conta de Desenvolvedor da Apple), use um dos pontos de extremidade correspondentes:
 
-- Ponto de extremidade da Área Restrita: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
-- Ponto de extremidade de Produção: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
+- Ponto de extremidade da área restrita: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Ponto de extremidade de produção: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
 > A autenticação baseada em token requer uma versão de API de: **2017-04 ou posterior**.

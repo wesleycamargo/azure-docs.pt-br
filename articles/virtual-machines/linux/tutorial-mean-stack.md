@@ -1,30 +1,30 @@
 ---
-title: Criar uma pilha MEAN em uma VM do Linux no Azure | Microsoft Docs
-description: Saiba como criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure.
+title: Tutorial – Criar uma pilha do MEAN em uma máquina virtual do Linux no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma VM Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
-Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
+Este tutorial mostra como implementar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma VM (máquina virtual) Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
@@ -36,7 +36,7 @@ Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e N
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
@@ -327,7 +327,7 @@ O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exi
 
     ![Registro de livro](media/tutorial-mean/meanstack-init.png)
 
-3. Insira dados nas caixas de texto e clique em **Adicionar**. Por exemplo:
+3. Insira dados nas caixas de texto e clique em **Adicionar**. Por exemplo: 
 
     ![Adicionar registro de livro](media/tutorial-mean/meanstack-add.png)
 

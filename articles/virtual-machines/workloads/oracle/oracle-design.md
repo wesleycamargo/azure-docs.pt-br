@@ -5,9 +5,9 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -103,7 +103,7 @@ Veja a seguir as métricas que você pode obter do relatório AWR:
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Estimativa do tamanho da VM é baseada no uso de CPU, memória e E/S do relatório AWR
 
-Examine os cinco eventos de primeiro plano maior tempo, que indicam onde estão os afunilamentos do sistema.
+Examine os cinco eventos de primeiro plano maior tempo, que indicam onde estão os gargalos do sistema.
 
 Por exemplo, no diagrama a seguir, a sincronização de arquivos de log está na parte superior. Isso indica o número de esperas necessárias antes que o LGWR grave o buffer de log no arquivo de log da fase refazer. Esses resultados indicam que há a necessidade de armazenamento ou discos com um desempenho melhor. Além disso, o diagrama também mostra o número de CPU (núcleos) e da quantidade de memória.
 
@@ -136,7 +136,7 @@ A taxa de transferência de rede total é estimada com base nas seguintes inform
 
 ![Captura de tela da taxa de transferência SQL*Rede](./media/oracle-design/sqlnet_info.png)
 
-Com base nos requisitos de largura de banda de sua rede, há vários tipos de gateway para escolher. Entre eles basic, VpnGw e Azure ExpressRoute. Para saber mais, confira a [página de preços do gateway de VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Com base nos requisitos de largura de banda de sua rede, há vários tipos de gateway para escolher. Entre eles basic, VpnGw e Azure ExpressRoute. Para saber mais, confira a [página de preços do gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recomendações**
 

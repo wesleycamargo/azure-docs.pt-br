@@ -1,12 +1,12 @@
 ---
-title: "Requer transferência segura no Armazenamento do Microsoft Azure | Microsoft Docs"
-description: "Saiba mais sobre o recurso \"Transferência segura obrigatória\" para o Armazenamento do Microsoft Azure e como habilitá-lo."
+title: Requer transferência segura no Armazenamento do Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre o recurso "Transferência segura obrigatória" para o Armazenamento do Microsoft Azure e como habilitá-lo.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no Armazenamento do Microsoft Azure
 
@@ -66,7 +66,7 @@ Para exigir a transferência segura programaticamente, use a configuração _sup
 
 Este exemplo exige o módulo do Azure PowerShell, versão 4.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
  Use a linha de comando a seguir para verificar a configuração:
 

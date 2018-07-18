@@ -1,25 +1,27 @@
 ---
-title: "Escopos, permissões e consentimento do Azure Active Directory v2.0 | Microsoft Docs"
-description: "Uma descrição da autorização no ponto de extremidade v2.0 do Azure AD, incluindo escopos, permissões e consentimento."
+title: Escopos, permissões e consentimento do Azure Active Directory v2.0 | Microsoft Docs
+description: Uma descrição da autorização no ponto de extremidade v2.0 do Azure AD, incluindo escopos, permissões e consentimento.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Escopos, permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um modelo de autorização que fornece aos usuários controle sobre como um aplicativo pode acessar seus dados. A implementação v2.0 desse modelo de autorização foi atualizada e altera a maneira como um aplicativo deve interagir com o Azure AD. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Você pode usar o token de acesso resultante em solicitações HTTP para o recurso. Ele confiável indica ao recurso que seu aplicativo tem a permissão apropriada para executar uma tarefa específica.  
+Você pode usar o token de acesso resultante em solicitações HTTP para o recurso. Ele confiável indica ao recurso que seu aplicativo tem a permissão apropriada para executar uma tarefa específica. 
 
 Para saber mais sobre o protocolo OAuth 2.0 e como obter tokens de acesso, consulte a [referência do protocolo do ponto de extremidade v2.0](active-directory-v2-protocols.md).

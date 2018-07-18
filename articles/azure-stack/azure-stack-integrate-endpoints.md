@@ -1,20 +1,21 @@
 ---
-title: Azure pilha datacenter integração - publicar pontos de extremidade
+title: Azure pilha datacenter integração - publicar pontos de extremidade | Microsoft Docs
 description: Saiba como publicar pontos de extremidade de pilha do Azure no seu datacenter
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 694b8604949406c1c3064fd91bf1fe38f83ee946
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d7384d8d1d8c0378e1a9dd68a4f7b71196330b8e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736687"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha datacenter integração - publicar pontos de extremidade
 A pilha do Azure configura endereços IP virtuais (VIPs) para suas funções de infraestrutura. Esses VIPs são alocados do pool de endereços IP público. Cada VIP é protegida com uma lista de controle de acesso (ACL) na camada de rede definida pelo software. As ACLs também são usadas entre os comutadores físicos (tes e BMC) para proteger ainda mais a solução. Uma entrada de DNS é criada para cada ponto de extremidade na zona de DNS externo especificado no momento da implantação.
@@ -37,9 +38,9 @@ A infraestrutura interna VIPs não são listados porque eles não são necessár
 |Ponto de extremidade (VIP)|Um registro de host DNS|Protocolo|Portas|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
 |Gerenciador de recursos do Azure (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Gerenciador de recursos do Azure (usuário)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Grafo|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de certificados revogados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
@@ -63,11 +64,13 @@ Pilha do Azure oferece suporte somente a servidores de proxy transparente. Em um
 
 |Finalidade|URL|Protocolo|Portas|
 |---------|---------|---------|---------|
-|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
 |Distribuição do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|
 |Registro|https://management.azure.com|HTTPS|443|
-|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.NET|HTTPS|443|
+|O Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

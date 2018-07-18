@@ -1,12 +1,12 @@
 ---
-title: "Métricas da Retransmissão do Azure no Azure Monitor (versão prévia) | Microsoft Docs"
-description: "Use o Monitoramento do Azure para monitorar a Retransmissão do Azure"
+title: Métricas da Retransmissão do Azure no Azure Monitor (versão prévia) | Microsoft Docs
+description: Use o Monitoramento do Azure para monitorar a Retransmissão do Azure
 services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas da Retransmissão do Azure no Azure Monitor (versão prévia)
 
@@ -44,7 +44,7 @@ Para métricas com suporte para dimensões, você deve filtrar pelo valor da dim
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo OMS (Operation Management Suite) se você transmitir dados de métricas para o OMS para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Log Analytics se você transmitir dados de métricas para o Log Analytics para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 

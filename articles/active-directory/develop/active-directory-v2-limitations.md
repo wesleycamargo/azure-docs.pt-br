@@ -1,25 +1,27 @@
 ---
-title: "Limitações e restrições de ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs"
-description: "Uma lista de limitações e restrições para o ponto de extremidade v2.0 do Azure AD."
+title: Limitações e restrições de ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs
+description: Uma lista de limitações e restrições para o ponto de extremidade v2.0 do Azure AD.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Devo usar o ponto de extremidade da v2.0?
 Ao criar aplicativos que se integram ao Azure Active Directory, você precisa decidir se os protocolos de autenticação e o ponto de extremidade v2.0 atendem às suas necessidades. O ponto de extremidade original do Azure Active Directory ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que o v2.0. No entanto, o ponto de extremidade v2.0 [apresenta vantagens consideráveis](active-directory-v2-compare.md) para desenvolvedores.
@@ -47,7 +49,7 @@ Atualmente, para cada aplicativo que deseja integrar ao ponto de extremidade v2.
 Além disso, os registros do aplicativo que você cria no [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) têm as seguintes condições:
 
 * Apenas dois segredos do aplicativo são permitidos por ID do Aplicativo.
-* Um registro de aplicativo registrado por um usuário com uma conta pessoal da Microsoft pode ser exibido e gerenciado somente por uma única conta de desenvolvedor. Ele não pode ser compartilhado entre vários desenvolvedores.  Se você desejar compartilhar o registro do aplicativo entre vários desenvolvedores, poderá criar o aplicativo entrando no portal de registro com uma conta do Azure AD.
+* Um registro de aplicativo registrado por um usuário com uma conta pessoal da Microsoft pode ser exibido e gerenciado somente por uma única conta de desenvolvedor. Ele não pode ser compartilhado entre vários desenvolvedores. Se você desejar compartilhar o registro do aplicativo entre vários desenvolvedores, poderá criar o aplicativo entrando no portal de registro com uma conta do Azure AD.
 * Há várias restrições em relação ao formato de URI de redirecionamento permitido. Para saber mais sobre URIs de redirecionamento, veja a próxima seção.
 
 ## <a name="restrictions-on-redirect-uris"></a>Restrições de URIs de redirecionamento
@@ -85,25 +87,16 @@ Observe também que você pode ter apenas 20 URLs de resposta para um aplicativo
 
 Para saber como registrar um aplicativo no Portal de Registro de Aplicativo, veja [Como registrar um aplicativo no ponto de extremidade v2.0](active-directory-v2-app-registration.md).
 
-## <a name="restrictions-on-services-and-apis"></a>Restrições de serviços e APIs
-Atualmente, o ponto de extremidade v2.0 dá suporte à entrada para qualquer aplicativo registrado no Portal de Registro de Aplicativo e que se enquadre na lista de [fluxos de autenticação com suporte](active-directory-v2-flows.md). No entanto, esses aplicativos podem adquirir tokens de acesso do OAuth 2.0 para um conjunto muito limitado de recursos. O ponto de extremidade v2.0 só emite tokens de acesso para:
-
-* O aplicativo que solicitou o token. Um aplicativo pode adquirir um token de acesso para si mesmo, se o aplicativo lógico é constituído de várias camadas ou componentes diferentes. Para ver esse cenário em ação, confira nossos tutoriais de [Introdução](active-directory-appmodel-v2-overview.md#getting-started) .
-* As APIs REST de Email, Calendário e Contatos do Outlook, que estão localizadas em https://outlook.office.com. Para saber como escrever um aplicativo que acessa essas APIs, veja os tutoriais de [Introdução ao Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-* APIs do Microsoft Graph. Você pode saber mais sobre o [Microsoft Graph](https://graph.microsoft.io) e os dados que estão disponíveis para você.
-
-Nenhum outro serviço tem suporte no momento. Mais Microsoft Online Services serão adicionados no futuro, bem como suporte para seus próprios serviços e APIs Web personalizados.
-
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrição de bibliotecas e SDKs
 Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado. Se deseja usar o ponto de extremidade v2.0 em um aplicativo de produção, você tem estas opções:
 
 * Se estiver criando um aplicativo Web, você poderá usar com segurança nosso middleware do servidor disponível da Microsoft para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in Passport do Node.js. Para obter exemplos de código que usam o middleware da Microsoft, veja a nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
-* Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma de nossa MSAL (Biblioteca de Autenticação da Microsoft) de versão prévia.  Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis em nossa [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
+* Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma de nossa MSAL (Biblioteca de Autenticação da Microsoft) de versão prévia. Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis em nossa [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
 * Para outras plataformas não abrangidas pelas bibliotecas da Microsoft, é possível fazer a integração com o ponto de extremidade v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect v2.0 [foram explicitamente documentados](active-directory-v2-protocols.md) para ajudar você a executar essa integração.
 * Por fim, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade v2.0. O protocolo v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista das implementações populares. Para saber mais, confira [Bibliotecas de autenticação e v2.0 do Azure Active Directory](active-directory-v2-libraries.md) e para obter a lista de bibliotecas de cliente de software livre e exemplos testados com o ponto de extremidade v2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrições quanto a protocolos
-O ponto de extremidade v2.0 não dá suporte ao SAML ou Web Services Federation; ele dá suporte apenas ao Open ID Connect e OAuth 2.0.  Nem todos os recursos e funcionalidades dos protocolos OAuth foram incorporados ao ponto de extremidade v2.0. No momento, estes recursos e estas funcionalidades de protocolo *não estão disponíveis* no ponto de extremidade v2.0:
+O ponto de extremidade v2.0 não dá suporte ao SAML ou Web Services Federation; ele dá suporte apenas ao Open ID Connect e OAuth 2.0. Nem todos os recursos e funcionalidades dos protocolos OAuth foram incorporados ao ponto de extremidade v2.0. No momento, estes recursos e estas funcionalidades de protocolo *não estão disponíveis* no ponto de extremidade v2.0:
 
 * Os tokens de ID emitidos pelo ponto de extremidade v2.0 não contêm uma declaração `email` para o usuário, mesmo se você adquire permissão do usuário para exibir seus emails.
 * O ponto de extremidade UserInfo do OpenID Connect não está implementado no ponto de extremidade v2.0. No entanto, todos os dados de perfil de usuário que você possivelmente receberia nesse ponto de extremidade estão disponíveis no ponto de extremidade `/me` do Microsoft Graph.

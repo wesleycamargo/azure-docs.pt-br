@@ -3,18 +3,17 @@ title: Criar contas Executar como da Automação do Azure
 description: Este artigo descreve como atualizar sua conta de Automação e criar contas Executar como com o PowerShell ou a partir do portal.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e7a339ae443bc61e1d2364afd8400fc436593b9f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fd53ee7634769381f18e359762fa72dbba435a00
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação de conta de Automação com contas Executar como 
 Você pode atualizar sua conta de Automação existente no portal do Azure ou usar o PowerShell se:
@@ -179,7 +178,7 @@ Este script do PowerShell inclui suporte para as seguintes configurações:
         return
     }
         
-    Login-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
         
     # Create a Run As account by using a service principal

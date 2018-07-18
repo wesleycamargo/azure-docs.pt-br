@@ -1,11 +1,11 @@
 ---
-title: "Resolução de problemas da extensão do Painel de Acesso do Azure para IE | Microsoft Docs"
-description: "Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
+title: Resolução de problemas da extensão do Painel de Acesso do Azure para IE | Microsoft Docs
+description: Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Resolução de problemas da extensão do painel de acesso do Internet Explorer
 Este artigo ajuda você a solucionar os problemas a seguir:
@@ -92,6 +92,6 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-* [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+* [Acesso a aplicativos e logon único com o Active Directory do Azure](manage-apps/what-is-single-sign-on.md)
 * [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)
 

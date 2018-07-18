@@ -1,11 +1,11 @@
 ---
-title: "Use as revisões para fazer alterações não interruptivas com segurança no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Execute as etapas deste tutorial para aprender a fazer alterações sem interrupção usando revisões no Gerenciamento de API."
+title: Use as revisões para fazer alterações não interruptivas com segurança no Gerenciamento de API do Azure | Microsoft Docs
+description: Execute as etapas deste tutorial para aprender a fazer alterações sem interrupção usando revisões no Gerenciamento de API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 50d7ac17faebb34f1a1f9a3259aa0196950391d9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usar revisões para fazer alterações sem interrupções com segurança
 Quando sua API estiver pronta e começar a ser usada por desenvolvedores, será necessário tomar cuidado com as alterações feitas nessa API e ao mesmo tempo não interromper os chamadores de sua API. Também é útil permitir que os desenvolvedores saibam sobre as alterações feitas por você. Podemos fazer isso usando **revisões** no Gerenciamento de API do Azure. Para obter mais informações, consulte [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) e [Controle de versão de API com o Gerenciamento de API do Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -33,12 +33,10 @@ Neste tutorial, você aprenderá como:
 
 ![Log de alterações no Portal do Desenvolvedor](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-a-new-revision"></a>Adicionar uma nova revisão
 
@@ -53,7 +51,7 @@ Neste tutorial, você aprenderá como:
     ![Menu Revisões perto da parte superior da tela](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. Forneça uma descrição para a nova revisão, para ajudar você a se lembrar de sua função.
-6. Selecione **Criar**
+6. Escolha **Criar**
 7. Sua nova revisão foi criada.
 
     > [!NOTE]

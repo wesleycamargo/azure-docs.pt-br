@@ -1,11 +1,11 @@
 ---
-title: "Como determinar o método de logon único a ser usado | Microsoft Docs"
-description: "Compreenda os modos de logon único com suporte do Azure AD e como escolher qual deles deve ser usado para o aplicativo em que você está interessado."
+title: Como determinar o método de logon único a ser usado | Microsoft Docs
+description: Compreenda os modos de logon único com suporte do Azure AD e como escolher qual deles deve ser usado para o aplicativo em que você está interessado.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Como determinar o método de logon único a ser usado
 
@@ -80,5 +80,5 @@ Para definir o modo de **logon único** de um aplicativo, siga estas instruçõe
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -24,7 +24,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | **Componente** | **Requisito** |
 | --- |---|
 | Núcleos de CPU| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Número de discos | Três, incluindo o disco de OS, disco de cache do servidor de processo e unidade de retenção para failback |
 | Espaço livre em disco (cache do servidor de processo) | 600 GB
 | Espaço livre em disco (disco de retenção) | 600 GB|
@@ -36,7 +36,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [Autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
 | Tipo de endereço IP | estático |
-| Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é necessário para Servidores de Processo de Expansão) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (não é obrigatório para Servidores de Processo de Expansão) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Baixe o arquivo de instalação mais recente
@@ -266,7 +266,7 @@ Atualize o servidor da seguinte maneira:
 1. [Instalar](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell
 2. Faça logon na sua conta do Azure usando o comando
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Selecione a assinatura sob a qual o cofre está presente
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

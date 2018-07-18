@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com Druva | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Druva."
+title: 'Tutorial: integração do Azure Active Directory com Druva | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Druva.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 5be9f384d9e8c0871d26ccb5d35a49e9387ad753
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43b09ebaac70cceb5fdee8589ef70bd9531574dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: integração do Azure Active Directory com o Druva
 
@@ -30,9 +30,9 @@ A integração do Druva ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários entrem automaticamente no Druva (Logon Único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Druva, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Druva da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-druva-from-the-gallery"></a>Adicionar o Druva da galeria
 Para configurar a integração do Druva com o Azure AD, você precisará adicionar o Druva da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -106,13 +106,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 3. Na seção **Domínio e URLs do Druva**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
     Na caixa de texto **Identificador**, digite o valor da cadeia de caracteres: `druva-cloud`
     
 4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
     
     Na caixa de texto **URL de Logon**, digite a URL: `https://cloud.druva.com/home`
 
@@ -122,7 +122,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 6. Seu aplicativo Druva espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **Atributos do Token SAML**. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
 7. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
 
@@ -134,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_attribute_04.png)
     
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
     
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -144,11 +144,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 8. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
 9. Na seção **Configuração do Druva**, clique em **Configurar o Druva** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
 10. Em outra janela do navegador da Web, faça logon em seu site de empresa do Druva como administrador.
 
@@ -285,7 +285,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

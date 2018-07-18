@@ -2,24 +2,19 @@
 title: Restaurar um Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
 description: Tarefas do PowerShell para restaurar um Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: backup-restore
-ms.date: 02/27/2018
-ms.author: barbkess
-ms.openlocfilehash: 533907ccbae5db3b68ede2ee1b226e663a04cb64
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 332b80d5c6dbe0b46a6fb793d3c0c04574744b19
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restaurar um Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -57,7 +52,7 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
@@ -103,7 +98,7 @@ $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.window
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
@@ -125,6 +120,11 @@ $RestoredDatabase.status
 ## <a name="restore-from-an-azure-geographical-region"></a>Restaurar por meio de uma região geográfica do Azure
 Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
+> [!NOTE]
+> Você pode realizar uma restauração geográfica ao nível de desempenho Otimizado para Computação! Para fazer isso, especifique um ServiceObjectiveName Otimizado para Computação como parâmetro opcional. 
+>
+> 
+
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 3. Selecione a assinatura que contém o banco de dados a ser restaurado.
@@ -133,7 +133,7 @@ Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Rest
 6. Verifique o status do banco de dados com restauração geográfica.
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
@@ -141,7 +141,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status

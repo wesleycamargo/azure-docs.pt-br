@@ -1,24 +1,24 @@
 ---
-title: "Roteiro de preparação da Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento fornece um roteiro de preparação para incrementar a Central de Segurança do Azure."
+title: Roteiro de preparação da Central de Segurança do Azure | Microsoft Docs
+description: Este documento fornece um roteiro de preparação para incrementar a Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: ndicola
-editor: 
+editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 7a6717f4a9ec0594ccd6b326520d0e0ab620739a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 51dd957a94d1e10658678d9123e9cce6183c0ab0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -94,8 +94,9 @@ As Máquinas Virtuais do Azure podem tirar proveito dos recursos avançados de d
 
 Use os seguintes recursos para saber como usar esses recursos na Central de Segurança.
 
-Vídeo   
+vídeos  
 * [Central de Segurança do Azure – Acesso de VM Just-in-Time](https://youtu.be/UOQb2FcdQnU)
+* [Central de Segurança do Azure: Controles de Aplicativo Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
 * [Gerenciar o acesso à máquina virtual usando o just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ Artigos
 
 * [Laboratório prático da Central de Segurança](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Guia estratégico de recomendação do WAF (Firewall do Aplicativo Web) na Central de Segurança](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Guia Estratégico da Central de Segurança do Azure: Alertas de Segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Página de documentação da Central de Segurança](https://docs.microsoft.com/azure/security-center/)
@@ -115,8 +117,9 @@ Artigos
 * [Práticas recomendadas de segurança da rede](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [Recomendações de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformidade](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [Os clientes OMS agora podem usar a Central de Segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
-##<a name="community-resources"></a>Recursos da comunidade
+## <a name="community-resources"></a>Recursos da comunidade
 
 * [UserVoice da Central de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Fórum da comunidade da Central de Segurança](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

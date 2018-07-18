@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Expensify | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Expensify."
+title: 'Tutorial: integração do Azure Active Directory ao Expensify | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Expensify.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/2/2017
 ms.author: jeedes
-ms.openlocfilehash: 730c1e1eeb9fc1a7037ffa1a5815d5e9d484a52d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ed9589c5963532e06d73670cc6c7d45ef0b3f78d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: integração do Azure Active Directory com o Expensify
 
@@ -30,9 +30,9 @@ A integração do Expensify com o Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Expensify (Logon Único) com as contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o Expensify, você precisa dos seguintes itens:
 
@@ -125,7 +125,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 6. Para habilitar o SSO no Expensify, primeiro habilite o **Controle de Domínio** no aplicativo. Você pode habilitar o Controle de Domínio no aplicativo por meio das etapas listadas [aqui](http://help.expensify.com/domain-control). Para obter suporte adicional, trabalhe com a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com). Depois que o Controle de Domínio estiver habilitado, siga estas etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png)
+    ![Configurar o logon único](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png)
     
     a. Faça logon no seu aplicativo Expensify.
     
@@ -219,7 +219,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

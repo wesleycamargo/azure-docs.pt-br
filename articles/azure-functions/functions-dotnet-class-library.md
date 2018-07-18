@@ -3,7 +3,7 @@ title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: tdykstra
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -44,7 +44,7 @@ No Visual Studio, o modelo de projeto do **Azure Functions** cria um projeto de 
 > [!IMPORTANT]
 > O processo de compilação cria um arquivo *function.json* para cada função. Esse arquivo *function.json* não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. Para desabilitar uma função, use o atributo [Desabilitar](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Por exemplo, adicione uma configuração de aplicativo booliana MY_TIMER_DISABLED e aplique `[Disable("MY_TIMER_DISABLED")]` para a função. É possível habilitar e desabilitar a função, alterando a configuração de aplicativo.
 
-### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName e gatilho
+## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções
 
 Em uma biblioteca de classe, uma função é um método estático com um `FunctionName` e um atributo de gatilho, conforme mostrado no exemplo a seguir:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto.
+O atributo `FunctionName` marca o método como um ponto de entrada da função. O nome deve ser exclusivo em um projeto. Modelos de projeto geralmente criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método C# válido.
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo é disparada por uma mensagem de fila, a qual é transmitida para o método no parâmetro `myQueueItem`.
 
-### <a name="additional-binding-attributes"></a>Atributos adicionais de associação
+## <a name="method-signature-parameters"></a>Parâmetros de assinatura do método
 
-Podem ser usados atributos de associação adicionais de entrada e saída. O exemplo a seguir modifica o anterior por adicionar uma associação de fila de saída. A função grava a mensagem da fila de entrada para uma nova mensagem de fila em uma fila diferente.
+A assinatura do método pode conter parâmetros diferentes daquela usada com o atributo de gatilho. Aqui estão alguns dos parâmetros adicionais que você pode incluir:
+
+* [Associações de entrada e saída](functions-triggers-bindings.md) marcadas como tal, decorando-os com atributos.  
+* Um parâmetro `ILogger` ou `TraceWriter` para [efetuar logon](#logging).
+* Um parâmetro `CancellationToken` para [desligamento normal](#cancellation-tokens).
+* Parâmetros de [expressões de associação](functions-triggers-bindings.md#binding-expressions-and-patterns) para obter metadados de gatilho.
+
+Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
+
+### <a name="output-binding-example"></a>Exemplo de associação de saída
+
+O exemplo a seguir modifica o anterior por adicionar uma associação de fila de saída. A função grava a mensagem da fila que aciona a função para uma nova mensagem de fila em uma fila diferente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Ordem de parâmetros
+Os artigos de referência de associação ([Filas de armazenamento](functions-bindings-storage-queue.md), por exemplo) explicam quais tipos de parâmetro você pode usar com os atributos de associação de gatilho, entrada ou saída.
 
-Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
+### <a name="binding-expressions-example"></a>Exemplo de expressões de associação
 
-### <a name="binding-expressions"></a>Expressões de associação
-
-Você pode usar expressões de associação nos parâmetros do construtor de atributo e nos parâmetros de função. Por exemplo, o código a seguir obtém o nome da fila para monitorar a partir de uma configuração de aplicativo, e ele obtém a hora de criação da mensagem da fila no parâmetro `insertionTime`.
+O código a seguir obtém o nome da fila para monitorar a partir de uma configuração de aplicativo, e ele obtém a hora de criação da mensagem da fila no parâmetro `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Para obter mais informações, consulte **Padrões e expressões de associação** em [Gatilhos e associações](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversão para function.json
+## <a name="autogenerated-functionjson"></a>function.json gerado automaticamente
 
 O processo de compilação cria um arquivo *function.json* em uma pasta de função na pasta de compilação. Conforme observado anteriormente, esse arquivo não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. 
 
@@ -134,7 +141,7 @@ O arquivo *function.json* gerado inclui uma propriedade `configurationSource` qu
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Pacote NuGet do Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ O pacote `Sdk` também depende do [Newtonsoft.Json](http://www.nuget.org/package
 
 O código-fonte para `Microsoft.NET.Sdk.Functions`está disponível no repositório GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Versão de tempo de execução
+## <a name="runtime-version"></a>Versão de tempo de execução
 
 O Visual Studio usa as [Ferramentas Essenciais do Azure Functions](functions-run-local.md#install-the-azure-functions-core-tools) para executar projetos do Functions. As Ferramentas Essenciais são uma interface de linha de comando para o tempo de execução do Functions.
 
@@ -235,7 +242,7 @@ public static class SimpleExample
 
 ## <a name="async"></a>Assíncrono
 
-Para tornar uma função assíncrona, use a palavra-chave `async` e retorne um objeto `Task`.
+Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
 
 ```csharp
 public static class AsyncExample

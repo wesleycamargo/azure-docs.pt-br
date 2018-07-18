@@ -1,24 +1,25 @@
 ---
-title: "AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure"
+title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs
+description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
-ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 04/30/2018
+ms.author: clemensv
+ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312535"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -143,49 +144,49 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 
 #### <a name="create-message-receiver"></a>Criar receptor da mensagem
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |O cliente o anexa a entidade como receptor |
 | o Barramento de Serviço responde ao anexar o final do link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
 #### <a name="create-message-sender"></a>Criar remetente da mensagem
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Criar remetente da mensagem (erro)
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Fechar receptor/remetente da mensagem
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Enviar (êxito)
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Nenhuma ação |
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -193,7 +194,7 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 
 #### <a name="multi-message-receive"></a>Receber várias mensagens
 
-| Cliente | BARRAMENTO DE SERVIÇO |
+| Cliente | Barramento de Serviço |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |Nenhuma ação |
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -204,6 +205,8 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 ### <a name="messages"></a>Mensagens
 
 As seções a seguir explicam quais propriedades das seções padrão de mensagem AMQP são usadas pelo Barramento de Serviço e como elas são mapeadas para o conjunto de APIs do Barramento de Serviço.
+
+Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa de `application-properties` do AMQP.
 
 #### <a name="header"></a>cabeçalho
 
@@ -232,6 +235,80 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 | group-id |Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>Anotações de mensagem
+
+Há algumas outras propriedades de mensagem do barramento de serviço que não fazem parte das propriedades de mensagem do AMQP e são passadas como `MessageAnnotations` na mensagem.
+
+| Chave do mapa de anotação | Uso | Nome da API |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | Declara a hora em que a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>Recurso de transação
+
+Uma transação agrupa duas ou mais operações em um escopo de execução. Por natureza, essa transação deve garantir que todas as operações que pertencem a determinado grupo de operações sejam concluídas com êxito ou com falha em conjunto.
+As operações são agrupadas por um identificador `txn-id`.
+
+Para a interação transacional, o cliente age como um `transaction controller` que controla as operações que devem ser agrupadas. O Serviço de Barramento de Serviço age como um `transactional resource` e executa o trabalho conforme solicitado pelo `transaction controller`.
+
+O cliente e o serviço se comunicam por meio de um `control link` que é estabelecido pelo cliente. As mensagens `declare` e `discharge` são enviadas pelo controlador pelo link de controle para alocar e concluir as transações respectivamente (elas não representam a demarcação do trabalho transacional). O envio/recebimento reais não são executados nesse link. Cada operação transacional solicitada é identificada explicitamente com o `txn-id` desejado e, portanto, pode ocorrer em qualquer link da conexão. Se o link de controle for fechado enquanto houver transações não descarregadas criadas por ele, todas essas transações serão revertidas imediatamente, e a tentativa de realizar mais trabalho transacional nelas levará à falha. As mensagens no link de controle não podem ser pré-estabelecidas.
+
+Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e terminar transações. O serviço define um destino especial que funciona como um `coordinator`. O cliente/controlador estabelece um link de controle com esse destino. O link de controle fica fora do limite de uma entidade, ou seja, o mesmo link de controle pode ser usado para iniciar e descarregar transações de várias entidades.
+
+#### <a name="starting-a-transaction"></a>Iniciando uma transação
+
+Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do coordenador. Ele faz isso enviando uma mensagem do tipo `declare`. Se a declaração for bem-sucedida, o coordenador responderá com um resultado de disposição de `declared` que contém o `txn-id` atribuído.
+
+| Cliente (controlador) | | Barramento de Serviço (coordenador) |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>Descarregando uma transação
+
+O controlador concluirá o trabalho transacional enviando uma mensagem `discharge` ao coordenador. O controlador indica que deseja confirmar ou reverter o trabalho transacional definindo o sinalizador `fail` no corpo de descarga. Se o coordenador não puder concluir a descarga, a mensagem será rejeitada com esse resultado contendo o `transaction-error`.
+
+> Observação: fail=true refere-se à reversão de uma transação e fail=false refere-se à confirmação.
+
+| Cliente (controlador) | | Barramento de Serviço (coordenador) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | . . . <br/>Trabalho transacional<br/>em outros links<br/> . . . |
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>Enviando uma mensagem em uma transação
+
+Todo trabalho transacional é feito com o estado de entrega transacional `transactional-state` que contém o txn-id. No caso do envio de mensagens, o transactional-state está contido no quadro de transferência da mensagem. 
+
+| Cliente (controlador) | | Barramento de Serviço (coordenador) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>Descartando uma mensagem em uma transação
+
+A disposição da mensagem inclui operações como `Complete` / `Abandon` / `DeadLetter` / `Defer`. Para executar essas operações em uma transação, passe o `transactional-state` com a disposição.
+
+| Cliente (controlador) | | Barramento de Serviço (coordenador) |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>Recursos avançados do Barramento de Serviço
 
@@ -284,10 +361,10 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operation |Não |string |**put-token** |
-| type |Não |string |O tipo do token colocado. |
-| name |Não |string |O "público" ao qual o token se aplica. |
-| expiração |Sim |timestamp |A hora de expiração do token. |
+| operation |Não  |string |**put-token** |
+| Tipo |Não  |string |O tipo do token colocado. |
+| Nome |Não  |string |O "público" ao qual o token se aplica. |
+| expiração |sim |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
@@ -303,8 +380,8 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| status-description |Sim |string |A descrição do status. |
+| status-code |Não  |int |Código de resposta HTTP **[RFC2616]**. |
+| status-description |sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
 
@@ -315,6 +392,19 @@ O mecanismo ANÔNIMO, portanto, deve ser suportado pelo cliente AMQP 1.0 escolhi
 Uma vez estabelecida a conexão e a sessão, anexar os links ao nó *$cbs* e enviar a solicitação *put-token* são as únicas operações permitidas. Um token válido deve ser definido com êxito usando uma solicitação *put-token* para algum nó de entidade em até 20 segundos depois que a conexão tiver sido estabelecida, caso contrário, a conexão será cancelada unilateralmente pelo Barramento de Serviço.
 
 O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar isso, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token* sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
+
+### <a name="send-via-functionality"></a>Funcionalidade Enviar via
+
+[Enviar via/Remetente de transferência](service-bus-transactions.md#transfers-and-send-via) é uma funcionalidade que permite que o barramento de serviço encaminhe uma determinada mensagem a uma entidade de destino por meio de outra entidade. Isso é usado principalmente para executar operações em entidades em uma única transação.
+
+Com essa funcionalidade, você pode criar um remetente e estabelecer o link com a `via-entity`. Ao estabelecer o link, informações adicionais são passadas para estabelecer o destino real das mensagens/transferências nesse link. Depois que a conexão for bem-sucedida, todas as mensagens enviadas nesse link serão encaminhadas automaticamente para a *destination-entity* por meio da *via-entity*. 
+
+> Observação: a autenticação deve ser executada para *via-entity* e para *destination-entity* antes do estabelecimento desse link.
+
+| Cliente | | Barramento de Serviço |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

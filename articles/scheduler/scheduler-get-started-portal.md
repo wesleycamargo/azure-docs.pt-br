@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Agendador do Azure no portal do Azure | Microsoft Docs"
-description: "Introdução ao Agendador do Azure no Portal do Azure"
+title: Introdução ao Agendador do Azure no portal do Azure | Microsoft Docs
+description: Introdução ao Agendador do Azure no Portal do Azure
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introdução ao Agendador do Azure no Portal do Azure
 É fácil criar trabalhos agendados no Agendador do Azure. Neste tutorial, você aprenderá a criar um trabalho. Você também aprenderá sobre os recursos de monitoramento e gerenciamento do Agendador.
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="manage-and-monitor-jobs"></a>Gerenciar e monitorar trabalhos
 Depois que um trabalho é criado, ele aparece no painel principal do Azure. Clique no trabalho e uma nova janela será aberta com as seguintes guias:
 
-1. Propriedades  
+1. propriedades  
 2. Configurações de Ação  
 3. Agenda  
 4. Histórico
@@ -61,7 +61,7 @@ Depois que um trabalho é criado, ele aparece no painel principal do Azure. Cliq
    
    ![][job-overview]
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>propriedades
 Essas propriedades somente leitura descrevem os metadados de gerenciamento para o trabalho do Agendador.
 
    ![][job-properties]
@@ -105,7 +105,7 @@ Você pode clicar em uma execução para exibir seus **Detalhes de Histórico**,
    ![][job-history-details]
 
 ### <a name="users"></a>Usuários
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Agendador do Azure. Para saber como usar a guia Usuários, confira [Controle de Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md)
+O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Agendador do Azure. Para saber como usar a guia Usuários, confira [Controle de Acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)

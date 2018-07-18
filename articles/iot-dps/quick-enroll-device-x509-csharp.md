@@ -1,29 +1,29 @@
 ---
-title: "Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs"
-description: "Guia de Início Rápido do Azure – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço C#"
+title: Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs
+description: Guia de Início Rápido do Azure – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço C#
 services: iot-dps
-keywords: 
-author: JimacoMS2
+keywords: ''
+author: bryanla
 ms.author: v-jamebr
 ms.date: 01/21/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 62b699e3f41fbb6fdaa0f07d7c9e0a18acd0dfc7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ef00191e524e93d1ed578193d37fb6002c15a0b8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 
-Essas etapas mostram como criar programaticamente um grupo de registros para um certificado X.509 AC raiz ou intermediário utilizando o [SDK do Serviço C#](https://github.com/Azure/azure-iot-sdk-csharp) e um exemplo de aplicativo C# .NET Core. Um grupo de registros controla o acesso ao serviço de provisionamento para dispositivos que compartilham um certificado de autenticação comum em sua cadeia de certificados. Para saber mais, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para obter mais informações sobre como usar a Infraestrutura de Chave Pública (PKI) do X.509 baseada em certificado com o Hub IoT do Azure e o Serviço de Provisionamento do Dispositivo, confira [Visão geral de segurança do certificado de Autoridade de Certificação do X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). Embora as etapas deste artigo funcionem em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows.
+Essas etapas mostram como criar programaticamente um grupo de registros para um certificado X.509 AC raiz ou intermediário utilizando o [SDK do Serviço C#](https://github.com/Azure/azure-iot-sdk-csharp) e um exemplo de aplicativo C# .NET Core. Um grupo de registros controla o acesso ao serviço de provisionamento para dispositivos que compartilham um certificado de autenticação comum em sua cadeia de certificados. Para saber mais, confira [Como controlar o acesso ao dispositivo para o serviço de provisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para obter mais informações sobre como usar a Infraestrutura de Chave Pública (PKI) do X.509 baseada em certificado com o Hub IoT do Azure e o Serviço de Provisionamento do Dispositivo, confira [Visão geral de segurança do certificado de Autoridade de Certificação do X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). Embora as etapas deste artigo funcionem em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows.
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -33,7 +33,7 @@ Essas etapas mostram como criar programaticamente um grupo de registros para um 
 4. Você precisa de um arquivo .pem ou .cer que contenha a parte pública de um certificado de Autoridade de Certificação X.509 intermediário ou raiz que tenha sido carregado e verificado com seu serviço de provisionamento. O [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) contém ferramentas que podem ajudá-lo a criar uma cadeia de certificados X.509, carregar um certificado raiz ou intermediário a partir dessa cadeia e executar a prova de posse com o serviço para verificar o certificado. Para usar essa ferramenta, baixe o conteúdo da pasta [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para uma pasta de trabalho do seu computador e siga as etapas de [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Além disso, para as ferramentas no SDK do C, o [Exemplo de verificação de certificado do grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) no **SDK do Serviço C#** mostra como executar a verificação de posse com um certificado de Autoridade de Certificação X.509 intermediário ou raiz. 
 
   > [!IMPORTANT]
-  > Os certificados criados com as ferramentas do SDK são projetados para uso apenas para desenvolvimento. Para obter informações sobre como obter certificados adequados para o código de produção, confira [Como obter um certificado de Autoridade de Certificação X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) na documentação do Hub IoT do Azure.
+  > Os certificados criados com as ferramentas do SDK são projetados para uso apenas para desenvolvimento. Para obter informações sobre como obter certificados adequados para o código de produção, confira [Como obter um certificado de Autoridade de Certificação X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) na documentação do Hub IoT do Azure.
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Obter a cadeia de conexão do serviço de provisionamento
 
@@ -45,7 +45,7 @@ Para o exemplo deste Guia de início rápido, é preciso ter a cadeia de conexã
 
 ## <a name="create-the-enrollment-group-sample"></a>Criar exemplo de grupo de registros 
 
-As etapas nesta seção mostram como criar um aplicativo de console .NET Core que adiciona um grupo de registro ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o grupo de registros. Para saber mais sobre como desenvolver com o IoT Core, confira a [Documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/en-us/windows/iot-core/).
+As etapas nesta seção mostram como criar um aplicativo de console do .NET Core que adiciona um grupo de registro ao serviço de provisionamento. Com algumas modificações, você também pode seguir estas etapas para criar um aplicativo de console do [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para adicionar o grupo de registros. Para saber mais sobre como desenvolver com o IoT Core, confira a [Documentação do desenvolvedor do Windows IoT Core](https://docs.microsoft.com/windows/iot-core/).
 1. No Visual Studio, adicione um projeto de Aplicativo de Console do Visual C# .NET Core a uma nova solução usando o modelo de projeto **Aplicativo de Console (.NET Core)**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **CreateEnrollmentGroup**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#](media//quick-enroll-device-x509-csharp/create-app.png)
@@ -64,7 +64,7 @@ As etapas nesta seção mostram como criar um aplicativo de console .NET Core qu
    ```
     
 5. Adicione os seguintes campos à classe **Program** .  
-   - Substitua o valor do espaço reservado **ProvisioningConnectionString** pela cadeia de conexão do serviço de provisionamento para a qual você deseja criar o registro.
+   - Substitua o valor do espaço reservado **ProvisioningConnectionString** pela cadeia de conexão do serviço de provisionamento para o qual você deseja criar o registro.
    - Substitua o valor do espaço reservado de **X509RootCertPath** pelo caminho para um arquivo .pem ou .cer que representa a parte pública de um certificado de Autoridade de Certificação X.509 intermediário ou raiz que tenha sido carregado anteriormente e verificado com o serviço de provisionamento.
    - Outra opção é alterar o valor **EnrollmentGroupId**. A cadeia de caracteres pode conter apenas letras minúsculas e hifens. 
 

@@ -1,12 +1,12 @@
 ---
-title: "Como trabalhar com o SDK de servidor back-end do .NET para Aplicativos Móveis | Microsoft Docs"
-description: "Aprenda como trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Serviço de Aplicativo do Azure."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, aplicativo móvel, serviço móvel, escala, escalonável, implantação de aplicativo, implantação de aplicativo do azure"
+title: Como trabalhar com o SDK de servidor back-end do .NET para Aplicativos Móveis | Microsoft Docs
+description: Aprenda como trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Serviço de Aplicativo do Azure.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, aplicativo móvel, serviço móvel, escala, escalonável, implantação de aplicativo, implantação de aplicativo do azure
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -46,10 +46,24 @@ Para criar um back-end móvel do Serviço de Aplicativo, siga o [Tutorial de in�
 
 De volta à folha *Introdução*, em **Criar uma API de tabela**, escolha **C#** como a **Linguagem de back-end**. Clique em **Download**, extraia os arquivos compactados do projeto em seu computador local e abra a solução no Visual Studio.
 
-### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Criar um back-end do .NET usando o Visual Studio 2013 e o Visual Studio 2015
+### <a name="create-a-net-backend-using-visual-studio-2017"></a>Criar um back-end do .NET usando o Visual Studio 2017
+
+Instale a carga de trabalho do Azure por meio do Instalador do Visual Studio para publicar no projeto dos Aplicativos Móveis do Azure no Visual Studio. Depois de instalar o SDK, crie um aplicativo ASP.NET usando as seguintes etapas:
+
+1. Abra a caixa de diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...**).
+2. Expanda **Visual C#** e selecione **Web**.
+3. Selecione **Aplicativo Web ASP .NET (.NET Framework)**.
+4. Preencha o nome do projeto. Em seguida, clique em **OK**.
+5. Selecione **Aplicativo Móvel do Azure** da lista de modelos.
+6. Clique em **OK** para criar a solução.
+7. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e escolha **Publicar...** e, em seguida, escolha **Serviço de Aplicativo** como o destino de publicação.
+8. Siga os prompts para autenticar e escolher um Serviço de Aplicativo do Azure novo ou existente para publicar.
+
+### <a name="create-a-net-backend-using-visual-studio-2015"></a>Criar um back-end do .NET usando o Visual Studio 2015
+
 Instale o [SDK do Azure para .NET][4] (versão 2.9.0 ou posterior) para criar um projeto dos Aplicativos Móveis no Visual Studio. Depois de instalar o SDK, crie um aplicativo ASP.NET usando as seguintes etapas:
 
-1. Abra a caixa de diálogo **Novo Projeto** (de *Arquivo* > **Novo** > **Projeto...**).
+1. Abra a caixa de diálogo **Novo Projeto** (de **Arquivo** > **Novo** > **Projeto...**).
 2. Expanda **Modelos** > **Visual C#** e selecione **Web**.
 3. Selecione **Aplicativo Web do ASP.NET**.
 4. Preencha o nome do projeto. Em seguida, clique em **OK**.

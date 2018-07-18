@@ -1,11 +1,11 @@
 ---
-title: "Criação de uma VM com um endereço IP público estático - CLI do Azure | Microsoft Docs"
-description: "Aprenda a criar uma VM com um endereço IP público estático usando a interface de linha de comando (CLI) do Azure."
+title: Criação de uma VM com um endereço IP público estático - CLI do Azure | Microsoft Docs
+description: Aprenda a criar uma VM com um endereço IP público estático usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Como criar uma VM com um endereço IP público estático usando a CLI do Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/21/2017
 > * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -130,7 +129,7 @@ az vm create \
 
 Além de criar uma VM, o script cria:
 - Um único disco gerenciado premium por padrão, mas há outras opções para você criar outros tipos de disco. Veja o artigo [Como criar uma VM do Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais informações.
-- A Rede virtual, a sub-rede, a NIC e os recursos de endereço IP público. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. Para saber como usar os recursos de rede existente em vez de criar recursos adicionais, digite `az vm create -h`.
+- A Rede virtual, a sub-rede, a NIC e os recursos de endereço IP público. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. Para saber como usar os recursos de rede já existentes em vez de criar recursos adicionais, digite `az vm create -h`.
 
 ## <a name = "validate"></a>Como validar a criação da VM e o endereço IP público
 
@@ -145,7 +144,11 @@ Além de criar uma VM, o script cria:
 1. Para exibir os recursos do grupo de recursos, execute o comando `az resource list --resource-group IaaSStory`.
 2. Confirme se não existem outros recursos no grupo de recursos, além dos recursos criados pelo script neste artigo. 
 3. Para excluir todos os recursos criados neste exercício, execute o comando `az group delete -n IaaSStory`. O comando exclui o grupo de recursos e todos os recursos que ele contém.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP no sistema operacional
+
+Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual. É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário, como quando [atribuímos vários endereços IP para uma VM do Windows](virtual-network-multiple-ip-addresses-cli.md). Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído à [interface de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Qualquer tráfego de rede pode fluir de e para a VM criada neste artigo. Você pode definir regras de entrada e saída de um NSG que limitam o tráfego que pode fluir de e para o adaptador de rede, a sub-rede ou ambas. Para saber mais sobre NSGs, leia o artigo [Visão geral do NSG](virtual-networks-nsg.md).
+Qualquer tráfego de rede pode fluir de e para a VM criada neste artigo. Você pode definir regras de segurança de entrada e saída de um grupo de segurança de rede que limitam o tráfego que pode fluir de e para o adaptador de rede, a sub-rede ou ambas. Para saber mais sobre grupos de segurança de rede, confira [Visão geral do grupo de segurança de rede](security-overview.md).

@@ -1,12 +1,12 @@
 ---
-title: Central de Segurança do Azure e máquinas virtuais do Linux no Azure | Microsoft Docs
-description: Saiba mais sobre a segurança de sua máquina virtual do Linux do Azure com a Central de Segurança do Azure.
+title: Tutorial – Usar a Central de Segurança do Azure para VMs Linux no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá sobre os recursos da Central de Segurança do Azure para ajudar a proteger as máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b791b2e1dbaffc90145c325dea7a85bd8abd98c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorar a segurança da máquina virtual usando a Central de Segurança do Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Usar a Central de Segurança do Azure para monitorar máquinas virtuais do Linux
 
 A Central de Segurança do Azure pode ajudá-lo a ganhar visibilidade em suas práticas de segurança de recursos do Azure. A Central de segurança oferece o monitoramento de segurança integrado. Ela pode detectar ameaças que não seriam notadas de outra forma. Neste tutorial, você saberá mais sobre a Central de Segurança do Azure e como:
  
@@ -30,7 +30,7 @@ A Central de Segurança do Azure pode ajudá-lo a ganhar visibilidade em suas pr
 > * Configurar a coleta de dados
 > * Definir políticas de segurança
 > * Exibir e corrigir problemas de integridade de configuração
-> * Examinar ameaças detectadas  
+> * Examinar ameaças detectadas
 
 ## <a name="security-center-overview"></a>Visão geral da Central de Segurança
 

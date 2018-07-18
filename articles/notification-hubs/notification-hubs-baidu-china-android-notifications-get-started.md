@@ -1,24 +1,24 @@
 ---
-title: "Introdução aos Hubs de Notificação do Azure usando o Baidu | Microsoft Docs"
-description: "Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push aos dispositivos Android que usam o Baidu."
+title: Introdução aos Hubs de Notificação do Azure usando o Baidu | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push aos dispositivos Android que usam o Baidu.
 services: notification-hubs
 documentationcenter: android
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 08/29/2017
-ms.author: kapiteir
-ms.openlocfilehash: 91f20a6e0ff6c2dd512879e9ab3c9369dab5d8ff
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação usando o Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -27,14 +27,14 @@ O envio de nuvem Baidu é um serviço na nuvem chinês que você pode usar para 
 
 Como o Google Play e o FCM (Firebase Cloud Messaging) não estão disponíveis na China, é necessário usar lojas de aplicativos diferentes e serviços de envio por push. O Baidu é um deles e atualmente usado pelo Hub de Notificação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este tutorial exige:
 
 * SDK do Android (supondo que você use o Android Studio), que pode ser baixado no <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>
-* [SDK do Android Push do Baidu]
+* [SDK do Android Push Baidu]
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 > 
 > 
 
@@ -159,7 +159,7 @@ Anote `DefaultListenSharedAccessSignature` e `DefaultFullSharedAccessSignature` 
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.  Baixe e descompacte o [SDK do Android Push do Baidu]. Copie o arquivo `pushservice-x.y.z jar` da pasta libs. Em seguida, copie os arquivos `.so` das pastas `src/main/jniLibs` (crie uma nova pasta) do seu aplicativo Android.
+6.  Baixe e descompacte o [SDK do Android Push Baidu]. Copie o arquivo `pushservice-x.y.z jar` da pasta libs. Em seguida, copie os arquivos `.so` das pastas `src/main/jniLibs` (crie uma nova pasta) do seu aplicativo Android.
 
     ![Hubs de Notificação do Azure - Bibliotecas SDK do Baidu](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -531,6 +531,6 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[SDK do Android Push do Baidu]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[SDK do Android Push Baidu]: http://push.baidu.com/sdk/push_client_sdk_for_android
 [portal do Azure]: https://portal.azure.com/
 [portal do Baidu]: http://www.baidu.com/

@@ -1,26 +1,26 @@
 ---
-title: "Criar uma função disparada pelo Azure Cosmos DB | Microsoft Docs"
-description: "Use o Azure Functions para criar uma função sem servidor que seja invocada quando são adicionados dados a um banco de dados no Azure Cosmos DB."
+title: Criar uma função disparada pelo Azure Cosmos DB | Microsoft Docs
+description: Use o Azure Functions para criar uma função sem servidor que seja invocada quando são adicionados dados a um banco de dados no Azure Cosmos DB.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
@@ -33,8 +33,6 @@ Saiba como criar uma função disparada quando dados são adicionados ou alterad
 Para concluir este tutorial:
 
 + Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Criar um Aplicativo de funções do Azure
 
@@ -74,7 +72,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome do banco de dados | ID exclusiva para o banco de dados do Azure Cosmos DB  |
-    | **API** | SQL (DocumentDB) | Este tópico usa a API do banco de dados do documento.  |
+    | **API** | SQL | Este tópico usa a API do SQL.  |
     | **Assinatura** | Assinatura do Azure | A assinatura na qual esta nova conta do Cosmos DB será criada.  |
     | **Grupo de recursos** | myResourceGroup |  Use o grupo de recursos existente que contém seu aplicativo de função. |
     | **Localidade**  | WestEurope | Selecione um local próximo ao seu aplicativo de função ou a outros aplicativos que usam os documentos armazenados.  |
@@ -113,7 +111,7 @@ Em seguida, você conecta-se à sua conta do Azure Cosmos DB e cria a coleção 
     | **ID da coleção** | Itens | O nome da nova coleção. Isso deve corresponder ao nome definido na sua associação de função.  |
     | **Capacidade de armazenamento** | Fixo (10 GB)|Use o valor padrão. Esse valor é a capacidade de armazenamento do banco de dados. |
     | **Taxa de transferência** |400 RU| Use o valor padrão. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. |
-    | **[Chave de partição](../cosmos-db/partition-data.md#design-for-partitioning)** | /category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. | 
+    | **[Chave de partição](../cosmos-db/partition-data.md#design-for-scale)** | /category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. | 
 
 1. Clique em **OK** para criar a coleção **Tarefas**. Pode levar alguns instantes para a coleção ser criada.
 

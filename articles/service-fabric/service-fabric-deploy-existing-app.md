@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: mfussell
+ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
 Ao empacotar um executável já existente como [executável convidado](service-fabric-guest-executables-introduction.md), você pode optar por usar um modelo de projeto do Visual Studio ou [criar o pacote de aplicativos manualmente](#manually). Usando o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo novo modelo de projeto para você.
@@ -43,7 +43,7 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar voc�
 4. Dê um nome ao seu serviço e clique em **OK**.
 5. Se seu serviço precisar de um ponto de extremidade para comunicação, você é possível adicionar o protocolo, a porta e o tipo ao arquivo ServiceManifest.xml. Por exemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Agora você pode usar o pacote e publicar a ação em seu cluster local ao depurar a solução no Visual Studio. Quando estiver pronto, você poderá publicar o aplicativo em um cluster remoto ou fazer check-in da solução para o controle do código-fonte.
-7. Leia [verificar o aplicativo em execução](#check-your-running-application) para conferir como exibir seu serviço executável de convidado em execução no Service Fabric Explorer.
+7. Leia [Verificar o aplicativo em execução](#check-your-running-application) para conferir como exibir seu serviço executável de convidado em execução no Service Fabric Explorer.
 
 Para um exemplo de passo a passo, consulte [Criar o primeiro aplicativo executável do convidado utilizando o Visual Studio](quickstart-guest-app.md).
 

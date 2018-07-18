@@ -1,11 +1,10 @@
 ---
-title: "Guia de desempenho e ajuste da Atividade de Cópia | Microsoft Docs"
-description: "Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados no Azure Data Factory quando você usa a Atividade de Cópia."
+title: Guia de desempenho e ajuste da Atividade de Cópia | Microsoft Docs
+description: Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados no Azure Data Factory quando você usa a Atividade de Cópia.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
@@ -15,13 +14,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versão 1 – já disponível](data-factory-copy-activity-performance.md)
+> * [Versão 2 – Versão prévia](../copy-activity-performance.md)
+
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço Data Factory, que está na versão prévia, consulte o [Guia de desempenho e ajuste da atividade de cópia para o Data Factory versão 2](../copy-activity-performance.md).
 

@@ -1,25 +1,25 @@
 ---
-title: "Evitar custos inesperados e gerenciar a cobrança – Azure | Microsoft Docs"
+title: Evitar custos inesperados e gerenciar a cobrança – Azure | Microsoft Docs
 description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para uma assinatura do Microsoft Azure.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -29,7 +29,7 @@ Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter
 
 - Se sua assinatura for uma Avaliação Gratuita, do [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), do AIO (Azure via Open) ou BizSpark, ela será desabilitada automaticamente quando todos os créditos forem usados. Saiba mais sobre os [limites de gastos](#spending-limit) para evitar que sua assinatura desabilitada de forma inesperada.
 
-- Se tiver se inscrito na [Conta gratuita do Azure](https://azure.microsoft.com/en-us/free/), [você poderá usar alguns dos serviços do Azure mais populares gratuitamente por 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações listadas abaixo, consulte [Evitar ser cobrado na conta gratuita](billing-avoid-charges-free-account.md).
+- Se tiver se inscrito na [Conta gratuita do Azure](https://azure.microsoft.com/free/), [você poderá usar alguns dos serviços do Azure mais populares gratuitamente por 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações listadas abaixo, consulte [Evitar ser cobrado na conta gratuita](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter custos estimados antes de adicionar serviços do Azure
 
@@ -172,7 +172,7 @@ Para ver se você é o Administrador da conta, vá para a [folha Assinaturas no 
 
 ![Captura de tela de sua função no modo de exibição Assinaturas no portal do Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
-Se você não for o Administrador da conta, alguém provavelmente lhe deu acesso parcial pelo [RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory](../active-directory/role-based-access-control-configure.md). Para gerenciar assinaturas e alterar informações de cobrança, [localize o Administrador da conta](billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a assinatura para você](billing-subscription-transfer.md).
+Se você não for o Administrador da conta, alguém provavelmente lhe deu acesso parcial pelo [RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Para gerenciar assinaturas e alterar informações de cobrança, [localize o Administrador da conta](billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a assinatura para você](billing-subscription-transfer.md).
 
 Se o Administrador da conta não está mais na sua organização e você precisa gerenciar a cobrança, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte

@@ -1,12 +1,12 @@
 ---
-title: "Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Docs"
-description: "Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura."
-services: 
+title: Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Docs
+description: Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de monitoramento remoto
 
@@ -35,7 +35,17 @@ Este artigo explica alguns dos principais elementos da solução de monitorament
 
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
 
-![Arquitetura lógica](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Microsserviços e contêineres do Docker
+Monitoramento remoto é a primeira das nossas soluções pré-configuradas a utilizar uma arquitetura de microsserviços. A solução está disponível no [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) e [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Os microsserviços foram lançados como um padrão predominante para obter flexibilidade e escala (permitindo que os contêineres sejam escalados individualmente), sem comprometer a velocidade de desenvolvimento.
+Os microserviços separam o código e fornecem interfaces bem definidas tornando a solução mais fácil de entender e menos monolítica. Também expandem opções para parceiros que desejam estender nosso aceleradores de solução atuais para criar soluções acabadas que podem ser monetizadas.
+
+**Saiba mais sobre os contêineres do Docker**
+* [Instalar o Docker](https://docs.docker.com/engine/installation/)
+* [Comandos do Docker comuns para o monitoramento remoto](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Introdução ao Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 
@@ -45,7 +55,7 @@ Na solução pré-configurada, o dispositivo simulado representa um dispositivo 
 
 Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT:
 
-| Mensagem | Descrição |
+| Mensagem | DESCRIÇÃO |
 | --- | --- |
 | Inicialização |Quando o dispositivo é iniciado, ele envia uma mensagem de **informações do dispositivo** com informações sobre ele mesmo para o back-end. Esses dados incluem a identificação do dispositivo e uma lista de comandos e métodos que o dispositivo oferece suporte. |
 | Presença |Um dispositivo envia periodicamente uma mensagem de **presença** para relatar se o dispositivo pode detectar a presença de um sensor. |
@@ -92,7 +102,7 @@ No painel de solução, você pode usar *propriedades desejadas* para definir pr
 
 Os dispositivos simulados podem lidar com os seguintes métodos ([métodos diretos][lnk-direct-methods]) chamados do portal de solução por meio do hub IoT:
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 | --- | --- |
 | InitiateFirmwareUpdate |Instrui o dispositivo a realizar uma atualização de firmware |
 | Reboot |Instrui o dispositivo a reinicializar |
@@ -104,7 +114,7 @@ Alguns métodos usam propriedades relatadas para relatar o progresso. Por exempl
 
 Os dispositivos simulados podem lidar com os seguintes comandos (mensagens de nuvem para dispositivos) enviados a partir do portal de solução por meio do hub IoT:
 
-| Command | Descrição |
+| Comando | DESCRIÇÃO |
 | --- | --- |
 | PingDevice |Envia um *ping* ao dispositivo para verificar se ele está ativo |
 | StartTelemetry |Inicia o dispositivo de envio de telemetria |
@@ -238,7 +248,7 @@ A solução usa o armazenamento de blobs do Azure para persistir todos os dados 
 
 Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as respostas do comando. Ele usa mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados Cosmos DB).
 
-## <a name="cosmos-db"></a>Banco de Dados Cosmos
+## <a name="cosmos-db"></a>Cosmos DB
 
 A solução usa um banco de dados Cosmos DB para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem o histórico de comandos enviados aos dispositivos no portal de solução e os métodos invocados do portal de solução.
 
@@ -246,7 +256,7 @@ A solução usa um banco de dados Cosmos DB para armazenar informações sobre o
 
 O portal de solução é um aplicativo Web implantado como parte da solução pré-configurada. As páginas principais no portal de solução são o painel e a lista de dispositivos.
 
-### <a name="dashboard"></a>Painel
+### <a name="dashboard"></a>painel
 
 Esta página no aplicativo Web usa os controles javascript do PowerBI (veja [Repositório PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)) para visualizar os dados de telemetria dos dispositivos. A solução usa o trabalho de telemetria do ASA para gravar os dados de telemetria no armazenamento de blobs.
 

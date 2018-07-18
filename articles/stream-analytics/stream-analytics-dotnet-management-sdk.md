@@ -1,25 +1,19 @@
 ---
-title: SDK do .NET de Gerenciamento para Stream Analytics do Azure | Microsoft Docs
-description: "Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações."
-keywords: ".NET SDK, API de análise"
+title: SDK do .NET de Gerenciamento para Azure Stream Analytics
+description: Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações.
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/06/2017
-ms.author: samacha
-ms.openlocfilehash: 2ac5d305aae110eff46459ecb7d89ca50ae1823d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b57e22b979d0e47d294a89d41a945a665beacdc0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK .NET de gerenciamento: configurar e executar trabalhos de análise usando a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
@@ -31,7 +25,7 @@ O Azure Stream Analytics é um serviço completamente gerenciado que oferece bai
 > [!NOTE]
 > Atualizamos o código de exemplo neste artigo com a versão v2.x do SDK do .NET de Gerenciamento do Stream Analytics do Azure. Para código de exemplo usando a versão herdada (1.x) do SDK, consulte [Usar o SDK do .NET de Gerenciamento v1.x para Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
 * Instale o Visual Studio 2017 ou 2015.
@@ -51,7 +45,7 @@ Antes de começar este artigo, você deve ter o seguinte:
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Configure uma origem de entrada e o destino de saída para usar. Para obter mais instruções, consulte [Adicionar Entradas](stream-analytics-add-inputs.md) para configurar uma entrada de exemplo e [Adicionar Saídas](stream-analytics-add-outputs.md) para configurar uma saída de exemplo.
+* Configure uma origem de entrada e o destino de saída para o trabalho a ser conectado.
 
 ## <a name="set-up-a-project"></a>Configurar um projeto
 Para criar um trabalho de análise, use a API do Stream Analytics para .NET. Primeiro, configure seu projeto.
@@ -278,7 +272,7 @@ O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes
    ```
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu as noções básicas do uso de um SDK do .NET para criar e executar trabalhos de análise. Para saber mais, consulte os seguintes:

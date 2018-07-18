@@ -1,12 +1,12 @@
 ---
 title: Mapear um nome DNS personalizado existente para aplicativos Web do Azure | Documentos do Microsoft
-description: "Saiba como adicionar um nome de domínio DNS personalizado existente (domínio intuitivo) a um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no Serviço de Aplicativo do Azure."
-keywords: "serviço do aplicativo, serviço do aplicativo do azure, mapeamento de domínio, nome de domínio, domínio existente, nome de host"
+description: Saiba como adicionar um nome de domínio DNS personalizado existente (domínio intuitivo) a um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no Serviço de Aplicativo do Azure.
+keywords: serviço do aplicativo, serviço do aplicativo do azure, mapeamento de domínio, nome de domínio, domínio existente, nome de host
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapear um nome DNS personalizado existente para aplicativos Web do Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: mapear um nome DNS personalizado existente para os Aplicativos Web do Azure
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como mapear um nome DNS personalizado existente para os Aplicativos Web do Azure.
 
@@ -292,7 +292,7 @@ Na parte inferior da página, o diretório virtual raiz `/` aponta para `site\ww
 
 ![Personalizar o diretório virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Após a conclusão da operação, o aplicativo deverá retornar a página certa no caminho raiz (por exemplo, http://contoso.com).
+Após a conclusão da operação, o aplicativo deverá retornar para a página certa no caminho-raiz (por exemplo, http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

@@ -1,24 +1,22 @@
 ---
-title: "Cenários de dados envolvendo o Repositório Data Lake | Microsoft Docs"
-description: "Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Repositório Data Lake"
+title: Cenários de dados envolvendo o Repositório Data Lake | Microsoft Docs
+description: Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Repositório Data Lake
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e6b89a4cb415c2d127244d55acf3e284425f03e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Como usar o Repositório Data Lake do Azure para exigências de big data
 Há quatro estágios principais no processamento de big data:
@@ -131,4 +129,4 @@ Você pode usar uma combinação de serviços para criar representações visuai
 ![Visualizar dados no Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Data Lake Store")
 
 * É possível começar usando o [Azure Data Factory para mover dados do Data Lake Store para um SQL Data Warehouse do Azure](../data-factory/copy-activity-overview.md)
-* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar a representação visual dos dados.
+* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para criar a representação visual dos dados.

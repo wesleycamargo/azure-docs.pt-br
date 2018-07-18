@@ -3,22 +3,23 @@ title: Atualizar um cluster do Azure Service Fabric de um modelo | Microsoft Doc
 description: Este artigo descreve como configurar um cluster seguro do Service Fabric no Azure usando o Azure Resource Manager, o Azure Key Vault e o Azure Active Directory (Azure AD) para autenticação do cliente.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: aljo
+ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207937"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -99,17 +100,13 @@ Use o seguinte comando para criar o cluster, se desejar que o sistema gere um ce
 ### <a name="login-in-to-azure"></a>Faça logon no Azure.
 
 ```Powershell
-
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
-
 ```
 
 ```CLI
-
 azure login
 az account set --subscription $subscriptionId
-
 ```
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Use o modelo de nodetype nó 1 padrão 5 que acompanha o módulo para configurar o cluster
 
@@ -120,7 +117,6 @@ O modelo usado está disponível nos [Exemplos de modelos do Azure Service Fabri
 Os comandos abaixo funcionam para criação de clusters do Windows e Linux, basta especificar o sistema operacional adequadamente. Os comandos de CLI/PowerShell também geram o certificado no CertificateOutputFolder especificado, contudo certifique-se que a pasta de certificado foi criada. O comando aceita outros parâmetros como VM SKU.
 
 ```Powershell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -132,12 +128,10 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
-
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser
 ```
 
 ```CLI
-
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
 declare vaultResourceGroupName="myvaultrg"
@@ -149,14 +143,11 @@ declare vmuser="myadmin"
 declare vmOs="UbuntuServer1604"
 declare certOutputFolder="c:\certificates"
 
-
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certpassword  \
     --vault-name $vaultName --vault-resource-group $resourceGroupName  \
     --template-file $templateFilePath --parameter-file $parametersFilePath --vm-os $vmOs  \
     --vm-password $vmpassword --vm-user-name $vmuser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>Usar um modelo personalizado que você já tem 
@@ -179,8 +170,6 @@ Se você já tem um modelo personalizado, certifique-se de verificar novamente s
 
 
 ```PowerShell
-
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
@@ -190,15 +179,12 @@ $certOutputFolder="c:\certificates"
 $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
 ```
 
 Este é o comando de CLI equivalente para fazer o mesmo. Altere os valores nas instruções declaradas para os valores apropriados. A CLI é compatível com todos os outros parâmetros compatíveis com o comando do PowerShell acima.
 
 ```CLI
-
 declare certPassword=""
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -207,12 +193,10 @@ declare parameterFilePath="c:\mytemplates\linuxtemplateparm.json"
 declare templateFilePath="c:\mytemplates\linuxtemplate.json"
 declare certOutputFolder="c:\certificates"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-output-folder $certOutputFolder --certificate-password $certPassword  \
     --certificate-subject-name $certSubjectName \
     --template-file $templateFilePath --parameter-file $parametersFilePath
-
 ```
 
 
@@ -227,7 +211,6 @@ Caso esse seja um certificado assinado pela autoridade de certificação que voc
 O modelo usado está disponível nos [exemplos do azure: modelo do Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [modelo Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -238,11 +221,9 @@ $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile C:\MyCertificates\chackocertificate3.pfx -CertificatePassword $certPassword -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
-
 ```
 
 ```CLI
-
 declare vmPassword="Password!1"
 declare certPassword="Password!1"
 declare vmUser="myadmin"
@@ -253,13 +234,11 @@ declare vaultName="myvault"
 declare certificate-file="c:\certificates\mycert.pem"
 declare vmOs="UbuntuServer1604"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --certificate-file $certificate-file --certificate-password $certPassword  \
     --vault-name $vaultName --vault-resource-group $vaultResourceGroupName  \
     --vm-os vmOs \
     --vm-password $vmPassword --vm-user-name $vmUser
-
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>Usar o modelo personalizado que você tem 
@@ -281,7 +260,6 @@ Se você já tem um modelo personalizado, certifique-se de verificar novamente s
 
 
 ```PowerShell
-
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -292,15 +270,12 @@ $parameterFilePath="c:\mytemplates\mytemplateparm.json"
 $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
-
 New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
-
 ```
 
 Este é o comando de CLI equivalente para fazer o mesmo. Altere os valores nas instruções declaradas para os valores apropriados.
 
 ```CLI
-
 declare certPassword="Password!1"
 declare resourceGroupLocation="westus"
 declare resourceGroupName="mylinux"
@@ -320,17 +295,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 Para usar um cofre de chaves existente, você _tem habilitá-lo para implantação_ a fim de permitir que o provedor de recursos de computação obtenha certificados e os instale em nós de cluster:
 
 ```PowerShell
-
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
-
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 Este é o comando de CLI equivalente para fazer o mesmo. Altere os valores nas instruções declaradas para os valores apropriados.
 
@@ -340,11 +311,9 @@ declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
     --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
-
 ```
 
 <a id="add-AAD-for-client"></a>
@@ -366,8 +335,7 @@ Para simplificar algumas das etapas envolvidas na configuração do Azure AD com
 4. Execute `SetupApplications.ps1` e forneça TenantId, ClusterName e WebApplicationReplyUrl como parâmetros. Por exemplo: 
 
 ```powershell
-    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
-
+.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
 Você pode encontrar o TenantId executando o comando `Get-AzureSubscription` do PowerShell. A execução desse comando exibe a TenantId para cada assinatura.
@@ -462,7 +430,7 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
               "settings": {
                 ...
                 "certificate": {
-                  "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+                  "commonNames": ["[parameters('certificateCommonName')]"],
                   "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
                 },
                 ...
@@ -479,7 +447,7 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
 ##### <a name="add-the-certificate-information-to-the-service-fabric-cluster-resource"></a>Adicione as informações de certificado ao recurso de cluster do Service Fabric:
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   "location": "[parameters('clusterLocation')]",
@@ -487,9 +455,14 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
     "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
   ],
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
   }
@@ -498,18 +471,23 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
 
 ### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicionar a configuração do Azure AD para usar o Azure AD para acesso de cliente
 
-Adicione a as configurações do Azure AD a um modelo do Resource Manager de cluster fazendo referência ao cofre de chaves que contém as chaves de certificado. Adicione esses valores e parâmetros do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (azuredeploy.parameters.json).
+Adicione a as configurações do Microsoft Azure Active Directory a um modelo do Resource Manager de cluster fazendo referência ao cofre de chaves que contém as chaves de certificado. Adicione esses valores e parâmetros do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (azuredeploy.parameters.json).
 
 ```json
 {
-  "apiVersion": "[variables('sfrpApiVersion')]",
+  "apiVersion": "2018-02-01",
   "type": "Microsoft.ServiceFabric/clusters",
   "name": "[parameters('clusterName')]",
   ...
   "properties": {
-    "certificate": {
-      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-      "x509StoreName": "[parameters('clusterCertificateStorevalue')]"
+    "certificateCommonNames": {
+        "commonNames": [
+        {
+            "certificateCommonName": "[parameters('certificateCommonName')]",
+            "certificateIssuerThumbprint": ""
+        }
+        ],
+        "x509StoreName": "[parameters('certificateStoreValue')]"
     },
     ...
     "azureActiveDirectory": {
@@ -532,15 +510,18 @@ Se você planeja usar os módulos do PowerShell RM do Azure Service Fabric, não
 >
 
 ```json
-        "clusterCertificateThumbprint": {
-            "value": ""
-        },
-        "clusterCertificateUrlValue": {
-            "value": ""
-        },
-        "sourceVaultvalue": {
-            "value": ""
-        },
+"clusterCertificateThumbprint": {
+    "value": ""
+},
+"certificateCommonName": {
+    "value": ""
+},
+"clusterCertificateUrlValue": {
+    "value": ""
+},
+"sourceVaultvalue": {
+    "value": ""
+},
 ```
 
 Se está usando certificados de aplicativo ou um cluster existente carregado no Key Vault, é necessário obter essas informações e preenchê-las 

@@ -1,11 +1,11 @@
 ---
-title: "Configurar pontos de extremidade em uma VM do Windows clássica | Microsoft Docs"
-description: "Saiba como configurar pontos de extremidade para uma VM clássica do Windows no portal do Azure para permitir a comunicação com uma máquina virtual do Windows no Azure."
+title: Configurar pontos de extremidade em uma VM do Windows clássica | Microsoft Docs
+description: Saiba como configurar pontos de extremidade para uma VM clássica do Windows no portal do Azure para permitir a comunicação com uma máquina virtual do Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 8afc21c2-d3fb-43a3-acce-aa06be448bb6
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Como configurar pontos de extremidade em uma máquina virtual clássica do Windows no Azure
 Todas as máquinas virtuais do Windows criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais Linux](../../linux/classic/setup-endpoints.md).
@@ -37,4 +37,4 @@ Quando você cria uma máquina virtual do Windows no portal do Azure, pontos de 
 ## <a name="next-steps"></a>Próximas etapas
 * Para usar um cmdlet do Azure PowerShell para configurar um ponto de extremidade de VM, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * Para usar um cmdlet do Azure PowerShell para gerenciar uma ACL em um ponto de extremidade, consulte [Como gerenciar ACLs (listas de controle de acesso) para pontos de extremidade usando o PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Se você criou uma máquina virtual no modelo de implantação do Resource Manager, é possível usar o Azure PowerShell para [criar grupos de segurança de rede](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) a fim de controlar o tráfego para a VM.
+* Se você criou uma máquina virtual no modelo de implantação do Resource Manager, é possível usar o Azure PowerShell para [criar grupos de segurança de rede](../../../virtual-network/tutorial-filter-network-traffic.md) a fim de controlar o tráfego para a VM.

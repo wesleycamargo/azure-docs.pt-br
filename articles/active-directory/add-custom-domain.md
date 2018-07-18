@@ -1,24 +1,22 @@
 ---
-title: "Adicionar um domínio personalizado ao Azure AD | Microsoft Docs"
-description: "Explica como adicionar um domínio personalizado no Azure Active Directory."
+title: Adicionar um domínio personalizado ao Azure AD | Microsoft Docs
+description: Explica como adicionar um domínio personalizado no Azure Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 37890ac856a6b6bd89acc17973327b239a583997
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Início rápido: adicionar um nome de domínio personalizado ao Azure Active Directory
 
@@ -61,7 +59,7 @@ Agora você pode [atribuir nomes de usuário que incluam o nome de domínio pers
 > [!TIP]
 > É possível adicionar até um máximo de 900 nomes de domínio gerenciado. Se estiver configurando todos os domínios para federação com Active Directory local, será possível adicionar até um máximo de 450 nomes de domínio em cada diretório. Para mais informações, consulte [Nomes de domínio federados e gerenciados](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se você não puder verificar um nome de domínio personalizado, experimente as seguintes etapas de solução de problemas:
 
 1. **Aguarde uma hora**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio. Esse processo pode levar uma hora ou mais.

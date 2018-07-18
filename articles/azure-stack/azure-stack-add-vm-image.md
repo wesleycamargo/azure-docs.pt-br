@@ -1,191 +1,52 @@
 ---
-title: Adicionar uma imagem de VM a pilha do Azure | Microsoft Docs
-description: "Adicione imagem personalizada do Windows ou a VM do Linux da sua organização para locatários para usar."
+title: Adicionar e remover uma imagem de VM com a pilha do Azure | Microsoft Docs
+description: Adicionar ou Remover imagem personalizada do Windows ou a VM do Linux da sua organização para locatários para usar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.reviewer: kivenkat
+ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604362"
 ---
-# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
+# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Na pilha do Azure, operadores podem disponibilizar imagens de máquina virtual personalizada para seus usuários. Essas imagens podem ser referenciadas por modelos do Azure Resource Manager, ou você pode adicioná-los para a interface do usuário do Azure Marketplace como um item do Marketplace.
-
-## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Adicionar uma imagem de VM no Marketplace usando o PowerShell
-
-Execute os seguintes pré-requisitos do [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou de um cliente com Windows externo, se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
-
-1. [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).  
-
-2. Baixe o [ferramentas necessárias para trabalhar com o Azure pilha](azure-stack-powershell-download.md).  
-
-3. Preparar uma imagem de disco rígido virtual do sistema operacional Windows ou Linux no formato VHD (não use o formato VHDX).
-
-   * Para imagens do Windows, para obter instruções sobre como preparar a imagem, consulte [carregar uma imagem de VM do Windows Azure para implantações do Gerenciador de recursos](../virtual-machines/windows/upload-generalized-managed.md).
-
-   * Para imagens do Linux, consulte [máquinas virtuais Linux implantar no Azure pilha](azure-stack-linux.md). Conclua as etapas para preparar a imagem ou usar uma imagem do Linux de pilha do Azure existente, conforme descrito no artigo.    
-
-   Pilha do Azure suporta o formato VHD de disco fixo. O formato fixo estruturas do disco lógico linearmente dentro do arquivo, para que esse deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixo, use o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
-
-   > [!IMPORTANT]
-   >  A pilha do Azure não oferece suporte a VHDs de disco dinâmico. Redimensionar um disco dinâmico que é anexado a uma VM deixará a VM em um estado de falha. Para atenuar esse problema, exclua a máquina virtual sem excluir o disco da VM, um blob VHD em uma conta de armazenamento. Em seguida, converter o VHD de um disco dinâmico em um disco fixo e recriar a máquina virtual.
-
-Para adicionar a imagem para a pilha do Azure Marketplace, conclua as seguintes etapas:
-
-1. Importe os módulos conectar e ComputeAdmin:
-
-   ```powershell
-   Set-ExecutionPolicy RemoteSigned
-
-   # Import the Connect and ComputeAdmin modules.
-   Import-Module .\Connect\AzureStack.Connect.psm1
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ```
-
-2. Faça logon no seu ambiente de pilha do Azure. Execute um dos seguintes scripts, dependendo de você ter implantado em seu ambiente de pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS). (Substitua o Azure AD `tenantName`, `GraphAudience` ponto de extremidade, e `ArmEndpoint` valores para refletir a configuração do ambiente.)
-
-    * **Azure Active Directory**. Use o seguinte cmdlet:
-
-      ```PowerShell
-      # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-      $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-      # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-      $GraphAudience = "<GraphAuidence endpoint for your environment>"
-
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
-
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience
-
-      $TenantID = Get-AzsDirectoryTenantId `
-        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-        -EnvironmentName AzureStackAdmin
-
-      Login-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID
-      ```
-
-   * **Serviços de Federação do Active Directory**. Use o seguinte cmdlet:
-
-        ```PowerShell
-        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-        $GraphAudience = "<GraphAuidence endpoint for your environment>"
-
-        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-        Add-AzureRMEnvironment `
-          -Name "AzureStackAdmin" `
-          -ArmEndpoint $ArmEndpoint
-
-        Set-AzureRmEnvironment `
-          -Name "AzureStackAdmin" `
-          -GraphAudience $GraphAudience `
-          -EnableAdfsAuthentication:$true
-
-        $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS `
-          -EnvironmentName AzureStackAdmin
-
-        Login-AzureRmAccount `
-          -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID
-        ```
-
-3. Adicionar a imagem VM invocando o `Add-AzsVMImage` cmdlet. No `Add-AzsVMImage` cmdlet, especifique `osType` como Windows ou Linux. Inclua o publicador, oferta, SKU e a versão da imagem de VM. Para obter informações sobre parâmetros permitidos, consulte [parâmetros](#parameters). Os parâmetros são usados pelos modelos do Gerenciador de recursos do Azure para fazer referência à imagem VM. O exemplo a seguir chama o script:
-
-  ```powershell
-  Add-AzsVMImage `
-    -publisher "Canonical" `
-    -offer "UbuntuServer" `
-    -sku "14.04.3-LTS" `
-    -version "1.0.0" `
-    -osType Linux `
-    -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
-  ```
-
-O comando faz o seguinte:
-
-* Autentica para o ambiente de pilha do Azure.
-* Carrega o VHD do local para uma conta de armazenamento temporário criado recentemente.
-* Adiciona a imagem VM para o repositório de imagens VM.
-* Cria um item do Marketplace.
-
-Para verificar se o comando foi executado com êxito, no portal, vá para o Marketplace. Verifique se a imagem da VM está disponível na **máquinas virtuais** categoria.
-
-![Imagem VM adicionada com êxito](./media/azure-stack-add-vm-image/image5.PNG)
-
-## <a name="remove-a-vm-image-by-using-powershell"></a>Remover uma imagem de VM usando o PowerShell
-
-Quando você não precisa mais a imagem de máquina virtual que você carregou, você pode excluí-lo do Marketplace usando o seguinte cmdlet:
-
-```powershell
-Remove-AzsVMImage `
-  -publisher "Canonical" `
-  -offer "UbuntuServer" `
-  -sku "14.04.3-LTS" `
-  -version "1.0.0" `
-```
-
-## <a name="parameters"></a>parâmetros
-
-| Parâmetro | DESCRIÇÃO |
-| --- | --- |
-| **publisher** |O segmento de nome do publicador da imagem da VM que os usuários a usar ao implantar a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros caracteres especiais neste campo. |
-| **offer** |O segmento de nome de oferta da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros caracteres especiais neste campo. |
-| **sku** |O segmento de nome do SKU da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros caracteres especiais neste campo. |
-| **version** |A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo. |
-| **osType** |OsType da imagem deve ser **Windows** ou **Linux**. |
-| **osDiskLocalPath** |O caminho local para o disco do sistema operacional VHD que você está carregando como uma imagem VM com a pilha do Azure. |
-| **dataDiskLocalPaths** |Uma matriz opcional dos caminhos de local para os discos de dados que podem ser carregados como parte da imagem da VM. |
-| **CreateGalleryItem** |Um sinalizador booleano que determina se é necessário criar um item no Marketplace. Por padrão, ele é definido como **true**. |
-| **title** |O nome de exibição do item do Marketplace. Por padrão, ele é definido como o `Publisher-Offer-Sku` valor da imagem da VM. |
-| **description** |A descrição do item do Marketplace. |
-| **local** |O local onde a imagem VM deve ser publicada. Por padrão, esse valor é definido como **local**.|
-| **osDiskBlobURI** |(Opcional) Esse script também aceita um URI de armazenamento de Blob para `osDisk`. |
-| **dataDiskBlobURIs** |(Opcional) Esse script também aceita uma matriz de armazenamento de Blob URIs para a adição de discos de dados para a imagem. |
+Na pilha do Azure, você pode disponibilizar imagens da máquina virtual para os usuários. Essas imagens podem ser referenciadas por modelos do Azure Resource Manager, ou você pode adicioná-los para a interface do usuário do Azure Marketplace como um item do Marketplace. Você pode usar qualquer forma uma imagem global do Azure Marketplace ou adicionar sua própria imagem personalizada. Você pode adicionar uma VM usando o portal ou o Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Adicionar uma imagem VM por meio do portal
 
 > [!NOTE]
 > Com esse método, você deve criar o item do Marketplace separadamente.
 
-Imagens devem ser capazes de ser referenciado por um URI de armazenamento de Blob. Preparar uma imagem do sistema operacional Windows ou Linux no formato VHD não VHDX () e, em seguida, carregá-la para uma conta de armazenamento no Azure ou a pilha do Azure. Se a imagem já está carregada para o armazenamento de Blob no Azure ou a pilha do Azure, você pode ignorar a etapa 1.
+Imagens devem ser capazes de ser referenciado por um URI de armazenamento de blob. Preparar uma imagem do sistema operacional Windows ou Linux no formato VHD não VHDX () e, em seguida, carregá-la para uma conta de armazenamento no Azure ou a pilha do Azure. Se a imagem já está carregada para o armazenamento de blob no Azure ou a pilha do Azure, você pode ignorar a etapa 1.
 
 1. [Carregar uma imagem de VM do Windows Azure para implantações do Gerenciador de recursos](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) ou, para uma imagem do Linux, siga as instruções descritas em [máquinas virtuais Linux implantar no Azure pilha](azure-stack-linux.md). Antes de carregar a imagem, é importante considerar os seguintes fatores:
 
-   * Pilha do Azure suporta o formato VHD de disco fixo. O formato fixo estruturas do disco lógico linearmente dentro do arquivo, para que esse deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixo, use o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
+   - Pilha do Azure suporta o formato VHD de disco fixo. O formato fixo estruturas do disco lógico linearmente dentro do arquivo, para que esse deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixo, use o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
 
     > [!IMPORTANT]
-   >  A pilha do Azure não oferece suporte a VHDs de disco dinâmico. Redimensionar um disco dinâmico que é anexado a uma VM deixará a VM em um estado de falha. Para atenuar esse problema, exclua a máquina virtual sem excluir o disco da VM, um blob VHD em uma conta de armazenamento. A, converta o VHD de um disco dinâmico em um disco fixo e recriar a máquina virtual.
+    >  A pilha do Azure não oferece suporte a VHDs de disco dinâmico. Redimensionar um disco dinâmico que é anexado a uma VM deixará a VM em um estado de falha. Para atenuar esse problema, exclua a máquina virtual sem excluir o disco da VM, um blob VHD em uma conta de armazenamento. A, converta o VHD de um disco dinâmico em um disco fixo e recriar a máquina virtual.
 
-   * É mais eficiente para carregar uma imagem para o armazenamento de BLOBs do Azure pilha que para o armazenamento de BLOBs do Azure, pois leva menos tempo para enviar por push a imagem para o repositório de imagens de pilha do Azure.
+   * É mais eficiente para carregar uma imagem para o armazenamento de BLOBs do Azure pilha que o Azure armazenamento de blob porque leva menos tempo para enviar por push a imagem para o repositório de imagens de pilha do Azure.
 
    * Quando você carrega o [imagem de VM do Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), certifique-se de substituir o **logon para o Azure** etapa com o [configurar o ambiente do PowerShell do operador Azure pilha](azure-stack-powershell-configure-admin.md) etapa.  
 
-   * Anote o armazenamento de Blob onde você carrega a imagem do URI. O URI de armazenamento de Blob tem o seguinte formato:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* . vhd.
+   * Anote o armazenamento de blob onde você carrega a imagem do URI. O URI de armazenamento de blob tem o seguinte formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*. vhd.
 
    * Para disponibilizar o blob anonimamente, vá para o contêiner de blob da conta de armazenamento onde a imagem VM VHD foi carregada. Selecione **Blob**e, em seguida, selecione **política de acesso**. Opcionalmente, você pode em vez disso, gerar uma assinatura de acesso compartilhado para o contêiner e incluí-lo como parte do URI do blob.
 
@@ -202,6 +63,151 @@ Imagens devem ser capazes de ser referenciado por um URI de armazenamento de Blo
    Quando a imagem é criada com êxito, o status de imagem VM seja **êxito**.
 
 4. Para tornar a imagem de máquina virtual mais prontamente disponível para consumo do usuário na interface de usuário, é uma boa ideia [criar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md).
+
+## <a name="remove-a-vm-image-through-the-portal"></a>Remover uma imagem de VM por meio do portal
+
+1. Abra o portal de administração em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+
+2. Selecione **gerenciamento Marketplace**e, em seguida, selecione a VM que você deseja excluir.
+
+3. Clique em **Excluir**.
+
+## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Adicionar uma imagem de VM para o Marketplace usando o PowerShell
+
+1. [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).  
+
+2. Entre pilha do Azure como um operador. Para obter instruções, consulte [entrar pilha do Azure como um operador](azure-stack-powershell-configure-admin.md).
+
+3. Abra o PowerShell com um prompt com privilégios elevados e execute:
+
+  ````PowerShell  
+    Add-AzsPlatformimage -publisher "<publisher>" `
+      -offer "<offer>" `
+      -sku "<sku>" `
+      -version "<#.#.#>” `
+      -OSType "<ostype>" `
+      -OSUri "<osuri>"
+  ````
+
+  O **AzsPlatformimage adicionar** cmdlet especifica valores usados pelos modelos de Gerenciador de recursos do Azure para fazer referência à imagem VM. Os valores incluem:
+  - **publisher**  
+    Por exemplo: `Canonical`  
+    O segmento de nome do publicador da imagem da VM que os usuários a usar ao implantar a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **offer**  
+    Por exemplo: `UbuntuServer`  
+    O segmento de nome de oferta da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **sku**  
+    Por exemplo: `14.04.3-LTS`  
+    O segmento de nome do SKU da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **version**  
+    Por exemplo: `1.0.0`  
+    A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **osType**  
+    Por exemplo: `Linux`  
+    OsType da imagem deve ser **Windows** ou **Linux**.  
+  - **OSUri**  
+    Por exemplo: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+    Você pode especificar um URI de armazenamento de blob para um `osDisk`.  
+
+    Para obter mais informações, consulte a referência do PowerShell para o [adicionar AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet e o [DataDiskObject novo](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
+
+## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Adicionar uma imagem VM personalizada para o Marketplace usando o PowerShell
+
+1. [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).
+
+  ```PowerShell  
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
+
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
+
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
+
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
+
+2. Se usar **os serviços de Federação do Active Directory**, use o seguinte cmdlet:
+
+  ```PowerShell
+  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
+    ```
+
+3. Entre pilha do Azure como um operador. Para obter instruções, consulte [entrar pilha do Azure como um operador](azure-stack-powershell-configure-admin.md).
+
+4. Crie uma conta de armazenamento no Azure ou Azure pilha global para armazenar a imagem VM personalizada. Para obter instruções, consulte [início rápido: listar blobs usando o portal do Azure, carregamento e download](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+5. Preparar uma imagem do sistema operacional Windows ou Linux no formato VHD (não VHDX), carregar a imagem à sua conta de armazenamento e obter o URI de onde a imagem VM pode ser recuperada pelo PowerShell.  
+
+  ````PowerShell  
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ````
+
+6. (Opcionalmente) Você pode carregar uma matriz de discos de dados como parte da imagem da VM. Crie os discos de dados usando o cmdlet New-DataDiskObject. Abra o PowerShell em um prompt com privilégios elevados e execute:
+
+  ````PowerShell  
+    New-DataDiskObject -Lun 2 `
+    -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
+  ````
+
+7. Abra o PowerShell com um prompt com privilégios elevados e execute:
+
+  ````PowerShell  
+    Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
+  ````
+
+    Para obter mais informações sobre o cmdlet Add-AzsPlatformimage e o cmdlet New-DataDiskObject, consulte o Microsoft PowerShell [documentação do módulo Azure pilha operador](https://docs.microsoft.com/powershell/module/).
+
+## <a name="remove-a-vm-image-by-using-powershell"></a>Remover uma imagem de VM usando o PowerShell
+
+Quando você não precisa mais a imagem de máquina virtual que você carregou, você pode excluí-lo do Marketplace usando o seguinte cmdlet:
+
+1. [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).
+
+2. Entre pilha do Azure como um operador.
+
+3. Abra o PowerShell com um prompt com privilégios elevados e execute:
+
+  ````PowerShell  
+  Remove-AzsPlatformImage `
+    -publisher "<publisher>" `
+    -offer "<offer>" `
+    -sku "<sku>" `
+    -version "<version>" `
+  ````
+  O **AzsPlatformImage remover** cmdlet especifica valores usados pelos modelos de Gerenciador de recursos do Azure para fazer referência à imagem VM. Os valores incluem:
+  - **publisher**  
+    Por exemplo: `Canonical`  
+    O segmento de nome do publicador da imagem da VM que os usuários a usar ao implantar a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **offer**  
+    Por exemplo: `UbuntuServer`  
+    O segmento de nome de oferta da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **sku**  
+    Por exemplo: `14.04.3-LTS`  
+    O segmento de nome do SKU da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+  - **version**  
+    Por exemplo: `1.0.0`  
+    A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo.  
+    
+    Para obter mais informações sobre theRemove AzsPlatformImage cmdlet, consulte o Microsoft PowerShell [documentação do módulo Azure pilha operador](https://docs.microsoft.com/powershell/module/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

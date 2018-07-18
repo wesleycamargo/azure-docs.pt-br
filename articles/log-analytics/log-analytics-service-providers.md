@@ -1,11 +1,11 @@
 ---
-title: "Recursos do Log Analytics para provedores de serviços | Microsoft Docs"
-description: "O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem."
+title: Recursos do Log Analytics para provedores de serviços | Microsoft Docs
+description: O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Recursos do Log Analytics para provedores de serviços
 O Log Analytics pode ajudar provedores de serviços gerenciados (MSPs), grandes empresas, fornecedores de software independentes (ISVs) e provedores de serviço de hospedagem a gerenciar e monitorar servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -40,7 +40,7 @@ Como um *Provedor de Soluções de Nuvem*, você pode:
 Para fazer logon em uma assinatura de locatário, você precisa especificar o identificador do locatário. O identificador do locatário costuma ser a última parte do endereço de e-mail usado para entrar.
 
 * No portal do OMS, adicione `?tenant=contoso.com` na URL para o portal. Por exemplo, `mms.microsoft.com/?tenant=contoso.com`
-* No PowerShell, use o parâmetro `-Tenant contoso.com` ao usar o cmdlet `Add-AzureRmAccount`
+* No PowerShell, use o parâmetro `-Tenant contoso.com` ao usar o cmdlet `Connect-AzureRmAccount`
 * O identificador do locatário é adicionado automaticamente quando você usa o link `OMS portal` no portal do Azure para abrir e fazer logon no portal do OMS no espaço de trabalho selecionado
 
 Como um *cliente* de um Provedor de soluções de nuvem, você pode:

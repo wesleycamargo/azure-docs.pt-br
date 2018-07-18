@@ -1,23 +1,23 @@
 ---
-title: "Esquema de NetworkConfiguration dos Serviços de Nuvem do Azure | Microsoft Docs"
-ms.custom: 
+title: Esquema de NetworkConfiguration dos Serviços de Nuvem do Azure | Microsoft Docs
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
-caps.latest.revision: "28"
+caps.latest.revision: 28
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 2438876e210363e9918e700397d4181990a3983f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebe81b2e4dea347eb22b173ff1e9baf1ee6bb75d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema de NetworkConfiguration de configuração dos Serviços de Nuvem do Azure
 
@@ -65,7 +65,7 @@ O exemplo a seguir mostra o elemento `NetworkConfiguration` e seus elementos fil
 
 A tabela a seguir descreve os elementos filho do elemento `NetworkConfiguration`.
 
-| Elemento       | Descrição |
+| Elemento       | DESCRIÇÃO |
 | ------------- | ----------- |
 | AccessControl | Opcional. Especifica as regras de acesso para os pontos de extremidade em um serviço de nuvem. O nome do controle de acesso é definido por uma cadeia de caracteres para o atributo `name`. O elemento `AccessControl` contém um ou mais elementos `Rule`. Mais de um elemento `AccessControl` pode ser definido.|
 | Regra | Opcional. Especifica a ação que deve ser executada para um intervalo de sub-rede especificado de endereços IP. A ordem da regra é definida por um valor de cadeia de caracteres para o atributo `order`. Quanto menor o número da regra, maior a prioridade. Por exemplo, as regras podem ser especificadas com números de ordem de 100, 200 e 300. A regra com o número de ordem de 100 tem precedência sobre a regra que tem uma ordem de 200.<br /><br /> A ação da regra é definida por uma cadeia de caracteres para o atributo `action`. Os valores possíveis são:<br /><br /> -   `permit` – Especifica que apenas os pacotes do intervalo de sub-rede especificado podem se comunicar com o ponto de extremidade.<br />-   `deny` – Especifica que o acesso é negado aos pontos de extremidade no intervalo de sub-rede especificado.<br /><br /> O intervalo de sub-rede de endereços IP afetados pela regra são definidos por uma cadeia de caracteres para o atributo `remoteSubnet`. A descrição da regra é definida por uma cadeia de caracteres para o atributo `description`.|
@@ -76,5 +76,5 @@ A tabela a seguir descreve os elementos filho do elemento `NetworkConfiguration`
 | Sub-rede | Opcional. Especifica a sub-rede correspondente ao nome da sub-rede no arquivo de configuração de rede. O nome da sub-rede é definido por uma cadeia de caracteres para o atributo `name`.|
 | ReservedIP | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. É necessário usar Criar endereço IP reservado para criar o endereço IP reservado. Cada implantação em um serviço de nuvem pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é definido por uma cadeia de caracteres para o atributo `name`.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)

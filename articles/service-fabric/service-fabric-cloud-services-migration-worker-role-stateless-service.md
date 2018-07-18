@@ -1,24 +1,24 @@
 ---
-title: "Converta os aplicativos de Serviços de Nuvem do Azure aos microsserviços | Microsoft Docs"
-description: "Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric."
+title: Converta os aplicativos de Serviços de Nuvem do Azure aos microsserviços | Microsoft Docs
+description: Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
 Este artigo descreve como migrar suas funções de trabalho e Web dos Serviços de Nuvem para serviços sem estado do Service Fabric. Esse é o caminho mais simples de migração dos Serviços de Nuvem para o Service Fabric, no caso de aplicativos cuja arquitetura geral permanecerá basicamente igual.
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Tarefas de inicialização
 As tarefas de inicialização são ações executadas antes de um aplicativo ser iniciado. Uma tarefa de inicialização normalmente é usada para executar scripts de instalação usando privilégios elevados. Os Serviços de Nuvem e o Service Fabric dão suporte a tarefas de inicialização. A principal diferença é que nos Serviços de Nuvem, uma tarefa de inicialização está vinculada a uma VM porque faz parte de uma instância de função, enquanto que no Service Fabric uma tarefa de inicialização está associada a um serviço, que não está vinculado a nenhuma máquina virtual específica.
 
-| Serviços de Nuvem | Service Fabric |
+| Service Fabric | Serviços de Nuvem |
 | --- | --- | --- |
 | Configuração local |ServiceDefinition.csdef |
 | Privilégios |"limitados" ou "elevados" |

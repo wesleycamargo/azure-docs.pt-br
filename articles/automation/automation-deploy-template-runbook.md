@@ -3,19 +3,18 @@ title: Implantar um modelo do Azure Resource Manager em um runbook de Automaçã
 description: Como implantar um modelo do Azure Resource Manager armazenado no Armazenamento do Azure de um runbook
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: 94288792daa7edbc3bcce1ccb944bcf318ee747f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 489676736e0a3dcff463fae954f0250d90ba3d0f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
@@ -96,7 +95,7 @@ Inicie o PowerShell no computador local e execute os seguintes comandos para cri
 
 ```powershell
 # Login to Azure
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
@@ -142,7 +141,7 @@ param (
 
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `

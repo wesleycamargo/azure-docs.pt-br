@@ -1,11 +1,11 @@
 ---
-title: "Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs"
-description: "O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure."
+title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
+description: O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerenciar o Log Analytics usando o PowerShell
 Você pode usar os [cmdlets do PowerShell do Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para executar várias funções no Log Analytics de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
@@ -42,7 +42,7 @@ Este artigo fornece dois exemplos de código que ilustram algumas das funções 
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Esses exemplos funcionam com a versão 2.3.0 ou posterior do módulo AzureRm.OperationalInsights.
 
 
@@ -145,7 +145,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -191,24 +191,24 @@ Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recu
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
-| Gateways do Aplicativo    | Sim | Sim |
-| Contas de automação     | Sim | |
-| Contas do Lote          | Sim | Sim |
-| Data Lake Analytics     | Sim | | 
-| Data Lake Store         | Sim | |
-| Pool SQL Elástico        |     | Sim |
-| Namespace do Hub de Eventos     |     | Sim |
-| Hubs IoT                |     | Sim |
-| Cofre da Chave               | Sim | |
-| Balanceadores de Carga          | Sim | |
-| Aplicativos Lógicos              | Sim | Sim |
-| Grupos de segurança de rede | Sim | |
-| Cache Redis             |     | Sim |
-| Serviços de pesquisa         | Sim | Sim |
-| Namespace do Barramento de Serviço   |     | Sim |
-| SQL (v12)               |     | Sim |
-| Sites               |     | Sim |
-| Farms do servidor Web        |     | Sim |
+| Gateways do Aplicativo    | sim | sim |
+| Contas de automação     | sim | |
+| Contas do Lote          | sim | sim |
+| Data Lake Analytics     | sim | | 
+| Data Lake Store         | sim | |
+| Pool SQL Elástico        |     | sim |
+| Namespace do Hub de Eventos     |     | sim |
+| Hubs IoT                |     | sim |
+| Cofre da Chave               | sim | |
+| Balanceadores de Carga          | sim | |
+| Aplicativos Lógicos              | sim | sim |
+| Grupos de segurança de rede | sim | |
+| Cache Redis             |     | sim |
+| Serviços Search         | sim | sim |
+| Namespace do Barramento de Serviço   |     | sim |
+| SQL (v12)               |     | sim |
+| Sites               |     | sim |
+| Farms do servidor Web        |     | sim |
 
 Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 

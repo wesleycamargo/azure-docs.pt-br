@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157135"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -95,7 +96,7 @@ Iniciar seu aplicativo e, em seguida, clicar em links manualmente podem ser usad
 
 1. Executar seu aplicativo clicando em IIS Express ![Captura de tela do ícone IIS Express do Visual Studio](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Copie a URL da barra de endereços do navegador. Ele está no formato http://localhost:{número da porta aleatória}
+2. Copie a URL da barra de endereços do navegador. Está no formato http://localhost:{random número da porta}
 
    ![Captura de tela da barra de endereço da URL do navegador](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +160,7 @@ Vários prompts de confirmação ocorrerão, leia e aceite se concordar com as a
    ```
      ![Captura de tela de alteração de código _ViewImports.cshtml](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. Em **Layout.cshtml** adicione a linha abaixo antes da marca ``</head>``, mas antes de quaisquer outros scripts.
+3. Em **_Layout.cshtml** adicione a linha abaixo antes da marca ``</head>``, mas antes de quaisquer outros scripts.
 
     ```C#
     @Html.Raw(snippet.FullScript)
@@ -187,13 +188,13 @@ Agora que você concluiu as etapas anteriores, você pode testar e confirmar se 
 
    ![Captura de tela de Live Metrics Stream](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Se seu script do PowerShell está em execução ainda, você deverá ver as métricas em tempo real, se interrompeu, execute o script novamente com o Live Stream aberto.)
+   (Se seu script do PowerShell está em execução ainda, você deverá ver as métricas em tempo real, se tiver sido interrompido, execute o script novamente com o Live Stream aberto.)
 
 ## <a name="app-insights-sdk-comparison"></a>Comparação SDK do App Insights
 
 O grupo do produto do Application Insights vem trabalhando duro para alcançar a paridade de recursos mais próxima possível entre o [SDK do .NET Framework completo](https://github.com/Microsoft/ApplicationInsights-dotnet) e o SDK do .Net Core. A versão 2.2.0 do [SDK do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore) para o Application Insights cobriu amplamente a lacuna de recursos.
 
-Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Comparação SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +204,7 @@ Para saber mais sobre as diferenças e as compensações entre [.NET e .NET Core
    | **Chamadas de Dependência SQL**     | **+** |**-** | **+**|
    | **Contadores de Desempenho*** | **+** | **-**| **-**|
 
-_Contadores de Desempenho_ neste contexto refere-se a [contadores de desempenho do servidor](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) como processador, memória e utilização de disco.
+_Contadores de Desempenho_ neste contexto refere-se a [contadores de desempenho do servidor](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) como processador, memória e utilização de disco.
 
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

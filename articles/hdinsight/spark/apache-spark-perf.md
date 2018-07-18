@@ -1,25 +1,23 @@
 ---
-title: "Otimizar os trabalhos do Spark para desempenho – Microsoft Azure HDInsight | Microsoft Docs"
-description: "Mostra estratégias comuns para o melhor desempenho de clusters Spark."
+title: Otimizar os trabalhos do Spark para desempenho – Microsoft Azure HDInsight | Microsoft Docs
+description: Mostra estratégias comuns para o melhor desempenho de clusters Spark.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="optimize-spark-jobs"></a>Otimizar trabalhos do Spark
 

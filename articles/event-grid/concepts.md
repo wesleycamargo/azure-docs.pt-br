@@ -1,56 +1,62 @@
 ---
 title: Conceitos da Grade de Eventos do Azure
-description: "Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos."
+description: Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 04/24/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd82d163ba8407a3dfa088cd322f3e236be5d7ea
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
-Os principais conceitos da Grade de Eventos do Azure são:
+Este artigo descreve os principais conceitos da Grade de Eventos do Azure.
 
 ## <a name="events"></a>Eventos
 
-Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema.  Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo.  Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure contém detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou, um evento sobre a reinicialização de uma máquina virtual contém o nome da máquina virtual e o motivo da reinicialização. Cada evento é limitado a 64 KB de dados.
+Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema. Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo. Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure tem detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou, um evento de Hubs de Eventos tem a URL do arquivo de Captura. Cada evento é limitado a 64 KB de dados.
 
 ## <a name="event-sourcespublishers"></a>Origens/fornecedores do evento
 
 A origem de um evento é onde o evento acontece. Por exemplo, o Armazenamento do Microsoft Azure é a origem dos eventos criados pelo blob. A Malha de VMs do Azure é a origem dos eventos de máquina virtual. As origens dos eventos são responsáveis por publicar eventos na Grade de Eventos.
 
+Para obter informações sobre como implementar qualquer uma das origens de Grade de Eventos compatíveis, consulte [Origens de evento na Grade de Eventos do Azure](event-sources.md).
+
 ## <a name="topics"></a>Tópicos
 
-Os fornecedores categorizam eventos em tópicos. O tópico inclui um ponto de extremidade em que o fornecedor envia eventos. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar. Os tópicos também fornecem um esquema de evento para que os assinantes saibam como consumir os eventos adequadamente.
+Os fornecedores categorizam eventos em tópicos. O tópico da grade de eventos inclui um ponto de extremidade em que o fornecedor envia eventos. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar. Os tópicos também fornecem um esquema de evento para que os assinantes saibam como consumir os eventos adequadamente.
 
 Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Os tópicos personalizados são tópicos de aplicativo e de terceiros.
 
+Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções maiores, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
+
 ## <a name="event-subscriptions"></a>Assinaturas de evento
 
-Uma assinatura orienta a Grade de Eventos sobre quais eventos em um tópico um assinante está interessado em receber.  Uma assinatura também contém informações sobre como os eventos devem ser fornecidos ao assinante.
+Uma assinatura orienta a Grade de Eventos sobre quais eventos em um tópico um assinante está interessado em receber. Uma assinatura também contém informações sobre como os eventos devem ser fornecidos ao assinante.
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento.  A Grade de Eventos dá suporte a vários tipos de assinante. Dependendo do tipo de assinante, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento.  Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Na Fila de Armazenamento do Microsoft Azure, os eventos são repetidos até que o serviço Fila possa processar com êxito o push de mensagens na fila.
+Sob a perspectiva de uma Grade de Eventos, um manipulador de eventos é o local em que o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. A Grade de Eventos dá suporte a vários tipos de assinante. Dependendo do tipo de assinante, a Grade de Eventos segue diferentes mecanismos para garantir a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorne um código de status de `200 – OK`. Na Fila de Armazenamento do Microsoft Azure, os eventos são repetidos até que o serviço Fila possa processar com êxito o push de mensagens na fila.
+
+Para obter informações sobre como implementar qualquer um dos manipuladores de Grade de Eventos compatíveis, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
 ## <a name="filters"></a>Filtros
 
-Ao assinar um tópico, você pode filtrar os eventos que são enviados ao ponto de extremidade. É possível filtrar por tipo de evento ou padrão de assunto. Para saber mais, confira [Esquema de assinatura da Grade de Eventos](subscription-creation-schema.md).
+Ao assinar um tópico da grade de eventos, você pode filtrar os eventos que são enviados ao ponto de extremidade. É possível filtrar por tipo de evento ou padrão de assunto. Para saber mais, confira [Esquema de assinatura da Grade de Eventos](subscription-creation-schema.md).
 
 ## <a name="security"></a>Segurança
 
-A Grade de Eventos proporciona segurança na assinatura em tópicos e na publicação de tópicos. Ao fazer a assinatura, você deve ter permissões adequadas para o recurso ou tópico. Ao publicar, você deve ter um token SAS ou autenticação de chave para o tópico. Para saber mais, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).
+A Grade de Eventos proporciona segurança na assinatura em tópicos e na publicação de tópicos. Ao fazer a assinatura, você deve ter permissões adequadas para o recurso ou tópico da grade de eventos. Ao publicar, você deve ter um token SAS ou autenticação de chave para o tópico. Para saber mais, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).
 
 ## <a name="failed-delivery"></a>Falha na entrega
 
-Quando a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do assinante, ela repetirá a entrega do evento. Para saber mais, confira [Event Grid message delivery and retry](delivery-and-retry.md) (Entrega e repetição de mensagens da Grade de Eventos).
+Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do assinante, ela repetirá a entrega do evento. Para saber mais, confira [Event Grid message delivery and retry](delivery-and-retry.md) (Entrega e repetição de mensagens da Grade de Eventos).
 
 ## <a name="next-steps"></a>Próximas etapas
 

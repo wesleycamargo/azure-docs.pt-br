@@ -8,25 +8,25 @@ ms.service: sql-database
 ms.custom: devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a76b9058f0bf7afdc332cee4ff7a49fa0e6987a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d785436f157fb694ccf4447db91f28b25c9f2a3a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usar o .NET (C#) com o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
 
-Este tutorial de início rápido demonstra como usar o [.NET Framework](https://www.microsoft.com/net/) para criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este início rápido demonstra como usar o [.NET Framework](https://www.microsoft.com/net/) a fim de criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial de início rápido, certifique-se de que você tenha o seguinte:
+Para concluir este início rápido, tenha o seguinte:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
 
 - Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 

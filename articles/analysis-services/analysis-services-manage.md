@@ -1,25 +1,18 @@
 ---
 title: Gerenciar o Azure Analysis Services | Microsoft Docs
 description: Saiba como gerenciar um servidor do Analysis Services no Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
 Depois de criar um servidor do Analysis Services no Azure, talvez seja necessário executar algumas tarefas de administração e gerenciamento imediatamente ou em algum momento no futuro. Por exemplo, executar o processamento nos dados atualizados, controlar quem pode acessar os modelos em seu servidor ou monitorar a integridade do servidor. Algumas tarefas de gerenciamento só podem ser executadas no Portal do Azure, outras no SQL Server Management Studio (SSMS) e algumas tarefas podem ser executadas em ambos.
@@ -47,13 +40,18 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
-3. Na caixa de diálogo **Conectar ao Servidor**, cole o nome do servidor e, em **Autenticação**, escolha um dos seguintes tipos de autenticação:
-   
+3. Na caixa de diálogo **Conectar ao Servidor**, cole o nome do servidor e, em **Autenticação**, escolha um dos seguintes tipos de autenticação:   
+    > [!NOTE]
+    > O tipo de autenticação, **Active Directory - Universal com suporte MFA**, é recomendado.
+
+    > [!NOTE]
+    > Se você entrar com uma conta da Microsoft, Live ID, Yanoo, Gmail e etc., deixe o campo de senha em branco. Depois de clicar em Conectar, uma senha será solicitada.
+
     **Autenticação do Windows** para usar suas credenciais de domínio/nome de usuário e senha do Windows.
 
     **Autenticação de Senha do Active Directory** para usar uma conta organizacional. Por exemplo, ao conectar-se de um computador que não ingressou em um domínio.
 
-    **Autenticação Universal do Active Directory** para usar [autenticação multifator ou não interativa](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal com suporte MFA** para usar [autenticação multifator ou não interativa](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Conectar-se no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

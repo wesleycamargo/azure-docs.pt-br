@@ -1,32 +1,32 @@
 ---
-title: "OpenShift em tarefas de pós-implantação do Azure | Microsoft Docs"
+title: OpenShift em tarefas de pós-implantação do Azure | Microsoft Docs
 description: Tarefas adicionais para depois que um cluster OpenShift for implantado.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
 
 Depois de implantar um cluster OpenShift, você pode configurar itens adicionais. Este artigo aborda as seguintes tarefas:
 
 - Como configurar o logon único entre o Active Directory do Azure (Azure AD)
-- Como configurar o Operations Management Suite para monitorar OpenShift
+- Como configurar o Log Analytics para monitorar o OpenShift
 - Como configurar métricas e logs
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Configurar o Logon Único usando o Azure Active Directory
@@ -38,9 +38,9 @@ Para usar o Azure Active Directory para autenticação, primeiro você precisa c
 Essas etapas usam a CLI do Azure para criar o Registro do aplicativo e a GUI (Portal) para definir as permissões. Para criar o Registro do aplicativo, são necessárias cinco informações:
 
 - Nome de exibição: nome de registro do aplicativo (ex: OCPAzureAD)
-- Home Page: URL do console do OpenShift (ex: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Identificador URI: URL do console do OpenShift (ex: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URL de resposta: URL mestra pública e o nome de registro do aplicativo (ex: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Página inicial: URL do console do OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URI do identificador: URL do console do OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- URL de resposta: URL pública mestra e o nome de registro do aplicativo (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Senha: senha de segurança (use uma senha forte)
 
 O exemplo a seguir criará um Registro de aplicativo usando as informações acima:
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 No Console do OpenShift, agora você verá duas opções para autenticação – htpasswd_auth e [Registro de Aplicativo].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Monitorar OpenShift com o Operations Management Suite
+## <a name="monitor-openshift-with-log-analytics"></a>Monitorar o OpenShift com o Log Analytics
 
-Para monitorar o OpenShift com o OMS, você pode usar uma de duas opções: instalação do Agente do OMS no host da VM ou o OMS Container. Este artigo fornece instruções sobre como implantar o OMS Container.
+Para monitorar o OpenShift com o Log Analytics, você pode usar uma de duas opções: instalação do Agente do OMS no host da VM ou o OMS Container. Este artigo fornece instruções sobre como implantar o OMS Container.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Criar um projeto do OpenShift para o OMS e definir o acesso do usuário
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Criar um projeto do OpenShift para o Log Analytics e definir o acesso do usuário
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Criar um arquivo yaml de segredo
 
-Para criar o arquivo yaml de segredo, você precisará de duas informações: a ID do OMS Workspace e a chave compartilhada do OMS Workspace. 
+Para criar o arquivo yaml de segredo, você precisará de duas informações: a ID do Log Analytics Workspace e a chave compartilhada do Log Analytics Workspace. 
 
 Exemplo de arquivo ocp-secret.yml: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-Substituir wsid_data com ID de espaço de trabalho do OMS de Base64 codificada. Substituirkey_data com ID de espaço de trabalho do OMS de Base64 codificada.
+Substituir wsid_data com ID de espaço de trabalho do Log Analytics de Base64 codificada. Substituirkey_data com ID de espaço de trabalho do Log Analytics de Base64 codificada.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -326,11 +326,11 @@ Se o modelo do Gerenciador de Recursos do OCP foi usado, mas as métricas e logs
 No primeiro nó mestre (Origin) ou nó de bastião (OCP), execute o SSH usando as credenciais fornecidas durante a implantação. Emita o seguinte comando:
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
@@ -340,10 +340,10 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 No primeiro nó mestre (Origin) ou nó de bastião (OCP), execute o SSH usando as credenciais fornecidas durante a implantação. Emita o seguinte comando:
 
 ```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True 
 
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True 
 ```
 

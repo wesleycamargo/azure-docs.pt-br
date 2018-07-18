@@ -1,6 +1,6 @@
 ---
-title: "Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs"
-description: "Exceções de firewall de servidor exigidas pelo Application Insights"
+title: Endereços IP usados pelo Application Insights e pelo Log Analytics | Microsoft Docs
+description: Exceções de firewall de servidor exigidas pelo Application Insights
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4ed0c84dfab58f8a92e0f366bb65634b9e3dab82
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935622"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -48,12 +49,7 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 | Configuração |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuração |`auth.gfx.ms` | |`443` |
 | Configuração |`login.live.com` | |`443` |
-| Instalação |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Finalidade | URL | IP | Portas |
-| --- | --- | --- | --- |
-| Dados de falha |gate.hockeyapp.net |104.45.136.42 |80, 443 |
+| Instalação |`packages.nuget.org`, `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (Downloads NuGet) | |`443` |
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
@@ -236,14 +232,17 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 | Finalidade | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portal | gateway.azureserviceprofiler.net | dinâmico | 443
 | Armazenamento | *.core.windows.net | dinâmico | 443
 
 ## <a name="snapshot-debugger"></a>Depurador de instantâneo
 
+> [!NOTE]
+> O Application Insights Profiler e o Depurador de Instantâneos compartilham o mesmo conjunto de endereços IP.
+
 | Finalidade | URI | IP | Portas |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dinâmico | 443
 | Armazenamento | *.core.windows.net | dinâmico | 443

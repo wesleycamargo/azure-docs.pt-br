@@ -1,8 +1,8 @@
 ---
 title: Aplicativo Microsoft Authenticator para telefones celulares | Microsoft Docs
-description: "Saiba como atualizar para a versão mais recente do Azure Authenticator."
+description: Saiba como atualizar para a versão mais recente do Azure Authenticator.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba

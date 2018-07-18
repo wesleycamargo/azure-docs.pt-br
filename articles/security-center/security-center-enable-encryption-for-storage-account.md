@@ -1,12 +1,12 @@
 ---
-title: "Habilitar criptografia para conta de armazenamento na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Habilitar criptografia para Conta de Armazenamento do Azure**."
+title: Habilitar criptografia para conta de armazenamento na Central de Segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Habilitar criptografia para Conta de Armazenamento do Azure**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitar criptografia para conta de armazenamento do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure pode aconselhar você a habilitar a Criptografia do Serviço de Armazenamento do Azure para dados em repouso.
@@ -27,7 +27,7 @@ A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dad
 
 
 > [!Note]
-> Depois de habilitar a criptografia, somente dados novos serão criptografados. Todos os blobs existentes em sua conta de armazenamento permanecem descriptografados. Para criptografar os blobs existentes, confira as [perguntas frequentes sobre a Criptografia do Serviço de Armazenamento](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Depois de habilitar a criptografia, somente dados novos serão criptografados. Todos os blobs existentes em sua conta de armazenamento permanecem descriptografados. Para criptografar os blobs existentes, confira as [perguntas frequentes sobre a Criptografia do Serviço de Armazenamento](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 

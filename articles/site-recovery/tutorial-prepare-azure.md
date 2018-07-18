@@ -1,18 +1,19 @@
 ---
 title: Criar recursos para usar com o Azure Site Recovery | Microsoft Docs
-description: "Saiba como preparar o Azure para a replicação de máquinas locais usando o Azure Site Recovery."
+description: Saiba como preparar o Azure para a replicação de máquinas locais usando o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212782"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos do Azure para replicação de máquinas locais
 
@@ -21,8 +22,9 @@ ms.lasthandoff: 02/23/2018
 Este tutorial mostra como preparar componentes do Azure quando você deseja replicar VMs locais (Hyper-V ou VMware) ou servidores físicos Windows/Linux para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Verifique se sua conta tem permissões de replicação.
-> * Crie uma conta de armazenamento do Azure.
+> * Verifique se sua conta do Azure tem permissões de replicação.
+> * Crie uma conta de armazenamento do Azure. Os dados replicados são armazenados nela.
+> * Crie um cofre dos Serviços de Recuperação.
 > * Configure uma rede do Azure. Quando as VMs do Azure são criadas após o failover, elas são ingressadas nessa rede do Azure.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
@@ -39,14 +41,14 @@ Se acabou de criar sua conta gratuita do Azure, você é o administrador da assi
 - Criar uma VM na rede virtual selecionada.
 - Gravar na conta de armazenamento selecionada.
 
-A função interna Colaborador da Máquina Virtual tem essas permissões. Você também precisa de permissão para gerenciar as operações do Azure Site Recovery. A função Colaborador do Site Recovery tem todas as permissões necessárias para gerenciar as operações do Site Recovery em um cofre de Serviços de Recuperação.
+Para concluir essas tarefas, sua conta deve receber a função interna de Colaborador de Máquina Virtual. Além disso, para gerenciar as operações do Site Recovery em um cofre, sua conta deve receber a função interna de Colaborador do Site Recovery.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As VMs do Azure são criadas do armazenamento quando há failover do local para o Azure.
 
 1. No menu [Portal do Azure](https://portal.azure.com), selecione **Novo** > **Armazenamento** > **Conta de armazenamento**.
-2. Em **Criar conta de armazenamento**, insira um nome para a conta. Para esses tutoriais, use o nome **contosovmsacct1910171607**. O nome deve ser exclusivo dentro do Azure e ter entre 3 e 24 caracteres, contendo apenas números e letras minúsculas.
+2. Em **Criar conta de armazenamento**, insira um nome para a conta. Para esses tutoriais, estamos usando **contosovmsacct1910171607**. O nome que você selecionar deve ser exclusivo dentro do Azure e ter entre 3 e 24 caracteres, contendo apenas números e letras minúsculas.
 3. Em **Modelo de implantação**, selecione **Gerenciador de Recursos**.
 4. Em **Tipo de conta**, selecione **Uso geral**. Em **Desempenho**, selecione **Padrão**. Não selecione armazenamento de blobs.
 5. Em **Replicação**, selecione o padrão **Armazenamento com redundância geográfica com acesso de leitura** para redundância de armazenamento.
@@ -61,7 +63,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 ## <a name="create-a-vault"></a>Criar um cofre
 
 1. No portal do Azure, selecione **Criar um recurso** > **Monitoramento + Gerenciamento** > **Backup e Site Recovery**.
-2. Em **Nome**, digite um nome amigável para identificar o cofre. Para este tutorial, use **ContosoVMVault**.
+2. Em **Nome**, digite um nome amigável para identificar o cofre. Para este conjunto de tutoriais estamos usando **ContosoVMVault**.
 3. Em **Grupo de recursos**, selecione o grupo de recursos existente denominado **contosoRG**.
 4. Em **Localização**, insira a região do Azure **Europa Ocidental** que é usada neste conjunto de tutoriais.
 5. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
@@ -89,7 +91,7 @@ Quando as VMs do Azure são criadas do armazenamento após o failover, elas são
 
    f. Em **Localização**, selecione **Europa Ocidental**. A rede deve estar na mesma região do que o cofre de Recuperação de Site.
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 
    ![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
 

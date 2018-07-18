@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: a4cc2768f0d4217b2bd14938889e9b71c26009c9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2f521df81e5153affa95248cda2aa001bc5d6484
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Visão geral do Spark Streaming
 

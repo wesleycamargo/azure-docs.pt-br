@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas de implantação de máquina virtual do Windows no Azure | Microsoft Docs"
-description: "Solução de problemas de implantação de máquina virtual do Windows no modelo de implantação do Azure Resource Manager."
+title: Solução de problemas de implantação de máquina virtual do Windows no Azure | Microsoft Docs
+description: Solução de problemas de implantação de máquina virtual do Windows no modelo de implantação do Azure Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: adbe54dec363b454d64340bf3a862cdead2e5435
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fda249295cf3bbf6f9577eb90a147f46524b95ff
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Windows no Azure
 
@@ -95,10 +95,6 @@ Drivers para VMs baseadas em Windows estão localizados [aqui](n-series-driver-s
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Não é possível localizar uma instância GPU em minha VM série N
 
 Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, é necessário instalar os drivers gráficos NVIDIA em cada VM após a implantação. Também há informações de instalação de driver disponíveis para [VMs do Windows](n-series-driver-setup.md) e [VMs do Linux](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>Imagens do cliente têm suporte para a série N?
-
-Atualmente, o Azure suporta apenas série N em VMs que executam sistemas operacionais Windows Server e Linux.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>As VMs da série N estão disponíveis na minha região?
 

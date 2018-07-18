@@ -1,8 +1,8 @@
 ---
 title: Criar o perfil de aplicativos Web online no Azure com o Application Insights Profiler | Microsoft Docs
-description: "Identifique o afunilamento em seu código de servidor da Web com um criador de perfil de baixa capacidade."
+description: Identifique o afunilamento em seu código de servidor da Web com um criador de perfil de baixa capacidade.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936718"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Criar o perfil de aplicativos Web dinâmicos do Azure com o Application Insights
 
-*Geralmente, este recurso do Azure Application Insights está disponível para o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e está em versão prévia para recursos de computação do Azure.*
+*Geralmente, este recurso do Azure Application Insights está disponível para o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e está em versão prévia para recursos de computação do Azure. Para obter informações sobre [uso local do criador de perfil](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Este artigo aborda a quantidade de tempo gasto em cada método de seu aplicativo Web em tempo real quando você usa o [Application Insights](app-insights-overview.md). A ferramenta Application Insights Profiler exibe perfis detalhados de solicitações ao vivo que foram atendidas pelo seu aplicativo. O Profiler destaca o *afunilamento* que gasta o maior tempo. Solicitações com tempos de resposta variados são analisadas em uma base de amostragem. Usando uma variedade de técnicas, você pode minimizar a sobrecarga associada ao aplicativo.
 
@@ -63,7 +64,7 @@ Para obter informações, consulte a [versão prévia do Profiler para recursos 
 
 ## <a name="view-profiler-data"></a>Exibir dados do criador de perfil
 
-Certifique-se de que o aplicativo está recebendo tráfego. Se estiver fazendo um experimento, você pode gerar solicitações para seu aplicativo Web usando [Testes de Desempenho do Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se você tiver habilitado recentemente o Profiler, pode executar um teste de carga curto por cerca de 15 minutos, que deve gerar rastreamentos do criador de perfil. Se você já habilitou o Profiler há algum tempo, lembre-se de que o ele é executado aleatoriamente duas vezes a cada hora e por uma duração de dois minutos toda vez que é executado. Sugerimos executar primeiro o teste de carga por uma hora para certificar-se de que você obtenha rastreamentos de criador de perfil de exemplo.
+Certifique-se de que o aplicativo está recebendo tráfego. Se estiver fazendo um experimento, você pode gerar solicitações para seu aplicativo Web usando [Testes de Desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se você tiver habilitado recentemente o Profiler, pode executar um teste de carga curto por cerca de 15 minutos, que deve gerar rastreamentos do criador de perfil. Se você já habilitou o Profiler há algum tempo, lembre-se de que o ele é executado aleatoriamente duas vezes a cada hora e por uma duração de dois minutos toda vez que é executado. Sugerimos executar primeiro o teste de carga por uma hora para certificar-se de que você obtenha rastreamentos de criador de perfil de exemplo.
 
 Quando o aplicativo receber algum tráfego, vá para o painel **Desempenho** > **Realizar Ação** para exibir rastreamentos do criador de perfil e, em seguida, selecione o botão **Rastreamentos do Profiler**.
 
@@ -311,7 +312,7 @@ Embora esse método seja relativamente simples, leve em conta o seguinte:
 
 * O recurso de trabalhos Web de Aplicativos Web é exclusivo. Quando ele executa o trabalho Web, faz com que o processo tenha as mesmas variáveis de ambiente e configurações do aplicativo que o seu site terá. Isso significa que você não precisa passar a chave de instrumentação por meio da linha de comando para o Profiler. O Profiler deve apenas escolher a chave de instrumentação do ambiente. No entanto, se deseja executar o Profiler na caixa de desenvolvimento ou em um computador fora dos Aplicativos Web, você precisa fornecer uma chave de instrumentação. Você pode fazer isso passando um argumento, `--ikey <instrumentation-key>`. Esse valor deve corresponder à chave de instrumentação que seu aplicativo está usando. A saída do log do Profiler diz qual chave de instrumentação foi usada na sua inicialização e se detectamos atividade da chave de instrumentação enquanto estávamos criando os perfis.
 
-* Os trabalhos Web disparados manualmente podem ser disparados por meio de webhook. Você pode obter essa URL clicando com o botão direito do mouse no trabalho Web no painel e exibindo as propriedades. Ou, na barra de ferramentas, você pode selecionar **Propriedades** depois de selecionar o trabalho Web na tabela. Essa abordagem abre infinitas possibilidades, como acionar o Profiler de seu pipeline de CI/CD (como VSTS) ou algo parecido com o Microsoft Flow (https://flow.microsoft.com/en-us/). Por fim, sua escolha depende da complexidade que você deseja atribuir ao arquivo *run.cmd* (que também pode ser um arquivo *run.ps1*), mas há flexibilidade.
+* Os trabalhos Web disparados manualmente podem ser disparados por meio de webhook. Você pode obter essa URL clicando com o botão direito do mouse no trabalho Web no painel e exibindo as propriedades. Ou, na barra de ferramentas, você pode selecionar **Propriedades** depois de selecionar o trabalho Web na tabela. Essa abordagem abre infinitas possibilidades, como acionar o Profiler de seu pipeline de CI/CD (como VSTS) ou algo parecido com o Microsoft Flow (https://flow.microsoft.com/en-us/)). Por fim, sua escolha depende da complexidade que você deseja atribuir ao arquivo *run.cmd* (que também pode ser um arquivo *run.ps1*), mas há flexibilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

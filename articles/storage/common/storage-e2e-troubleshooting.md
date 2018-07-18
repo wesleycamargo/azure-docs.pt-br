@@ -1,6 +1,6 @@
 ---
-title: "Solucionando problemas do Armazenamento do Azure com Analisador de Mensagem e Diagnóstico | Microsoft Docs"
-description: "Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft"
+title: Solucionando problemas do Armazenamento do Azure com Analisador de Mensagem e Diagnóstico | Microsoft Docs
+description: Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
   
   * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
   * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
-
-> [!NOTE]
-> As contas de armazenamento com um tipo de replicação ZRS (armazenamento com redundância de zona) dão suporte a métricas e log. As contas do ZRS Clássico não dão suporte a métricas ou a log. Para obter mais informações sobre o ZRS, veja em [Armazenamento com redundância de zona](storage-redundancy.md#zone-redundant-storage). 
 
 * **Portal do Azure**. É possível configurar o log e as métricas da conta de armazenamento no [portal do Azure](https://portal.azure.com). Você também pode exibir grafos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
   

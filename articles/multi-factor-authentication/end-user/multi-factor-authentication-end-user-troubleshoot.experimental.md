@@ -1,9 +1,9 @@
 ---
-title: "Solucionar problemas de verificação em duas etapas | Microsoft Docs"
-description: "Este documento fornecerá informações aos usuários sobre o que fazer em caso de um problema com a Autenticação Multifator do Azure."
+title: Solucionar problemas de verificação em duas etapas | Microsoft Docs
+description: Este documento fornecerá informações aos usuários sobre o que fazer em caso de um problema com a Autenticação Multifator do Azure.
 services: multi-factor-authentication
-keywords: "autenticação multifator do cliente, problema de autenticação, ID de correlação"
-documentationcenter: 
+keywords: autenticação multifator do cliente, problema de autenticação, ID de correlação
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 Este artigo responde às perguntas mais comuns que as pessoas fazem sobre verificação em duas etapas. 
@@ -86,7 +86,7 @@ Se você não tiver outro método configurado, contate o departamento de suporte
 Se você geralmente tem atrasos na recepção devido a um sinal de celular ruim, recomendamos que você use o [aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) em seu smartphone. O aplicativo pode gerar códigos de segurança aleatórios que você usa para entrar, e esses códigos não exigem qualquer conexão de internet ou um sinal de celular.
 
 ## <a name="app-passwords-are-not-working"></a>As senhas de aplicativo não estão funcionando.
-Primeiro, verifique se você inseriu a senha de aplicativo corretamente. A senha de aplicativo gerada substitui a senha normal, mas somente para aplicativos de área de trabalho mais antigos que não dão suporte à verificação em duas etapas. Se isso ainda não estiver funcionando, tente conectar-se e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md).  Se isso ainda não funcionar, entre em contato com o departamento de suporte da empresa e peça para [excluir suas senhas de aplicativo existentes](../multi-factor-authentication-manage-users-and-devices.md), então você poderá criar uma nova.
+Primeiro, verifique se você inseriu a senha de aplicativo corretamente. A senha de aplicativo gerada substitui a senha normal, mas somente para aplicativos de área de trabalho mais antigos que não dão suporte à verificação em duas etapas. Se isso ainda não estiver funcionando, tente conectar-se e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md).  Se isso ainda não funcionar, entre em contato com o departamento de suporte da empresa e peça para [excluir suas senhas de aplicativo existentes](../../active-directory/authentication/howto-mfa-userdevicesettings.md), então você poderá criar uma nova.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema.
 Se você tiver tentado essas etapas de solução de problemas, mas ainda estiver encontrando problemas, entre em contato com o seu departamento de suporte da empresa. Eles devem ser capazes de ajudá-lo.

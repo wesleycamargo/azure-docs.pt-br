@@ -1,23 +1,23 @@
 ---
-title: "Entidade de serviço para cluster Kubernetes do Azure"
-description: "Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster Kubernetes no AKS"
+title: Entidade de serviço para cluster Kubernetes do Azure
+description: Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster Kubernetes no AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5e6e24d132598e3f79e4fe76c13ee0ae6a82424d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
-Um cluster AKS requer uma [entidade de serviço do Azure Active Directory][aad-service-principal] para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário][user-defined-routes] e o [Azure Load Balancer da Camada 4][azure-load-balancer-overview].
+Um cluster AKS requer uma [entidade de serviço do Azure Active Directory][aad-service-principal] para interagir com as APIs do Azure. A entidade de serviço é necessária para criar e gerenciar dinamicamente recursos como o [Azure Load Balancer][azure-load-balancer-overview].
 
 Este artigo mostra diferentes opções para configurar uma entidade de serviço para o cluster Kubernetes no AKS.
 
@@ -80,10 +80,10 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 
 * A entidade de serviço para o Kubernetes é parte da configuração do cluster. No entanto, não use a identidade para implantar o cluster.
 * Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço para um cluster Kubernetes pode ser associada a qualquer nome de aplicativo válido do Azure AD (por exemplo: `https://www.contoso.org/example`). A URL para o aplicativo não precisa ser um ponto de extremidade real.
-* Ao especificar a **ID do cliente** da entidade de serviço, você pode usar o valor de `appId` (conforme mostrado neste artigo) ou `name` da entidade de serviço correspondente (por exemplo, `https://www.contoso.org/example`).
+* Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId` (conforme mostrado neste artigo) ou o `name` da entidade de serviço correspondente (por exemplo, `https://www.contoso.org/example`).
 * Nas VMs mestre e de nó no cluster Kubernetes, as credenciais de entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`.
-* Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/acsServicePrincipal.json` no computador usado para executar o comando.
-* Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Você pode usar `az ad sp delete --id $clientID` para excluí-la.
+* Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
+* Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Use `az ad sp delete --id $clientID` para excluí-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,31 +1,33 @@
 ---
-title: "Introdução ao AngularJS do AD do Azure | Microsoft Docs"
-description: "Como criar um aplicativo de página única AngularJS que se integre ao Azure AD para entrar e que chame as APIs protegidas do Azure AD usando OAuth."
+title: Introdução ao AngularJS do AD do Azure | Microsoft Docs
+description: Como criar um aplicativo de página única AngularJS que se integre ao Azure AD para entrar e que chame as APIs protegidas do Azure AD usando OAuth.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Introdução ao AngularJS do Azure AD
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-O Azure AD (Azure Active Directory) faz com que seja simples e direto adicionar entrada e saída e proteger chamadas de API do OAuth para seus aplicativos de página única.  Ele habilita seu aplicativo a autenticar usuários com suas contas do Active Directory do Windows Server e consuma qualquer API Web que o Azure AD ajuda a proteger, como as APIs do Office 365 ou a API do Azure.
+O Azure AD (Azure Active Directory) faz com que seja simples e direto adicionar entrada e saída e proteger chamadas de API do OAuth para seus aplicativos de página única. Ele habilita seu aplicativo a autenticar usuários com suas contas do Active Directory do Windows Server e consuma qualquer API Web que o Azure AD ajuda a proteger, como as APIs do Office 365 ou a API do Azure.
 
 Para aplicativos JavaScript em execução em um navegador, o Azure AD fornece a Biblioteca de Autenticação do Active Directory (ADAL) ou adal.js. A única finalidade da adal.js é facilitar para seu aplicativo a obtenção de tokens de acesso. Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas AngularJS que:
 
@@ -52,13 +54,13 @@ Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro
 4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
 5. Siga os prompts e crie um novo aplicativo Web e/ou API Web:
   * **Nome** descreve seu aplicativo para os usuários.
-  * O **URI de redirecionamento** é o local no qual o AAD retornará tokens. O local padrão deste exemplo é `https://localhost:44326/`.
-6. Depois de concluir o registro, o Azure AD atribui uma identificação exclusiva do aplicativo ao seu aplicativo.  Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
+  * A **URL de Entrada** é o local no qual o Azure Active Directory retornará tokens. O local padrão deste exemplo é `https://localhost:44326/`.
+6. Depois de concluir o registro, o Azure AD atribui uma identificação exclusiva do aplicativo ao seu aplicativo. Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
 7. A adal.js usa o fluxo de OAuth implícito para se comunicar com o AD do Azure. Você deve habilitar o fluxo implícito para seu aplicativo:
   1. Clique no aplicativo e escolha **Manifesto** para abrir o editor de manifesto embutido.
   2. Localize a propriedade `oauth2AllowImplicitFlow`. Defina seu valor como `true`.
   3. Clique em **Salvar** para salvar o manifesto.
-8. Conceda permissões em seu locatário para seu aplicativo. Acesse **Configurações** > **Propriedades** > **Permissões Necessárias** e clique no botão **Conceder Permissões** na barra superior. Clique em **Sim** para confirmar.
+8. Conceda permissões em seu locatário para seu aplicativo. Vá para **Configurações** > **Permissões necessárias** e clique no botão **Conceder permissões** na barra superior. Clique em **Sim** para confirmar.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Etapa 2: Instalar o ADAL e configurar o aplicativo de página única
 Agora que você tem um aplicativo no AD do Azure, você pode instalar a adal.js e escrever seu código relacionado à identidade.
@@ -118,11 +120,11 @@ O Adal.js integra-se ao roteiro AngularJS e aos provedores HTTP e, portanto, voc
     ```
 
 ## <a name="summary"></a>Resumo
-Agora você tem um aplicativo de página única seguro que pode conectar usuários e emitir solicitações protegidas de token de portador para sua API de back-end. Quando um usuário clica no link **TodoList**, o adal.js o redireciona automaticamente ao Azure AD para conexão, se for necessário. Além disso, o adal.js anexa automaticamente um access_token para todas as solicitações Ajax que são enviadas ao back-end do aplicativo.  
+Agora você tem um aplicativo de página única seguro que pode conectar usuários e emitir solicitações protegidas de token de portador para sua API de back-end. Quando um usuário clica no link **TodoList**, o adal.js o redireciona automaticamente ao Azure AD para conexão, se for necessário. Além disso, o adal.js anexa automaticamente um access_token para todas as solicitações Ajax que são enviadas ao back-end do aplicativo. 
 
 As etapas anteriores são o mínimo necessário para criar um aplicativo de página única usando adal.js. Mas alguns outros recursos são úteis no aplicativo de página única:
 
-* Para emitir explicitamente solicitações de entrada e de saída, você pode definir funções em seus controladores que invocam adal.js.  Em `App/Scripts/homeCtrl.js`:
+* Para emitir explicitamente solicitações de entrada e de saída, você pode definir funções em seus controladores que invocam adal.js. Em `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ As etapas anteriores são o mínimo necessário para criar um aplicativo de pág
     ...
     ```
 
-* há muitos cenários nos quais você pode querer saber se o usuário está conectado ou não. Você também pode usar o objeto `userInfo` para coletar essas informações.  Por exemplo, em `index.html`, você pode mostrar o botão **Logon** ou **Logout** com base no status de autenticação:
+* há muitos cenários nos quais você pode querer saber se o usuário está conectado ou não. Você também pode usar o objeto `userInfo` para coletar essas informações. Por exemplo, em `index.html`, você pode mostrar o botão **Logon** ou **Logout** com base no status de autenticação:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

@@ -1,20 +1,19 @@
 ---
 title: Chamar runbook de Automação do Azure a partir de um alerta do Log Analytics
-description: Este artigo fornece uma visão geral de como chamar um runbook de Automação a partir de um alerta do Log Analytics no Operations Management Suite.
+description: Este artigo fornece uma visão geral sobre como invocar um runbook de Automação a partir de um alerta do Log Analytics no Azure.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d7e3bc262fa20a2628ad25502a3d1819996a18f7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Chamar runbook de Automação do Azure a partir de um alerta do Log Analytics
 
@@ -25,11 +24,11 @@ Por exemplo, um alerta pode indicar um pico prolongado no uso do processador. Ou
 Há duas opções para chamar um runbook ao configurar o alerta:
 
 * Usar um webhook.
-   * Essa será a única opção disponível se seu espaço de trabalho do Operations Management Suite não está vinculado a uma conta de Automação.
-   * Se você já tiver uma conta de Automação vinculada a um espaço de trabalho do Operations Management Suite, essa opção ainda estará disponível.  
+   * Essa será a única opção disponível se o espaço de trabalho do Log Analytics não está vinculado a uma conta de Automação.
+   * Se você já tiver uma conta de Automação vinculada a um espaço de trabalho do Log Analytics, essa opção ainda estará disponível.  
 
 * Selecione um runbook diretamente.
-   * Essa opção está disponível somente se o espaço de trabalho do Operations Management Suite estiver vinculado a uma conta de Automação.
+   * Esta opção somente estará disponível quando o espaço de trabalho do Log Analytics estiver vinculado a uma conta de Automação.
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Chamar um runbook com um webhook
 
@@ -37,7 +36,7 @@ Você pode usar um webhook para iniciar um runbook específico na Automação do
 
 ## <a name="calling-a-runbook-directly"></a>Chamando um runbook diretamente
 
-Você pode instalar e configurar a oferta de Automação e Controle em seu espaço de trabalho do Operations Management Suite. Ao configurar a opção de ações do runbook para o alerta, você poderá exibir todos os runbooks na lista suspensa **Selecionar um runbook** e selecionar o runbook específico que deseja executar em resposta ao alerta. O runbook selecionado pode ser executado em um espaço de trabalho do Azure ou em um Hybrid Runbook Worker. 
+É possível instalar e configurar a oferta de Automação e controle no espaço de trabalho do Log Analytics. Ao configurar a opção de ações do runbook para o alerta, você poderá exibir todos os runbooks na lista suspensa **Selecionar um runbook** e selecionar o runbook específico que deseja executar em resposta ao alerta. O runbook selecionado pode ser executado em um espaço de trabalho do Azure ou em um Hybrid Runbook Worker. 
 
 Após a criação do alerta usando a opção do runbook, um webhook será criado para o runbook. Você poderá ver o webhook se for para a conta de Automação e abrir o painel do webhook do runbook selecionado. 
 
@@ -92,7 +91,7 @@ $SearchResult.SvcDisplayName_CF
 
 Quando o serviço para, a regra de alerta no Log Analytics detecta uma correspondência, dispara o runbook e envia o contexto do alerta para o runbook. O runbook tenta verificar se o serviço está parado. Nesse caso, o runbook tenta reiniciar o serviço, verifica se ele foi iniciado corretamente e exibe os resultados.     
 
-Como alternativa, se você não tiver sua conta de Automação vinculada ao seu espaço de trabalho do Operations Management Suite, você pode configurar a regra de alerta com uma ação do webhook. A ação do webhook dispara o runbook. Ele também configura o runbook para converter a cadeia de caracteres de formato JSON e o filtro em **SearchResult** seguindo as diretrizes mencionadas anteriormente.    
+Como alternativa, se você não tiver a conta de Automação vinculada ao espaço de trabalho do Log Analytics, será possível configurar a regra de alerta com uma ação do webhook. A ação do webhook dispara o runbook. Ele também configura o runbook para converter a cadeia de caracteres de formato JSON e o filtro em **SearchResult** seguindo as diretrizes mencionadas anteriormente.    
 
 >[!NOTE]
 > Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), o conteúdo do webhook foi alterado. Os detalhes do formato estão na [API REST do Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).

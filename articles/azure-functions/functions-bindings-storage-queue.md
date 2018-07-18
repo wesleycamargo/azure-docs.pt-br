@@ -3,7 +3,7 @@ title: Associações de armazenamento de filas do Azure Functions
 description: Entenda como usar o gatilho do armazenamento de fila do Azure e a associação de saída no Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: glenga
-ms.openlocfilehash: 63d466425a524316236998cb4ff954de272808f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: a1ca2b821678b48f65fe6ec6e58fa65cd8e4304f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303404"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -32,6 +34,10 @@ Este artigo explica como trabalhar com associações de armazenamento de Fila do
 As associações de armazenamento de fila são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Gatilho
 
@@ -240,7 +246,7 @@ Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de
 
 ## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
 
-O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Os valores têm a mesma semântica que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Propriedade|type|DESCRIÇÃO|
 |--------|----|-----------|
@@ -482,7 +488,7 @@ Em funções em JavaScript, use `context.bindings.<name>` para acessar a mensage
 
 | Associação |  Referência |
 |---|---|
-| Fila | [Fila de códigos de erro](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Fila | [Fila de códigos de erro](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, tabela, fila |  [Solução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

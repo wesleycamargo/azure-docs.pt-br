@@ -1,24 +1,20 @@
 ---
-title: "Início rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs"
-description: "Comandos do T-SQL para dimensionar recursos de computação ajustando as DWUs."
+title: 'Início rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs'
+description: Dimensione a computação no SQL Data Warehouse do Azure usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: f984f9b348f589e20cb8a4b68578ddef84d8292d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 7d7d3f6a773fad0b0d4ba0593230af5ff5a1e443
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure usando T-SQL
 
@@ -29,8 +25,6 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 ## <a name="before-you-begin"></a>Antes de começar
 
 Baixe e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
-
-Isso pressupõe que você tenha concluído o [Início Rápido: criar e conectar – portal](create-data-warehouse-portal.md). Ao concluir o início rápido Criar e conectar, você terá criado um data warehouse, denominado **mySampleDataWarehouse** e terá criado uma regra de firewall, que permite que os nossos clientes acessem o servidor instalado.
  
 ## <a name="create-a-data-warehouse"></a>Criar um data warehouse
 
@@ -49,7 +43,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.m
    | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
    | Nome do servidor | O nome do servidor totalmente qualificado | Veja um exemplo: **meunovoservidor-20171113.database.windows.net**. |
    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-   | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
+   | Logon | A conta do administrador do servidor | A conta que você especificou quando criou o servidor. |
    | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
     ![conectar-se ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -95,24 +89,46 @@ Para alterar unidades de data warehouse:
 1. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**.
 2. Use a instrução [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) do T-SQL para modificar o objetivo de serviço. Execute a consulta a seguir para alterar o objetivo de serviço para DW300. 
 
-```Sql
-ALTER DATABASE mySampleDataWarehouse
-MODIFY (SERVICE_OBJECTIVE = 'DW300')
-;
-```
+    ```Sql
+    ALTER DATABASE mySampleDataWarehouse
+    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    ;
+    ```
 
-## <a name="check-database-state"></a>Verificar estado do banco de dados
+## <a name="monitor-scale-change-request"></a>Monitorar solicitação de alteração do dimensionamento
+Para ver o progresso da solicitação de alteração anterior, use a sintaxe T-SQL `WAITFORDELAY` para sondar o DVM (modo de exibição de gerenciamento dinâmico) de sys.dm_operation_status.
 
-Para verificar o estado do banco de dados, execute a seguinte consulta no banco de dados **mestre**.
+Para sondar o status de alteração do objeto de serviço:
 
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
+1. Clique com o botão direito do mouse em **mestre** e selecione **Nova Consulta**.
+2. Execute a consulta a seguir para sondar o DMV de sys.DM operation_status.
 
-Ao executar esse comando, você deverá receber um valor de Status Online, Pausando, Retomando, Dimensionando ou Em pausa.
+    ```sql
+    WHILE 
+    (
+        SELECT TOP 1 state_desc
+        FROM sys.dm_operation_status
+        WHERE 
+            1=1
+            AND resource_type_desc = 'Database'
+            AND major_resource_id = 'MySampleDataWarehouse'
+            AND operation = 'ALTER DATABASE'
+        ORDER BY
+            start_time DESC
+    ) = 'IN_PROGRESS'
+    BEGIN
+        RAISERROR('Scale operation in progress',0,0) WITH NOWAIT;
+        WAITFOR DELAY '00:00:05';
+    END
+    PRINT 'Complete';
+    ```
+3. A saída resultante mostra um log de sondagem do status.
+
+    ![Status da operação](media/quickstart-scale-compute-tsql/polling-output.png)
+
+## <a name="check-data-warehouse-state"></a>Verifique o estado do data warehouse
+
+Quando um data warehouse é pausado, você não pode se conectar a ele com T-SQL. Para ver o estado atual do data warehouse, você pode usar um cmdlet do PowerShell. Para obter um exemplo, consulte [Verificar o estado do data warehouse - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
 ## <a name="check-operation-status"></a>Verificar o status da operação
 
@@ -125,12 +141,12 @@ FROM
 WHERE
     resource_type_desc = 'Database'
 AND 
-    major_resource_id = 'MySQLDW'
+    major_resource_id = 'MySampleDataWarehouse'
 ```
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, você aprendeu como dimensionar a computação para seu data warehouse. Para saber mais sobre o SQL Data Warehouse do Azure, prossiga para o tutorial de carregamento de dados.
+Agora você sabe como dimensionar a computação para seu data warehouse. Para saber mais sobre o SQL Data Warehouse do Azure, prossiga para o tutorial de carregamento de dados.
 
 > [!div class="nextstepaction"]
 >[Carregar dados no SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

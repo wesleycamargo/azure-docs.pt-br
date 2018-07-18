@@ -1,11 +1,11 @@
 ---
-title: "Introdução aos Serviços de Nuvem do Azure e ao ASP.NET | Microsoft Docs"
-description: "Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de Armazenamento do Azure."
+title: Introdução aos Serviços de Nuvem do Azure e ao ASP.NET | Microsoft Docs
+description: Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de Armazenamento do Azure.
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -34,8 +34,8 @@ O aplicativo é um painel de anúncios eletrônico. Os usuários criam um anúnc
 
 O aplicativo usa o [padrão centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Arquitetura alternativa: sites e trabalhos Web
-Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em um [site do Azure](/services/web-sites/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (atualmente em versão prévia) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitetura alternativa: aplicativos Web e trabalhos Web
+Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end em [Aplicativos Web do Azure](/azure/app-service/) e usar o recurso [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, consulte [Comparação de Sites, Serviços de Nuvem e Máquinas Virtuais do Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>O que você aprenderá
 * Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.
@@ -767,7 +767,6 @@ Estes são alguns aplicativos função Web de serviço de nuvem que demonstram p
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Em conceito, é semelhante ao Contoso Ads, mas implementa mais recursos e práticas mais reais de codificação.
 * [Aplicativo multicamada de serviço de nuvem do Azure com tabelas, filas e blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduz as tabelas do Armazenamento do Azure, bem como blobs e filas. Com base em uma versão mais antiga do SDK do Azure para .NET, exigirá algumas modificações para funcionar com a versão atual.
-* [Noções Básicas sobre Serviço de Nuvem no Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Um exemplo abrangente que demonstra uma grande variedade de melhores práticas, produzido pelo grupo de Práticas e Padrões da Microsoft.
 
 Para obter informações sobre como desenvolver para a nuvem, consulte [Criando aplicativos de nuvem do mundo real no Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Serviços de nuvem do Azure Parte 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
-* [Armazenamento do Azure](/documentation/services/storage/)
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

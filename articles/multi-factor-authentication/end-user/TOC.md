@@ -12,4 +12,6 @@
 ## Usar o aplicativo Microsoft Authenticator
 ### [Introdução ao aplicativo](microsoft-authenticator-app-how-to.md)
 ### [Conectar com seu telefone](microsoft-authenticator-app-phone-signin-faq.md)
+### [Credenciais das contas de backup e recuperação](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Perguntas frequentes](microsoft-authenticator-app-faq.md)
+### [Atualizações da experiência de conexão](sign-in-experience-updates.md)

@@ -1,11 +1,11 @@
 ---
 title: Importar e exportar identidades de dispositivo do Hub IoT do Azure | Microsoft Docs
-description: "Como usar o SDK do serviço IoT do Azure para executar operações em massa no Registro de identidade para importar e exportar identidades de dispositivo. As operações de importação permitem criar, atualizar e excluir as identidades de dispositivo em massa."
+description: Como usar o SDK do serviço IoT do Azure para executar operações em massa no Registro de identidade para importar e exportar identidades de dispositivo. As operações de importação permitem criar, atualizar e excluir as identidades de dispositivo em massa.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
 
 Cada hub IoT tem um registro de identidade que você pode usar para criar recursos por dispositivo no serviço. O registro de identidade também permite que você controle o acesso aos pontos de extremidade voltados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivo em massa bidirecionalmente em um registro de identidade.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 As operações de importação e exportação ocorrem no contexto de *Trabalhos* , que permitem aos usuários executar operações de serviço em massa em um Hub IoT.
 
 A classe **RegistryManager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura **Job**. Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade de um Hub IoT.
 
 Este tópico discute o uso da classe **RegistryManager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos para e do registro de identidade de um hub IoT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento][lnk-dps].
+
 
 ## <a name="what-are-jobs"></a>O que são trabalhos?
 
@@ -193,9 +196,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> Você também pode usar o método **GetDevicesAsync** da classe **RegistryManager** para buscar uma lista de seus dispositivos. No entanto, essa abordagem tem um limite rígido de 1.000 no número de objetos de dispositivo que são retornados. O caso de uso esperado para o método **GetDevicesAsync** é para cenários de desenvolvimento como auxílio na depuração, não sendo recomendado para cargas de trabalho de produção.
 
 ## <a name="import-devices"></a>Importar dispositivos
 

@@ -2,24 +2,25 @@
 title: 'Azure Cosmos DB: Desenvolver com a API no .NET | Microsoft Docs'
 description: Aprenda como desenvolver com a API do SQL do Azure Cosmos DB usando o .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
+editor: ''
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271282"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API do Graph no .NET
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
@@ -110,7 +111,7 @@ Em seguida, crie um contêiner de grafo usando o usando o método [CreateDocumen
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serializar os vértices e bordas aos objetos .NET
@@ -121,7 +122,7 @@ Por exemplo, vamos trabalhar com uma rede social simples com quatro pessoas. Ver
 O namespace `Microsoft.Azure.Graphs.Elements` fornece as classes `Vertex`, `Edge`, `Property` e `VertexProperty` para desserializar respostas GraphSON para objetos do .NET bem definidos.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Executar Gremlin usando CreateGremlinQuery
-Gremlin, assim como o SQL, oferece suporte a operações de consulta, gravação e leitura. Por exemplo, o trecho a seguir mostra como criar vértices, bordas, executar algumas consultas de exemplo usando `CreateGremlinQuery<T>` e iterar assincronamente esses resultados usando `ExecuteNextAsync` e `HasMoreResults.
+Gremlin, assim como o SQL, oferece suporte a operações de consulta, gravação e leitura. Por exemplo, o trecho a seguir mostra como criar vértices, bordas, executar algumas consultas de exemplo usando `CreateGremlinQuery<T>` e iterar assincronamente esses resultados usando `ExecuteNextAsync` e `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
@@ -168,13 +169,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>Adicionar vértices e bordas
 
-Vamos examinar as instruções Gremlin mostradas na seção anterior em mais detalhes. Primeiro, temos alguns vértices usando o método `addV` do Gremlin. Por exemplo, o trecho a seguir cria um vértice "Thomas Andersen" do tipo "Pessoa", com propriedades de nome, sobrenome e idade.
+Vamos ver mais detalhadamente as instruções Gremlin mostradas na seção anterior. Primeiro, adicionamos alguns vértices usando o método `addV` do Gremlin. Por exemplo, o trecho a seguir cria um vértice “Thomas Andersen” do tipo “pessoa”, com propriedades de nome e idade.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {

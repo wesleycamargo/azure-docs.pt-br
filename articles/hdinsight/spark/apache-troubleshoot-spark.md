@@ -1,25 +1,23 @@
 ---
 title: Solucionar problemas do Spark usando o Azure HDInsight | Microsoft Docs
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Spark e o Azure HDInsight.
-keywords: "Azure HDInsight, Spark, perguntas frequentes, guia de solução de problemas, problemas comuns, configuração de aplicativo, Ambari"
+keywords: Azure HDInsight, Spark, perguntas frequentes, guia de solução de problemas, problemas comuns, configuração de aplicativo, Ambari
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
 ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 15fe5e6d2acdb8d782342b21f5db81443c44843d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Spark usando o Azure HDInsight
 
@@ -228,6 +226,6 @@ A causa mais provável dessa exceção é que não há memória de heap suficien
 - [Depurar um aplicativo Spark em um cluster HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Veja também
 [Solucionar problemas usando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

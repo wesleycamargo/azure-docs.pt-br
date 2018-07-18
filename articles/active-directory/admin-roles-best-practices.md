@@ -9,13 +9,14 @@ ms.date: 03/09/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
+ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45a0cf104df6d29515ed1a94c78c8cc1e42a2223
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -118,7 +119,7 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ative a autenticação multifator e registre todas as outras contas altamente privilegiadas de usuário único federado não administrador 
 
-Exija o Azure Multi-Factor Authentication (MFA) na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: Administrador Global, administrador de funções com privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Exija o Azure Multi-Factor Authentication (MFA) na entrada para todos os usuários individuais que são atribuídos permanentemente a uma ou mais das funções de administrador do Azure AD: Administrador Global, administrador de funções com privilégios, administrador do Exchange Online e administrador SharePoint Online. Use o guia para habilitar [Multi-factor Authentication (MFA) para suas contas de administrador](authentication/howto-mfa-userstates.md) e certifique-se de que todos os usuários se registraram em [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Mais informações podem ser encontradas na etapa 2 e 3 do guia [Proteger o acesso a dados e serviços no Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Etapa 2: reduzir as técnicas de ataque usados com mais frequência
 
@@ -154,9 +155,9 @@ Se você ainda não tiver feito isso, crie contas separadas para que os usuário
 
 Certifique-se de que todos os usuários entraram em suas contas administrativas e suas senhas pelo menos uma vez nos últimos 90 dias. Além disso, certifique-se de que as contas compartilhadas na qual vários usuários sabem a senha tiveram suas senhas alteradas recentemente.
 
-#### <a name="turn-on-password-synchronization"></a>Ative a sincronização de senha
+#### <a name="turn-on-password-hash-synchronization"></a>Ativar a sincronização de hash de senha
 
-A sincronização de senha é um recurso usado para sincronizar senhas de usuário hashes de uma instância do Active Directory local para uma instância do Active Directory local baseada em nuvem. Mesmo que se você decida usar a federação com os serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, você também pode configurar a sincronização de senha como um backup caso sua infraestrutura local como o AD ou servidores ADFS falham ou ficam temporariamente indisponíveis. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+A sincronização de hash de senha é um recurso usado para sincronizar hashes de hashes da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem. Mesmo que você decida usar a federação com os Serviços de Federação do Active Directory (AD FS) ou outros provedores de identidade, é possível configurar a sincronização de hash de senha como um backup, caso a infraestrutura local, como ADFS Server ou AD, falhe ou torne-se temporariamente indisponível. Isso possibilita que usuários entrar no serviço usando a mesma senha que usam para entrar em sua instância do AD local. Além disso, permite a proteção de identidade para detectar credenciais comprometidas, comparando os hashes de senha com senhas conhecidas como compormetidas, se um usuário tiver utilizado o mesmo endereço de email e senha em outros serviços não estiverem conectados ao Azure AD.  Para obter mais informações, consulte [Implementar a sincronização de senha com a sincronização do Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exigir autenticação multifator (MFA) para usuários em todas as funções privilegiadas, bem como os usuários expostos
 
@@ -164,8 +165,8 @@ O Azure AD recomenda que você exija autenticação multifator (MFA) para todos 
 
 Ativar:
 
-* [MFA para contas de alta exposição](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) como contas de gerentes executivos em uma organização 
-* [MFA para contas de alta exposição associadas ao usuário individual](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) para aplicativos SaaS conectados 
+* [MFA para contas de alta exposição](authentication/multi-factor-authentication-security-best-practices.md) como contas de gerentes executivos em uma organização 
+* [MFA para contas de alta exposição associadas ao usuário individual](authentication/howto-mfa-userstates.md) para aplicativos SaaS conectados 
 * MFA para todos os administradores de aplicativos SaaS da Microsoft, incluindo administradores em funções gerenciadas no Exchange Online e o portal do Office
 
 Se você usar o Windows Hello for Business, o requisito de MFA pode ser atendido usando o logon do Windows Hello. Para obter mais informações, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
@@ -240,7 +241,7 @@ Exija os executivos de pacote C, gerenciadores de alto nível, IT crítico e a e
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Use estações de trabalho dedicadas para a administração do Azure AD
 
-Os invasores podem tentar contas com privilégios para obter acesso a dados e sistemas de uma organização para que possam interromper a integridade e a autenticidade dos dados, por meio de um código mal-intencionado que altera a lógica do programa ou espiona o administrador inserindo uma credencial. As Estações de Trabalho com Acesso Privilegiado (PAWs) fornecem um sistema operacional dedicado para as tarefas confidenciais protegidas contra ataques da Internet e vetores de ameaça. Separar essas tarefas confidenciais e contas das estações de trabalho de uso diário e dispositivos fornece uma ótima proteção contra ataques de phishing, aplicativo e vulnerabilidades do SO, vários ataques de representação e ataques de roubo de credenciais, como o registro de teclas pressionadas, Passagem de Hash e Passagem de Tíquete. Implantar estações de trabalho de acesso privilegiado, você pode reduzir o risco dos administradores de inserir credenciais de administrador, exceto em um ambiente de área de trabalho que foi protegido. Para saber mais, confira [Privileged Identity Management](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Os invasores podem tentar contas com privilégios para obter acesso a dados e sistemas de uma organização para que possam interromper a integridade e a autenticidade dos dados, por meio de um código mal-intencionado que altera a lógica do programa ou espiona o administrador inserindo uma credencial. As Estações de Trabalho com Acesso Privilegiado (PAWs) fornecem um sistema operacional dedicado para as tarefas confidenciais protegidas contra ataques da Internet e vetores de ameaça. Separar essas tarefas confidenciais e contas das estações de trabalho de uso diário e dispositivos fornece uma ótima proteção contra ataques de phishing, aplicativo e vulnerabilidades do SO, vários ataques de representação e ataques de roubo de credenciais, como o registro de teclas pressionadas, Passagem de Hash e Passagem de Tíquete. Implantar estações de trabalho de acesso privilegiado, você pode reduzir o risco dos administradores de inserir credenciais de administrador, exceto em um ambiente de área de trabalho que foi protegido. Para saber mais, confira [Privileged Identity Management](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Analise as recomendações do Instituto Nacional de padrões e tecnologia para lidar com incidentes 
 
@@ -282,11 +283,11 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Faça o inventário de contas privilegiadas em Máquinas Virtuais hospedadas
 
-Na maioria dos casos, você não precisa fornecer aos usuários permissões irrestritas a todos os recursos ou assinaturas do Azure. Você pode usar funções de administrador do Azure AD para separar as tarefas dentro de sua organização e conceder somente a quantidade de acesso a usuários que precisam para executar trabalhos específicos. Por exemplo, use as funções do Azure AD para permitir que um administrador gerencie apenas máquinas virtuais em uma assinatura, enquanto outro pode gerenciar banco de dados SQL dentro da mesma assinatura. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](role-based-access-control-what-is.md).
+Na maioria dos casos, você não precisa fornecer aos usuários permissões irrestritas a todos os recursos ou assinaturas do Azure. Você pode usar funções de administrador do Azure AD para separar as tarefas dentro de sua organização e conceder somente a quantidade de acesso a usuários que precisam para executar trabalhos específicos. Por exemplo, use as funções do Azure AD para permitir que um administrador gerencie apenas máquinas virtuais em uma assinatura, enquanto outro pode gerenciar banco de dados SQL dentro da mesma assinatura. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementar o PIM para funções de administrador do Azure AD
 
-Use o Privileged Identity Management com as funções de administrador do Azure Ad para gerenciar, controlar e monitorar o acesso aos recursos do Azure. Use o PIM protege contas privilegiadas contra ataques cibernéticos, reduzindo o tempo de exposição de privilégios e aumente sua visibilidade sobre seu uso por meio de alertas e relatórios. Para obter mais informações, consulte [Gerenciar o acesso aos recursos do Azure com o Privileged Identity Management](pim-azure-resource.md).
+Use o Privileged Identity Management com as funções de administrador do Azure Ad para gerenciar, controlar e monitorar o acesso aos recursos do Azure. Use o PIM protege contas privilegiadas contra ataques cibernéticos, reduzindo o tempo de exposição de privilégios e aumente sua visibilidade sobre seu uso por meio de alertas e relatórios. Para obter mais informações, consulte [Gerenciar o acesso aos recursos do Azure com o Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Usar integrações do log do Azure para enviar logs relevantes do Azure para seus sistemas SIEM 
 
@@ -427,7 +428,7 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 **P:** Qual é a posição da Microsoft sobre a sincronização de contas de administrador no Azure AD?
 
-**Resposta:**Contas de administrador de Camada 0 (incluindo contas, grupos e outros recursos que têm controle administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) de contas de administrador são usadas somente para contas locais do AD e são normalmente não são sincronizadas para Azure AD para a nuvem. 
+**Resposta:** Contas de administrador de Camada 0 (incluindo contas, grupos e outros recursos que têm controle administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) de contas de administrador são usadas somente para contas locais do AD e são normalmente não são sincronizadas para Azure AD para a nuvem. 
 
 
 **P:** Como podemos impedir que os administradores atribuam acesso aleatório de administrador no portal?

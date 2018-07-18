@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar os bancos de dados SQL para os usuários de pilha do Azure
 Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que permitem aos usuários (locatários) criarem bancos de dados SQL que podem ser usadas com seus aplicativos de nuvem nativo, sites e cargas de trabalho. Fornecendo esses bancos de dados personalizados, sob demanda, com base em nuvem para seus usuários, você pode salvá-los, tempo e recursos. Para configurar isso, você irá:
@@ -34,8 +34,8 @@ Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que p
 
 O processo de implantação é descrito detalhadamente o [bancos de dados SQL de uso no artigo de pilha do Azure](azure-stack-sql-resource-provider-deploy.md)e é composta das seguintes etapas principais:
 
-1. [Implantar o provedor de recursos do SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Verifique se a implantação]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Implantar o provedor de recursos do SQL](azure-stack-sql-resource-provider-deploy.md).
+2. [Verifique se a implantação](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Fornecem a capacidade conectando-se ao servidor de hospedagem SQL.
 
 ## <a name="create-an-offer"></a>Criar uma oferta
@@ -68,7 +68,7 @@ Agora que você implantou o provedor de recursos do SQL Server e criar uma ofert
     - **Nome do banco de dados**: SQLdb
     - **Tamanho máximo em MB**: 100
     - **Assinatura**: TestSQLOffer
-    - **Resource Group**: SQL-RG
+    - **Grupo de recursos**: RG do SQL
 3. Clique em **configurações de logon**, insira as credenciais para o banco de dados e, em seguida, clique em **Okey**.
 4. Clique em **SKU** > Selecionar a SKU de SQL que você criou para o servidor de hospedagem SQL > **Okey**.
 5. Clique em **Criar**.

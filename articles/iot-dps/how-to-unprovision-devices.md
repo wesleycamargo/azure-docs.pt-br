@@ -1,43 +1,48 @@
 ---
-title: "Como remover o provisionamento dos dispositivos registrados com o Serviço de Provisionamento de Dispositivos do Hub IoT do Azure | Microsoft Docs"
-description: "Como remover o provisionamento dos dispositivos registrados pelo serviço de DPS no Portal do Azure"
+title: Como desprovisionar dispositivos que foram provisionados com Provisionamento de Dispositivos no Hub IoT | Microsoft Docs
+description: Como desprovisionar dispositivos que foram provisionados com Provisionamento de Dispositivos no Hub IoT
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 01/08/2018
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 1d057a4df43cf25e6817672d198207d9a50e462e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="how-to-unprovision-devices-enrolled-by-your-provisioning-service"></a>Como remover o provisionamento dos dispositivos registrados pelo serviço de provisionamento
+# <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos autoprovisionados anteriormente 
 
-Talvez seja necessário remover o provisionamento dos dispositivos que foram provisionados através do Serviço de Provisionamento de Dispositivo. Por exemplo, um dispositivo pode ser vendido ou movido para um Hub IoT diferente, ou ser perdido, roubado ou comprometido de qualquer outro modo. 
+Talvez seja necessário desprovisionar dispositivos autoprovisionados anteriormente por meio do Serviço de Provisionamento de Dispositivos. Por exemplo, um dispositivo pode ser vendido ou movido para um Hub IoT diferente, ou ser perdido, roubado ou comprometido de qualquer outro modo. 
 
-Em geral, a remoção do provisionamento de um dispositivo envolve duas etapas:
+Em geral, o desprovisionamento de um dispositivo envolve duas etapas:
 
-1. Revogar o acesso do dispositivo ao serviço de provisionamento. Se você pretende revogar o acesso temporariamente ou permanentemente, ou, no caso do mecanismo de certificação X.509, na hierarquia dos grupos de registros existentes, é possível desabilitar ou excluir uma entrada de registro. 
+1. Cancele o registro do dispositivo do serviço de provisionamento para evitar autoprovisionamentos futuros. Dependendo se você deseja revogar o acesso temporária ou permanentemente, convém desabilitar ou excluir uma entrada de registro. Para dispositivos que usam o atestado X.509, convém desabilitar/excluir uma entrada na hierarquia dos grupos de registros existentes.  
  
-   - Para saber como revogar o acesso do dispositivo usando o portal, consulte [Revogar o acesso do dispositivo](how-to-revoke-device-access-portal.md).
-   - Para saber como revogar o acesso do dispositivo programaticamente usando um dos SDKs do serviço de provisionamento, consulte [Gerenciar registros de dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
+   - Para saber como cancelar o registro de um dispositivo, consulte [Como cancelar o registro de um dispositivo no Provisionamento de Dispositivos no Hub IoT](how-to-revoke-device-access-portal.md).
+   - Para saber como cancelar o registro de um dispositivo programaticamente usando uma das SDKs do serviço de provisionamento, consulte [Gerenciar registros de dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
 
-2. Desabilitar ou excluir a entrada do dispositivo no registro de identidade para o Hub IoT onde foi provisionado. Para saber mais, consulte [Gerenciar identidades de dispositivo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) na documentação do Hub IoT do Azure. 
+2. Cancele o registro do dispositivo do Hub IoT para evitar futuras comunicações e transferência de dados. Novamente, será possível desabilitar temporariamente ou excluir permanentemente a entrada do dispositivo no registro de identidade do Hub IoT em que foi provisionado. Consulte [Desabilitar dispositivos](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) para saber mais sobre a desabilitação. Consulte "Gerenciamento de Dispositivos/Dispositivos de IoT" para o recurso Hub IoT, no [Portal do Azure](https://portal.azure.com).
 
-As etapas exatas que devem executadas para cancelar o provisionamento de um dispositivo dependem do respectivo mecanismo de atestado e da entrada de registro aplicável com seu serviço de provisionamento.
+As etapas exatas que você adota para desprovisionar um dispositivo dependem do mecanismo de certificação e da entrada de registro aplicável ao serviço de provisionamento. As seções a seguir fornecem uma visão geral do processo, com base no tipo de registro e atestado.
 
 ## <a name="individual-enrollments"></a>Registros individuais
 Dispositivos que utilizam atestado de TPM ou atestado X.509 com um certificado secundário são provisionados através de uma entrada de registro individual. 
 
-Para desprovisionar um dispositivo que tenha um registro individual: 
-1. Para dispositivos que usam atestado de TPM, exclua a entrada individual do registro para revogar permanentemente o acesso do dispositivo ao serviço de provisionamento ou desabilite a entrada para revogar temporariamente o acesso. Para dispositivos que usam o atestado X.509, você pode excluir ou desabilitar a entrada. No entanto, lembre-se que, se você excluir um registro individual de um dispositivo que usa o atestado X.509 e houver um grupo de registro habilitado para um certificado de autenticação na cadeia de certificados desse dispositivo, o dispositivo poderá registrar-se novamente. Para esses dispositivos, é mais seguro desabilitar a entrada de registro. Isso impedirá que o dispositivo registre-se novamente, independentemente da existência de um grupo de registro habilitado para um dos certificados de autenticação.
+Para desprovisionar um dispositivo que possui um registro individual: 
+
+1. Cancele o registro do dispositivo no serviço de provisionamento:
+
+   - Para dispositivos que usam o atestado de TPM, exclua a entrada de registro individual para revogar permanentemente o acesso do dispositivo ao serviço de provisionamento ou desabilite a entrada para revogar temporariamente o acesso. 
+   - Para dispositivos que usam o atestado X.509, você pode excluir ou desabilitar a entrada. Lembre-se, no entanto, se você excluir um registro individual de um dispositivo que usa o X.509 e existir um grupo de registro habilitado para um certificado de autenticação na cadeia de certificados desse dispositivo, o dispositivo poderá registrar-se novamente. Para esses dispositivos, é mais seguro desabilitar a entrada de registro. Isso impedirá que o dispositivo registre-se novamente, independentemente da existência de um grupo de registro habilitado para um dos certificados de autenticação.
+
 2. Desabilite ou exclua o dispositivo no registro de identidade do Hub IoT para o qual ele foi provisionado. 
 
 
@@ -55,10 +60,11 @@ Para ver uma lista de dispositivos provisionados através de um grupo de registr
 
 Com grupos de registro há dois cenários a considerar:
 
-- Para desprovisionar todos os dispositivos que foram provisionados por meio de um grupo de registro:
+- Para desprovisionar todos os dispositivos que foram provisionados por meio de um grupo de registros:
   1. Desabilite o grupo de registro para adicionar o respectivo certificado de autenticação à lista de bloqueios. 
   2. Use a lista de dispositivos provisionados desse grupo de registros para desabilitar ou excluir cada dispositivo do registro de identidade do respectivo Hub IoT. 
   3. Após desabilitar ou excluir todos os dispositivos dos respectivos Hubs IoT, você poderá optar por excluir o grupo de registros. No entanto, esteja ciente de que se excluir o grupo de registros e houver um grupo de registros habilitado para um certificado de autenticação superior na cadeia de certificados de um ou mais dispositivos, esses dispositivos poderão registar novamente. 
+
 - Para desprovisionar um único dispositivo de um grupo de registros:
   1. Crie um registro individual desabilitado para o seu certificado secundário (dispositivo). Isso revoga o acesso ao serviço de provisionamento para esse dispositivo enquanto ainda permite o acesso a outros dispositivos que possuem o certificado de autenticação do grupo de registros em sua cadeia. Não exclua o registro individual desabilitado para o dispositivo. Isso permitirá ao dispositivo registrar novamente através do grupo de registros. 
   2. Use a lista de dispositivos provisionados desse grupo de registros para encontrar o Hub IoT ao qual o dispositivo foi provisionado e desabilitá-lo ou excluí-lo do registro de identidade desse hub. 

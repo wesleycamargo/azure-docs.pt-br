@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195161"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -22,7 +23,7 @@ Usando tecnologias In-Memory no Banco de Dados SQL do Azure, você pode obter me
 Estes são dois exemplos de como o OLTP In-Memory ajudou a melhorar significativamente o desempenho:
 
 - Usando o OLTP In-Memory, a [Quorum Business Solutions foi capaz de duplicar a carga de trabalho, melhorando as DTUs em 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *unidade de taxa de transferência de banco de dados* e inclui uma medição de consumo de recursos.
+    - DTU significa *unidade de transmissão de dados* e inclui uma medida de consumo de recursos.
 - O vídeo a seguir demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP In-Memory no Vídeo do Banco de Dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Para obter mais informações, confira a postagem no blog [OLTP in-memory no Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -36,14 +37,14 @@ O vídeo a seguir explica os possíveis ganhos de desempenho com as tecnologias 
 
 O Banco de Dados SQL do Azure conta com as seguintes tecnologias em memória:
 
-- O *OLTP in-memory* aumenta a taxa de transferência e reduz a latência do processamento de transações. Os cenários que se beneficiam do OLTP In-Memory são: processamento de transações de alta taxa de transferência, como comércio e jogos, ingestão de dados de eventos ou dispositivos IoT, cache, carregamento de dados e cenários de variáveis de tabela e tabelas temporárias.
+- *OLTP In-Memory* aumenta a transação e reduz a latência para o processamento de transações. Os cenários que se beneficiam do OLTP In-Memory são: processamento de transações de alta taxa de transferência, como comércio e jogos, ingestão de dados de eventos ou dispositivos IoT, cache, carregamento de dados e cenários de variáveis de tabela e tabelas temporárias.
 - Os *índices columnstore clusterizados* reduzem seu volume de armazenamento (em até 10 vezes) e melhoram o desempenho de relatórios e consultas de análise. Você pode usá-lo com tabelas de fatos em data marts para colocar mais dados no banco de dados e melhorar o desempenho. Além disso, também é possível usá-lo com os dados históricos no banco de dados operacional para arquivar e conseguir consultar até 10 vezes mais dados.
 - *Índices columnstore não clusterizados* para HTAP ajudam a obter análises em tempo real sobre seus negócios consultando o banco de dados operacional diretamente, sem a necessidade de executar um processo ETL (extração, transformação e carregamento) caro e aguardar o data warehouse ser populado. Os índices columnstore não clusterizados permitem uma execução muito rápida das consultas de análise no banco de dados OLTP, enquanto reduzem o impacto sobre a carga de trabalho operacional.
 - Você também pode ter a combinação de tabela com otimização de memória com um índice columnstore. Essa combinação permite que você execute o processamento de transações com muita rapidez e execute *simultaneamente* consultas de análise rapidamente nos mesmos dados.
 
 Tanto os índices columnstore quanto o OLTP In-Memory integram o produto SQL Server desde 2012 e 2014, respectivamente. O Banco de Dados SQL do Azure e o SQL Server compartilham a mesma implementação de tecnologias In-Memory. Daqui em diante, os novos recursos para essas tecnologias serão lançados primeiro no Banco de Dados SQL do Azure, antes de serem lançados no SQL Server.
 
-Este tópico descreve aspectos do OLTP In-Memory e dos índices Columnstore específicos ao Banco de Dados SQL do Azure, além de também incluir exemplos:
+Este artigo descreve aspectos do OLTP In-Memory e dos índices Columnstore específicos ao Banco de Dados SQL do Azure, além de também incluir exemplos:
 - Você verá o impacto dessas tecnologias no armazenamento e dos limites de tamanho dos dados.
 - Você verá como gerenciar a movimentação dos bancos de dados que utilizam essas tecnologias entre os diferentes tipos de preço.
 - Você verá dois exemplos que ilustram o uso do OLTP In-Memory, bem como dos índices columnstore, no Banco de Dados SQL do Azure.
@@ -71,7 +72,7 @@ Vídeos detalhados sobre as tecnologias:
 
 O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no serviço do Banco de Dados SQL, temos o conceito de uma cota para dados de usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory*.
 
-Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Até o momento em que esse documento foi redigido, você recebe um gigabyte de armazenamento para cada 125 DTUs (unidades de transação do banco de dados) ou eDTUs (unidades de transação do banco de dados elástico). Para saber mais, consulte [Limites do Recurso](sql-database-resource-limits.md).
+Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Consulte [Limites de recursos baseados em DTU](sql-database-dtu-resource-limits.md) e [Limites de recursos baseados em vCore](sql-database-vcore-resource-limits.md).
 
 Os itens a seguir contam para seu limite de armazenamento do OLTP in-memory:
 
@@ -87,12 +88,12 @@ Para obter detalhes sobre como monitorar a utilização do armazenamento do OLTP
 
 Com os pools elásticos, o armazenamento do OLTP in-memory é compartilhado entre todos os bancos de dados no pool. Portanto, o uso de um banco de dados pode afetar outros bancos de dados. As duas mitigações para esse problema são:
 
-- Configure um Max-eDTU para bancos de dados que seja menor que a contagem de eDTUs do pool como um todo. Isso proporciona um limite máximo à utilização no armazenamento do OLTP in-memory em qualquer banco de dados no pool ao tamanho que corresponde à contagem de eDTUs.
-- Defina um Min-eDTU maior que 0. Isso garante o mínimo que cada banco de dados no pool tem a quantidade de armazenamento do OLTP in-memory disponível correspondente ao Min-eDTU configurado.
+- Configure um `Max-eDTU` ou `MaxvCore` para bancos de dados que sejam inferiores à contagem eDTU ou vCore para o pool como um todo. Isso proporciona um limite máximo à utilização no armazenamento do OLTP in-memory em qualquer banco de dados no pool ao tamanho que corresponde à contagem de eDTUs.
+- Configure um `Min-eDTU` ou `MinvCore` que seja maior que 0. Esse mínimo garante que cada banco de dados no pool tenha a quantidade de armazenamento de OLTP In-Memory disponível que corresponde ao configurado `Min-eDTU` ou `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
-Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado no artigo [Camadas de serviço do Banco de Dados SQL](sql-database-service-tiers.md).
+Os índices columnstore não precisam caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo do banco de dados geral, que está documentado nos artigos [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 
 Ao usar os índices columnstore clusterizados, a compactação vertical é usada para o armazenamento de tabelas base. Essa compactação pode reduzir consideravelmente o volume de armazenamento dos dados do usuário, o que significa que você pode colocar mais dados no banco de dados. E a compactação pode ser ainda maior com a [compactação de arquivamento vertical](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). A quantidade de compactação que pode ser obtida depende da natureza dos dados, mas uma compactação de 10 vezes não é incomum.
 
@@ -104,7 +105,7 @@ Quando você usa os índices columnstore não clusterizado, a tabela base ainda 
 
 Nunca há incompatibilidades ou outros problemas quando você atualiza para um preço mais alto, por exemplo, do Standard para Premium. Os recursos e funcionalidades disponíveis só aumentam.
 
-Mas o downgrade do tipo de preço pode afetar negativamente seu banco de dados. O impacto é especialmente aparente quando você faz o downgrade de Premium para Básico ou Standard quando o banco de dados contém objetos OLTP in-memory. As tabelas otimizadas para memória e índices columnstore não ficam disponíveis após o downgrade (mesmo se permanecerem visíveis). As mesmas considerações se aplicam ao reduzir o tipo de preço de um pool elástico ou ao mover um banco de dados com tecnologias In-Memory para um pool elástico Standard ou Básico.
+Mas o downgrade do tipo de preço pode afetar negativamente seu banco de dados. O impacto é especialmente aparente quando você faz o downgrade de Premium para Básico ou Standard quando o banco de dados contém objetos OLTP in-memory. As tabelas otimizadas para memória não ficam disponíveis após o downgrade (mesmo se permanecerem visíveis). As mesmas considerações se aplicam ao reduzir o tipo de preço de um pool elástico ou ao mover um banco de dados com tecnologias In-Memory para um pool elástico Standard ou Básico.
 
 ### <a name="in-memory-oltp"></a>OLTP Na Memória
 
@@ -130,11 +131,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Índices ColumnStore
 
-*Downgrade para Básico ou Standard*: os índices columnstore só têm suporte no tipo de preço Premium, e não nos tipos Standard ou Básico. Ao fazer o downgrade de seu banco de dados para Básico ou Standard, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar para Premium, o índice columnstore será imediatamente disponibilizado para uso novamente.
+*Downgrade para Básico ou Standard*: os índices columnstore só têm suporte no tipo de preço Premium e Standard, S3 e superior, e não no tipo Básico. Ao fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar de volta para um tipo ou nível com suporte, o índice columnstore será imediatamente disponibilizado para uso novamente.
 
-Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade do tipo. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados abaixo do tipo Premium.
+Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte.
 
-*Fazer downgrade para um tipo Premium mais baixo*: esse downgrade terá êxito se todo o banco de dados couber dentro do tamanho máximo de banco de dados para o tipo de preço de destino, ou dentro do armazenamento disponível no pool elástico. Não há nenhum impacto específico nos índices columnstore.
+*Fazer downgrade para um tipo ou nível inferior sem suporte*: esse downgrade terá êxito se todo o banco de dados couber dentro do tamanho máximo de banco de dados para o tipo de preço de destino, ou dentro do armazenamento disponível no pool elástico. Não há nenhum impacto específico nos índices columnstore.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
@@ -152,7 +153,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 #### <a name="installation-steps"></a>Etapas de instalação
 
-1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
+1. No [Portal do Azure](https://portal.azure.com/), crie um banco de dados Premium ou Comercialmente Crítico (versão prévia) em um servidor. Defina a **Origem** como o banco de dados de exemplo AdventureWorksLT. Para obter instruções detalhadas, consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md).
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 A única diferença entre os dois *procedimentos armazenados* a seguir é que o primeiro procedimento usa versões com otimização de memória das tabelas, enquanto o segundo procedimento usa as tabelas em disco regulares:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 Nesta seção, você verá como usar o utilitário **ostress.exe** para executar os dois procedimentos armazenados em níveis estressantes. Você pode comparar quanto tempo as duas execuções demoram para serem concluídas.

@@ -1,27 +1,21 @@
 ---
-title: Conectar-se aos Azure Analysis Services | Microsoft Docs
+title: Conectar-se aos servidores dos Azure Analysis Services | Microsoft Docs
 description: Saiba como se conectar e obter dados de um servidor do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: b37f70a0-9166-4173-932d-935d769539d1
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: owend
-ms.openlocfilehash: e93544902d7ef435fb1b94e83700ae4fcd6f91f2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 53a8a1eea5ffa50fcdaf4a60c9bbd03d30d8e311
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151307"
 ---
-# <a name="connect-to-an-azure-analysis-services-server"></a>Conectar-se a um servidor do Azure Analysis Services
+# <a name="connecting-to-servers"></a>Conectando-se a servidores
 
 Este artigo descreve como conectar-se a um servidor usando aplicativos de gerenciamento e modelagem de dados como o SQL Server Management Studio (SSMS) ou SQL Server Data Tools (SSDT). Ou, com aplicativos de relatório de cliente como o Microsoft Excel, Power BI Desktop ou aplicativos personalizados. Conexões ao Azure Analysis Services usam HTTPS.
 

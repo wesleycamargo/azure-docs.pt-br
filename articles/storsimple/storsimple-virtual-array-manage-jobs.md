@@ -1,11 +1,11 @@
 ---
 title: Exibir e gerenciar trabalhos do StorSimple Virtual Array | Microsoft Docs
-description: "Descreve a página de Trabalhos do serviço do Gerenciador de Dispositivos StorSimple e como usá-la para controlar trabalhos recentes e atuais para a Matriz Virtual StorSimple."
+description: Descreve a página de Trabalhos do serviço do Gerenciador de Dispositivos StorSimple e como usá-la para controlar trabalhos recentes e atuais para a Matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para exibir os trabalhos para a Matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral

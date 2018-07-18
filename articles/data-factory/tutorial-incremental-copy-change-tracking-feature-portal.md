@@ -1,11 +1,11 @@
 ---
-title: "Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory | Microsoft Docs"
-description: "Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. "
+title: Copiar dados de maneira incremental usando o Controle de Alterações e o Azure Data Factory | Microsoft Docs
+description: 'Neste tutorial, você deve criar um pipeline do Azure Data Factory que copie incrementalmente os dados delta de várias tabelas em um banco de dados do SQL Server local para um banco de dados SQL do Azure. '
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 891dad1a481c966e6ea1771f3e7c7850fa429352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
 
-Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Prepare o armazenamento de dados de origem
@@ -75,7 +75,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
-1. Inicie o **SQL Server Management Studio** e conecte-se à réplica principal. 
+1. Inicie o **SQL Server Management Studio** e conecte-se ao SQL Server do Azure. 
 2. No **Gerenciador de Servidores**, clique com o botão direito do mouse no **banco de dados** e escolha **Nova Consulta**.
 3. Execute o comando SQL a seguir no Banco de Dados SQL do Azure para criar uma tabela chamada `data_source_table` como o repositório de fonte de dados.  
     
@@ -223,7 +223,7 @@ Nesta etapa, você vincula o banco de dados SQL do Azure ao data factory.
        ![Configurações do serviço vinculado para o Banco de Dados SQL do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o destino de dados. e o local para armazenar o SYS_CHANGE_VERSION.
+Nesta etapa, você criará conjuntos de dados para representar a origem dos dados, o destino dos dados. e o local para armazenar o SYS_CHANGE_VERSION.
 
 ### <a name="create-a-dataset-to-represent-source-data"></a>Criar um conjunto de dados para representar dados de origem 
 Nesta etapa, você cria conjuntos de dados para representar os dados de origem. 

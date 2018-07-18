@@ -10,6 +10,7 @@
 ## [Instalar o agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 ## [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 ## [Erros durante a sincronização](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Diagnosticar erros de sincronização de atributos duplicados](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Solucionar problemas
 ## [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
@@ -19,7 +20,7 @@
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 ## [Catálogo de alerta de integridade do Azure AD Connect Health](active-directory-aadconnect-health-alert-catalog.md)
-## [Conformidade GDPR e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
+## [Privacidade do usuário e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Relacionados
 ## [Integração de suas identidades locais com o Active Directory do Azure](../active-directory-aadconnect.md)

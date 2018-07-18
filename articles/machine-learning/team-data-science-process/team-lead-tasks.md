@@ -1,23 +1,23 @@
 ---
-title: "Tarefas do líder da equipe do Processo de Ciência de Dados de Equipe – Azure | Microsoft Docs"
-description: "Uma estrutura de tópicos das tarefas de um líder de equipe em um projeto de equipe de ciência de dados."
-documentationcenter: 
-author: bradsev
+title: Tarefas do líder da equipe do Processo de Ciência de Dados de Equipe – Azure | Microsoft Docs
+description: Uma estrutura de tópicos das tarefas de um líder de equipe em um projeto de equipe de ciência de dados.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: deguhath
+ms.openlocfilehash: d17c6c7543416d3f279b7e25152a421dd233a806
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-lead-tasks"></a>Tarefas do líder da equipe
 
@@ -64,7 +64,7 @@ Os nomes especificados para os repositórios e diretórios neste tutorial foram 
 Em todos os casos, os líderes de equipe precisam informar aos membros da equipe quais repositórios de modelo e utilitários eles devem adotar ao configurar e clonar e os repositórios do projeto e dos utilitários. Os líderes do projeto devem seguir as [Project Lead tasks for a data science team](project-lead-tasks.md) (Tarefas do líder do projeto para uma equipe de ciência de dados) para criar repositórios do projeto, seja em projetos de equipe separados ou em um único projeto de equipe. 
 
 
-## <a name="0-prerequisites"></a>0. Pré-requisitos
+## <a name="0-prerequisites"></a>0. pré-requisitos
 
 Os pré-requisitos são atendidos ao concluir as tarefas atribuídas a seu gerente de grupo, descritas em [Group Manager tasks for a data science team](group-manager-tasks.md) (Tarefas do gerente de grupo para uma equipe de ciência de dados). Para resumir aqui, os requisitos a seguir precisam ser atendidos antes de começar as tarefas do líder de equipe: 
 
@@ -208,7 +208,7 @@ Após a clonagem, dois diretórios **MyTeamProjectTemplate** (D3) e **MyTeamUtil
 
 Para copiar o conteúdo da pasta **GroupProjectTemplate** (D1) local para o **MyTeamProjectTemplate** (D3) local, execute um dos seguintes scripts de shell: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>Usando a linha de comando do PowerShell para Windows        
+#### <a name="from-the-powershell-command-line-for-windows"></a>Usando a linha de comando do PowerShell para Windows       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Para copiar o conteúdo da pasta **GroupProjectTemplate** (D1) local para o **My
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>Usando o shell do Linux para a **DSVM do Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>Usando o shell do Linux para a **DSVM do Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Confirme que uma nova unidade F foi montada com êxito em seu computador.
 
 **Como inserir as informações de armazenamento de arquivos do Azure manualmente:** se você não tem as informações de armazenamento de arquivos do Azure em um arquivo de texto, é possível seguir as instruções na tela a seguir, para digitar a assinatura necessária, a conta de armazenamento e as informações de armazenamento de arquivos do Azure:
 
-- Insira **n**.
+- Entrada **n**.
 - Selecione o índice do nome da assinatura na qual o armazenamento de arquivos do Azure foi criado na etapa anterior:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

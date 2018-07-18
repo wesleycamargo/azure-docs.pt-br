@@ -1,12 +1,12 @@
 ---
-title: "Criar fluxos de trabalho automatizados com base em agendados - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Este tutorial mostra como criar um fluxo de trabalho recorrente, automatizado e com base em agendador com os Aplicativos Lógicos do Azure"
+title: Criar fluxos de trabalho automatizados com base em agendados - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Este tutorial mostra como criar um fluxo de trabalho recorrente, automatizado e com base em agendador com os Aplicativos Lógicos do Azure
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na

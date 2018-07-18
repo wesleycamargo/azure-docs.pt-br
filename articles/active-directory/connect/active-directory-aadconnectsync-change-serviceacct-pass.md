@@ -1,12 +1,12 @@
 ---
-title: "Sincronização do Azure AD Connect: alterando a conta do serviço de sincronização do Azure AD Connect | Microsoft Docs"
-description: "Este documento tópico descreve a chave de criptografia e como abandoná-la depois que a senha tiver sido alterada."
+title: 'Sincronização do Azure AD Connect: alterando a conta do serviço de sincronização do Azure AD Connect | Microsoft Docs'
+description: Este documento tópico descreve a chave de criptografia e como abandoná-la depois que a senha tiver sido alterada.
 services: active-directory
-keywords: "Conta do serviço de sincronização do Azure AD, senha"
-documentationcenter: 
+keywords: Conta do serviço de sincronização do Azure AD, senha
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
@@ -30,7 +30,7 @@ A chave de criptografia usada é protegida usando o [Data Protection do Windows 
 
 Se você precisar alterar a senha da conta do serviço, use os procedimentos em [Abandono da chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) para fazer isso.  Estes procedimentos também deverão ser usados se você precisar abandonar a chave de criptografia por algum motivo.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Os problemas que surgem da alteração da senha
+## <a name="issues-that-arise-from-changing-the-password"></a>Os problemas que surgem da alteração da senha
 Há duas coisas que precisam ser feitas quando você altera a senha da conta do serviço.
 
 Primeiro, você precisa alterar a senha no Gerenciador de Controle de Serviços do Windows.  Até que esse problema seja resolvido, você verá os seguintes erros:

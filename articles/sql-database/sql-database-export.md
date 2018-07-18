@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 10/11/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 8f722f6d7563d22008105b503eb2433c7bd310a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894034"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC
 
@@ -97,3 +98,4 @@ $exportStatus
 * Para saber mais sobre como importar um BACPAC para um Banco de Dados do SQL Server, confira [Importar um BACPAC para um banco de dados do SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 * Para saber mais sobre como exportar um BACPAC de um banco de dados do SQL Server, consulte [Exportar um aplicativo da camada de dados](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) e [Migrar seu primeiro banco de dados](sql-database-migrate-your-sql-server-database.md).
 * Se você estiver exportando do SQL Server como um prelúdio para a migração para o Banco de Dados SQL do Azure, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+* Para saber como gerenciar e compartilhar as chaves de armazenamento e assinaturas de acesso compartilhado com segurança, consulte [Guia de Segurança de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

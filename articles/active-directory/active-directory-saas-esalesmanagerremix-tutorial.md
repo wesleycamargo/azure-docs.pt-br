@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f681eb91c1e79eb42b572956dfab93e620489e74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -30,7 +30,7 @@ Ao integrar o E Sales Manager Remix ao Microsoft Azure Active Directory, você o
 - Você pode permitir que seus usuários façam logon automaticamente no E Sales Manager Remix (Logon Único ou SSO) com as respectivas contas do Microsoft Azure Active Directory.
 - Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -129,7 +129,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 8. Na seção **Referência rápida**, copie a URL de saída e a URL do serviço de logon único do SAML.
 
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
     ![O botão Salvar](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -155,7 +155,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
-    c. Na caixa **item Colaboração**, cole o valor de declaração que você copiou anteriormente no portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. Na caixa **Emissor (ID da entidade)**, cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
 
@@ -201,7 +201,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Criar um usuário de teste do E Sales Manager Remix
 
@@ -270,7 +270,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

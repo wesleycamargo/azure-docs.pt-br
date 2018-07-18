@@ -1,9 +1,9 @@
 ---
-title: "Diagrama de processamento de pagamento do Azure – Requisitos de proteção do sistema"
+title: Diagrama de processamento de pagamento do Azure – Requisitos de proteção do sistema
 description: Requisito 6 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 79889fdb-52d2-42db-9117-6e2f33d501e0
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2f6f1bfc853f261eecf5357cef5d3e3d972781b1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>Requisitos de proteção do sistema para ambientes em conformidade com o PCI DSS 
 ## <a name="pci-dss-requirement-6"></a>Requisito 6 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Desenvolver e manter os aplicativos e sistemas protegidos**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte o PCI DSS para obter informações sobre procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso privilegiado aos sistemas. Muitas dessas vulnerabilidades são corrigidas por patches de segurança distribuídos pelo fornecedor, que devem ser instalados pelas entidades que gerenciam os sistemas. Todos os sistemas devem ter todos os patches de software apropriados para a proteção contra o comprometimento dos dados do titular do cartão por indivíduos ou softwares mal-intencionados.
 
@@ -47,7 +47,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Procedimentos foi estabelecidos e implementados para verificar vulnerabilidades em hosts de hipervisor no limite de escopo. A verificação de vulnerabilidade é executada em sistemas operacionais de servidor, bancos de dados e dispositivos de rede com ferramentas de verificação de vulnerabilidade apropriadas. As verificações de vulnerabilidade são executadas, no mínimo, a cada trimestre. Contratos do Microsoft Azure com avaliadores independentes para executar o teste de penetração dos limites do Microsoft Azure. Os exercícios de Red-Team também são executados rotineiramente e os resultados são usados para fazer aperfeiçoamentos de segurança. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -63,7 +63,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por fazer com que todos os dispositivos de rede e softwares do sistema operacional do hipervisor estejam protegidos de vulnerabilidades conhecidas instalando os patches de segurança aplicáveis distribuídos pelo fornecedor. A menos que um cliente solicite não usar o serviço, haverá um processo de gerenciamento de patches para evitar e corrigir as vulnerabilidades no nível do sistema operacional sem demora. Os servidores de produção são verificados para validação da conformidade com os patches mensalmente. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore é uma solução de serviço PaaS. O Azure fornece a manutenção de todos os patches de serviço.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore é uma solução de serviço PaaS. O Azure fornece a manutenção de todos os patches de serviço.|
 
 
 
@@ -82,7 +82,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Os pontos de extremidade e aplicativos do Microsoft Azure são desenvolvidos de acordo com a metodologia SDL (Microsoft Security Development Lifecycle), que está em conformidade com os requisitos de DSS. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore foi projetada para seguir as melhores práticas do setor para proteger CHD. As diretrizes de implantação fornecem detalhes sobre as medidas de segurança, e o registro em log está habilitado.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore foi projetada para seguir as melhores práticas do setor para proteger CHD. As diretrizes de implantação fornecem detalhes sobre as medidas de segurança, e o registro em log está habilitado.|
 
 
 
@@ -95,7 +95,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Uma FSR (Análise Final de Segurança) é executada em versões principais, antes da implantação de produção, por um Supervisor de Segurança designado de fora da equipe de desenvolvimento do Azure para fazer com que apenas aplicativos prontos para produção sejam lançados. Como parte dessa revisão final, a remoção de todas as contas de teste e dos dados de teste é verificada. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -117,7 +117,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Os pontos de extremidade e aplicativos do Microsoft Azure são desenvolvidos de acordo com a metodologia SDL (Microsoft Security Development Lifecycle). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -130,7 +130,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | A Microsoft segue as diretrizes NIST sobre implicações de segurança no desenvolvimento de software, no sentido de que a segurança da informação deve estar integrada ao SDLC desde a criação do sistema. A integração contínua das práticas de segurança no Microsoft SDL permite:<ul><li>A identificação antecipada e redução de vulnerabilidades de segurança e configurações incorretas</li><li>O reconhecimento de possíveis desafios de codificação de software causados por controles de segurança obrigatórios</li><li>A identificação dos serviços de segurança compartilhados e a reutilização das ferramentas de melhores práticas de segurança que melhoram a postura de segurança por meio de métodos e técnicas comprovadas</li><li>Imposição do programa de gerenciamento de riscos já abrangente da Microsoft</li></ul>O Microsoft Azure definiu processos de gerenciamento de alterações e de versões para controlar a implementação de grandes alterações, incluindo:<ul><li>A identificação e a documentação da alteração planejada</li><li>A identificação de metas de negócios, prioridades e cenários durante o planejamento do produto</li><li>A especificação de design de componente/recurso</li><li>A revisão de prontidão operacional com base em critérios predefinidos/lista de verificação para avaliar o risco/impacto geral</li><li>O gerenciamento de alterações, autorização e teste com base em critérios de entrada/saída para os ambientes de DEV (desenvolvimento), INT (teste de integração), STAGE (pré-produção) e PROD (produção), conforme apropriado. Os clientes são responsáveis por seus próprios aplicativos hospedados no Microsoft Azure.</li></ul> |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A demonstração da Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. <br /><br />Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).<br /><br />As alterações são registradas usando o Operations Management Suite, e Runbooks são usados para coletar logs. A [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornece um amplo registro em log das alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A demonstração da Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. <br /><br />Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).<br /><br />As alterações são registradas usando o Operations Management Suite, e Runbooks são usados para coletar logs. O Log Analytics fornece registro em log extensivo de alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -143,7 +143,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -156,7 +156,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece um serviço de preparo que é registrado em log e isolado. Cada uma das camadas de rede tem um NSG [grupo de segurança de rede dedicado]. Para saber mais, confira [Diretriz de PCI – Grupos de Segurança de Rede](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -169,7 +169,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não tem nenhum dado de PAN (número de conta primária) dinâmica.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não tem nenhum dado de PAN (número de conta primária) dinâmica.|
 
 
 
@@ -182,7 +182,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não tem contas de teste.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não tem contas de teste.|
 
 
 
@@ -199,7 +199,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore é uma solução de serviço PaaS. E o Azure fornece a manutenção de todos os patches de serviço.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore é uma solução de serviço PaaS. E o Azure fornece a manutenção de todos os patches de serviço.|
 
 
 
@@ -216,7 +216,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore é uma solução de serviço PaaS. E o Azure fornece a manutenção de todos os patches de serviço.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore é uma solução de serviço PaaS. E o Azure fornece a manutenção de todos os patches de serviço.|
 
 
 
@@ -248,7 +248,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Confira a seção "Microsoft Azure" para ver o [Requisito 6.4](#pci-dss-requirement-6-4). |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A demonstração da Contoso Webstore fornece orientações para desenvolvimento seguro, um DFD e um modelo de ameaça para explicar as práticas de desenvolvimento seguro.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A demonstração da Contoso Webstore fornece orientações para desenvolvimento seguro, um DFD e um modelo de ameaça para explicar as práticas de desenvolvimento seguro.|
 
 
 
@@ -268,7 +268,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure testa aplicativos Web voltados ao público como parte do processo de SDL antes que os aplicativos sejam implantados no ambiente de produção. Além disso, a Microsoft verifica todos os aplicativos Web voltados ao público em produção regularmente para detectar possíveis vulnerabilidades. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A solução de referência reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A solução de referência reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -281,7 +281,7 @@ Indivíduos inescrupulosos usam vulnerabilidades de segurança para obter acesso
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A solução de referência reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A solução de referência reduz o risco de vulnerabilidades de segurança usando o Gateway de Aplicativo com WAF e o conjunto de regras OWASP habilitado. Para saber mais, confira [Diretriz de PCI - Mitigação do risco de vulnerabilidades de segurança](payment-processing-blueprint.md#application-gateway).|
 
 
 

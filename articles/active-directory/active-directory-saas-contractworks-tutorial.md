@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e5ad805bbb25d2431944e2ede1f22630956356
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 459b8f424a05f6332f6285f35645ec93c67403cf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Azure Active Directory com o ContractWorks
 
@@ -30,7 +30,7 @@ A integração do ContractWorks ao Microsoft Azure AD oferece os seguintes benef
 - Você pode permitir que seus usuários façam logon automaticamente no ContractWorks (logon único) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -99,7 +99,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
 3. Na seção **Domínio e URLs do ContractWorks**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
@@ -121,7 +121,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo | Valor do atributo |
-    | ---------------| --------------- |    
+    | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |
 
@@ -139,34 +139,15 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     
     d. Clique em **Ok**
 
-7. Clique no botão **Salvar** .
+7. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+    
+    ![Configurar o logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_metadataurl.png)
+     
+8. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-8. Para gerar a **URL de Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
-     
-    d. Agora, acesse a página de propriedades do **ContractWorks** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Para configurar o logon único no lado do **ContractWorks**, é necessário enviar a **URL de Metadados** gerada para a [equipe de suporte do ContractWorks](mailto:support@contractworks.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+9. Para configurar logon único no **ContractWorks**, é necessário enviar a **URL de metadados de federação do aplicativo** gerada para a [Equipe de suporte do ContractWorks](mailto:support@contractworks.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -244,7 +225,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

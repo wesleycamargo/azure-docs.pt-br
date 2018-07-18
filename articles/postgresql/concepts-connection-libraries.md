@@ -1,6 +1,6 @@
 ---
-title: "Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL"
-description: "Este artigo descreve várias bibliotecas e vários drivers que os desenvolvedores podem usar ao codificar aplicativos para se conectar e consultar o Banco de Dados do Azure para PostgreSQL."
+title: Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL
+description: Este artigo descreve várias bibliotecas e vários drivers que os desenvolvedores podem usar ao codificar aplicativos para se conectar e consultar o Banco de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

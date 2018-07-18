@@ -3,7 +3,7 @@ title: Microsoft Dynamics CRM e Azure Application Insights | Microsoft Docs
 description: Obtenha a telemetria do Microsoft Dynamics CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação.
 services: application-insights
 documentationcenter: ''
-author: mazharmicrosoft
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: mbullwin; mazhar
+ms.openlocfilehash: 0080217f718d8df9b62c7bc305fbc1365477cc4d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
 Este artigo mostra como obter dados de telemetria no [Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
@@ -60,7 +60,7 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
     ![Abrir o editor de texto](./media/app-insights-sample-mscrm/00004.png)
 2. Copie o código do Application Insights. Ao copiar, certifique-se de ignorar marcas de script. Consulte a captura de tela abaixo:
 
-    ![Configurar sua chave de instrumentação](./media/app-insights-sample-mscrm/00005.png)
+    ![Configurar sua chave de instrumentação](./media/app-insights-sample-mscrm/000005.png)
 
     O código inclui a chave de instrumentação que identifica seu recurso do Application insights.
 3. Salve e publique.

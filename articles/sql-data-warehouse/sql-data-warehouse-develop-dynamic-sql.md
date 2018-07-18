@@ -1,28 +1,27 @@
 ---
-title: "SQL dinâmico no SQL Data Warehouse | Microsoft Docs"
-description: "Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+title: Usando exibições do SQL no Azure SQL Data Warehouse | Microsoft Docs
+description: Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 604074e0a645918f7033360b79a1b7cad050c9e4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinâmico no SQL Data Warehouse
-Ao desenvolver o código do aplicativo para o SQL Data Warehouse, talvez seja preciso usar um sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. Isso pode limitar o tamanho de suas sequências de caracteres como tipos de blob que incluem tipos varchar(max) e nvarchar(max). Se você usou estes tipos no código do seu aplicativo ao compilar cadeias de caracteres muito grandes, você precisará dividir o código em partes e usar a instrução EXEC em seu lugar.
+Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+
+## <a name="dynamic-sql-example"></a>Exemplo SQL dinâmico
+
+Ao desenvolver o código do aplicativo para o SQL Data Warehouse, talvez seja preciso usar um sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. O não suporte a tipos de dados blob pode limitar o tamanho de suas cadeias de caracteres desde que os tipos de dados blobs incluam tipos varchar (máx) e nvarchar (máx). Se você usou estes tipos no código do seu aplicativo ao compilar cadeias de caracteres muito grandes, você precisará dividir o código em partes e usar a instrução EXEC em seu lugar.
 
 Um exemplo simples:
 
@@ -34,7 +33,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se a cadeia de caracteres for curta, você poderá usar [sp_executesql][sp_executesql] normalmente.
+Se a cadeia de caracteres for curta, você poderá usar [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) normalmente.
 
 > [!NOTE]
 > Instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação de TSQL.
@@ -42,14 +41,5 @@ Se a cadeia de caracteres for curta, você poderá usar [sp_executesql][sp_execu
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
-
-<!--Other Web references-->

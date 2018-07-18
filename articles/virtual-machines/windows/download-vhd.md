@@ -2,24 +2,24 @@
 title: Baixar um VHD do Windows do Azure | Microsoft Docs
 description: Baixe um VHD do Windows usando o portal do Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: davidmu
-ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn
+ms.openlocfilehash: 83d6715d6d8178e273131a6bc123627126644271
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Baixar um VHD do Windows Azure
 

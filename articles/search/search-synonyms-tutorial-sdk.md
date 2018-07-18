@@ -1,39 +1,35 @@
 ---
-title: "Tutorial para visualizar sinônimos no Azure Search | Microsoft Docs"
-description: "Adicione o recurso de visualização de sinônimos a um índice no Azure Search."
-services: search
-manager: jhubbard
-documentationcenter: 
+title: Tutorial de sinônimos no Azure Search | Microsoft Docs
+description: Adicione o recurso de sinônimos a um índice no Azure Search.
+manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.topic: tutorial
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Tutorial C# de sinônimos (visualização) do Azure Search
+# <a name="synonym-c-tutorial-for-azure-search"></a>Tutorial de sinônimos do C# para o Azure Search
 
 Os sinônimos expandem uma consulta correspondendo os termos considerados semanticamente equivalentes com o termo de entrada. Por exemplo, você pode querer que "carro" corresponda aos documentos contendo os termos "automóvel" ou "veículo".
 
 No Azure Search, os sinônimos são definidos em um *mapa de sinônimos*com *regras de mapeamento* que associam os termos equivalentes. Você pode criar vários mapas de sinônimos, publicá-los como um recurso de todo o serviço disponível em qualquer índice e fazer referência a qual deles usar no nível do campo. No momento da consulta, além de pesquisar um índice, o Azure Search faz uma pesquisa em um mapa de sinônimos, caso um seja especificado nos campos usados na consulta.
 
 > [!NOTE]
-> O recurso de sinônimos está atualmente na visualização e só tem suporte nas versões do SDK e da API de visualização mais recentes (api-version=2016-09-01-Preview, SDK versão 4.x-preview). Não há nenhum suporte do portal do Azure no momento. As APIs de visualização não estão no SLA e os recursos da visualização podem mudar, portanto, não recomendamos usá-los nos aplicativos de produção.
+> Há suporte para o recurso de sinônimos nas últimas versões de API e SDK (api-version=2017-11-11, versão de SDK 5.0.0). Não há suporte do portal do Azure no momento. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os requisitos do tutorial incluem o seguinte:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Serviço do Azure Search](search-create-service-portal.md)
-* [Versão de visualização da biblioteca Microsoft.Azure.Search.NET](https://aka.ms/search-sdk-preview)
+* [Biblioteca do .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [Como usar o Azure Search a partir de um Aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Visão geral

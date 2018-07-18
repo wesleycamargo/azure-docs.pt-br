@@ -1,18 +1,18 @@
 ---
-title: "Montar um volume secreto em Instâncias de Contêiner do Azure"
-description: "Saiba como montar um volume secreto para armazenar informações confidenciais de acesso pelas instâncias de contêiner"
+title: Montar um volume secreto em Instâncias de Contêiner do Azure
+description: Saiba como montar um volume secreto para armazenar informações confidenciais de acesso pelas instâncias de contêiner
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 6f8e1b6faac11b668a143f8013a198831a428c51
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 47abb4c305b1997fa3f44c07aa85dd01e5a94f1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em Instâncias de Contêiner do Azure
 
@@ -35,6 +35,7 @@ Primeiro, popule a matriz `volumes` na seção `properties` do grupo de contêin
 
 Por exemplo, o modelo do Resource Manager a seguir cria um grupo de contêineres que consiste em um único contêiner. O contêiner monta um volume *secreto* que consiste em dois segredos codificados em Base64.
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Para ver um exemplo de implantação de instância de contêiner com um modelo do Azure Resource Manager, consulte [Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure](container-instances-multi-container-group.md).

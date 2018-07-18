@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V locais para recuperação de desastre no Azure
 
@@ -58,14 +58,13 @@ Prepare o VMM para o mapeamento de rede da seguinte maneira:
 
 ## <a name="verify-internet-access"></a>Verifique o acesso à Internet
 
-1. Para fins do tutorial, a configuração mais simples é que os hosts Hyper-V e o servidor do VMM, se aplicável, tenham acesso direto à Internet sem usar um proxy. 
+1. Para fins do tutorial, a configuração mais simples é que os hosts Hyper-V e o servidor VMM tenham acesso direto à Internet sem usar um proxy. 
 2. Verifique se os hosts Hyper-V e o servidor do VMM, se for relevante, podem acessar estas URLs: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Verifique se:
-    - Qualquer regra de firewall baseada em endereço IP deve permitir a comunicação com o Azure.
-    - Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
+3. Se você estiver controlando o acesso pelo endereço IP, certifique-se de que:
+    - As regras de firewall baseadas em endereço IP podem conectar os [Intervalos IP do Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
     - Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
 
 

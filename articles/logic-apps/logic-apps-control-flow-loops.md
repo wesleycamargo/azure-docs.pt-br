@@ -1,12 +1,12 @@
 ---
-title: "Loops - Processar ações de repetição ou matrizes - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Processar matrizes com loops Foreach ou repetir ações até que as condições específicas sejam atendidas nos aplicativos lógicos"
+title: Loops - Processar ações de repetição ou matrizes - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Processar matrizes com loops Foreach ou repetir ações até que as condições específicas sejam atendidas nos aplicativos lógicos
 services: logic-apps
 keywords: loops Foreach
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Loops: processar matrizes ou repetir ações até que uma condição seja atendida
 
@@ -153,9 +153,6 @@ Para repetir ações até que uma condição seja atendida ou algum estado alter
 
 * Chamar um ponto de extremidade até obter a resposta desejada.
 * Criar um registro em um banco de dados, aguardar até que um campo específico desse registro seja aprovado e continue processando. 
-
-> [!NOTE]
-> Os loops "Until" não podem incluir loops "Foreach" ou outros loops "Until".
 
 Por exemplo, todos os dias às 8h00 esse aplicativo lógico incrementará uma variável até que o valor da variável seja igual a 10. Em seguida, o aplicativo lógico envia um email que confirmará o valor atual. Embora esse exemplo utilize Outlook para Office 365, é possível utilizar qualquer provedor de email com suporte para Aplicativos Lógicos ([revise os conectores listados aqui](https://docs.microsoft.com/connectors/)). Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente. 
 

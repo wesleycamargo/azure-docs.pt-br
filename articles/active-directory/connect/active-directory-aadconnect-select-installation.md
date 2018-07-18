@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect: Selecionar o tipo de instalação | Microsoft Docs"
-description: "Este tópico explica como selecionar o tipo de instalação para o Azure AD Connect"
+title: 'Azure AD Connect: Selecionar o tipo de instalação | Microsoft Docs'
+description: Este tópico explica como selecionar o tipo de instalação para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
 O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
@@ -34,7 +34,7 @@ Ela pressupõe que:
 
 Você recebe:
 
-- [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) do local para o Azure AD para logon único.
+- [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) do local para o Azure AD para logon único.
 - Uma configuração que sincroniza [usuários, grupos, contatos e computadores com Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Sincronização de todos os objetos qualificados em todos os domínios e em todas as UOs.
 - A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada para garantir que você use sempre a versão mais recente disponível.

@@ -1,9 +1,9 @@
 ---
-title: "Seleção de recursos no Processo de Ciência de Dados de Equipe | Microsoft Docs"
-description: "Explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
+title: Seleção de recursos no Processo de Ciência de Dados de Equipe | Microsoft Docs
+description: Explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 878541f5-1df8-4368-889a-ced6852aba47
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: deguhath
+ms.openlocfilehash: 01aec4f9002a5c8209c5e10c0ec74cf28fb4862a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de recursos no TDSP (Processo de Ciência de Dados de Equipe)
 Este artigo explica as finalidades da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados de aprendizado de máquina. Esses exemplos foram extraídos do Azure Machine Learning Studio. 

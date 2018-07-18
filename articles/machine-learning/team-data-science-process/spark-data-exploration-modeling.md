@@ -1,9 +1,9 @@
 ---
-title: "Modelagem e exploração de dados com Spark | Microsoft Docs"
-description: "Demonstra os recursos de exploração e modelagem de dados do kit de ferramentas do Spark MLlib no Azure."
+title: Modelagem e exploração de dados com Spark | Microsoft Docs
+description: Demonstra os recursos de exploração e modelagem de dados do kit de ferramentas do Spark MLlib no Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: deguhath
+ms.openlocfilehash: d505d432897eb7f4e792b45a95ec91ce1802eeb8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados com Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -64,9 +64,9 @@ As tarefas de regressão e classificação que são implementadas usando um clus
 > [!NOTE]
 > O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e de clima:
 
->- Dados de partidas no horário em aeroportos: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Dados de saída no horário de companhia aérea: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Dados de clima aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Dados de clima de do aeroporto:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 

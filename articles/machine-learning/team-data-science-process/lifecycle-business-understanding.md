@@ -1,24 +1,24 @@
 ---
-title: "Estágio de entendimento de negócios do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "As metas, as tarefas e as entregas do estágio de entendimento de negócios dos seus projetos de ciência de dados"
+title: Estágio de entendimento de negócios do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: As metas, as tarefas e as entregas do estágio de entendimento de negócios dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: b406a0cd3e5176649b33d6ad8f41facb7043952d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="business-understanding"></a>Noções básicas sobre negócios
 

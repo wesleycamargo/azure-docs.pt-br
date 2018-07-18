@@ -1,21 +1,22 @@
 ---
-title: "Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure | Microsoft Docs"
-description: "Resume os sistemas operacionais com suporte e as configurações de replicação do Azure Site Recovery de VMs (máquinas virtuais) do Azure de uma região para outra, de acordo com as necessidades de DR (recuperação de desastre)."
+title: Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure | Microsoft Docs
+description: Resume os sistemas operacionais com suporte e as configurações de replicação do Azure Site Recovery de VMs (máquinas virtuais) do Azure de uma região para outra, de acordo com as necessidades de DR (recuperação de desastre).
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: daaca3c7b389642a288f738eb0954050e168abef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210555"
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
 
 >[!NOTE]
@@ -30,7 +31,7 @@ Este artigo resume as configurações e os componentes com suporte no Azure Site
 --- | ---
 **Portal do Azure** | Com suporte
 **Portal clássico** | Sem suporte
-**PowerShell** | Sem suporte no momento
+**PowerShell** | [Replicação do Azure para o Azure com o PowerShell](azure-to-azure-powershell.md)
 **API REST** | Sem suporte no momento
 **CLI** | Sem suporte no momento
 
@@ -79,8 +80,8 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4
 - Ubuntu 14.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (versões de kernel com suporte)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Debian 7
-- Debian 8
+- Debian 7 [ (versões do kernel com suporte)](#supported-debian-kernel-versions-for-azure-virtual-machines)
+- Debian 8 [ (versões do kernel com suporte)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -95,14 +96,22 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
-14.04 LTS | 9.11 | 3.13.0-24-generic a 3.13.0-125-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-83-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic a 3.13.0-132-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic a 3.13.0-137-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-104-generic |
-16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
-16.04 LTS | 9.11 | 4.4.0-21-generic a 4.4.0-83-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-27-generic |
+14.04 LTS | 9.14 | 3.13.0-24-generic para 3.13.0-141-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-112-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic para 3.13.0-143-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-116-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic a 4.4.0-96-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic a 4.4.0-104-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic |
+16.04 LTS | 9.14 | 4.4.0-21-generic para 4.4.0-112-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic para 4.13.0-32-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1009-azure |
+16.04 LTS | 9.15 | 4.4.0-21-generic para 4.4.0-116-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>3.13.0-24-generic para 3.13.0-143-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1012-azure |
+
+
+### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Debian para máquinas virtuais do Azure
+
+**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+--- | --- | --- |
+Debian 7 | 9,14, 9.15 | 3.2.0-4-amd64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9,14, 9.15 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.5-amd64 |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de arquivos com suporte e configurações de armazenamento de convidado em máquinas virtuais do Azure que executam o sistema operacional Linux
 
@@ -117,7 +126,7 @@ O suporte abaixo é aplicável a qualquer carga de trabalho em execução no sis
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental
+Europa | Oeste do Reino Unido, Sul do Reino Unido, Norte da Europa, Europa Ocidental, França Central, Sul da França
 Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália
 Azure Government    | Gov. EUA – Virgínia, Gov. EUA – Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
@@ -160,12 +169,14 @@ Criptografia em repouso (SSE) | Com suporte | Para contas de armazenamento de ca
 ADE (Azure Disk Encryption) | Sem suporte |
 Adição/remoção de disco a quente | Sem suporte | Se você adicionar ou remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
 Exclusão de disco | Sem suporte|   O disco temporário é excluído por padrão.
+Espaços de armazenamento Diretos  | Sem suporte|
+Servidor de Arquivos de Expansão  | Sem suporte|
 LRS | Com suporte |
 GRS | Com suporte |
 RA-GRS | Com suporte |
 ZRS | Sem suporte |  
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
-Pontos de Extremidade de Serviço de Rede Virtual (Redes virtuais e firewalls de Armazenamento do Azure)  | Não  | Não há suporte para permitir o acesso a redes virtuais do Azure específicas em contas de armazenamento de cache usadas para armazenar os dados replicados.
+Firewalls de armazenamento do Azure para redes virtuais  | Não  | Não há suporte para permitir o acesso a redes virtuais do Azure específicas em contas de armazenamento de cache usadas para armazenar os dados replicados.
 Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
 
 >[!IMPORTANT]
@@ -174,12 +185,12 @@ Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Os custos
 ## <a name="support-for-network-configuration"></a>Suporte para configuração de Rede
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-NIC (adaptador de rede) | Até o número máximo de NICs com suporte em um tamanho específico de VM do Azure | As NICs são criadas quando a VM é criada como parte de uma operação de Failover de teste ou de Failover. O número de NICs na VM de failover depende do número de NICs que a VM de origem tem no momento da habilitação da replicação. Se você adicionar ou remover uma NIC depois de habilitar a replicação, isso não afetará a contagem de NICs na VM de failover.
+NIC (adaptador de rede) | Até o número máximo de NICs com suporte em um tamanho específico da VM do Azure | As NICs são criadas quando a VM é criada como parte de uma operação de Failover de teste ou de Failover. O número de NICs na VM de failover depende do número de NICs que a VM de origem tem no momento da habilitação da replicação. Se você adicionar ou remover uma NIC depois de habilitar a replicação, isso não afetará a contagem de NICs na VM de failover.
 Balanceador de Carga de Internet | Com suporte | Você precisa associar o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
 Balanceador de carga interno | Com suporte | Você precisa associar o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
 IP público| Com suporte | Você precisa associar um IP público já existente a NIC ou criar um e associá-lo a NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na NIC (Resource Manager)| Com suporte | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.  
-NSG na sub-rede (Resource Manager e Clássico)| Com suporte | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.
+NSG na sub-rede (Resource Manager e Clássico)| Com suporte | Você precisa associar o NSG a NIC usando um script de automação em um plano de recuperação.
 NSG na VM (Clássico)| Com suporte | Você precisa associar o NSG a NIC usando um script de automação do Azure em um plano de recuperação.
 IP Reservado (IP Estático)/Reter o IP de origem | Com suporte | Se a NIC da VM de origem tiver a configuração de IP estático e a sub-rede de destino tiver o mesmo IP disponível, ela será atribuída à VM de failover. Se a sub-rede de destino não tiver o mesmo IP disponível, um dos IPs disponíveis na sub-rede será reservado para essa VM. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar a NIC e especificar a sub-rede e o IP de sua escolha.
 IP Dinâmico| Com suporte | Se a NIC da VM de origem tiver a configuração de IP dinâmico, a NIC da VM de failover também será Dinâmica por padrão. Você pode especificar um IP fixo de sua escolha em “Item replicado > Configurações > Computação e Rede > Adaptadores de rede”. Você pode selecionar a NIC e especificar a sub-rede e o IP de sua escolha.
@@ -190,6 +201,8 @@ Proxy não autenticado | Com suporte | Consulte o [documento de diretrizes de re
 Proxy autenticado | Sem suporte | Se a VM estiver usando um proxy autenticado para a conectividade de saída, ela não poderá ser replicada com o Azure Site Recovery.    
 VPN Site a Site com local (com ou sem o ExpressRoute)| Com suporte | Verifique se as UDRs e os NSGs são configurados de tal forma que o tráfego do Site Recovery não seja encaminhado para o local. Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
 Conexão VNET a VNET | Com suporte | Consulte o [documento de diretrizes de rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Pontos de extremidade de serviço de rede virtual | Com suporte | Não há suporte para os firewalls de armazenamento do Azure para redes virtuais. Não há suporte para permitir o acesso a redes virtuais do Azure específicas em contas de armazenamento de cache usadas para armazenar os dados replicados.
+Rede Acelerada | Sem suporte | Uma VM com acelerado de rede habilitada pode ser replicada, mas o failover de VM não terá acelerado de rede habilitado. Rede acelerada também será desabilitada para a VM de origem em failback.
 
 
 ## <a name="next-steps"></a>Próximas etapas

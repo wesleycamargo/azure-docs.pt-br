@@ -2,7 +2,7 @@
 title: Diretrizes de ajuste de desempenho para Storm do Azure Data Lake Store | Microsoft Docs
 description: Diretrizes de ajuste de desempenho para Storm do Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,23 +10,21 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para Storm no HDInsight e Azure Data Lake Store
 
 Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia Storm do Azure. Por exemplo, é importante compreender as características do trabalho feito pelos spouts e bolts (se o trabalho está com uso intensivo de memória ou de E/S). Este artigo abrange uma gama de diretrizes de ajuste de desempenho, incluindo a solução de problemas comuns.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **Um cluster HDInsight do Azure** com acesso a uma conta do Data Lake Store. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Executando um cluster Storm no Data Lake Store**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).

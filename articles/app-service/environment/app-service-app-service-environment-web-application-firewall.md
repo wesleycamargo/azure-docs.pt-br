@@ -1,8 +1,8 @@
 ---
-title: "Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo"
-description: "Saiba como configurar um firewall de aplicativo Web no Ambiente do Serviço de Aplicativo."
+title: Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
+description: Saiba como configurar um firewall de aplicativo Web no Ambiente do Serviço de Aplicativo.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,18 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
-Os firewalls do aplicativo Web, como o [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que estão disponíveis no [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/), ajudam a proteger aplicativos Web ao inspecionar o tráfego de entrada da Web para bloquear injeções de SQL, Cross-Site Scripting (script entre sites), carregamentos de malware e DDoS de aplicativo, além de outros ataques. Ele também inspeciona as respostas dos servidores Web back-end para DLP (Prevenção contra Perda de Dados). Combinado com o isolamento e a escala adicional fornecidos pelos Ambientes do Serviço de Aplicativo, esse recurso fornece um ambiente ideal para hospedar aplicativos Web críticos que precisam resistir às solicitações mal-intencionadas e ao tráfego de alto volume.
+
+WAFs (firewalls do aplicativo Web) ajudam na segurança de seus aplicativos Web ao inspecionarem o tráfego de entrada da Web para bloquear injeções de SQL, script entre sites, uploads de malware, DDoS de aplicativo e outros ataques. Eles também inspecionam as respostas dos servidores Web de back-end para DLP (prevenção contra perda de dados). Combinado com o isolamento e a escala adicional fornecidos pelos Ambientes do Serviço de Aplicativo, esse recurso fornece um ambiente ideal para hospedar aplicativos Web críticos que precisam resistir às solicitações mal-intencionadas e ao tráfego de alto volume. O Azure fornece um recurso de WAF com o [Gateway de Aplicativo](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Para saber como integrar seu ambiente de Serviço de Aplicativo a um Gateway de Aplicativo, leia o documento [Integrar seu ASE ILB com o Gateway de Aplicativo](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+
+Além do Gateway de Aplicativo Azure, há várias opções no marketplace, como o [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), disponíveis no [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). O restante deste documento se concentra em como integrar seu ambiente de Serviço de Aplicativo a um dispositivo Barracuda WAF.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 

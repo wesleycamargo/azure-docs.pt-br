@@ -1,24 +1,24 @@
 ---
-title: "Funções do modelo do Azure Resource Manager – lógicas | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos."
+title: Funções do modelo do Azure Resource Manager – lógicas | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -35,12 +35,12 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 
 Verifica se os dois valores de parâmetro são verdadeiros.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Booliano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |sim |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |sim |booleano |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -74,10 +74,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -99,9 +99,9 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
+| arg1 |sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um booliano do valor convertido.
@@ -138,11 +138,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| trueString | Bool | True  |
+| trueString | Bool | True |
 | falseString | Bool | Falso |
-| trueInt | Bool | True  |
+| trueInt | Bool | True |
 | falseInt | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -162,13 +162,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| condition |Sim |Booliano |O valor para verificar se é verdadeiro. |
-| trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
-| falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
+| condition |sim |booleano |O valor para verificar se é verdadeiro. |
+| trueValue |sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
+| falseValue |sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -245,9 +245,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| yesOutput | Cadeia de caracteres | sim |
+| yesOutput | Cadeia de caracteres | Sim |
 | noOutput | Cadeia de caracteres | não |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -267,11 +267,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Converte o valor booliano em seu valor oposto.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O valor a ser convertido. |
+| arg1 |sim |booleano |O valor a ser convertido. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -305,10 +305,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
@@ -341,9 +341,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Bool | True |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
@@ -362,12 +362,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Verifica se o valor do parâmetro é true.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Booliano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |sim |booleano |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |sim |booleano |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -401,10 +401,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Verdadeiro |
+| orExampleOutput | Bool | True |
 | notExampleOutput | Bool | Falso |
 
 Para implantar este modelo de exemplo com a CLI do Azure, use:

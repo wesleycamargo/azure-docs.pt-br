@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao gerenciamento de dispositivos no Azure Active Directory | Microsoft Docs"
-description: "Saiba como o gerenciamento de dispositivos pode ajudar você a controlar os dispositivos que estão acessando os recursos do seu ambiente."
+title: Introdução ao gerenciamento de dispositivos no Azure Active Directory | Microsoft Docs
+description: Saiba como o gerenciamento de dispositivos pode ajudar você a controlar os dispositivos que estão acessando os recursos do seu ambiente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202126"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
 
@@ -73,7 +74,7 @@ A meta dos dispositivos adicionados ao Azure AD é simplificar:
 
 
 Essas metas são atingidas proporcionando aos usuários uma experiência de autoatendimento de colocar dispositivos pertencentes à empresa sob controle do Azure AD.  
-A **adição ao Azure AD** destina-se a organizações que usam somente a nuvem/priorizam a nuvem. Normalmente, são pequenas e médias empresas, que não têm uma infraestrutura do Active Directory local para Windows Server. 
+A **Adição ao Azure AD** destina-se a organizações que desejam estar somente em nuvem ou priorizam a nuvem. Não há nenhuma restrição de tamanho ou o tipo de organizações que pode implantar a adição do Azure AD. A adição do Azure AD funciona bem até mesmo em um ambiente híbrido e pode permitir acesso aos recursos e aplicativos locais.
 
 A implementação de dispositivos adicionados ao Azure AD proporciona os seguintes benefícios:
 
@@ -81,11 +82,14 @@ A implementação de dispositivos adicionados ao Azure AD proporciona os seguint
 
 - **Roaming em conformidade corporativa** das configurações de usuário entre dispositivos adicionados. Os usuários não precisam se conectar a uma conta da Microsoft (por exemplo, Hotmail) para ver as configurações entre dispositivos.
 
-- **Acesso à Windows Store para Empresas** usando a conta do AD. Os usuários podem escolher dentre um inventário de aplicativos pré-selecionados pela organização.
+- **Acesso à Windows Store para Empresas** usando uma conta do Azure AD. Os usuários podem escolher dentre um inventário de aplicativos pré-selecionados pela organização.
 
 - Suporte ao **Windows Hello** para acesso conveniente e seguro aos recursos de trabalho.
 
 - **Restrição de acesso** a aplicativos somente de dispositivos que atendem à política de conformidade.
+
+- **Acesso direto aos recursos locais** quando o dispositivo tenha a linha de visão para o controlador de domínio local.
+
 
 Embora a adição ao Azure AD se destine basicamente às organizações que não têm uma infraestrutura do Active Directory local para Windows Server, você certamente também pode usá-la em cenários em que:
 

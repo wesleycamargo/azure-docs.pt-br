@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs"
-description: "Saiba como configurar logon único entre o Azure Active Directory e o EFI Digital StoreFront."
+title: 'Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront | Microsoft Docs'
+description: Saiba como configurar logon único entre o Azure Active Directory e o EFI Digital StoreFront.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 38d24096977b093ba5b1af2258618b3cdb783e77
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7bdbad680e843c88f7ae22debd35fdb629c038b0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutorial: integração do Azure Active Directory com o EFI Digital StoreFront
 
@@ -30,9 +30,9 @@ A integração do EFI Digital StoreFront ao Azure AD oferece os seguintes benef�
 - Você pode permitir que os usuários façam logon automaticamente no EFI Digital StoreFront (Logon Único) com as contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o EFI Digital StoreFront, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando EFI Digital StoreFront pela galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-efi-digital-storefront-from-the-gallery"></a>Adicionando EFI Digital StoreFront pela galeria
 Para configurar a integração do EFI Digital StoreFront ao Azure AD, você precisa adicionar o EFI Digital StoreFront pela galeria à sua lista de aplicativos SaaS gerenciados.
@@ -202,7 +202,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

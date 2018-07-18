@@ -1,22 +1,22 @@
 ---
-title: "Eventos de início de tarefa em lote do Azure | Microsoft Docs"
-description: "Referência de evento de início de tarefa de lote."
+title: Eventos de início de tarefa em lote do Azure | Microsoft Docs
+description: Referência de evento de início de tarefa de lote.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: 0ad0f87df9db39088769579d538b919b42634c4b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |jobId|Cadeia de caracteres|A ID do trabalho que contém a tarefa.|
 |ID|Cadeia de caracteres|A ID da tarefa.|
@@ -60,25 +60,25 @@ ms.lasthandoff: 10/11/2017
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |poolId|Cadeia de caracteres|A ID do pool em que a tarefa foi executada.|
 |nodeId|Cadeia de caracteres|A ID do nó em que a tarefa foi executada.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |numberOfInstances|int|O número de nós de computação que a tarefa precisa.|
 
 ###  <a name="constraints"></a> restrições
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|type|Observações|
 |------------------|----------|-----------|
 |retryCount|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada|

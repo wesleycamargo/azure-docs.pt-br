@@ -21,17 +21,23 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutoriais
   items:
-    - name: Implantar aplicativos para o Azure e para o Azure Stack
+    - name: Implantar aplicativos no Azure Stack e no Azure
       href: azure-stack-solution-pipeline.md
+    - name: Configurar a identidade de nuvem híbrida
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Configurar a conectividade de nuvem híbrida
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: Guias de instruções
   items:
     - name: Usar o Portal do Azure Stack
       href: azure-stack-use-portal.md
+    - name: Use a API da pilha do Azure
+      href: azure-stack-rest-api-use.md
     - name: Segurança e conformidade
       items:
-        - name: Gerenciar o RBAC
+        - name: Use o controle de acesso baseado em função
           href: azure-stack-manage-permissions.md
-        - name: Criar entidades de serviço
+        - name: Usa entidades de serviço
           href: Azure-stack-create-service-principals.md
     - name: Usar os serviços
       items:
@@ -49,6 +55,8 @@
               href: azure-stack-manage-vm-disks.md
             - name: Proteger VMs
               href: azure-stack-manage-vm-protect.md
+            - name: Considerações sobre a VM do SQL Server
+              href: azure-stack-sql-server-vm-considerations.md
         - name: Armazenamento
           items:
             - name: Visão geral
@@ -71,7 +79,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS no Azure Stack
               href: azure-stack-dns.md
-        - name: Cofre da Chave
+        - name: Key Vault
           items:
             - name: Visão geral
               href: azure-stack-kv-intro.md
@@ -85,6 +93,12 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: Aplicativo de amostra do KeyVault
               href: azure-stack-kv-sample-app.md
+        - name: Modelos de solução
+          items:
+            - name: Implantar um cluster do Service Fabric
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Implantar um cluster Kubernetes
+              href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Criar aplicativos
       items:
         - name: Desenvolver para o Azure Stack
@@ -92,24 +106,35 @@
         - name: Configure o ambiente de desenvolvimento
           items:
             - name: Instalar o PowerShell do Azure Stack
-              href: azure-stack-powershell-install.md
-            - name: Baixar ferramentas
+              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
+            - name: Baixar ferramentas de pilha do Azure
               href: azure-stack-powershell-download.md
             - name: Configurar o PowerShell - Usuário
               href: azure-stack-powershell-configure-user.md
-            - name: Instalar e configurar a CLI do Azure Stack
-              href: azure-stack-connect-cli.md
             - name: Instalar Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Gerenciar perfis de versão da API
+            - name: Usando perfis de versão de API
               href: azure-stack-version-profiles.md
-        - name: Usar o módulo de política
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: CLI do Azure 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: GO
+                  href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
+                - name: Python
+                  href: azure-stack-version-profiles-python.md
+                - name: APIs com suporte por perfis de provedor de recursos
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
+        - name: Usar o módulo de política de pilha do Azure
           href: azure-stack-policy-module.md
         - name: Usar modelos
           items:
             - name: Visão geral de modelo
               href: azure-stack-arm-templates.md
-            - name: Desenvolver modelos
+            - name: Considerações sobre o modelo
               href: azure-stack-develop-templates.md
             - name: Verificar modelos
               href: azure-stack-validate-templates.md

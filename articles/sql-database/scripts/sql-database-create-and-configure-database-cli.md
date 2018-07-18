@@ -3,7 +3,7 @@ title: Exemplo da CLI para criar um banco de dados SQL do Azure | Microsoft Docs
 description: Use este script de exemplo da CLI do Azure para criar um banco de dados SQL.
 services: sql-database
 documentationcenter: sql-database
-author: janeng
+author: CarlRabeler
 manager: janeng
 editor: carlrab
 ms.service: sql-database
@@ -12,13 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/01/2018
-ms.author: janeng
-ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: carlrab
+ms.date: 05/17/2018
+ms.openlocfilehash: bca779e55d14a6ff3cb6da0984de93123cf23903
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365722"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Use a CLI para criar um banco de dados SQL do Azure individual e configurar uma regra de firewall
 
@@ -34,9 +35,9 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do script de exemplo, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,9 +45,9 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Cria um servidor lógico que hospeda o Banco de Dados SQL. |

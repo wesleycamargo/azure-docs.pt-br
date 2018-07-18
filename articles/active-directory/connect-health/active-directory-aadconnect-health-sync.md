@@ -1,8 +1,8 @@
 ---
-title: "Uso do Azure AD Connect Health com sincronização | Microsoft Docs"
-description: "Esta é a página Azure AD Connect Health que discutirá como monitorar a sincronização do Azure Connect AD."
+title: Uso do Azure AD Connect Health com sincronização | Microsoft Docs
+description: Esta é a página Azure AD Connect Health que discutirá como monitorar a sincronização do Azure Connect AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -78,16 +78,17 @@ Esse recurso fornece um relatório sobre os erros de sincronização que podem o
 ### <a name="categorization-of-errors"></a>Categorização de erros
 O relatório categoriza os erros de sincronização existentes nas seguintes categorias:
 
-| Categoria | Descrição |
+| Categoria | DESCRIÇÃO |
 | --- | --- |
 | Duplicar atributo |Erros quando o Azure AD Connect tenta criar ou atualizar objetos com valores duplicados de um ou mais atributos no Azure AD que deve ser exclusivo em um Locatário, como proxyAddresses, UserPrincipalName. |
 | Incompatibilidade de dados |Erros quando a correspondência flexível não corresponde a objetos que resultam em erros de sincronização. |
 | Falha na validação de dados |Erros devido a dados inválidos, como caracteres sem suporte em atributos essenciais como UserPrincipalName, formate os erros que falharam na validação antes de serem gravados no Azure AD. |
+| Alteração de Domínio Federado | Erros quando as contas usam um domínio federado diferente. |
 | Atributo grande |Erros quando um ou mais atributos são maiores do que o tamanho, o comprimento ou a contagem permitidos. |
 | Outros |Todos os outros erros que não se encaixam nas categorias acima. Com base nos comentários, essa categoria será dividida em subcategorias. |
 
 ![Resumo do relatório de erro de sincronização](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Categorias de relatório de erro de sincronização](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Categorias de relatório de erro de sincronização](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>Lista de objetos com erro por categoria
 O detalhamento de cada categoria fornecerá a lista de objetos que têm o erro nessa categoria.

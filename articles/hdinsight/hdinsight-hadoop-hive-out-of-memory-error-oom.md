@@ -1,9 +1,9 @@
 ---
-title: "Corrigir um erro de Hive sem memória no Azure HDInsight | Microsoft Docs"
-description: "Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes."
-keywords: "erro de memória insuficiente, OOM, configurações do Hive"
+title: Corrigir um erro de Hive sem memória no Azure HDInsight | Microsoft Docs
+description: Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
+keywords: erro de memória insuficiente, OOM, configurações do Hive
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: ea83a6b4fa3399ae6a30157c720005683d445d8a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f2ae83d259b7567a4b5c39e76ed7610e2ee426f8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um erro Hive sem memória no Azure HDInsight
 

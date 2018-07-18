@@ -2,7 +2,7 @@
 title: Como monitorar uma conta de Armazenamento do Azure | Microsoft Docs
 description: Saiba como monitorar uma conta de armazenamento no Azure usando o portal do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Há custos associados ao exame de dados de monitoramento no portal do Azure. Para obter mais informações, consulte [Análise de armazenamento e cobrança](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > O Arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log.
->
-> As contas de armazenamento com um tipo de replicação ZRS (armazenamento com redundância de zona) dão suporte a métricas e log. As contas de ZRS anteriores que foram renomeadas ZRS Clássico não dão suporte a métricas nem a log. Para obter mais informações sobre o ZRS, consulte [Armazenamento com redundância de zona](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >

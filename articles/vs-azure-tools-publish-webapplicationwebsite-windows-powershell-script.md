@@ -1,24 +1,21 @@
 ---
 title: Publish-WebApplicationWebSite (script do Windows PowerShell) | Microsoft Docs
-description: "Saiba como publicar um projeto Web em um site do Azure. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
+description: Saiba como publicar um projeto Web em um site do Azure. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure.
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 63cfaa2d-f04d-40dc-8677-345385c278d5
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: b540734f17ed11e4c438e1248ed9612fb892e89a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite (script do Windows PowerShell)
 ## <a name="syntax"></a>Sintaxe
@@ -38,60 +35,60 @@ O caminho para o arquivo de configuração de JSON que descreve os detalhes da i
 
 | Parâmetro | Valor padrão |
 | --- | --- |
-| Aliases |nenhum |
+| Aliases |Nenhum |
 | Obrigatório? |verdadeiro |
 | Position |nomeado |
-| Valor padrão |nenhum |
-| Aceitar entrada do Pipeline? |false |
-| Aceitar caracteres curinga? |false |
+| Valor padrão |Nenhum |
+| Aceitar entrada do Pipeline? |falso |
+| Aceitar caracteres curinga? |falso |
 
 ## <a name="subscriptionname"></a>SubscriptionName
 O nome da assinatura do Azure na qual você deseja criar o site.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
-| Aliases |nenhum |
-| Obrigatório? |false |
+| Aliases |Nenhum |
+| Obrigatório? |falso |
 | Position |nomeado |
-| Valor padrão |nenhum |
-| Aceitar entrada do Pipeline? |false |
-| Aceitar caracteres curinga? |false |
+| Valor padrão |Nenhum |
+| Aceitar entrada do Pipeline? |falso |
+| Aceitar caracteres curinga? |falso |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
 O caminho para o pacote de implantação Web a publicar no site. Você pode criar este pacote usando o assistente Publicar Web no Visual Studio. Para obter mais informações, consulte [Introdução aos serviços de nuvem do Azure e ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parâmetro | Valor padrão |
 | --- | --- |
-| Aliases |nenhum |
-| Obrigatório? |false |
+| Aliases |Nenhum |
+| Obrigatório? |falso |
 | Position |nomeado |
-| Valor padrão |nenhum |
-| Aceitar entrada do Pipeline? |false |
-| Aceitar caracteres curinga? |false |
+| Valor padrão |Nenhum |
+| Aceitar entrada do Pipeline? |falso |
+| Aceitar caracteres curinga? |falso |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
 O nome do administrador e a senha do Banco de Dados SQL no Azure.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
-| Aliases |nenhum |
-| Obrigatório? |false |
+| Aliases |Nenhum |
+| Obrigatório? |falso |
 | Position |nomeado |
-| Valor padrão |nenhum |
-| Aceitar entrada do Pipeline? |false |
-| Aceitar caracteres curinga? |false |
+| Valor padrão |Nenhum |
+| Aceitar entrada do Pipeline? |falso |
+| Aceitar caracteres curinga? |falso |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
 
 | Parâmetro | Valor padrão |
 | --- | --- |
-| Aliases |nenhum |
-| Obrigatório? |false |
+| Aliases |Nenhum |
+| Obrigatório? |falso |
 | Position |nomeado |
-| Valor padrão |false |
-| Aceitar entrada do Pipeline? |false |
-| Aceitar caracteres curinga? |false |
+| Valor padrão |falso |
+| Aceitar entrada do Pipeline? |falso |
+| Aceitar caracteres curinga? |falso |
 
 ## <a name="remarks"></a>Comentários
 Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](vs-azure-tools-publishing-using-powershell-scripts.md).

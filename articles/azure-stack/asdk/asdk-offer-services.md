@@ -1,26 +1,26 @@
 ---
-title: "Neste tutorial, você cria uma oferta de pilha do Azure | Microsoft Docs"
+title: Neste tutorial, você cria uma oferta de pilha do Azure | Microsoft Docs
 description: Saiba como criar uma oferta de pilha do Azure, incluindo cotas e planos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Tutorial: oferecem serviços de IaaS de pilha do Azure
 Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que seus usuários (às vezes chamados de locatários) podem se inscrever. Usando sua assinatura, os usuários podem consumir serviços da pilha do Azure.
@@ -112,14 +112,24 @@ Ofertas podem ser:
 > As alterações para a oferta não ficam imediatamente visíveis para os usuários. Para ver as alterações, os usuários podem ter para logout e login novamente para o [portal do usuário](https://portal.local.azurestack.external) para ver a nova oferta.
 
 Para definir a nova oferta para público: 
+   - Versão 1803 e posterior: 
+     1. No menu do painel, clique em **oferece** e, em seguida, clique na oferta que você criou.
 
-1. No menu do painel, clique em **oferece** e, em seguida, clique na oferta que você criou.
+     2. Clique em **acessibilidade estado**e, em seguida, clique em **público**.
 
-2. Clique em **alterar estado**e, em seguida, clique em **público**.
+        ![Alterar estado](media/asdk-offer-services/change-state.png)
 
-   ![Estado público](media/asdk-offer-services/set-public.png)
+     3. A oferta estarão disponível no portal do usuário de pilha do Azure.
 
-3. A oferta estarão disponível no portal do usuário de pilha do Azure.
+
+   - Antes da versão 1803:  
+     1. No menu do painel, clique em **oferece** e, em seguida, clique na oferta que você criou.
+
+     2. Clique em **alterar estado**e, em seguida, clique em **público**.
+
+        ![Estado público](media/asdk-offer-services/set-public.png)
+
+     3. A oferta estarão disponível no portal do usuário de pilha do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

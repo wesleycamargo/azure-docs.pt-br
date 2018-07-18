@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762363"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexões de conta do LinkedIn para serviços e aplicativos da Microsoft
 Neste artigo, você pode aprender como gerenciar as conexões de conta do LinkedIn para o locatário no centro de administração do Microsoft Azure AD (Azure Active Directory). 
 
 > [!IMPORTANT]
 > A funcionalidade de conexões de conta do LinkedIn está sendo lançada nos locatários do Microsoft Azure AD. Quando lançada para o locatário, é habilitada por padrão. Não está disponível para clientes governamentais dos Estados Unidos e organizações com caixas de correio do Exchange Online hospedadas na Austrália, Canadá, China, França, Alemanha, Índia, Coreia do Sul, Reino Unido, Japão e África do Sul. O suporte para esses locais de caixa de correio estará disponível em breve.  Para obter uma exibição atualizada das informações de implantação, consulte a página do [Roteiro do Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+
+## <a name="benefit-to-users"></a>Benefícios aos usuários
+Depois que os usuários se conectarem a sua conta do LinkedIn, as informações do LinkedIn são usadas para mostrar informações personalizadas e recursos em vários aplicativos ou serviços da Microsoft. Os usuários podem ver informações sobre as pessoas com quem trabalham com o cartão de perfil da Microsoft, mesmo para as pessoas fora da sua organização. Ao longo do tempo, sua experiência LinkedIn também se tornará mais relevante e personalizada para seu trabalho. Por exemplo, LinkedIn pode sugerir novas conexões com base com quem os usuários trabalham ou informações sobre pessoas em seus calendários naquele dia.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Como as conexões de conta do LinkedIn aparecem para o usuário
 As conexões de conta do LinkedIn permitem que os usuários visualizem informações públicas do perfil do LinkedIn em alguns de seus aplicativos da Microsoft. Os usuários no locatário podem escolher conectar suas contas corporativas ou de estudante do LinkedIn e da Microsoft para ver informações adicionais do perfil do LinkedIn. Para obter mais informações, consulte [informações e recursos do LinkedIn nos serviços e aplicativos da Microsoft](https://go.microsoft.com/fwlink/?linkid=850740).
@@ -56,9 +59,9 @@ A funcionalidade de conexões da conta do LinkedIn está ativada por padrão par
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Habilitar ou desabilitar as conexões de conta do LinkedIn para aplicativos do Office 2016 da organização utilizando a Política de Grupo
 
 1. Baixe os [arquivos de modelo administrativo do Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extraia os arquivos **ADMX** arquivos e copie-os para seu **repositório central**.
+2. Extraia os arquivos **ADMX** e copie-os para o repositório central.
 3. Gerenciamento de política de grupo aberto.
-4. Crie um objeto de política de grupo com a seguinte configuração: **Configuração do usuário** > **Modelos administrativos** > **Microsoft Office 2016** > **Diversos** > **Permitir integração do LinkedIn**.
+4. Crie um Objeto de Política de Grupo com a configuração a seguir: **Configuração de Usuário** > **Modelos Administrativos** > **Microsoft Office 2016** > **Diversos** > **Mostrar recursos do LinkedIn em aplicativos do Office**.
 5. Selecione **Habilitado** ou **Desabilitado**.
   * Quando a política for **Habilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo Opções do Office 2016 está habilitada. Isso também significa que os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office.
   * Quando a política está **Desabilitado**, a configuração **Mostrar recursos do LinkedIn nos aplicativos do Office** que pode ser encontrada na caixa de diálogo de opções do Office 2016 está definida para o estado desabilitado e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016. 

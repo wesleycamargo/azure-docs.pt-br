@@ -1,8 +1,8 @@
 ---
-title: "UDF (função definida pelo usuário) do Java com o Hive no HDInsight – Azure | Microsoft Docs"
-description: "Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas."
+title: UDF (função definida pelo usuário) do Java com o Hive no HDInsight – Azure | Microsoft Docs
+description: Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,15 @@ ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/20/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cc6b63f40dd4323ecdf0dfb75c7c8036cbc7b0b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200751"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
 
@@ -77,14 +76,14 @@ Saiba como criar um UDF (função definida pelo usuário) baseado em Java que fu
     </dependencies>
     ```
 
-    Essas entradas especificam a versão do Hadoop e do Hive incluídas com o HDInsight 3.5. Você pode encontrar informações sobre as versões do Hadoop e do Hive fornecidas com o HDInsight no documento [Controle de versão de componente do HDInsight](../hdinsight-component-versioning.md) .
+    Essas entradas especificam a versão do Hadoop e do Hive incluídas com o HDInsight 3.6. Você pode encontrar informações sobre as versões do Hadoop e do Hive fornecidas com o HDInsight no documento [Controle de versão de componente do HDInsight](../hdinsight-component-versioning.md) .
 
     Adicione uma seção `<build>` antes da linha `</project>` no final do arquivo. Esta seção deve conter o XML a seguir:
 
     ```xml
     <build>
         <plugins>
-            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <!-- build for Java 1.8. This is required by HDInsight 3.6  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption para VMs IaaS Windows e Linux | Microsoft Docs
-description: "Este artigo fornece uma visão geral do Microsoft Azure Disk Encryption para VMs IaaS do Windows e Linux."
+description: Este artigo fornece uma visão geral do Microsoft Azure Disk Encryption para VMs IaaS do Windows e Linux.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/13/2018
+ms.author: devtiw
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para VMs IaaS Windows e Linux
 O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberania dos seus dados e permite que você controle os dados hospedados no Azure usando uma variedade de tecnologias para criptografar, controlar e gerenciar chaves de criptografia, bem como auditar e controlar o acesso aos dados. Isso permite que os clientes do Azure tenham a flexibilidade de escolher a solução que melhor atenda às necessidades de negócios. Neste artigo, apresentaremos a você uma nova solução de tecnologia, "Azure Disk Encryption para VMs IaaS Windows e Linux" para ajudá-lo a proteger seus dados e atender às obrigações de conformidade e segurança da organização. O documento fornece orientações detalhadas sobre como usar os recursos de criptografia de disco do Azure, incluindo os cenários com suporte e as experiências de usuário.
@@ -141,7 +141,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 > [!NOTE]
 > Para o Windows Server 2008 R2, você deve ter o .NET Framework 4.5 instalado antes de habilitar a criptografia no Azure. Você pode instalá-lo com o Windows Update, instalando a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas Windows Server 2008 R2 baseados em x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* O Azure Disk Encryption tem suporte somente em distribuições e versões específicas do servidor Linux baseado na Galeria do Azure.  Para obter a lista de versões com suporte atualmente, consulte as [Perguntas frequentes do Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* O Azure Disk Encryption tem suporte somente em distribuições e versões específicas do servidor Linux baseado na Galeria do Azure.  Para obter a lista de versões com suporte atualmente, consulte as [Perguntas frequentes do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure.
 
@@ -151,18 +151,18 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 * Para instalar e configurar o cofre de chaves para o Azure Disk Encryption, consulte a seção **Definir e configurar o cofre de chaves para o Azure Disk Encryption** na seção *Pré-requisitos* deste artigo.
 * Para instalar e configurar o aplicativo Azure AD no Azure Active Directory para Azure Disk Encryption, consulte a seção **Configurar o aplicativo Azure AD no Azure Active Directory** na seção de *Pré-requisitos* deste artigo.
 * Para instalar e configurar a política de acesso do cofre de chaves para o aplicativo Azure AD, consulte a seção **Configurando a política de acesso ao cofre de chaves para o aplicativo Azure AD** na seção de *Pré-requisitos* deste artigo.
-* Para preparar um VHD do Windows criptografado previamente, consulte a seção  **Preparar um VHD do Windows criptografado previamente**  no  *Apêndice* .
-* Para preparar um VHD do Linux criptografado previamente, consulte a seção  **Preparar um VHD do Linux criptografado previamente**  no  *Apêndice* .
+* Para preparar um VHD do Windows criptografado previamente, consulte a seção **Preparar um VHD do Windows criptografado previamente** no *Apêndice*.
+* Para preparar um VHD do Linux criptografado previamente, consulte a seção **Preparar um VHD do Linux criptografado previamente** no *Apêndice*.
 * A plataforma Azure precisa acessar as chaves de criptografia ou os segredos no cofre de chaves para torná-los disponíveis para a máquina virtual quando ela for inicializada e descriptografar o volume de sistema operacional da máquina virtual. Para conceder permissões para a plataforma Windows Azure, defina a propriedade **EnabledForDiskEncryption** no cofre de chaves. Para obter mais infprmações, consulte **Definir e configurar o cofre de chaves de Azure Disk Encryption** no Apêndice.
 * O segredo do cofre de chaves e as URLs KEK devem ter controle de versão. O Azure impõe essa restrição de controle de versão. Para um segredo válido e URLs KEK, confira os seguintes exemplos:
 
-  * Exemplo de URL de segredo válida: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exemplo de URL KEK válida: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL secreta válida: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL KEK válida: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * o Azure Disk Encryption não dá suporte à especificação de números de portas como parte de segredos do cofre de chaves e URLs KEK. Para exemplos de URLs do Key Vault com e sem suporte, consulte:
 
-  * URL do cofre de chaves inaceitável *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL do cofre de chaves aceitável: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves aceitável:  *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Para habilitar o recurso de Azure Disk Encryption, as VMs IaaS devem atender aos seguintes requisitos de configuração do ponto de extremidade de rede:
   * Para obter um token para se conectar ao seu cofre de chaves, a VM IaaS deve ser capaz de se conectar a um ponto de extremidade do Azure Active Directory, \[login.microsoftonline.com\].
@@ -172,7 +172,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
   > [!NOTE]
   > Se a política de segurança limita o acesso de VMs do Azure à Internet, você pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs.
   >
-  >Para configurar e acessar Azure Key Vault protegido por um firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
+  >Para configurar e acessar o Azure Key Vault por trás de um firewall(https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a última versão do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
@@ -193,7 +193,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 * Para configurar os pré-requisitos de criptografia de disco usando a CLI do Azure, confira [este script Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Para usar o serviço de Backup do Azure para fazer backup e restaurar VMs criptografadas quando a criptografia estiver habilitada com o Azure Disk Encryption, criptografe as VMs usando a configuração da chave de Azure Disk Encryption. O serviço de Backup dá suporte a VMs que são criptografadas usando configurações KEK ou não KEK. Consulte [Como fazer backup e restaurar máquinas virtuais criptografadas com criptografia do Backup do Azure ](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Ao criptografar um volume do sistema operacional Linux, observe que atualmente uma reinicialização de VM é necessária no final do processo. Isso pode ser feito por meio do portal, do PowerShell ou da CLI.   Para acompanhar o progresso de criptografia, sonde periodicamente a mensagem de status retornada por Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Uma vez concluída a criptografia, a mensagem de status retornada por este comando indicará isso.  Por exemplo, "ProgressMessage: disco do sistema operacional criptografado com êxito, reinicialize a VM", Nesse ponto, a VM pode ser reiniciada e usada.  
+* Ao criptografar um volume do sistema operacional Linux, observe que atualmente uma reinicialização de VM é necessária no final do processo. Isso pode ser feito por meio do portal, do PowerShell ou da CLI.   Para acompanhar o progresso da criptografia, confira periodicamente a mensagem de status retornada por Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Uma vez concluída a criptografia, a mensagem de status retornada por este comando indicará isso. Por exemplo, "ProgressMessage: disco do sistema operacional criptografado com êxito, reinicialize a VM", Nesse ponto, a VM pode ser reiniciada e usada.  
 
 * O Azure Disk Encryption para Linux requer que os discos de dados tenham um sistema de arquivos montado em Linux antes da criptografia
 
@@ -224,25 +224,25 @@ Use o seguinte cmdlet do PowerShell para criar um aplicativo Azure AD:
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Configuração da ID do cliente do Azure AD e do segredo do portal do Azure
 Você também pode configurar a ID de cliente do Azure AD e o segredo usando o Portal do Azure. Para executar essa tarefa, faça o seguinte:
 
-1. Clique na guia **Active Directory**.
+1. Selecione **Todos os serviços > Azure Active Directory**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Clique em **Adicionar Aplicativo** e digite o nome do aplicativo.
+2. Selecione **Registros de aplicativo > Novo registro de aplicativo**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Clique no botão de seta e configure as propriedades do aplicativo.
+3. Forneça as informações solicitadas e crie o aplicativo:
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Clique na marca de seleção no canto inferior esquerdo para concluir. A página de configuração de aplicativo é exibida, e a ID de cliente do Azure AD é exibida na parte inferior da página.
+4. Selecione o aplicativo recém-criado para exibir suas propriedades, incluindo a ID do aplicativo.  Para criar uma chave para o aplicativo, selecione **Configurações > Chaves**, adicione uma descrição e a validade para a chave e clique em **Salvar**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. 5. Salve o segredo do cliente do Azure AD clicando no botão **Salvar**. Observe o segredo do cliente do Azure AD na caixa de texto de chaves. Proteja-o adequadamente.
+5. Copie o valor de segredo gerado e guarde-o adequadamente.
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Usar um aplicativo existente
@@ -698,7 +698,7 @@ Em VMs do Linux, a extensão AzureDiskEncryptionForLinux é usada.
 
 ### <a name="enable-encryption-on-pre-encrypted-iaas-vm-with-azure-managed-disk"></a>Habilitar criptografia na VM da IaaS criptografada previamente com o Azure Managed Disk
 Use o modelo ARM do Azure Managed Disk para criar uma VM criptografada a partir de um VHD criptografado previamente usando o modelo ARM localizado em   
-[Criar um novo disco gerenciado criptografado a partir de um blob de armazenamento/VHD criptografado] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+[Criar um novo disco de gerenciado criptografado de um blob de armazenamento/VHD previamente criptografado] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
 
 ### <a name="enable-encryption-on-a-new-linux-iaas-vm-with-azure-managed-disk"></a>Habilitar criptografia em uma nova VM de IaaS Linux com o Azure Managed Disk
 Use o modelo ARM do Azure Managed para criar uma nova VM de IaaS Linux criptografada usando o modelo ARM localizado em   
@@ -706,7 +706,7 @@ Use o modelo ARM do Azure Managed para criar uma nova VM de IaaS Linux criptogra
 
 ### <a name="enable-encryption-on-a-new-windows-iaas-vm-with-azure-managed-disk"></a>Habilitar criptografia em uma nova VM de IaaS do Windows com o Azure Managed Disk
  Use o modelo ARM do Azure Managed para criar uma nova VM de IaaS Linux criptografada usando o modelo ARM localizado em   
- [Criar uma nova VM do Disco Gerenciado de IaaS do Windows a partir da imagem da galeria] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+ [Criar uma nova VM criptografada de disco gerenciado de IaaS do Windows pela galeria de imagens] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
   >É obrigatório criar um instantâneo e/ou fazer backup de uma instância VM baseada em disco gerenciado fora do Azure Disk Encryption e antes de habilitá-lo.  Um instantâneo do disco gerenciado pode ser criado do portal ou usando o Backup do Azure.  Backups asseguram que uma opção de recuperação é possível no caso de qualquer falha inesperada durante a criptografia.  Depois que um backup é feito, o cmdlet Set-AzureRmVMDiskEncryptionExtension pode ser usado para criptografar Managed Disks especificando o parâmetro -skipVmBackup.  Este comando falhará em VMs baseadas em disco gerenciado até que um backup tenha sido feito e esse parâmetro tenha sido especificado.    
@@ -716,11 +716,11 @@ Use o modelo ARM do Azure Managed para criar uma nova VM de IaaS Linux criptogra
 
 ## <a name="appendix"></a>Apêndice
 ### <a name="connect-to-your-subscription"></a>Conecte-se as suas assinaturas
-Antes de prosseguir, revise a seção  *Pré-requisitos*  neste artigo. Depois de garantir que todos os pré-requisitos foram atendidos, conecte-se à sua assinatura fazendo o seguinte:
+Antes de prosseguir, revise a seção *Pré-requisitos* neste artigo. Depois de garantir que todos os pré-requisitos foram atendidos, conecte-se à sua assinatura fazendo o seguinte:
 
 1. Inicie uma sessão do Azure PowerShell e entre em sua conta do Azure com o seguinte comando:
 
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 
 2. Se tiver várias assinaturas e quiser especificar uma a ser usada, digite o seguinte para ver as assinaturas da sua conta:
 
@@ -780,14 +780,10 @@ Use o comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx
 > Prepare a VM com um VHD de dados/recursos separado para obter a chave externa usando o BitLocker.
 
 #### <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Criptografando uma unidade do sistema operacional em uma VM do Linux em execução
-Há suporte para a criptografia da unidade do sistema operacional em uma VM do Linux em execução nas seguintes distribuições:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a criptografia de disco do sistema operacional
 
+* A VM deve estar usando uma distribuição compatível com a criptografia de disco de SO, conforme as [Perguntas frequentes sobre o Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * A VM deve ser criada com base na imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, no mínimo, 4 GB de RAM (o tamanho recomendável é de 7 GB).
 * (Para RHEL e CentOS) Desabilite o SELinux. Para desabilitar SELinux, confira "4.4.2. Desabilitando o SELinux" no [Guia do Administrador e Usuário do SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.

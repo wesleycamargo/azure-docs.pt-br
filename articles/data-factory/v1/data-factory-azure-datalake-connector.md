@@ -2,10 +2,9 @@
 title: Copiar dados de e para o Azure Data Lake Store | Microsoft Docs
 description: Saiba como copiar dados de e para o Data Lake Store usando o Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ce5909bd522ab7af77846af598506ea69058bd5c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar dados de e para o Data Lake Store usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157785"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -83,8 +84,20 @@ Certifique-se de que as seguintes URLs são acessíveis a partir de computadores
 
 - https://device.login.microsoftonline.com
 
-Se sua organização exigir acesso à Internet através de um proxy de saída, é necessário implementar a Descoberta Automática de Proxy da Web (WPAD) para permitir que computadores com Windows 10 registrem-se no Azure AD.
+- STS de sua organização (domínios federados)
 
+Se não tiver feito, o STS da sua organização (para domínios federados) devem ser incluídos nas configurações de intranet local do usuário.
+
+Se sua organização está planejando usar o SSO contínuo, URLs a seguir precisam estar acessíveis os computadores dentro da sua organização, e eles também devem ser adicionados à zona de intranet local do usuário:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações à barra de status por meio de script".
+
+
+Se sua organização exigir acesso à Internet através de um proxy de saída, é necessário implementar a Descoberta Automática de Proxy da Web (WPAD) para permitir que computadores com Windows 10 registrem-se no Azure AD.
 
 ## <a name="configuration-steps"></a>Etapas da configuração
 
@@ -549,8 +562,6 @@ Quando você tiver concluído as etapas necessárias, os dispositivos adicionado
 ### <a name="remarks"></a>Comentários
 
 - Você pode usar um objeto de Política de Grupo para controlar a distribuição de registro automático de computadores associados ao domínio do Windows 10 e do Windows Server 2016. **Se você não quiser que esses dispositivos registrem automaticamente com o Azure AD, ou se quiser controlar o registro**, primeiro implemente a política de grupo desabilitando o registro automático em todos esses dispositivos, antes de iniciar as etapas de configuração. Depois de terminar a configuração, e quando estiver pronto para testar, implemente a política de grupo habilitando o registro automático somente nos dispositivos de teste, e depois em todos os outros dispositivos que você escolher.
-
-- A Atualização de 10 de novembro de 2015 do Windows será adicionada automaticamente ao Azure AD **apenas** se o objeto da Política de Grupo de distribuição for definido.
 
 - Para distribuição dos computadores de nível inferior do Windows, você pode implantar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nos computadores que selecionar.
 

@@ -1,6 +1,6 @@
 ---
 title: Replicar VMs do Hyper-V com PowerShell e o Azure Resource Manager | Microsoft Docs
-description: "Automatize a replicação de VMs do Hyper-V no Azure com o Azure Site Recovery usando o PowerShell e o Azure Resource Manager."
+description: Automatize a replicação de VMs do Hyper-V no Azure com o Azure Site Recovery usando o PowerShell e o Azure Resource Manager.
 services: site-recovery
 author: bsiva
 manager: abhiag
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para máquinas virtuais do Hyper-V usando o PowerShell e o Azure Resource Manager
 
@@ -45,9 +45,9 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: Entrar em sua conta do Azure
 
-1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicitará suas credenciais de conta: **Login-AzureRmAccount**.
-    - Como alternativa, você pode incluir as credenciais de conta como um parâmetro no cmdlet **Login-AzureRmAccount**, usando o parâmetro **-Credential**.
-    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicita suas credenciais de conta: **Connect-AzureRmAccount**.
+    - Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzureRmAccount**, usando o parâmetro **-Credential**.
+    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

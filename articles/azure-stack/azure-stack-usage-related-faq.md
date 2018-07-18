@@ -1,9 +1,25 @@
- ---
-título: perguntas frequentes relacionados à utilização de API | Descrição de Microsoft Docs: metros de lista da pilha do Azure, comparação com a API de uso do Azure, o tempo de uso e a hora de relatado, códigos de erro.
-serviços: documentationcenter de pilha do azure: ' autor: manager mattbriggs: femila editor: '
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: Perguntas frequentes relacionados à utilização de API | Microsoft Docs
+description: Lista de metros de pilha do Azure, em comparação com a API de uso do Azure, o tempo de uso e a hora de relatado, códigos de erro.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes no uso da pilha do Azure API
 Este artigo responde algumas perguntas frequentes sobre a API de uso de pilha do Azure.
@@ -52,7 +68,7 @@ Uso é relatado para os provedores de recursos a seguir:
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Como fazer o uso da pilha do Azure APIs comparam com o [uso do Azure API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (atualmente em visualização pública)?
 * A API de uso do locatário é consistente com a API do Azure, com uma exceção: o *showDetails* sinalizador atualmente não tem suporte na pilha do Azure.
 * A API de uso do provedor só se aplica a pilha do Azure.
-* Atualmente, o [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) que é disponível no Azure não está disponível na pilha do Azure.
+* Atualmente, o [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) que é disponível no Azure não está disponível na pilha do Azure.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Qual é a diferença entre o tempo de uso e o tempo relatado?
 Relatórios de uso de dados têm dois valores de tempo principal:

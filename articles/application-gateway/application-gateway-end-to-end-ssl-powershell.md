@@ -1,24 +1,22 @@
 ---
-title: Configurar o SSL de ponta a ponta no Gateway de Aplicativo do Azure | Microsoft Docs
+title: Configurar o SSL de ponta a ponta no Gateway de Aplicativo do Azure
 description: Este artigo descreve como configurar o SSL de ponta a ponta com o Gateway de Aplicativo do Azure usando o PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
 
@@ -60,7 +58,7 @@ Esta seção orienta você pela criação de um grupo de recursos que contenha o
    1. Entre na sua conta do Azure.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 
@@ -124,7 +122,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 > [!IMPORTANT]
 > O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome DNS amigável para o gateway de aplicativo, é recomendável usar um registro CNAME como um alias.
 
-## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway do aplicativo
+## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicativo
 
 Todos os itens de configuração são definidos antes da criação do gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
@@ -160,7 +158,8 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    5. Configure o certificado para o gateway de aplicativo. Esse certificado é usado para descriptografar e criptografar novamente o tráfego no gateway de aplicativo.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $passwd 
    ```
 
    > [!NOTE]
@@ -241,7 +240,7 @@ As etapas anteriores levaram você pela criação de um aplicativo com SSL de po
    2. Defina uma política de SSL. No exemplo a seguir, **TLSv1.0** e **TLSv1.1** estão desabilitadas e os conjuntos de criptografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
 
    ```powershell
-   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 

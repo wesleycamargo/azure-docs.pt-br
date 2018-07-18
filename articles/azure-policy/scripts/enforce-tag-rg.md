@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – Impor marca e seu valor em grupos de recursos | Microsoft Docs"
-description: "Esta política de exemplo de json exige uma marca e valor em um grupo de recursos."
+title: Exemplo de json do Azure Policy – Impor marca e seu valor em grupos de recursos | Microsoft Docs
+description: Esta política de exemplo de json exige uma marca e valor em um grupo de recursos.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 634cfea503b796a026bad1245e234c928baf0463
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 39f07ff2b24f0fcc7e0bb418319dd83c8f2b2c89
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-tag-and-its-value-on-resource-groups"></a>Impor marca e seu valor em grupos de recursos
 

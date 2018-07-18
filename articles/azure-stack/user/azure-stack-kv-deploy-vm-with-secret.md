@@ -1,35 +1,42 @@
 ---
-title: "Implantar uma VM com senha armazenada com segurança na pilha do Azure | Microsoft Docs"
-description: "Saiba como implantar uma máquina virtual usando uma senha armazenada no cofre de chaves de pilha do Azure"
+title: Implantar uma VM com senha armazenada com segurança na pilha do Azure | Microsoft Docs
+description: Saiba como implantar uma máquina virtual usando uma senha armazenada no cofre de chaves de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Criar uma máquina virtual, recuperando a senha armazenada em um cofre de chaves
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Criar uma máquina virtual usando uma senha segura armazenada no cofre de chave de pilha do Azure
 
-Quando você precisa passar um valor de seguro, como uma senha durante a implantação, você pode armazenar esse valor como um segredo em um cofre de chave de pilha do Azure e referenciá-lo nos modelos do Azure Resource Manager. Você não não precisa inserir manualmente o segredo de cada vez que você implantar os recursos, você também pode especificar quais usuários ou entidades de serviço podem acessar o segredo. 
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Neste artigo, vamos orientá-lo pelas etapas necessárias para implantar uma máquina virtual do Windows Azure pilha Recuperando a senha que é armazenada em um cofre de chaves. Portanto, a senha nunca é colocada em texto sem formatação no arquivo de parâmetro de modelo. Se você estiver conectado por meio de VPN, você pode usar essas etapas do Kit de desenvolvimento de pilha do Azure ou de um cliente externo.
+Este artigo aborda implantar uma máquina virtual do Windows Server usando uma senha armazenada no cofre de chaves de pilha do Azure. Usar uma chave de Cofre de senhas é mais segura do que uma senha de texto sem formatação.
+
+## <a name="overview"></a>Visão geral
+
+Você pode armazenar valores como uma senha como um segredo em um cofre de chave de pilha do Azure. Depois de criar um segredo, você poderá referenciá-lo em modelos do Gerenciador de recursos do Azure. Usar os segredos no Gerenciador de recursos fornece os seguintes benefícios:
+
+* Você não precisa inserir manualmente cada vez que você implantar um recurso de segredo.
+* Você pode especificar quais usuários ou entidades de serviço podem acessar um segredo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
- 
-* Você deve assinar uma oferta que inclui o serviço de Cofre de chaves.  
-* [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)  
+
+* Você deve assinar uma oferta que inclui o serviço de Cofre de chaves.
+* [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)
 * [Configure o ambiente do PowerShell do usuário a pilha do Azure.](azure-stack-powershell-configure-user.md)
 
 As etapas a seguir descrevem o processo necessário para criar uma máquina virtual, recuperando a senha armazenada em um cofre de chaves:
@@ -37,6 +44,8 @@ As etapas a seguir descrevem o processo necessário para criar uma máquina virt
 1. Crie um cofre de chave secreta.
 2. Atualize o arquivo azuredeploy.parameters.json.
 3. Implante o modelo.
+
+>[OBSERVAÇÃO] Se você estiver conectado por meio de VPN, você pode usar essas etapas do Kit de desenvolvimento de pilha do Azure ou de um cliente externo.
 
 ## <a name="create-a-key-vault-secret"></a>Crie um cofre de chave secreta
 
@@ -74,7 +83,7 @@ Modificar o `azuredeploy.parameters.json` arquivo de acordo com seus valores de 
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Atualizar o arquivo azuredeploy.parameters.json
 
-Atualize o arquivo de azuredeploy.parameters.json com URI KeyVault, secretName, adminUsername dos valores de acordo com seu ambiente de máquina virtual. O arquivo JSON a seguir mostra um exemplo do arquivo de parâmetros do modelo: 
+Atualize o arquivo de azuredeploy.parameters.json com URI KeyVault, secretName, adminUsername dos valores de acordo com seu ambiente de máquina virtual. O arquivo JSON a seguir mostra um exemplo do arquivo de parâmetros do modelo:
 
 ```json
 {
@@ -114,13 +123,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 Quando o modelo é implantado com êxito, ele resulta na seguinte saída:
 
 ![Saída de implantação](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>Próximas etapas
+
 [Implantar um aplicativo de exemplo com o Cofre de chaves](azure-stack-kv-sample-app.md)
 
 [Implantar uma VM com um certificado de chave de cofre](azure-stack-kv-push-secret-into-vm.md)
-

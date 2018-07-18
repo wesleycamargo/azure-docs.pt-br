@@ -1,24 +1,24 @@
 ---
-title: "Implantar seu dispositivo StorSimple série 8000 no portal do Azure | Microsoft Docs"
-description: "Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple série 8000 executando a Atualização 3 e posteriores, e o serviço do Gerenciador de Dispositivos StorSimple."
+title: Implantar seu dispositivo StorSimple série 8000 no portal do Azure | Microsoft Docs
+description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple série 8000 executando a Atualização 3 e posteriores, e o serviço do Gerenciador de Dispositivos StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
 
@@ -33,13 +33,13 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, vá para: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez sejam necessários durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | --- | --- |
 | **PRÉ-REQUISITOS** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |
@@ -195,6 +195,19 @@ Execute as seguintes etapas para obter o iSCSI IQN (Nome Qualificado) de um host
 Execute as etapas a seguir no portal do Azure para criar um backup manual sob demanda para um único volume em seu dispositivo StorSimple.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Exibir o diagrama de pinagem do cabo serial do StorSimple
+O diagrama de pinagem a seguir pode ser usado para o cabo do console serial do StorSimple.
+
+Aqui, o conector fêmea DB9 é P1 e o conector de 3,5 mm é P2.
+
+![Diagrama de pinagem 1 do cabo de console serial do StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+A extremidade da tomada de estéreo é considerada PIN 3 RX, a parte central é PIN 2 TX e a base é PIN 1 GND, conforme mostrado no diagrama a seguir.
+
+![Diagrama de pinagem 2 do cabo de console serial do StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar um Dispositivo de Nuvem StorSimple](storsimple-8000-cloud-appliance-u2.md).

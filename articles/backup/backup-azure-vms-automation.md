@@ -2,10 +2,10 @@
 title: Implantar e gerenciar backups para VMs implantadas com o Gerenciador de Recursos usando o PowerShell | Microsoft Docs
 description: Use o PowerShell para implantar e gerenciar backups no Azure para VMs implantadas com o Gerenciador de Recursos
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab75c88409c6e20f9bc46ad3b4336da150abd52c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usar os cmdlets AzureRM.RecoveryServices.Backup para fazer backup de máquinas virtuais
 
@@ -79,9 +79,9 @@ Para começar:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Entre em sua conta do Azure usando **Login-AzureRmAccount**. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta: 
-    - Como alternativa, você pode incluir as credenciais de conta como um parâmetro no cmdlet **Login-AzureRmAccount**, usando o parâmetro **-Credential**.
-    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+3. Entre em sua conta do Azure usando **Connect-AzureRmAccount**. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta: 
+    - Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzureRmAccount**, usando o parâmetro **-Credential**.
+    - Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 4. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
     ```PS
@@ -124,7 +124,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     ```PS
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-3. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
+3. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/common/storage-redundancy-lrs.md) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/common/storage-redundancy-grs.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
 
     ```PS
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -362,7 +362,7 @@ Depois de restaurar os discos, vá para a próxima seção para criar a VM.
 Depois de ter restaurado os discos, use estas etapas para criar e configurar uma máquina virtual do disco.
 
 > [!NOTE]
-> Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-custom-roles.md).
+> Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
 >
 >
 

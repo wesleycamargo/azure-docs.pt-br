@@ -2,28 +2,25 @@
 title: Registro do aplicativo - Azure Active Directory B2C
 description: Como registrar seu aplicativo com o B2C do Active Directory do Azure
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
-ms.author: parakhj
-ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: davidmu
+ms.openlocfilehash: 8ba511464f8ce0bef2a14706a272f6c09dfe5d07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrar seu aplicativo
 
 Este Guia de início rápido ajuda você a registrar um aplicativo em um locatário do Microsoft Azure Active Directory (Azure AD) B2C em poucos minutos. Quando terminar, seu aplicativo estará registrado para uso no locatário B2C do Azure AD.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para compilar um aplicativo que aceite a inscrição e a entrada do consumidor, primeiro será necessário registrar o aplicativo em um locatário do Azure Active Directory B2C. Obtenha seu próprio locatário usando as etapas descritas em [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md).
 
@@ -134,7 +131,7 @@ Para excluir o aplicativo, vá para o [Portal de Registro de Aplicativo](https:/
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um dos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
+Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um dos [tutoriais de início rápido](active-directory-b2c-overview.md) para começar a trabalhar.
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web ASP.NET com inscrição, entrada e redefinição de senha](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

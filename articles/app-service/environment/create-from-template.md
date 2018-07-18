@@ -1,6 +1,6 @@
 ---
-title: "Criar um ambiente do Serviço de Aplicativo do Azure usando um modelo do Resource Manager"
-description: "Explica como criar um Ambiente do Serviço de Aplicativo do Azure ILB ou Externo usando um modelo do Resource Manager"
+title: Criar um ambiente do Serviço de Aplicativo do Azure usando um modelo do Resource Manager
+description: Explica como criar um Ambiente do Serviço de Aplicativo do Azure ILB ou Externo usando um modelo do Resource Manager
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 69ead9e6dae400ce16cb2442c7b1c13e348d1572
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
 
@@ -40,7 +40,7 @@ Para automatizar a criação do ASE:
 
 2. Depois que o ASE ILB for criado, um certificado SSL correspondente ao domínio do ASE ILB será carregado.
 
-3. O certificado SSL carregado é atribuído ao ASE ILB como seu certificado SSL “padrão”.  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles usam o domínio-raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootdomain.com).
+3. O certificado SSL carregado é atribuído ao ASE ILB como seu certificado SSL “padrão”.  Esse certificado SSL será usado para o tráfego SSL dos aplicativos no ASE ILB quando eles usam o domínio-raiz comum atribuído ao ASE (por exemplo, https://someapp.mycustomrootdomain.com)).
 
 
 ## <a name="create-the-ase"></a>Criar o ASE
@@ -54,10 +54,12 @@ Se você quiser fazer uma ASE ILB, use esses [exemplos][quickstartilbasecreate] 
 
 Após o arquivo *azuredeploy.parameters.json* ser preenchido, crie o ASE usando o trecho de código do PowerShell. Altere os caminhos do arquivo para corresponder aos locais do modelo Resource Manager no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Leva aproximadamente uma hora para o ASE ser criado. Em seguida, o ASE aparece no portal na lista de ASEs para a assinatura que disparou a implantação.
 
@@ -82,17 +84,19 @@ Use o seguinte trecho de código do PowerShell para:
 
 Este código do PowerShell para a codificação de base64 foi adaptado do [Blog de Scripts do PowerShell][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Depois que o certificado SSL for gerado com êxito e convertido em uma cadeia de caracteres codificada em base64, use o modelo do Resource Manager de exemplo para [Configurar o certificado SSL padrão][quickstartconfiguressl] no GitHub. 
 
@@ -107,37 +111,41 @@ Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 
 Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado aqui:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Após o arquivo *azuredeploy.parameters.json* ser preenchido, configure o certificado SSL padrão usando o trecho de código do PowerShell. Altere os caminhos do arquivo para corresponder ao local em que os arquivos do modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Leva cerca de 40 minutos por front-end ASE para aplicar a alteração. Por exemplo, para um ASE padrão dimensionado que usa dois front-ends, o modelo leva aproximadamente uma hora e 20 minutos para concluir. Enquanto o modelo estiver em execução, o ASE não pode ser dimensionado.  
 
@@ -169,7 +177,7 @@ Para criar um ASEv1 usando um modelo do Resource Manager, consulte [Criar um ASE
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md

@@ -1,24 +1,25 @@
 ---
-title: "Gerenciar o acesso a aplicativos de nuvem restringindo locatários – Azure | Microsoft Docs"
-description: "Como usar Restrições de Locatário para gerenciar quais usuários podem acessar aplicativos com base em seu locatário do Azure AD."
+title: Gerenciar o acesso a aplicativos de nuvem restringindo locatários – Azure | Microsoft Docs
+description: Como usar Restrições de Locatário para gerenciar quais usuários podem acessar aplicativos com base em seu locatário do Azure AD.
 services: active-directory
-documentationcenter: 
-author: kgremban
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 editor: yossib
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: kgremban
-ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 05/15/2018
+ms.author: barbkess
+ms.reviewer: richagi
+ms.openlocfilehash: 6584db755a586fcf5fd7318f9396b797edeaf0ad
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar Restrições de Locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -28,7 +29,7 @@ A solução do Azure Active Directory para esse desafio é um recurso chamado Re
 
 As Restrições de Locatário dão às organizações a capacidade de especificar a lista de locatários que seus usuários têm permissão para acessar. O Azure AD então apenas concede acesso para esses locatários permitidos.
 
-Este artigo se concentra em Restrições de Locatário para o Office 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem de SaaS que usa protocolos de autenticação moderna com o Azure AD para logon único. Se você usar aplicativos de SaaS com um locatário do Azure AD diferente do usado pelo Office 365, certifique-se de que todos os locatários necessários sejam permitidos. Para obter mais informações sobre os aplicativos de nuvem de SaaS, consulte o [Marketplace do Active Directory](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+Este artigo se concentra em Restrições de Locatário para o Office 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem de SaaS que usa protocolos de autenticação moderna com o Azure AD para logon único. Se você usar aplicativos de SaaS com um locatário do Azure AD diferente do usado pelo Office 365, certifique-se de que todos os locatários necessários sejam permitidos. Para obter mais informações sobre os aplicativos de nuvem de SaaS, consulte o [Marketplace do Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -58,7 +59,7 @@ Para usar Restrições de Locatário, seus clientes devem ser capazes de se cone
 
 A configuração a seguir é necessária para habilitar as Restrições de Locatário por meio de sua infraestrutura de proxy. Essa diretriz é genérica, você deverá consultar a documentação do seu fornecedor de proxy para encontrar as etapas de implementação específicas.
 
-#### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>pré-requisitos
 
 - O proxy deve ser capaz de realizar a interceptação de SSL, a inserção de cabeçalho HTTP e a filtragem de destinos usando FQDNs/URLs. 
 
@@ -112,7 +113,9 @@ Consulte [Updated Office 365 modern authentication](https://blogs.office.com/201
 
 As Restrições de Locatário no momento têm suporte pelos aplicativos baseados em navegador do Office 365 (o Portal do Office, Yammer, sites do SharePoint, Outlook na Web etc.). Para clientes espessos (Outlook, Skype for Business, Word, Excel, PowerPoint etc.) As Restrições de Locatário podem ser aplicadas somente quando a autenticação moderna é usada.  
 
-Os clientes do Outlook e Skype for Business que dão suporte à autenticação moderna ainda podem usar protocolos herdados em locatários em que a autenticação moderna não está habilitada, ignorando efetivamente as Restrições de Locatário. Para o Outlook no Windows, os clientes podem optar por implementar restrições que impedem que os usuários finais adicionem contas de email não aprovadas aos seus perfis. Por exemplo, consulte a configuração da política de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir a adição de contas do Exchange não padrão). No momento, não há suporte completo para Restrições de Locatário para o Outlook em plataformas não Windows e para Skype for Business em nenhuma plataforma.
+Clientes Skype for Business e Outlook que dão suporte à autenticação moderna ainda podem usar protocolos herdados em locatários em que a autenticação moderna não está habilitada, ignorando efetivamente as Restrições de Locatário. Aplicativos que usam protocolos herdados podem ser bloqueados pelas Restrições de Locatário se contatarem login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
+
+Para o Outlook no Windows, os clientes podem optar por implementar restrições que impedem que os usuários finais adicionem contas de email não aprovadas aos seus perfis. Por exemplo, consulte a configuração da política de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir a adição de contas do Exchange não padrão). No momento, não há suporte completo para Restrições de Locatário para o Outlook em plataformas não Windows e para Skype for Business em nenhuma plataforma.
 
 ## <a name="testing"></a>Testando
 
@@ -132,7 +135,7 @@ O Fiddler é um proxy de depuração da Web gratuito que pode ser usado para cap
   if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
 
-  Se você precisar permitir vários locatários, use uma vírgula para separar os nomes de locatário. Por exemplo:
+  Se você precisar permitir vários locatários, use uma vírgula para separar os nomes de locatário. Por exemplo: 
 
   ```
   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";

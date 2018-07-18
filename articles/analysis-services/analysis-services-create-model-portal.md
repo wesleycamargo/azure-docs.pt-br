@@ -1,36 +1,30 @@
 ---
 title: Criar um modelo de tabela usando o designer de Web do Azure Analysis Services | Microsoft Docs
 description: Saiba como criar um modelo de tabela do Azure Analysis Services usando o designer de Web no portal do Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: owend
-ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.reviewer: minewiskan
+ms.openlocfilehash: 4b1d4cffc3571297f2b74674156cb7f3bad7c2c8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149887"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Criar um modelo no portal do Azure
 
 O recurso de Web designer do Azure Analysis Services (Versão Prévia) no portal do Azure fornece uma maneira rápida e fácil de criar e editar modelos de tabela e consultar dados de modelo diretamente em seu navegador. 
 
-Tenha em mente que o Web designer é uma **versão prévia**. Embora novas funcionalidades estão sendo adicionadas o tempo todo, na versão prévia, a funcionalidade é limitada. Para desenvolvimento e teste de modelos mais avançados, é melhor usar o Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+Tenha em mente que o Web designer é uma **versão prévia**. A funcionalidade é limitada. Para desenvolvimento e teste de modelos mais avançados, é melhor usar o Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 - Um servidor do Azure Analysis Services na camada Padrão ou Desenvolvedor. Novos modelos criados usando o designer de Web são DirectQuery com suporte apenas dessas camadas.
-- Um Banco de Dados SQL Azure, Azure SQL Data Warehouse ou arquivo Power BI Desktop (.pbix) como fonte de dados. Novos modelos criados por meio de arquivos Power BI Desktop dão suporte às fontes de dados de Banco de Dados SQL Azure, Azure SQL Data Warehouse, Oracle e Teradata.
+- Um Banco de Dados SQL Azure, Azure SQL Data Warehouse ou arquivo Power BI Desktop (.pbix) como fonte de dados. Novos modelos criados por meio de arquivos Power BI Desktop dão suporte às fontes de dados de Banco de Dados SQL Azure e Azure SQL Data Warehouse.
 - Uma conta e senha do SQL Server para se conectar a fontes de dados do Banco de Dados SQL Azure ou Azure SQL Data Warehouse.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure

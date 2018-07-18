@@ -1,11 +1,11 @@
 ---
-title: "Conectar uma rede virtual do Azure a outra rede virtual usando uma conexão de VNet a VNet: PowerShell | Microsoft Docs"
-description: "Conecte redes virtuais usando a conexão de rede virtual a rede virtual e o PowerShell."
+title: 'Conectar uma rede virtual do Azure a outra rede virtual usando uma conexão de VNet a VNet: PowerShell | Microsoft Docs'
+description: Conecte redes virtuais usando a conexão de rede virtual a rede virtual e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8f2ecf4f10c5506b79adb033c67c41a4b1e17777
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a96326e23a2ed913ccab8a23666a4f408157d3da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -28,7 +28,7 @@ Este artigo ajuda você a conectar redes virtuais usando o tipo de conexão de r
 As etapas neste artigo se aplicam ao modelo de implantação do Gerenciador de Recursos e usa o PowerShell. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -153,7 +153,7 @@ Usamos os seguintes valores nos exemplos:
 2. Conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verificar as assinaturas da conta.
@@ -349,7 +349,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
 2. Conecte-se à assinatura 5. Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verificar as assinaturas da conta.

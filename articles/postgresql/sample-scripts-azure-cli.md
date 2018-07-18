@@ -1,6 +1,6 @@
 ---
 title: Exemplos da CLI do Azure para o Banco de Dados do Azure para PostgreSQL
-description: "Este artigo lista vários exemplos de código da CLI do Azure disponíveis para interagir com servidores de Banco de Dados do Azure para PostgreSQL."
+description: Este artigo lista vários exemplos de código da CLI do Azure disponíveis para interagir com servidores de Banco de Dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

@@ -1,32 +1,32 @@
 ---
-title: "Encadeamento de funções nas Funções Duráveis – Azure"
-description: "Saiba como executar um exemplo de Funções Duráveis que executa uma sequência de funções."
+title: Encadeamento de funções nas Funções Duráveis – Azure
+description: Saiba como executar um exemplo de Funções Duráveis que executa uma sequência de funções.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
 
 Encadeamento de funções é o padrão de executar uma sequência de funções em uma ordem específica. Frequentemente, a saída de uma função precisa ser aplicada à entrada de outra função. Este artigo descreve um exemplo que usa as [Funções Duráveis](durable-functions-overview.md) para implementar o encadeamento de funções.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-* Siga as instruções em [Instalar Funções Duráveis](durable-functions-install.md) para configurar o exemplo.
+* [Instalar Funções Duráveis](durable-functions-install.md).
 
 ## <a name="the-functions"></a>As funções
 
@@ -35,9 +35,13 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 * `E1_HelloSequence`: uma função de orquestrador que chama `E1_SayHello` várias vezes em uma sequência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
 * `E1_SayHello`: uma função de atividade que precede uma cadeia de caracteres com "Hello".
 
-As seções a seguir explicam a configuração e o código que são usados para desenvolvimento no portal do Azure. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
- 
-## <a name="functionjson-file"></a>Arquivo function.json
+As seções a seguir explicam a configuração e o código utilizados para o script C# e Javascript. O código para desenvolvimento no Visual Studio é exibido no final do artigo.
+
+> [!NOTE]
+> As Funções Duráveis estão disponíveis em JavaScript somente no tempo de execução de Funções v2.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>Arquivo function.json
 
 Se você usa o Visual Studio Code ou o portal do Azure para desenvolvimento, este é o conteúdo do arquivo *function.json* para a função de orquestrador. A maioria dos arquivos *function.json* do orquestrador são quase exatamente iguais a esse.
 
@@ -48,7 +52,7 @@ O importante é o tipo de associação de `orchestrationTrigger`. Todas as funç
 > [!WARNING]
 > Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (código de exemplo do Visual Studio Code e do portal do Azure) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (código de exemplo do Visual Studio Code e do portal do Azure) 
 
 Este é o código-fonte:
 
@@ -57,6 +61,23 @@ Este é o código-fonte:
 Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se você estiver usando o script C#, o assembly poderá ser referenciado usando a notação `#r`. Esse objeto de contexto permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 O código chama `E1_SayHello` três vezes seguidas com valores de parâmetros diferentes. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
+
+### <a name="javascript"></a>JavaScript
+
+Este é o código-fonte:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Todas as funções de orquestração de JavaScript devem incluir o módulo `durable-functions`. Essa é uma biblioteca de JavaScript que move as ações da função de orquestração para o protocolo de execução da Durável para idiomas de fora do processo. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+
+1. A função é uma [função de gerador.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. A função é encapsulada em uma chamada para o módulo `durable-functions` (aqui `df`).
+3. A função termina chamando `return`, não `context.done`.
+
+O objeto `context` contém um objeto `df`, permite chamar outras funções de *atividade* e passa parâmetros de entrada usando seu método `callActivityAsync`. O código chama `E1_SayHello` três vezes em sequência com valores de parâmetros diferentes, usando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíncrona serem retornadas. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>Arquivo function.json
 
 O arquivo *function.json* da função de atividade `E1_SayHello` é semelhante ao de `E1_HelloSequence`, exceto por usar um tipo de associação `activityTrigger` em vez de um tipo de associação `orchestrationTrigger`.
 
@@ -67,9 +88,17 @@ O arquivo *function.json* da função de atividade `E1_SayHello` é semelhante a
 
 A implementação de `E1_SayHello` é uma operação de formatação de cadeia de caracteres relativamente simples.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Essa função tem um parâmetro do tipo [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), que ela usa para obter a entrada que lhe foi passada pela chamada da função de orquestrador para [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+Ao contrário de uma função de orquestração de JavaScript, uma função de atividade de JavaScript não precisa de nenhuma configuração especial. A entrada passada a ela pela função do orquestrador está localizada no objeto `context.bindings` sob o nome da ligação `activitytrigger`; nesse caso, `context.bindings.name`. O nome da associação pode ser definido como parâmetro da função exportada e acessado diretamente, que é o que o código de exemplo faz.
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 

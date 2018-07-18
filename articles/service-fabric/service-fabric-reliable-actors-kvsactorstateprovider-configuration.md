@@ -1,24 +1,24 @@
 ---
-title: "Alterar as configurações de KVSActorStateProvider nos microsserviços do Azure | Microsoft Docs"
-description: "Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider."
+title: Alterar as configurações de KVSActorStateProvider nos microsserviços do Azure | Microsoft Docs
+description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
 A configuração padrão do KVSActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Microsoft Visual Studio dentro da pasta Config para o ator especificado.
@@ -45,7 +45,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade no manifesto de serviço. |
@@ -62,7 +62,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o intervalo máximo de envio em lotes para a confirmação do local de armazenamento durável . |
 | MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão no banco de dados do armazenamento local. Ele determina o número máximo de transações pendentes. |

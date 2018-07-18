@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 05/09/2018
 ms.author: billmath
-ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46a9bf47b4998c4d5be47f67556fbdb3ba7b71db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054087"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
@@ -98,6 +99,68 @@ Atualmente, não há suporte para a modificação dos atributos HTML da página 
 
 **P: Existe uma maneira de evitar sessões simultâneas?**</br>
 Nº
+
+## <a name="auto-upgrade"></a>Atualização automática
+
+**P: quais são as vantagens e as consequências do uso da atualização automática?**</br>
+É recomendável que todos os clientes habilitem a atualização automática para a instalação do Azure AD Connect. Como benefício, eles sempre receberão os patches mais recentes, incluindo atualizações de segurança para vulnerabilidades encontradas no Azure AD Connect. O processo de atualização é simples e ocorrerá automaticamente assim que uma nova versão estiver disponível. Atendemos a milhares de clientes do Azure AD Connect por meio da atualização automática a cada nova versão.
+
+No processo de atualização automática, sempre será definido primeiro se uma instalação está qualificada (isso inclui a pesquisa de alterações personalizadas das regras, fatores ambientais específicos etc.). Em caso positivo, a atualização será realizada e testada. Se os testes mostrarem que uma atualização não foi bem-sucedida, a versão anterior será restaurada automaticamente.
+
+De acordo com o tamanho do ambiente, o processo poderá levar algumas horas. Além disso, durante a atualização, não haverá sincronização entre o Windows Server AD e o Azure AD.
+
+**P: Recebi um email informando que a atualização de automática não funciona mais e preciso instalar a nova versão. Por que preciso fazer isso?**</br>
+No ano passado, lançamos um versão do Azure AD Connect que, em algumas situações, pode ter desabilitado o recurso de atualização automática no seu servidor. Corrigimos o problema no Azure AD Connect versão 1.1.750.0, lançado no fim do mês passado. Precisamos que os clientes afetados por esse problema façam a atualização manual para a versão mais recente do Azure AD Connect, a fim de atenuar o problema. Para atualizar manualmente, é necessário baixar e executar a versão mais recente do arquivo AADConnect.msi.
+ 
+-  Se a versão atual for anterior à 1.1.750.0, atualize para a versão mais recente, [que pode ser baixada aqui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+- Se a versão do Azure AD Connect for a 1.1.750.0 ou mais recente, você não precisará realizar nenhuma ação para atenuar o problema de atualização automática, pois você já tem a versão corrigida. 
+
+**P: Recebi um email solicitando a atualização para a versão mais recente para habilitar novamente a atualização automática. Minha versão é a 1.1.654.0, preciso atualizar?** </br>    
+Sim, você precisa atualizar para a versão 1.1.750 ou mais recente para habilitar novamente a atualização automática. Este é o link que explica como atualizar para uma versão mais recente
+
+**P: Recebi um email solicitando a atualização para a versão mais recente para habilitar novamente a atualização automática. Usei o PowerShell para habilitar a atualização automática, ainda preciso instalar a versão mais recente?**</br>    
+Sim, você ainda precisa atualizar para a versão 1.1.750.0 ou mais recente. Habilitar o serviço de atualização automática com o PowerShell não atenuará o problema encontrado na versão 1.1.750 e anteriores
+
+**P: Quero atualizar para uma versão mais recente, mas não sei quem instalou o Azure AD Connect e não tenho o nome de usuário e a senha.  Preciso disso?**</br>
+Não é necessário saber o nome de usuário e a senha usada inicialmente para atualizar o Azure AD Connect – qualquer conta do Azure AD que tenha a função de administrador global pode ser usada.
+
+**P: Como posso descobrir a versão do Azure AD Connect?**</br>   
+Para verificar qual versão do Azure AD Connect está instalada no servidor, vá para o Painel de Controle e procure a versão instalada do Microsoft Azure AD Connect em "Programas > Programas e recursos":
+
+![version](media/active-directory-aadconnect-faq/faq1.png)
+
+**P: Como realizar uma atualização para a versão mais recente do AADConnect?**</br>    
+Este [artigo](active-directory-aadconnect-upgrade-previous-version.md) explica como atualizar para uma versão mais recente. 
+
+**P: Já atualizamos para a versão mais recente do AADConnect no ano passado, precisamos atualizar novamente?**</br> As equipes do Azure AD Connect fazem atualizações no serviço frequentemente, e é importante que seu servidor esteja atualizado com a versão mais recente para se beneficiar de correções de bug e atualizações de segurança, bem como novos recursos. Se você habilitar a atualização automática, a versão do software será atualizada automaticamente. Para localizar o histórico de lançamento de versões do Azure AD Connect, siga este [link](active-directory-aadconnect-version-history.md).
+
+**P: Quanto tempo levará para executar a atualização e o qual é o impacto sobre meus usuários?**</br>    
+O tempo necessário para a atualização depende do tamanho do locatário e, para organizações maiores, talvez seja melhor fazê-la durante a noite ou no fim de semana. Durante a atualização, não haverá atividade de sincronização.
+
+**P: Acho que atualizei para o AADConnect, mas o portal do Office ainda menciona o DirSync.  Por quê?**</br>    
+A equipe do Office está trabalhando para que as atualizações do portal reflitam o nome atual do produto – ele não reflete a ferramenta de sincronização que você está usando.
+
+**P: Verifiquei meu status de atualização automática, que diz "suspenso". Por que está suspenso? Devo habilitá-lo?**</br>     
+Houve um bug em uma versão anterior que, em algumas situações, definia o status de atualização automática como "suspenso". Habilitá-lo manualmente é tecnicamente possível, mas exige seguir várias etapas complexas. Então, o melhor a fazer é instalar a versão mais recente do Azure AD Connect
+
+**P: Minha empresa tem requisitos rigorosos de gerenciamento de alterações e quero controlá-los quando são descumpridos. É possível controlar quando a atualização automática é iniciada?**</br> Não, não há recursos desse tipo atualmente, isso é algo que estamos considerando para uma versão futura.
+
+**P: Receberei um email se a atualização automática falhar? Como saberei se ela foi bem-sucedida?**</br>     
+Você não receberá notificações sobre o resultado da atualização, isso é algo que estamos considerando para uma versão futura.
+
+**P: Existe um cronograma de atualizações automáticas?**</br>    
+A atualização automática é a primeira etapa no nosso processo de lançamento de uma nova versão, então, sempre que houver uma nova versão, enviaremos as atualizações automáticas. As versões mais recentes do Azure AD Connect são pré-anunciadas no [Roteiro do Azure AD](../../active-directory/whats-new.md).
+
+**P: A atualização automática atualiza o AAD Connect Health?**</br>   Sim, atualização automática também atualiza o AAD Connect Health
+
+**P: Os servidores do AAD Connect também são atualizados automaticamente no Modo de Preparo?**</br>   
+Não é possível atualizar um servidor do Azure AD Connect automaticamente no Modo de Preparo.
+
+**P: Se a atualização automática falhar e meu servidor AAD Connect não for iniciado, o que devo fazer?**</br>   
+Em casos raros, o serviço Azure AD Connect não inicia após executar a atualização. Nesses casos, reinicialize o servidor, o que geralmente corrige o problema. Se o serviço Azure AD Connect não iniciar, abra um tíquete de suporte. Aqui está uma [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) que explica como fazer isso. 
+
+**P: Não sei quais são os riscos ao atualizar para uma versão mais recente do Azure AD Connect. Vocês podem me ligar para ajudar com a atualização?**</br>
+Se você precisar de ajuda para atualizar para uma versão mais recente do Azure AD Connect, abra um tíquete de suporte. Aqui está um [link](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) que mostra como fazer isso.
 
 ## <a name="troubleshooting"></a>solução de problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**

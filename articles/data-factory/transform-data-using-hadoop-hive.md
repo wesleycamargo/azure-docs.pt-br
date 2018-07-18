@@ -1,23 +1,22 @@
 ---
 title: Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory | Microsoft Docs
-description: "Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight."
+description: Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight.
 services: data-factory
-documentationcenter: 
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 37a29d826a948788c5374ad2cc20b6a2040230ad
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: douglasl
+ms.openlocfilehash: 9346b995a7114688e357d1605d28c5a3d01d4afb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

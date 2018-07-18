@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e SSO do SAML para Bamboo da Resolution GmbH."
+title: 'Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e SSO do SAML para Bamboo da Resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: c677161defb04091566ae608c3edfb9f25af801b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 13b2a4e70c4d48f36155515727b1d4b3b1e24a1d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH
 
@@ -30,9 +30,9 @@ A integração de SSO do SAML para Bamboo da Resolution GmbH com o Azure AD ofer
 - Você pode habilitar os usuários a entrarem automaticamente no SSO do SAML para Bamboo da Resolution GmbH (logon único) com as próprias contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o SSO de SAML para Bamboo da Resolution GmbH, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SSO do SAML para Bamboo da Resolution GmbH da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-saml-sso-for-bamboo-by-resolution-gmbh-from-the-gallery"></a>Adicionar o SSO do SAML para Bamboo da Resolution GmbH da galeria
 Para configurar a integração do SSO do SAML para Bamboo da Resolution GmbH no Azure AD, adicione o SSO do SAML para Bamboo da Resolution GmbH da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -153,7 +153,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     c. Na caixa de texto **Descrição**, digite a descrição.
 
-    d. Clique em **Avançar**.
+    d. Clique em **Próximo**.
 
 12. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
 
@@ -163,7 +163,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![O idpmetadata](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
-14. Clique em **Avançar**.
+14. Clique em **Próximo**.
 
 15. Clique em **Salvar alterações**.
 
@@ -248,7 +248,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,22 +1,22 @@
 ---
-title: "Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET) | Microsoft Docs"
-description: "Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET)"
+title: Provisionar um dispositivo usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET) | Microsoft Docs
+description: Provisionar o dispositivo para um único Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (.NET)
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6919f962d853faa572ee7ad5d0cb9aeacd3bd2b6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrar o dispositivo para um Hub IoT usando o Cliente do Serviço de Provisionamento do Hub IoT do Azure (.NET)
 
@@ -49,7 +49,7 @@ Esta etapa envolve adicionar os artefatos de segurança exclusivos do dispositiv
 
 - Para dispositivos baseados em X.509:
     - O [certificado X.509 emitido para o dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), na forma de um arquivo *.pem* ou *.cer*. Para o registro individual, você precisa usar o *certificado assinante* para seu sistema X.509, enquanto para grupos de registro, você precisa usar o *certificado raiz* ou um *certificado de signatário* equivalente.
-    - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Isso pode ou não ser o mesmo que a ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados no X.509, a ID do registro é derivada do nome comum (CN) do certificado. Para obter mais informações sobre esses requisitos, consulte [Conceitos de dispositivo](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Isso pode ou não ser o mesmo que a ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados no X.509, a ID do registro é derivada do nome comum (CN) do certificado. Para obter mais informações sobre esses requisitos, consulte [Conceitos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de Dispositivos:
 

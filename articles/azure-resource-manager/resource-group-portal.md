@@ -1,8 +1,8 @@
 ---
 title: Usar o Portal do Azure para gerenciar os recursos do Azure | Microsoft Docs
-description: "Use o portal do Azure e o Azure Resource Manager para gerenciar seus recursos. Mostra como trabalhar com painéis para monitorar recursos."
+description: Use o portal do Azure e o Azure Resource Manager para gerenciar seus recursos. Mostra como trabalhar com painéis para monitorar recursos.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -11,18 +11,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gerenciar recursos do Azure por meio do portal
 
 Este artigo mostra como usar o [portal do Azure](https://portal.azure.com) com o [Azure Resource Manager](resource-group-overview.md) para gerenciar seus recursos do Azure. Para saber mais sobre a implantação de recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="manage-resource-groups"></a>Gerenciar grupos de recursos
 
@@ -36,7 +38,7 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 2. Para criar um grupo de recursos vazio, escolha **Adicionar**.
    
     ![adicionar grupo de recursos](./media/resource-group-portal/add-resource-group.png)
-3. Forneça um nome e local para o novo grupo de recursos. Selecione **Criar**.
+3. Forneça um nome e local para o novo grupo de recursos. Clique em **Criar**.
    
     ![criar grupo de recursos](./media/resource-group-portal/create-empty-group.png)
 4. Talvez seja necessário selecionar **Atualizar** para ver o grupo de recursos recém-criado.
@@ -64,7 +66,7 @@ Você pode aplicar marcas a recursos e grupos de recursos para organizar seus at
 ## <a name="monitor-resources"></a>Monitorar recursos
 Quando você seleciona um recurso, o portal apresenta gráficos e tabelas padrão para monitoramento desse tipo de recurso.
 
-1. Selecione um recurso e observe a seção **Monitoramento** . Ela inclui gráficos que são relevantes para o tipo de recurso. A imagem a seguir mostra os dados de monitoramento padrão de uma conta de armazenamento.
+1. Selecione um recurso e observe a seção **Monitoramento** . Ela inclui grafos que são relevantes para o tipo de recurso. A imagem a seguir mostra os dados de monitoramento padrão de uma conta de armazenamento.
    
     ![mostrar o monitoramento](./media/resource-group-portal/show-monitoring.png)
 2. Fixe uma seção no painel selecionando as reticências (...) acima da seção. Também personalize o tamanho da seção ou remova-a por completo. A imagem a seguir mostra como fixar, personalizar ou remover a seção CPU e Memória.
@@ -127,6 +129,6 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 * Para exibir os logs de atividade, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
 * Para exibir detalhes sobre uma implantação, confira [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md).
-* Para gerenciar o acesso aos recursos, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+* Para gerenciar o acesso aos recursos, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

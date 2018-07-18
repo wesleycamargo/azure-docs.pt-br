@@ -2,23 +2,20 @@
 title: Navegar e gerenciar recursos de armazenamento usando o Gerenciador de Servidores | Microsoft Docs
 description: Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ghogen
+manager: douge
+assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/24/2017
-ms.author: kraigb
-ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Navegar e gerenciar recursos de armazenamento usando o Gerenciador de Servidores
 

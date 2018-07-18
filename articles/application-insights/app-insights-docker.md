@@ -1,8 +1,8 @@
 ---
 title: Monitorar aplicativos do Docker no Azure Application Insights | Microsoft Docs
-description: "Contadores de desempenho, eventos e exceções do Docker podem ser exibidos no Application Insights, juntamente com a telemetria dos aplicativos contidos."
+description: Contadores de desempenho, eventos e exceções do Docker podem ser exibidos no Application Insights, juntamente com a telemetria dos aplicativos contidos.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153686"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorar aplicativos do Docker no Application Insights
-Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](app-insights-overview.md) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
+Os eventos de ciclo de vida e os contadores de desempenho dos contêineres [Docker](https://www.docker.com/) podem ser representados em gráfico no Application Insights. Instale a imagem [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para outras imagens.
 
 Com o Docker, você distribui os aplicativos em contêineres leves com todas as dependências. Eles serão executados em qualquer máquina host que executa um Mecanismo de Docker.
 
@@ -43,6 +44,10 @@ Ao executar a [imagem do Application Insights](https://hub.docker.com/r/microsof
 2. Adicione o bloco Docker: escolha **Adicionar Bloco**, arraste o bloco Docker a partir da galeria, em seguida, clique em **Concluído**. 
    
     ![exemplo](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> Painel de visão geral do Application Insights agora está bloqueado e não permite adicionar blocos da galeria. Você ainda poderá adicionar o bloco de Docker conforme descrito acima, por meio da interface do Painel do Azure.
+
 3. Clique no menu suspenso **Informações gerais** e copie a Chave de Instrumentação. Você usará isso para informar ao SDK o local em que sua telemetria será enviada.
 
     ![exemplo](./media/app-insights-docker/02-props.png)

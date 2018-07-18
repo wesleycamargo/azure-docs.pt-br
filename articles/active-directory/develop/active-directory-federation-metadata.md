@@ -1,25 +1,28 @@
 ---
-title: "Metadados de Federação do Azure AD | Microsoft Docs"
-description: "Este artigo descreve o documento de metadados de federação que o Azure Active Directory publica para serviços que aceitam tokens do Azure Active Directory."
+title: Metadados de Federação do Azure AD | Microsoft Docs
+description: Este artigo descreve o documento de metadados de federação que o Azure Active Directory publica para serviços que aceitam tokens do Azure Active Directory.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 58e5f62009e4e8b688108c6098ea8eabe8020e51
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156119"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
 O Azure Active Directory (Azure AD) publica um documento de metadados federados para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados federados é descrito no [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que se estende para [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

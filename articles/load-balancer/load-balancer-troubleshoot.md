@@ -3,22 +3,22 @@ title: Solucionar problemas do Azure Load Balancer | Microsoft Docs
 description: Solucionar problemas conhecidos com o Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: RamanDhillon
-manager: timlt
-editor: 
-ms.assetid: 
+author: chadmath
+manager: cshepard
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 294bb6dd780d1df642d6e793b29267da1e8b8336
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -54,7 +54,7 @@ Se a VM estiver em estado íntegro, mas não estiver respondendo à investigaç�
 3. Se o estado da porta não estiver listado como **LISTENING**, configure a porta correta. 
 4. Como alternativa, selecione outra porta, que esteja listada como **LISTENING**, e atualize adequadamente a configuração do Load Balancer.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: O firewall, ou o grupo de segurança de rede, está bloqueando a porta nas VMs do pool de back-end do Load Balancer  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: O firewall, ou o grupo de segurança de rede, está bloqueando a porta nas VMs do pool de back-end do Load Balancer  
 Se o firewall na VM estiver bloqueando a porta de investigação, ou um ou mais grupos de segurança de rede configurados na sub-rede ou na VM, não estiverem permitindo que a investigação alcance a porta, a VM não poderá responder à investigação de integridade.          
 
 **Validação e resolução**
@@ -103,9 +103,7 @@ Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destin
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM estiverem bloqueando o IP de origem ou a porta, a VM não poderá responder.
 
-* Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, confira:
-    -  [Gerenciar grupos de segurança de rede usando o portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Gerenciar grupos de segurança usando o PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md).
 * Na lista de grupos de segurança de rede, verifique se:
     - O tráfego de entrada ou saída na porta de dados tem interferência. 
     - Uma regra do grupo de segurança de rede **Negar Tudo** na NIC da VM ou na sub-rede tem uma prioridade mais alta do que a regra padrão que permite as investigações e o tráfego do Load Balancer (grupos de segurança de rede devem permitir o IP 168.63.129.16 do Load Balancer, que é a porta de investigação) 

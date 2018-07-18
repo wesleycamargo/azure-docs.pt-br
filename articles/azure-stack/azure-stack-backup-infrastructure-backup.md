@@ -1,24 +1,26 @@
 ---
-title: "Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura | Microsoft Docs"
-description: "Você pode fazer backup e restaurar dados de configuração e serviço usando o serviço de Backup de infraestrutura."
+title: Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura | Microsoft Docs
+description: Você pode fazer backup e restaurar dados de configuração e serviço usando o serviço de Backup de infraestrutura.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 84ce0d72ff826ecb3f5deff165db00a1e50ae89d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34822948"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura
 
@@ -52,7 +54,7 @@ Os serviços contém os seguintes recursos.
 - **Credenciais**  
   Você precisa de uma conta de usuário de domínio e as credenciais, por exemplo, você pode usar as credenciais de administrador de pilha do Azure.
 - **Chave de criptografia**  
-  Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você definir essa chave pela primeira vez ou gira a chave no futuro, você não pode exibir essa chave desta interface. Para obter mais instruções gerar uma chave pré-compartilhada, execute os scripts em [habilitar o Backup para a pilha do Azure com o PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você definir essa chave pela primeira vez ou gira a chave no futuro, você não pode exibir essa chave desta interface. Para obter mais instruções gerar uma chave pré-compartilhada, execute os scripts em [habilitar o Backup para a pilha do Azure com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

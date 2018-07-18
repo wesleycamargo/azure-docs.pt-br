@@ -1,13 +1,14 @@
 ---
-title: "Tamanhos de VM Linux do Azure — Memória | Microsoft Docs"
-description: "Lista os diferentes tamanhos otimizados para memória disponíveis para máquinas virtuais Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série."
+title: Tamanhos de VM Linux do Azure — Memória | Microsoft Docs
+description: Lista os diferentes tamanhos otimizados para memória disponíveis para máquinas virtuais Linux no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+keywords: Isolamento de VM, VM isolada, isolamento, isolada
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: f74296fd752e8ec968f4bdcd833a6a2a8a763246
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 760426ab6255c6e42383cc19f523b2dbfc55d404
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943671"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas para memória
 

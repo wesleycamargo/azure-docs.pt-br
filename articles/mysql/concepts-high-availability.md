@@ -1,6 +1,6 @@
 ---
 title: Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
-description: "Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MySQL"
+description: Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MySQL
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

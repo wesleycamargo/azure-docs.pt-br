@@ -1,24 +1,22 @@
 ---
-title: "Carregar grandes quantidades de dados no Data Lake Store usando métodos offline | Microsoft Docs"
+title: Carregar grandes quantidades de dados no Data Lake Store usando métodos offline | Microsoft Docs
 description: Usar a ferramenta AdlCopy para copiar dados dos Azure Storage Blobs para o Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 03d8cc4440d7adcb947e7c150a565e51b6401e92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Usar o Serviço de Importação/Exportação do Azure para uma cópia offline dos dados para o Data Lake Store
 Nesse artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para um Azure Data Lake Store usando métodos de cópia offline, como o [Serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
@@ -195,17 +193,17 @@ Começamos com um arquivo que tinha 319 GB e o dividimos em arquivos de tamanho 
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription
 
 # Switch to the subscription you want to work with
-Set-AzureRmContext –SubscriptionId
+Set-AzureRmContext -SubscriptionId
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
+Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ````
 
 ## <a name="next-steps"></a>Próximas etapas

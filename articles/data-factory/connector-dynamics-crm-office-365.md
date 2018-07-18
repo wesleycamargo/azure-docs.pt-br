@@ -1,25 +1,26 @@
 ---
-title: Copiar dados de e para Dynamics CRM ou Dynamics 365 usando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de fonte com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline do Data Factory.
+title: Copiar dados de e para Dynamics CRM ou Dynamics 365 (Common Data Service) usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados do Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de fonte com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769821"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 ou Dynamics CRM usando o Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 
 Este artigo estrutura como usar atividade de cópia no Azure Data Factory para copiar dados de e para Microsoft Dynamics 365 ou Microsoft Dynamics CRM. Ele amplia o artigo [visão geral da Atividade de Cópia](copy-activity-overview.md) que apresenta uma visão geral da Atividade de Cópia.
 
@@ -28,7 +29,7 @@ Este artigo estrutura como usar atividade de cópia no Azure Data Factory para c
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados do Dynamics 365 ou Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 ou Dynamics CRM. Para obter uma lista de repositórios de dados com suporte como fontes ou coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados do Dynamics 365 (Common Data Service) ou Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 (Common Data Service) ou Dynamics CRM. Para obter uma lista de repositórios de dados com suporte como fontes ou coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Este conector do Dynamics dá suporte às seguintes versões e tipos de autenticação do Dynamics. (IFD é abreviação de implantação para a Internet.)
 
@@ -63,7 +64,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como **Dynamics**. | sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | sim |
-| organizationName | O nome da organização da instância do Dynamics. | Não, deve especificar quando há mais de uma instância do Dynamics associada ao usuário |
+| serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | sim |
 | authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Especifique **"Office365"** para o Dynamics online. | sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
@@ -71,6 +72,9 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 >[!IMPORTANT]
 >Ao copiar dados para o Dynamics, o Azure Integration Runtime padrão não poderá ser usado para executar a cópia. Em outras palavras, se seu serviço vinculado à fonte não tem um integration runtime especificado, explicitamente [crie um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com um local perto de sua instância do Dynamics. Associe-o ao serviço vinculado do Dynamics como no exemplo a seguir.
+
+>[!NOTE]
+>O conector do Dynamics costumava usar a propriedade "organizationName" opcional para identificar a instância do Dynamics CRM/365 Online. Embora continue funcionando, sugerimos que você especifique a nova propriedade "serviceUri" para obter melhor desempenho para a descoberta da instância.
 
 **Exemplo: Dynamics online usando a autenticação do Office365**
 
@@ -82,7 +86,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -207,7 +211,7 @@ Para copiar dados do Dynamics, defina o tipo de fonte na atividade de cópia com
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | O tipo da propriedade da fonte da atividade de cópia deve ser definido como **DynamicsSource**. | sim |
-| query | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja os exemplos a seguir. Para obter mais informações, consulte [Criar consultas com FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Não (se "entityName" no conjunto de dados for especificada) |
+| query | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja os exemplos a seguir. Para obter mais informações, consulte [Criar consultas com FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se "entityName" no conjunto de dados for especificada) |
 
 **Exemplo:**
 
@@ -273,7 +277,11 @@ Para copiar dados do Dynamics, defina o tipo de coletor na atividade de cópia c
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto campos de chave) durante uma operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: deixa os dados no objeto de destino inalterados quando você faz uma operação upsert/atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert/atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
 
 >[!NOTE]
->O valor padrão de writeBatchSize od coletor e a atividade de cópia [parallelCopies](copy-activity-performance.md#parallel-copy) para o coletor Dynamics são ambos 10. Portanto, 100 registros são enviados ao Dynamics simultaneamente.
+>O valor padrão de “**writeBatchSize**” do coletor e a atividade de cópia “**[parallelCopies](copy-activity-performance.md#parallel-copy)**” para o coletor Dynamics são ambos 10. Portanto, 100 registros são enviados ao Dynamics simultaneamente.
+
+Para o Dynamics 365 online, há um limite de [2 chamadas simultâneas de lote por organização](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Se esse limite for excedido, uma falha de "Servidor ocupado" será lançada antes que a primeira solicitação seja executada. Manter "writeBatchSize" menor ou igual a 10 evitaria essa limitação de chamadas simultâneas.
+
+A combinação ideal de "**writeBatchSize**"e"**parallelCopies**" depende do esquema da entidade, por exemplo, número de colunas, o tamanho de linha, o número de plug-ins/fluxos de trabalho/atividades de fluxo de trabalho vinculado para essas chamadas, etc. A configuração padrão de 10 writeBatchSize * 10 parallelCopies é a recomendação de acordo com o serviço do Dynamics, o que pode funcionar para a maioria das entidades do Dynamics embora talvez não seja um melhor desempenho. Você pode ajustar o desempenho ajustando a combinação em suas configurações de atividade de cópia.
 
 **Exemplo:**
 
@@ -319,12 +327,13 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

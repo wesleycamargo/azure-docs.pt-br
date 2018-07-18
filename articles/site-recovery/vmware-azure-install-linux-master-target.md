@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072429"
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -240,18 +241,13 @@ Use as etapas a seguir para criar um disco de retenção:
 
 1. Anexe um novo disco de 1 TB à máquina virtual de destino mestre Linux e inicialize a máquina.
 
-2. Use o comando **multipath -ll** para conhecer a ID de vários caminhos do disco de retenção.
-    
-     `multipath -ll`
+2. Use o comando **multipath -ll** para conhecer a ID de vários caminhos do disco de retenção: **multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formate a unidade e crie um sistema de arquivos na nova unidade.
-
+3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs.ext4 dev/mapper/<ID de vários caminhos do disco de retenção>**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Criação de um sistema de arquivos na unidade](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Sistema de arquivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Depois de criar o sistema de arquivos, monte o disco de retenção.
 
@@ -335,9 +331,9 @@ Após a conclusão da instalação, registre o servidor de configuração por me
      Aguarde até que o script seja concluído. Se o destino mestre for registrado com êxito, ele será listado na página **Infraestrutura do Site Recovery** do portal.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Instalar ferramentas do VMware no servidor de destino mestre
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Instalar ferramentas do VMware / open-vm-tools no servidor de destino mestre
 
-Você precisa instalar ferramentas do VMware no destino mestre para que ele possa descobrir os armazenamentos de dados. Se as ferramentas não forem instaladas, a tela Proteja Novamente não estará listada nos armazenamentos de dados. Após a instalação das ferramentas do VMware, será necessário reiniciar.
+Você precisa instalar ferramentas do VMware ou open-vm-tools no destino mestre para que ele possa descobrir os armazenamentos de dados. Se as ferramentas não forem instaladas, a tela Proteja Novamente não estará listada nos armazenamentos de dados. Após a instalação das ferramentas do VMware, será necessário reiniciar.
 
 ### <a name="upgrade-the-master-target-server"></a>Atualizar o servidor de destino mestre
 

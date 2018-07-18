@@ -2,10 +2,9 @@
 title: Processar conjuntos de dados em larga escala usando o Data Factory e o Lote | Microsoft Docs
 description: Descreve como processar volumes grandes de dados em um pipeline do Azure Data Factory usando a capacidade de processamento paralelo do Lote do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]

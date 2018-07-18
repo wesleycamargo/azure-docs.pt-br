@@ -1,25 +1,25 @@
 ---
-title: "Personalizar regras de firewall do aplicativo Web no Gateway de Aplicativo do Azure – Portal do Azure | Microsoft Docs"
-description: "Este artigo fornece informações sobre como personalizar regras de firewall de aplicativo Web no Gateway de Aplicativo com o portal do Azure."
+title: Personalizar regras de firewall do aplicativo Web no Gateway de Aplicativo do Azure – Portal do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como personalizar regras de firewall de aplicativo Web no Gateway de Aplicativo com o portal do Azure.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 406e491aa54806b3534ef0f500d6aea03434e2c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: ae61e3a8308e95c16ccde71de37fb10666ef0df9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizar regras de firewall de aplicativo Web por do portal do Azure
 
@@ -58,7 +58,7 @@ Quando está desabilitando regras, você pode desabilitar um grupo de regras int
 
    1. Pesquise pelas regras ou os grupos de regras que você deseja desabilitar.
    2. Desmarque as caixas de seleção das regras que deseja desabilitar. 
-   2. Selecione **Salvar**. 
+   2. Clique em **Salvar**. 
 
 ![Salvar alterações][3]
 

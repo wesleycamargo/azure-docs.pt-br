@@ -1,8 +1,8 @@
 ---
-title: "Perguntas frequentes sobre relatórios do Azure Active Directory | Microsoft Docs"
-description: "Perguntas frequentes sobre relatórios do Azure Active Directory."
+title: Perguntas frequentes sobre relatórios do Azure Active Directory | Microsoft Docs
+description: Perguntas frequentes sobre relatórios do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a39183e65306ddc7cb81825b7abf27677339a3ba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067003"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -26,7 +27,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: estou usando as APIs do ponto de extremidade https://graph.windows.net/&lt;tenant-name&gt;/reports/ para obter relatórios de uso de aplicativo integrado e auditoria do Azure AD para os sistemas relatórios programaticamente. Para qual devo mudar?**
 
-**R:** Pesquise em nossa [documentação de referência de API](https://developer.microsoft.com/graph/) para ver como você pode usar as novas APIs para acessar [relatórios de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Esse ponto de extremidade tem dois relatórios (Auditoria e Entradas) que fornecem todos os dados que você obteve no ponto de extremidade de API antigo. Esse novo ponto de extremidade também tem um relatório de entradas com a licença do Azure AD Premium que você pode usar para obter informações de uso de aplicativo uso de dispositivo e conexão do usuário.
+**R:** Pesquise na [documentação de referência de API](https://developer.microsoft.com/graph/) para ver como você pode usar as novas APIs para acessar [relatórios de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Esse ponto de extremidade tem dois relatórios (Auditoria e Entradas) que fornecem todos os dados que você obteve no ponto de extremidade de API antigo. Esse novo ponto de extremidade também tem um relatório de entradas com a licença do Azure AD Premium que você pode usar para obter informações de uso de aplicativo uso de dispositivo e conexão do usuário.
 
 
 --- 
@@ -39,7 +40,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: O que é a retenção de dados para logs de atividade (de entradas e de auditoria) no Portal do Azure?** 
 
-**R:** Fornecemos sete dias de dados para nossos clientes com gratuitos ou você pode acessar dados por até 30 dias comprando uma licença do Azure AD Premium 1 ou Premium 2. Para saber mais sobre retenção de relatórios, confira [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md).
+**R:** Veja [por quanto tempo os dados coletados são armazenados?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) para uma resposta a essa questão.
 
 --- 
 
@@ -124,6 +125,6 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: O que significa o evento de risco "Entrar com risco adicional detectado"?**
 
-**R:** Para dar uma visão geral de todas as entradas de risco em seu ambiente, mostramos o evento de risco "Entrar com o risco adicional detectado" para entradas consideradas arriscadas devido a detecções exclusivas para os assinantes do Azure AD Identity Protection.
+**R:** Para dar uma visão geral de todas as entradas de risco em seu ambiente, "Entrar com o risco adicional detectado" funciona como um espaço reservado para detecções que são exclusivas para os assinantes do Azure AD Identity Protection.
 
 ---

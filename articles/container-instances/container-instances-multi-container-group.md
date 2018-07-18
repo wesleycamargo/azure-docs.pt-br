@@ -1,19 +1,19 @@
 ---
-title: "Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure"
-description: "Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure."
+title: Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure
+description: Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
 
@@ -34,7 +34,15 @@ Neste exemplo, é definido um grupo de contêineres com dois contêineres, um en
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
@@ -43,9 +51,9 @@ Neste exemplo, é definido um grupo de contêineres com dois contêineres, um en
   },
   "resources": [
     {
-      "name": "myContainerGroup",
+      "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -102,13 +110,13 @@ Neste exemplo, é definido um grupo de contêineres com dois contêineres, um en
   "outputs": {
     "containerIPv4Address": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
     }
   }
 }
 ```
 
-Para usar um registro de imagem de contêiner privado, adicione um objeto ao documento JSON com o formato a seguir.
+Para usar um registro de imagem de contêiner privado, adicione um objeto ao documento JSON com o formato a seguir. Para um exemplo de implementação dessa configuração, consulte a documentação [Referência de modelo do Gerenciador de recursos de ACI] [ template-reference].
 
 ```json
 "imageRegistryCredentials": [
@@ -131,7 +139,7 @@ az group create --name myResourceGroup --location eastus
 Implante o modelo com o comando [az group deployment create][az-group-deployment-create].
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure.
@@ -210,3 +218,4 @@ Este artigo abordou as etapas necessárias para implantar uma instância de cont
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

@@ -1,8 +1,8 @@
 ---
 title: Usar o Oozie do Hadoop no HDInsight | Microsoft Docs
-description: "Usar o Oozie do Hadoop no HDInsight, uma solução de big data. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie."
+description: Usar o Oozie do Hadoop no HDInsight, uma solução de big data. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c0558432c0d74e2c9fcec108182a4dbafa332904
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -58,10 +56,10 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 > 
 > 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte item:
 
-* **Uma estação de trabalho com o PowerShell do Azure**. 
+* **Uma estação de trabalho com o PowerShell do Azure.** 
   
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -130,21 +128,21 @@ Existem duas ações definidas no fluxo de trabalho. A ação de início é *Run
 O RunHiveScript possui várias variáveis. Você passará os valores ao enviar o trabalho do Oozie de sua estação de trabalho usando o Azure PowerShell.
 
 <table border = "1">
-<tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
+<tr><th>Variáveis de fluxo de trabalho</th><th>DESCRIÇÃO</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica a URL do controlador do trabalho do Hadoop. Use <strong>jobtrackerhost: 9010</strong> nas versões 3.0 e 2.1 do HDInsight.</td></tr>
 <tr><td>${nameNode}</td><td>Especifica a URL do name node do Hadoop. Use o endereço padrão do sistema de arquivos, por exemplo, <i>wasb://&lt;&gt;containerName@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Especifica o nome da fila para a qual o trabalho é enviado. Use o <strong>padrão</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variável de ação do Hive</th><th>Descrição</th></tr>
+<tr><th>Variável de ação do Hive</th><th>DESCRIÇÃO</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Especifica o diretório de origem do comando Hive Create Table.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída da instrução INSERT OVERWRITE.</td></tr>
 <tr><td>${hiveTableName}</td><td>O nome da tabela Hive que faz referência aos arquivos de dados log4j.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variável de ação do Sqoop</th><th>Descrição</th></tr>
+<tr><th>Variável de ação do Sqoop</th><th>DESCRIÇÃO</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Especifica a cadeia de conexão do Banco de Dados SQL do Azure.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>A tabela do Banco de Dados SQL do Azure para onde os dados são exportados.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
@@ -244,7 +242,7 @@ Aqui está o script.  Você pode executar o script do ISE do Windows PowerShell.
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion
@@ -667,7 +665,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

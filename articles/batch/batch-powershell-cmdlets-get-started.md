@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao PowerShell do Lote do Azure | Microsoft Docs"
-description: "Uma rápida introdução aos cmdlets do Azure PowerShell que podem ser usados para gerenciar os recursos do Lote."
+title: Introdução ao PowerShell do Lote do Azure | Microsoft Docs
+description: Uma rápida introdução aos cmdlets do Azure PowerShell que podem ser usados para gerenciar os recursos do Lote.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
 ms.service: batch
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerenciar recursos do Lote com cmdlets do PowerShell
 
@@ -29,24 +29,24 @@ Para obter uma lista completa de cmdlets do Lote e a sintaxe detalhada do cmdlet
 
 Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. É recomendável que você atualize o Azure PowerShell com frequência para tirar proveito de atualizações e aprimoramentos do serviço.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Execute as seguintes operações para usar o Azure PowerShell para gerenciar os recursos de Lote.
 
 * [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
-* Execute o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
+* Execute o cmdlet **Connect-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Registrar com o namespace do provedor de Lote**. Essa operação só precisa ser executada **uma vez por assinatura**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gerenciar contas e chaves do Batch
 ### <a name="create-a-batch-account"></a>Criar uma conta do Batch
-**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo:
+**New-AzureRmBatchAccount** cria uma conta do Lote em um grupo de recursos especificado. Se você ainda não tiver um grupo de recursos, crie um executando o cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Especifique uma das regiões do Azure no parâmetro**Location**, como "EUA Central”. Por exemplo: 
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Em seguida, crie uma conta do Lote no grupo de recursos, especificando um nome para a conta em <*nome_da_conta*> e o local e o nome de seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo:
+Em seguida, crie uma conta do Lote no grupo de recursos, especificando um nome para a conta em <*nome_da_conta*> e o local e o nome de seu grupo de recursos. A criação da conta de lote pode levar algum tempo para ser concluída. Por exemplo: 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -75,7 +75,7 @@ Em seguida, crie uma conta do Lote no grupo de recursos, especificando um nome p
 > 
 
 ### <a name="delete-a-batch-account"></a>Excluir uma conta do Batch
-**Remove-AzureRmBatchAccount** exclui uma conta do Lote. Por exemplo:
+**Remove-AzureRmBatchAccount** exclui uma conta do Lote. Por exemplo: 
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -134,7 +134,7 @@ Uma alternativa a um filtro OData é usar o parâmetro **Id** . Para consultar u
 O parâmetro **ID** só dá suporte à pesquisa de ID completo, não a curingas ou a filtros de estilo OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Usar o parâmetro MaxCount
-Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo:
+Por padrão, cada cmdlet retorna no máximo 1.000 objetos. Se você atingir esse limite, refine seu filtro para retornar menos objetos ou defina explicitamente um máximo usando o parâmetro **MaxCount** . Por exemplo: 
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 

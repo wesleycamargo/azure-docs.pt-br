@@ -1,35 +1,28 @@
 ---
-title: Publicar um aplicativo Web em uma VM do Azure do Visual Studio | Microsoft Docs
-description: "Publicar um aplicativo Web ASP.NET para uma Máquina Virtual do Azure a partir do Visual Studio"
+title: Publicar um aplicativo Web para uma VM do Azure a partir do Visual Studio
+description: Publicar um aplicativo Web ASP.NET para uma Máquina Virtual do Azure a partir do Visual Studio
 services: virtual-machines-windows
-documentationcenter: 
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: dotnet
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: aspnet
+ms.topic: conceptual
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: d9e2c1a941c25aedd9048f2784350106b8739dba
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
 
 Este documento descreve como publicar um aplicativo Web ASP.NET para uma máquina virtual (VM) do Azure usando o recurso de publicação das **Máquinas Virtuais do Microsoft Azure** no Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para usar o Visual Studio para publicar um projeto ASP.NET em uma VM do Azure, a VM deve estar configurada corretamente.
 
 - O computador deve estar configurado para executar um aplicativo Web ASP.NET e ter o WebDeploy instalado.
@@ -125,7 +118,7 @@ Para configurar um pipeline de entrega contínua com o Visual Studio Team Servic
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png
 [Página Publicar – seta para a direita]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
-[Página Publicar – Ícone da Máquina Virtual do Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
+[Publicar Página – Ícone da Máquina Virtual do Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
 [Seletor de Conta do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
 [Seletor de VM do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Logon no WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png

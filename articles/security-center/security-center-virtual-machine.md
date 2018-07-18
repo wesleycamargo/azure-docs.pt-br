@@ -1,11 +1,11 @@
 ---
-title: "Central de Segurança do Azure e Máquinas Virtuais do Azure | Microsoft Docs"
-description: "Este documento o ajuda a compreender como a Central de Segurança do Azure pode proteger suas Máquinas Virtuais do Azure."
+title: Central de Segurança do Azure e Máquinas Virtuais do Azure | Microsoft Docs
+description: Este documento o ajuda a compreender como a Central de Segurança do Azure pode proteger suas Máquinas Virtuais do Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: 
+author: terrylan
+manager: mbaldwin
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 137ed1c65d2eb619192364dd7d0d17a55d98403c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: bbf3549502bf3f1a7e7a813101f970a9163165ed
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Central de Segurança do Azure e Máquinas Virtuais do Azure
 A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -42,7 +42,7 @@ Além de ajudar a proteger suas VMs do Azure, a Central de Segurança também fo
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para começar a usar a Central de Segurança do Azure, você precisará conhecer e considerar o seguinte:
 
 * Você deve ter uma assinatura do Microsoft Azure. Confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações sobre as camadas gratuitas e padrão da Central de Segurança.
@@ -66,7 +66,7 @@ A Central de Segurança analisa o estado de segurança de seus recursos do Azure
 
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. A tabela a seguir fornece alguns exemplos de recomendações para VMs do Azure e o que cada uma delas fará se você a aplicar. Ao selecionar uma recomendação, você receberá informações que mostram como implementar a recomendação na Central de Segurança.
 
-| Recomendações | Descrição |
+| Recomendações | DESCRIÇÃO |
 | --- | --- |
 | [Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md) |Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas. |
 | [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md) |Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas. |

@@ -1,11 +1,11 @@
 ---
-title: "Central de Segurança do Azure e Máquinas Virtuais do Azure com Linux | Microsoft Docs"
-description: "Este documento o ajuda a compreender como a Central de Segurança do Azure pode proteger suas Máquinas Virtuais do Azure."
+title: Central de Segurança do Azure e Máquinas Virtuais do Azure com Linux | Microsoft Docs
+description: Este documento o ajuda a compreender como a Central de Segurança do Azure pode proteger suas Máquinas Virtuais do Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: 
+author: terrylan
+manager: mbaldwin
+editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d75750372c240edfa821c692cd6254f4ad60f4c4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Central de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -32,7 +32,7 @@ A Central de Segurança ajuda a proteger os dados de máquinas virtuais no Azure
 * Segurança do sistema e atualizações críticas que estão ausentes
 * Recomendações de proteção de ponto de extremidade
 * Validação de criptografia de disco
-* Ataques baseados em rede (disponível apenas na [versão padrão](https://azure.microsoft.com/en-us/pricing/details/security-center/))
+* Ataques baseados em rede (disponível apenas na [versão padrão](https://azure.microsoft.com/pricing/details/security-center/))
 
 Além de ajudar a proteger suas VMs do Azure, a Central de Segurança também fornece monitoramento de segurança e gerenciamento de serviços de nuvem, serviços de aplicativos, redes virtuais e muito mais. 
 
@@ -41,7 +41,7 @@ Além de ajudar a proteger suas VMs do Azure, a Central de Segurança também fo
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para começar a usar a Central de Segurança do Azure, você precisará conhecer e considerar o seguinte:
 
 * Você deve ter uma assinatura do Microsoft Azure. Confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações sobre as camadas gratuitas e padrão da Central de Segurança.
@@ -64,7 +64,7 @@ A Central de Segurança analisa o estado de segurança de seus recursos do Azure
 
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. A tabela a seguir fornece alguns exemplos de recomendações para VMs do Azure executando o sistema operacional Linux e o que cada uma delas fará se você a aplicar. Ao selecionar uma recomendação, você receberá informações que mostram como implementar a recomendação na Central de Segurança.
 
-| Recomendações | Descrição |
+| Recomendações | DESCRIÇÃO |
 | --- | --- |
 | [Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md) |Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas. |
 | [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md) |Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração recomendadas, por exemplo, não permitir o armazenamento de senhas. |

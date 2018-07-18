@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Visão do desempenho de consulta de Banco de Dados SQL do Azure
 Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
@@ -29,7 +29,7 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
-As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) são necessárias para usar a Visão do Desempenho de Consulta: 
+As seguintes permissões de [controle de acesso baseado em função](../role-based-access-control/overview.md) são necessárias para usar a Visão do Desempenho de Consulta: 
 
 * As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos. 
 * As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.

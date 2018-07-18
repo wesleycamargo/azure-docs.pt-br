@@ -1,10 +1,10 @@
 ---
 title: Capturar uma imagem de uma VM do Linux | Microsoft Docs
-description: "Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure baseada em Linux criada com o modelo de implantação clássico."
+description: Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure baseada em Linux criada com o modelo de implantação clássico.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6071e025352199c5ec559598a580a918c2e9c666
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Como capturar uma máquina virtual clássica do Linux como uma imagem
 > [!IMPORTANT]
@@ -107,7 +107,7 @@ A imagem está pronta para ser usada para criar VMs. É possível usar o comando
 
 Como alternativa, use o [Portal do Azure](http://portal.azure.com) para criar uma VM personalizada usando o método **Imagem** e selecionando a imagem que você criou. Para obter mais informações, consulte [Como criar uma VM personalizada][How to Create a Custom Virtual Machine].
 
-**Consulte também:** [Guia do usuário do agente Linux para o Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**Consulte também:** [Guia do usuário do agente Linux para o Azure](../../extensions/agent-linux.md)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom-classic.md

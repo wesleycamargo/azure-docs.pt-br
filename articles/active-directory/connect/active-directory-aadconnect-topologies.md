@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect: Topologias com suporte | Microsoft Docs'
-description: "Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
+description: Este tópico detalha as topologias com e sem suporte para o Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154283"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -36,10 +37,15 @@ Aqui está a legenda para imagens neste artigo:
 | AD do Azure |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
+
+> [!IMPORTANT]
+> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das configurações ou ações formalmente documentadas. Qualquer uma dessas configurações ou ações pode resultar em um estado inconsistente ou sem suporte da sincronização do Azure AD Connect. Consequentemente, a Microsoft não pode fornecer suporte técnico para essas implantações.
+
+
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
 ![Topologia de uma única floresta e um único locatário](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-A topologia mais comum é uma floresta única local, com um ou vários domínios e um único locatário do Azure AD. Para a autenticação do Azure AD, é usada a sincronização de senha. A instalação expressa do Azure AD Connect dá suporte apenas a esta topologia.
+A topologia mais comum é uma floresta única local, com um ou vários domínios e um único locatário do Azure AD. Para a autenticação do Azure AD, é usada a sincronização de hash de senha. A instalação expressa do Azure AD Connect dá suporte apenas a esta topologia.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Uma única floresta, vários servidores de sincronização para um locatário do Azure AD
 ![Topologia sem suporte, filtrada para uma floresta única](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -59,7 +65,7 @@ As topologias comuns são discutidas nas seções sobre: [separar topologias](#m
 
 A configuração padrão do Azure AD Connect sync supõe:
 
-* Os usuários têm apenas uma conta habilitada e a floresta em que essa conta se encontra é usada para autenticar o usuário. Essa suposição serve para a sincronização de senha e para a federação. UserPrincipalName e sourceAnchor/immutableID vêm desta floresta.
+* Os usuários têm apenas uma conta habilitada e a floresta em que essa conta se encontra é usada para autenticar o usuário. Esse pressuposto é para sincronização de hash de senha, autenticação de passagem e federação. UserPrincipalName e sourceAnchor/immutableID vêm desta floresta.
 * Cada usuário tem apenas uma caixa de correio.
 * A floresta que hospeda a caixa de correio de um usuário tem a melhor qualidade de dados para atributos visíveis na GAL (Lista de Endereços Global) do Exchange. Se não houver nenhuma caixa de correio para o usuário, qualquer floresta pode ser usada para contribuir com esses valores de atributos.
 * Caso tenha uma caixa de correio vinculada, há uma conta em outra floresta usada para entrada.
@@ -152,7 +158,7 @@ Essa topologia tem as seguintes restrições aos cenários que, caso contrário,
 
 * Apenas um dos locatários do Azure AD pode habilitar um Exchange híbrido com a instância local do Active Directory.
 * Os dispositivos Windows 10 podem ser associados a um locatário do Azure AD.
-* A opção de SSO (logon único) para autenticação de passagem e sincronização de senha só pode ser usada com um locatário do Azure AD.
+* A opção de SSO (logon único) para autenticação de passagem e sincronização de hash de senha só pode ser usada com um locatário do Azure AD.
 
 O requisito para um conjunto de objetos mutuamente exclusivo também se aplica ao write-back. Alguns recursos de write-back não têm suporte com esta topologia pois eles supõem uma configuração única local. Esses recursos incluem:
 

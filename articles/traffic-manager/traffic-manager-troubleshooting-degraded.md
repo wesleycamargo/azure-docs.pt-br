@@ -1,10 +1,10 @@
 ---
-title: "Solucionando problemas de status degradado do Gerenciador de Tráfego"
-description: "Como solucionar problemas de perfis do Gerenciador de Tráfego quando ele aparece com status de degradado."
+title: Solucionando problemas de status degradado do Gerenciador de Tráfego
+description: Como solucionar problemas de perfis do Gerenciador de Tráfego quando ele aparece com status de degradado.
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: chadmath
+manager: cshepard
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f5b2f471b13db67411f15f32abad5afc644c04ba
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777723"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
@@ -38,7 +39,7 @@ Se a integridade do seu Gerenciador de Tráfego exibe um status **Inativo**, amb
 * Uma prática recomendada é definir o caminho de Investigação como algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao configurar o caminho como “/favicon.ico”, você está apenas testando se w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como “/Probe.aspx”, que tem lógica para determinar a integridade do site. Por exemplo, você poderá usar contadores de desempenho para a utilização da CPU ou medir o número de solicitações com falha. Se preferir, você poderá tentar acessar os recursos de banco de dados ou o estado de sessão para verificar se o aplicativo Web está funcionando.
 * Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de Tráfego tratará todos os pontos de extremidade como íntegros e encaminhará o tráfego para todos eles. Esse comportamento garante que os problemas com o mecanismo de investigação não resultam em uma interrupção completa do serviço.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno de código de status HTTP da URL de investigação. Há várias ferramentas disponíveis que mostram a resposta HTTP bruta.
 

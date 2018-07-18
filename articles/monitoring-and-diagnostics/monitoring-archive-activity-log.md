@@ -1,9 +1,9 @@
 ---
 title: Arquivar o Log de Atividades do Azure | Microsoft Docs
-description: "Saiba como arquivar o Log de Atividades do Azure para retenção de longo prazo em uma conta de armazenamento."
+description: Saiba como arquivar o Log de Atividades do Azure para retenção de longo prazo em uma conta de armazenamento.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6020272d79ace55041da94ee45165e557e92b80f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
@@ -43,29 +43,43 @@ Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você 
 5. Clique em **Salvar**.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Arquivar o Log de Atividades por meio do PowerShell
-```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
-```
+
+   ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your storage account belongs to>"
+   $storageAccountName = "<your storage account name>"
+
+   # Build the storage account Id from the settings above
+   $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   ```
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| StorageAccountId |Não  |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| Locais |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/en-us/regions) ou usando [a API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
-| Categorias |sim |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
+| StorageAccountId |sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+| Locais |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `(Get-AzureRmLocation).Location`. |
+| RetentionInDays |Não  |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| Categorias |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação.  Se não for fornecido, todos os valores possíveis são assumidos |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o Log de Atividades por meio da CLI
-```
-azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
-```
+
+   ```azurecli-interactive
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
+   ```
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | Nome |sim |Nome de seu perfil de log. |
-| storageId |Não  |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-| Locais |sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. Você pode exibir uma lista de todas as regiões [ao visitar esta página](https://azure.microsoft.com/en-us/regions) ou usando [a API REST de Gerenciamento do Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará os logs indefinidamente (para sempre). |
-| Categorias |sim |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
+| storage-account-id |sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+| Locais |sim |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
+| dias |sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se zero, o parâmetro habilitado deverá ser definido como verdadeiro. |
+|Habilitado | sim |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
+| Categorias |sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Esquema de armazenamento do Log de Atividades
 Depois de você configurar arquivamento, um contêiner de armazenamento será criado na conta de armazenamento assim que ocorrer um evento de Log de Atividades. Os blobs no contêiner seguem o mesmo formato em todos os Logs de Diagnóstico e no Log de Atividades. A estrutura desses blobs é:
@@ -164,7 +178,7 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Baixar blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Baixar blobs para análise](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Transmitir o Log de Atividades para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 * [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
 

@@ -1,29 +1,33 @@
 ---
-title: Configurar entrada com o cluster do AKS (Serviço de Contêiner do Azure)
-description: Instale e configure um controlador de entrada NGINX em um cluster do AKS (Serviço de Contêiner do Azure).
+title: Configurar entrada com o cluster do AKS (Serviço de Kubernetes do Azure)
+description: Instale e configure um controlador de entrada NGINX em um cluster do AKS (Serviço de Kubernetes do Azure).
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b999792876f82de9500dccf9e6263f85e3e3105e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS no AKS (Serviço de Contêiner do Azure)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Entrada HTTPS no AKS (Serviço do Kubernetes do Azure)
 
 Um controlador de entrada é uma parte do software que fornece proxy reverso, roteamento de tráfego configurável e terminação TLS para serviços de Kubernetes. Os recursos de entrada de Kubernetes são usados para configurar as regras de entrada e as rotas para os serviços de Kubernetes individuais. Usando um controlador de entrada e regras de ingresso, um único endereço externo pode ser usado para rotear tráfego a vários serviços em um cluster de Kubernetes.
 
-Este documento descreve uma implantação de exemplo do [Controlador de entrada NGINX][nginx-ingress] no cluster do AKS (Serviço de Contêiner do Azure). Além disso, o projeto [KUBE-LEGO][kube-lego] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, vários aplicativos executam no cluster do AKS, cada um dos quais é acessível em um único endereço.
+Este documento descreve uma implantação de exemplo do [Controlador de entrada NGINX][nginx-ingress] no cluster do AKS (Serviço de Kubernetes do Azure). Além disso, o projeto [KUBE-LEGO][kube-lego] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, vários aplicativos executam no cluster do AKS, cada um dos quais é acessível em um único endereço.
+
+## <a name="prerequisite"></a>Pré-requisito
+
+Instalar a CLI do Helm - Consulte a[documentação][helm-cli] da CLI do Helm para obter instruções de instalação.
 
 ## <a name="install-an-ingress-controller"></a>Instalar um controlador de entrada
 
-Use Helm para instalar o controlador de entrada NGINX. Consulte a [documentação][nginx-ingress] do controlador de entrada NGINX para obter informações detalhadas sobre a implantação. 
+Use Helm para instalar o controlador de entrada NGINX. Consulte a [documentação][nginx-ingress] do controlador de entrada NGINX para obter informações detalhadas sobre a implantação.
 
 Atualize o repositório do gráfico.
 
@@ -31,21 +35,20 @@ Atualize o repositório do gráfico.
 helm repo update
 ```
 
-Instale o controlador de entrada NGINX.
+Instale o controlador de entrada NGINX. Este exemplo instala o controlador no namespace `kube-system`, que pode ser modificado para um namespace de sua escolha.
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Durante a instalação, um endereço IP público do Azure é criado para o controlador de entrada. Para obter o endereço IP público, use o comando de serviço kubectl get. Talvez demore um pouco até que o endereço IP seja atribuído ao serviço.
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Como não foram criadas regras de entrada, se navegar para o endereço IP público você será encaminhado para a página 404 padrão dos controladores de entrada NGINX.
@@ -60,7 +63,7 @@ Como são utilizados certificados HTTPS, será necessário configurar um nome FQ
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
@@ -73,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Se necessário, execute o comando a seguir para recuperar o FQDN. Atualize o valor do endereço IP com o do controlador de entrada.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-O controlador de entrada agora está acessível por meio do FQDN.
+O controlador de entrada deve agora estar acessível através do FQDN.
 
 ## <a name="install-kube-lego"></a>Instalar KUBE-LEGO
 
@@ -178,12 +175,14 @@ Observe também que a conexão é criptografada e que um certificado emitido pel
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o software demonstrado neste documento. 
+Saiba mais sobre o software demonstrado neste documento.
 
+- [CLI do Helm][helm-cli]
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

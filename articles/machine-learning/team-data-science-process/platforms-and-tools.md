@@ -1,23 +1,23 @@
 ---
-title: "Plataformas e ferramentas para projetos da equipe de ciência de dados – Azure | Microsoft Docs"
-description: "Discrimina e discute os recursos de análise e os dados disponíveis para as empresas com padronização do processo de Ciência de Dados da Equipe."
-documentationcenter: 
-author: bradsev
+title: Plataformas e ferramentas para projetos da equipe de ciência de dados – Azure | Microsoft Docs
+description: Discrimina e discute os recursos de análise e os dados disponíveis para as empresas com padronização do processo de Ciência de Dados da Equipe.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos da equipe de ciência de dados
 
@@ -57,7 +57,7 @@ Para saber como executar algumas das tarefas comuns de ciência de dados na DSVM
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Clusters do Azure HDInsight Spark
 
-O Apache Spark é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho dos aplicativos analíticos de big data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. Os recursos de computação na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de aprendizado e gráfico de máquina. O Spark também é compatível com o WASB (Armazenamento de Blobs do Azure) para possibilitar o fácil processamento dos dados existentes armazenados no Azure por meio do Spark.
+O Apache Spark é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho dos aplicativos analíticos de big data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. Os recursos de computação na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de aprendizado e grafo de máquina. O Spark também é compatível com o WASB (Armazenamento de Blobs do Azure) para possibilitar o fácil processamento dos dados existentes armazenados no Azure por meio do Spark.
 
 Quando você cria um cluster do Spark no HDInsight, cria recursos de computação do Azure com o Spark instalado e configurado. Demora cerca de dez minutos para criar um cluster do Spark no HDInsight. Armazene os dados a serem processados no Armazenamento de Blobs do Azure. Para mais informações sobre como usar o Armazenamento de Blobs do Azure com o cluster, consulte [Usar o Armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 

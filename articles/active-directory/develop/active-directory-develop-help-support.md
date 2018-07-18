@@ -1,25 +1,27 @@
 ---
-title: "Opções de suporte e ajuda para desenvolvedores do Azure Identity | Microsoft Docs"
-description: "Saiba como obter ajuda e suporte para problemas e dúvidas relacionados ao desenvolvimento ao criar aplicativos que se integram com as identidades do Microsoft Azure (Azure Active Directory e MSA)"
+title: Opções de suporte e ajuda para desenvolvedores do Azure Identity | Microsoft Docs
+description: Saiba como obter ajuda e suporte para problemas e dúvidas relacionados ao desenvolvimento ao criar aplicativos que se integram com as identidades do Microsoft Azure (Azure Active Directory e MSA)
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/27/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 06da07aa699d19602449dc365abb971867214a31
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae682830a8d0e2c5c27211a3396d04c881c41585
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores 
 
@@ -33,7 +35,7 @@ Independentemente de você estar começando a integrar com o Azure Active Direct
 > * Por fim, se precisar falar com alguém, talvez queira abrir uma solicitação de suporte
 
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Search
 
 Se você tiver uma pergunta relacionada ao desenvolvimento, talvez possa encontrar a resposta necessária em nossa documentação, nossos [exemplos de github](https://github.com/azure-samples) ou respostas para as perguntas do [Stack Overflow](https://www.stackoverflow.com).
 
@@ -47,7 +49,7 @@ No campo *{Seus Termos de Pesquisa}* estão as palavras-chave de pesquisa.
 
 ## <a name="use-our-development-support-tools"></a>Use nossas ferramentas de suporte de desenvolvimento
 
-|Ferramenta  |Descrição  |
+|Ferramenta  |DESCRIÇÃO  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Cole tokens de ID ou acesso para decodificar os nomes das declarações e valores |
 |[Analisador do código de erro](https://apps.dev.microsoft.com/portal/tools/errors)| Cole um código de erro recebido durante o logon ou páginas de consentimento para ver as possíveis causas e correções |

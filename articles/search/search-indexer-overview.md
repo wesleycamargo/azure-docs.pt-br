@@ -1,25 +1,19 @@
 ---
 title: Indexadores na Azure Search | Microsoft Docs
-description: "Rastrear um banco de dados SQL do Azure, Azure Cosmos DB ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search."
-services: search
-documentationcenter: 
+description: Rastrear um banco de dados SQL do Azure, Azure Cosmos DB ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8def65c15d631909c69428a1cb5f100beb1f9b08
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores no Azure Search
 > [!div class="op_single_selector"]
@@ -27,7 +21,7 @@ ms.lasthandoff: 01/09/2018
 > * [Visão geral](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 > * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 > * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 >
@@ -57,7 +51,7 @@ Os indexadores podem oferecer recursos que são exclusivos da fonte de dados. Ne
 Um indexador extrai dados de uma *fonte de dados* que contém informações como uma cadeia de conexão e, possivelmente, credenciais. Atualmente, há suporte às seguintes fontes de dados:
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md) para tipos de conteúdo selecionados
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 
@@ -76,7 +70,7 @@ A definição do indexador é uma construção que especifica o índice, a fonte
 Agora que você tem as noções básicas, a próxima etapa é examinar os requisitos e as tarefas específicas para cada tipo de fonte de dados.
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de blobs CSV usando o indexador de Blobs do Azure Search](search-howto-index-csv-blobs.md)

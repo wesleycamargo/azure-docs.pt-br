@@ -1,18 +1,18 @@
 ---
-title: "Publicar evento para tópico personalizado de Grade de Eventos do Azure"
-description: "Descreve como publicar um evento para um tópico personalizado para a Grade de Eventos do Azure"
+title: Publicar evento para tópico personalizado de Grade de Eventos do Azure
+description: Descreve como publicar um evento para um tópico personalizado para a Grade de Eventos do Azure
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e4256de1d9112d785b6d1cd52067fc99144a0a04
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
 
@@ -73,7 +73,7 @@ Para tópicos personalizados, os dados de nível superior contêm os mesmos camp
 ]
 ```
 
-Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md).
+Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB.
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -91,8 +91,35 @@ Por exemplo, um esquema de dados de evento válido é:
 }]
 ```
 
+## <a name="response"></a>Response
+
+Após a postagem para o ponto de extremidade do tópico, você receberá uma resposta. A resposta é um código de resposta HTTP padrão. Algumas respostas comuns são:
+
+|Result  |Response  |
+|---------|---------|
+|Sucesso  | 200 OK  |
+|Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
+|Chave de acesso inválida | 401 Não Autorizado |
+|Ponto de extremidade incorreto | 404 Não Encontrado |
+|Matriz ou evento excede os limites de tamanho | O conteúdo 413 é muito grande |
+
+Para erros, o corpo da mensagem tem o seguinte formato:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução ao roteamento de eventos personalizados, consulte [Criar e encaminhar eventos personalizados com CLI do Azure e a Grade de Eventos](custom-event-quickstart.md) ou [Criar e encaminhar eventos personalizados com Azure PowerShell e a Grade de Eventos](custom-event-quickstart-powershell.md).
+* Para obter informações sobre o monitoramento de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para saber mais sobre a chave de autenticação, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).
 * Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).

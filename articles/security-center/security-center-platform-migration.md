@@ -1,11 +1,11 @@
 ---
-title: "Migração de plataforma da Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento explica algumas alterações na maneira como os dados da Central de Segurança do Azure são coletados."
+title: Migração de plataforma da Central de Segurança do Azure | Microsoft Docs
+description: Este documento explica algumas alterações na maneira como os dados da Central de Segurança do Azure são coletados.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 67cb532b6c8a5d00923bc3b41709956971ead5c3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Migração de plataforma da Central de Segurança do Azure
 
@@ -32,7 +32,7 @@ A partir do início de junho de 2017, a Central de Segurança do Azure vai impla
 
 Anteriormente, a Central de Segurança usava o agente de monitoramento do Azure para coletar dados de segurança de suas VMs. Isso inclui informações sobre as configurações de segurança, que são usadas para identificar vulnerabilidades, e eventos de segurança, que são usados para detectar ameaças. Esses dados eram armazenados em suas contas de armazenamento no Azure.
 
-De agora em diante, a Central de Segurança do Azure usa o Microsoft Monitoring Agent; ele é o mesmo agente usado pelos serviços Operations Management Suite e Log Analytics. Os dados coletados desse agente são armazenados no *análise de Log* [espaço de trabalho](../log-analytics/log-analytics-manage-access.md) do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho, levando em conta a localização geográfica da VM.
+De agora em diante, a Central de Segurança do Azure usa o Microsoft Monitoring Agent. Ele é o mesmo agente usado pelo serviço Log Analytics. Os dados coletados desse agente são armazenados no *análise de Log* [espaço de trabalho](../log-analytics/log-analytics-manage-access.md) do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho, levando em conta a localização geográfica da VM.
 
 ## <a name="agent"></a>Agente
 
@@ -62,9 +62,9 @@ No caso de espaços de trabalho criados pela Central de Segurança, os dados ser
 > [!NOTE]
 > Os dados coletados anteriormente pela Central de Segurança permanecem nas suas contas de armazenamento. Quando a migração é concluída, você pode excluir essas contas de armazenamento.
 
-### <a name="oms-security-solution"></a>Solução de segurança do OMS 
+### <a name="security-management-solution"></a>Solução de gerenciamento de segurança 
 
-Para clientes que não têm um solução de segurança do OMS instalada, A Microsoft vai instalá-la em seu espaço de trabalho, mas ela tem como objetivo somente VMs do Azure. Não desinstale essa solução, pois não existe correção automática se isso for feito no console de gerenciamento do OMS.
+Para clientes que não contam com uma solução de gerenciamento segurança instalada no Log Analytics, a Microsoft a está instalando em seu espaço de trabalho, mas destinada apenas a VMs do Azure. Não desinstale essa solução, pois não existe correção automática se isso for feito no console de gerenciamento.
 
 
 ## <a name="other-updates"></a>Outras atualizações

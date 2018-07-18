@@ -1,24 +1,22 @@
 ---
 title: Usar a API do Graph - Azure AD B2C | Microsoft Docs
-description: "Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo."
+description: Como chamar a API do Graph para um locatário B2C usando uma identidade de aplicativo para automatizar o processo.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140024"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -32,25 +30,26 @@ Para locatários B2C, existem basicamente dois modos de se comunicar com a API d
 * Para tarefas de execução única, interativas, você deverá agir como uma conta de administrador no locatário B2C quando executar as tarefas. Esse modo requer que um administrador entre com credenciais antes de poder executar todas as chamadas à API do Graph.
 * Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
 
-Neste artigo, discutiremos como executar o caso de uso automatizado. Para demonstrar isso, vamos criar um .NET 4.5 `B2CGraphClient` que executa as operações CRUD (criar, ler, atualizar e excluir) do usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite que você chame vários métodos. No entanto, o código é gravado para se comportar de forma não interativa e automatizada.
+Neste artigo, você saberá como realizar o caso de uso automatizado. Você vai criar um .NET 4.5 `B2CGraphClient` que executa as operações CRUD (criar, ler, atualizar e excluir) do usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite que você chame vários métodos. No entanto, o código é gravado para se comportar de forma não interativa e automatizada.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Obter um locatário do Azure AD B2C
-Antes de criar o aplicativo ou os usuários ou interagir com o Azure AD, você precisará de um locatário habilitado para B2C e uma conta de administrador global no locatário. Se você ainda não tiver um locatário, confira a [introdução ao Azure AD B2C](active-directory-b2c-get-started.md).
+Antes de criar aplicativos ou usuários, é necessário um locatário do Azure AD B2C. Se você ainda não tiver um locatário, confira a [introdução ao Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Registrar seu aplicativo em seu locatário
-Quando você tiver um locatário B2C, será necessário registrar seu aplicativo por meio do [Portal do Azure](https://portal.azure.com).
+Quando você tiver um locatário B2C, será necessário registrar seu aplicativo usando o [Portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o menu genérico *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
+> Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo usando o serviço de *Registros de Aplicativo* no Portal do Azure, **NÃO** o menu *Aplicativos* do Azure AD B2C. As instruções a seguir levam você ao menu apropriado. Você não pode reutilizar seus aplicativos B2C já existentes registrados no menu *Aplicativos* do Azure AD B2C.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Escolha seu locatário do Azure AD B2C selecionando sua conta no canto superior direito da página.
 3. No painel de navegação esquerdo, escolha **Todos os Serviços**, clique em **Registros de Aplicativo** e clique em **Adicionar**.
 4. Siga os avisos e crie um novo aplicativo. 
     1. Selecione **Aplicativo Web/API** como o Tipo de Aplicativo.    
-    2. Forneça **qualquer URI de redirecionamento** (por exemplo, https://B2CGraphAPI), pois isso não é relevante para este exemplo.  
+    2. Forneça **qualquer URL de logon** (por exemplo, https://B2CGraphAPI), visto que não é relevante para esse exemplo.  
 5. Agora, o aplicativo aparecerá na lista de aplicativos. Clique nele para obter a **ID do Aplicativo** (também conhecida como ID do Cliente). Copie-a, pois precisará dela em uma seção posterior.
-6. No menu Configurações, clique em **Chaves** e adicione uma nova chave (também conhecida como o segredo do cliente). Copie-a também para uso em uma seção posterior.
+6. No menu Configurações, clique em **Chaves**.
+7. Na seção **Senhas**, insira a descrição da chave e selecione uma duração; depois, clique em **Salvar**. Copie o valor da chave (também conhecido como o Segredo do Cliente) para uso em uma seção posterior.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurar as permissões de criação, leitura e atualização para seu aplicativo
 Agora você precisa configurar seu aplicativo para obter todas as permissões necessárias para criar, ler, atualizar e excluir usuários.

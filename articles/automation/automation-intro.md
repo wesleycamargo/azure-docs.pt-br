@@ -1,24 +1,20 @@
 ---
-title: "Visão geral da Automação do Azure | Microsoft Docs"
-description: "Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos."
+title: Visão geral da Automação do Azure
+description: Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos.
 services: automation
-author: eamonoreilly
-documentationcenter: 
-keywords: "automação do azure, DSC, powershell, configuração de estado desejado, gerenciamento de atualizações, controle e alterações, inventário, runbooks, pyhon, gráfico"
-ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/13/2017
+ms.component: process-automation
+author: eamonoreilly
 ms.author: eamono
+keywords: automação do azure, DSC, powershell, configuração de estado desejado, gerenciamento de atualizações, controle e alterações, inventário, runbooks, pyhon, gráfico
+ms.date: 03/15/2018
 ms.custom: mvc
-ms.openlocfilehash: 896bcd9630a6a7c942bd3f1a986832442a474cce
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.topic: overview
+ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 

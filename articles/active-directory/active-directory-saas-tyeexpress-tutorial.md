@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao T&E Express | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o T&E Express."
+title: 'Tutorial: integração do Azure Active Directory ao T&E Express | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o T&E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: integração do Azure Active Directory com o T&E Express
 
@@ -29,9 +29,9 @@ A integração do T&E Express com o Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no T&E Express (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um único local - o portal de Gerenciamento do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o T&E Express, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o T&E Express da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-te-express-from-the-gallery"></a>Adicionando o T&E Express da galeria
 Para configurar a integração do T&E Express com o Azure AD, você precisa adicionar o T&E Express por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do T&E Express com o Azure AD, você precisa adic
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **T&E Express**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do T&E Express com o Azure AD, você precisa adic
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o T&E Express, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do T&E Express é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do T&E Express.
@@ -86,11 +86,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o T&E Express, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do T&E Express](#creating-a-te-express-test-user)**: para ter um equivalente a Brenda Fernandes no T&E Express que esteja vinculado à sua representação no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -119,17 +119,17 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
 5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_400.png)
 
 8. Para configurar o logon único usando o **T&E Express**, faça logon no aplicativo do T&E Express sem logon único com SAML usando credenciais de administrador.
 
 9. Na guia **Administrador**, clique em **Domínio SAML** para abrir a página de configurações de SAML.
 
-    ![Configurar Logon Único](./media/active-directory-saas-tyeexpress-tutorial/tye-SAML.png)
+    ![Configurar o logon único](./media/active-directory-saas-tyeexpress-tutorial/tye-SAML.png)
 
 10. Altere a opção **Ativar** de **Não** para **Sim**. Na caixa de texto **Metadados do Provedor de Identidade**, cole o XML dos metadados que você baixou do portal do Azure.
 
@@ -201,13 +201,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 **Para atribuir Brenda Fernandes ao T&E Express, execute as seguintes etapas:**
 
-1. No portal de gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **aplicativos empresariais** e clique em **todos os aplicativos**.
+1. No Portal de Gerenciamento do Azure, abra a exibição de aplicativos e, em seguida, navegue até o modo de exibição de diretório e vá para **Aplicativos empresariais**, depois clique em **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
 2. Na lista de aplicativos, selecione **T&E Express**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -232,7 +232,7 @@ Quando clicar no bloco T&E Express no Painel de Acesso, você deve ser conectado
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

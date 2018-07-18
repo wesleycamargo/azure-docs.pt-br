@@ -1,27 +1,21 @@
 ---
-title: "Saída JSON para o Stream Analytics | Microsoft Docs"
-description: "Saiba como o Stream Analytics pode direcionar o Azure Cosmos DB para uma saída em JSON, para arquivamento de dados e consultas de baixa latência em dados JSON não estruturados."
-keywords: "Saída em JSON"
-documentationcenter: 
-services: stream-analytics,documentdb
+title: Saída do Azure Stream Analytics para Cosmos DB
+description: Este artigo descreve como usar o Azure Stream Analytics para salvar a saída no Azure Cosmos DB para saída JSON, para arquivamento de dados e consultas de baixa latência em dados JSON não estruturados.
+services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Direcionar o Azure Cosmos DB para uma saída em JSON no Stream Analytics
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
 
 Para aqueles que não estão familiarizados com o Cosmos DB, consulte [Roteiro de aprendizagem do Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obter uma introdução. 
@@ -36,7 +30,7 @@ A saída do Azure Cosmos DB no Stream Analytics permite a gravação dos resulta
 Algumas das opções de coleção do Cosmos DB são detalhadas abaixo.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Ajustar a consistência, a disponibilidade e a latência
-Para atender aos requisitos do aplicativo, o Cosmos DB permite o ajuste do banco de dados e das coleções, além de compensações entre consistência, disponibilidade e latência. Dependendo dos níveis de consistência de leitura exigidos pelo seu cenário em relação à latência de leitura e de gravação, você poderá escolher um nível de consistência em sua conta de banco de dados. Também por padrão, o Cosmos DB habilita a indexação síncrona em cada operação CRUD da coleção. Essa é outra opção útil para controlar o desempenho de leitura/gravação no Cosmos DB. Para saber mais sobre esse tópico, confira o artigo [Alterar os níveis de consistência do banco de dados e de consulta](../cosmos-db/consistency-levels.md) .
+Para atender aos requisitos do aplicativo, o Cosmos DB permite o ajuste do banco de dados e das coleções, além de compensações entre consistência, disponibilidade e latência. Dependendo dos níveis de consistência de leitura exigidos pelo seu cenário em relação à latência de leitura e de gravação, você poderá escolher um nível de consistência em sua conta de banco de dados. Também por padrão, o Cosmos DB habilita a indexação síncrona em cada operação CRUD da coleção. Essa é outra opção útil para controlar o desempenho de leitura/gravação no Cosmos DB. Para obter mais informações, consulte o artigo [alterar o banco de dados e níveis de consistência de consulta](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Inserções e atualizações a partir do Stream Analytics
 A integração do Stream Analytics ao Cosmos DB permite inserir ou atualizar registros na coleção do Cosmos DB de acordo com determinada coluna de ID do Documento. Isso também é chamado de *Upsert*.

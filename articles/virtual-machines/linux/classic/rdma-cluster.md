@@ -2,10 +2,10 @@
 title: Configurar um cluster de RDMA do Linux para executar aplicativos MPI | Microsoft Docs
 description: Criar um cluster do Linux de tamanho H16r, H16mr, A8 ou A9 para usar a rede RDMA do Azure e executar aplicativos MPI
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 01834bad-c8e6-48a3-b066-7f1719047dd2
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 428dc1e8ba03ba17e348a33a33b5cf5e6118a43c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Linux para executar aplicativos MPI
 Saiba como configurar um cluster RDMA do Linux no Azure com [tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelos. Este artigo fornece etapas para preparar uma imagem do HPC Linux para executar o Intel MPI em um cluster. Após a preparação, você implanta um cluster de VMs usando essa imagem e um dos tamanhos de VM do Azure compatíveis com RDMA (atualmente H16r, H16mr, A8 ou A9). Use o cluster para executar aplicativos MPI que se comunicam com eficiência por uma rede de alta taxa de transferência e baixa latência baseada na tecnologia RDMA (acesso remoto direto à memória).
@@ -210,7 +210,7 @@ Em um cluster do HPC baseado em CentOS, há dois métodos para estabelecer a rel
 
 Um exemplo de script da comunidade está disponível no [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para facilitar a autenticação do usuário em um cluster HPC baseado em CentOS. Baixe e use este script usando as etapas a seguir. Você também pode modificar esse script ou usar qualquer outro método para estabelecer a autenticação SSH sem senha entre os nós de computação do cluster.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Para executar o script, você precisa saber o prefixo para seus endereços IP de sub-rede. Obtenha o prefixo executando o comando a seguir em um dos nós do cluster. A saída deverá ser semelhante a 10.1.3.5, e o prefixo é a parte 10.1.3.
 

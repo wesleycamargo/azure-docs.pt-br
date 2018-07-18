@@ -15,35 +15,51 @@ ms.workload: na
 ms.date: 03/12/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c77812db85c3b6730fce9af3f634821b44508687
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 71d02e3f8bf0757d7ea0622e76b95acda1fefc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="understand-and-use-azure-iot-sdks"></a>Entender e usar os SDKs do Azure IoT
+# <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
-Há três categorias de SDKs (Kits de desenvolvimento de software) para trabalhar com o Hub IoT:
+Há duas categorias de SDKs (Kits de desenvolvimento de software) para trabalhar com o Hub IoT:
 
-* **SDKs de dispositivo** permitem a compilação de aplicativos que são executados em dispositivos IoT. Esses aplicativos enviam telemetria ao Hub IoT e, opcionalmente, recebem mensagens de seu Hub IoT.
+* **SDKs de dispositivo** permitem a compilação de aplicativos que são executados em dispositivos IoT. Esses aplicativos enviam telemetria ao Hub IoT e, opcionalmente, recebem mensagens, trabalho, método ou atualizações de gêmeos de seu Hub IoT.
 
-* **SDKs de serviço** permitem o gerenciamento de seu Hub IoT e, opcionalmente, o envio de mensagens para seus dispositivos IoT.
+* Os **Serviço SDKs** permitem gerenciar seu hub IoT e, como opção, enviar mensagens, agendar trabalhos, invocar métodos diretos ou enviar atualizações de propriedade desejadas para os dispositivos IoT.
 
-* O **Azure IoT Edge** permite que você crie os gateways para dispositivos que não usam um dos protocolos com suporte. Gateways também podem processar mensagens na borda.
+Saiba mais sobre os benefícios do desenvolvimento usando SDKs de IoT do Azure [aqui][lnk-benefits-blog].
 
-Os SDKs são fornecidos a fim de oferecer suporte a várias linguagens de programação.
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="azure-iot-device-sdks"></a>SDKs do dispositivo IoT do Azure
 
 Os SDKs do dispositivo IoT do Microsoft Azure contêm código que facilita a criação de dispositivos e aplicativos que se conectam e são gerenciados pelos serviços do Hub Iot do Azure.
 
-Os seguintes SDKs de dispositivo do Azure IoT estão disponíveis para download no GitHub:
+SDK do dispositivo de Hub IoT do Azure para .NET: 
+* Instalar do [Nuget][lnk-nuget-csharp-device]
+* [Código-fonte][lnk-dotnet-sdk]
+* [Referência de API][lnk-dotnet-ref]
 
-* [SDK do dispositivo IoT do Azure para .NET][lnk-dotnet-device-sdk]
-* [SDK do dispositivo IoT do Azure para Java][lnk-java-device-sdk]
-* [SDK do dispositivo IoT do Azure para Node.js][lnk-node-device-sdk]
-* [SDK do dispositivo IoT do Azure para Python][lnk-python-device-sdk]
-* [Dispositivo SDK do dispositivo IoT do Azure para C][lnk-c-device-sdk] gravado em ANSI C (C99) para portabilidade e compatibilidade ampla da plataforma. Há duas bibliotecas de cliente de dispositivo para C, de baixo nível **iothub_client** e o **serializador**.
+Dispositivo SDK do dispositivo de Hub IoT do Azure para C: gravado em ANSI C (C99) para portabilidade e compatibilidade ampla da plataforma
+* Instalar a partir de [apt-get, MBED, Arduino IDE ou Nuget][lnk-c-package]
+* [Código-fonte][lnk-c-sdk]
+* [Referência de API][lnk-c-ref]
+
+SDK do dispositivo de Hub IoT do Azure para Java: 
+* Adicionar ao projeto [Maven][lnk-maven-device]
+* [Código-fonte][lnk-java-sdk]
+* [Referência de API][lnk-java-ref]
+
+SDK do dispositivo de Hub IoT do Azure para Node.js: 
+* Instalar do arquivo [npm][lnk-npm-device]
+* [Código-fonte][lnk-node-sdk]
+* [Referência de API][lnk-node-ref]
+
+SDK do dispositivo de Hub IoT do Azure para Python: 
+* Instalar do arquivo [pip][lnk-pip-device]
+* [Código-fonte][lnk-python-sdk]
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
@@ -52,41 +68,38 @@ Os seguintes SDKs de dispositivo do Azure IoT estão disponíveis para download 
 
 ### <a name="os-platform-and-hardware-compatibility"></a>Compatibilidade de plataforma do sistema operacional e hardware
 
-Para saber mais sobre a compatibilidade do SDK com dispositivos de hardware específicos, consulte o [Catálogo de dispositivos certificados pelo Azure para IoT][lnk-certified].
+Para saber mais sobre a compatibilidade do SDK com dispositivos de hardware específicos, consulte o [Catálogo de dispositivos certificados pelo Azure para IoT][lnk-certified] ou repositório individual.
 
 ## <a name="azure-iot-service-sdks"></a>SDKs do serviço IoT do Azure
 
 Os SDKs do serviço de IoT do Azure contêm código para facilitar a criação aplicativos que interagem diretamente com o Hub IoT para gerenciar dispositivos e a segurança.
 
-Os seguintes SDKs de serviço do Azure IoT estão disponíveis para download no GitHub:
+SDK de serviço de Hub IoT do Azure para .NET:
+* Fazer download do [Nuget][lnk-nuget-csharp-service]
+* [Código-fonte][lnk-dotnet-sdk]
+* [Referência de API][lnk-dotnet-service-ref]
 
-* [SDK de serviço do Azure IoT para .NET][lnk-dotnet-service-sdk]
-* [SDK de serviço do Azure IoT para Java][lnk-java-service-sdk]
-* [SDK de serviço do Azure IoT para Node.js][lnk-node-service-sdk]
-* [SDK de serviço IoT do Azure para Python][lnk-python-service-sdk]
-* [SDK de serviço do Azure IoT para C][lnk-c-service-sdk]
+SDK de serviço de Hub IoT do Azure para Java: 
+* Adicionar ao projeto [Maven][lnk-maven-service]
+* [Código-fonte][lnk-java-sdk]
+* [Referência de API][lnk-java-service-ref]
+
+SDK de serviço de Hub IoT do Azure para Node.js: 
+* Fazer download do [npm][lnk-npm-service]
+* [Código-fonte][lnk-node-sdk]
+* [Referência de API][lnk-node-service-ref]
+
+SDK de serviço de Hub IoT do Azure para Python: 
+* Fazer download do [pip][lnk-pip-service]
+* [Código-fonte][lnk-python-sdk]
+
+SDK de serviço de Hub IoT do Azure para C: 
+* Faça o download de [apt-get, MBED, Arduino IDE ou Nuget][lnk-c-package]
+* [Código-fonte][lnk-c-sdk]
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
 
-## <a name="azure-iot-edge"></a>Azure IoT Edge
-
-O Azure IoT Edge contém a infraestrutura e os módulos para criar soluções de gateway IoT. Você pode estender o IoT Edge para criar gateways adaptados a qualquer cenário completo.
-
-Baixe o [Azure IoT Edge][lnk-iot-edge] no GitHub.
-
-## <a name="online-api-reference-documentation"></a>Documentação de referência online de API
-
-A seguinte lista contém links para a documentação de referência da API online das bibliotecas de dispositivo, serviço e gateway de IoT do Azure:
-
-* [Internet das Coisas (IoT) .NET][lnk-dotnet-ref]
-* [SDK do dispositivo IoT do Azure para Java][lnk-java-ref]
-* [SDK de serviço do Azure IoT para Java][lnk-java-service-ref]
-* [SDK do dispositivo IoT do Azure para Node.js][lnk-node-ref]
-* [SDK de serviço do Azure IoT para Node.js][lnk-node-service-ref]
-* [SDK do dispositivo IoT do Azure para C][lnk-c-ref]
-* [REST do Hub IoT][lnk-rest-ref]
-* [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -96,32 +109,39 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-devguide-query]
 * [Cotas e limitações][lnk-devguide-quotas]
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt]
+* [Referência de API REST do Hub IoT][lnk-rest-ref]
 
 <!-- Links and images -->
 
-[lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdk-c
-[lnk-c-service-sdk]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_service_client
-[lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device
-[lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device
-[lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service
-[lnk-java-service-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/service
-[lnk-node-device-sdk]: https://github.com/Azure/azure-iot-sdk-node/tree/master/device
-[lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdk-node/tree/master/service
-[lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
-[lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
+[lnk-c-sdk]: https://github.com/Azure/azure-iot-sdk-c
+[lnk-dotnet-sdk]: https://github.com/Azure/azure-iot-sdk-csharp
+[lnk-java-sdk]: https://github.com/Azure/azure-iot-sdk-java
+[lnk-node-sdk]: https://github.com/Azure/azure-iot-sdk-node
+[lnk-python-sdk]: https://github.com/Azure/azure-iot-sdk-python
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
-[lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
+[lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet
+[lnk-dotnet-service-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/
+[lnk-node-ref]: https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service
-[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/
-[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
+[lnk-node-service-ref]: https://docs.microsoft.com/javascript/api/azure-iothub/?view=azure-iot-typescript-latest
+
+[lnk-maven-device]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk
+[lnk-maven-service]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk
+[lnk-npm-device]: https://www.npmjs.com/package/azure-iot-device
+[lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
+[lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
+[lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
+[lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
+
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-benefits-blog]: https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/

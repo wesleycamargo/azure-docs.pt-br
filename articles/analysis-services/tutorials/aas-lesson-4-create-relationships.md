@@ -1,33 +1,26 @@
 ---
-title: "Lição 4 do tutorial do Azure Analysis Services: criar relações | Microsoft Docs"
-description: "Descreve como criar relações no projeto de tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lição 4 do tutorial do Azure Analysis Services: criar relações | Microsoft Docs'
+description: Descreve como criar relações no projeto de tutorial do Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-relationships"></a>Criar relacionamentos
+# <a name="create-relationships"></a>Criar relações
 
 Nesta lição, você verifica as relações que foram criadas automaticamente quando você importou dados e adicionou novas relações entre tabelas diferentes. Uma relação é uma conexão entre duas tabelas que estabelece como os dados nessas tabelas devem ser correlacionados. Por exemplo, as tabelas DimProduct e DimProductSubcategory têm uma relação baseada no fato de que cada produto pertence a uma subcategoria. Para saber mais, consulte [Relações](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 3: marcar como tabela de data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Examinar relações existentes e adicionar novas relações  
@@ -60,11 +53,11 @@ Antes de prosseguir com a criação de seu modelo, você deve verificar se essas
   
     |Ativo|Tabela|Tabela de Pesquisa Relacionada|  
     |----------|---------|------------------------|  
-    |Sim|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |Sim|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |Sim|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |Sim|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |Sim|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |sim|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |sim|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |sim|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |sim|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |sim|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     Se qualquer uma das relações estiver ausente, verifique se o modelo inclui as tabelas a seguir: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory e FactInternetSales. Se as tabelas da mesma conexão de fonte de dados forem importadas em momentos distintos, eventuais relações entre essas tabelas não serão criadas e deverão ser criadas manualmente. Se nenhuma relação aparecer, isso significa que não há nenhuma relação na fonte de dados. Você pode criá-los manualmente no modelo de dados.
 

@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory B2C: proteger seu serviço RESTful usando certificados do cliente"
-description: "Proteja suas trocas de declarações da API REST personalizadas no Azure AD B2C usando certificados do cliente"
+title: 'Azure Active Directory B2C: proteger seu serviço RESTful usando certificados do cliente'
+description: Proteja suas trocas de declarações da API REST personalizadas no Azure AD B2C usando certificados do cliente
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Em um artigo relacionado, [crie um serviço RESTful](active-directory-b2c-custom-rest-api-netfw.md) que interage com o Azure Active Directory B2C (Azure AD B2C).
 
 Neste artigo, você aprenderá a restringir o acesso ao seu aplicativo Web do Azure (API RESTful) usando um certificado do cliente. Esse mecanismo é chamado de autenticação mútua de TLS ou *autenticação de certificado do cliente*. Somente os serviços que têm certificados adequados, como o Azure AD B2C, poderão acessar o serviço.

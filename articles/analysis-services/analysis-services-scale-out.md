@@ -1,24 +1,18 @@
 ---
 title: Escala horizontal do Azure Analysis Services | Microsoft Docs
 description: Replicar os servidores do Azure Analysis Services com escala horizontal
-services: analysis-services
-documentationcenter: 
 author: minewiskan
-manager: erikre
-editor: 
-ms.assetid: 
+manager: kfile
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/16/2018
 ms.author: owend
-ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -28,7 +22,7 @@ Com a escala horizontal, as consultas de cliente podem ser distribuídas entre v
 
 Em uma implantação típica do servidor, um servidor funciona como o servidor de processamento e o servidor de consulta. Se o número de consultas de cliente em modelos em seu servidor exceder as QPUs (Unidades de Processamento de Consulta) do plano do servidor ou o processamento de modelo ocorrer ao mesmo tempo que cargas de trabalho de consulta altas, o desempenho poderá diminuir. 
 
-Com a escala horizontal, você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). Você pode dimensionar o número de réplicas de consulta para atender às demandas de QPU em momentos críticos e você pode separar um servidor de processamento do pool de consultas a qualquer momento. 
+Com a escala horizontal, você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). Você pode dimensionar o número de réplicas de consulta para atender às demandas de QPU em momentos críticos e você pode separar um servidor de processamento do pool de consultas a qualquer momento. Todas as réplicas de consulta são criadas na mesma região que o servidor.
 
 Independentemente do número de réplicas de consulta que você tem em um pool de consulta, as cargas de trabalho de processamento não são distribuídas entre as réplicas de consulta. Um único servidor atua como o servidor de processamento. Réplicas de consulta servem apenas as consultas em relação aos modelos sincronizados entre cada réplica no pool de consulta. 
 
@@ -79,11 +73,17 @@ Use a operação de **sincronização**.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Para executar a sincronização no PowerShell, [atualize para o último módulo AzureRM](https://github.com/Azure/azure-powershell/releases) 5.01 ou superior. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Antes de usar o PowerShell, [instale ou atualize o último módulo do AzureRM](https://github.com/Azure/azure-powershell/releases). 
+
+Para definir o número de réplicas de consulta, use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Especifique o parâmetro `-ReadonlyReplicaCount` opcional.
+
+Para executar a sincronização, use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>conexões
 
-Na página Visão Geral do servidor, há dois nomes de servidor. Se você ainda não tiver configurado a escala horizontal para um servidor, os dois nomes de servidor funcionam da mesma forma. Depois de configurar escala horizontal para um servidor, você precisará especificar o nome do servidor adequado dependendo do tipo de conexão. 
+Na página Visão Geral do servidor, há dois nomes de servidor. Se você ainda não tiver configurado a escala horizontal para um servidor, os dois nomes de servidor funcionam da mesma forma. Depois de configurar a expansão para um servidor, você precisará especificar o nome do servidor adequado dependendo do tipo de conexão. 
 
 Para conexões de cliente do usuário final como o Power BI Desktop, Excel e aplicativos personalizados, use **Nome do servidor**. 
 

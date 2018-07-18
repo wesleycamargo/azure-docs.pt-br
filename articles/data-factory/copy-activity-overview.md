@@ -1,23 +1,23 @@
 ---
-title: "Atividade de cópia no Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre a atividade de cópia no Azure Data Factory que você pode usar apenas para copiar dados de um armazenamento de dados de origem com suporte para um armazenamento de dados de coletor com suporte."
+title: Atividade de cópia no Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre a atividade de cópia no Azure Data Factory que você pode usar apenas para copiar dados de um armazenamento de dados de origem com suporte para um armazenamento de dados de coletor com suporte.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/01/2018
 ms.author: jingwang
-ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 8ae1402b6821d1b42fa8f2bf9c2f6453a5ce7109
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 

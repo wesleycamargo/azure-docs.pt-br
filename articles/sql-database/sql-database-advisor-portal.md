@@ -2,24 +2,19 @@
 title: Aplicar recomendações de desempenho - Banco de Dados SQL do Azure | Microsoft Docs
 description: Use o portal do Azure para localizar as recomendações de desempenho que podem otimizar o desempenho do Banco de Dados SQL do Azure.
 services: sql-database
-documentationcenter: ''
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364345"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -27,7 +22,7 @@ Você pode usar o Portal do Azure para encontrar recomendações de desempenho q
 
 ## <a name="viewing-recommendations"></a>Exibindo recomendações
 
-Para exibir e aplicar as recomendações de desempenho, você precisa das permissões corretas ao [controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
+Para exibir e aplicar as recomendações de desempenho, você precisa das permissões corretas ao [controle de acesso baseado em função](../role-based-access-control/overview.md) no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
 
 Use as etapas a seguir para localizar as recomendações de desempenho no Portal do Azure:
 
@@ -104,7 +99,11 @@ Você pode definir o Banco de Dados SQL do Azure para implementar as recomendaç
     ![Configurações do supervisor](./media/sql-database-advisor-portal/settings.png)
 2. Selecione as ações para automatização:
    
-    ![Índices recomendados](./media/sql-database-advisor-portal/automation.png)
+    ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Observe que a opção **DROP_INDEX** no momento não é compatível com aplicativos que usam dicas de índice e de alternância de partição e não deve ser ativada nesses casos.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Executar manualmente o script T-SQL recomendado
 Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
@@ -160,5 +159,5 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)
+* [Controle de acesso baseado em função](../role-based-access-control/overview.md)
 

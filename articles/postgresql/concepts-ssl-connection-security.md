@@ -1,20 +1,20 @@
 ---
 title: Configurar a conectividade SSL no Banco de Dados do Azure para PostgreSQL
-description: "Instruções e informações para configurar o Banco de Dados do Azure para PostgreSQL e aplicativos associados a fim de usar as conexões SSL adequadamente."
+description: Instruções e informações para configurar o Banco de Dados do Azure para PostgreSQL e aplicativos associados a fim de usar as conexões SSL adequadamente.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
 ms.service: postgresql
-ms.custom: 
+ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL no Banco de Dados do Azure para PostgreSQL
 O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Para Windows
 A instalação do OpenSSL em um PC com Windows pode ser feita destas maneiras:
-1. **(Recomendado)** Usando a funcionalidade interna Bash para Windows no Windows 10 e superior, o OpenSSL é instalado por padrão. As instruções sobre como habilitar a funcionalidade Bash para Windows no Windows 10 podem ser encontradas [aqui](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Recomendado)** Usando a funcionalidade interna Bash para Windows no Windows 10 e superior, o OpenSSL é instalado por padrão. As instruções sobre como habilitar a funcionalidade Bash para Windows no Windows 10 podem ser encontradas [aqui](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Por meio do download de um aplicativo Win32/64 fornecido pela comunidade. Embora a OpenSSL Software Foundation não forneça, nem endosse, qualquer instalador específico do Windows, ela fornece uma lista dos instaladores disponíveis [aqui](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Decodificar o arquivo de certificado

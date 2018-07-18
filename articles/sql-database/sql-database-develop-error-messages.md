@@ -8,13 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195321"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro de SQL em aplicativos cliente do Banco de Dados SQL: erros de conexão de banco de dados e outros problemas
 
@@ -34,7 +35,7 @@ Erros de falhas transitórias normalmente se manifestam como uma das seguintes m
 * O banco de dados &lt;nome_do_bd&gt; no servidor &lt;instância_do_Azure&gt; não está disponível no momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da &lt;session_id&gt;. (Microsoft SQL Server, erro: 40613)
 * Uma conexão existente foi fechada à força pelo host remoto.
 * System.Data.Entity.Core.EntityCommandExecutionException: erro ao executar a definição de comando. Consulte a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor de Sessão, erro: 19 - a conexão física não é utilizável)
-* Uma tentativa de conexão para um banco de dados secundário falhou porque o banco de dados está em processo reconfguration e ele estiver ocupado aplicar novas páginas no meio de uma transação ativa no banco de dados primário. 
+* Uma tentativa de conexão para um banco de dados secundário falhou porque o banco de dados está em processo de reconfiguração e está ocupado aplicando novas páginas no meio de uma transação ativa no banco de dados primário. 
 
 Para obter exemplos de código de lógica de repetição, consulte:
 
@@ -50,7 +51,7 @@ Os seguintes erros são transitórios e devem ser repetidos na lógica do aplica
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Houve falha no logon. |
 | 40197 |17 |O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você recebe este erro quando o serviço fica inativo devido a upgrades de software ou hardware, falhas de hardware ou outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão ao servidor do Banco de Dados SQL conecta você automaticamente a uma cópia íntegra do banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida. |
-| 40501 |20 |O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
+| 40501 |20 |O serviço está ocupado. Repita a solicitação depois de 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |O banco de dados “%.&#x2a;ls” no servidor “%.&#x2a;ls” não está disponível momento. Tente a conexão novamente mais tarde. Se o problema persistir, entre em contato com o atendimento ao cliente e forneça a ID de rastreamento da sessão “%.&#x2a;ls”. |
 | 49918 |16 |Não é possível processar a solicitação. Não há recursos suficientes para processar a solicitação.<br/><br/>O serviço está ocupado. Tente fazer novamente a solicitação. |
 | 49919 |16 |Não é possível criar o processo ou atualizar a solicitação. Muitas operações de criação ou atualização em andamento para a assinatura "%ld".<br/><br/>O serviço está ocupado processando várias solicitações de criação ou atualização para a assinatura ou o servidor. As solicitações estão bloqueadas no momento para a otimização de recursos. Consulte [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para obter as operações pendentes. Espere até que as solicitações pendentes de criação ou atualização sejam concluídas ou exclua uma das suas solicitações pendentes e tente a solicitação novamente mais tarde. |
@@ -86,12 +87,12 @@ Os erros a seguir são causados pelo uso excessivo de recursos enquanto você tr
 
 Tópicos relacionados:
 
-* Informações mais detalhadas estão disponíveis aqui: [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+* Informações mais detalhadas estão disponíveis aqui: [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers-dtu.md).
 
 | Código do erro | Severity | DESCRIÇÃO |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para obter mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para obter mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers.md). |
+| 10928 |20 |ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para obter mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para obter mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, tente novamente mais tarde.<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do Banco de Dados SQL do Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |O banco de dados atingiu sua cota de tamanho. Particione ou exclua dados, descarte índices ou consulte a documentação para conhecer as possíveis resoluções. |
 | 40549 |16 |A sessão foi encerrada porque você tem uma transação de longa duração. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi encerrada porque adquiriu muitos bloqueios. Tente ler ou modificar menos linhas em uma única transação. |
@@ -104,14 +105,14 @@ Os seguintes erros estão relacionados à criação e ao uso de pools elásticos
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |O pool elástico atingiu seu limite de armazenamento. O uso do armazenamento do pool elástico não pode exceder (%d) MB. |O limite de espaço do pool elástico é medido em MB. |Tentando gravar dados em um banco de dados quando o limite de armazenamento do pool elástico foi atingido. |Considere a possibilidade de aumentar as DTUs do pool elástico, se possível, para aumentar seu limite de armazenamento, reduzir o armazenamento usado por bancos de dados individuais dentro do pool elástico ou remover bancos de dados do pool elástico. |
-| 10929 |EX_USER |A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obter assistência. Caso contrário, tente novamente mais tarde. |Mínimo de DTUs por banco de dados; máximo de DTUs por banco de dados |O número total de trabalhos simultâneos (solicitações) em todos os bancos de dados no pool elástico tentou exceder o limite do pool. |Considere a possibilidade de aumentar as DTUs do pool elástico, se possível, para aumentar o limite de funções de trabalho ou remover bancos de dados do pool elástico. |
+| 1132 |EX_RESOURCE |O pool elástico atingiu seu limite de armazenamento. O uso do armazenamento do pool elástico não pode exceder (%d) MB. |O limite de espaço do pool elástico é medido em MB. |Tentando gravar dados em um banco de dados quando o limite de armazenamento do pool elástico foi atingido. |Considere a possibilidade de aumentar as DTUs e/ou adicionar armazenamento ao pool elástico, se possível, para aumentar seu limite de armazenamento, reduzir o armazenamento usado por bancos de dados individuais dentro do pool elástico ou remover bancos de dados do pool elástico. |
+| 10929 |EX_USER |A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) para obter assistência. Caso contrário, tente novamente mais tarde. |Mínimo de DTUs / vCore por banco de dados; máximo de DTUs / vCore por banco de dados |O número total de trabalhos simultâneos (solicitações) em todos os bancos de dados no pool elástico tentou exceder o limite do pool. |Considere a possibilidade de aumentar as DTUs ou vCores do pool elástico, se possível, para aumentar o limite de funções de trabalho ou remover bancos de dados do pool elástico. |
 | 40844 |EX_USER |O banco de dados '%ls' no servidor '%ls' é um banco de dados edição '%ls' em um pool elástico e não pode ter um relacionamento de cópia contínuo. |nome do banco de dados, edição do banco de dados, nome do servidor |Um comando StartDatabaseCopy é emitido para um banco de dados não premium em um pool elástico. |Em breve |
 | 40857 |EX_USER |Pool elástico não encontrado para o servidor: '%ls', nome do pool elástico: '%ls'. |nome do servidor; nome do pool elástico |O pool elástico especificado não existe no servidor especificado. |Forneça um nome de pool elástico válido. |
 | 40858 |EX_USER |O pool elástico '%ls' já existe no servidor: '%ls' |nome do pool elástico, nome do servidor |O pool elástico especificado já existe no servidor lógico especificado. |Forneça um novo nome de pool elástico. |
 | 40859 |EX_USER |O pool elástico não dá suporte à camada de serviço '%ls'. |camada de serviço do pool elástico |A camada de serviço especificada não dá suporte ao provisionamento de pool elástico. |Forneça a edição correta ou deixe a camada de serviço em branco para o padrão. |
 | 40860 |EX_USER |A combinação de pool elástico '%ls' e objetivo de serviço '%ls' é inválida. |nome do pool elástico; nome de objetivo de nível de serviço |O pool elástico e o objetivo de serviço podem ser especificados juntos somente se o objetivo de serviço for especificado como “ElasticPool”. |Especifique a combinação correta de pool elástico e objetivo de serviço. |
-| 40861 |EX_USER |A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.*ls'. |edição do banco de dados, camada de serviço do pool elástico |A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
+| 40861 |EX_USER |A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.* ls'. |edição do banco de dados, camada de serviço do pool elástico |A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
 | 40862 |EX_USER |O nome do pool elástico deverá ser especificado se o objetivo de serviço do pool elástico for especificado. |Nenhum |O objetivo de serviço do pool elástico não identifica exclusivamente um pool elástico. |Especifique o nome do pool elástico se você estiver usando o objetivo de serviço do pool elástico. |
 | 40864 |EX_USER |A quantidade mínima de DTUs para o pool elástico deve ser de (%d) DTUs para a camada de serviço '%.*ls'. |DTUs para o pool elástico; camada de serviço do pool elástico. |Tentando definir uma quantidade de DTUs para o pool elástico abaixo do limite mínimo. |Tente configurar novamente as DTUs para o pool elástico de acordo com o limite mínimo. |
 | 40865 |EX_USER |A quantidade máxima de DTUs para o pool elástico deve ser de (%d) DTUs para a camada de serviço '%.*ls'. |DTUs para o pool elástico; camada de serviço do pool elástico. |Tentando definir uma quantidade de DTUs para o pool elástico acima do limite máximo. |Tente configurar novamente as DTUs para o pool elástico de acordo com o limite máximo. |
@@ -205,5 +206,6 @@ Os erros a seguir não se enquadram em nenhuma categoria anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia mais sobre os [Recursos do Banco de Dados SQL do Azure](sql-database-features.md).
-* Leia mais sobre as [Camadas de serviço](sql-database-service-tiers.md).
+* Leia mais sobre o [Modelo de compra com base em DTU](sql-database-service-tiers-dtu.md).
+* Leia mais sobre o [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 

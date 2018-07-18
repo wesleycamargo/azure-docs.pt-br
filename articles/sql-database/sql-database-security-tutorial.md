@@ -7,17 +7,24 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 06/28/2017
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 99b719c302bb02e96e4bfa0ea4588862e9f304e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
-O Banco de Dados SQL protege seus dados limitando o acesso ao banco de dados usando regras de firewall, mecanismos de autenticação que exigem que os usuários comprovem sua identidade e autorização para dados por meio de permissões e associações de função, bem como por meio de segurança em nível de linha e mascaramento de dados dinâmicos.
+O Banco de Dados SQL protege seus dados: 
+- Limitando o acesso ao banco de dados usando regras de firewall 
+- Usando mecanismos de autenticação que exigem a identidade
+- Autorizando dados por meio de associações e permissões baseadas em função 
+- Segurança em nível de linha
+- Mascaramento de dados dinâmicos
+
+O Banco de Dados SQL também tem monitoramento, auditoria e detecção de ameaças sofisticados. 
 
 Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
 
@@ -99,7 +106,7 @@ Para garantir uma conexão segura e criptografada entre um aplicativo cliente e 
 - Solicitar uma conexão criptografada, e
 - Não confiar no certificado do servidor. 
 
-Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques man-in-the-middle. Você pode obter cadeias de conexão configuradas corretamente para seu Banco de Dados SQL para os drivers cliente com suporte no portal do Azure, conforme mostrado para o ADO.net nesta captura de tela.
+Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques man-in-the-middle. Você pode obter cadeias de conexão configuradas corretamente para seu Banco de Dados SQL para os drivers cliente com suporte no portal do Azure, conforme mostrado para o ADO.net nesta captura de tela. Para obter informações sobre TLS e conectividade, consulte [Considerações sobre TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**.
 
@@ -155,7 +162,7 @@ A TDE (Transparent Data Encryption) do Banco de Dados SQL do Azure criptografa s
 
 3. Se for necessário, defina **Criptografia de dados** como ATIVADO e clique em **Salvar**.
 
-O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso ao se conectar ao banco de dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ao consultar a coluna encryption_state da exibição `sys.dm_database_encryption_keys`.
+O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso conectando-se ao Banco de Dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) e consultando a coluna encryption_state da exibição [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Um estado 3 indica que o banco de dados está criptografado. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Habilitar a auditoria do Banco de Dados SQL, se for necessário
 
@@ -167,7 +174,7 @@ A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava 
 
     ![Folha Auditoria](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Se você preferir habilitar um tipo (ou local?) de Auditoria diferente do especificado no nível do servidor, **ATIVE** a opção Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de blob do servidor estiver habilitada, a auditoria de banco de dados configurada existirá lado a lado com a auditoria de blob do servidor.
+3. Se você preferir habilitar um tipo (ou local?) de Auditoria diferente do especificado no nível do servidor, **ATIVE** a opção Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de blobs do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria de blobs do servidor.
 
     ![Ativar a auditoria](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

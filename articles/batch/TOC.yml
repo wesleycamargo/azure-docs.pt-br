@@ -43,6 +43,8 @@
       href: batch-apis-tools.md
     - name: Cotas e limites
       href: batch-quota-limit.md
+    - name: Tamanhos de VM com suporte
+      href: batch-pool-vm-sizes.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas de Lote
@@ -71,6 +73,8 @@
           href: batch-custom-images.md
         - name: Criar um pool em uma rede virtual
           href: batch-virtual-network.md
+        - name: Montar um compartilhamento de arquivos do Azure
+          href: pool-file-shares.md
         - name: Usar VMs de computação intensiva
           href: batch-pool-compute-intensive-sizes.md
         - name: Usar nós de computação do Linux
@@ -108,10 +112,13 @@
           href: batch-rendering-service.md
         - name: Processamento de dados com Lote e Data Factory
           href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
-    - name: Monitorar recursos
+    - name: Monitorar soluções do Lote
+      href: monitoring-overview.md
       items:
-        - name: Registro em log de diagnóstico
+        - name: Usar métrica e logs de diagnóstico
           href: batch-diagnostics.md
+        - name: Monitorar com Application Insights
+          href: monitor-application-insights.md
         - name: Consultas de lista eficientes
           href: batch-efficient-list-queries.md
     - name: Usar ferramentas do desenvolvedor

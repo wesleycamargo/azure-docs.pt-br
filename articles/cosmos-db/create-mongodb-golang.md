@@ -1,30 +1,29 @@
 ---
 title: 'BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure | Microsoft Docs'
-description: "Apresenta um exemplo de código Golang que pode ser usado para conectar e consultar o BD Cosmos do Azure"
+description: Apresenta um exemplo de código Golang que pode ser usado para conectar e consultar o BD Cosmos do Azure
 services: cosmos-db
 author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
+manager: kfile
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a47646074819492e2c5179276a0c4de7f0d2d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure
 
 O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
-Este início rápido demonstra como usar um aplicativo [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) existente escrito em [Golang](https://golang.org/) e como conectá-lo ao banco de dados do BD Cosmos do Azure, que dá suporte a conexões de cliente do MongoDB.
+Este início rápido demonstra como usar um aplicativo MongoDB existente gravado no [Golang](https://golang.org/) e como conectá-lo ao banco de dados do Azure Cosmos DB, que oferece suporte a conexões de cliente do MongoDB usando a [API do MongoDB](mongodb-introduction.md).
 
 Em outras palavras, o aplicativo Golang só sabe que está se conectando a um banco de dados usando as APIs do MongoDB. Está claro para o aplicativo que os dados estão armazenados no BD Cosmos do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar. 
 
@@ -34,7 +33,7 @@ Em outras palavras, o aplicativo Golang só sabe que está se conectando a um ba
 - Um IDE — [Gogland](https://www.jetbrains.com/go/) da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/). Neste tutorial, estou usando Goglang.
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -80,7 +79,9 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="review-the-code"></a>Examine o código
 
-Façamos uma rápida revisão do que está acontecendo no arquivo main.go. 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Executar o aplicativo](#run-the-app). 
+
+Todos os trechos de código a seguir são retirados do arquivo main.go.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Conectando o aplicativo Go para o BD Cosmos do Azure
 
@@ -235,10 +236,7 @@ Volte para o portal do Azure a fim de ver o documento no Data Explorer.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
-
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

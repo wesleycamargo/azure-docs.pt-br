@@ -1,26 +1,25 @@
 ---
-title: "Referência de token - Azure AD B2C | Microsoft Docs"
+title: Referência de token - Azure AD B2C | Microsoft Docs
 description: Os tipos de tokens emitidos no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Referência de token
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 O Azure AD B2C (Azure Active Directory B2C) emite vários tipos de tokens de segurança ao processar cada [fluxo de autenticação](active-directory-b2c-apps.md). Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
 
@@ -71,7 +70,7 @@ Ao usar o Azure AD B2C, você tem um controle refinado sobre o conteúdo de seus
 
 Observe que as declarações em tokens de ID não são retornadas em uma ordem específica. Além disso, novas declarações podem ser introduzidas em tokens de ID a qualquer momento. Seu aplicativo não deve ser interrompido à medida que novas declarações são introduzidas. Aqui estão as declarações que você espera que existam em tokens de ID e de acesso emitidos pelo Azure AD B2C. As declarações adicionais são determinadas por políticas. Para praticar, tente inspecionar as declarações no token de ID de exemplo colando-o em [jwt.ms](https://jwt.ms). Mais detalhes podem ser encontrados na [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Nome | Declaração | Valor de exemplo | Descrição |
+| NOME | Declaração | Valor de exemplo | DESCRIÇÃO |
 | --- | --- | --- | --- |
 | Público-alvo |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma declaração de audiência identifica o destinatário pretendido do token. Para o Azure AD B2C, o público-alvo é a ID de aplicativo de seu aplicativo, conforme atribuída a ele no portal de registro do aplicativo. O aplicativo deve validar esse valor e rejeitar o token, caso ele não corresponda. |
 | Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Essa declaração identifica o STS (serviço de token de segurança) que constrói e retorna o token. Também identifica o diretório do Azure AD no qual o usuário foi autenticado. O aplicativo deve validar a declaração do emissor para garantir que o token venha do ponto de extremidade Azure Active Directory v2.0. |
@@ -82,7 +81,7 @@ Observe que as declarações em tokens de ID não são retornadas em uma ordem e
 | Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código é incluído em um token de ID apenas quando o token é emitido junto com um código de autorização OAuth 2.0. Um hash de código pode ser usado para validar a autenticidade de um código de autorização. Para obter mais detalhes sobre como realizar essa validação, veja a [Especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso é incluído em um token de ID apenas quando o token é emitido junto com um token de acesso OAuth 2.0. Um hash de token de acesso pode ser usado para validar a autenticidade de um token de acesso. Para obter mais detalhes sobre como realizar essa validação, veja a [Especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce |`nonce` |`12345` |Um nonce é uma estratégia usada para reduzir ataques de reprodução de token. O aplicativo pode especificar um nonce em uma solicitação de autorização usando o parâmetro de consulta `nonce` . O valor que você fornecer na solicitação será emitido sem modificações na declaração `nonce` de um token de ID somente. Isso permite ao aplicativo verificar o valor em relação ao valor que ele especificou na solicitação, que associa a sessão do aplicativo a determinado token de ID. O aplicativo deve executar essa validação durante o processo de validação do token de ID. |
-| Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Essa é a entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. Para obter mais informações, consulte [Azure Active Directory B2C: configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md). |
+| Assunto |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Essa é a entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. Para obter mais informações, consulte [Azure Active Directory B2C: configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md). |
 | Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não usado atualmente, exceto no caso de políticas mais antigas. Para obter mais informações, consulte [Azure Active Directory B2C: configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md). |
 | Política de estrutura confiável |`tfp` |`b2c_1_sign_in` |Esse é o nome da política que foi usada para adquirir o token de ID. |
 | Hora da autenticação |`auth_time` |`1438535543` |Essa declaração é a hora em que um usuário inseriu credenciais pela última vez, representada na época. |
@@ -149,7 +148,7 @@ Para obter uma lista completa de validações que seu aplicativo deve realizar, 
 ## <a name="token-lifetimes"></a>Tempos de vida do token
 Os tempos de vida de token a seguir são fornecidos para expandir seus conhecimentos. Eles poderão ajudá-lo quando você desenvolver e depurar aplicativos. Observe que seus aplicativos não devem ser escritos com a esxpectativa de que esses tempos de vida permaneçam constantes. Eles podem e vão ser alterados. Leia mais sobre a [personalização de tempos de vida de token](active-directory-b2c-token-session-sso.md) no Azure AD B2C.
 
-| A criptografia do token | Tempo de vida | Descrição |
+| A criptografia do token | Tempo de vida | DESCRIÇÃO |
 | --- | --- | --- |
 | Tokens de ID |Uma hora |Tokens de ID normalmente são válidos por uma hora. O aplicativo Web pode usar esse tempo de vida para manter suas próprias sessões com usuários (recomendado). Também é possível escolher um tempo de vida de sessão diferente. Se o aplicativo precisar obter um novo token de ID, ele simplesmente precisará fazer uma nova solicitação de conexão ao Azure AD. Se um usuário tiver uma sessão de navegador válida com o Azure AD, talvez ele não precise inserir suas credenciais novamente. |
 | Tokens de atualização |Até 14 dias |Um único token de atualização é válido para um máximo de 14 dias. No entanto, um token de atualização pode se tornar inválido a qualquer momento por vários motivos. Seu aplicativo deve continuar a tentar usar um token de atualização até que a solicitação falhe ou até que o aplicativo substitua o token de atualização por um novo. Um token de atualização também pode se tornar inválido se 90 dias se passaram desde a última vez em que o usuário inseriu credenciais. |

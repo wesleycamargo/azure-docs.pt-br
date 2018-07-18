@@ -1,11 +1,11 @@
 ---
 title: Carregar arquivos dos dispositivos no Hub IoT do Azure com Python| Microsoft Docs
-description: "Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Python. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob."
+description: Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Python. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob.
 services: iot-hub
 documentationcenter: python
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: python
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 5939f87684e92e1f95d39ea5bd52b424ca683acc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -29,7 +29,7 @@ Este tutorial descreve como usar os [recursos de carregamento de arquivos do Hub
 - Fornece um contêiner de armazenamento com segurança para carregar um arquivo.
 - Use o cliente do Python para carregar um arquivo por meio de seu Hub IoT.
 
-Os tutoriais [Introdução ao Hub IoT](iot-hub-node-node-getstarted.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-node-node-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
+O tutorial [Introdução ao Hub IoT](iot-hub-node-node-getstarted.md) demonstra a funcionalidade básica de mensagens de dispositivo para a nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
 
 > [!NOTE]
 > SDK de Python de Hub IoT atualmente suporta apenas carregar arquivos baseados em caracteres, como arquivos **.txt**.
@@ -76,10 +76,11 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     import os
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
 
-    CONNECTION_STRING = "{deviceConnectionString}"
+    CONNECTION_STRING = "[Device Connection String]"
     PROTOCOL = IoTHubTransportProvider.HTTP
 
-    FILENAME = 'sample.txt'
+    PATHTOFILE = "[Full path to file]"
+    FILENAME = "[File name on storage after upload]"
     ```
 
 1. Criar um retorno de chamada para a função **upload_blob**:
@@ -98,14 +99,17 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
     def iothub_file_upload_sample_run():
         try:
             print ( "IoT Hub file upload sample, press Ctrl-C to exit" )
-        
+
             client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
 
-            client.upload_blob_async(FILENAME, FILENAME, os.path.getsize(FILENAME), blob_upload_conf_callback, 0)
-        
+            f = open(PATHTOFILE, "r")
+            content = f.read()
+
+            client.upload_blob_async(FILENAME, content, len(content), blob_upload_conf_callback, 0)
+
             print ( "" )
             print ( "File upload initiated..." )
-        
+
             while True:
                 time.sleep(30)
 
@@ -116,7 +120,7 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
             print ( "IoTHubClient sample stopped" )
         except:
             print ( "generic error" )
-        
+
     if __name__ == '__main__':
         print ( "Simulating a file upload using the Azure IoT Hub Device SDK for Python" )
         print ( "    Protocol %s" % PROTOCOL )

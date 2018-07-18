@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: 9a2edb874ca969813a4f826cd80ef855e391dc4b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ac2b1d1eec8ea623128e4f1413c45f2bfa37a13d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicar e falhar em VMware VMs para Azure com PowerShell
 
@@ -42,10 +42,10 @@ Antes de começar:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Fazer logon em sua assinatura do Microsoft Azure
 
-Faça logon em sua assinatura do Azure usando o cmdlet Login-AzureRmAccount
+Faça logon em sua assinatura do Azure usando o cmdlet Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Selecione a assinatura do Azure na qual deseja replicar suas máquinas virtuais do VMware. Use o cmdlet Get-AzureRmSubscription para obter a lista de assinaturas do Azure a que tem acesso. Selecione a assinatura do Azure com a qual deseja trabalhar usando o cmdlet Select-AzureRmSubscription.
 
@@ -115,6 +115,18 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 ------------      ----------------- -----------------          -----------
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
+
+> [!TIP]
+> Como alternativa ao cmdlet Set-ASRVaultContext, pode-se também usar o cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile para definir o contexto do cofre. Especifique o caminho do arquivo de chave de registro do cofre como o parâmetro - parâmetro de caminho para o cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile.
+>
+>Por exemplo: 
+>
+>```azurepowershell
+>Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+>
+>Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+>```
+>
 
 Seções posteriores deste artigo presumem que o contexto do cofre para operações do Azure Site Recovery tenha sido definido.
 
@@ -243,7 +255,7 @@ $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
 
 # Associate the replication policies to the protection container corresponding to the Configuration Server. 
 
-$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
 # Check the job status
 while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
@@ -252,7 +264,12 @@ while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.S
 }
 $Job_AssociatePolicy.State
 
-$Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+<# In the protection container mapping used for failback (replicating failed over virtual machines 
+   running in Azure, to the primary VMware site.) the protection container corresponding to the 
+   Configuration server acts as both the Primary protection container and the recovery protection
+   container
+#>
+ $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
 # Check the job status
 while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 

@@ -1,23 +1,24 @@
 ---
 title: Copiar dados do Banco de Dados do Azure para MySQL usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Banco de Dados do Azure para MySQL para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados do Banco de Dados do Azure para MySQL para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f08f9c1fa141f85077c1e868fb309516ce52342b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 17e5ba3637b0ae36412e46166f7f178d4c82d179
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204761"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados do Banco de Dados do Azure para MySQL usando o Azure Data Factory
 
@@ -47,6 +48,13 @@ As propriedades a seguir têm suporte no serviço vinculado do Banco de Dados do
 | Tipo | A tipo da propriedade deve ser definida como: **AzureMySql** | sim |
 | connectionString | Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
+
+Uma cadeia de conexão válida é `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais propriedades que podem ser definidas para seu caso:
+
+| Propriedade | DESCRIÇÃO | Opções | Obrigatório |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Esta opção especifica se o driver usa criptografia SSL e verificação ao se conectar ao MySQL. Por exemplo `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / PREFERENCIAL (1) **(padrão)** / NECESSÁRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não  |
+| UseSystemTrustStore | Esta opção especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. Por exemplo `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Padrão)** | Não  |
 
 **Exemplo:**
 

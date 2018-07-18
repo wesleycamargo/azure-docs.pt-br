@@ -1,26 +1,27 @@
 ---
-title: "Monitorar um cluster do Serviço de Contêiner do Azure com Sysdig"
-description: "Monitore um cluster do Serviço de Contêiner do Azure com Sysdig."
+title: Monitorar um cluster do Serviço de Contêiner do Azure com Sysdig
+description: Monitore um cluster do Serviço de Contêiner do Azure com Sysdig.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d694744665ef6399560fc12c6976c2d88d232148
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162129"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Monitorar um cluster do Serviço de Contêiner do Azure com Sysdig
 
 Neste artigo, implantaremos agentes de Sysdig para todos os nós de agente em seu cluster do Serviço de Contêiner do Azure. Você precisa de uma conta com Sysdig para essa configuração. 
 
-## <a name="prerequisites"></a>Pré-requisitos
-[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Acesse [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar uma conta de nuvem de Sysdig. 
+## <a name="prerequisites"></a>pré-requisitos
+[Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar uma conta de nuvem Sysdig. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig é um serviço de monitoramento que permite monitorar os contêineres no cluster. Sysdig ajuda a solucionar problemas, mas também tem métricas de monitoramentos básicas para CPU, rede, memória e E/S. Com Sysdig, é mais fácil ver quais contêineres estão trabalhando mais ou, essencialmente, usando mais memória e CPU. Esse modo de exibição está na seção "Visão geral", que está atualmente na versão beta. 

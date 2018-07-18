@@ -1,11 +1,11 @@
 ---
-title: "Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede"
+title: Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure | Microsoft Docs
+description: Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,23 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363369"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure
 
 Os clientes normalmente enfrentam o desafio de verificar a postura de segurança de sua infraestrutura. Esse desafio não é diferente para as VMs no Azure. É importante ter um perfil de segurança semelhante com base nas regras do NSG (Grupo de Segurança de Rede) aplicadas. Com a exibição do Grupo de segurança, agora você pode obter a lista de regras aplicadas a uma VM dentro de um NSG. Você pode definir um perfil de ouro de segurança do NSG e iniciar a Exibição do grupo de segurança com uma cadência semanal e comparar a saída para o perfil de ouro e criar um relatório. Dessa forma, você pode identificar com facilidade todas as VMs que não estão de acordo com o perfil de segurança recomendado.
 
-Se você estiver familiarizado com os Grupos de segurança de rede, visite [Visão geral de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+Se você estiver familiarizado com os Grupos de segurança de rede, consulte [Visão geral de segurança de rede](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Nesse cenário, você compara uma linha de base válida com os resultados da exibição do grupo de segurança retornados para uma máquina virtual.
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
 
 ## <a name="scenario"></a>Cenário
 
@@ -187,7 +188,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações foram alteradas, confira [Gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as regras de segurança e o Grupo de Segurança de Rede que estão em questão.
+Se as configurações foram alteradas, confira [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para rastrear as regras de segurança e o Grupo de Segurança de Rede que estão em questão.
 
 
 

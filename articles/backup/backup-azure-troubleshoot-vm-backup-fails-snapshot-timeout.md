@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196756"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -29,7 +30,8 @@ Este artigo fornece etapas de solução de problemas que podem ajudar você a re
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente de VM não consegue se comunicar com o Backup do Azure
 
-Mensagem de erro: "Agente de VM não consegue se comunicar com o Backup do Azure"
+Mensagem de erro: "Agente de VM não consegue se comunicar com o Backup do Azure"<br>
+Código de erro: "UserErrorGuestAgentStatusUnavailable"
 
 Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciará o trabalho comunicando-se com o agente de VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Quando um instantâneo não é disparado, o backup pode falhar. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:
 
@@ -41,7 +43,8 @@ Depois de registrar e agendar uma VM para o serviço de Backup, o Backup iniciar
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Falha na operação de instantâneo porque a máquina virtual não está conectada à rede
 
-Mensagem de erro: "Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual"
+Mensagem de erro: "Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual"<br>
+Código de erro: "ExtensionSnapshotFailedNoNetwork"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:    
 **Causa 1: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +53,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>Falha na operação da extensão VMSnapshot
 
-Mensagem de erro: "Falha na operação da extensão VMSnapshot"
+Mensagem de erro: "Falha na operação da extensão VMSnapshot"<br>
+Código de erro: "ExtentionOperationFailed"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [não é possível recuperar o status do instantâneo ou não é possível obter o instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +64,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Falha no backup porque o agente de VM está sem resposta
 
-Mensagem de erro: "Não é possível executar a operação porque o Agente de VM está sem reposta"
+Mensagem de erro: "Não é possível executar a operação porque o Agente de VM está sem reposta" <br>
+Código de erro: "GuestAgentSnapshotTaskStatusError"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [o agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +74,8 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 
 ## <a name="backup-fails-with-an-internal-error"></a>Falha do backup, com um erro interno
 
-Mensagem de erro: "Falha no backup com um erro interno – tente novamente a operação dentro de alguns minutos"
+Mensagem de erro: "Falha no backup com um erro interno – tente novamente a operação dentro de alguns minutos" <br>
+Código de erro: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado. Se o instantâneo não for disparado, poderá ocorrer uma falha de backup. Conclua as seguintes etapas de solução de problemas na ordem listada e, depois, repita a operação:  
 **Causa 1: [a VM não tem acesso à Internet](#the-vm-has-no-internet-access)**  
@@ -78,21 +84,6 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Causa 4: [não é possível recuperar o status do instantâneo ou não é possível obter o instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 5: [a extensão de backup falha ao ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [o serviço de Backup não tem permissão para excluir os pontos de restauração antigos por causa de um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Configuração de disco não compatível
-
-Mensagem de erro: "A Configuração de disco especificada não é compatível"
-
-> [!NOTE]
-> Temos uma versão prévia privada para dar suporte a backups para VMs que têm discos maiores que 1 TB. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Atualmente, o Backup do Azure não é compatível com discos [maiores que 1.023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Se você tem discos maiores que 1 TB:  
-1. [Anexe novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que sejam menores que 1 TB.  
-2. Copie os dados dos discos que são maiores que 1 TB para os discos recém-criados, menores que 1 TB.  
-3. Verifique se todos os dados foram copiados. Em seguida, remova os discos que são maiores que 1 TB.  
-4. Inicie o backup.
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
@@ -109,6 +100,8 @@ Para resolver o problema, tente usar um dos seguintes métodos:
 Você pode usar [marcas de serviço](../virtual-network/security-overview.md#service-tags) para permitir conexões ao armazenamento da região específica. Verifique se a regra que permite o acesso à conta de armazenamento tem prioridade maior que a regra que bloqueia o acesso à Internet. 
 
 ![Grupo de segurança de rede com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Para entender o procedimento passo a passo para configurar marcações de serviço, assista [este vídeo](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > As marcas de serviço de armazenamento estão em versão prévia. Eles estão disponíveis somente em regiões específicas. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).
@@ -193,6 +186,8 @@ Para desinstalar a extensão:
 4. Selecione **Extensão Vmsnapshot**.
 5. Selecione **Desinstalar**.
 
+Para VM Linux, se a extensão VMSnapshot não for mostrada no Portal do Azure, [atualize o Agente Linux do Azure](../virtual-machines/linux/update-agent.md) e, em seguida, execute o backup. 
+
 A realização dessas etapas faz com que a extensão seja reinstalada durante o próximo backup.
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>O serviço de Backup não tem permissão para excluir os pontos de restauração antigos por causa de um bloqueio de grupo de recursos
@@ -200,21 +195,6 @@ Esse problema é específico de VMs gerenciadas nas quais o usuário bloqueia o 
 
 #### <a name="solution"></a>Solução
 
-Para resolver o problema, realize as etapas a seguir para remover a coleção de pontos de restauração: <br>
- 
-1. Remova o bloqueio no grupo de recursos em que a VM está localizada. 
-2. Instale o ARMClient usando o Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Faça logon no ARMClient: <br>
-    `.\armclient.exe login`
-4. Obtenha a coleção de pontos de restauração que corresponde à VM: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Exclua a coleção de pontos de restauração: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. O próximo backup agendado criará automaticamente a coleção de pontos de restauração e os novos pontos de restauração.
-
- 
-O problema voltará a ocorrer se você bloquear novamente o grupo de recursos. 
+Para resolver o problema, remova o bloqueio do grupo de recursos e permita que o serviço de Backup do Azure limpe a coleção do ponto de recuperação e os instantâneos subjacentes no próximo backup.
+Depois de concluir, você poderá bloquear novamente no grupo de recursos da VM. 
 

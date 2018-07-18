@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: solucionando de problemas durante a sincronização | Microsoft Docs"
-description: "Este tópico fornece etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas."
+title: 'Azure AD Connect: solucionando de problemas durante a sincronização | Microsoft Docs'
+description: Este tópico fornece etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193756"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este documento fornece etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas.
 
 ## <a name="troubleshooting-task"></a>Tarefa de solução de problemas
-Para a implantação do AAD (Azure Active Directory) Connect com a versão <verison> ou posterior, use a tarefa de solução de problemas no assistente para solucionar problemas de sincronização de objetos. Para versões anteriores, solucione o problema manualmente conforme descrito [aqui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Para a implantação do AAD (Azure Active Directory) Connect com a versão 1.1.749.0 ou posterior, use a tarefa de solução de problemas no assistente para solucionar problemas de sincronização de objetos. Para versões anteriores, solucione o problema manualmente conforme descrito [aqui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Executar a tarefa de solução de problemas no assistente
 Para executar a tarefa de solução de problemas no assistente, execute as etapas a seguir:
@@ -34,6 +35,7 @@ Para executar a tarefa de solução de problemas no assistente, execute as etapa
 4.  Navegue até a página Tarefas Adicionais, selecione Solucionar problemas e clique em Avançar.
 5.  Na página de solução de problemas, clique em Iniciar para iniciar o menu de solução de problemas no PowerShell.
 6.  No menu principal, selecione Solucionar Problemas de Sincronização de Senha.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parâmetros de entrada para a solução de problemas
 Os parâmetros de entrada a seguir são necessários para a tarefa de solução de problemas:
@@ -47,6 +49,8 @@ A tarefa de solução de problemas executa as seguintes verificações:
 1.  Detectar incompatibilidade de UPN se o objeto estiver sincronizado com o Azure Active Directory
 2.  Verificar se o objeto é filtrado devido a filtragem do domínio
 3.  Verificar se o objeto é filtrado devido a filtragem do OU
+4.  Verifique se a sincronização de objeto está bloqueada devido a uma caixa de correio vinculada
+5. Verifique se o objeto é grupo de distribuição dinâmica o que não tem suporte para ser sincronizado
 
 O restante desta seção descreve resultados específicos que são retornados pela tarefa. Em cada caso, a tarefa fornece uma análise seguida pelas ações recomendadas para resolver o problema.
 
@@ -76,9 +80,19 @@ O objeto está fora do escopo porque o domínio não está sendo configurado. No
 O objeto está fora do escopo porque o domínio tem perfis de execução/etapas de execução ausentes. No exemplo abaixo, o objeto está fora do escopo de sincronização, pois o domínio ao qual ele pertence tem etapas de execução ausentes para o perfil de execução Importação Completa.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>O objeto é filtrado devido a filtragem do OU
-O objeto está fora do escopo de sincronização devido a configuração de filtragem de OU. No exemplo abaixo, o objeto pertence à OU=NoSync,DC=bvtadwbackdc,DC=com.  Esse OU não está incluído no escopo de sincronização.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>O objeto é filtrado devido a filtragem do OU
+O objeto está fora do escopo de sincronização devido a configuração de filtragem de OU. No exemplo abaixo, o objeto pertence à OU=NoSync,DC=bvtadwbackdc,DC=com.  Esse OU não está incluído no escopo de sincronização.</br>
+
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Problema de caixa de correio vinculada
+Uma caixa de correio vinculada deve para ser associada a uma conta mestre externa localizada em outra floresta de conta confiável. Se não houver nenhuma conta mestre externa, então o Azure AD Connect não sincronizará a conta de usuário corresponde à caixa de correio vinculada na floresta da Troca para o locatário do Azure AD.</br>
+![Caixa de correio vinculada](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Problema de Grupo de Distribuição Dinâmica
+Devido às várias diferenças entre o Active Directory local e o Azure Active Directory, o Azure AD Connect não sincronizar grupos de distribuição dinâmica para o locatário do Azure AD.
+
+![Grupo Dinâmico de Distribuição](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>Relatório HTML
 Além de analisar o objeto, a tarefa de solução de problemas também gera um relatório HTML que tem tudo o que se sabe sobre o objeto. Este relatório HTML pode ser compartilhado com a equipe de suporte para fazer mais solução de problemas, se necessário.

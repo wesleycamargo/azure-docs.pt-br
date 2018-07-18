@@ -26,7 +26,7 @@ Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefício
 
 Abra um prompt de comando do Azure PowerShell e faça logon no Azure com este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Se você tiver várias assinaturas do Azure, você pode listar suas assinaturas do Azure com este comando.
 

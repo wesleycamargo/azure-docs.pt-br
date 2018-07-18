@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371296"
+---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas frequentes sobre a migração clássica para a migração do Azure Resource Manager
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
@@ -32,14 +49,24 @@ Nº Habilitamos recentemente [a movimentação dos circuitos da ExpressRoute do 
 
 Durante a migração, os recursos se transformam do clássico para o Gerenciador de Recursos. Portanto, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre de Backup. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
 
-Os pontos de recuperação de VM <a name="vault">Clássica</a> em um cofre de backup não migrarão automaticamente para o cofre dos serviços de recuperação quando você migrar a VM do modo clássico para o modo do Gerenciador de Recursos. Siga estas etapas para transferir seus backups de VM:
+<a name="vault">Quando</a> você mover uma VM do modo clássico para o modo do Resource Manager, os backups feitos antes da migração não serão migrados para a VM recém-migrada do Resource Manager. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
 
-1. No cofre de Backup, vá para a guia **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Deixe a opção *Excluir dados de backup associados***desmarcada**.
-2. Exclua a extensão de backup/instantâneo da VM.
-3. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. As informações de armazenamento e de rede correspondentes à máquina virtual também precisam ser migradas para o modo do Resource Manager.
-4. Criar um cofre dos Serviços de Recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Para obter informações detalhadas sobre como fazer backup de uma VM em um cofre dos Serviços de Recuperação, veja o artigo [Proteger VMs com um cofre dos Serviços de Recuperação](../articles/backup/backup-azure-vms-first-look-arm.md).
+1. No cofre dos Serviços de Recuperação, acesse a guia **Itens Protegidos** e selecione a VM. 
+2. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Deixe a opção *Excluir dados de backup associados***desmarcada**.
+
+> [!NOTE]
+> Você será cobrado o custo da instância de backup enquanto mantiver os dados. As cópias de backup serão removidas de acordo com o período de retenção. No entanto, a última cópia de backup sempre é mantida até você excluir explicitamente os dados de backup. É recomendável verificar o período de retenção da Máquina virtual e o gatilho "Excluir Dados de Backup" no item protegido no cofre após o término do período de retenção. 
+>
+>
+
+Para migrar a máquina virtual para o modo do Resource Manager, 
+
+1. Exclua a extensão de backup/instantâneo da VM.
+2. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. As informações de armazenamento e de rede correspondentes à máquina virtual também precisam ser migradas para o modo do Resource Manager.
+
+Além disso, caso deseje fazer backup da VM migrada, acesse a folha de gerenciamento da Máquina Virtual para [habilitar o backup](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso validar minha assinatura ou meus recursos para ver se eles podem fazer a migração? 
 

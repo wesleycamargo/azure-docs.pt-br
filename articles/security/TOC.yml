@@ -65,6 +65,8 @@
     - name: Gerenciamento de identidades
       href: security-identity-management-overview.md
       items:
+        - name: Escolher Autenticação do Azure AD
+          href: azure-ad-choose-authn.md
         - name: Práticas recomendadas
           href: azure-security-identity-management-best-practices.md
         - name: Impor MFA nos administradores da assinatura
@@ -74,6 +76,8 @@
       items:
         - name: Práticas recomendadas
           href: azure-security-network-security-best-practices.md
+        - name: Proteção contra DDoS
+          href: azure-ddos-best-practices.md
         - name: Segurança de fronteira
           href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Aplicativo
@@ -91,11 +95,11 @@
           href: security-internet-of-things-overview.md
           items:
             - name: Práticas recomendadas de segurança de IoT
-              href: ../iot-suite/iot-security-best-practices.md
+              href: ../iot-accelerators/iot-security-best-practices.md
             - name: Segurança da IoT
-              href: '../iot-suite/iot-security-architecture.md#security-in-iot'
+              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
             - name: Proteger sua implantação de IoT
-              href: ../iot-suite/iot-suite-security-deployment.md
+              href: ../iot-accelerators/iot-accelerators-security-deployment.md
     - name: Segurança do Azure Service Fabric
       href: azure-service-fabric-security-overview.md
       items:
@@ -139,63 +143,24 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: Gerenciar dados pessoais
-          href: manage-personal-data-azure.md
-        - name: 'Descobrir, identificar, classificar dados pessoais'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Proteger dados pessoais no Azure
-          href: protect-personal-data-azure.md
-        - name: Proteger dados pessoais com a Central de Segurança
-          href: protect-personal-data-azure-security-center.md
-        - name: Proteger dados pessoais com o Gateway de Aplicativo
-          href: protect-personal-data-network-security.md
-        - name: Proteger dados pessoais usando controles de acesso e identidade
-          href: protect-personal-data-identity-access-controls.md
-        - name: Proteger dados pessoais em repouso usando a criptografia
-          href: protect-personal-data-at-rest.md
-        - name: Proteger dados pessoais em trânsito usando a criptografia
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Proteger dados pessoais usando as ferramentas de relatório do Azure
-          href: protection-personal-data-azure-reporting-tools.md
-    - name: FEDRAMP
-      href: ./blueprints/fedramp.md
+        - name: Análise de dados
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: Aplicativo Web de infraestrutura como serviço
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: Aplicativo Web PaaS
+          href: ./blueprints/gdpr-paaswa-overview.md
+    - name: FedRAMP
       items:
-        - name: Visão geral dos controles de segurança
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Controle de acesso
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Auditoria e Contabilidade
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Reconhecimento e Treinamento
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Gerenciamento de configuração
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Planejamento de Contingência
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Identificação e Autenticação
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: Resposta a incidentes
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: 'Manutenção '
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Proteção de Mídia
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Segurança de Pessoal
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Proteção Física e Ambiental
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Planejamento
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Avaliação de risco
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Avaliação da Segurança e Autorização
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: Proteção do Sistema e das Comunicações
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: Integridade do Sistema e das Informações
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: Aquisições do sistema e de serviços
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Análise de dados
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: Aplicativo Web de infraestrutura como serviço
+          href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: Aplicativo Web PaaS
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:
@@ -234,6 +199,8 @@
       href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
+- name: Serviços de segurança do Azure
+  href: azure-security-services-technologies.md
 - name: Visões gerais técnicas
   href: security-overviews.md
 - name: Práticas recomendadas

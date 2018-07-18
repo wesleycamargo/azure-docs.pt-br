@@ -1,12 +1,12 @@
 ---
-title: "Visão geral da segurança de AC X.509 do Hub IoT do Azure | Microsoft Docs"
-description: "Visão geral – como autenticar dispositivos no Hub IoT usando autoridades de certificação X.509."
+title: Visão geral da segurança de AC X.509 do Hub IoT do Azure | Microsoft Docs
+description: Visão geral – como autenticar dispositivos no Hub IoT usando autoridades de certificação X.509.
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -69,7 +69,7 @@ Saiba aqui como [registrar seu certificado de autoridade de certificação](iot-
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Como criar um dispositivo no Hub IoT
 
-Para impedir a representação do dispositivo, o Hub IoT exige que você o informe quais dispositivos esperar.  Você pode fazer isso criando uma entrada de dispositivo no registro de dispositivos do Hub IoT.  Este processo é automatizado ao usar o [Serviço de provisionamento do dispositivo](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) do Hub IoT. 
+Para impedir a representação do dispositivo, o Hub IoT exige que você o informe quais dispositivos esperar.  Você pode fazer isso criando uma entrada de dispositivo no registro de dispositivos do Hub IoT.  Este processo é automatizado ao usar o [Serviço de provisionamento do dispositivo](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) do Hub IoT. 
 
 Saiba mais aqui como [criar manualmente um dispositivo no Hub IoT](iot-hub-security-x509-get-started.md#createdevice).
 

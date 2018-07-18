@@ -1,11 +1,11 @@
 ---
-title: "VMs de computação do Linux em um cluster de HPC Pack | Microsoft Docs"
-description: "Saiba como criar e usar um cluster HPC Pack em cargas de trabalho HPC (computação de alto desempenho) no Azure para Linux"
+title: VMs de computação do Linux em um cluster de HPC Pack | Microsoft Docs
+description: Saiba como criar e usar um cluster HPC Pack em cargas de trabalho HPC (computação de alto desempenho) no Azure para Linux
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução a nós de computação Linux em um cluster de HPC Pack no Azure
 Configure um cluster do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) no Azure que contenha um nó de cabeçalho que executa o Windows Server e vários nós de computação que executam uma distribuição do Linux com suporte. Explore as opções para mover dados entre nós Linux e o nó principal do Windows do cluster. Saiba como enviar trabalhos do HPC Linux para o cluster.
@@ -40,7 +40,7 @@ Este artigo mostra duas opções para implantar um cluster do HPC Pack no Azure 
 
 Para obter mais informações sobre as opções de implantação de cluster do HPC Pack, consulte [Opções para criar e gerenciar um cluster de HPC (computação de alto desempenho ) no Azure com o Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * **Assinatura do Azure** : você pode usar a assinatura no serviço Azure Global ou no Azure China. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 * **Cota para núcleos** – talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós de cluster com tamanhos de VM de vários núcleos. Para aumentar a cota, abra uma solicitação de atendimento ao cliente online gratuitamente.
 * **Distribuições Linux** -atualmente, o HPC Pack dá suporte às distribuições Linux a seguir para nós de computação. Você pode usar as versões do Marketplace dessas distribuições quando disponíveis ou fornecer as suas próprias.
@@ -210,7 +210,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
 O primeiro comando cria uma pasta chamada /rdma em todos os nós do grupo LinuxNodes. O segundo comando monta a pasta allvhdsjw.file.core.windows.net/rdma de compartilhamento de Arquivos do Azure para a pasta /rdma com dir e bits de modo de arquivo definido como 777. No segundo comando, allvhdsje é o nome da sua conta de armazenamento e storageaccountkey é a chave da conta de armazenamento.
 
 > [!NOTE]
-> O símbolo "\`" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
+> O símbolo \"\`\" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
 > 
 > 
 
@@ -233,7 +233,7 @@ Como alternativa, monte uma pasta compartilhada do nó de cabeçalho em nós do 
 O primeiro comando cria uma pasta chamada /openfoam em todos os nós no grupo LinuxNodes. O segundo comando monta a pasta compartilhada //CentOS7RDMA-HN/OpenFOAM para a pasta com dir e bits de modo de arquivo definido como 777. O nome de usuário e a senha no comando devem ser o nome de usuário e a senha de um usuário de cluster no nó principal. (Confira [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx)).
 
 > [!NOTE]
-> O símbolo "\`" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
+> O símbolo \"\`\" no segundo comando é um símbolo de escape para o PowerShell. "\`," significa que "," (uma vírgula) é uma parte do comando.
 > 
 > 
 

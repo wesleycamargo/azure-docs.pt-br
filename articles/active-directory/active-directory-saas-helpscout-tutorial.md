@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Help Scout | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Help Scout."
+title: 'Tutorial: Integração do Azure Active Directory com o Help Scout | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Help Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 596a1ba27516755e586d88ab56a20a1daed63fc2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integração do Azure Active Directory com o Help Scout
 
@@ -30,9 +30,9 @@ A integração do Help Scout ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Help Scout usando logon único com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Help Scout, você precisará dos seguintes itens:
 
@@ -48,7 +48,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Help Scout por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-help-scout-from-the-gallery"></a>Adicionar o Help Scout por meio da galeria
 Para configurar a integração do Help Scout com o Azure AD, você precisará adicionar o Help Scout à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -129,21 +129,21 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 7. Na seção **Configuração do Help Scout**, clique em **Configurar o Help Scout** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/config.png) 
+    ![Configurar o logon único](./media/active-directory-saas-helpscout-tutorial/config.png) 
 
 8. Em outra janela do navegador da Web, faça logon em seu site de empresa do Help Scout como um administrador.
 
 9. Depois de estar conectado, clique em **"Gerenciar"** no menu superior e, em seguida, selecione **"Empresa"** no menu suspenso.
 
-    ![Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
+    ![Configurar o logon único](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
  
 10. Selecione **"Autenticação"** no menu à esquerda. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
+    ![Configurar o logon único](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
 
 11. Isso direciona-o à seção de configurações do SAML e executa as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
+    ![Configurar o logon único](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
  
     a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa **URL de Resposta** no portal do Azure, na seção **Domínio e URLs** do Help Scout.
     
@@ -151,7 +151,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 12. Ative a opção **Habilitar SAML** e execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
+    ![Configurar o logon único](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
  
     a. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Serviço de Logon Único** copiado do portal do Azure.
     
@@ -244,7 +244,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

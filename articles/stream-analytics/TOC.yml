@@ -1,0 +1,177 @@
+- name: Documentação do Stream Analytics
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Stream Analytics?
+      href: stream-analytics-introduction.md
+- name: Guia de início rápido
+  items:
+    - name: Criar um trabalho – Portal do Azure
+      href: stream-analytics-quick-create-portal.md
+    - name: Criar um trabalho – PowerShell
+      href: stream-analytics-quick-create-powershell.md
+- name: Tutoriais
+  items:
+    - name: 1 – Criar/gerenciar um trabalho
+      href: stream-analytics-manage-job.md
+    - name: 2 – Executar o Azure Functions
+      href: stream-analytics-with-azure-functions.md
+    - name: 3 – Executar um UDF do JavaScript
+      href: stream-analytics-javascript-user-defined-functions.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+- name: Conceitos
+  items:
+    - name: Tipos de entrada para um trabalho
+      href: stream-analytics-add-inputs.md
+      items:
+        - name: Entradas de dados de streaming
+          href: stream-analytics-define-inputs.md
+        - name: Entradas de dados de referência
+          href: stream-analytics-use-reference-data.md
+    - name: Tipos de saída para um trabalho
+      href: stream-analytics-define-outputs.md
+      items:
+        - name: Saída para o Cosmos DB
+          href: stream-analytics-documentdb-output.md
+    - name: Funções da janela
+      href: stream-analytics-window-functions.md
+    - name: Nível de compatibilidade
+      href: stream-analytics-compatibility-level.md
+    - name: Padrões de consulta comuns
+      href: stream-analytics-stream-analytics-query-patterns.md
+    - name: Considerações da ordenação de eventos
+      href: stream-analytics-out-of-order-and-late-events.md
+    - name: Ponto de verificação e reprodução
+      href: stream-analytics-concepts-checkpoint-replay.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar
+      items:
+        - name: Atualizar credenciais
+          href: stream-analytics-login-credentials-inputs-outputs.md
+        - name: Configurar alertas
+          href: stream-analytics-set-up-alerts.md
+        - name: Teste seu trabalho
+          href: stream-analytics-test-query.md
+        - name: Exibir resultados em um painel
+          href: stream-analytics-power-bi-dashboard.md
+        - name: Limpar trabalho
+          href: stream-analytics-clean-up-your-job.md
+        - name: Emparelhar trabalhos para confiabilidade
+          href: stream-analytics-job-reliability.md
+    - name: Compilar soluções
+      items:
+        - name: Análise de sentimento no Twitter
+          href: stream-analytics-twitter-sentiment-analysis-trends.md
+        - name: Detecção de fraude em tempo real
+          href: stream-analytics-real-time-fraud-detection.md
+        - name: Executar trabalhos no IoT Edge
+          href: stream-analytics-edge.md
+        - name: Análise de dados do sensor de cabine do pedágio
+          href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+        - name: Executar um UDA do JavaScript
+          href: stream-analytics-javascript-user-defined-aggregates.md
+        - name: Transação de alta frequência
+          href: stream-analytics-high-frequency-trading.md
+        - name: Processar dados de streaming de IoT
+          href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Regras baseadas no limite
+          href: stream-analytics-threshold-based-rules.md
+    - name: Monitoramento
+      items:
+        - name: Monitorar trabalhos – Portal do Azure
+          href: stream-analytics-monitoring.md
+        - name: Monitorar trabalhos - PowerShell
+          href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+        - name: Monitorar trabalhos - SDK do Azure para .NET
+          href: stream-analytics-monitor-jobs.md
+    - name: Escala
+      items:
+        - name: Expandir com unidades de streaming
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Expandir com paralelização de consultas
+          href: stream-analytics-parallelization.md
+          items:
+            - name: Aumentar a taxa de transferência
+              href: stream-analytics-scale-jobs.md
+        - name: Expandir com funções de ML
+          href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Automatizar
+      items:
+        - name: Usando o SDK .NET
+          href: stream-analytics-dotnet-management-sdk.md
+        - name: Usando o PowerShell do Azure
+          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
+    - name: Ferramentas do Visual Studio
+      items:
+        - name: Instalar ferramentas
+          href: stream-analytics-tools-for-visual-studio-install.md
+        - name: Desenvolver um trabalho de nuvem
+          href: stream-analytics-tools-for-visual-studio.md
+        - name: Desenvolver um trabalho do Edge
+          href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+        - name: Configurar pipeline de CI/CD
+          href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Solucionar problemas
+      items:
+        - name: Etapas para solucionar problemas
+          href: stream-analytics-troubleshooting-guide.md
+        - name: Problemas comuns
+          href: stream-analytics-common-troubleshooting-issues.md
+        - name: Diagrama do trabalho
+          href: stream-analytics-job-diagram-with-metrics.md
+        - name: Logs de diagnóstico
+          href: stream-analytics-job-diagnostic-logs.md
+        - name: Verificar integridade do recurso
+          href: stream-analytics-resource-health.md
+        - name: Instrução SELECT INTO
+          href: stream-analytics-select-into.md
+        - name: Receptores de Hub de eventos
+          href: stream-analytics-event-hub-consumer-groups.md
+    - name: Integração ao aprendizado de máquina
+      items:
+        - name: Análise de sentimento com modelos de ML
+          href: stream-analytics-machine-learning-integration-tutorial.md
+        - name: Detecção de anomalias
+          href: stream-analytics-machine-learning-anomaly-detection.md
+        - name: Usar APIs REST
+          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.streamanalytics
+    - name: Idioma de consulta
+      href: 'https://msdn.microsoft.com/library/azure/dn834998'
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.streamanalytics
+    - name: REST
+      href: /rest/api/streamanalytics
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'http://blogs.msdn.com/b/streamanalytics/'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
+    - name: Fórum de comentários
+      href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
+    - name: Fórum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics'
+    - name: Estudos de caso de cliente
+      href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
+    - name: Whitepaper – Processamento de eventos em tempo real
+      href: stream-analytics-real-time-event-processing-reference-architecture.md

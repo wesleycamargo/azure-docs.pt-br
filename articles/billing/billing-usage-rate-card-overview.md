@@ -1,25 +1,25 @@
 ---
-title: "APIs de Cobrança do Azure | Microsoft Docs"
-description: "Aprenda sobre as APIs RateCard e de Uso de Cobrança do Azure, que são usadas para fornecer informações sobre o consumo de recursos e as tendências do Azure."
-services: 
-documentationcenter: 
-author: BryanLa
+title: APIs de Cobrança do Azure | Microsoft Docs
+description: Aprenda sobre as APIs RateCard e de Uso de Cobrança do Azure, que são usadas para fornecer informações sobre o consumo de recursos e as tendências do Azure.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 10/9/2017
-ms.author: mobandyo;bryanla
-ms.openlocfilehash: 26217d6f4e14166a89fbb561cb12d0af78ae6f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 5/10/2018
+ms.author: mobandyo
+ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usar APIs de Cobrança do Azure para obter informações programaticamente sobre o uso do Azure
 Use APIs de cobrança do Azure para efetuar pull de dados de uso e de recurso em suas ferramentas de análise de dados preferidas. As APIs RateCard e de Uso de Recursos do Azure e podem ajudá-lo a prever e gerenciar seus custos com precisão. As APIs são implementadas como um Provedor de Recursos e como parte da família de APIs expostas pelo Azure Resource Manager.  
@@ -73,5 +73,5 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 
 * Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-* Para obter mais informações sobre o pacote de ferramentas necessárias para ajudá-lo a compreender os gastos de nuvem, consulte o artigo da Gartner [Guia de mercado para as ferramentas de gestão financeira de TI (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+
 

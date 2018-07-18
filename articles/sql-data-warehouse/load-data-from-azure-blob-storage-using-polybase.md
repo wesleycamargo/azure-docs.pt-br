@@ -1,31 +1,25 @@
 ---
-title: "Tutorial: Carregamento de dados do Polybase – Azure Storage Blob para SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Um tutorial que usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure."
+title: 'Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure | Microsoft Docs'
+description: O tutorial usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: 
 author: ckarst
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 11/17/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: igorstan
+ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193226"
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial: Usar o PolyBase para carregar dados do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
-O PolyBase é a tecnologia de carregamento padrão para ingressar dados no SQL Data Warehouse. Neste tutorial, você usará o PolyBase para carregar dados dos táxis de Nova York do armazenamento de blobs do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) para: 
+Este tutorial usa o PolyBase para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para: 
 
 > [!div class="checklist"]
 > * Criar um data warehouse no Portal do Azure
@@ -41,7 +35,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio).
+Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
@@ -50,7 +44,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um SQL data warehouse em branco
 
-Um SQL Data Warehouse do Azure é criado com um conjunto definido de [recursos de computação](performance-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+Um SQL Data Warehouse do Azure é criado com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um SQL data warehouse em branco. 
 
@@ -84,14 +78,14 @@ Siga estas etapas para criar um SQL data warehouse em branco.
 
 5. Clique em **Selecionar**.
 
-6. Clique em **Nível de desempenho** para especificar se o data warehouse é otimizado para elasticidade ou computação e o número de unidades do data warehouse. 
+6. Clique em **Nível de desempenho** para especificar se o data warehouse é Gen1 ou Gen2 e o número de unidades do data warehouse. 
 
-7. Para este tutorial, selecione a camada de serviço **Otimizado para Elasticidade**. O controle deslizante, por padrão, é definido como **DW400**.  Experimente movê-lo para cima e para baixo para ver como ele funciona. 
+7. Para este tutorial, selecione **Gen1** do SQL Data Warehouse. O controle deslizante, por padrão, é definido como **DW1000c**.  Experimente movê-lo para cima e para baixo para ver como ele funciona. 
 
     ![configurar o desempenho](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Clique em **Aplicar**.
-9. Na página do SQL Data Warehouse, selecione um **agrupamento** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](/sql/t-sql/statements/collations.md)
+9. Na página do SQL Data Warehouse, selecione um **agrupamento** para o banco de dados em branco. Neste tutorial, use o valor padrão. Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](/sql/t-sql/statements/collations)
 
 11. Agora que você concluiu o formulário do Banco de Dados SQL, clique em **Criar** para provisionar o banco de dados. O provisionamento demora alguns minutos. 
 
@@ -109,7 +103,7 @@ O serviço do SQL Data Warehouse cria um firewall no nível do servidor que impe
 > O SQL Data Warehouse comunica-se pela porta 1433. Se você estiver tentando conectar-se de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome do servidor totalmente qualificado (como **meunovoservidor-20171113.database.windows.net**) e fornece opções para configurações adicionais. 
+1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome do servidor totalmente qualificado (como **meunovoservidor-20180430.database.windows.net**) e fornece opções para configurações adicionais. 
 
 2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e a seus bancos de dados nos próximos guias de início rápido. Em seguida, clique no nome do servidor para abrir as configurações do servidor.
 
@@ -139,14 +133,14 @@ Agora é possível conectar-se ao SQL Server e a seus data warehouses usando est
 Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é meunovoservidor-20171113.database.windows.net. 
+2. Selecione **SQL Data Warehouse** no menu à esquerda e clique em seu banco de dados na página **SQL Data Warehouse**. 
+3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é meunovoservidor-20180430.database.windows.net. 
 
     ![informações da conexão](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Conectar-se ao servidor como administrador do servidor
 
-Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
+Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) para estabelecer uma conexão com o SQL Server do Azure.
 
 1. Abra o SQL Server Management Studio.
 
@@ -155,7 +149,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.m
     | Configuração      | Valor sugerido | DESCRIÇÃO | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
-    | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver-20171113.database.windows.net**. |
+    | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver-20180430.database.windows.net**. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
     | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
     | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
@@ -170,7 +164,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.m
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um usuário para carregar dados
 
-A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os [limites máximos de memória](performance-tiers.md#memory-maximums) são definidos de acordo com o [nível de desempenho](performance-tiers.md) e a [classe de recurso](resource-classes-for-workload-management.md). 
+A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os máximos de memória são definidos de acordo com a Geração do SQL Data Warehouse que tiver provisionado, as [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e [classe de recurso](resource-classes-for-workload-management.md). 
 
 É melhor criar um logon e um usuário dedicados para carregar dados. Em seguida, adicione o usuário carregado a uma [classe de recurso](resource-classes-for-workload-management.md) que permita uma alocação máxima de memória adequada.
 
@@ -221,7 +215,7 @@ A primeira etapa para carregar os dados é fazer logon como LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
 
-Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Este tutorial mostra como usar o [Polybase](/sql/relational-databases/polybase/polybase-guide.md) para carregar dados dos táxis de Nova York de um Azure Storage Blob. Para uma referência futura, para saber como obter os dados para o armazenamento de blobs do Azure ou carregá-los diretamente do seu código-fonte no SQL Data Warehouse, consulte a [visão geral do carregamento](sql-data-warehouse-overview-load.md).
+Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Este tutorial mostra como usar tabelas externas para carregar dados dos táxis de Nova York de um Azure Storage Blob. Para uma referência futura, para saber como obter os dados para o armazenamento de blobs do Azure ou carregá-los diretamente do seu código-fonte no SQL Data Warehouse, consulte a [visão geral do carregamento](sql-data-warehouse-overview-load.md).
 
 Execute os seguintes scripts SQL especificam informações sobre os dados que deseja carregar. Essas informações incluem o local em que os dados estão localizados, o formato do conteúdo dos dados e a definição da tabela para os dados. 
 
@@ -237,7 +231,7 @@ Execute os seguintes scripts SQL especificam informações sobre os dados que de
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) para definir o local do blob do Azure. Esse é o local dos dados de táxis externos.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir o local do blob do Azure. Esse é o local dos dados de táxis externos.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +242,7 @@ Execute os seguintes scripts SQL especificam informações sobre os dados que de
     );
     ```
 
-5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) para especificar opções e características de formatação para o arquivo de dados externo. Essa instrução especifica que os dados externos são armazenados como texto, e os valores são separados pelo caractere barra vertical ('|'). O arquivo externo é compactado com Gzip. 
+5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) para especificar opções e características de formatação para o arquivo de dados externo. Essa instrução especifica que os dados externos são armazenados como texto, e os valores são separados pelo caractere barra vertical ('|'). O arquivo externo é compactado com Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +267,7 @@ Execute os seguintes scripts SQL especificam informações sobre os dados que de
     );
     ```
 
-6.  Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) para criar um esquema para o formato de arquivo externo. O esquema fornece uma maneira de organizar as tabelas externas que você está prestes a criar.
+6.  Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) para criar um esquema para o formato de arquivo externo. O esquema fornece uma maneira de organizar as tabelas externas que você está prestes a criar.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +450,7 @@ Esta seção usa as tabelas externas que você acabou de definir para carregar o
 > Este tutorial carrega os dados diretamente na tabela final. Em um ambiente de produção, você normalmente usará CREATE TABLE AS SELECT para carregar em uma tabela de preparo. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. Para acrescentar os dados na tabela de preparo a uma tabela de produção, você pode usar a instrução INSERT...SELECT. Para saber mais, confira [Inserindo dados em uma tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução select seleciona de uma tabela externa, o SQL Data Warehouse importa os dados para uma tabela relacional no data warehouse. 
+O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução select seleciona de uma tabela externa, o SQL Data Warehouse importa os dados para uma tabela relacional no data warehouse. 
 
 1. Execute o seguinte script para carregar os dados para novas tabelas no data warehouse.
 
@@ -595,7 +589,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 3. Para remover o data warehouse para você não ser cobrado pela computação ou pelo armazenamento, clique em **Excluir**.
 
-4. Para remover o SQL Server criado, clique em **mynewserver-20171113.database.windows.net** na imagem anterior e, em seguida, clique **Excluir**.  Tenha cuidado com isso, uma vez que a exclusão do servidor excluirá todos os bancos de dados atribuídos a ele.
+4. Para remover o SQL Server criado, clique em **meunovoservidor-20180430.database.windows.net** na imagem anterior e, em seguida, clique em **Excluir**.  Tenha cuidado com isso, uma vez que a exclusão do servidor excluirá todos os bancos de dados atribuídos a ele.
 
 5. Para remover o grupo de recursos, clique em **meuGrupoDeRecursos** e, em seguida, clique em **Excluir grupo de recursos**.
 

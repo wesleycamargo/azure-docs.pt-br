@@ -1,131 +1,41 @@
 ---
 layout: LandingPage
-description: "Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades."
-title: "Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs"
+title: Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs
+description: O Azure Active Directory (Azure AD) é o serviço de gerenciamento de identidades e diretório baseado em nuvem multilocatário da Microsoft que combina os principais serviços de diretório, gerenciamento do acesso de aplicativos e proteção de identidade em uma única solução.
 services: active-directory
-author: czeumault
+author: rolyon
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: ae0dfb7e6033a85cc32434bbbbde336fbc0903ea
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594135"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
-Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD (Azure Active Directory). Os tutoriais, as referências de API e outras documentações mostram como integrar os recursos de gerenciamento de identidades, incluindo a autenticação multifator, o registro de dispositivos, o controle de acesso baseado em função e o monitoramento de segurança e os alertas.
+O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem.
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/active-directory/active-directory-whatis">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/active-directory.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Saiba mais sobre o Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Biblioteca de Vídeos do Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-howto-tenant">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução ao Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-get-started-premium">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introdução ao Azure Active Directory Premium</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       <li>
-        <a href="/azure/active-directory/develop/active-directory-developers-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Desenvolver aplicativos com o Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li> 
-</ul>
-
----
-
-<h2>Referência</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linha de comando</h3>
-                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
+                        <h3>Conceitos básicos</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-whatis">O que é o AD do Azure?</a><br/>
+                        <a href="/azure/active-directory/understand-azure-identity-solutions">Soluções de identidade</a><br/>
+                        <a href="/azure/active-directory/get-started-azure-ad">Introdução</a><br/>
+                        <a href="/azure/active-directory/whats-new">O que há de novo</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -136,10 +46,15 @@ Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linguagens</h3>
-                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                   </div>
+                        <h3>Usuários corporativos</h3>
+                        <p>
+                        <a href="/azure/active-directory/add-users-azure-active-directory">Usuários</a><br/>
+                        <a href="/azure/active-directory/active-directory-manage-groups">Grupos</a><br/>
+                        <a href="/azure/active-directory/license-users-groups">Licenças</a><br/>
+                        <a href="/azure/active-directory/active-directory-administer">Gerenciamento de diretórios</a><br/>
+                        <a href="/azure/active-directory/active-directory-assign-admin-roles-azure-portal">Funções de administrador</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,8 +64,159 @@ Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Outros</h3>
-                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Restrições e limites de serviço</a></p>
+                        <h3>Usuários externos</h3>
+                        <p>
+                        <a href="/azure/active-directory/b2b/what-is-b2b">Entre empresas (B2B)</a><br/>
+                        <a href="/azure/active-directory-b2c/">Entre empresa e consumidor (B2C)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Autenticação</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-passwords-overview">Senhas</a><br/>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Autenticação multifator</a><br/>
+                        <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
+                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Autenticação baseada em certificado</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Proteção</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-identityprotection">Proteção de identidade</a><br/>
+                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Acesso condicional</a><br/>
+                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged Identity Management</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Dispositivos</h3>
+                        <p>
+                        <a href="/azure/active-directory/device-management-introduction">Gerenciamento de dispositivos</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Aplicativos</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-enable-sso-scenario">Gerenciamento de aplicativos</a><br/>
+                        <a href="/azure/active-directory/cloudappdiscovery-get-started">Descoberta de aplicativos</a><br/>
+                        <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Aplicativos empresariais</a><br/>
+                        <a href="/azure/active-directory/active-directory-managing-access-to-apps">Acesso a aplicativos</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Autenticação para desenvolvedores</h3>
+                        <p>
+                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">Noções básicas de autenticação</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-integrating-applications">Integração de aplicativo</a><br/>
+                        <a href="/azure/active-directory/managed-service-identity/overview">Identidade gerenciada</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-code-samples">Exemplos de código</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Referência</h3>
+                        <p>
+                        <a href="/powershell/module/azurerm.resources#active_directory">PowerShell do Azure RM</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">PowerShell do Azure AD</a><br/>
+                        <a href="/cli/azure/ad">CLI do Azure</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Organizações híbridas</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">Solução de identidade híbrida</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect">Integração de diretórios no local</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">Serviços de federação</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Conformidade + Relatórios</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">Revisões de acesso</a><br/>
+                        <a href="/azure/active-directory/active-directory-tou">Termos de uso</a><br/>
+                        <a href="/azure/active-directory/active-directory-reporting-azure-portal">Relatórios</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Domínios</h3>
+                        <p>
+                        <a href="/azure/active-directory-domain-services/">Serviços de domínio</a>
+                        </p>
                     </div>
                 </div>
             </div>

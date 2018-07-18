@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b81ca4f5a9f30b2882d86639ca9386e7bbc09e8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 856dca46c12862bf59fc7642f627b55733ff5931
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o Confluence da Microsoft
 
@@ -30,7 +30,7 @@ A integração do SSO do SAML para o Confluence da Microsoft ao Azure AD oferece
 - É possível permitir que os usuários se conectem automaticamente ao SSO do SAML para o Confluence da Microsoft (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="description"></a>Descrição:
 
@@ -118,7 +118,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Configurar o logon único](./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
 3. Na seção **Domínio e URLs do SSO do SAML para o Confluence da Microsoft**, realize as seguintes etapas:
@@ -131,29 +131,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Confluence, que é explicada adiante no tutorial.
 
-4. Para gerar a URL de **Metadados**, execute as seguintes etapas:
-
-    a. Clique em **Registros do aplicativo**.
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
     
-    ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/endpoint.png)
+    ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-    d. Agora, acesse a página de propriedades do **SSO do SAML para o Confluence da Microsoft** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` e copie esse valor no bloco de notas, pois ele será usado posteriormente para a configuração do plug-in.
-
 5. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/tutorial_general_400.png)
@@ -175,11 +159,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 10. Realize as seguintes etapas na página de configuração:
 
     ![Configurar o logon único](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon52.png)
- 
+
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
 
-    a. Em **URL de Metadados**, cole a **URL de Metadados** gerada no Azure AD e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
+    a. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
 
     b. Copie os valores de **Identificador, URL de Resposta e URL de Logon** e cole-os nas caixas de texto **Identificador, URL de Resposta e URL de Logon**, respectivamente, na seção **Domínio e URLs do SSO do SAML para o Confluence da Microsoft** do portal do Azure.
 
@@ -202,10 +186,6 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     > [!NOTE]
     > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para MS Confluence](ms-confluence-jira-plugin-adminguide.md) e há também as [perguntas frequentes](ms-confluence-jira-plugin-faq.md) para auxiliá-lo
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -306,7 +286,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
@@ -323,4 +303,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-confluencemicrosoft-tutorial/tutorial_general_203.png
-

@@ -1,11 +1,10 @@
 ---
 title: Compilar seu primeiro data factory (REST) | Microsoft Docs
-description: "Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando a API REST do Data Factory."
+description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando a API REST do Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +14,16 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: deee54fe55aeab6b97c0b31064b6893e334f6796
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -56,7 +55,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
   4. Atribua o aplicativo **ADFGetStartedApp** à função **Colaborador do Data Factory**.
 * Instale o [Azure PowerShell](/powershell/azure/overview).
 * Inicie o **PowerShell** e execute o comando a seguir. Mantenha o Azure PowerShell aberto até o fim deste tutorial. Se você fechar e reabrir, precisará executar os comandos novamente.
-  1. Execute **Login-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
+  1. Execute **Connect-AzureRmAccount** e insira o nome de usuário e a senha que você usa para entrar no Portal do Azure.
   2. Execute **Get-AzureRmSubscription** para exibir todas as assinaturas dessa conta.
   3. Execute **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** para selecionar a assinatura com a qual você deseja trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua assinatura do Azure.
 * Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell:

@@ -1,20 +1,21 @@
 ---
-title: "Registrar-se usando as informações do Parceiro CSP no Gerenciamento de Custo do Azure | Microsoft Docs"
-description: "Use as informações do Parceiro CSP para se registrar no Gerenciamento de Custos do Azure."
+title: Registrar-se usando as informações do Parceiro CSP no Gerenciamento de Custo do Azure | Microsoft Docs
+description: Use as informações do Parceiro CSP para se registrar no Gerenciamento de Custos do Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 05/17/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302525"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -34,7 +35,7 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
 
 - Faça logon no Portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registro de avaliação
+## <a name="register-with-azure-cost-management"></a>Registro com o Gerenciamento de Custos do Azure
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão Geral**, clique em **Gerenciamento de Custo**  
@@ -60,7 +61,7 @@ Por padrão, a API do Partner Center só está acessível a CSPs diretos. No ent
 
 Para habilitar o acesso para clientes ou parceiros de CSP indireto, siga as etapas em [Criar um registro de avaliação](#create-a-trial-registration) para configurar um registro de avaliação. Em seguida, conclua estas etapas para segmentar dados de CSP indireto usando grupos de entidades Cloudyn. Em seguida, atribua as permissões de usuário apropriadas para os grupos de entidades.
 
-1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-entities).
+1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-and-manage-entities).
 2. Siga as etapas em [Atribuir assinaturas a Entidades de Custo](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associe a conta do cliente de CSP indireto e suas assinaturas do Azure para a entidade que você criou anteriormente.
 3. Siga as etapas em [Criar um usuário com acesso de administrador](tutorial-user-access.md#create-a-user-with-admin-access) para criar uma conta de usuário com acesso de Administrador. Em seguida, verifique se a conta de usuário tem acesso de administrador às entidades específicas criadas anteriormente para a conta indireta.
 

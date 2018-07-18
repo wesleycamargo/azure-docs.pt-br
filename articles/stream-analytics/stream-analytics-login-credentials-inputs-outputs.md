@@ -1,25 +1,19 @@
 ---
-title: "Stream Analytics: alternar as credenciais de logon para entradas e saídas | Microsoft Docs"
-description: "Saiba como atualizar as credenciais para as entradas e saídas do Stream Analytics."
-keywords: credenciais de logon
+title: Fazer a rotação de credenciais de logon em trabalhos do Azure Stream Analytics
+description: Este artigo descreve como atualizar as credenciais dos coletores de entrada e saída em trabalhos do Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: 
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-editor: cgronlun
-ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: sngun
-ms.openlocfilehash: c1aded8fefc7b56acd2e9ff36bb2c9641665db76
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 

@@ -1,9 +1,9 @@
 ---
-title: "Criar um gateway de aplicativo com redirecionamento interno – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool adequado, usando a CLI do Azure."
+title: Criar um gateway de aplicativo com redirecionamento interno – CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool adequado, usando a CLI do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 42b45d07c8ea326f0daa8f0e6efd7cf567dbfd1b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure
 
@@ -208,11 +208,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Altere o endereço para o seu outro domínio, por exemplo http://www.contoso.org, e você verá que o tráfego foi redirecionado de volta para o ouvinte de www.contoso.com.
+Altere o endereço para seu outro domínio, por exemplo http://www.contoso.org e você deve observar que o tráfego foi redirecionado de volta ao ouvinte para www.contoso.com.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,27 +1,27 @@
 ---
-title: "Ações de webhook para alertas do log nos Alertas do Azure (versão prévia) | Microsoft Docs"
-description: "Este artigo descreve como uma regra de alerta do log utilizando o Log Analytics ou Application Insights efetuará push de dados como o webhook HTTP e fornece detalhes das diferentes personalizações possíveis."
+title: Ações de webhook para alertas do log nos Alertas do Azure | Microsoft Docs
+description: Este artigo descreve como uma regra de alerta do log utilizando o Log Analytics ou Application Insights efetuará push de dados como o webhook HTTP e fornece detalhes das diferentes personalizações possíveis.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
-Quando um alerta [é criado no Azure (versão prévia)](monitor-alerts-unified-usage.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
+Quando um alerta [é criado no Azure ](monitor-alerts-unified-usage.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
 
 
 ## <a name="webhook-actions"></a>Ações de Webhook
@@ -33,7 +33,7 @@ As ações de webhook exigem as propriedades indicadas na tabela a seguir:
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | URL de Webhook |A URL do webhook. |
-| Carga JSON personalizada |Carga personalizada para enviar com o webhook quando esta opção for escolhida durante a criação do alerta. Detalhes disponíveis em [Gerenciar alertas usando Alertas do Azure (versão prévia)](monitor-alerts-unified-usage.md) |
+| Carga JSON personalizada |Carga personalizada para enviar com o webhook quando esta opção for escolhida durante a criação do alerta. Detalhes disponíveis em [Gerenciar alertas usando Alertas do Azure](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Botão Testar o Webhook junto com a opção *Incluir conteúdo JSON personalizado para webhook* para Alerta do Log disparará chamada fictícia para testar a URL do webhook. Não contém dados reais e representativos do esquema JSON usado para Alertas do Log. 
@@ -54,22 +54,26 @@ Webhooks incluem uma URL e uma carga formatada em JSON, que são os dados enviad
 | Hora de início do intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início da consulta no formato UTC. 
 | SearchQuery |#searchquery |A consulta da pesquisa de log usada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": true|Registros retornados pela consulta como uma Tabela JSON, limitada aos primeiros 1.000 registros; se "IncludeSearchResults":true for adicionado na definição personalizada do webhook JSON como uma propriedade de nível superior. |
-| WorkspaceID |#workspaceid |ID do seu espaço de trabalho de Log Analytics (OMS). |
+| WorkspaceID |#workspaceid |ID do seu espaço de trabalho de Log Analytics. |
 | ID do aplicativo |#applicationid |ID do seu aplicativo Application Insight. |
 | ID da assinatura |#subscriptionid |ID da sua assinatura do Azure usado com o Application Insights. 
 
 
 Por exemplo, você pode especificar a seguinte carga personalizada que inclui um único parâmetro chamado *text*.  O serviço chamado por esse webhook seria esperaria receber esse parâmetro.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 Essa carga de exemplo seria resolvida como algo semelhante ao mostrado a seguir quando enviado para o webhook.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Para incluir resultados de pesquisa em um conteúdo personalizado, assegure-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no conteúdo JSON. 
 
@@ -77,7 +81,7 @@ Para incluir resultados de pesquisa em um conteúdo personalizado, assegure-se d
 Essa seção mostra o conteúdo de exemplo para webhook para Alertas do Log, inclusive quando o conteúdo for padrão e quando for personalizado.
 
 > [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do OMS](../log-analytics/log-analytics-alerts-creating.md). Mas para alertas do log usando o [Application Insights](../application-insights/app-insights-analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
+> Para garantir a compatibilidade com versões anteriores, o conteúdo padrão do webhook para alertas usando o Azure Log Analytics é o mesmo que do [Gerenciamento de Alertas do Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mas para alertas do log usando o [Application Insights](../application-insights/app-insights-analytics.md), o conteúdo do webhook é baseado no esquema do Grupo de Ações.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook padrão para Alertas do Log 
 Ambos exemplos declararam uma carga fictícia com apenas duas colunas e duas linhas.
@@ -85,7 +89,8 @@ Ambos exemplos declararam uma carga fictícia com apenas duas colunas e duas lin
 #### <a name="log-alert-for-azure-log-analytics"></a>Alerta do Log para Azure Log-Analytics
 A seguir, é apresentado uma carga de amostra para uma ação padrão do webhook *sem a opção Json personalizado* sendo utilizada para alertas com base no Log Analytics.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ A seguir, é apresentado uma carga de amostra para uma ação padrão do webhook
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ A seguir, é apresentado uma carga de amostra para uma ação padrão do webhook
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ A seguir, é apresentado uma carga de amostra para uma ação padrão do webhook
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta do Log para Azure Application Insights
 A seguir, é apresentado uma carga de amostra para um padrão do webhook *sem a opção Json personalizado* quando utilizado para alertas do log com base no Application Insights.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ A seguir, é apresentado uma carga de amostra para um padrão do webhook *sem a 
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ A seguir, é apresentado uma carga de amostra para um padrão do webhook *sem a 
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,23 +156,25 @@ A seguir, é apresentado uma carga de amostra para um padrão do webhook *sem a 
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
-
+}
+```
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta do Log com conteúdo JSON personalizado
 Por exemplo, para criar uma carga personalizada que inclui apenas o nome do alerta e os resultados da pesquisa, você poderia usar o seguinte: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 A seguir, é apresentado um conteúdo de amostra para uma ação do webhook personalizado para qualquer alerta do log.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -178,7 +184,7 @@ A seguir, é apresentado um conteúdo de amostra para uma ação do webhook pers
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -189,12 +195,11 @@ A seguir, é apresentado um conteúdo de amostra para uma ação do webhook pers
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre os [Alertas de Log no Alertas do Azure (versão prévia)](monitor-alerts-unified-log.md)
+- Saiba mais sobre os [Alertas de log nos Alertas do Azure](monitor-alerts-unified-log.md)
 - Criar e gerenciar [grupos de ações no Azure](monitoring-action-groups.md)
 - Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
 - Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md). 

@@ -1,32 +1,32 @@
 ---
 title: Configurar a alta disponibilidade de portas para o Azure Load Balancer | Microsoft Docs
-description: "Saiba como usar as portas de alta disponibilidade para o tráfego interno de balanceamento de carga em todas as portas"
+description: Saiba como usar as portas de alta disponibilidade para o tráfego interno de balanceamento de carga em todas as portas
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb305986982432d7a432204e3fae8a1dff6a5d74
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar a alta disponibilidade de portas para o balanceador de carga interno
 
 Este artigo fornece um exemplo de implantação de Portas de Alta Disponibilidade em um Load Balancer Interno. Para obter mais informações sobre configurações específicas de soluções de virtualização de rede (NVAs), consulte os sites do provedor correspondente.
 
 >[!NOTE]
-> O recurso de Portas de Alta Disponibilidade está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Standard. Para obter mais informações sobre o Load Balancer Basic, veja [Visão geral do Load Balancer](load-balancer-overview.md).
 
 A ilustração mostra a configuração a seguir do exemplo de implantação descrito neste artigo:
 
@@ -39,12 +39,6 @@ A ilustração mostra a configuração a seguir do exemplo de implantação desc
 ![Implantação de exemplo de Portas de Alta Disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
 
 
-## <a name="preview-sign-up"></a>Inscrição na versão prévia
-
-Para participar da versão prévia do recurso das Portas de Alta Disponibilidade no Azure Load Balancer Standard, registre a sua assinatura para obter acesso usando a CLI do Azure 2.0 ou o PowerShell. Registre a sua assinatura da [Versão prévia do Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
-
->[!NOTE]
->O registro das versões prévias do Load Balancer Standard pode levar até uma hora.
 
 ## <a name="configure-high-availability-ports"></a>Configurar as Portas de Alta Disponibilidade
 

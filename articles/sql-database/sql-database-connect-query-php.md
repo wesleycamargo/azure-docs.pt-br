@@ -3,30 +3,31 @@ title: Usar PHP para consultar o Banco de Dados SQL do Azure | Microsoft Docs
 description: Este tópico mostra como usar o PHP para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f6877bff317ac52b2709c9c71dc37a3f820fe20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8fe343587336ff22f82ed0d1ef700fc56c86f577
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363753"
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Usar PHP para consultar um banco de dados SQL do Azure
 
-Este tutorial de início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) para criar um programa para conectar um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este início rápido demonstra como usar o [PHP](http://php.net/manual/en/intro-whatis.php) a fim de criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial de início rápido, certifique-se de que você tenha o seguinte:
+Para concluir este início rápido, tenha o seguinte:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
 
 - O PHP e o software relacionado para seu sistema operacional instalados:
 

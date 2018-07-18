@@ -1,30 +1,40 @@
 ---
 title: Usar o Azure Managed Service Identity no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como usar a Identidade de Serviço Gerenciado do Azure no Gerenciamento de API"
+description: Saiba como usar a Identidade de Serviço Gerenciado do Azure no Gerenciamento de API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: miaojiang
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 98aa70935a3efbbe2edb07aade85fa3ea17ce786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150423"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Usar o Azure Managed Service Identity no Gerenciamento de API do Azure
 
-> [!Note]
-> Atualmente, a Identidade do Serviço Gerenciado para o Gerenciamento de API do Azure está em versão prévia.
-
 Este artigo mostra como criar uma identidade de serviço gerenciado para uma instância do serviço de Gerenciamento de API e como acessar outros recursos. Uma identidade do serviço gerenciada gerada pelo Azure AD (Azure Active Directory) permite que a instância de Gerenciamento de API acesse de maneira fácil e segura outros recursos protegidos pelo Azure AD, como o Azure Key Vault. A identidade de serviço gerenciado é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre o Azure Managed Service Identity, consulte [Managed Service Identity para recursos do Azure](../active-directory/msi-overview.md).
 
-## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Criar uma instância de Gerenciamento de API com uma identidade usando um modelo do Resource Manager
+## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Criar uma identidade de serviço gerenciado para uma instância de Gerenciamento de API
+
+### <a name="using-the-azure-portal"></a>Usando o portal do Azure
+
+Para configurar uma identidade de serviço gerenciado no portal, primeiro, crie uma instância de Gerenciamento de API como normal e, em seguida, habilite o recurso.
+
+1. Crie uma instância de Gerenciamento de API no portal, como você faria normalmente. Navegue até ele no portal.
+2. Selecione **Managed Service Identity**.
+3. Defina Registrar com o Azure Active Directory como Ativado. Clique em Salvar.
+
+![Habilitar MSI](./media/api-management-msi/enable-msi.png)
+
+### <a name="using-the-azure-resource-manager-template"></a>Usando o modelo do Azure Resource Manager
 
 Crie uma instância de Gerenciamento de API com uma identidade incluindo a seguinte propriedade na definição de recurso: 
 
@@ -34,72 +44,29 @@ Crie uma instância de Gerenciamento de API com uma identidade incluindo a segui
 }
 ```
 
-Essa propriedade faz com que o Azure crie e gerencie a identidade da instância de Gerenciamento de API. 
+Isso faz com que o Azure crie e gerencie a identidade para sua instância do Gerenciamento de API. 
 
 Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte aparência:
 
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0",
-    "parameters": {
-        "serviceName": {
-            "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "The name of the api management service"
-            }
-        },
-        "publisherEmail": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "admin@contoso.com",
-            "metadata": {
-                "description": "The email address of the owner of the service"
-            }
-        },
-        "publisherName": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "Contoso",
-            "metadata": {
-                "description": "The name of the owner of the service"
-            }
-        },
-        "sku": {
-            "type": "string",
-            "allowedValues": [
-                "Developer",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Developer",
-            "metadata": {
-                "description": "The pricing tier of this API Management service"
-            }
-        },
-        "skuCount": {
-            "type": "int",
-            "defaultValue": 1,
-            "metadata": {
-                "description": "The instance size of this API Management service."
-            }
-        }
+    "contentVersion": "0.9.0.0"
     },
     "resources": [
         {
             "apiVersion": "2017-03-01",
-            "name": "[parameters('serviceName')]",
+            "name": "contoso",
             "type": "Microsoft.ApiManagement/service",
             "location": "[resourceGroup().location]",
             "tags": {},
             "sku": {
-                "name": "[parameters('sku')]",
-                "capacity": "[parameters('skuCount')]"
+                "name": "Developer",
+                "capacity": "1"
             },
             "properties": {
-                "publisherEmail": "[parameters('publisherEmail')]",
-                "publisherName": "[parameters('publisherName')]"
+                "publisherEmail": "admin@contoso.com",
+                "publisherName": "Contoso"
             },
             "identity": { 
                 "type": "systemAssigned" 
@@ -108,16 +75,17 @@ Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte ap
     ]
 }
 ```
+## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usar a identidade de serviço gerenciado para acessar outros recursos
 
-## <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
+> [!NOTE]
+> Atualmente, a identidade de serviço gerenciado pode ser usada para obter certificados de Azure Key Vault para nomes de domínio personalizado do Gerenciamento de API. Em breve, mais cenários receberão suporte.
+> 
+>
 
-O exemplo a seguir mostra como obter um certificado do Azure Key Vault. Ele contém as seguintes etapas:
 
-1. Criar uma instância de Gerenciamento de API com uma identidade.
-2. Atualizar as políticas de acesso de uma instância do Azure Key Vault e permitir que a instância de Gerenciamento de API obtenha os segredos dele.
-3. Atualizar a instância de Gerenciamento de API configurando um nome de domínio personalizado por meio de um certificado da instância do Key Vault.
+### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
 
-### <a name="prerequisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>pré-requisitos
 1. O Key Vault que contém o certificado pfx deve estar na mesma assinatura do Azure e no mesmo Grupo de recursos que o serviço de Gerenciamento de API. Este é um requisito do modelo do Azure Resource Manager. 
 2. O Tipo de conteúdo do segredo deve ser *application/x-pkcs12*. É possível usar o seguinte script para carregar o certificado:
 
@@ -137,6 +105,12 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 > [!Important]
 > Se a versão do objeto do certificado não for fornecida, o Gerenciamento de API obterá automaticamente a versão mais recente do certificado depois de carregada no Key Vault. 
+
+O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seguintes etapas:
+
+1. Criar uma instância de Gerenciamento de API com uma identidade de serviço gerenciado
+2. Atualizar as políticas de acesso de uma instância do Azure Key Vault e permitir que a instância de Gerenciamento de API obtenha os segredos dele.
+3. Atualizar a instância de Gerenciamento de API configurando um nome de domínio personalizado por meio de um certificado da instância do Key Vault.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: "Considerações de rede com um ambiente do Serviço de Aplicativo do Azure"
-description: "Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE"
+title: Considerações de rede com um ambiente do Serviço de Aplicativo do Azure
+description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -175,31 +175,10 @@ Depois que seus NSGs estiverem definidos, atribua-os à sub-rede em que está se
 
 ## <a name="routes"></a>Rotas ##
 
-As rotas são um aspecto importante do que o túnel forçado é e como lidar com ele. Em uma rede virtual do Azure, o roteamento é feito com base na LPM (correspondência de prefixo mais longo). Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+O túnel forçado é quando você define rotas na rede virtual para que o tráfego de saída não vá diretamente para a Internet, mas em outro lugar, como um gateway do ExpressRoute ou uma solução de virtualização.  Se for necessário configurar o ASE dessa maneira, leia o documento em [Configurar o ambiente do Serviço de Aplicativo com túnel forçado][forcedtunnel].  Esse documento informará as opções disponíveis para trabalhar com o ExpressRoute e o túnel forçado.
 
-- UDR (rota definida pelo usuário)
-- Rota BGP (quando o ExpressRoute é usado)
-- Rota de sistema
-
-Para saber mais sobre como rotear em uma rede virtual, leia [User-defined routes and IP forwarding][UDRs] (Rotas definidas pelo usuário e encaminhamento de IP).
-
-O banco de dados SQL do Azure que usa o ASE para gerenciar o sistema tem um firewall. Ele exige que a comunicação origine-se do VIP público do ASE. Conexões ao banco de dados SQL do ASE serão negadas se forem enviadas para a conexão do ExpressRoute e outro endereço IP.
-
-Se as respostas a solicitações de gerenciamento recebidas forem enviadas para o ExpressRoute, o endereço de resposta será diferente do destino original. Essa incompatibilidade interrompe a comunicação TCP.
-
-Para o ASE funcionar enquanto a VNet está configurada com um ExpressRoute, o mais fácil é:
-
--   Configurar o ExpressRoute para anunciar _0.0.0.0/0_. Por padrão, ele forçar túneis para todo o tráfego de saída local.
--   Crie um UDR. Aplique-o à sub-rede que contém o ASE com um prefixo de endereço _0.0.0.0/0_ e um tipo de próximo salto de _Internet_.
-
-Se você fizer essas duas alterações, tráfego destinado à Internet proveniente da sub-rede do ASE não será forçado a ir para o ExpressRoute e o ASE funcionará. 
-
-> [!IMPORTANT]
-> As rotas definidas em uma UDR devem ser específicas o suficiente para ter precedência sobre todas as rotas anunciadas pela configuração do ExpressRoute. O exemplo anterior usa o intervalo de endereços amplo 0.0.0.0/0. É possível que ele seja acidentalmente substituído pelos anúncios de rota que usam intervalos de endereços mais específicos.
->
-> Não há suporte para ASEs com configurações do ExpressRoute que façam anúncio cruzado de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado. Configurações do ExpressRoute com emparelhamento público configurado recebem anúncios de rota da Microsoft. Os anúncios contêm um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se os intervalos de endereços forem anunciados de modo cruzado no caminho de emparelhamento privado, todos os pacotes de rede de saída da sub-rede do ASE serão enviados em túnel de modo forçado a uma infraestrutura de rede local do cliente. No momento, não há suporte para esse fluxo de rede com ASEs. Uma solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento privado.
-
-Para criar UDR, siga estas etapas:
+Quando você cria um ASE no portal, também criamos um conjunto de tabelas de rotas na sub-rede que é criada com o ASE.  Essas rotas simplesmente informam para enviar o tráfego de saída diretamente para a Internet.  
+Para criar as mesmas rotas manualmente, siga estas etapas:
 
 1. Vá para o portal do Azure. Selecione **Rede** > **Tabelas de Rota**.
 
@@ -207,7 +186,7 @@ Para criar UDR, siga estas etapas:
 
 3. Dentro da interface do usuário da tabela de rota, selecione **Rotas** > **Adicionar**.
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 
@@ -217,17 +196,15 @@ Para criar UDR, siga estas etapas:
 
     ![NSGs e rotas][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>Implantar em redes virtuais existentes do Azure integradas ao ExpressRoute ###
+## <a name="service-endpoints"></a>Pontos de extremidade de serviço ##
 
-Para implantar seu ASE em uma VNet integrada ao ExpressRoute, pré-configure a sub-rede do ExpressRoute em que você deseja que o ASE seja implantado. Então use um modelo do Resource Manager para implantá-lo. Para criar um ASE em uma rede virtual que já tem o ExpressRoute configurado:
+Os Pontos de Extremidade de Serviço permitem restringir o acesso aos serviços de vários locatários para um conjunto de sub-redes e redes virtuais do Azure. Você pode saber mais sobre os Pontos de Extremidade de Serviço na documentação [Pontos de Extremidade de Serviço de Rede Virtual][serviceendpoints]. 
 
-- Crie uma sub-rede para hospedar o ASE.
+Quando você habilita Pontos de Extremidade de Serviço em um recurso, existem rotas criadas com prioridade mais alta que todas as outras rotas. Se você usar Pontos de Extremidade de Serviço com um ASE em túnel forçado, o SQL do Azure e o tráfego de gerenciamento do Armazenamento do Azure não é forçado em túnel. 
 
-    > [!NOTE]
-    > Nada mais pode existir na sub-rede além do ASE. Escolha um espaço de endereço que possibilite crescimento futuro. Você não poderá alterar essa configuração mais tarde. Recomendamos um tamanho de `/25` com endereços de 128.
+Quando os Pontos de Extremidade de Serviço estão habilitados em uma sub-rede com uma instância do SQL do Azure, todas as instâncias do SQL do Azure conectadas à sub-rede devem ter os Pontos de Extremidade de Serviço habilitados. Se quiser acessar várias instâncias do SQL do Azure da mesma sub-rede, você não pode habilitar os Pontos de Extremidade de Serviço em uma instância do SQL do Azure e não em outra. O Armazenamento do Azure não possuem o mesmo comportamento do SQL do Azure. Ao habilitar os Pontos de Extremidade de Serviço com o Armazenamento do Azure, você bloqueia o acesso a esse recurso de sua sub-rede, mas ainda pode acessar outras contas de Armazenamento do Azure, mesmo se elas não tiverem os Pontos de Extremidade de Serviço habilitados.  
 
-- Crie UDRs (por exemplo, tabelas de rota) conforme descrito anteriormente e defina-as na sub-rede.
-- Criar o ASE usando um modelo do Resource Manager conforme descrito em [Criar um ASE usando um modelo do Resource Manager][MakeASEfromTemplate].
+![Pontos de extremidade de serviço][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ Para implantar seu ASE em uma VNet integrada ao ExpressRoute, pré-configure a s
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -246,7 +224,7 @@ Para implantar seu ASE em uma VNet integrada ao ExpressRoute, pré-configure a s
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
@@ -258,3 +236,6 @@ Para implantar seu ASE em uma VNet integrada ao ExpressRoute, pré-configure a s
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

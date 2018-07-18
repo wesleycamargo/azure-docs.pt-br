@@ -1,6 +1,6 @@
 ---
-title: "Monitorar operações, eventos e contadores para o Balanceador de Carga | Microsoft Docs"
-description: "Saiba como habilitar o registro em log de eventos de alerta e do status da integridade de investigação para o Balanceador de Carga do Azure"
+title: Monitorar operações, eventos e contadores para o Balanceador de Carga | Microsoft Docs
+description: Saiba como habilitar o registro em log de eventos de alerta e do status da integridade de investigação para o Balanceador de Carga do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Análise de log para Balanceador de Carga do Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](load-balancer-standard-overview.md).
 
 Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal. Todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 

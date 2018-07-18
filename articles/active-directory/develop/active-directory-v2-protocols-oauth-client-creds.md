@@ -1,28 +1,31 @@
 ---
-title: "Usar o Azure v2.0 para acessar recursos protegidos sem interação do usuário | Microsoft Docs"
-description: "Criar aplicativos Web usando a implementação do Azure AD do protocolo de autenticação OAuth 2.0."
+title: Usar o Azure v2.0 para acessar recursos protegidos sem interação do usuário | Microsoft Docs
+description: Criar aplicativos Web usando a implementação do Azure AD do protocolo de autenticação OAuth 2.0.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157304"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Fluxo de credenciais do Azure Active Directory v2.0 e de cliente OAuth 2.0
-Você pode usar a [concessão de credenciais do cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), às vezes chamada de *OAuth de duas pernas*, para acessar os recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativo normalmente são mencionados como *daemons* ou *contas de serviço*.
+Você pode usar a [ concessão de credenciais do cliente OAuth 2.0 ](http://tools.ietf.org/html/rfc6749#section-4.4) especificada na RFC 6749, às vezes chamada de *OAuth de duas etapas*, para acessar recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativo normalmente são mencionados como *daemons* ou *contas de serviço*.
 
 > [!NOTE]
 > O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
@@ -60,7 +63,7 @@ Para usar permissões de aplicativo em seu aplicativo, siga as etapas que discut
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro do aplicativo
 1. Vá para seu aplicativo no [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [crie um aplicativo](active-directory-v2-app-registration.md) se ainda não tiver feito isso. Você precisará usar pelo menos um segredo do aplicativo quando você cria seu aplicativo.
-2. Localize a seção **Permissões diretas do aplicativo** e adicione as permissões que seu aplicativo requer.
+2. Localize a seção **Permissões do Microsoft Graph** e adicione as **permissões do aplicativo** exigidas pelo seu aplicativo.
 3. **Salve** o registro do aplicativo.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendado: conectar o usuário ao aplicativo
@@ -88,7 +91,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
 | locatário |Obrigatório |O locatário do diretório para o qual você deseja solicitar permissão. Pode estar no formato de nome amigável ou de GUID. Se você não souber a qual locatário o usuário pertence e se quiser deixá-lo entrar com qualquer locatário, use `common`. |
 | client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
@@ -104,7 +107,7 @@ Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- | --- |
 | locatário |O locatário do diretório que concedeu as permissões solicitadas, no formato GUID. |
 | state |Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -117,7 +120,7 @@ Se o administrador não aprovar as permissões para o seu aplicativo, a resposta
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- | --- |
 | error |Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros, e que você pode usar para reagir a erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro. |
@@ -130,19 +133,23 @@ Após adquirir a autorização necessária para seu aplicativo, continue adquiri
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
+| locatário |Obrigatório | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
 | client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
 | scope |Obrigatório |O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do Aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. Esse valor informa ao ponto de extremidade v2.0 que em relação a todas as permissões diretas de aplicativo que você configurou para seu aplicativo, ele deverá emitir um token para as associadas ao recurso que você deseja usar. |
 | client_secret |Obrigatório |O Segredo do Aplicativo que você gerou para seu aplicativo no portal de registro do aplicativo. |
@@ -151,15 +158,20 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
+| locatário |Obrigatório | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
 | client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
 | scope |Obrigatório |O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do Aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. Esse valor informa ao ponto de extremidade v2.0 que em relação a todas as permissões diretas de aplicativo que você configurou para seu aplicativo, ele deverá emitir um token para as associadas ao recurso que você deseja usar. |
 | client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
@@ -179,7 +191,7 @@ Uma resposta bem-sucedida tem a seguinte aparência:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | access_token |O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web. |
 | token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é o `bearer`. |
@@ -201,7 +213,7 @@ Uma resposta de erro tem esta aparência:
 }
 ```
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | error |Uma cadeia de caracteres de códigos de erro que você pode usar para classificar tipos de erro que ocorrem e para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |

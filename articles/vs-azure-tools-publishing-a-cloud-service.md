@@ -2,23 +2,20 @@
 title: Publicando um serviço de nuvem usando as ferramentas do Azure | Microsoft Docs
 description: Saiba mais sobre como publicar projetos de serviço de nuvem do Azure usando o Visual Studio.
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
-ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: e854c46329f092388531a73ada50829c4579806d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: ghogen
+ms.openlocfilehash: bde00dfbf4a7ffde90d1a9a3d57d3a2decf74cad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publishing-a-cloud-service-using-visual-studio"></a>Publicação de um serviço de nuvem usando o Visual Studio
 
@@ -49,7 +46,7 @@ Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes taref
 
    b. Na caixa de diálogo **Empacotar Aplicativo do Azure** , escolha a configuração de serviço para a qual você deseja criar um pacote e, em seguida, escolha a configuração de compilação.
 
-   c. (Opcional) Para ativar a Área de Trabalho Remota para o serviço de nuvem depois de publicá-lo, selecione **Habilitar Área de Trabalho Remota para todas as Funções** e, em seguida, **Configurações** para configurar as credenciais da Área de Trabalho Remota. Para obter mais informações, consulte [Habilitar Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
+   c. (Opcional) Para ativar a Área de Trabalho Remota para o serviço de nuvem depois de publicá-lo, selecione **Habilitar Área de Trabalho Remota para todas as Funções** e, em seguida, **Configurações** para configurar as credenciais da Área de Trabalho Remota. Para saber mais, veja [Habilitar Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
       Se você quiser depurar seu serviço de nuvem após publicá-lo, ative a depuração remota, selecionando **Ativar o Depurador Remoto para todas as Funções**.
 

@@ -1,24 +1,24 @@
 ---
-title: "Funções do modelo do Azure Resource Manager – numéricas | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para trabalhar com números."
+title: Funções do modelo do Azure Resource Manager – numéricas | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo do Resource Manager para trabalhar com números.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos do Azure Resource Manager
 
@@ -44,10 +44,10 @@ Retorna a soma dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Sim |int |Primeiro número a ser adicionado. |
-|operand2 |Sim |int |Segundo número a ser adicionado. |
+|operand1 |sim |int |Primeiro número a ser adicionado. |
+|operand2 |sim |int |Segundo número a ser adicionado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -90,7 +90,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -115,10 +115,10 @@ Retorna o índice de um loop de iteração.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | string | O nome do loop para obter a iteração. |
-| deslocamento |Não |int |O número a ser adicionado ao valor de iteração com base em zero. |
+| loopName | Não  | string | O nome do loop para obter a iteração. |
+| deslocamento |Não  |int |O número a ser adicionado ao valor de iteração com base em zero. |
 
 ### <a name="remarks"></a>Comentários
 
@@ -161,10 +161,10 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número que está sendo dividido. |
-| operand2 |Sim |int |O número usado para dividir. Não pode ser 0. |
+| operand1 |sim |int |O número que está sendo dividido. |
+| operand2 |sim |int |O número usado para dividir. Não pode ser 0. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -207,7 +207,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -232,9 +232,9 @@ Converte o valor em um número de ponto flutuante. Você só usa essa função a
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |string ou int |O valor a ser convertido em um número de ponto flutuante. |
+| arg1 |sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um número de ponto flutuante. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um número de ponto flutuante.
@@ -266,9 +266,9 @@ Converte o valor especificado em um inteiro.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sim |string ou int |O valor a ser convertido em um inteiro. |
+| valueToConvert |sim |string ou int |O valor a ser convertido em um inteiro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -301,7 +301,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -326,9 +326,9 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
+| arg1 |sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -364,7 +364,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -390,9 +390,9 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
+| arg1 |sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -428,7 +428,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -454,10 +454,10 @@ Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número que está sendo dividido. |
-| operand2 |Sim |int |O número usado para dividir. Não pode ser 0. |
+| operand1 |sim |int |O número que está sendo dividido. |
+| operand2 |sim |int |O número usado para dividir. Não pode ser 0. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um inteiro que representa o resto.
@@ -499,7 +499,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -524,10 +524,10 @@ Retorna a multiplicação de dois inteiros fornecidos.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |Primeiro número a ser multiplicado. |
-| operand2 |Sim |int |Segundo número a ser multiplicado. |
+| operand1 |sim |int |Primeiro número a ser multiplicado. |
+| operand2 |sim |int |Segundo número a ser multiplicado. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -570,7 +570,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -595,10 +595,10 @@ Retorna a subtração dos dois inteiros fornecidos.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| operand1 |Sim |int |O número do qual é subtraído. |
-| operand2 |Sim |int |O número subtraído. |
+| operand1 |sim |int |O número do qual é subtraído. |
+| operand2 |sim |int |O número subtraído. |
 
 ### <a name="return-value"></a>Valor de retorno
 Um inteiro que representa a subtração.
@@ -640,7 +640,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

@@ -1,9 +1,9 @@
 ---
-title: "Notas de versão da extensão do Visual Studio para análise do desenvolvedor"
-description: "As atualizações mais recentes das ferramentas do Visual Studio para análise do desenvolvedor"
+title: Notas de versão da extensão do Visual Studio para análise do desenvolvedor
+description: As atualizações mais recentes das ferramentas do Visual Studio para análise do desenvolvedor
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869539"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de versão para ferramentas de análise do desenvolvedor
 
@@ -167,7 +168,7 @@ Ao se conectar, você verá o formulário de carregamento no diálogo.
 
 ![Carregar caixa de diálogo para aplicativos Universais do Windows](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-Escolha o conteúdo a ser carregado (um arquivo appxbundle ou appx) e escolha as opções de versão no assistente. Se preferir, você poderá adicionar notas de versão na página seguinte. Escolha **Concluir** para começar a carregar.
+Escolha o conteúdo a ser carregado (um arquivo .appxbundle ou .appx) e escolha as opções de versão no assistente. Se preferir, você poderá adicionar notas de versão na página seguinte. Escolha **Concluir** para começar a carregar.
 
 Quando o carregamento estiver concluído, uma notificação do sistema para o HockeyApp com confirmação e um link para o aplicativo no portal do HockeyApp serão exibidos.
 
@@ -289,8 +290,3 @@ Você não precisa mais entrar no Azure para adicionar pacotes do Application In
 
 ![Caixa de diálogo Novo Projeto](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Suporte a dispositivos
-Em *Connect();* 2015, [anunciamos](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que a nossa experiência de desenvolvedores para dispositivos móveis é o HockeyApp. O HockeyApp ajuda a distribuir suas versões beta para testadores, a coletar e a analisar todas as falhas do aplicativo e a coletar comentários diretamente de seus clientes.
-O HockeyApp dá suporte a seu aplicativo em qualquer plataforma que você escolher para compilá-lo, seja iOS, Android ou Windows, ou uma solução de plataforma cruzada, como Unity, Cordova ou Xamarin.
-
-Em versões futuras da extensão Application Insights, vamos introduzir uma experiência mais integrada entre o HockeyApp e o Visual Studio. Por enquanto, você pode começar a usar o HockeyApp simplesmente adicionando a referência do NuGet. Para saber mais, confira a [documentação](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) .

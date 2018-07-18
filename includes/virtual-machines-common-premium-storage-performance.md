@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
-## <a name="overview"></a>Visão geral
+
 Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o Armazenamento Premium do Azure. Você pode usar as instruções fornecidas neste documento combinadas com as práticas recomendadas de desempenho aplicáveis às tecnologias usadas pelo aplicativo. Para ilustrar as diretrizes, usamos o SQL Server em execução no Armazenamento Premium como exemplo em todo este documento.
 
 Embora, neste artigo, tenhamos abordado cenários da camada de Armazenamento, você precisará otimizar a camada de aplicativo. Por exemplo, se estiver hospedando um Farm do SharePoint no Armazenamento Premium do Azure, você poderá usar os exemplos do SQL Server deste artigo para otimizar o servidor de banco de dados. Adicionalmente, otimize o servidor Web e o servidor de Aplicativos do Farm do SharePoint para obter o melhor desempenho possível.
@@ -26,7 +26,7 @@ O IOPS é o número de solicitações que seu aplicativo está enviando para os 
 
 Quando você anexa um disco do armazenamento premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite específico de IOPS que ela pode manter. Por exemplo, uma VM GS5 Padrão tem um limite de 80.000 IOPS.
 
-## <a name="throughput"></a>Taxa de transferência
+## <a name="throughput"></a>Throughput
 A Taxa de Transferência ou Largura de Banda é o volume de dados que o aplicativo está enviando aos discos de armazenamento em um intervalo especificado. Se o aplicativo estiver executando operações de entrada/saída com tamanhos grandes de unidade de E/S, ele exigirá Taxa de Transferência alta. Os aplicativos de data warehouse tendem a emitir operações de alta verificação que acessam grandes partes de dados por vez e geralmente executam operações em massa. Em outras palavras, tais aplicativos exigem Taxa de Transferência mais alta. Caso você tenha um aplicativo desse tipo, será preciso projetar sua infraestrutura para otimização da Taxa de Transferência. Na próxima seção, abordaremos em detalhes os fatores que você deve ajustar para conseguir isso.
 
 Quando você anexa um disco do armazenamento premium a uma VM de alta escala, o Azure provisiona Taxa de Transferência de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona Taxa de Transferência de disco de 250 MB por segundo. Cada tamanho de VM de alta escala também tem um limite específico de Taxa de Transferência que ela pode manter. Por exemplo, a VM GS5 padrão tem uma Taxa de Transferência máxima de 2.000 MB por segundo. 
@@ -37,7 +37,7 @@ Há uma relação entre a Taxa de Transferência e a IOPS, como mostrado na fór
 
 Portanto, é importante determinar os valores ideais de Taxa de Transferência e IOPS que o aplicativo exige. Ao tentar otimizar um deles, o outro também é afetado. Em uma seção mais adiante, *Otimizando o desempenho do aplicativo*, abordaremos em mais detalhes como otimizar a IOPS e Taxa de Transferência.
 
-## <a name="latency"></a>Latência
+## <a name="latency"></a>Latency
 A Latência é o tempo que leva para um aplicativo receber uma única solicitação, enviá-la aos discos de armazenamento e enviar a resposta ao cliente. Essa é uma medida essencial do desempenho de um aplicativo, além de IOPS e da Taxa de Transferência. A Latência de um disco do Armazenamento Premium é o tempo que se leva para recuperar informações de uma solicitação e comunicá-la de volta ao aplicativo. O Armazenamento Premium fornece baixas latências consistentes. Ao habilitar o cache do host ReadOnly nos discos do Armazenamento Premium, você obtém latência de leitura mais baixa. Abordaremos o Cache de Disco em mais detalhes na seção *Otimizando o desempenho do aplicativo*.
 
 Quando você otimiza o aplicativo para obter IOPS e Taxa de Transferência mais altas, a Latência do aplicativo também é afetada. Depois de ajustar o desempenho do aplicativo, sempre avalie a latência do aplicativo para evitar comportamento inesperado de alta latência.
@@ -60,8 +60,8 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 | % de operações Sequenciais | | | |
 | Tamanho da solicitação de E/S | | | |
 | Taxa de transferência média | | | |
-| Máx. Taxa de transferência | | | |
-| Mín. Latência | | | |
+| Máx. Throughput | | | |
+| Mín. Latency | | | |
 | Latência Média | | | |
 | Máx. CPU | | | |
 | CPU Média | | | |
@@ -83,7 +83,7 @@ A melhor maneira de avaliar os requisitos de desempenho do aplicativo é usando 
 
 Os contadores do PerfMon estão disponíveis para processador, memória e cada disco lógico e físico do seu servidor. Quando você usa discos do Armazenamento Premium com uma VM, os contadores de disco físico são para cada disco do Armazenamento Premium e os contadores de disco lógico são para cada volume criado nos discos do Armazenamento Premium. É preciso capturar os valores dos discos que hospedam a carga de trabalho do aplicativo. Se houver um mapeamento de um para um entre os discos lógicos e físicos, você poderá consultar os contadores de disco físico, caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização de CPU e disco. O relatório de utilização de disco fornece estatísticas por dispositivo físico ou partição. Se você tiver um servidor de banco de dados com seus dados e registrados em discos separados, colete esses dados de ambos os discos. A tabela abaixo descreve contadores de discos, processador e memória:
 
-| Contador | Descrição | PerfMon | Iostat |
+| Contador | DESCRIÇÃO | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou Transações por segundo** |Número de solicitações de E/S emitidas para o disco de armazenamento por segundo. |Leituras de Disco/s  <br> Gravações de Disco/s |tps  <br> r/s  <br> w/s |
 | **Leituras e gravações de discos** |% de operações de Leitura e Gravação executadas no disco. |% de Tempo de Leitura de Disco  <br> % de Tempo de Gravação de Disco |r/s  <br> w/s |
@@ -94,7 +94,7 @@ Os contadores do PerfMon estão disponíveis para processador, memória e cada d
 | **IOPS Máxima** |Quantidade de memória exigida para execução perfeita do aplicativo |% de Bytes Confirmados em Uso |Usar o vmstat |
 | **IOPS Máxima** |Quantidade de CPU exigida para a execução perfeita do aplicativo |% do Tempo do Processador |%util |
 
-Saiba mais sobre o [iostat](http://linuxcommand.org/man_pages/iostat1.html) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Saiba mais sobre o [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Otimizando o desempenho do aplicativo
 Os principais fatores que influenciam o desempenho de um aplicativo em execução no Armazenamento Premium são nativos das solicitações de E/S, do tamanho da VM, do tamanho do disco, do número de discos, do cache do disco, do multithreading e da profundidade da fila. Você pode controlar alguns desses fatores com botões fornecidos pelo sistema. A maioria dos aplicativos talvez não apresente uma opção para alterar o tamanho de E/S e a profundidade da fila diretamente. Por exemplo, se você estiver usando o SQL Server, não será possível escolher a profundidade de fila e o tamanho de E/S. O SQL Server escolhe os valores ideais do tamanho de E/S e da profundidade da fila para obter o melhor desempenho. É importante compreender os efeitos de ambos os tipos de fator no desempenho do aplicativo para que você possa provisionar recursos apropriados que atendam às necessidades de desempenho.
@@ -102,15 +102,18 @@ Os principais fatores que influenciam o desempenho de um aplicativo em execuçã
 Ao longo desta seção, consulte a lista de verificação de requisitos de aplicativo que você criou para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nisso, você poderá determinar quais fatores dessa seção será preciso ajustar. Para ver os efeitos de cada fator no desempenho do aplicativo, execute os parâmetros de comparação na configuração do aplicativo. Consulte a seção [Parâmetros de comparação](#Benchmarking) no fim deste artigo para ver as etapas para executar ferramentas comuns de comparação em VMs do Windows e do Linux.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Otimizando a IOPS, a Taxa de Transferência e a latência em segundos
-A tabela abaixo resume os fatores de desempenho e as etapas para otimizar a IOPS, Taxa de Transferência e Latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
+
+A tabela abaixo resume os fatores de desempenho e as etapas necessárias para otimizar a IOPS, taxa de transferência e latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
+
+Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de transferência e latência disponível para cada tipo de VM, consulte [tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md) ou [tamanhos de VM Windows](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Taxa de transferência** | **Latência** |
 | --- | --- | --- | --- |
 | **Cenário de exemplo** |Aplicativo OLTP corporativo que exige taxa muito alta de transações por segundo. |Aplicativo de data warehouse corporativo que processa grandes volumes de dados. |Aplicativos quase em tempo real que exigem respostas instantâneas às solicitações de usuário, como jogos online. |
 | Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
 | **Tamanho de E/S** |E/S menores geram IOPS mais altas. |E/S maiores geram Taxa de Transferência mais altas. | &nbsp;|
-| **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior que o requisito do seu aplicativo. Veja os tamanhos de VM e respectivos limites de IOPS aqui. |Use um tamanho de VM com limite de Taxa de Transferência maior que o requisito do seu aplicativo. Veja os tamanhos de VM e respectivos limites de Taxa de Transferência aqui. |Use um tamanho de VM que ofereça limites de escala maiores que o requisito do seu aplicativo. Veja os tamanhos de VM e os respectivos limites aqui. |
-| **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior que o requisito de seu aplicativo. Veja os tamanhos de disco e respectivos limites de IOPS aqui. |Use um tamanho de disco com limite de Taxa de Transferência maior que o requisito do seu aplicativo. Veja os tamanhos de disco e respectivos limites de Taxa de Transferência aqui. |Use um tamanho de disco que ofereça limites de escala maiores que o requisito do seu aplicativo. Veja os tamanhos de disco e respectivos limites aqui. |
+| **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior que o requisito do seu aplicativo. |Use um tamanho de VM com limite de Taxa de Transferência maior que o requisito do seu aplicativo. |Use um tamanho de VM que ofereça limites de escala maiores que o requisito do seu aplicativo. |
+| **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior que o requisito de seu aplicativo. |Use um tamanho de disco com limite de Taxa de Transferência maior que o requisito do seu aplicativo. |Use um tamanho de disco que ofereça limites de escala maiores que o requisito do seu aplicativo. |
 | **Limites de escala de VM e disco** |O limite de IOPS do tamanho da VM escolhido deve ser maior que o total de IOPS impulsionado pelos discos do Armazenamento Premium anexados a ela. |O limite de Taxa de Transferência do tamanho da VM escolhido deve ser maior que o total de Taxa de Transferência impulsionado pelos discos do Armazenamento Premium anexados a ela. |Os limites de escala do tamanho da VM escolhido devem ser maiores que o total de limites de escala de discos do Armazenamento Premium anexados. |
 | **Cache de disco** |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter IOPS mais alta de leitura. | &nbsp; |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter latências de leitura bem baixas. |
 | **Distribuição de disco** |Use vários discos e distribua-os em conjunto para obter um limite combinado mais alto de IOPS e Taxa de Transferência. Observe que o limite combinado por VM deve ser maior do que os limites combinados de discos premium anexados. | &nbsp; | &nbsp; |
@@ -275,7 +278,7 @@ No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ve
 *Tamanho da distribuição*  
 Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
 
-Por exemplo, se uma solicitação de E/S gerada pelo seu aplicativo for maior que o tamanho da distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for a hora de acessar esses dados, ele terá que procurar em mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo de tal comportamento pode levar à degradação substancial de desempenho. Por outro lado, se o tamanho da solicitação de E/S for menor que o tamanho da distribuição e se ela for de natureza aleatória, as solicitações de E/S poderão ser adicionadas no mesmo disco, causando um afunilamento e, por fim, a degradação do desempenho de E/S.
+Por exemplo, se uma solicitação de E/S gerada pelo seu aplicativo for maior que o tamanho da distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for a hora de acessar esses dados, ele terá que procurar em mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo de tal comportamento pode levar à degradação substancial de desempenho. Por outro lado, se o tamanho da solicitação de E/S for menor que o tamanho da distribuição e se ela for de natureza aleatória, as solicitações de E/S poderão ser adicionadas no mesmo disco, causando um gargalo e, por fim, a degradação do desempenho de E/S.
 
 De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
 
@@ -374,24 +377,24 @@ Execute as etapas abaixo para aquecer o cache
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
 
-   | Nome | Tamanho da solicitação | Aleatório % | Leitura % |
+   | NOME | Tamanho da solicitação | Aleatório % | Leitura % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 2. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duração |
+   | Cenário | Volume de destino | NOME | Duration |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 3. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duração |
+   | Cenário | Volume de destino | NOME | Duração |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
 
 Depois de aquecer o disco do cache, prossiga com os cenários de teste listados abaixo. Para executar o teste Iometer, use pelo menos três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade da fila e selecione uma das especificações de teste salvas, conforme mostrado na tabela a seguir, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Taxa de Transferência ao executar esses testes. Em todos os cenários são usados um tamanho pequeno de 8 KB de E/S e uma profundidade de fila alta de 128.
 
-| Cenário de teste | Volume de destino | Nome | Result |
+| Cenário de teste | Volume de destino | NOME | Result |
 | --- | --- | --- | --- |
 | Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
 | Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |

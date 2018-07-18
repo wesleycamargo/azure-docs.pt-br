@@ -1,12 +1,12 @@
 ---
-title: "Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI | Microsoft Docs"
-description: "Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI."
+title: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI | Microsoft Docs
+description: Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI
 
@@ -43,10 +43,10 @@ Os tokens de aplicativo são um JWT (Token Web JSON) assinado por uma das suas c
 
 O token de seu aplicativo pode conter as seguintes declarações:
 
-| Declaração | Descrição |
+| Declaração | DESCRIÇÃO |
 | --- | --- |
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
-| **aud** |O destinatário pretendido do token. Para Coleções de Espaços de Trabalho do Power BI, use: “https://analysis.windows.net/powerbi/api”. |
+| **aud** |O destinatário pretendido do token. Para Coleções de Espaço de Trabalho do Power BI use: “https://analysis.windows.net/powerbi/api.” |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
 | **wcn** |Nome da coleção de espaços de trabalho para o qual o token foi emitido. |
@@ -99,7 +99,7 @@ Ao usar os tokens de inserção, convém restringir o uso de recursos aos quais 
 
 A seguir estão os escopos disponíveis para as Coleções de Espaços de Trabalho do Power BI.
 
-|Escopo|Descrição|
+|Escopo|DESCRIÇÃO|
 |---|---|
 |Dataset.Read|Fornece permissão para ler o conjunto de dados especificado.|
 |Dataset.Write|Fornece permissão para gravar o conjunto de dados especificado.|
@@ -179,7 +179,7 @@ Após as **Coleções de Espaços de Trabalho do Power BI** enviarem um relatór
 
 ![Exemplo de relatório inserido no aplicativo](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Introdução ao exemplo de Coleções de Espaços de Trabalho do Microsoft Power BI](get-started-sample.md)  

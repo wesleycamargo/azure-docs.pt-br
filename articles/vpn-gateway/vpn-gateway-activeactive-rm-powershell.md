@@ -1,11 +1,11 @@
 ---
-title: "Configurar conexões VPN S2S ativa-ativa para Gateways de VPN: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Este artigo mostra como configurar conexões ativo-ativo com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell."
+title: 'Configurar conexões VPN S2S ativa-ativa para Gateways de VPN: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Este artigo mostra como configurar conexões ativo-ativo com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar conexões VPN S2S ativa-ativa com Gateways de VPN
 
@@ -94,7 +94,7 @@ Alterne para o modo do PowerShell para usar os cmdlets do Gerenciador de Recurso
 Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

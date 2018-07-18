@@ -1,31 +1,31 @@
 ---
-title: "Atualizar serviço de aplicativo do Azure na pilha do Azure | Microsoft Docs"
-description: "Orientações detalhadas para a atualização do serviço de aplicativo do Azure na pilha do Azure"
+title: Atualizar serviço de aplicativo do Azure na pilha do Azure | Microsoft Docs
+description: Orientações detalhadas para a atualização do serviço de aplicativo do Azure na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Atualizar serviço de aplicativo do Azure na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1802 para seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar o serviço de aplicativo do Azure.
+> Aplicar a atualização 1804 a seu sistema de pilha do Azure integradas ou implantar o kit de desenvolvimento de pilha do Azure mais recente antes de implantar 1.2 de serviço de aplicativo do Azure.
 >
 >
 
@@ -44,7 +44,7 @@ Durante esse processo, a atualização será:
 * Preparar todos os pacotes de atualização e novas versões de todas as bibliotecas de OSS para ser implantado
 * Carregar no armazenamento
 * Atualizar todas as funções de serviço de aplicativo (controladores, gerenciamento, front-end, Publisher e Worker funções)
-* Atualizar definições de conjunto de escala do serviço de aplicativo
+* Atualizar as definições do conjunto de dimensionamento do Serviço de Aplicativo
 * Atualizar o manifesto do provedor de recursos de serviço de aplicativo
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ Durante esse processo, a atualização será:
 
 Para atualizar a implantação do serviço de aplicativo na pilha do Azure, siga estas etapas:
 
-1. Baixe o [instalador de serviço de aplicativo](https://aka.ms/appsvcupdate1installer)
+1. Baixe o [instalador de serviço de aplicativo](https://aka.ms/appsvcupdate2installer)
 
 2. Executar appservice.exe como um administrador
 
@@ -75,7 +75,7 @@ Para atualizar a implantação do serviço de aplicativo na pilha do Azure, siga
    1. Clique no **conectar** lado a **assinaturas de pilha do Azure** caixa.
         * Se você estiver usando o Azure Active Directory (AD do Azure), insira a conta de administrador do AD do Azure e a senha que você forneceu quando você implantou a pilha do Azure. Clique em **entrar**.
         * Se você estiver usando os serviços de Federação do Active Directory (AD FS), fornece sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Digite sua senha e clique em **entrar**.
-   2. No **assinaturas do Azure pilha** , selecione sua assinatura.
+   2. No **assinaturas do Azure pilha** caixa, selecione a **assinatura do provedor padrão**.
    3. No **Azure pilha locais** , selecione o local que corresponde à região que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento de pilha do Azure.
    4. Se uma implantação existente do serviço de aplicativo for descoberta, em seguida, a conta de armazenamento e o grupo de recursos será preenchida e esmaecida.
    5. Clique em **próximo** para examinar o resumo da atualização.

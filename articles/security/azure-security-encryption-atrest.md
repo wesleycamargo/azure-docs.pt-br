@@ -1,9 +1,9 @@
 ---
 title: Criptografia de dados em repouso no Microsoft Azure | Microsoft Docs
-description: "Este artigo fornece uma visão geral da criptografia de dados em repouso no Microsoft Azure, os recursos gerais e as considerações gerais."
+description: Este artigo fornece uma visão geral da criptografia de dados em repouso no Microsoft Azure, os recursos gerais e as considerações gerais.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312569"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 Há várias ferramentas no Microsoft Azure para proteger os dados de acordo com as necessidades de segurança e a conformidade de sua empresa. Este documento se concentra em:
@@ -236,10 +237,10 @@ Qualquer cliente que utiliza recursos de IaaS (Infraestrutura como Serviço) pod
 
 #### <a name="azure-storage"></a>Armazenamento do Azure
 
-O Arquivo e Blob do Azure oferecem suporte de criptografia em repouso para cenários criptografados do lado do servidor, assim como dados criptografados do cliente (criptografia do lado do cliente).
+Todos os serviços de Armazenamento do Azure (armazenamento de Blob, armazenamento de fila, armazenamento de tabelas e arquivos do Azure) oferecem suporte para a criptografia do servidor em repouso, com alguns serviços de suporte a chaves gerenciados pelo cliente e criptografia do cliente.  
 
-- Lado do servidor: os clientes que utilizam o armazenamento de Blobs do Azure podem habilitar a criptografia em repouso em cada conta do recurso de armazenamento do Azure. Quando a criptografia do lado do servidor é feita de forma transparente para o aplicativo. Para obter mais informações, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso ](https://docs.microsoft.com/azure/storage/storage-service-encryption).
-- Lado do cliente: a criptografia do lado do cliente de Blobs do Azure tem suporte. Quando clientes de criptografia do lado do cliente para criptografar os dados e carregar os dados como um blob criptografado. O gerenciamento de chaves é feito pelo cliente. Para obter mais informações, consulte [Criptografia do lado do cliente e Azure Key Vault para Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- No servidor: Todos os serviços de Armazenamento do Azure habilitam a criptografia do servidor por padrão que usa chaves de serviço gerenciado, que é transparente para o aplicativo. Para obter mais informações, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/storage-service-encryption). O Armazenamento de Blob do Azure e os arquivos do Azure também oferecem suporte a chaves gerenciadas pelo cliente no Azure Key Vault. Para obter mais informações, consulte [Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- No cliente: os Blobs do Azure, tabelas e filas oferecem suporte para criptografia de cliente. Ao usar criptografia do cliente, os clientes criptografam os dados e carregam os dados como um blob criptografado. O gerenciamento de chaves é feito pelo cliente. Para obter mais informações, consulte [Criptografia do lado do cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -255,28 +256,28 @@ A criptografia do lado do cliente dos dados do SQL Azure possui suporte através
 |                                  |                |                     |                              |                              | **Cliente** |
 |                                  | **Gerenciamento de Chaves** | **Chaves de serviço gerenciado** | **Cliente gerenciado no Key Vault** | **Cliente gerenciado no local** |        |
 | **Armazenamento e banco de dados**            |                |                     |                              |                              |        |
-| Disco (IaaS)                      |                | -                   | Sim                          | Sim*                         | -      |
-| SQL Server (IaaS)                |                | Sim                 | Sim                          | Sim                          | Sim    |
-| SQL Azure (PaaS)                 |                | Sim                 | Visualização                      | -                            | Sim    |
-| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) |                | Sim                 | Visualização                      | -                            | Sim    |
-| Armazenamento do Microsoft Azure (Arquivos)            |                | Sim                 | -                            | -                            | -      |
-| Armazenamento do Microsoft Azure (Tabelas, Consultas)   |                | -                   | -                            | -                            | Sim    |
-| Cosmos DB (DocumentDB)          |                | Sim                 | -                            | -                            | -      |
-| StorSimple                       |                | Sim                 | -                            | -                            | Sim    |
-| Backup                           |                | -                   | -                            | -                            | Sim    |
+| Disco (IaaS)                      |                | -                   | sim                          | Sim*                         | -      |
+| SQL Server (IaaS)                |                | sim                 | sim                          | sim                          | sim    |
+| SQL Azure (PaaS)                 |                | sim                 | sim                          | -                            | sim    |
+| Armazenamento do Microsoft Azure (Blobs de páginas e Bloco) |                | sim                 | sim                          | -                            | sim    |
+| Armazenamento do Microsoft Azure (Arquivos)            |                | sim                 | sim                          | -                            | -      |
+| Armazenamento do Microsoft Azure (Tabelas, Consultas)   |                | sim                 | -                            | -                            | sim    |
+| Cosmos DB (DocumentDB)          |                | sim                 | -                            | -                            | -      |
+| StorSimple                       |                | sim                 | -                            | -                            | sim    |
+| Backup                           |                | -                   | -                            | -                            | sim    |
 | **Inteligência e Análise**       |                |                     |                              |                              |        |
-| Fábrica de dados do Azure               |                | Sim                 | -                            | -                            | -      |
+| Fábrica de dados do Azure               |                | sim                 | -                            | -                            | -      |
 | Azure Machine Learning           |                | -                   | Visualização                      | -                            | -      |
-| Stream Analytics do Azure           |                | Sim                 | -                            | -                            | -      |
-| HDInsights (Armazenamento de Blobs)  |                | Sim                 | -                            | -                            | -      |
-| HDInsights (Armazenamento de Data Lake)   |                | Sim                 | -                            | -                            | -      |
-| Repositório Azure Data Lake            |                | Sim                 | Sim                          | -                            | -      |
-| Catálogo de Dados do Azure               |                | Sim                 | -                            | -                            | -      |
-| Power BI                         |                | Sim                 | -                            | -                            | -      |
+| Stream Analytics do Azure           |                | sim                 | -                            | -                            | -      |
+| HDInsights (Armazenamento de Blobs)  |                | sim                 | -                            | -                            | -      |
+| HDInsights (Armazenamento de Data Lake)   |                | sim                 | -                            | -                            | -      |
+| Repositório Azure Data Lake            |                | sim                 | sim                          | -                            | -      |
+| Catálogo de Dados do Azure               |                | sim                 | -                            | -                            | -      |
+| Power BI                         |                | sim                 | -                            | -                            | -      |
 | **Serviços de IoT**                     |                |                     |                              |                              |        |
-| Hub IoT                          |                | -                   | -                            | -                            | Sim    |
-| Barramento de Serviço                      |                | Sim (camada Premium)              | -                            | -                            | Sim    |
-| Hubs de Eventos                       |                | Sim             | -                            | -                            | -      |
+| Hub IoT                          |                | -                   | -                            | -                            | sim    |
+| Barramento de Serviço                      |                | sim              | -                            | -                            | sim    |
+| Hubs de Eventos                       |                | sim             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusão

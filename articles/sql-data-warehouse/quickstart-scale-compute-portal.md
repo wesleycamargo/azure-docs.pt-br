@@ -1,24 +1,20 @@
 ---
-title: "Início Rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – Portal do Azure | Microsoft Docs"
-description: "Tarefas do portal do Azure para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
+title: 'Início Rápido: escalar horizontalmente a computação no SQL Data Warehouse do Azure – Portal do Azure | Microsoft Docs'
+description: Dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: d707b9a4b7b683e75bb9313dae2611fd59dbb155
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: dimensionar a computação no SQL Data Warehouse do Azure no Portal do Azure
 
@@ -40,8 +36,8 @@ No SQL Data Warehouse, você pode aumentar ou diminuir os recursos de computaç�
 
 Para alterar unidades de data warehouse:
 
-1. Clique em **Bancos de Dados SQL** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página **Bancos de Dados SQL**. O data warehouse é aberto.
+1. Clique em **SQL data warehouses** na página esquerda do portal do Azure.
+2. Selecione **mySampleDataWarehouse** na página **SQL data warehouses**. O data warehouse é aberto.
 3. Clique em **Escala**.
 
     ![Clique em Escala.](media/quickstart-scale-compute-portal/click-scale.png)

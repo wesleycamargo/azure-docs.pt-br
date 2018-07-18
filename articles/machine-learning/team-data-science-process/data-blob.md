@@ -1,9 +1,9 @@
 ---
-title: "Processar dados de blob do Azure com análises avançadas | Microsoft Docs"
+title: Processar dados de blob do Azure com análises avançadas | Microsoft Docs
 description: Processar dados no Armazenamento de Blob do Azure.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: f3388728b2c2ea699a2caf764dc0fd3e9ff19505
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 7abb547692bf7cc8e78caabe7c4c0f47edc1a0d2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Processar dados de blob do Azure com análises avançadas
 Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 

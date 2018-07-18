@@ -1,6 +1,6 @@
 ---
-title: "Criar uma entidade de serviço para a pilha do Azure | Microsoft Docs"
-description: "Descreve como criar uma nova entidade de serviço que pode ser usada com o controle de acesso baseado em função no Gerenciador de recursos do Azure para gerenciar o acesso aos recursos."
+title: Criar uma entidade de serviço para a pilha do Azure | Microsoft Docs
+description: Descreve como criar uma nova entidade de serviço que pode ser usada com o controle de acesso baseado em função no Gerenciador de recursos do Azure para gerenciar o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824563"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicativos a pilha do Azure
+# <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso a aplicativos para o Azure Stack
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
@@ -76,7 +77,7 @@ O script é executado do ponto de extremidade com privilégios em uma máquina v
 
 
 Requisitos:
-- Um certificado é necessário.
+- É necessário um certificado.
 
 **Parâmetros**
 
@@ -136,7 +137,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>Atribuir função a entidade de serviço
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver.
 

@@ -1,12 +1,12 @@
 ---
 title: Como criar um aplicativo Java do Azure Service Fabric | Microsoft Docs
-description: "Neste guia de início rápido, você cria um aplicativo Java para o Azure usando um aplicativo de exemplo dos serviços confiáveis do Service Fabric."
+description: Neste guia de início rápido, você cria um aplicativo Java para o Azure usando um aplicativo de exemplo dos serviços confiáveis do Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Início Rápido: implantar um aplicativo de serviços confiáveis do Service Fabric em Java no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
@@ -30,11 +30,10 @@ Este guia de início rápido mostra como implantar seu primeiro aplicativo Java 
 
 Neste guia de início rápido, você aprende a:
 
-> [!div class="checklist"]
-> * Usar o Eclipse como uma ferramenta para seus aplicativos Java do Service Fabric
-> * Implantar o aplicativo no cluster local 
-> * Implantar o aplicativo em um cluster no Azure
-> * Expandir o aplicativo para vários nós
+* Usar o Eclipse como uma ferramenta para seus aplicativos Java do Service Fabric
+* Implantar o aplicativo no cluster local 
+* Implantar o aplicativo em um cluster no Azure
+* Expandir o aplicativo para vários nós
 
 ## <a name="prerequisites"></a>pré-requisitos
 Para concluir este guia de início rápido:
@@ -70,7 +69,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Caixa de diálogo Publicar local](./media/service-fabric-quickstart-java/localjson.png)
     
-7. Abra seu navegador da Web favorito e acessar o aplicativo acessando **http://localhost:8080**. 
+7. Abra seu navegador da Web favorito e acesse o aplicativo em **http://localhost:8080**. 
 
     ![Front-end do aplicativo local](./media/service-fabric-quickstart-java/runninglocally.png)
     
@@ -81,21 +80,40 @@ Agora, você pode adicionar um conjunto de opções de votação e começar a vo
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>Configurar o cluster do Azure Service Fabric
 Para implantar o aplicativo em um cluster no Azure, crie seu próprio cluster.
 
-Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são executados pela equipe do Service Fabric, em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
+Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure e executados pela equipe do Service Fabric. Você pode usar clusters de entidade para implantar aplicativos e saber mais sobre a plataforma. O cluster usa um certificado único e autoassinado para segurança entre nós e entre cliente e nó.
 
-Para executar operações de gerenciamento no cluster de entidade seguro, é possível usar o Service Fabric Explorer, a CLI ou o Powershell. Para usar o Service Fabric Explorer, você precisa baixar o arquivo PFX do site do cluster de terceiros e importar o certificado para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Não há nenhuma senha para os certificados autoassinados do cluster de entidade. 
-
-Para executar operações de gerenciamento com o Powershell ou a CLI, você precisará do PFX (Powershell) ou PEM (CLI). Para converter o PFX em um arquivo PEM, execute o seguinte comando:  
-
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
-```
-
-Para obter informações sobre como criar seu próprio cluster, consulte [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Entre e ingresse em um [cluster do Linux](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Leiame** para localizar a senha do certificado e as instruções sobre como configurar vários ambientes para usar o certificado. Mantenha ambas as páginas **Bem-vindo** e **Leiame** abertas. Você usará algumas das instruções nas etapas a seguir. 
 
 > [!Note]
+> Há um número limitado de clusters de entidade disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de entidade, poderá aguardar um período e tentar novamente, ou pode seguir estas etapas em [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) para criar um cluster em sua assinatura. 
+>
 > O serviço Spring Boot está configurado para escutar o tráfego de entrada na porta 8080. Verifique se a porta está aberta no cluster. Se você estiver usando o Cluster de Entidade, essa porta estará aberta.
 >
+
+O Service Fabric fornece várias ferramentas que você pode usar para gerenciar um cluster e seus aplicativos:
+
+- Service Fabric Explorer, uma ferramenta baseada no navegador.
+- Interface de Linha de Comando (CLI) do Service Fabric, que é executada sobre a CLI 2.0 do Azure.
+- Comandos do PowerShell. 
+
+Neste início rápido você usa a CLI do Service Fabric e o Service Fabric Explorer. 
+
+Para usar a CLI, você precisa criar um arquivo PEM com base no arquivo PFX que você baixou. Para converter o arquivo, use o comando a seguir. (Para clusters de entidade, você pode copiar um comando específico para o arquivo PFX a partir das instruções na página **Leiame**.)
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
+
+Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX do certificado que você baixou do site do Cluster de Entidade para o repositório de certificados (Windows ou Mac) ou para o navegador propriamente dito (Ubuntu). Você precisa da senha de chave privada do PFX, que você pode obter na página **Leiame**.
+
+Use qualquer método com o qual você está mais familiarizado para importar o certificado em seu sistema. Por exemplo: 
+
+- No Windows: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell nas instruções **Leiame**.
+- No Mac: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu conjunto de chaves.
+- No Ubuntu: o Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e, em seguida, clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
+ 
+   ![Instalar certificado no Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png) 
+
 
 ### <a name="add-certificate-information-to-your-application"></a>Adicionar informações de certificado ao seu aplicativo
 
@@ -104,7 +122,7 @@ A impressão digital do certificado precisa ser adicionada ao seu aplicativo por
 1. Você precisará da impressão digital do certificado no arquivo ```Voting/VotingApplication/ApplicationManiest.xml``` ao executar em um cluster seguro. Execute o comando a seguir para extrair a impressão digital do certificado.
 
     ```bash
-    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
 2. Em ```Voting/VotingApplication/ApplicationManiest.xml```, adicione o trecho de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
@@ -136,16 +154,16 @@ Agora que o aplicativo e o cluster estão prontos, você pode implantá-los no c
 
     ![Caixa de diálogo Publicar em nuvem](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Abra seu navegador da Web favorito e acessar o aplicativo acessando **http://\<ConnectionIPOrURL>:8080**. 
+3. Abra seu navegador da Web e acesse o aplicativo em: **http://\<ConnectionIPOrURL>:8080**. 
 
     ![Front-end do aplicativo em nuvem](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
-Os serviços do Service Fabric podem ser facilmente colocados em escala em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Existem várias maneiras de colocar seus serviços em escala usando scripts ou comandos da CLI do Service Fabric (sfctl). Neste exemplo, estamos usando o Service Fabric Explorer.
+Os serviços do Service Fabric podem ser facilmente colocados em escala em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Existem várias maneiras de colocar seus serviços em escala, por exemplo, usando scripts ou comandos da CLI do Service Fabric (sfctl). Nas etapas a seguir, use o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP do cluster (19080), por exemplo, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 
-Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
+Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
@@ -161,17 +179,17 @@ Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
     Agora, você pode ver que o serviço tem duas instâncias e no modo de exibição de árvore, você vê em quais nós as instâncias são executadas.
 
-Com essa tarefa de gerenciamento simples, dobramos o número de recursos disponíveis para nosso serviço de front-end para processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric garantirá que uma nova instância de serviço seja executada no cluster.
+Com essa tarefa de gerenciamento simples, você dobrou o número de recursos disponíveis para o serviço de front-end processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric fará com que uma nova instância de serviço seja executada no cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você aprendeu a:
 
-> [!div class="checklist"]
-> * Usar o Eclipse como uma ferramenta para seus aplicativos Java do Service Fabric
-> * Implantar aplicativos Java no cluster local 
-> * Implantar aplicativos Java em um cluster no Azure
-> * Expandir o aplicativo para vários nós
+* Usar o Eclipse como uma ferramenta para seus aplicativos Java do Service Fabric
+* Implantar aplicativos Java no cluster local 
+* Implantar aplicativos Java em um cluster no Azure
+* Expandir o aplicativo para vários nós
 
-* Saiba mais sobre [depuração de serviços em Java usando o Eclipse](service-fabric-debugging-your-application-java.md)
-* Saiba mais sobre [configurar sua integração e implantação contínuas usando Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Confira outros [Exemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+Para saber mais sobre como trabalhar com aplicativos Java no Service Fabric, continue o tutorial para os aplicativos Java.
+
+> [!div class="nextstepaction"]
+> [Implantar um aplicativo Java](./service-fabric-tutorial-create-java-app.md)

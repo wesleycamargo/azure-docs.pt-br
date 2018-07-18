@@ -1,11 +1,11 @@
 ---
 title: Otimizar o desempenho do MySQL no Linux | Microsoft Docs
-description: "Aprenda a otimizar o MySQL em execução em uma máquina virtual do Azure (VM) executando o Linux."
+description: Aprenda a otimizar o MySQL em execução em uma máquina virtual do Azure (VM) executando o Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Otimizar o desempenho do MySQL em VMs Linux do Azure
 Há muitos fatores que afetam o desempenho do MySQL no Azure, tanto na configuração de software como na seleção de hardware virtual. Este artigo se concentra na otimização de desempenho por meio de armazenamento, sistema e configurações de banco de dados.
@@ -225,10 +225,10 @@ No MySQL 5.6, a configuração padrão é ON, portanto, nenhuma ação é necess
 
 Consulte [Apêndice D](#AppendixD) para ver uma comparação de desempenho antes e depois da otimização.
 
-## <a name="turn-on-the-mysql-slow-query-log-for-analyzing-the-performance-bottleneck"></a>Ativar o log de consultas lentas do MySQL para analisar o estrangulamento de desempenho
-O log de consultas lentas do MySQL pode ajudá-lo a identificar as consultas lentas para o MySQL. Depois de habilitar o log de consultas lentas do MySQL, você pode usar as ferramentas do MySQL como **mysqldumpslow** para identificar o estrangulamento de desempenho.  
+## <a name="turn-on-the-mysql-slow-query-log-for-analyzing-the-performance-bottleneck"></a>Ativar o log de consultas lentas do MySQL para analisar o gargalo de desempenho
+O log de consultas lentas do MySQL pode ajudá-lo a identificar as consultas lentas para o MySQL. Depois de habilitar o log de consultas lentas do MySQL, você pode usar as ferramentas do MySQL como **mysqldumpslow** para identificar o gargalo de desempenho.  
 
-Por padrão, isso não está habilitado. Ativar o log de consultas lentas pode consumir alguns recursos da CPU. É recomendável que você habilite isso temporariamente para solucionar problemas de afunilamento de desempenho. Para ativar o log de consultas lentas:
+Por padrão, isso não está habilitado. Ativar o log de consultas lentas pode consumir alguns recursos da CPU. É recomendável que você habilite isso temporariamente para solucionar problemas de gargalo de desempenho. Para ativar o log de consultas lentas:
 
 1. Modificar o arquivo my.cnf adicionando as seguintes linhas ao final:
 
@@ -246,7 +246,7 @@ Por padrão, isso não está habilitado. Ativar o log de consultas lentas pode c
 
 ![Slow-query-log results][8]
 
-Neste exemplo, você pode ver que o recurso de consulta lenta foi ativado. Você pode usar a ferramenta **mysqldumpslow** para determinar os estrangulamentos de desempenho e otimizar o desempenho, como a adição de índices.
+Neste exemplo, você pode ver que o recurso de consulta lenta foi ativado. Você pode usar a ferramenta **mysqldumpslow** para determinar os gargalos de desempenho e otimizar o desempenho, como a adição de índices.
 
 ## <a name="appendices"></a>Anexos
 A seguir estão os dados do teste de desempenho de exemplo produzidos em um ambiente de laboratório de destino. Eles oferecem informações gerais sobre a tendência dos dados de desempenho com diferentes abordagens de ajuste de desempenho. Os resultados podem variar em versões diferentes de ambiente ou produto.

@@ -1,25 +1,25 @@
 ---
-title: "Estender o HDInsight com a Rede Virtual – Azure | Microsoft Docs"
+title: Estender o HDInsight com a Rede Virtual – Azure | Microsoft Docs
 description: Saiba como usar a Rede Virtual do Azure para conectar o HDInsight a outros recursos de nuvem ou recursos no seu datacenter
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -93,7 +93,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
         Para obter mais informações, consulte o documento [Solução de problemas dos grupos de segurança de rede](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
 
         > [!IMPORTANT]
-        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+        > As regras do grupo de segurança de rede são aplicadas em ordem, com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada e nenhuma outra é aplicada ao tráfego. Ordene as regras da mais permissiva para a menos permissiva. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
 
     * Rotas definidas pelo usuário
 
@@ -173,11 +173,11 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
     Para obter um exemplo de cada configuração, consulte a seção [Exemplo: DNS personalizado](#example-dns).
 
-Para obter mais informações, consulte o documento [Resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Para obter mais informações, consulte o documento [Resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="directly-connect-to-hadoop-services"></a>Conectar-se diretamente aos serviços do Hadoop
 
-A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em https://NOMEDOCLUSTER.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
+A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, que você possa se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
 
 Para se conectar ao Ambari e a outras páginas da Web por meio da rede virtual, use as seguintes etapas:
 
@@ -214,7 +214,7 @@ Para se conectar ao Ambari e a outras páginas da Web por meio da rede virtual, 
 
 O tráfego de rede em Redes Virtuais do Azure pode ser controlado com os seguintes métodos:
 
-* Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+* Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
 
     > [!WARNING]
     > O HDInsight não dá suporte à restrição do tráfego de saída.
@@ -242,7 +242,7 @@ Se você pretende usar **grupos de segurança de rede** ou **rotas definidas pel
 
 Para obter mais informações sobre grupos de segurança de rede ou rotas definidas pelo usuário, consulte a seguinte documentação:
 
-* [Grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+* [Grupo de segurança de rede](../virtual-network/security-overview.md)
 
 * [Rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -434,7 +434,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
-$vnet | Set-AzureRmVirtual Network
+$vnet | Set-AzureRmVirtualNetwork
 ```
 
 > [!IMPORTANT]
@@ -666,6 +666,6 @@ Depois de concluir essas etapas, você poderá se conectar aos recursos na rede 
 * Para configurar a replicação geográfica do HBase, consulte [Configurar a replicação de cluster HBase em redes virtuais do Azure](hbase/apache-hbase-replication.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
 
 * Para saber mais sobre rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

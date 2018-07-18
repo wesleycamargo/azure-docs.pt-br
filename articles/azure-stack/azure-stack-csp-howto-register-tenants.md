@@ -1,11 +1,11 @@
 ---
-title: "Adicionar locatários pelo uso e cobrança para a pilha do Azure | Microsoft Docs"
-description: "As etapas necessárias adicionam um usuário final a pilha do Azure gerenciados por um provedor de serviço de nuvem."
+title: Adicionar locatários pelo uso e cobrança para a pilha do Azure | Microsoft Docs
+description: As etapas necessárias adicionam um usuário final a pilha do Azure gerenciados por um provedor de serviço de nuvem.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar locatário para uso e cobrança para a pilha do Azure
 
@@ -58,7 +58,7 @@ Atualize o registro com a nova assinatura do cliente. Azure relatórios de uso d
 > Para executar essa etapa, você deve ter [registrado Azure pilha](azure-stack-register.md).
 
 1. Abra o Windows PowerShell com um prompt com privilégios elevados e execute:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Digite suas credenciais do Azure.
 3. Na sessão do PowerShell, execute:
 

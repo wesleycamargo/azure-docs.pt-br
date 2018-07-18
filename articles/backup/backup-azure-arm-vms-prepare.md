@@ -15,24 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940563"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
-Este artigo mostra como preparar seu ambiente para o backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Armazene os dados de backup da máquina virtual em um cofre dos Serviços de Recuperação. O cofre contém os dados de backup para máquinas virtuais implantadas com o Resource Manager e clássicas.
+Este artigo mostra como preparar seu ambiente para o backup de uma VM (máquina virtual) implantada com o Azure Resource Manager. As etapas mostradas nos procedimentos usam o Portal do Azure. Quando você faz backup de uma máquina virtual, os dados de backup ou os pontos de recuperação são armazenados em um cofre dos Serviços de Recuperação. Os cofres dos Serviços de Recuperação armazenam dados de backup para máquinas virtuais implantadas pelo Resource Manager e clássicas.
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Antes de proteger (ou fazer backup) uma máquina virtual implementada com o Resource Manager, verifique se esses pré-requisitos existem:
 
-* Crie um cofre dos Serviços de Recuperação (ou identifique um cofre dos Serviços de Recuperação existente) *na mesma região da sua VM*.
+* Crie ou identifique um cofre de Serviços de Recuperação *na mesma região que sua máquina virtual*.
 * Selecione um cenário, defina a política de backup e os itens a serem protegidos.
-* Verifique a instalação de um agente de VM na máquina virtual.
+* Verifique a instalação de um agente de VM (extensão) na máquina virtual.
 * Verifique a conectividade de rede.
 * Para VMs Linux, se você desejar personalizar o ambiente de backup para backups consistentes com o aplicativo, siga as [etapas para configurar scripts pré-instantâneo e pós-instantâneo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,12 +52,12 @@ Antes de preparar seu ambiente, note as seguintes limitações:
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
-* Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 
+* Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
-* Não há suporte para backup e restauração de máquinas virtuais usando discos não gerenciados em contas de armazenamento com regras de rede aplicadas. 
 * Ao configurar o backup, certifique-se de que as configurações de **Firewalls e redes virtuais** da conta de armazenamento permitem o acesso de Todas as redes.
+* Para redes selecionadas, depois de configurar as definições de firewall e rede virtual para sua conta de armazenamento, selecione **Permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** como uma exceção para habilitar o serviço de Backup do Microsoft Azure para acessar a conta de armazenamento restrita de rede. Não há suporte para a recuperação de nível de item para contas de armazenamento restritas de rede.
 * Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Veja a [lista](https://azure.microsoft.com/regions/#services) das regiões com suporte.) Se o suporte ainda não estiver disponível para região que você procura, ela não aparecerá na lista suspensa durante a criação de cofre.
 * A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, confira [Restauração de um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. As VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restauração de VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -167,12 +168,12 @@ Antes de registrar uma máquina virtual com um cofre dos Serviços de Recuperaç
 
    ![Botão "Habilitar backup"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Depois de habilitar o backup com êxito, sua política de backup será executada no prazo especificado. Se você quiser gerar um trabalho de backup sob demanda para fazer backup das máquinas virtuais agora, confira [Disparar o trabalho de backup](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Depois de habilitar o backup com êxito, sua política de backup será executada no prazo especificado. Se você quiser gerar um trabalho de backup sob demanda para fazer backup das máquinas virtuais agora, confira [Disparar o trabalho de backup](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Se você tiver problemas ao registrar a máquina virtual, confira as seguintes informações sobre como instalar o agente de VM e conectividade de rede. Se as máquinas virtuais criadas no Azure estiverem protegidas, então é provável que as informações a seguir não serão necessárias. Mas se você migrou suas máquinas virtuais para o Azure, confira se o agente de VM foi instalado corretamente e se a sua máquina virtual pode se comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente de VM na máquina virtual
-Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/windows/agent-user-guide.md) do Azure deve ser instalado na máquina virtual do Azure. Se sua VM tiver sido criada por meio do Azure Marketplace, o agente de VM já estará presente na máquina virtual. 
+Para a extensão de backup funcionar, o [agente de VM](../virtual-machines/extensions/agent-windows.md) do Azure deve ser instalado na máquina virtual do Azure. Se sua VM tiver sido criada por meio do Azure Marketplace, o agente de VM já estará presente na máquina virtual. 
 
 As informações a seguir são fornecidas para situações em que você *não* está usando uma VM criada por meio do Azure Marketplace. Por exemplo, você migrou uma VM de um datacenter local. Nesse caso, o agente de VM precisa ser instalado para proteger a máquina virtual.
 
@@ -180,9 +181,9 @@ Se você tiver problemas para fazer backup da VM do Azure, use a tabela a seguir
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalar o agente de VM |Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de administrador para concluir a instalação. |Instale o [agente Linux](../virtual-machines/linux/agent-user-guide.md) mais recente. Você precisa de privilégios de administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. *Não é recomendável* instalar o agente de VM Linux diretamente do GitHub.  |
-| Atualizar o agente de VM |A atualização do agente de VM é tão simples quanto reinstalar os [binários do agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções para [atualizar o agente de VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. *Não é recomendável* atualizar o agente de VM Linux diretamente do GitHub.<br><br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
-| Validar a instalação do agente de VM |1. Navegue até a pasta :\WindowsAzure\Packages na VM do Azure. <br><br>2. Localize o arquivo WaAppAgent.exe. <br><br>3. Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo **Versão do Produto** deve ser 2.6.1198.718 ou mais recente. |N/D |
+| Instalação do agente de VM |Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. |<li> Instale o [agente Linux](../virtual-machines/extensions/agent-linux.md) mais recente. Você precisará de privilégios de Administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
+| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
+| Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
 
 ### <a name="backup-extension"></a>Extensão de backup
 Depois que o Agente de VM for instalado na máquina virtual, o serviço de Backup do Azure instalará a extensão de backup no agente de VM. O serviço do Backup atualiza e corrige continuamente a extensão de backup.
@@ -208,6 +209,10 @@ Para colocar os intervalos IP do datacenter do Azure na lista de permissões, co
 Você pode permitir conexões ao armazenamento da região específica usando [marcas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tenha prioridade maior do que a regra que bloqueia o acesso à Internet. 
 
 ![NSG com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+O vídeo a seguir explica o procedimento passo a passo para configurar marcas de serviço: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Marcas de serviço de armazenamento estão disponíveis somente em regiões específicas e estão em versão prévia. Para obter a lista de regiões, consulte [Marcas de serviço para armazenamento](../virtual-network/security-overview.md#service-tags).

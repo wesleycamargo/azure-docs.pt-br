@@ -2,9 +2,9 @@
 title: Importar dados para usar com a API de Tabela do Azure Cosmos DB | Microsoft Docs
 description: Saiba como importar dados para usar com a API de Tabela do Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: mimig
-ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sngun
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importar dados para usar com a API de Tabela do Azure Cosmos DB
 
@@ -29,6 +29,10 @@ Este tutorial cobre as seguintes tarefas:
 > * Importar dados com a ferramenta de migração de dados
 > * Importar dados com o AzCopy
 > * Migrar da API de Tabela (versão prévia) para a API de Tabela 
+
+## <a name="prerequisites"></a>pré-requisitos
+
+* Aumentar a taxa de transferência: a duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, consulte Níveis de desempenho e tipos de preço no Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Ferramenta de migração de dados
 

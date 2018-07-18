@@ -3,7 +3,7 @@ title: Carregar dados para trabalhos do Hadoop no HDInsight | Microsoft Docs
 description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando o Azure CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
 keywords: hadoop de etl, inserindo dados no hadoop, carregar dados no hadoop
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -11,17 +11,15 @@ editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2017
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1734e9f0002ab7f33a8a67e44811352cb5c45fdc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
 
@@ -176,7 +174,7 @@ ou o
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Para obter uma lista dos outros comandos Hadoop que trabalham com os arquivos, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Para obter uma lista de outros comandos de Hadoop que trabalham com arquivos, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > Em clusters HBase, o tamanho do bloco padrão usado na gravação de dados é de 256 KB. Embora isso funcione bem com APIs HBase ou APIs REST, o uso dos comandos `hadoop` ou `hdfs dfs` para gravar dados com mais de, aproximadamente, 12 GB resultará em um erro. Para obter mais informações, consulte a seção [Exceção de armazenamento para gravar no blob](#storageexception) neste artigo.
@@ -188,7 +186,7 @@ Também há vários aplicativos que fornecem uma interface gráfica para trabalh
 
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Ferramentas do Microsoft Visual Studio para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Ferramentas do Microsoft Visual Studio para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,7 +194,7 @@ Também há vários aplicativos que fornecem uma interface gráfica para trabalh
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para HDInsight
-Para saber mais, veja [Navegar nos recursos vinculados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Para saber mais, veja [Navegar nos recursos vinculados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Gerenciador de Armazenamento do Azure
 *Gerenciador de Armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados nos blobs. É uma ferramenta de software livre que pode ser baixada em [http://storageexplorer.com/](http://storageexplorer.com/). O código-fonte está disponível também neste link.
@@ -280,7 +278,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente usando Ambari. As etapas a seguir podem ser usadas para alterar o valor na interface de usuário do Ambari Web:
 
-1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. Isto é, https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do seu cluster.
+1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. Isto é https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do cluster.
 
     Quando solicitado, insira o nome de administrador e a senha de administrador para o cluster.
 2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações**.

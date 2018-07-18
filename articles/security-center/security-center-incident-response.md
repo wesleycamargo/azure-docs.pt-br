@@ -1,11 +1,11 @@
 ---
-title: "Responder a incidentes de segurança com a Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento explica como usar a Central de Segurança do Azure para um cenário de resposta a incidentes."
+title: Responder a incidentes de segurança com a Central de Segurança do Azure | Microsoft Docs
+description: Este documento explica como usar a Central de Segurança do Azure para um cenário de resposta a incidentes.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: 
+author: terrylan
+manager: mbaldwin
+editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f3a9344b9bd383ea59ff3cb400faa90942c5b9f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Usando a Central de Segurança do Azure para uma resposta a incidentes
 Muitas organizações aprendem como responder aos incidentes de segurança somente depois de sofrer um ataque. Para reduzir os custos e danos, é importante ter um plano de resposta aos incidentes em vigor antes que ocorra um ataque. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.

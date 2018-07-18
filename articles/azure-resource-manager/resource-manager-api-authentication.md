@@ -1,6 +1,6 @@
 ---
-title: "Autenticação do Azure Active Directory e Resource Manager | Microsoft Docs"
-description: "Guia do desenvolvedor para autenticação com a API do Azure Resource Manager e o Azure Active Directory para integrar um aplicativo a outras assinaturas do Azure."
+title: Autenticação do Azure Active Directory e Resource Manager | Microsoft Docs
+description: Guia do desenvolvedor para autenticação com a API do Azure Resource Manager e o Azure Active Directory para integrar um aplicativo a outras assinaturas do Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359855"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usar API de autenticação do Resource Manager para acessar assinaturas
 ## <a name="introduction"></a>Introdução
@@ -323,7 +324,7 @@ Um exemplo de solicitação para atribuir função RBAC ao aplicativo:
 
 Na solicitação, são usados os seguintes valores:
 
-| Guid | Descrição |
+| Guid | DESCRIÇÃO |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |a ID da assinatura |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |a ID de objeto da entidade de serviço do aplicativo |

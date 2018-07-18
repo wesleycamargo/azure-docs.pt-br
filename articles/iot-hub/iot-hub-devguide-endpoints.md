@@ -1,11 +1,11 @@
 ---
 title: Entender os pontos de extremidade do Hub IoT do Azure | Microsoft Docs
-description: "Guia do desenvolvedor ‑ Informações de referência sobre pontos de extremidade do Hub IoT voltados para o dispositivo e para o serviço."
+description: Guia do desenvolvedor ‑ Informações de referência sobre pontos de extremidade do Hub IoT voltados para o dispositivo e para o serviço.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d9378a084d8ff421539a445986a5a18d073f3ce6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="iot-hub-names"></a>Nomes de Hub IoT
 
@@ -69,7 +71,7 @@ Você pode vincular os serviços existentes do Azure em sua assinatura ao Hub Io
 Atualmente, o Hub IoT é compatível com os seguintes serviços do Azure como pontos de extremidade adicionais:
 
 * Contêineres de Armazenamento do Azure
-* Hubs de evento
+* Hubs de Eventos
 * Filas de barramento de serviço
 * Tópicos do Service Bus
 
@@ -86,7 +88,7 @@ O Hub IoT oferece suporte somente à gravação de dados em contêineres de Arma
 * O lote alcançar um determinado tamanho.
 * Ou, uma determinada quantidade de tempo tenha decorrido.
 
-Se não houver dados para gravação, o Hub IoT gravará um blob vazio.
+O Hub IoT gravará em um blob vazio se não houver nenhum dado para gravação.
 
 O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão:
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258990"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -397,9 +398,9 @@ Após instalar o agente, execute os comandos do Powershell a seguir para configu
 
 **Comando #1**
 
-> cd C:\\Arquivos de Programa\\Agente de Sincronização do Microsoft Azure Active Directory\\Módulos\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Comando #2**
 
@@ -416,6 +417,9 @@ Após instalar o agente, execute os comandos do Powershell a seguir para configu
 
 >[!IMPORTANT]
 >Atualmente, há um problema conhecido com credenciais de administrador global que não funcionam ao se usar um domínio personalizado (por exemplo: admin@contoso.com). Como alternativa, criar e usar uma conta de administrador global com um domínio onmicrosoft.com (exemplo: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Atualmente, há um problema conhecido com credenciais de administrador global que não funcionarão se a autenticação multifator delas estiver habilitada. Como alternativa, desabilite a autenticação multifator para o administrador global.
 
 
 **Comando #4**
@@ -465,7 +469,7 @@ Se o seu locatário do Azure Active Directory estiver localizado em um dos data 
 
 **Solucionar problemas do agente**
 
-O [Log de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) na computador do Windows Server que hospeda o agente contém eventos para todas as operações executadas pelo agente. Para exibir esses eventos:
+O [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) na computador do Windows Server que hospeda o agente contém eventos para todas as operações executadas pelo agente. Para exibir esses eventos:
     
 1. Abra **Eventvwr.msc**.
 2. Selecione **Logs do Windows > Aplicativo**.
@@ -488,7 +492,7 @@ Após concluir as partes de 1 a 3, você poderá iniciar o serviço de provision
 
 4. A qualquer momento, verifique os **Logs de auditoria** no portal do Azure para ver as ações que o serviço de provisionamento executou. Os logs de auditoria listam todos os eventos de sincronização realizados pelo serviço de provisionamento, tais como aqueles em que os usuários estão sendo lidos do Workday e, posteriormente adicionados ou atualizados no Active Directory. **[Consulte o guia de relatórios de provisionamento para obter instruções detalhadas sobre como ler os logs de auditoria](active-directory-saas-provisioning-reporting.md)**
 
-5.  Verifique o [Log de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) no computador do Windows Server que hospeda o agente para erros ou avisos. Esses eventos podem ser visualizados iniciando-se o **Eventvwr.msc** no servidor e selecionando **Logs do Windows > Aplicativo**. Todas as mensagens relacionadas ao provisionamento são registradas na fonte **AADSyncAgent**. 
+5.  Verifique o [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) no computador do Windows Server que hospeda o agente para erros ou avisos. Esses eventos podem ser visualizados iniciando-se o **Eventvwr.msc** no servidor e selecionando **Logs do Windows > Aplicativo**. Todas as mensagens relacionadas ao provisionamento são registradas na fonte **AADSyncAgent**. 
     
 
 6. Após a conclusão, um relatório de resumo de auditoria será gravado na guia **Provisionamento** conforme mostrado abaixo.
@@ -801,22 +805,15 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
 * Um problema antigo com logs de auditoria que não eram exibidos nos locatários do Azure AD localizados na União Europeia foi resolvido. No entanto, uma configuração de agente adicional é necessária para locatários do Azure AD na UE. Para obter detalhes, consulte [Parte 3: Configurar o agente de sincronização local](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
+## <a name="gdpr-information"></a>Informações GDPR
 
 O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR impõe regras às empresas, órgãos governamentais, organizações sem fins lucrativos e outras organizações que oferecem bens e serviços para pessoas da UE ou que coletam e analisam dados vinculados a residentes da UE. 
 
-O serviço de provisionamento do Azure AD é compatível com GDPR, junto com o restante dos recursos e serviços da Microsoft. Para saber mais sobre a história do GDPR da Microsoft, confira os [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Para saber mais sobre a história do GDPR da Microsoft, confira os [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-No entanto, como a solução de provisionamento da Workday para o Active Directory exige a instalação de um agente de sincronização em um servidor ingressado no domínio, será necessário monitorar alguns eventos para também permanecer compatível com GDPR.
- 
-O agente cria logs no **Log de eventos do Windows**, o que pode conter informações de identificação pessoal.
+Observe que a solução de provisionamento do Workday para o Active Directory requer um agente de sincronização a ser instalado em um servidor de domínio ingresso, e este agente cria os logs no **log de Eventos do Windows** que pode conter informações de identificação pessoal.
 
-Há duas maneiras de permanecer compatível com GDPR:
-
-1. Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa dos logs de Eventos do Windows. 
-2. Mantenha a retenção dos logs de Eventos do Windows provenientes do processo AADSyncAgent abaixo de 48 horas
-
-Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Para saber mais sobre como configurar a retenção de dados para os logs de Eventos do Windows, confira as [Configurações dos logs de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obter informações gerais sobre o log de Eventos do Windows, confira [este artigo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -824,4 +821,3 @@ Para saber mais sobre como configurar a retenção de dados para os logs de Even
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-

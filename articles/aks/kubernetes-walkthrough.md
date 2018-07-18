@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 3005023e45bc6516732f077f152aed93564be38b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d07cf87f736b6df58ed46ef0ae98767d4d8a7a48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure (AKS)
 
 Neste início rápido, um cluster AKS é implantado usando a CLI do Azure. Um aplicativo de vários contêineres composto por um front-end da Web e uma instância Redis é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
 
@@ -29,7 +29,7 @@ Se você optar por instalar e usar a CLI localmente, este início rápido exigir
 
 ## <a name="enabling-aks-preview"></a>Habilitar a versão prévia de AKS
 
-Certifique-se de que os provedores de serviços do Azure necessários estejam habilitados com o comando `az provider register`. 
+Certifique-se de que os provedores de serviços do Azure necessários estejam habilitados com o comando `az provider register`.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
@@ -108,9 +108,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Um arquivo de manifesto Kubernetes define um estado desejado para o cluster, incluindo as imagens de contêiner que devem estar em execução. Neste exemplo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote. A imagem fornecida é de um aplicativo de exemplo, mas você pode ler sobre [como criar uma imagem](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e [como implantar o Registro de Contêiner do Azure](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) para usar os seus.
+Um arquivo de manifesto Kubernetes define um estado desejado para o cluster, incluindo as imagens de contêiner que devem estar em execução. Neste exemplo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote. Isso inclui duas [Implantações de Kubernetes][kubernetes-deployment], uma para os aplicativos do Azure Vote Python e outra para uma instância do Redis. Além disso, dois [Serviços Kubernetes][kubernetes-service] são criados, um serviço interno para a instância do Redis, e um serviço externo para acessar o aplicativo Azure Vote na internet.
 
-Crie um arquivo chamado `azure-vote.yaml` e copie-o para o código YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual. Se você estiver trabalhando localmente, poderá usar o Visual Studio Code para criar esse arquivo executando `code azure-vote.yaml`.
+Crie um arquivo chamado `azure-vote.yaml` e copie-o para o código YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +211,13 @@ Depois que o endereço *EXTERNAL-IP* for alterado de *pendente* para um *endere�
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Agora você pode navegar para o endereço IP externo a fim de ver o aplicativo Azure Vote.
+Agora, vá até o endereço IP externo a fim de ver o aplicativo Azure Vote.
 
 ![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Excluir cluster
 
-Quando o cluster não for mais necessário, você poderá usar o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
+Quando o cluster não for mais necessário, use o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -236,21 +236,22 @@ Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de 
 Para saber mais sobre o AKS e percorrer um código completo de exemplo de implantação, prossiga para o tutorial de cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Tutorial do AKS][aks-tutorial]:
+> [Tutorial do AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

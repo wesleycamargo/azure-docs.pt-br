@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes sobre VMs clássicas Linux | Microsoft Docs"
-description: "Responde algumas perguntas comuns sobre as máquinas virtuais Linux do Azure criadas com o modelo de implantação clássico."
+title: Perguntas frequentes sobre VMs clássicas Linux | Microsoft Docs
+description: Responde algumas perguntas comuns sobre as máquinas virtuais Linux do Azure criadas com o modelo de implantação clássico.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: b3f281a1-4abe-4e41-82e8-b2b854dd8c7a
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
-ms.openlocfilehash: dfb1960d2d2e5b3716d4791b7e025f50205699d4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: f654a4cd680abdb23d01a63a0b8243158ac541f1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="frequently-asked-question-about-azure-linux-virtual-machines-created-with-the-classic-deployment-model"></a>Perguntas frequentes sobre as Máquinas Virtuais Linux do Azure criadas com o modelo de implantação clássico
 > [!IMPORTANT] 

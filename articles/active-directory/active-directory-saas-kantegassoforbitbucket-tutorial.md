@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bitbucket | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o Bitbucket."
+title: 'Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bitbucket | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o Bitbucket.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: e8a228008844121e360eab8475c7e0616c3136ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 085c6c341f55d6974717159bc46b215768294e51
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bitbucket
 
@@ -29,9 +29,9 @@ A integração do SSO do Kantega para o Bitbucket ao Azure AD oferece os seguint
 - É possível permitir que os usuários se conectem automaticamente ao SSO do Kantega para o Bitbucket (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao SSO do Kantega para o Bitbucket, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SSO do Kantega para o Bitbucket por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-kantega-sso-for-bitbucket-from-the-gallery"></a>Adicionando o SSO do Kantega para o Bitbucket por meio da galeria
 Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, é necessário adicionar o SSO do Kantega para o Bitbucket à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,11 +63,11 @@ Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, �
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **SSO do Kantega para o Bitbucket**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, �
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o SSO do Kantega para o Bitbucket, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do SSO do Kantega para o Bitbucket é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SSO do Kantega para o Bitbucket.
@@ -86,11 +86,11 @@ No SSO do Kantega para o Bitbucket, atribua o valor do **nome de usuário** no A
 
 Para configurar e testar o logon único do Azure AD com o SSO do Kantega para o Bitbucket, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criando um usuário de teste do SSO do Kantega para o Bitbucket](#creating-a-kantega-sso-for-bitbucket-test-user)** – para ter um equivalente de Brenda Fernandes no SSO do Kantega para o Bitbucket que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo **SSO do Kantega para o Bitbucket**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_samlbase.png)
 
 3. No modo iniciado pelo **IDP**, na seção **Domínio e URLs do SSO do Kantega para o Bitbucket**, realize a seguinte etapa:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url1.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url1.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -116,7 +116,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. No modo iniciado pelo **SP**, marque a opção **Mostrar configurações de URL avançadas** e realize a seguinte etapa:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url2.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url2.png)
     
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -129,85 +129,85 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_400.png)
 
 7. Em outra janela do navegador da Web, faça logon no portal de administração do Bitbucket como administrador.
 
 8. Clique na engrenagem e em **Localizar novos complementos**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon1.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon1.png)
 
 9. Pesquise **SSO do Kantega para o Bitbucket SAML e Kerberos** e clique no botão **Instalar** para instalar o novo plug-in do SAML.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon2.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon2.png)
 
 10. A instalação do plug-in é iniciada.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon31.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon31.png)
 
 11. Quando a instalação for concluída. Clique em **fechar**
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon33.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon33.png)
 
 12. Clique em **Gerenciar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon34.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon34.png)
     
 13. Clique em **Configurar** para configurar o novo plug-in.    
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon35.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon35.png)
 
 14. Na seção **SAML**. Selecione **Azure AD (Azure Active Directory)** na lista suspensa **Adicionar provedor de identidade**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon4.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon4.png)
 
 15. Selecione o nível de assinatura como **Básico**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon5.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon5.png)
 
 16. Na seção **Propriedades do aplicativo**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon6.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon6.png)
 
     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Domínio e URLs do SSO do Kantega para o Bitbucket** do portal do Azure.
 
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 17. Na seção **Importação de metadados**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon7.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon7.png)
 
     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 18. Na seção **Nome e localização de SSO**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon8.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon8.png)
 
     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 19. Verifique o Certificado de autenticação e clique em **Avançar**.  
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon9.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon9.png)
 
 20. Na seção **Contas de usuário do Bitbucket**, realize as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon10.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon10.png)
 
     a. Selecione **Criar usuários no Diretório interno do Bitbucket, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
-    b. Clique em **Avançar**.
+    b. Clique em **Próximo**.
 
 21. Clique em **Concluir**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon11.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon11.png)
 
 22. Na seção **Domínios conhecidos do Azure AD**, realize as seguintes etapas: 
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon12.png)
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/addon12.png)
 
     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
@@ -300,7 +300,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 2. Na lista de aplicativos, selecione **SSO do Kantega para o Bitbucket**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -326,7 +326,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

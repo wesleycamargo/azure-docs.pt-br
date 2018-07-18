@@ -1,11 +1,11 @@
 ---
-title: "Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs"
-description: "Este artigo fornece uma visão geral do ITSMC (Conector de Gerenciamento de Serviços de TI) e informações como usar esta solução para monitorar e gerenciar de forma centralizada os itens de trabalho de ITSM no Azure Log Analytics, bem como resolver problemas rapidamente."
+title: Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs
+description: Este artigo fornece uma visão geral do ITSMC (Conector de Gerenciamento de Serviços de TI) e informações como usar esta solução para monitorar e gerenciar de forma centralizada os itens de trabalho de ITSM no Azure Log Analytics, bem como resolver problemas rapidamente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -191,7 +191,7 @@ Você também pode criar itens de trabalho nas origens de ITSM conectadas direta
 4. Forneça os valores apropriados nas caixas de texto **Tipo de Contato**, **Impacto**, **Urgência**, **Categoria** e **Subcategoria** e clique em **Criar**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e solicitação de alteração
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e solicitação de alteração
 
 Com base na configuração feita durante a configuração de uma conexão, o conector ITSM pode sincronizar até 120 dias de dados de Incidente e Solicitação de alteração. O esquema de registro de log para esses dados é fornecido na [próxima seção](#additional-information).
 
@@ -333,16 +333,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-itsm-connections"></a>Solução de problemas de conexões de ITSM
 1.  Se a conexão falhar na interface do usuário de origem conectada, com uma mensagem **Erro ao salvar conexão**, execute as seguintes etapas:
-- Para conexões com o ServiceNow, o Cherwell e o Provance,  
-           - verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-           - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
-- Para conexões do Service Manager,  
-           - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+ - Para conexões com o ServiceNow, o Cherwell e o Provance,  
+    - Verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
+    - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
+ - Para conexões do Service Manager,  
+    - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow, às vezes, entram em suspensão quando ficam ociosas por um longo período. Caso contrário, relate o problema.
 3.  Se os alertas do OMS são disparados mas os itens de trabalho não são criados no produto de ITSM ou se os itens de configuração não são criados/vinculados aos itens de trabalho ou para obter qualquer outra informação genérica, procure nos seguintes locais:
  -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores etc. Clique no bloco que mostra o **Status do Conector**, que o levará à **Pesquisa de Logs** com a consulta relevante. Examine os registros de log com LogType_S como ERROR para obter mais informações.
- - Página **Pesquisa de Log**: exiba os erros ou as informações relacionadas diretamente usando a consulta *Type=ServiceDeskLog_CL*.
+ - Página **Pesquisa de Log**: exiba os erros ou as informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas de implantação do aplicativo Web do Service Manager
 1.  No caso de problemas com a implantação do aplicativo Web, verifique se que você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.

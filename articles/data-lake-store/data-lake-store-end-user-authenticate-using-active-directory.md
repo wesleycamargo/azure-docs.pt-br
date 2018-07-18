@@ -1,23 +1,22 @@
 ---
-title: "Autenticação do usuário final: Data Lake Store com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory"
+title: 'Autenticação do usuário final: Data Lake Store com o Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação do usuário final com o Data Lake Store usando o Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 11aed2ee2af239b02375a2d90e2544b4b45b2d41
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197130"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação do usuário final com o Data Lake Store usando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ As duas opções resultam no fornecimento de um token OAuth 2.0 a seu aplicativo
 
 Este artigo descreve como criar um **aplicativo nativo do Azure AD para autenticação do usuário final**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação serviço a serviço, confira [Autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * A ID de sua assinatura. Você pode recuperá-la no portal do Azure. Por exemplo, está disponível na folha da conta do Data Lake Store.
@@ -83,7 +82,7 @@ Ao seguir as instruções do link, verifique se você selecionou **Nativo** para
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Etapa 2: Obter a ID do aplicativo e o URI de redirecionamento
 
-Confira [Obter ID do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para recuperar a ID do aplicativo (também chamada de ID do cliente no portal clássico do Azure) do aplicativo nativo do Azure AD.
+Consulte [Obter a ID do aplicativo](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para recuperar a ID do aplicativo.
 
 Para recuperar o URI de redirecionamento, siga as etapas abaixo.
 

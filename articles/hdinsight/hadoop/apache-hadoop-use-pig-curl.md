@@ -1,26 +1,26 @@
 ---
-title: "Usar o Pig do Hadoop com REST no HDInsight – Azure | Microsoft Docs"
+title: Usar o Pig do Hadoop com REST no HDInsight – Azure | Microsoft Docs
 description: Aprenda a usar o REST para executar trabalhos do Pig Latin em um cluster do Hadoop no Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: c2c441d92607a017b4451cd8a06fb78a5e8e7135
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4883794261116abf4925e7e4e9a8df14626c7a71
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Executar trabalhos do Pig com Hadoop no HDInsight usando o REST
 
@@ -66,7 +66,7 @@ Saiba como executar trabalhos do Pig Latin fazendo solicitações REST para um c
     * **-u**: o nome de usuário e a senha usados para autenticar a solicitação
     * **-G**: indica que essa solicitação é uma solicitação GET
 
-     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
+     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
 2. Use o seguinte para enviar um trabalho de Pig Latin para o cluster:
 

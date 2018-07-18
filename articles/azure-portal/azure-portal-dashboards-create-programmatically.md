@@ -1,23 +1,23 @@
 ---
-title: "Criar de maneira programática Painéis do Azure | Microsoft Docs"
-description: "Este artigo explica como criar programaticamente os Painéis do Azure."
+title: Criar de maneira programática Painéis do Azure | Microsoft Docs
+description: Este artigo explica como criar programaticamente os Painéis do Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -55,7 +55,7 @@ Depois de configurar o painel de sua preferência, as próximas etapas são publ
 
 ![Comando de compartilhamento](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicar no comando Compartilhamento mostra uma caixa de diálogo que solicita a escolha de a qual grupo de recursos e assinatura publicar. Tenha em mente que você [deve ter acesso de gravação](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) à assinatura e ao grupo de recursos que escolher.
+Clicar no comando Compartilhamento mostra uma caixa de diálogo que solicita a escolha de a qual grupo de recursos e assinatura publicar. Tenha em mente que você [deve ter acesso de gravação](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) à assinatura e ao grupo de recursos que escolher.
 
 ![compartilhamento e acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Compilar um aplicativo Web Python e PostgreSQL no Azure | Microsoft Docs
-description: "Saiba como fazer com que um aplicativo Python funcione no Azure com conexão a um banco de dados PostgreSQL."
+description: Saiba como fazer com que um aplicativo Python funcione no Azure com conexão a um banco de dados PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 49ec67d06446d6c48e45aef90e2bd528a1b541a9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Criar um aplicativo Web Python e PostgreSQL no Azure
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Tutorial: criar um aplicativo Web Python e PostgreSQL no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o serviço de aplicativo em _Linux_, consulte [Compilar um aplicativo Web Docker Python e PostgreSQL no Azure](./containers/tutorial-docker-python-postgresql-app.md).
@@ -134,58 +134,58 @@ Nesta etapa, você cria um banco de dados PostgreSQL no Azure. Quando seu aplica
 
 Criar um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
-No comando a seguir, substitua um nome do servidor exclusivo para o espaço reservado  *\<postgresql_name >* e um nome de usuário para o espaço reservado  *\<admin_username >*. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure. O nome de usuário é necessário para a conta do usuário administrador de banco de dados inicial. É solicitado que você escolha uma senha para esse usuário.
+No comando a seguir, substitua o espaço reservado  *\<postgresql_name >* por um nome de servidor exclusivo,*\<admin_username>* por um nome de usuário e *\<admin_password>* por uma senha. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 Quando o servidor PostgreSQL do Banco de Dados do Azure for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
 
 ```json
 {
-  "administratorLogin": "<my_admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
-  "location": "westus",
-  "name": "<postgresql_name>",
+  "location": "westeurope",
+  "name": "<postgresql_server_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
-    "capacity": 100,
-    "family": null,
-    "name": "PGSQLS3M100",
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 2048,
-  "tags": null,
-  "type": "Microsoft.DBforPostgreSQL/servers",
-  "userVisibleState": "Ready",
-  "version": null
+  "sslEnforcement": "Enabled",
+  ...   +  
+  -  < Output has been truncated for readability >
 }
 ```
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-Execute o seguinte comando da CLI do Azure para permitir o acesso ao banco de dados a partir de todos os endereços IP.
+Execute o seguinte comando da CLI do Azure para permitir o acesso ao banco de dados a partir de todos os endereços IP. Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0 --name AllowAzureIPs
 ```
 
 A CLI do Azure confirma a criação da regra de firewall com saída semelhante ao exemplo a seguir:
 
 ```json
 {
+  "additionalProperties": {},
   "endIpAddress": "255.255.255.255",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
   "name": "AllowAllIPs",
-  "resourceGroup": "myResourceGroup",
+ "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
 }
 ```
+
+> [!TIP] 
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
+>
 
 ### <a name="create-a-production-database-and-user"></a>Criar um banco de dados e um usuário de produção
 
@@ -194,7 +194,7 @@ Crie um usuário de banco de dados com acesso somente a um banco de dados indivi
 Conecte-se ao banco de dados (sua senha de administrador será solicitada).
 
 ```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
+psql -h <postgresql_name>.postgres.database.azure.com -U <admin_username>@<postgresql_name> postgres
 ```
 
 Crie o banco de dados e o usuário usando a CLI do PostgreSQL.
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Navegue para http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
+Navegue até http://localhost:5000 em um navegador. Clique em **Registrar!** e crie um registro de teste. Agora, você está gravando dados no banco de dados no Azure.
 
 ![Aplicativo Python Flask em execução localmente](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -345,7 +345,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Navegue até http://localhost:5000 no navegador para ver as alterações. Crie um registro de teste.
+Navegue até http://localhost:5000 no navegador para exibir as alterações. Crie um registro de teste.
 
 ![Aplicativo Python Flask em execução localmente](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 

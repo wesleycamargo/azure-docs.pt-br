@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Logon Único Contínuo - conformidade com GDPR | Microsoft Docs'
+title: Privacidade do usuário e logon único contínuo do Microsoft Azure AD | Microsoft Docs
 description: Este artigo trata do SSO Contínuo do Microsoft Azure AD (Azure Active Directory) e conformidade com GDPR.
 services: active-directory
 keywords: o que é o Azure AD Connect, GDPR, componentes necessários para o Microsoft Azure AD, SSO, Logon Único
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149520"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Logon Único Contínuo do Microsoft Azure AD: conformidade com GDPR
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do usuário e logon único contínuo do Microsoft Azure AD
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Visão geral
 
-A partir de maio de 2018, entra em vigor uma legislação de privacidade europeia, o [Regulamento Geral de Proteção de Dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). O GDPR impõe novas regras às empresas, órgãos governamentais, organizações sem fins lucrativos e outras organizações que oferecem bens e serviços para pessoas da União Europeia (UE) ou que coletam e analisam dados vinculados a residentes da UE. O GDPR se aplica independentemente de onde você está localizado. 
-
-Os produtos e serviços da Microsoft estão disponíveis atualmente para ajudá-lo a atender aos requisitos do GDPR. Leia mais sobre a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 O SSO Contínuo do Microsoft Azure AD cria o seguinte tipo de log, que pode conter EUII:
 
 - Arquivos de log de rastreamento do Azure AD Connect.
 
-A conformidade com GDPR para SSO Contínuo pode ser alcançada de duas maneiras:
+A conformidade com a privacidade do usuário para SSO Contínuo pode ser alcançada de duas maneiras:
 
 1.  Mediante solicitação, extraia dados de uma pessoa e remova os dados dessa pessoa das instalações.
 2.  Certifique-se de que nenhum dado é retido além de 48 horas.
@@ -65,6 +65,6 @@ Para saber mais sobre os requisitos do GDPR do Azure AD Connect relacionados, co
 Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
-
+* [Revise a Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter)
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

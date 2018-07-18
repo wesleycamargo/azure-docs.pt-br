@@ -2,24 +2,22 @@
 title: Use o Spark para ler e gravar dados em HBase - Azure HDInsight| Microsoft Docs
 description: Use o conector do HBase Spark para ler e gravar dados de um cluster Spark para um cluster HBase.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: ccbcd1d9cb45da7076d73f71a2ed692e71816650
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Usar o Spark para ler e gravar dados do HBase
 
@@ -131,7 +129,7 @@ Nesta etapa, você pode criar e popular uma tabela simple no HBase, você pode c
 1. Conecte-se ao nó principal do cluster Spark usando o SSH.
 2. Inicie o Shell do Spark, especificando o pacote conector HBase Spark:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
 
 3. Mantenha essa instância do Shell do Spark aberta e continue para a próxima etapa.
 

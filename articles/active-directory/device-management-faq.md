@@ -2,7 +2,7 @@
 title: Perguntas frequentes sobre o gerenciamento de dispositivo do Azure Active Directory | Microsoft Docs
 description: Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ef5b84820cfcaf86f526ddd0565463e12b96331
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -41,47 +41,44 @@ ms.lasthandoff: 01/16/2018
 
 **P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário no Portal do Azure?**
 
-**R:** Dispositivos Windows 10 que ingressaram no domínio com o registro de dispositivo automático não aparecem nas informações de usuário.
+**R:** Dispositivos do Windows 10 que são ingressados no Azure AD Híbrido não aparecem nos dispositivos USER.
 Você precisa usar o PowerShell para ver todos os dispositivos. 
 
-Apenas os seguintes dispositivos são listados nas informações de usuário:
+Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
 
-- Todos os dispositivos pessoais que não são ingressados pela empresa 
-- Todos os não Windows 10/Windows Server 2016 
+- Todos os dispositivos pessoais que não são ingressados no Azure AD Híbrido. 
+- Todos os dispositivos não Windows 10/Windows Server 2016.
 - Todos os dispositivos não Windows 
 
 ---
 
 **P: Por que não posso ver todos os dispositivos registrados no Azure Active Directory no Portal do Azure?** 
 
-**R:** Atualmente, não há nenhuma maneira de ver todos os dispositivos registrados no Portal do Azure. Você pode usar o Azure PowerShell para localizar todos os dispositivos. Para obter mais detalhes, consulte o cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
+**R:** Agora você pode vê-los no diretório do Microsoft Azure AD -> menu Todos os dispositivos. Também é possível usar o Azure PowerShell para localizar todos os dispositivos. Para obter mais detalhes, consulte o cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 --- 
 
 **P: Como saber qual é o estado de registro do dispositivo do cliente?**
 
-**R:** O estado de registro do dispositivo depende de:
+**R:** Para dispositivos Windows 10 e Windows Server 2016 ou posterior, execute dsregcmd.exe /status.
 
-- O que é o dispositivo
-- Como ele foi registrado 
-- Todos os detalhes relacionados a ele. 
- 
+Para versões do sistema operacional de nível inferior, execute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
 **P: Por que um dispositivo que eu excluí no Portal do Azure ou usando o Windows PowerShell ainda está listado como registrado?**
 
-**R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. Se você quiser remover o dispositivo e registre novamente, uma ação manual deve ser a ser executada no dispositivo. 
+**R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. Se você quiser registrar-se novamente, uma ação manual deverá ser executada no dispositivo. 
 
-Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:
+Para limpar o estado do ingresso do Windows 10 e do Windows Server 2016 que são ingressados no domínio do AD local:
 
 1.  Abra o prompt de comando como administrador.
 
 2.  Digite `dsregcmd.exe /debug /leave`
 
-3.  Sair e entrar para disparar a tarefa agendada que registra o dispositivo novamente. 
+3.  Saia e entre para disparar a tarefa agendada que registra o dispositivo com o Microsoft Azure AD novamente. 
 
-Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:
+Para versões do sistema operacional do Windows de nível inferior que são ingressadas no domínio do AD local:
 
 1.  Abra o prompt de comando como administrador.
 2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
@@ -93,13 +90,13 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:**
 
--   Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
+-   No Windows 10 e no Windows Server 2016, se houver tentativas repetidas de sair e ingressar novamente no mesmo dispositivo, poderá haver entradas duplicadas. 
 
 -   Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
 
--   Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
+-   Para versões do sistema operacional do Windows de nível inferior que são ingressadas no domínio do AD local usando o registro automático, será criado um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que fizer logon no dispositivo. 
 
--   Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
+-   Um computador ingressado do Microsoft Azure AD que foi apagado, reinstalado e reingressado novamente com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
 
 ---
 
@@ -108,21 +105,21 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 **R:** Pode demorar até uma hora para uma revogação ser aplicada.
 
 >[!Note] 
->Para dispositivos perdidos, recomendamos apagar o dispositivo para garantir que os usuários não possam acessar o dispositivo. Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Para dispositivos inscritos, é recomendável apagar o dispositivo para garantir que usuários não possam acessar os recursos. Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **P: Por que meus usuários veem "Você não pode chegar lá daqui"?**
 
-**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem. Avalie as regras e verifique se o dispositivo é capaz de atender aos critérios para evitar esta mensagem.
+**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem. Avalie as regras da política de acesso condicional e assegure-se de que o dispositivo possa atender aos critérios para evitar essa mensagem.
 
 ---
 
 
 **P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no cliente. Estou configurado corretamente para usar o acesso condicional?**
 
-**R:** O registro do dispositivo (deviceID) e o estado no Portal do Azure devem corresponder ao cliente e atender a todos os critérios de avaliação para acesso condicional. Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).
+**R:** O estado do ingresso do dispositivo, refletido por deviceID, deve corresponder ao do Microsoft Azure AD e atender a qualquer critério de avaliação para acesso condicional. Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).
 
 ---
 
@@ -140,9 +137,9 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 ---
 
-**P: Por que vejo a caixa de diálogo "Ocorreu um erro" quando tento ingressar meu computador?**
+**P: Por que vejo a caixa de diálogo “Ocorreu um erro!” quando tento fazer o Microsoft Azure AD ingressar no meu computador?**
 
-**R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune. Para obter mais detalhes, consulte [Configurar o gerenciamento do dispositivo Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune. Certifique-se de que o usuário que está tentando fazer o ingresso do Microsoft Azure AD tenha a licença correta do Intune atribuída. Para obter mais detalhes, consulte [Configurar o gerenciamento do dispositivo Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 

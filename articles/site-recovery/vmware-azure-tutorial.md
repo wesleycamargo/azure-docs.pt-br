@@ -1,19 +1,20 @@
 ---
-title: "Configurar a recuperação de desastre de VMs VMware locais para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como configurar a recuperação de desastre do Azure para de VMs VMware locais com o Azure Site Recovery."
+title: Configurar a recuperação de desastre de VMs VMware locais para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação de desastre do Azure para de VMs VMware locais com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212867"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -27,15 +28,15 @@ Este tutorial mostra como configurar a recuperação de desastre para o Azure pa
 
 Este tutorial é o terceiro de uma série. Este tutorial presume que você já concluiu as tarefas dos tutoriais anteriores:
 
-* [Preparar o Azure](tutorial-prepare-azure.md)
-* [Preparar o VMware local](vmware-azure-tutorial-prepare-on-premises.md)
+* [Preparar o Azure](tutorial-prepare-azure.md). Este tutorial descreve como configurar uma conta de armazenamento do Azure e rede, verificar se a sua conta do Azure tem as permissões corretas e criar um cofre dos Serviços de Recuperação.
+* [Preparar o VMware local](vmware-azure-tutorial-prepare-on-premises.md). Neste tutorial você prepara contas para que o Site Recovery possa acessar servidores VMware para descobrir VMs e, opcionalmente, fazer uma instalação por push do componente de serviço Site Recovery Mobility quando você habilitar a replicação de uma VM. Você também garante que seus servidores VMware e VMs estejam em conformidade com os requisitos do Site Recovery.
 
 Antes de começar, é aconselhável [examinar a arquitetura](vmware-azure-architecture.md) dos cenários de recuperação de desastre.
 
 
 ## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
-1. Em **Cofres dos Serviços de Recuperação**, selecione no nome do cofre **ContosoVMVault**.
+1. Em **Cofres dos Serviços de Recuperação**, selecione o nome do cofre. Estamos usando **ContosoVMVault** para este cenário.
 2. Em **Introdução**, selecione Site Recovery. Depois selecione **Preparar Infraestrutura**.
 3. Em **Objetivo de proteção** > **Onde os seus computadores estão localizados**, selecione **local**.
 4. Em **Para qual deseja replicar os seus computadores**, selecione **Para o Azure**.
@@ -43,8 +44,6 @@ Antes de começar, é aconselhável [examinar a arquitetura](vmware-azure-archit
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-> [!TIP]
-> O método recomendado para implantar um servidor de configuração para proteger a máquina virtual VMware é usar o modelo de implantação baseado em OVF como sugerido neste artigo. Caso haja restrições em sua organização que impedem a implantação de um modelo de OVF, você pode usar [UnifiedSetup.exe para instalar um servidor de configuração](physical-manage-configuration-server.md).
 
 Para configurar o ambiente de origem, é necessário um computador local único e altamente disponível para hospedar os componentes locais do Site Recovery. Os componentes incluem o servidor de configuração, o servidor de processo e o servidor de destino mestre:
 
@@ -53,6 +52,10 @@ Para configurar o ambiente de origem, é necessário um computador local único 
 - O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
 
 Para configurar o servidor de configuração como uma VM VMware altamente disponível, baixe um modelo OVF preparado e importe-o na VMware para criar a VM. Depois de configurar o servidor de configuração, registre-o no cofre. Após o registro, o Site Discovery descobre VMs locais da VMware.
+
+> [!TIP]
+> Este tutorial usa um modelo OVF para criar a VM do VMware do servidor de configuração. Se você não conseguir fazer isso, execute a [Configuração manual](physical-manage-configuration-server.md). 
+
 
 ### <a name="download-the-vm-template"></a>Baixe o modelo de VM
 
@@ -103,9 +106,9 @@ Para incluir uma NIC adicional ao servidor de configuração, faça-o antes de r
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
 8. Entre novamente no computador. O assistente de gerenciamento do servidor de configuração é iniciado automaticamente.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Definir configurações e conectar-se à VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Definir as configurações e adicionar o servidor do VMware
 
-1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e depois selecione a NIC que receberá o tráfego de replicação. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
+1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e, em seguida, selecione a NIC que será usada pelo servidor de processo para receber o tráfego de replicação das VMs. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
 2. Em **Selecionar cofre de Serviços de Recuperação**, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
 3. Em **Instalar software de terceiros**, aceite o contrato de licença. Selecione **Baixar e Instalar** para instalar o MySQL Server.
 4. Selecione **Instalar VMware PowerCLI**. Verifique se todas as janelas de navegador estão fechadas antes de fazer isso. Depois selecione **Continuar**.
@@ -137,7 +140,7 @@ Selecione e verifique os recursos de destino.
 1. Abra o [Portal do Azure](https://portal.azure.com) e selecione **Todos os recursos**.
 2. Selecione o cofre do Serviço de Recuperação chamado **ContosoVMVault**.
 3. Para criar uma política de replicação, selecione **Infraestrutura do Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
-4. Em **Criar política de replicação**, insira o nome de política **VMwareRepPolicy**.
+4. Em **Criar política de replicação**, insira o nome de política. Estamos usando **VMwareRepPolicy** para este cenário.
 5. Em **Limite de RPO**, use o padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
 6. Em **Retenção de ponto de recuperação**, use o padrão de 24 horas para a duração do período de retenção de cada ponto de recuperação. Neste tutorial, use 72 horas. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
 7. Em **Frequência do instantâneo consistente com aplicativo**, use o padrão de 60 minutos para a frequência em que os instantâneos consistentes com o aplicativo são criados. Selecione **OK** para criar a política.

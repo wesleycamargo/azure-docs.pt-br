@@ -1,9 +1,9 @@
 ---
-title: "Configurar a verificação em duas etapas para minha conta corporativa ou de estudante | Microsoft Docs"
-description: "Quando sua empresa configura a Autenticação Multifator do Azure, será solicitado que você se inscreva na verificação em duas etapas. Saiba como configurá-la. "
+title: Configurar a verificação em duas etapas para minha conta corporativa ou de estudante | Microsoft Docs
+description: 'Quando sua empresa configura a Autenticação Multifator do Azure, será solicitado que você se inscreva na verificação em duas etapas. Saiba como configurá-la. '
 services: multi-factor-authentication
 keywords: como usar o directory do azure, active directory na nuvem, tutorial do active directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi

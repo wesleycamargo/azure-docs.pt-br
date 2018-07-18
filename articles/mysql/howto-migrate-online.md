@@ -1,6 +1,6 @@
 ---
-title: "Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve como executar uma migração com tempo de inatividade mínimo de um banco de dados MySQL para o Banco de Dados do Azure para MySQL e como configurar o carregamento inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations."
+title: Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para MySQL
+description: Este artigo descreve como executar uma migração com tempo de inatividade mínimo de um banco de dados MySQL para o Banco de Dados do Azure para MySQL e como configurar o carregamento inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations.
 services: mysql
 author: HJToland3
 ms.author: jtoland

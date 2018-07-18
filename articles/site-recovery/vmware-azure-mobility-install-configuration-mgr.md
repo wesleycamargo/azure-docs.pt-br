@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do Serviço de Mobilidade com o System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Como alternativa, é possível automatizar a instalação do Serviço de Mobilid
 4. Copie o arquivo **MobSvc.passphrase** para a pasta **MobSvcWindows** no compartilhamento de rede.
 5. Procure o repositório do instalador no servidor de configuração executando o seguinte comando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copie **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** para a pasta **MobSvcWindows** no compartilhamento de rede.
 7. Copie o código a seguir e salve-o como **install.bat** na pasta **MobSvcWindows**.
@@ -230,7 +230,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 4. Copie o arquivo **MobSvc.passphrase** para a pasta **MobSvcLinux** no compartilhamento de rede.
 5. Procure o repositório do instalador no servidor de configuração executando o comando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copie os seguintes arquivos para a pasta **MobSvcLinux** no compartilhamento de rede:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

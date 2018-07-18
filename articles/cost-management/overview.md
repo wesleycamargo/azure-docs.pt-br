@@ -1,26 +1,26 @@
 ---
-title: "Visão geral do Gerenciamento de Custos do Azure | Microsoft Docs"
-description: "O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem."
+title: Visão geral do Gerenciamento de Custos do Azure | Microsoft Docs
+description: O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: overview
 ms.service: cost-management
-manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: e2f12a989eb275e645c8b3bde3494928c5cbdb47
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
 O Gerenciamento de Custos do Azure licenciado pelo Cloudyn, uma subsidiária da Microsoft, permite acompanhar o uso da nuvem e as despesas de seus recursos do Azure e de outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. O Gerenciamento de Custo ajuda a otimizar seus gastos na nuvem identificando os recursos subutilizados que, posteriormente, você pode gerenciar e ajustar.
 
-Para assistir a um vídeo de Introdução, consulte [Introdução ao Gerenciamento de Custos do Azure](https://youtu.be/NWIRny6Wpsk).
+Para assistir a um vídeo de Introdução, consulte [Introdução ao Gerenciamento de Custos do Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorar o uso e os gastos
 

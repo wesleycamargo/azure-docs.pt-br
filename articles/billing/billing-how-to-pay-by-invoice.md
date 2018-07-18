@@ -1,24 +1,24 @@
 ---
 title: Pagar assinaturas do Azure por fatura | Microsoft Docs
 description: Descreve como pagar assinaturas do Azure por fatura
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 08/30/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: b9f785a8f24c013f01dd429539239a7396a94953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Enviar uma solicitação para pagar uma assinatura do Azure por fatura
 

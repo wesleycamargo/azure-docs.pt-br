@@ -1,23 +1,23 @@
 ---
-title: "Tarefas de processamento de Ciência de Dados da Equipe para um colaborador individual – Azure | Microsoft Docs"
-description: "Uma estrutura de tópicos das tarefas para um colaborador individual em um projeto de equipe de ciência de dados."
-documentationcenter: 
-author: bradsev
+title: Tarefas de processamento de Ciência de Dados da Equipe para um colaborador individual – Azure | Microsoft Docs
+description: Uma estrutura de tópicos das tarefas para um colaborador individual em um projeto de equipe de ciência de dados.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 526260c3f61a203fe2770a0c6d0d23d95916a2b7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: deguhath
+ms.openlocfilehash: 4951d596f64a17f0bd47100c1fc81397dc5febbd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="individual-contributor-tasks"></a>Tarefas do colaborador individual
 

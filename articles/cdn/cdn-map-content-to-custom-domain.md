@@ -1,111 +1,235 @@
 ---
-title: "Adicionar um domínio personalizado ao seu ponto de extremidade CDN | Microsoft Docs"
-description: "Saiba como mapear o conteúdo da CDN do Azure para um domínio personalizado."
+title: Tutorial – Adicionar um domínio personalizado ao seu ponto de extremidade da CDN | Microsoft Docs
+description: Neste tutorial, você mapeia o conteúdo do ponto de extremidade da CDN do Azure para um domínio personalizado.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
+documentationcenter: ''
+author: dksimpson
+manager: cfowler
+editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/09/2017
-ms.author: mazha
-ms.openlocfilehash: ec53b91b8aba4e38a8f7cb4b010d6be2a62150d5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.topic: tutorial
+ms.date: 05/15/2018
+ms.author: v-deasim
+ms.custom: mvc
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196497"
 ---
-# <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Adicionar um domínio personalizado ao seu ponto de extremidade CDN
-Depois de criar um perfil, você normalmente também cria um ou mais pontos de extremidade CDN (um subdomínio de azureedge.net) para distribuir seu conteúdo usando HTTP e HTTPS. Por padrão, esse ponto de extremidade está incluído em todas as suas URLs, por exemplo, `http(s)://contoso.azureedge.net/photo.png`). Para sua conveniência, a CDN do Azure fornece a opção de associar um domínio personalizado (por exemplo, `www.contoso.com`) ao seu ponto de extremidade. Com essa opção, você pode usar um domínio personalizado para entregar seu conteúdo, em vez do seu ponto de extremidade. Essa opção será útil se, por exemplo, você quiser que seu próprio nome de domínio fique visível aos seus clientes para fins de identificação de marca.
+# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure
+Este tutorial mostra como adicionar um domínio personalizado a um ponto de extremidade do Azure CDN (Rede de Distribuição de Conteúdo). Quando você usa um ponto de extremidade da CDN para distribuir conteúdo, é necessário ter um domínio personalizado se você deseja que seu próprio nome de domínio fique visível na URL da CDN. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual. 
 
-Se você ainda não tiver um domínio personalizado, deverá primeiro adquirir um com um provedor de domínio. Depois de obter um domínio personalizado, siga estas etapas:
-1. [Acessar os registros DNS do seu provedor de domínio](#step-1-access-dns-records-by-using-your-domain-provider)
-2. [Criar os registros de DNS CNAME](#step-2-create-the-cname-dns-records)
-    - Opção 1: mapeamento direto do seu domínio personalizado para o ponto de extremidade CDN
-    - Opção 2: mapeamento de seu domínio personalizado para o ponto de extremidade CDN usando o subdomínio **cdnverify** 
-3. [Habilitar o mapeamento de registro CNAME no Azure](#step-3-enable-the-cname-record-mapping-in-azure)
-4. [Verifique se o subdomínio personalizado referencia seu ponto de extremidade da CDN](#step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint)
-5. [(Etapa dependente) Mapear o domínio personalizado permanente para o ponto de extremidade da CDN](#step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint)
+Depois que um ponto de extremidade da CDN é criado em seu perfil, o nome do ponto de extremidade, que é um subdomínio de azureedge.net, é incluído na URL que distribui conteúdo da CDN por padrão (por exemplo, https:\//contoso.azureedge.net/foto.png). Para sua conveniência, a CDN do Azure fornece a opção de associar um domínio personalizado a um ponto de extremidade de CDN. Com essa opção, você distribui seu conteúdo com um domínio personalizadona URL em vez de um nome de ponto de extremidade (por exemplo, https:\//www.contoso.com/foto.png). 
 
-## <a name="step-1-access-dns-records-by-using-your-domain-provider"></a>Etapa 1: acessar registros de DNS por meio de seu provedor de domínio
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> - Criar um registro DNS CNAME.
+> - Associar o domínio personalizado ao seu ponto de extremidade da CDN.
+> - Verificar o domínio personalizado.
 
-Se você estiver usando o Azure para hospedar seus [domínios DNS](https://docs.microsoft.com/azure/dns/dns-overview), delegue o DNS do provedor de domínio a um DNS do Azure. Confira [Delegar um domínio ao DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)para saber mais.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Caso contrário, se você estiver usando o provedor de domínio para lidar com seu domínio do DNS, entre no site do seu provedor de domínio. Localize a página de gerenciamento de registros DNS consultando a documentação do provedor ou procurando áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do Servidor de Nome**. Muitas vezes, você pode encontrar a página de registros DNS exibindo as informações da conta e procurando um link como **Meus domínios**. Alguns provedores têm links diferentes para adicionar tipos de registro diferentes.
+## <a name="prerequisites"></a>pré-requisitos
 
-> [!NOTE]
-> Para alguns provedores, como GoDaddy, as alterações nos registros DNS só entram em vigor quando você seleciona um link separado **Salvar Alterações**. 
+Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um perfil da CDN do Azure e um ponto de extremidade](cdn-create-new-endpoint.md).
+
+Se você ainda não tiver um domínio personalizado, deverá primeiro adquirir um com um provedor de domínio. Por exemplo, confira [Comprar um nome de domínio personalizado](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+
+Se você estiver usando o Azure para hospedar seus [domínios DNS](https://docs.microsoft.com/azure/dns/dns-overview), delegue o DNS (Sistema de Nomes de Domínio) do provedor de domínio a um DNS do Azure. Confira [Delegar um domínio ao DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)para saber mais. Caso contrário, se você estiver usando um provedor de domínio para lidar com seu domínio do DNS, vá para [Criar um registro DNS CNAME](#create-a-cname-dns-record).
 
 
-## <a name="step-2-create-the-cname-dns-records"></a>Etapa 2: criar os registros de DNS CNAME
+## <a name="create-a-cname-dns-record"></a>Criar um registro DNS CNAME
 
-Antes de usar um domínio personalizado com um ponto de extremidade da CDN do Azure, primeiro crie um registro de CNAME (Nome Canônico) com seu provedor de domínio. Um registro CNAME é um tipo de registro no sistema DNS (Sistema de Nomes de Domínio) que mapeia um domínio de origem para um domínio de destino especificando um nome de domínio de alias para o nome de domínio "canônico" ou verdadeiro. Para a CDN do Azure, o domínio de origem é o seu domínio personalizado (e o subdomínio) e o domínio de destino é o ponto de extremidade da CDN. A CDN do Azure verifica o registro de DNS CNAME quando você adiciona o domínio personalizado ao ponto de extremidade do portal ou API. 
+Antes de usar um domínio personalizado com um ponto de extremidade da CDN do Azure, primeiro crie um registro CNAME (nome canônico) com seu provedor de domínio a fim de apontar para seu ponto de extremidade da CDN. Um registro CNAME é um tipo de registro DNS que mapeia um nome de domínio de origem para um nome de domínio de destino. Para a CDN do Azure, o nome de domínio de origem é o seu nome de domínio personalizado e o nome de domínio de destino é nome do host do ponto de extremidade da CDN. Depois que a CDN do Azure verifica o registro CNAME criado, o tráfego endereçado ao domínio de origem personalizado (como www.contoso.com) é roteado para o nome de host do ponto de extremidade da CDN de destino especificado (como contoso.azureedge.net). 
 
-Um registro CNAME mapeia um domínio específico e o subdomínio, como `www.contoso.com` ou `cdn.contoso.com`; não é possível mapear um registro CNAME para um domínio raiz, como `contoso.com`. Um subdomínio só pode ser associado a um ponto de extremidade da CDN. Um registro CNAME roteia todo o tráfego endereçado ao subdomínio para o ponto de extremidade especificado. Por exemplo, se você associar `www.contoso.com` ao ponto de extremidade da sua CDN, não poderá associá-lo a outro ponto de extremidade do Azure, como um ponto de extremidade de conta de armazenamento ou um ponto de extremidade de serviço de nuvem. No entanto, você pode usar outros subdomínios do mesmo domínio para pontos de extremidade de serviço diferentes. Você também pode mapear outros subdomínios para o mesmo ponto de extremidade da CDN.
+Um domínio personalizado e seu subdomínio podem ser associados apenas a um ponto de extremidade de cada vez. No entanto, você pode usar outros subdomínios do mesmo domínio personalizado para pontos de extremidade de serviços Azure diferentes usando vários registros CNAME. Você também pode mapear um domínio personalizado com outros subdomínios para o mesmo ponto de extremidade da CDN.
 
-Use uma das opções a seguir para mapear seu domínio personalizado para um ponto de extremidade CDN:
 
-- Opção 1: mapeamento direto do seu domínio personalizado para o ponto de extremidade CDN. Se nenhum tráfego de produção estiver em execução no domínio personalizado, você poderá mapear um domínio personalizado para um ponto de extremidade CDN diretamente. O processo de mapeamento de seu domínio personalizado para o ponto de extremidade da CDN pode resultar em um breve período de inatividade para o domínio, enquanto você está registrando o domínio no Portal do Azure. Sua entrada de mapeamento de CNAME deve estar neste formato: 
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Mapear o subdomínio cdnverify temporário
+
+Quando você mapeia um domínio existente que está na produção, deve considerar algumas questões. Enquanto você estiver registrando seu domínio personalizado no portal do Azure, o domínio poderá sofrer um breve período de tempo de inatividade. Para evitar a interrupção do tráfego da Web, primeiro mapeie seu domínio personalizado para seu nome de host do ponto de extremidade da CDN com o subdomínio cdnverify do Azure a fim de criar um mapeamento CNAME temporário. Com esse método, os usuários podem acessar seu domínio sem interrupção durante o mapeamento de DNS. 
+
+Caso contrário, se você estiver usando seu domínio personalizado pela primeira vez e nenhum tráfego de produção estiver em execução, poderá mapear diretamente seu domínio personalizado para seu ponto de extremidade da CDN. Vá para [Mapear domínio personalizado permanente](#map-permanent-custom-domain).
+
+Para criar um registro CNAME com o subdomínio cdnverify:
+
+1. Faça logon no site do provedor de domínio relativo ao seu domínio personalizado.
+
+2. Localize a página de gerenciamento de registros DNS consultando a documentação do provedor ou procurando áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do servidor de nome**. 
+
+3. Crie uma entrada de registro CNAME para seu domínio personalizado e preencha os campos conforme mostrado na seguinte tabela (os nomes dos campos podem variar):
+
+    | Fonte                    | type  | Destino                     |
+    |---------------------------|-------|---------------------------------|
+    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
+
+    - Origem: insira o nome de domínio personalizado, incluindo o subdomínio cdnverify, no seguinte formato: cdnverify _&lt;nome de domínio personalizado&gt;. Por exemplo, cdnverify.www.contoso.com.
+
+    - Tipo: insira *CNAME*.
+
+    - Destino: insira o nome do host do ponto de extremidade da CDN, inclusive o subdomínio cdnverify, no seguinte formato: cdnverify _&lt;nome do ponto de extremidade&gt;_.azureedge.net. Por exemplo, cdnverify.contoso.azureedge.net.
+
+4. Salve suas alterações.
+
+Por exemplo, o procedimento para o registrador de domínio GoDaddy é o seguinte:
+
+1. Faça logon e selecione o domínio personalizado que você deseja usar.
+
+2. Na seção Domínios, selecione **Gerenciar Todos** e selecione **DNS** | **Gerenciar Zonas**.
+
+3. Para **Nome de Domínio**, insira seu domínio personalizado e selecione **Pesquisar**.
+
+4. Na página **Gerenciamento de DNS**, selecione **Adicionar** e selecione **CNAME** na lista **Tipo**.
+
+5. Preencha os campos abaixo da entrada CNAME:
+
+    ![Entrada CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+
+    - Tipo: selecione *CNAME*.
+
+    - Host: insira o subdomínio do domínio personalizado a ser usado, incluindo o nome de subdomínio cdnverify. Por exemplo, cdnverify.www.
+
+    - Aponta para: insira o nome do host do ponto de extremidade da CDN, incluindo o nome de subdomínio cdnverify. Por exemplo, cdnverify.contoso.azureedge.net. 
+
+    - TTL: selecione *1 Hora*.
+
+6. Clique em **Salvar**.
  
-  | NOME             | TYPE  | VALUE                  |
-  |------------------|-------|------------------------|
-  | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
+    A entrada CNAME é adicionada à tabela de registros DNS.
+
+    ![Tabela de registros DNS](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
-- Opção 2: mapeamento de seu domínio personalizado para o ponto de extremidade CDN usando o subdomínio **cdnverify**. Se o tráfego de produção que não puder ser interrompido estiver em execução no domínio personalizado, você poderá criar um mapeamento CNAME temporário para o ponto de extremidade CDN. Com essa opção, use o subdomínio **cdnverify** do Azure para fornecer uma etapa de registro intermediária para que os usuários possam acessar seu domínio sem interrupção durante o mapeamento de DNS.
+## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Associar o domínio personalizado ao seu ponto de extremidade da CDN
 
-   1. Crie um novo registro CNAME e forneça um alias de subdomínio que inclua o subdomínio **cdnverify**. Por exemplo, `cdnverify.www` ou `cdnverify.cdn`. 
-   2. Forneça o nome de host, que é o ponto de extremidade CDN, no seguinte formato: `cdnverify.<EndpointName>.azureedge.net`. Sua entrada de mapeamento de CNAME deve estar neste formato: 
+Depois de registrar seu domínio personalizado, adicione-o ao ponto de extremidade da CDN. 
 
-   | NOME                       | TYPE  | VALUE                            |
-   |----------------------------|-------|----------------------------------|
-   | `cdnverify.www.contoso.com` | `CNAME` | `cdnverify.contoso.azureedge.net` | 
+1. Faça logon no [portal do Azure](https://portal.azure.com/) e navegue até o perfil CDN contendo o ponto de extremidade que você deseja mapear para um domínio personalizado.
+    
+2. Na página **Perfil CDN**, selecione o ponto de extremidade da CDN a ser associado ao domínio personalizado.
+
+   A página **Ponto de Extremidade** se abre.
+    
+3. Selecione **Domínio personalizado**. 
+
+   ![Botão de domínio personalizado da CDN](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
+
+   A página **Adicionar um domínio personalizado** será aberta.
+
+4. Para **Nome de host do ponto de extremidade**, o nome do host do ponto de extremidade a ser usado como o domínio de destino do seu registro CNAME é previamente preenchido e é derivado de sua URL de ponto de extremidade CDN: *&lt;nome de host do ponto de extremidade&gt;*.azureedge.net. Ele não pode ser alterado.
+
+5. Para o **Nome de host personalizado**, insira seu domínio personalizado, incluindo o subdomínio, para usar como o domínio de origem de seu registro CNAME. Por exemplo, www.contoso.com ou cdn.contoso.com. Não use o nome de subdomínio cdnverify.
+
+   ![Diálogo Domínio personalizado da CDN](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
+
+6. Selecione **Adicionar**.
+
+   O Azure verifica se o registro CNAME existe para o nome de domínio personalizado digitado. Se o CNAME estiver correto, seu domínio personalizado será validado. 
+
+   Pode levar algum tempo para que as novas configurações de domínio personalizado sejam propagadas para todos os nós de borda da CDN: 
+    - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
+    - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+    - Para perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, a propagação geralmente conclui em 90 minutos.   
 
 
-## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Etapa 3: habilitar o mapeamento de registro CNAME no Azure
+## <a name="verify-the-custom-domain"></a>Verificar o domínio personalizado
 
-Depois de registrar seu domínio personalizado usando um dos procedimentos anteriores, você pode habilitar o recurso de domínio personalizado na CDN do Azure. 
-
-1. Faça logon no [portal do Azure](https://portal.azure.com/) e navegue até o perfil CDN com o ponto de extremidade que você deseja mapear para um domínio personalizado.  
-2. Na folha **Perfil da CDN**, clique no ponto de extremidade da CDN ao qual você deseja associar o subdomínio.
-3. No canto superior esquerdo da folha de ponto de extremidade, clique em **Domínio personalizado**. 
-
-   ![Botão de domínio personalizado](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
-
-4. Na caixa de texto **Nome de host personalizado**, digite seu domínio personalizado, incluindo o subdomínio. Por exemplo, `www.contoso.com` ou `cdn.contoso.com`.
-
-   ![Caixa de diálogo Adicionar um domínio personalizado](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain-dialog.png)
-
-5. Clique em **Adicionar**.
-
-   O Azure verificará se o registro do CNAME existe para o nome de domínio que você digitou. Se o CNAME estiver correto, seu domínio personalizado será validado. Pode levar algum tempo para o registro CNAME se propagar para os servidores de nome. Se o seu domínio não for validado imediatamente, verifique se o registro CNAME está correto, aguarde alguns minutos e tente novamente. Para pontos de extremidade da **CDN do Azure da Verizon** (Standard e Premium), pode levar até 90 minutos para as configurações de domínio personalizado serem propagadas para todos os nós de borda da CDN.  
-
-
-## <a name="step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint"></a>Etapa 4: verifique se o subdomínio personalizado referencia seu ponto de extremidade da CDN
-
-Depois de concluir o registro do seu domínio personalizado, verifique se o subdomínio personalizado referencia seu ponto de extremidade da CDN.
+Depois de concluir o registro do seu domínio personalizado, verifique se o domínio personalizado referencia seu ponto de extremidade da CDN.
  
-1. Verifique se você tem conteúdo público armazenado em cache no ponto de extremidade. Por exemplo, se o ponto de extremidade da CDN estiver associado a uma conta de armazenamento, a CDN armazenará conteúdo em cache em contêineres de blobs públicos. Para testar o domínio personalizado, verifique se o contêiner está definido para permitir acesso público e contém pelo menos um blob.
+1. Verifique se você tem conteúdo público armazenado em cache no ponto de extremidade. Por exemplo, se o ponto de extremidade da CDN estiver associado a uma conta de armazenamento, a CDN do Azure armazenará conteúdo em cache em um contêiner público. Para testar o domínio personalizado, verifique se o contêiner está definido para permitir acesso público e se contém pelo menos um arquivo.
 
-2. Em seu navegador, navegue até o endereço do blob usando o domínio personalizado. Por exemplo, se o seu domínio personalizado for `cdn.contoso.com`, a URL para o blob armazenado em cache deverá ser semelhante à seguinte URL: `http://cdn.contoso.com/mypubliccontainer/acachedblob.jpg`.
+2. Em seu navegador, navegue até o endereço do arquivo usando o domínio personalizado. Por exemplo, se seu domínio personalizado for cdn.contoso.com, a URL para o arquivo em cache deve ser semelhante à seguinte URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo de quando você acessa o ponto de extremidade da CDN diretamente no *&lt;nome de host do ponto de extremidade&gt;*.azureedge.net.
 
 
-## <a name="step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint"></a>Etapa 5 (etapa dependente): mapear o domínio personalizado permanente para o ponto de extremidade da CDN
+## <a name="map-the-permanent-custom-domain"></a>Mapear o domínio personalizado permanente
 
-Esta etapa depende da etapa 2, da opção 2: mapeamento de seu domínio personalizado para o ponto de extremidade CDN usando o subdomínio **cdnverify**. Se você estiver usando o subdomínio **cdnverify** temporário e tiver verificado que ele funciona, poderá mapear seu domínio personalizado permanente para o ponto de extremidade da CDN.
+Se você verificou que o subdomínio cdnverify foi mapeado com êxito para seu ponto de extremidade (ou se você estiver usando um novo domínio personalizado que não está na produção), mapeie o domínio personalizado diretamente para seu nome do host do ponto de extremidade da CDN.
 
-1. No site do provedor de domínio, crie um registro de DNS CNAME para mapear seu domínio personalizado permanente para o ponto de extremidade da CDN. Sua entrada de mapeamento de CNAME deve estar neste formato: 
+Para criar um registro CNAME para seu domínio personalizado:
+
+1. Faça logon no site do provedor de domínio relativo ao seu domínio personalizado.
+
+2. Localize a página de gerenciamento de registros DNS consultando a documentação do provedor ou procurando áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do Servidor de Nome**. 
+
+3. Crie uma entrada de registro CNAME para seu domínio personalizado e preencha os campos conforme mostrado na seguinte tabela (os nomes dos campos podem variar):
+
+    | Fonte          | type  | Destino           |
+    |-----------------|-------|-----------------------|
+    | www.contoso.com | CNAME | contoso.azureedge.net |
+
+    - Origem: insira seu nome de domínio personalizado (por exemplo, www.contoso.com).
+
+    - Tipo: insira *CNAME*.
+
+    - Destino: insira o nome do host do ponto de extremidade da CDN. Ele deve estar no seguinte formato:_&lt;nome do ponto de extremidade&gt;_.azureedge.net. Por exemplo, contoso.azureedge.net.
+
+4. Salve suas alterações.
+
+5. Se você criou um registro CNAME para o subdomínio cdnverify temporário anteriormente, exclua-o. 
+
+6. Se você estiver usando o domínio personalizado na produção pela primeira vez, siga as etapas para [Associar o domínio personalizado ao seu ponto de extremidade da CDN](#associate-the-custom-domain-with-your-cdn-endpoint) e [Verificar o domínio personalizado](#verify-the-custom-domain).
+
+Por exemplo, o procedimento para o registrador de domínio GoDaddy é o seguinte:
+
+1. Faça logon e selecione o domínio personalizado que você deseja usar.
+
+2. Na seção Domínios, selecione **Gerenciar Todos** e selecione **DNS** | **Gerenciar Zonas**.
+
+3. Para **Nome de Domínio**, insira seu domínio personalizado e selecione **Pesquisar**.
+
+4. Na página **Gerenciamento de DNS**, selecione **Adicionar** e selecione **CNAME** na lista **Tipo**.
+
+5. Preencha os campos da entrada CNAME:
+
+    ![Entrada CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+
+    - Tipo: selecione *CNAME*.
+
+    - Host: insira o subdomínio do seu domínio personalizado a ser usado. Por exemplo, www ou cdn.
+
+    - Aponta para: insira o nome do host do ponto de extremidade da CDN. Por exemplo, contoso.azureedge.net. 
+
+    - TTL: selecione *1 Hora*.
+
+6. Clique em **Salvar**.
  
-   | NOME             | TYPE  | VALUE                  |
-   |------------------|-------|------------------------|
-   | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
-2. Exclua o registro CNAME com o subdomínio **cdnverify** que você criou anteriormente.
+    A entrada CNAME é adicionada à tabela de registros DNS.
 
-## <a name="see-also"></a>Consulte também
-[Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure](cdn-create-new-endpoint.md)  
-[Delegar seu domínio ao DNS do Azure](../dns/dns-domain-delegation.md)
+    ![Tabela de registros DNS](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+
+7. Se você tiver um registro CNAME cdnverify, selecione o ícone de lápis ao lado dele e selecione o ícone de Lixeira.
+
+8. Selecione **Excluir** para excluir o registro CNAME.
+
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Nas etapas anteriores, você adicionou um domínio personalizado a um ponto de extremidade da CDN. Se você não quiser associar seu ponto de extremidade a um domínio personalizado, remova o domínio personalizado seguindo estas etapas:
+ 
+1. No seu perfil CDN, selecione o ponto de extremidade com o domínio personalizado que você deseja remover.
+
+2. Na página **Ponto de Extremidade**, em Domínios personalizados, clique com o botão direito do mouse no domínio personalizado que você deseja remover e selecione **Excluir** no menu de contexto.  
+
+   O domínio personalizado é desassociado do ponto de extremidade.
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, você aprendeu como:
+
+> [!div class="checklist"]
+> - Criar um registro DNS CNAME.
+> - Associar o domínio personalizado ao seu ponto de extremidade da CDN.
+> - Verificar o domínio personalizado.
+
+Avance para o próximo tutorial a fim de aprender a configurar HTTPS em um domínio personalizado da CDN do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure](cdn-custom-ssl.md)
+
+

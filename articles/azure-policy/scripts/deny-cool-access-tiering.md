@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – Negar camadas de acesso esporádico para contas de armazenamento | Microsoft Docs"
-description: "Essa política de exemplo de json proíbe o uso de camadas de acesso esporádico para contas de armazenamento de blobs."
+title: Exemplo de json do Azure Policy – Negar camadas de acesso esporádico para contas de armazenamento | Microsoft Docs
+description: Essa política de exemplo de json proíbe o uso de camadas de acesso esporádico para contas de armazenamento de blobs.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 47de69aaa7938a813ff9866cec6e492a8ef3b7a5
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: a396d8c8c791ac2eb1f4f9f983e6224d0daa1bcf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>Negar camadas de acesso esporádico para contas de armazenamento
 

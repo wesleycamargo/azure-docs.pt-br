@@ -84,13 +84,23 @@ Você pode encontrar a cadeia de conexão no portal do Azure ou usando as ferram
 
 4. Na página **Resumo**, em **Saídas**, são fornecidos vários links de cluster. **SSHMaster0** fornece uma cadeia de conexão SSH para o primeiro mestre no cluster do serviço de contêiner. 
 
-Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo:
+Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo: 
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
 ```
 
 Para obter mais informações, confira [Conectar-se a um cluster do Serviço de Contêiner do Azure](../articles/container-service/kubernetes/container-service-connect.md).
+
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>Minha resolução de nome DNS não está funcionando no Windows. O que devo fazer?
+
+Há alguns problemas conhecidos do DNS no Windows cujas correções ainda estão sendo descontinuadas. Verifique se você está usando o mecanismo de acs e a versão do Windows mais atualizados (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa aproveitá-los. Caso contrário, consulte a tabela abaixo para conhecer as etapas de mitigação:
+
+| Sintoma de DNS | Solução alternativa  |
+|-------------|-------------|
+|Quando o contêiner de carga de trabalho estiver instável e falhar, o namespace de rede será limpo | Reimplantar todos os serviços afetados |
+| Acesso ao serviço VIP interrompido | Configure um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para sempre manter um pod normal (sem privilégios) em execução |
+|Quando o nó no qual o contêiner está sendo executado ficar indisponível, as consultas DNS poderão falhar, resultando em uma "entrada de cache negativo" | Execute o seguinte dentro dos contêineres afetados: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Se isso ainda não resolver o problema, tente desabilitar completamente o cache de DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Próximas etapas
 

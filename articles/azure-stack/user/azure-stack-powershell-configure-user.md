@@ -1,42 +1,55 @@
 ---
-title: "Configurar o ambiente do PowerShell do usuário a pilha do Azure | Microsoft Docs"
-description: "Configurar o ambiente do PowerShell do usuário a pilha do Azure"
+title: Configurar o ambiente do PowerShell do usuário a pilha do Azure | Microsoft Docs
+description: Configurar o ambiente do PowerShell do usuário a pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 5/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.reviewer: Balsu.G
+ms.openlocfilehash: 2655b682d35dd1879c649ed58d524ecd80808896
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurar o ambiente do PowerShell do usuário a pilha do Azure
 
-Como um usuário de pilha do Azure, você pode configurar o ambiente do PowerShell do seu Development Kit do Azure pilha. Depois de configurar, você pode usar o PowerShell para gerenciar o Azure pilha recursos, como se inscrever para ofertas, criar máquinas virtuais, implantar modelos do Gerenciador de recursos do Azure, etc. Este tópico tem seu escopo definido para usar com o usuário ambientes somente se você deseja instalar o PowerShell para o ambiente de operador de nuvem, consultem o [configurar o ambiente do PowerShell do operador Azure pilha](../azure-stack-powershell-configure-admin.md) artigo. 
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-## <a name="prerequisites"></a>Pré-requisitos 
+Use as instruções neste artigo para configurar o ambiente do PowerShell para um usuário de pilha do Azure.
+Depois de configurar o ambiente, você pode usar o PowerShell para gerenciar recursos da pilha do Azure. Por exemplo, você pode usar o PowerShell para se inscrever para ofertas, criar máquinas virtuais e implantar modelos do Gerenciador de recursos do Azure.
 
-Execute os seguintes pré-requisitos do [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou de um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+>[!NOTE]
+>Este artigo é o escopo para ambientes de usuário de pilha do Azure. Se você quiser configurar o PowerShell para o ambiente de operador de nuvem, consulte o [configurar o ambiente do PowerShell do operador Azure pilha](../azure-stack-powershell-configure-admin.md) artigo.
 
-* Instalar [módulos do PowerShell do Azure pilha-compatível com o Azure](azure-stack-powershell-install.md).  
-* Baixe o [ferramentas necessárias para trabalhar com o Azure pilha](azure-stack-powershell-download.md). 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Você pode configurar esses pré-requisitos do [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou de um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+
+* Instalar [módulos do PowerShell do Azure pilha-compatível com o Azure](azure-stack-powershell-install.md).
+* Baixe o [ferramentas necessárias para trabalhar com o Azure pilha](azure-stack-powershell-download.md).
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configurar o ambiente do usuário e entrar pilha do Azure
 
-Com base no tipo de implantação (Azure AD ou AD FS), execute um dos seguintes scripts para configurar o PowerShell para Azure pilha (certifique-se de substituir o AAD tenantName, ponto de extremidade de GraphAudience e valores de ArmEndpoint de acordo com a configuração do ambiente):
+Com base no tipo de implantação do Azure pilha (Azure AD ou AD FS), execute um dos seguintes scripts para configurar o PowerShell para Azure pilha.
+
+Certifique-se de que substituir as seguintes variáveis de script com valores de sua configuração de pilha do Azure:
+
+* AAD tenantName
+* Ponto de extremidade GraphAudience
+* ArmEndpoint
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Implantações baseadas em Azure Active Directory (AAD)
-       
+
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
@@ -66,11 +79,11 @@ Com base no tipo de implantação (Azure AD ou AD FS), execute um dos seguintes 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID 
+    -TenantId $TenantID
    ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Implantações baseadas em serviços de Federação do Active Directory (AD FS) 
-          
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Implantações baseadas em serviços de Federação do Active Directory (AD FS)
+
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
@@ -93,7 +106,7 @@ Com base no tipo de implantação (Azure AD ou AD FS), execute um dos seguintes 
     -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack     
+  # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
     -ADFS `
     -EnvironmentName "AzureStackUser"
@@ -101,29 +114,30 @@ Com base no tipo de implantação (Azure AD ou AD FS), execute um dos seguintes 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID 
+    -TenantId $TenantID
   ```
 
 ## <a name="register-resource-providers"></a>Registrar provedores de recursos
 
-Ao operar em uma assinatura de usuário recém-criado que não tem nenhum recurso implantado por meio do portal, os provedores de recursos não estão registrados automaticamente. Você deve registrá-los explicitamente usando o script a seguir:
+Provedores de recursos não estão registrados automaticamente para novas assinaturas de usuário que não tem nenhum recurso implantado por meio do portal. Explicitamente, você pode registrar um provedor de recursos executando o script a seguir:
 
 ```powershell
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
 Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
-    } 
+    }
 ```
 
 ## <a name="test-the-connectivity"></a>Testar a conectividade
 
-Agora que temos tudo configuração, vamos usar o PowerShell para criar recursos na pilha do Azure. Por exemplo, você pode criar um grupo de recursos para um aplicativo e adicionar uma máquina virtual. Use o comando a seguir para criar um grupo de recursos denominado "MyResourceGroup":
+Quando você tem tudo configurado, teste conectividade usando o PowerShell para criar recursos na pilha do Azure. Como um teste, crie um grupo de recursos para um aplicativo e adicione uma máquina virtual. Execute o seguinte comando para criar um grupo de recursos denominado "MyResourceGroup":
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Desenvolver modelos para o Azure Stack](azure-stack-develop-templates.md)
 * [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)

@@ -8,7 +8,7 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
 1. Faça logon em sua assinatura do Azure usando o seguinte comando:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Caso tenha várias assinaturas do Azure, entrar no Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Use o comando a seguir para listar as assinaturas do Azure disponíveis para você:
@@ -28,7 +28,7 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
 3. Crie um novo aplicativo do Active Directory do Azure usando o seguinte comando, substituindo os espaços reservados:
    
    * **{Display name}:** um nome de exibição para seu aplicativo, como **MySampleApp**
-   * **{Home page URL}:** a URL da página inicial de seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
+   * **{Home page URL}:** a URL da home page do seu aplicativo, como **http://mysampleapp/home**. Essa URL não precisa levar para um aplicativo real.
    * **{Application identifier}:** um identificador exclusivo, como **http://mysampleapp**. Essa URL não precisa levar para um aplicativo real.
    * **{Password}:** Uma senha que você usa para autenticar com o seu aplicativo.
      

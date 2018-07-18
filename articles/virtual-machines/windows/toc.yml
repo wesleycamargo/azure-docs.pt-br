@@ -53,7 +53,7 @@
       href: cli-samples.md
 - name: Conceitos
   items:
-    - name: Gerenciador de Recursos do Azure
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Regiões e disponibilidade
       href: regions-and-availability.md
@@ -81,8 +81,12 @@
               href: n-series-driver-setup.md
         - name: Computação de alto desempenho
           href: sizes-hpc.md
+        - name: Gerações anteriores
+          href: sizes-previous-gen.md
         - name: ACU (Unidades de computação do Azure)
           href: acu.md
+        - name: Pontuações de parâmetro de comparação
+          href: compute-benchmark-scores.md
     - name: Manutenção e atualizações
       href: maintenance-and-updates.md
     - name: Armazenamento em disco
@@ -100,8 +104,6 @@
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Solucionar problemas de VHDs anexados
-          href: troubleshoot-vhds.md
     - name: Rede
       href: network-overview.md
     - name: Aplicativos de dimensionamento automático
@@ -157,7 +159,7 @@
         - name: Como usar o WinRM
           href: winrm.md
         - name: Como usar controles de acesso
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Como usar políticas
           href: policy.md
         - name: Criar um cofre de chaves
@@ -185,10 +187,17 @@
           href: move-vm.md
         - name: Como alterar o tamanho da VM
           href: resize-vm.md
+        - name: Trocar o disco do sistema operacional
+          href: os-disk-swap.md
         - name: Marcar uma VM
           href: tag.md
         - name: Como executar scripts em uma VM
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Extensão de script personalizado
+              href: ../extensions/custom-script-windows.md
+            - name: Executar Comando
+              href: run-command.md
         - name: Como alterar a letra da unidade temporária
           href: change-drive-letter.md
         - name: Como alterar o conjunto de disponibilidade
@@ -196,7 +205,7 @@
         - name: Baixar o modelo
           href: download-template.md
         - name: Agente de VM do Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Manutenção planejada
           href: maintenance-notifications.md
         - name: Atenuando a execução especulativa
@@ -225,7 +234,7 @@
           href: download-vhd.md
     - name: Disponibilidade e escala
       items:
-        - name: Conjuntos de Escala de Máquina Virtual
+        - name: Conjuntos de Dimensionamento de Máquinas Virtuais
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Alta disponibilidade
           href: manage-availability.md
@@ -296,6 +305,8 @@
           href: mount-azure-file-storage.md
         - name: Implantar discos com modelo
           href: using-managed-disks-template-deployments.md
+        - name: Habilitar acelerador de gravação
+          href: how-to-enable-write-accelerator.md
         - name: Como migrar para Managed Disks
           href: migrate-to-managed-disks.md
           items:
@@ -325,32 +336,7 @@
         - name: Resolução DNS
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Usar extensões de VM
-      items:
-        - name: Visão geral de extensões de VM
-          href: extensions-features.md
-        - name: Extensão de Script personalizado
-          href: extensions-customscript.md
-        - name: Extensão do agente do OMS
-          href: extensions-oms.md
-        - name: Extensão de DSC do PowerShell
-          href: extensions-dsc-overview.md
-          items:
-            - name: Processamento de Credencial de extensão de DSC do PowerShell
-              href: extensions-dsc-credentials.md
-            - name: DSC e VMSS com modelos
-              href: extensions-dsc-template.md
-        - name: Extensão do coletor de Log do Azure
-          href: log-collector-extension.md
-        - name: Extensão de diagnóstico do Azure
-          href: ps-extensions-diagnostics.md
-        - name: Exportando extensões de VM
-          href: extensions-export-templates.md
-        - name: Solucionar problemas de extensões
-          href: extensions-troubleshoot.md
-        - name: Monitoramento e extensão de diagnósticos
-          href: extensions-diagnostics-template.md
-        - name: Agente do observador de rede
-          href: extensions-nwa.md
+      href: ../extensions/overview.md
     - name: Migrar VMs
       items:
         - name: Como migrar AWS e VMs locais
@@ -396,6 +382,8 @@
           href: reset-network-interface.md
         - name: Diagnóstico de inicialização
           href: boot-diagnostics.md
+        - name: Console serial
+          href: serial-console.md
         - name: Criar uma VM
           href: troubleshoot-deployment-new-vm.md
         - name: Problemas de implantação
@@ -408,6 +396,8 @@
           href: troubleshoot-activation-problems.md
         - name: Falhas na alocação
           href: allocation-failure.md
+        - name: Falhas de alocação de VM clássica
+          href: allocation-failure-classic.md
         - name: Reimplantar uma VM
           href: redeploy-to-new-node.md
         - name: Mensagens de erro comuns
@@ -426,6 +416,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: Instalar o agente VM no modo offline
           href: install-vm-agent-offline.md
+        - name: Solucionar problemas de VHDs anexados
+          items:
+            - name: Armazenar erros de exclusão de recursos
+              href: storage-resource-deletion-errors.md
+            - name: Reinicializações inesperadas de VMs com VHDs anexados
+              href: unexpected-reboots-attached-vhds.md
 - name: Referência
   items:
     - name: CLI do Azure

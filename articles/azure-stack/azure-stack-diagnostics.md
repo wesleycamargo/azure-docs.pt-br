@@ -1,25 +1,23 @@
 ---
-title: "Diagnósticos no Azure Stack"
-description: "Como coletar arquivos de log de diagnóstico na pilha do Azure"
+title: Diagnósticos no Azure Stack
+description: Como coletar arquivos de log de diagnóstico na pilha do Azure
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
- 
 A pilha do Azure é uma grande coleção de componentes trabalham juntos e interagir com o outro. Todos esses componentes geram seus próprios logs exclusivos. Isso pode tornar uma tarefa difícil, especialmente para erros provenientes de várias, interação de componentes da pilha do Azure para diagnosticar problemas. 
 
 Nossas ferramentas de diagnóstico ajudam a garantir que o mecanismo de coleta de log é fácil e eficiente. O diagrama a seguir mostra como log ferramentas de coleta no trabalho da pilha do Azure:
@@ -79,7 +77,36 @@ Esses arquivos são coletados e salvos em um compartilhamento pelo coletor de ra
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Para executar o Get-AzureStackLog em uma pilha do Azure sistema integrado
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Para executar o Get-AzureStackLog na pilha do Azure integrado versão sistemas 1804 e posterior
+
+Para executar a ferramenta de coleta de log em um sistema integrado, você precisa ter acesso para o ponto de extremidade privilegiado (PEP). Aqui está um exemplo de script que você pode executar usando o PEP para coletar logs em um sistema integrado:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para carregar os logs para uma pasta compartilhada externa.
+- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs por um período de tempo específico. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Para executar o Get-AzureStackLog na pilha do Azure integrado versão sistemas 1803 e versões anterior
 
 Para executar a ferramenta de coleta de log em um sistema integrado, você precisa ter acesso para o ponto de extremidade privilegiado (PEP). Aqui está um exemplo de script que você pode executar usando o PEP para coletar logs em um sistema integrado:
 
@@ -108,6 +135,7 @@ if($s)
 - Os parâmetros **OutputSharePath** e **OutputShareCredential** são opcionais e são usadas quando você carrega os logs para uma pasta compartilhada externa. Use estes parâmetros *além* para **OutputPath**. Se **OutputPath** não for especificado, a ferramenta de coleta de log usa a unidade do sistema da VM PEP para armazenamento. Isso pode causar falha porque o espaço em disco é limitado no script.
 - Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs por um período de tempo específico. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
 - Se o **FromDate** e **ToDate** parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
@@ -117,23 +145,32 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | Domínio                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Armazenamento                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | FOI                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | Rede                    |
+   | ACSFabric              | Domínio                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | Galeria                          | SlbVips                    |
+   | ACSWac                 | Gateway                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Armazenamento                    |   
+   | NCAzureBridge          | IBC                              | StorageAccounts            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | iDns                             | Locatário                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | Infraestrutura                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | Nuvem                  | KeyVaultControlPlane             | VirtualMachines            |
+   | HDInsight                | KeyVaultDataPlane                | FOI                        |
+   | Computação                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>Coletar logs usando a interface gráfica do usuário
 Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs de pilha do Azure, você também pode aproveitar as ferramentas de pilha do Azure de código aberto disponíveis localizadas na pilha do Azure ferramentas GitHub ferramentas repositório principal no http://aka.ms/AzureStackTools.
@@ -145,7 +182,7 @@ Para saber mais sobre o script do PowerShell ERCS_AzureStackLogs.ps1, você pode
 ### <a name="additional-considerations"></a>Considerações adicionais
 
 * O comando leva algum tempo para executar com base em quais funções coletar os logs. Fatores também incluem a duração de tempo especificada para a coleta de log e os números de nós no ambiente de pilha do Azure.
-* Após a conclusão da coleta de log, verifique a nova pasta criada no **OutputPath** parâmetro especificado no comando.
+* Como execuções de coleta de logs, verifique a nova pasta criada no **OutputSharePath** parâmetro especificado no comando.
 * Cada função tem seus logs nos arquivos zip individuais. Dependendo do tamanho dos logs coletados, uma função pode ter seus logs dividida em vários arquivos zip. Para função, se você quiser ter todos os arquivos de log foi descompactados em para uma única pasta, use uma ferramenta que pode descompactar em massa (como 7zip). Selecione todos os arquivos compactados para a função e selecione **extrair aqui**. Isso descompacta todos os arquivos de log para essa função em uma única pasta mesclada.
 * Um arquivo chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os arquivos de log compactado. Esse arquivo é um log de saída do comando, que pode ser usado para solucionar problemas durante a coleta de log.
 * Para investigar uma falha específica, os logs podem ser necessários de mais de um componente.

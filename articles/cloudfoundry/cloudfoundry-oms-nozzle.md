@@ -1,11 +1,11 @@
 ---
 title: Implantar o bocal do Azure Log Analytics para monitoramento do Cloud Foundry | Microsoft Docs
-description: "Orientações passo a passo sobre a implantação do bocal do agregador de logs do Cloud Foundry para o Azure Log Analytics. Use o bocal para monitorar as métricas de desempenho e de integridade de sistema do Cloud Foundry."
+description: Orientações passo a passo sobre a implantação do bocal do agregador de logs do Cloud Foundry para o Azure Log Analytics. Use o bocal para monitorar as métricas de desempenho e de integridade de sistema do Cloud Foundry.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implantar o Bocal do Azure Log Analytics para Monitoramento do Sistema do Cloud Foundry
 
-O [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço do OMS (Microsoft [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/)). Ele ajuda a coletar e analisar dados gerados em ambientes locais e em nuvem.
+[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure. Ele ajuda a coletar e analisar dados gerados em ambientes locais e em nuvem.
 
 O Bocal do Log Analytics (o Bocal) é um componente do CF (Cloud Foundry), que encaminha métricas do firehose do [agregador de logs do Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) para o Log Analytics. Com o Bocal, é possível coletar, exibir e analisar a integridade do sistema e as métricas de desempenho do CF em várias implantações.
 
-Neste documento, você aprenderá como implantar o Bocal no ambiente do CF e acessar os dados do console OMS do Azure Log Analytics.
+Neste documento, você aprenderá como implantar o Bocal no ambiente do CF e acessar os dados do console do Azure Log Analytics.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 As etapas a seguir são pré-requisitos para implantar o Bocal.
 
@@ -53,9 +53,9 @@ O Bocal também precisa de permissão de acesso para o firehose do agregador de 
 
 Antes de configurar o cliente da linha de comando do UAA, certifique-se de que o Rubygems está instalado.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Criar um espaço de trabalho do OMS no Azure
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar um espaço de trabalho do Log Analytics
 
-É possível criar o espaço de trabalho do OMS manualmente ou usando um modelo. Carregue os alertas e as exibições pré-configurados do OMS depois de concluir a implantação do Bocal.
+É possível criar o espaço de trabalho do Log Analytics manualmente ou usando um modelo. Carregue os alertas e as exibições pré-configurados do OMS depois de concluir a implantação do Bocal.
 
 Para criar o espaço de trabalho manualmente:
 
@@ -70,7 +70,7 @@ Para criar o espaço de trabalho manualmente:
 
 Para saber mais, confira [Introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Ou é possível criar o espaço de trabalho do OMS por meio do modelo do OMS. Com esse método, o modelo carrega os alertas e as exibições pré-configurados do OMS automaticamente. Para obter mais informações, consulte a [Azure OMS Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution) (solução do Azure OMS Log Analytics para o Cloud Foundry).
+Ou é possível criar o espaço de trabalho do Log Analytics por meio do modelo do OMS. Com esse método, o modelo carrega os alertas e as exibições pré-configurados do OMS automaticamente. Para obter mais informações, consulte a [Azure Log Analytics solution for Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution) (solução do Azure OMS Log Analytics para o Cloud Foundry).
 
 ## <a name="deploy-the-nozzle"></a>Implantar o Bocal
 
@@ -118,14 +118,14 @@ cd oms-log-analytics-firehose-nozzle
 
 #### <a name="set-environment-variables"></a>Configurar variáveis de ambiente
 
-Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de espaço de trabalho do OMS.
+Agora é possível definir variáveis de ambiente no arquivo manifest.yml em seu diretório atual. O exemplo a seguir mostra o manifesto do aplicativo do Bocal. Substitua os valores por suas informações específicas de espaço de trabalho do Log Analytics.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Efetuar push do aplicativo no seu computador de desenvolvimento
@@ -175,7 +175,7 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 
 É possível [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) e personalizar as consultas e os valores limite conforme necessário. A seguir estão os alertas recomendados:
 
-| Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
+| Consulta de pesquisa                                                                  | Gerar alerta com base em | DESCRIÇÃO                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs.Domain.cf-apps** indica se o domínio cf-aps está atualizado. Isso significa que as solicitações de aplicativo do CF enviadas pelo Cloud Controller estão sincronizadas com o bbs.LRPsDesired (AIs recomendadas para Diego) para execução. Nenhum dado recebido significa que o domínio cf-apps não está atualizado na janela de tempo especificada. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para células Diego, 0 significa íntegro e 1 significa não íntegro. Defina o alerta se várias células Diego não íntegras forem detectadas na janela de tempo especificada. |
@@ -183,7 +183,7 @@ O *"Cloud Foundry.omsview"* é uma versão prévia do modelo de exibição do OM
 | Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite o status de integridade periodicamente. 0 significa que o sistema é íntegro e 1 significa que emissor de rota detectou que o Consul está inoperante. |
 | Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Número de resultados > 0 | O número delta de mensagens intencionalmente removidas pelo Doppler em razão da pressão de retorno. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | O Agregador de Logs emite **LGR** para indicar problemas com o processo de registro. Um exemplo desse problema ocorre quando a saída de mensagem de log é muito alta. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Bocal recebe o alerta de consumidor lento do agregador de logs, ele envia o ValueMetric **slowConsumerAlert** ao OMS. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Bocal recebe o alerta de consumidor lento do agregador de logs, ele envia o ValueMetric **slowConsumerAlert** ao Log Analytics. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Número de resultados > 0   | Se o número delta de eventos perdidos atingir um limite, isso significará que o bocal terá problemas de execução. |
 
 ## <a name="scale"></a>Escala
@@ -201,7 +201,7 @@ Para escalar verticalmente o Bocal, use o Gerenciador de Aplicativos ou a CLI do
 O Agregador de Logs envia uma mensagem de log **LGR** para indicar problemas com o processo de registro. É possível monitorar o alerta para determinar se o agregador de logs precisa ser escalado verticalmente.
 Para escalar verticalmente o agregador de logs, aumente o tamanho do buffer do Doppler ou adicione mais instâncias de servidor do Doppler no manifesto do CF. Para obter mais informações, consulte [as diretrizes para dimensionar o agregador de logs](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Atualização
+## <a name="update"></a>Atualizar
 
 Para atualizar o Bocal com uma versão mais recente, baixe a versão do novo Bocal, siga as etapas na seção “Implantar o Bocal” anterior e efetue push do aplicativo novamente.
 
@@ -218,7 +218,7 @@ Na janela da CLI do CF, digite:
 cf delete <App Name> -r
 ```
 
-Se você remover o Bocal, os dados no Portal do OMS não serão removidos automaticamente. Eles expiram com base na sua configuração de retenção do OMS Log Analytics.
+Se você remover o Bocal, os dados no Portal do OMS não serão removidos automaticamente. Eles expiram com base na sua configuração de retenção do Log Analytics.
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 

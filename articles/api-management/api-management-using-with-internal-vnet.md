@@ -2,10 +2,10 @@
 title: Como usar o Gerenciamento de API do Azure com redes virtuais internas | Microsoft Docs
 description: Saiba como instalar e configurar o Gerenciamento de API do Azure na rede virtual interna
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -72,7 +72,7 @@ Você também pode habilitar a conectividade de rede virtual usando cmdlets do P
 Quando o Gerenciamento de API está no modo de rede virtual externa, o DNS é gerenciado pelo Azure. Para o modo de rede virtual interna, você precisa gerenciar o seu próprio roteamento.
 
 > [!NOTE]
-> O serviço de Gerenciamento de API não escuta as solicitações que vêm de endereços IP. Ele só responde às solicitações para o nome de host configurado em seus pontos de extremidade de serviço. Esses pontos de extremidade incluem o gateway, o portal do Desenvolvedor, o portal do Azure, o ponto de extremidade de gerenciamento direto e o Git.
+> O serviço de Gerenciamento de API não escuta as solicitações que vêm de endereços IP. Ele só responde às solicitações para o nome de host configurado em seus pontos de extremidade de serviço. Esses pontos de extremidade incluem o gateway, o portal do Azure, o portal do Desenvolvedor, o ponto de extremidade de gerenciamento direto e o Git.
 
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de host padrão
 Ao criar um serviço de Gerenciamento de API, chamado "contoso", por exemplo, os seguintes pontos de extremidade de serviço são configurados por padrão:
@@ -115,7 +115,7 @@ Então você pode acessar todos os pontos de extremidade do serviço da máquina
 Para saber mais, consulte os seguintes artigos:
 * [Problemas comuns de configuração de rede ao configurar o Gerenciamento de API do Azure em uma rede virtual][Common network configuration problems]
 * [Perguntas frequentes sobre rede virtual](../virtual-network/virtual-networks-faq.md)
-* [Criando um registro no DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Criando um registro no DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

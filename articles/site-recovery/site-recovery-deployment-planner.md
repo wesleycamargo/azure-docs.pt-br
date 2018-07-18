@@ -1,24 +1,24 @@
 ---
-title: "Planejamento de Implantação de Azure Site Recovery para VMware no Azure | Microsoft Docs"
-description: "Este é o guia do usuário do Planejador de Implantação do Azure Site Recovery."
+title: Planejamento de Implantação de Azure Site Recovery para VMware no Azure | Microsoft Docs
+description: Este é o guia do usuário do Planejador de Implantação do Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d14d7af39af59bb0b4fbcd5857e8686176afb71
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia de usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -71,7 +71,7 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |sim|Sim|Não |Sim*|Não 
+Cenários com suporte |sim|sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (VMs em vários hosts ou clusters de hosts podem ter o perfil criado de uma vez)| ND |Vários (VMs em vários hosts ou clusters de hosts podem ter o perfil criado de uma vez)| ND
@@ -105,9 +105,9 @@ Você poderá executar a ferramenta no Windows Server 2012 R2 se o servidor tive
 A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
 
     Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo.
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planejador de Implantações
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
@@ -123,7 +123,7 @@ Se você tiver uma versão anterior do Planejador de Implantações, siga um des
 
 
 ## <a name="version-history"></a>Histórico de versão
-A versão mais recente da ferramenta Planejador de Implantações do Site Recovery é a 2.1.
+A versão mais recente da ferramenta Planejador de Implantações do Site Recovery é a 2.2.
 Consulte a página [Histórico de versões do Planejador de Implantações do Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Próximas etapas

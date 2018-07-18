@@ -2,8 +2,8 @@
 title: Dados de exemplo no Armazenamento de Blobs do Azure| Microsoft Docs
 description: Dados de exemplo no armazenamento de blob do Azure
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 1e5cf5da727b6720c936e43147beb8d87fb925cd
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 48cc74a8fdef0103f79033ac2484f658303f405c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 Este documento aborda os dados de amostragem armazenados no armazenamento de blobs do Azure, baixando-os de forma programática e realizando amostragem usando procedimentos escritos em Python.

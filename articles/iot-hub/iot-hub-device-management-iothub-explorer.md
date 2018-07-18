@@ -1,11 +1,11 @@
 ---
 title: Gerenciamento de dispositivos IoT do Azure com o iothub-explorer | Microsoft Docs
-description: "Use a ferramenta da CLI iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo."
+description: Use a ferramenta da CLI iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
+tags: ''
 keywords: gerenciamento de dispositivos iot do azure, gerenciamento de dispositivos hub iot do azure, iot de gerenciamento de dispositivos, gerenciamento de dispositivos hub iot
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
-ms.author: xshi
-ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 26e08c3d6b1c96e2d508c87f188118aec02bab6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usar o iothub-explorer para o gerenciamento de dispositivos Hub IoT do Azure
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 01/18/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 O [iothub-explorer](https://github.com/azure/iothub-explorer) é uma ferramenta da CLI executada em um computador host para gerenciar identidades de dispositivo no Registro do Hub IoT. Ela é fornecida com opções de gerenciamento que podem ser usadas para executar várias tarefas.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opção de gerenciamento          | Tarefa                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -40,8 +42,7 @@ O [iothub-explorer](https://github.com/azure/iothub-explorer) é uma ferramenta 
 
 Para obter explicações mais detalhadas sobre as diferenças e diretrizes sobre como usar essas opções, consulte [Diretrizes de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) e [Diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
+Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 

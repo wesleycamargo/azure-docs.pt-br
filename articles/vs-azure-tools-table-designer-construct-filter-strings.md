@@ -2,23 +2,20 @@
 title: Construindo cadeias de caracteres de filtro para o designer de tabela | Microsoft Docs
 description: Construindo cadeias de caracteres de filtro para o designer de tabela
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ghogen
+manager: douge
+assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 7390e8f463d14f2e74e05263e970665a0199029a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Construindo cadeias de caracteres de filtro para o designer de tabela
 ## <a name="overview"></a>Visão geral
@@ -29,7 +26,7 @@ O WCF Data Services é baseado no [Open Data Protocol](http://go.microsoft.com/f
 ## <a name="comparison-operators"></a>Operadores de comparação
 Os seguintes operadores lógicos têm suporte para todos os tipos de propriedade:
 
-| Operador lógico | Descrição | Cadeia de caracteres de filtro de exemplo |
+| Operador lógico | DESCRIÇÃO | Cadeia de caracteres de filtro de exemplo |
 | --- | --- | --- |
 | eq |Igual a |City eq 'Redmond' |
 | gt |Maior que |Preço gt 20 |
@@ -38,7 +35,7 @@ Os seguintes operadores lógicos têm suporte para todos os tipos de propriedade
 | le |Menor ou igual a |Preço le 100 |
 | ne |Diferente de |City ne 'London' |
 | e |e |Preço le 200 e Preço gt 3,5 |
-| ou o |ou o |Preço le 3,5 ou Preço gt 200 |
+| ou o |Ou |Preço le 3,5 ou Preço gt 200 |
 | não |não |não isAvailable |
 
 Ao construir uma cadeia de caracteres de filtro, as regras a seguir são importantes:

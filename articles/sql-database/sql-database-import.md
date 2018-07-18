@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894171"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um arquivo BACPAC para um novo Banco de Dados SQL do Azure
 
@@ -31,6 +32,9 @@ Para importar um banco de dados usando o Portal do Azure, abra a página do serv
    ![Importação de banco de dados](./media/sql-database-import/import.png)
 
 Para monitorar o progresso da operação de importação, abra a página para o servidor lógico que contém o banco de dados que está sendo importado. Role para baixo até **Operações** e, em seguida, clique em **Importar/Exportar histórico**.
+
+> [!NOTE]
+> A[Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md) dava suporte para importação de um arquivo BACPAC usando os outros métodos deste artigo mas, atualmente, não dá suporte para migração usando o Portal do Azure.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>Monitorar o progresso de uma operação de importação
 
@@ -99,10 +103,19 @@ $importStatus
 > [!TIP]
 Para outro exemplo de script, confira [Importar um banco de dados de um arquivo BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
+## <a name="import-using-other-methods"></a>Importar usando outros métodos
+
+Você também pode usar esses assistentes:
+
+- [Importar o Assistente de Aplicativo da Camada de Dados no SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [Assistente de Importação e Exportação do SQL Server](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
+
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como conectar e consultar um Banco de Dados SQL importado, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md).
 * Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC).
 * Para ver uma discussão de todo o processo de migração do banco de dados do SQL Server, incluindo as recomendações de desempenho, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
+* Para saber como gerenciar e compartilhar as chaves de armazenamento e assinaturas de acesso compartilhado com segurança, consulte [Guia de Segurança de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide). 
 
 
+  
 

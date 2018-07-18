@@ -1,31 +1,32 @@
 ---
-title: Controlar máquinas virtuais do Azure com a CLI do Azure | Microsoft Docs
-description: Tutorial – Gerenciar máquinas virtuais do Azure aplicando RBAC, políticas, bloqueios e marcas com CLI do Azure
+title: Tutorial – Controlar máquinas virtuais do Azure com a CLI 2.0 do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para gerenciar máquinas virtuais do Azure, aplicando RBAC, políticas, bloqueios e marcas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Governança de máquina virtual com a CLI do Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Tutorial: Saiba mais sobre o controle de máquina virtual do Linux com a CLI 2.0 do Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Compreender o escopo
 
@@ -43,15 +44,15 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../active-directory/role-based-access-control-what-is.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
+Você deseja certificar-se de que os usuários em sua organização têm o nível certo de acesso a esses recursos. Você não deseja conceder acesso ilimitado a usuários, mas também precisa certificar-se de que eles podem fazer o trabalho deles. O [controle de acesso baseado em função](../../role-based-access-control/overview.md) permite que você gerencie quais usuários têm permissão para executar ações específicas em um escopo.
 
 Para criar e remover as atribuições de função, os usuários devem ter `Microsoft.Authorization/roleAssignments/*` acesso. Esse acesso deve ser concedido pelas funções Proprietário ou Administrador de Acesso do Usuário.
 
 Para gerenciar soluções de máquinas virtuais, há três funções específicas do recurso que fornecem acesso comum:
 
-* [Colaborador de Máquina Virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Colaborador de rede](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Colaborador da Conta de Armazenamento](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Colaborador de rede](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Colaborador da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Em vez de atribuir funções a usuários individuais, muitas vezes é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para usuários que precisam tomar ações semelhantes. E, em seguida, atribuir esse grupo à função apropriada. Para simplificar este artigo, você cria um grupo do Azure Active Directory sem membros. Além disso, é possível atribuir esse grupo a uma função para um escopo. 
 

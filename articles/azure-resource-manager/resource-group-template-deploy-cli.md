@@ -1,6 +1,6 @@
 ---
 title: Implantar recursos com a CLI do Azure e o modelo | Microsoft Docs
-description: "Use o Azure Resource Manager e a CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager."
+description: Use o Azure Resource Manager e a CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bcab9c7a890ea415401a54c2db8352e056cc8774
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -82,10 +82,12 @@ O exemplo anterior requer um URI acessível publicamente para o modelo, que func
 
 No Cloud Shell, use os seguintes comandos:
 
-   ```azurecli-interactive
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implantar em mais de um grupo de recursos ou assinatura
 

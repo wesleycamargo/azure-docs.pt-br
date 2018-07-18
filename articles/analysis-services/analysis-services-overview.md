@@ -1,27 +1,21 @@
 ---
-title: "Visão geral do Azure Analysis Services | Microsoft Docs"
-description: "Obtenha uma visão geral do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Visão geral do Azure Analysis Services | Microsoft Docs
+description: Obtenha uma visão geral do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: overview
+ms.date: 05/16/2018
 ms.author: owend
-ms.openlocfilehash: c71d6fd7e3542a22edf093b0c9fccbd5185e0f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193808"
 ---
-# <a name="azure-analysis-services-overview"></a>Visão geral do Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 O Azure Analysis Services fornece modelagem de dados de nível empresarial na nuvem. É uma plataforma totalmente gerenciada como um serviço (PaaS), integrada com os serviços de plataforma de dados do Azure. 
@@ -64,7 +58,7 @@ Servidores do Azure Analysis Services podem ser criados nas seguintes [regiões 
 
 | Américas | Europa | Pacífico Asiático |
 |----------|--------|--------------|
-|  Sul do Brasil<br> Canadá Central<br> Leste dos EUA 2<br> Centro-Norte dos EUA<br> Centro-Sul dos Estados Unidos<br> Centro-Oeste dos EUA<br> Oeste dos EUA | Norte da Europa<br> Sul do Reino Unido<br> Europa Ocidental |   Sudeste da Austrália<br> Leste do Japão<br> Sudeste Asiático<br> Índia Ocidental  |
+|  Sul do Brasil<br> Canadá Central<br> Leste dos EUA<br> Leste dos EUA 2<br> Centro-Norte dos EUA<br> Centro dos EUA<br> Centro-Sul dos Estados Unidos<br> Centro-Oeste dos EUA<br> Oeste dos EUA<br> Oeste dos EUA 2 | Norte da Europa<br> Sul do Reino Unido<br> Europa Ocidental |   Sudeste da Austrália<br> Leste do Japão<br> Sudeste Asiático<br> Índia Ocidental  |
 
 Novas regiões estão sendo adicionadas o tempo todo. Portanto, essa lista pode estar incompleta. Escolha um local ao criar o servidor no portal do Azure ou usando modelos do Azure Resource Manager. Para obter o melhor desempenho, escolha um local mais próximo da sua maior base de usuários. Garanta uma [alta disponibilidade](analysis-services-bcdr.md) ao implantar seus modelos em servidores redundantes em várias regiões.
 
@@ -141,4 +135,5 @@ Quer fazer sugestões ou solicitações de recursos? Deixe seus comentários nos
 Quer fazer sugestões sobre a documentação? Você pode adicionar comentários usando o Livefyre na parte inferior de cada artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. Saiba como [criar um servidor](analysis-services-create-server.md) no Azure. Quando o servidor estiver pronto, percorra o [Tutorial do Adventure Works](tutorials/aas-adventure-works-tutorial.md) para aprender a criar um modelo de tabela totalmente funcional e implantá-lo em seu servidor.
+Saiba como [criar um servidor](analysis-services-create-server.md) no Azure.   
+Uma vez que você tenha criado um servidor, [adicionar um modelo de exemplo](analysis-services-create-sample-model.md).   

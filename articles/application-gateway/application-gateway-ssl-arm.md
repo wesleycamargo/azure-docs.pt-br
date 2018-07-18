@@ -1,21 +1,21 @@
 ---
-title: "Criar um gateway de aplicativo com terminação SSL - PowerShell do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o Azure PowerShell."
+title: Criar um gateway de aplicativo com terminação SSL - PowerShell do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o Azure PowerShell.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 69010f6c057810af0f9bfcdadb6aeba1e498bf7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicativo com terminação SSL usando o Azure PowerShell
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
@@ -260,7 +260,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
 
-![Testar a URL de base no gateway do aplicativo](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
+![Testar a URL de base no gateway de aplicativo](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

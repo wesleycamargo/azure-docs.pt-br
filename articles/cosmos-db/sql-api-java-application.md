@@ -1,12 +1,11 @@
 ---
 title: Tutorial de desenvolvimento de aplicativo Java usando o Azure Cosmos DB | Microsoft Docs
-description: "Este tutorial de aplicativo Web Java mostra a você como usar o Azure Cosmos DB e a API de SQL para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure."
+description: Este tutorial de aplicativo Web Java mostra a você como usar o Azure Cosmos DB e a API de SQL para armazenar e acessar dados de um aplicativo Java hospedado nos Sites do Azure.
 keywords: Desenvolvimento de aplicativos, tutorial de banco de dados, aplicativo java, tutorial do aplicativo web java, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
-manager: jhubbard
-editor: mimig
+manager: kfile
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
 > [!div class="op_single_selector"]
@@ -29,8 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este tutorial de aplicativo Web Java mostra a você como usar o serviço [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) para armazenar e acessar dados de um aplicativo Java hospedado nos Aplicativos Web do Serviço de Aplicativo do Azure. Neste tópico, você aprenderá:
 
@@ -729,7 +726,7 @@ Sites do Azure tornam a implantação de aplicativos Java tão simples quanto a 
 3. Agora que tem um arquivo WAR em mãos, você pode simplesmente carregá-lo no seu diretório **webapps** do site do Azure. Para obter instruções sobre como carregar o arquivo, confira [Adicionar um aplicativo Java aos Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/web-sites-java-add-app.md).
    
     Uma vez carregado o arquivo WAR na pasta webapps, o ambiente de tempo de execução irá detectar que você o adicionou e o carregará automaticamente.
-4. Para exibir seu produto acabado, navegue para http://SEU\_NOME\_SITE.azurewebsites.net/azure-java-sample/ e comece a adicionar suas tarefas!
+4. Para exibir seu produto acabado, navegue até http://YOUR\_NOME\_SITE.azurewebsites.net/azure-java-sample/ e comece a adicionar suas tarefas!
 
 ## <a id="GetProject"></a>Obtenha o projeto do GitHub
 Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://github.com/Azure-Samples/documentdb-java-todo-app) no GitHub. Para importar o projeto de tarefas no Eclipse, certifique-se de ter o software e os recursos listados na seção [pré-requisitos](#Prerequisites) e, em seguida, faça o seguinte:
@@ -739,7 +736,7 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 3. No Eclipse, no menu **Arquivo**, clique em **Importar**.
 4. Na janela **Importar**, clique em **Git**, **Projetos do Git** e clique em **Avançar**.
 5. Na tela **Selecionar origem de repositório**, clique em **Clonar URI**.
-6. Na tela **Repositório de Origem do Git**, na caixa **URI**, insira https://github.com/Azure-Samples/java-todo-app.git e clique em **Avançar**.
+6. Na tela **Repositório Git de Origem**, na caixa **URI**, digite https://github.com/Azure-Samples/java-todo-app.gite, em seguida, clique em **Avançar**.
 7. Na tela **Seleção de Ramificação**, verifique se **master** está selecionado e clique em **Avançar**.
 8. Na tela **Destino Local**, clique em **Procurar** para selecionar uma pasta onde o repositório possa ser copiado e clique em **Avançar**.
 9. Na tela **Selecionar um assistente a ser usado para importar projetos**, verifique se **Importar projetos existentes** está selecionado e clique em **Avançar**.
@@ -754,6 +751,6 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 18. Na guia **Servidores** na parte inferior da tela, clique com o botão direito do mouse em **Servidor Tomcat v7.0 no localhost** e clique em **Adicionar e Remover**.
 19. Na janela **Adicionar e Remover**, mova **azure-documentdb-java-sample** para a caixa **Configurado** e clique em **Concluir**.
 20. Na guia **Servidores**, clique com o botão direito do mouse em **Servidor Tomcat v7.0 no localhost** e clique em **Reiniciar**.
-21. Em um navegador, navegue para http://localhost:8080/azure-documentdb-java-sample/ e comece a adicionar sua lista de tarefas. Observe que, se você alterou os valores da porta padrão, altere a 8080 para o valor selecionado.
+21. Em um navegador, navegue até http://localhost:8080/azure-documentdb-java-sample/ e comece a adicionar à sua lista de tarefas. Observe que, se você alterou os valores da porta padrão, altere a 8080 para o valor selecionado.
 22. Para implantar o projeto em um site do Azure, consulte a [Etapa 6. Implante o aplicativo nos Sites do Azure](#Deploy).
 

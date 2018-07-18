@@ -1,12 +1,12 @@
 ---
-title: "Segurança de Rede do Azure | Microsoft Docs"
-description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
+title: Segurança de Rede do Azure | Microsoft Docs
+description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -75,7 +75,7 @@ Neste documento, abordaremos os seguintes recursos corporativos de rede do Azure
 
 ### <a name="basic-network-connectivity"></a>Conectividade de rede básica
 
-O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN ](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dedicados.
 
 ![Conectividade de rede básica](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -392,7 +392,7 @@ Além disso, o WAF de Gateway de Aplicativo ajuda a monitorar os aplicativos Web
 
 O log em formato JSON vai diretamente para a conta de armazenamento do cliente. Você tem controle total sobre esses logs e pode aplicar suas próprias políticas de retenção.
 
-Você também pode ingerir esses logs em seu próprio sistema de análise usando a [Integração de Log do Azure](https://aka.ms/AzLog). Logs de WAF também são integrados com o [OMS (Operations Management Suite)](https://www.microsoft.com/cloud-platform/operations-management-suite) de modo que você pode usar o OMS Log Analytics para executar consultas refinadas sofisticadas.
+Você também pode ingerir esses logs em seu próprio sistema de análise usando a [Integração de Log do Azure](https://aka.ms/AzLog). Logs de WAF também são integrados com o [Log Analytics](../log-analytics/log-analytics-overview.md) de modo que você pode usar o Log Analytics para executar consultas refinadas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>WAF (Firewall do aplicativo Web) do Azure
 
@@ -469,7 +469,7 @@ A Segurança Operacional do Azure refere-se a serviços, controles e recursos di
 
 -   [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--   Gerenciador de Recursos do Azure
+-   Azure Resource Manager
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -606,7 +606,7 @@ O Observador de Rede fornece uma exibição dos logs de diagnóstico. Essa exibi
 
 ### <a name="log-analytics"></a>Log Analytics
 
-O [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.
+O [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes.
 
 O Log Analytics oferece as seguintes soluções para monitorar suas redes:
 

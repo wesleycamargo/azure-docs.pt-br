@@ -1,25 +1,26 @@
 ---
-title: "Visão geral do OpenShift no Azure | Microsoft Docs"
-description: "Uma visão geral de OpenShift no Azure."
+title: Visão geral do OpenShift no Azure | Microsoft Docs
+description: Uma visão geral de OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944494"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -31,14 +32,14 @@ O OpenShift inclui Kubernetes para gerenciamento e orquestração do contêiner.
 - Implantação e dimensionamento fáceis.
 - Manutenção de ciclo de vida de longo prazo para equipes e aplicativos.
 
-Há várias versões do OpenShift e duas estão disponíveis para execução no Azure:
+Há múltiplas versões disponíveis de OpenShift:
 
 - Origem do OpenShift
 - Plataforma do Contêiner do OpenShift
 - OpenShift Online
 - OpenShift Dedicado
 
-Das quatro versões abordadas neste artigo, duas estão disponíveis para que os clientes as implantem no Azure por conta própria - Origem do OpenShift e Plataforma de Contêiner do OpenShift.
+Das quatro versões abordadas neste artigo, apenas duas estão disponíveis para que os clientes as implantem no Azure: Origem do OpenShift e Plataforma de Contêiner do OpenShift.
 
 ## <a name="openshift-origin"></a>Origem do OpenShift
 

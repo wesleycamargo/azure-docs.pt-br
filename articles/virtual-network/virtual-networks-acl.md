@@ -1,11 +1,11 @@
 ---
-title: "O que é uma lista de controle de acesso da rede do Azure?"
+title: O que é uma lista de controle de acesso da rede do Azure?
 description: Saiba mais sobre listas de controle de acesso no Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controle de acesso do ponto de extremidade?
 
 > [!IMPORTANT]
 > O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: o Gerenciador de Recursos e o Clássico. Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo de implantação do Gerenciador de Recursos. 
 
-Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. Recomendamos que você use NSGs (grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [Visão geral do grupo de segurança de rede](virtual-networks-nsg.md)
+Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. Recomendamos que você use NSGs (grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [Visão geral do grupo de segurança de rede](security-overview.md)
 
 As ACLs podem ser configuradas usando o PowerShell ou o portal do Azure. Para configurar ACLs usando o PowerShell, confira [Gerenciando listas de controle de acesso para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o portal do Azure, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

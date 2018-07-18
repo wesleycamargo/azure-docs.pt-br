@@ -1,45 +1,45 @@
 ---
-title: Azure Service Fabric – Configurar o monitoramento com o Log Analytics do OMS | Microsoft Docs
-description: Saiba como configurar o Operations Management Suite para visualizar e analisar eventos para monitorar os clusters do Azure Service Fabric.
+title: Azure Service Fabric – Configurar o monitoramento com o Log Analytics | Microsoft Docs
+description: Saiba como configurar o Log Analytics para visualizar e analisar eventos para monitorar os clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 4/03/2018
+ms.author: srrengar
+ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurar o Log Analytics do Operations Management Suite para um cluster
+# <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
-Você pode configurar um espaço de trabalho do OMS (Operations Management Suite) por meio do Azure Resource Manager, do PowerShell ou do Azure Marketplace. Se você mantém um modelo do Resource Manager atualizado de sua implantação para uso futuro, utilize o mesmo modelo para configurar o ambiente do OMS. A implantação por meio do Marketplace será mais fácil se você já tiver um cluster implantado com o diagnóstico habilitado. Caso não tenha acesso ao nível de assinatura na conta na qual está implantando o OMS, faça a implantação usando o PowerShell ou o modelo do Resource Manager.
+O Log Analytics é nossa recomendação para monitorar eventos de nível de cluster. É possível configurar um espaço de trabalho do Log Analytics por meio do Azure Resource Manager, PowerShell ou Azure Marketplace. Se você mantém um modelo do Resource Manager atualizado de sua implantação para uso futuro, utilize o mesmo modelo para configurar o ambiente do Log Analytics. A implantação por meio do Marketplace será mais fácil se você já tiver um cluster implantado com o diagnóstico habilitado. Caso não tenha acesso ao nível de assinatura na conta na qual está implantando, faça a implantação usando o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Para configurar o OMS para monitorar seu cluster, você precisa ter o diagnóstico habilitado para exibir eventos no nível do cluster ou da plataforma.
+> Para configurar o Log Analytics para monitorar seu cluster, você precisa ter o diagnóstico habilitado para exibir eventos no nível do cluster ou da plataforma. Consulte [como configurar o diagnóstico em clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar o diagnóstico em clusters do Linux](service-fabric-diagnostics-event-aggregation-lad.md) para obter mais informações
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Implantar o OMS usando o Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Implantar um espaço de trabalho do Log Analytics usando o Azure Marketplace
 
-Se você deseja adicionar um espaço de trabalho de OMS depois de implantar um cluster, vá para o Azure Marketplace no portal e procure **Análise do Service Fabric**:
+Se você deseja adicionar um espaço de trabalho do Log Analytics depois de implantar um cluster, vá para o Azure Marketplace no portal e procure **Análise do Service Fabric**. Esta é uma solução personalizada para implantações do Service Fabric que tenha dados específicos do Service Fabric. Neste processo, você criará a solução (o painel para exibir informações) e o espaço de trabalho (a agregação dos dados subjacentes do cluster).
 
 1. Selecione **Novo** no menu de navegação esquerdo. 
 
 2. Pesquise **Análise do Service Fabric**. Selecione o recurso que é exibido.
 
-3. Selecione **Criar**.
+3. Clique em **Criar**.
 
     ![Análise do OMS SF no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Na janela de criação de Análise do Service Fabric, selecione **Selecionar um espaço de trabalho** para o campo **Espaço de trabalho do OMS** e, em seguida, **Criar um novo espaço de trabalho**. Preencha as entradas necessárias. O único requisito é que a assinatura para o cluster do Service Fabric e o espaço de trabalho de OMS devem ser iguais. Quando as entradas forem validadas, o espaço de trabalho do OMS começará a ser implantado. A implantação leva apenas alguns minutos.
+4. Na janela de criação de Análise do Service Fabric, selecione **Selecionar um espaço de trabalho** para o campo **Espaço de trabalho do OMS** e, em seguida, **Criar um novo espaço de trabalho**. Preencha as entradas necessárias. O único requisito é que a assinatura para o cluster do Service Fabric e o espaço de trabalho devem ser iguais. Quando as entradas forem validadas, o espaço de trabalho começará a ser implantado. A implantação leva apenas alguns minutos.
 
 5. Quando terminar, selecione **Criar** novamente na parte inferior da janela de criação de Análise do Service Fabric. Verifique se o novo espaço de trabalho será exibido em **Espaço de trabalho do OMS**. Essa ação adiciona a solução ao espaço de trabalho criado.
 
@@ -48,9 +48,9 @@ Se estiver usando o Windows, continue com as seguintes etapas para conectar o OM
 >[!NOTE]
 >A habilitação dessa experiência para clusters do Linux ainda não está disponível. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Conecte-se o espaço de trabalho do OMS para o cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conecte-se ao espaço de trabalho do Log Analytics para o cluster 
 
-1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nomeDoEspaçodeTrabalhoOMS\>**  e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
+1. O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos em que você criou a solução Análise do Service Fabric. Selecione **ServiceFabric\<nameOfWorkspace\>** e vá para a página de visão geral. A partir daí, você pode alterar as configurações da solução,as configurações do espaço de trabalho e acessar o portal do OMS.
 
 2. No menu de navegação à esquerda, selecione **Logs das contas de armazenamento** em **Fontes de Dados de Espaço de Trabalho**.
 
@@ -75,7 +75,7 @@ Você adicionou a solução Análise do Service Fabric em um espaço de trabalho
 
 Ao implantar um cluster usando um modelo do Resource Manager, o modelo cria um novo espaço de trabalho de OMS, adiciona a Solução Service Fabric a ele e o configura para ler dados das tabelas de armazenamento apropriadas.
 
-Você pode usar e modificar [este modelo de exemplo](https://azure.microsoft.com/resources/templates/service-fabric-oms/) para atender às suas necessidades. Modelos que oferecem diferentes opções para configurar um espaço de trabalho do OMS podem ser encontrados em [Modelos do Service Fabric e do OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Você pode usar e modificar [este modelo de exemplo](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) para atender às suas necessidades.
 
 Faça as seguintes modificações:
 1. Adicione `omsWorkspaceName` e `omsRegion` aos seus parâmetros adicionando o trecho de código a seguir aos parâmetros definidos em seu arquivo *template.json*. Fique à vontade para modificar os valores padrão como desejar. Além disso, adicione dois novos parâmetros em seu arquivo *parameters.json* para definir os valores para a implantação de recursos:
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar as zonas DNS no DNS do Azure - CLI do Azure 2.0 | Microsoft Docs
-description: "Você pode gerenciar zonas DNS usando a CLI do Azure 2.0. Este artigo mostra como atualizar, excluir e criar zonas DNS no DNS do Azure."
+description: Você pode gerenciar zonas DNS usando a CLI do Azure 2.0. Este artigo mostra como atualizar, excluir e criar zonas DNS no DNS do Azure.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerenciar Zonas DNS no DNS do Azure usando a CLI do Azure 2.0
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 
 
 Este guia mostra como gerenciar as zonas DNS usando a CLI do Azure entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-dnszones.md) ou o Portal do Azure.
+
+Este guia trata especificamente das zonas DNS públicas. Para obter informações sobre como usar a CLI do Azure para gerenciar Zonas Privadas no DNS do Azure, consulte [Introdução às Zonas Privadas do DNS do Azure usando a CLI do Azure 2.0](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -45,7 +47,7 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 ### <a name="sign-in-to-your-azure-account"></a>Entre na sua conta do Azure
 
-Abra uma janela do console e autentique com suas credenciais. Para saber mais, confira Conectar-se ao Azure desde a CLI do Azure
+Abra uma janela do console e autentique com suas credenciais. Para obter mais informações, confira [Conectar-se ao Azure a partir da CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -65,9 +67,15 @@ Escolha quais das suas assinaturas do Azure deseja usar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="create-a-resource-group"></a>Criar um grupos de recursos
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: para instalar/usar o recurso de Zonas Privadas do DNS do Azure (Visualização Pública)
+O recurso de Zonas Privadas do DNS do Azure é liberado em Visualização Pública por meio de uma extensão da CLI do Azure. Instalar o “dns” da extensão da CLI do Azure 
+```
+az extension add --name dns
+``` 
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
 
 Você pode ignorar esta etapa se está usando um grupo de recursos existente.
 
@@ -77,7 +85,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obtendo ajuda
 
-Todos os comandos da CLI 2.0 relacionados ao DNS do Azure começam com `az network dns`. A ajuda está disponível para cada comando usando a opção `--help` (forma abreviada `-h`).  Por exemplo:
+Todos os comandos da CLI 2.0 relacionados ao DNS do Azure começam com `az network dns`. A ajuda está disponível para cada comando usando a opção `--help` (forma abreviada `-h`).  Por exemplo: 
 
 ```azurecli
 az network dns --help

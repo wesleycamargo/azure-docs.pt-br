@@ -1,11 +1,11 @@
 ---
-title: "Tutorial da Central de Segurança do Azure - Definir e avaliar as políticas de segurança | Microsoft Docs"
-description: "Tutorial da Central de Segurança do Azure - Definir e avaliar as políticas de segurança"
+title: Tutorial da Central de Segurança do Azure - Definir e avaliar as políticas de segurança | Microsoft Docs
+description: Tutorial da Central de Segurança do Azure - Definir e avaliar as políticas de segurança
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: Definir e avaliar as políticas de segurança
 A Central de Segurança ajuda a garantir a conformidade com os requisitos de segurança regulatórios ou corporativos usando-se políticas de segurança para definir a configuração desejada das cargas de trabalho. Depois que você definir as políticas para suas assinaturas do Azure e adaptá-las ao tipo de carga de trabalho ou à confidencialidade dos seus dados, a Central de Segurança pode fornecer recomendações de segurança aos seus recursos de computação, de rede, de SQL e armazenamento e de aplicativo. Neste tutorial, você aprenderá a:
@@ -76,14 +76,14 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
 4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
 3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

@@ -1,25 +1,25 @@
 ---
-title: "Noções básicas do Kit de desenvolvimento de pilha do Azure | Microsoft Docs"
-description: "Descreve como realizar a administração básica do Kit de desenvolvimento de pilha do Azure."
+title: Noções básicas do Kit de desenvolvimento de pilha do Azure | Microsoft Docs
+description: Descreve como executar tarefas de administração básicas para o Kit de desenvolvimento do Azure pilha (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>Noções básicas de administração de ASDK 
 Há várias coisas que você precisa saber se você é novo para a administração do Kit de desenvolvimento na pilha do Azure (ASDK). Este guia fornece uma visão geral de sua função como um operador de pilha do Azure no ambiente de avaliação e como garantir que os usuários de teste pode se tornarem rapidamente produtivo.
@@ -27,6 +27,17 @@ Há várias coisas que você precisa saber se você é novo para a administraç�
 Primeiro, você deve examinar o [o que é o Kit de desenvolvimento de pilha do Azure?](asdk-what-is.md) artigo para certificar-se de entender a finalidade de ASDK e suas limitações. Você deve usar o kit de desenvolvimento como "seguro", onde você pode avaliar a pilha do Azure para desenvolver e testar seus aplicativos em um ambiente de não produção. 
 
 Como o Azure, Azure pilha inova rapidamente para regularmente lançaremos novas compilações do ASDK. No entanto, não é possível atualizar o ASDK como implantações de sistemas do Azure pilha integrado. Portanto, se você deseja mover para a última compilação, você deve completamente [reimplantar o ASDK](asdk-redeploy.md). Você não pode aplicar os pacotes de atualização. Esse processo leva tempo, mas o benefício é que você pode experimentar os recursos mais recentes assim que estiverem disponíveis. 
+
+## <a name="what-account-should-i-use"></a>Qual conta devo usar?
+Há algumas considerações de conta, que você deve estar atento ao gerenciar a pilha do Azure. Especialmente em implantações usando o Windows Server Active Directory Federation Services (AD FS) como o provedor de identidade em vez do Azure Active Directory (AD do Azure). As considerações de conta a seguir se aplicam a sistemas de pilha do Azure integradas e implantações de ASDK:
+
+|Conta|AD do Azure|AD FS|
+|-----|-----|-----|
+|Administrador local (. \Administrator)|Administrador de host ASDK|Administrador de host ASDK|
+|AzureStack\AzureStackAdmin|Administrador de host ASDK<br><br>Pode ser usado para fazer logon no portal de administração do Azure pilha<br><br>Acesso para exibir e administrar anéis Service Fabric|Administrador de host ASDK<br><br>Nenhum acesso ao portal de administração de pilha do Azure<br><br>Acesso para exibir e administrar anéis Service Fabric<br><br>Não é mais o proprietário da assinatura de provedor padrão (DPS)|
+|AzureStack\CloudAdmin|Pode acessar e executar comandos permitidos no ponto de extremidade com privilégios|Pode acessar e executar comandos permitidos no ponto de extremidade com privilégios<br><br>Não pode fazer logon no host ASDK<br><br>Proprietário da assinatura de provedor padrão (DPS)|
+|Administrador Global do AD do Azure|Usado durante a instalação<br><br>Proprietário da assinatura de provedor padrão (DPS)|Não aplicável|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Quais ferramentas usar para gerenciar?
 Você pode usar o [Portal de administrador de pilha](https://adminportal.local.azurestack.external) ou o PowerShell para gerenciar a pilha do Azure. É a maneira mais fácil de aprender os conceitos básicos por meio do portal. Se você quiser usar o PowerShell, você precisa instalar [PowerShell para Azure pilha](asdk-post-deploy.md#install-azure-stack-powershell) e [baixar as ferramentas do Azure pilha do GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).

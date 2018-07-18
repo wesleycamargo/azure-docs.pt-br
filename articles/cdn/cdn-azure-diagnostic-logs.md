@@ -1,24 +1,24 @@
 ---
-title: "Logs de diagnóstico do Azure | Microsoft Docs"
-description: "O cliente pode habilitar a análise de log para a CDN do Azure."
+title: Logs de diagnóstico do Azure | Microsoft Docs
+description: O cliente pode habilitar a análise de log para a CDN do Azure.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -26,15 +26,15 @@ Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e
 
  - Conta de Armazenamento do Azure
  - Hubs de eventos do Azure
- - [Repositório do OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Esse recurso está disponível para todos os pontos de extremidade da CDN que pertencem a perfis CDN Verizon (Standard e Premium) e Akamai (Standard). 
+Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
 
 Os logs de diagnóstico do Azure permitem que você exporte métricas de uso básicas do seu ponto de extremidade da CDN para uma variedade de origens para poder consumi-las de forma personalizada. Por exemplo, você pode realizar os seguintes tipos de exportação de dados:
 
 - Exportar os dados para o armazenamento de blobs, exportar para CSV e gerar grafos no Excel.
 - Exportar dados para Hubs de Eventos e correlacionar com os dados de outros serviços do Azure.
-- Exportar dados para o Log Analytics e exibir dados no seu próprio espaço de trabalho do OMS
+- Exporte dados para registrar análises e exibir dados no próprio espaço de trabalho do Log Analytics
 
 A figura a seguir mostra uma exibição de análise de núcleo de CDN típica dos dados.
 
@@ -68,9 +68,9 @@ Entre no [Portal do Azure](http://portal.azure.com). Se você ainda não tiver a
 
 *Figura 2 – Registro em log com o Armazenamento do Azure*
 
-### <a name="logging-with-oms-log-analytics"></a>Registro em log com o OMS Log Analytics
+### <a name="logging-with-log-analytics"></a>Registrar em log com Log Analytics
 
-Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
+Para usar o Log Analytics para armazenar os logs, siga estas etapas:
 
 1. Na folha **Logs de diagnóstico**, selecione **Enviar para o Log Analytics**. 
 
@@ -84,7 +84,7 @@ Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Insira um novo nome do espaço de trabalho do OMS. Um nome de espaço de trabalho do OMS deve ser exclusivo e conter apenas letras, números e hifens; não são permitidos espaços nem sublinhados. 
+4. Insira um novo nome do espaço de trabalho do Log Analytics. Um nome do espaço de trabalho do Log Analytics deve ser exclusivo e conter apenas letras, números e hífens; espaços e sublinhados não são permitidos. 
 5. Em seguida, selecione uma assinatura existente, um grupo de recursos (novo ou existente), um local e um tipo de preço. Você também tem a opção de fixar essa configuração em seu painel. Clique em **OK** para concluir a configuração.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
 
 6. Clique em **Salvar**.
 
-7. Para exibir seu novo espaço de trabalho do OMS, vá para o painel do Portal do Azure e clique no nome do seu espaço de trabalho de análise do log. Clique no bloco do Portal do OMS para exibir seu espaço de trabalho no repositório do OMS. 
+7. Para exibir o novo espaço de trabalho do Log Analytics, vá para o painel do Portal do Azure e clique no nome do espaço de trabalho do Log Analytics. Clique no bloco do Portal do OMS para visualizar o espaço de trabalho do Log Analytics. 
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    O repositório do OMS está pronto para registrar dados em log. Para consumir esses dados, você deve usar uma [solução do OMS](#consuming-oms-log-analytics-data), abordada posteriormente neste artigo.
+    O espaço de trabalho do Log Analytics agora está pronta para registrar dados. Para consumir esses dados, é necessário usar uma [Solução do Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), abordada posteriormente neste artigo.
 
 Para obter mais informações sobre atrasos em dados de log, consulte [Log data delays](#log-data-delays) (Atrasos nos dados de log).
 
@@ -109,11 +109,11 @@ Para obter mais informações sobre atrasos em dados de log, consulte [Log data 
 
 O exemplo a seguir mostra como habilitar os Logs de Diagnóstico por meio dos Cmdlets do Azure PowerShell.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
 
 Primeiro, faça logon e selecione uma assinatura:
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
@@ -123,7 +123,7 @@ Para habilitar os Logs de Diagnóstico em uma Conta de Armazenamento, use este c
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Para habilitar os logs de diagnóstico em um espaço de trabalho do OMS, use este comando:
+Para Habilitar os Logs de Diagnóstico em um espaço de trabalho do Log Analytics, use este comando:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -156,10 +156,10 @@ Antes de poder acessar os dados da análise principal da Conta de Armazenamento 
 
 **Descrição dos campos:**
 
-|value|Descrição|
+|Valor|DESCRIÇÃO|
 |-------|---------|
 |ID da assinatura    |A ID da assinatura do Azure no formato Guid.|
-|Recurso |Nome do Grupo   Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
+|Nome do Grupo de Recursos |Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
 |Nome do Perfil |Nome do perfil CDN|
 |Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
 |Ano|  Representação de 4 dígitos do ano, por exemplo, 2017|
@@ -173,22 +173,22 @@ Para facilitar o acesso à análise de núcleo, o exemplo de código de uma ferr
 
 Aqui está como você pode usar a ferramenta:
 
-1.  Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Visite o link do github: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Baixe o código.
 3.  Siga as instruções a serem compiladas e configuradas.
 4.  Execute a ferramenta.
 5.  O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Consumir logs de diagnóstico de um repositório do OMS Log Analytics
-O Log Analytics é um serviço no Operations Management Suite (OMS) que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir logs de diagnóstico de um espaço de trabalho do Log Analytics
+O Log Analytics é um serviço no Azure que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
 
-Para usar o Log Analytics, você deve [habilitar o registro em log](#enable-logging-with-azure-storage) para o repositório do OMS Log Analytics do Azure, que é discutido anteriormente neste artigo.
+Para usar o Log Analytics, é necessário [habilitar o registro em log](#enable-logging-with-azure-storage) para o espaço de trabalho do Azure Log Analytics, discutida anteriormente neste artigo.
 
-### <a name="using-the-oms-repository"></a>Usando o repositório do OMS
+### <a name="using-the-log-analytics-workspace"></a>Usar o espaço de trabalho do Log Analytics
 
  O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
 
-![Repositório do OMS Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Espaço de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – Repositório do Log Analytics*
 
@@ -196,7 +196,7 @@ Você pode exibir os dados de várias maneiras usando soluções de gerenciament
 
 Você pode instalar as soluções de gerenciamento do Azure marketplace clicando no link **Obtenha agora** na parte inferior de cada solução.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>Adicionar uma solução de gerenciamento de CDN do OMS
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Adicionar uma solução de gerenciamento da CDN do Log Analytics
 
 Siga estas etapas para adicionar uma solução de gerenciamento:
 
@@ -219,7 +219,7 @@ Siga estas etapas para adicionar uma solução de gerenciamento:
 
     ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  Depois de clicar em **Criar**, você deverá criar um novo espaço de trabalho do OMS ou usar um existente. 
+6.  Após clicar em **Criar**, você será solicitado a criar um novo espaço de trabalho do Log Analytics ou usar um existente. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Siga estas etapas para adicionar uma solução de gerenciamento:
 
     Clique no espaço de trabalho do Log Analytics que você criou para ir para o seu espaço de trabalho. 
 
-11. Clique no bloco **Portal do OMS** para ver a nova solução no portal do OMS.
+11. Clique no bloco **Portal do OMS** para ver a nova solução.
 
     ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. O portal do OMS deve agora ser semelhante à tela a seguir:
+12. O portal deve agora ser semelhante à tela a seguir:
 
     ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Siga estas etapas para adicionar uma solução de gerenciamento:
 
 ### <a name="offers-and-pricing-tiers"></a>Ofertas e tipos de preços
 
-Você pode ver ofertas e camadas de preços para soluções de gerenciamento do OMS e ofertas [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+É possível visualizar as ofertas e os tipos de preço para soluções de gerenciamento [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Personalizando exibições
 
-Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a criar, acesse seu espaço de trabalho do OMS e clique no bloco **Designer de Exibição**.
+Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Para começar a projetar, vá para o espaço de trabalho do Log Analytics e clique no bloco **Designer de Exibição** .
 
 ![Criador de Modos de Exibição](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -276,47 +276,49 @@ Você pode personalizar a exibição em seus dados usando o **Designer de Exibi�
     
 ## <a name="log-data-delays"></a>Atrasos em dados de log
 
-Atrasos em dados de log da Verizon | Atrasos em dados de log da Akamai
---- | ---
-Os dados de log de Verizon estão 1 hora atrasados e demoram até 2 horas para começar a aparecer após a conclusão da propagação do ponto de extremidade. | Os dados de log do Akamai estão atrasados em 24 horas; se foram criados há mais de 24 horas, leva até 2 horas para eles começarem a ser exibidos. Se eles tiverem sido criados recentemente, poderá demorar até 25 horas para os logs começarem a aparecer.
+A tabela a seguir mostra atrasos em dados de log para **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Akamai** e da **CDN Standard/Premium do Azure da Verizon**.
+
+Atrasos em dados de log da Microsoft | Atrasos em dados de log da Verizon | Atrasos em dados de log da Akamai
+--- | --- | ---
+Atrasado em 1 hora. | Atrasado em 1 hora e pode demorar até 2 horas para começar a aparecer após a conclusão da propagação do ponto de extremidade. | Atrasado em 24 horas; se foram criados há mais de 24 horas, leva até 2 horas para eles começarem a ser exibidos. Se eles tiverem sido criados recentemente, poderá demorar até 25 horas para os logs começarem a aparecer.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Tipos de log de diagnóstico para análise de núcleo de CDN
 
 No momento, oferecemos somente logs de análise de núcleo, que contêm métricas que mostram estatísticas de resposta HTTP e estatísticas de saída como visto nos POPs/bordas da CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Detalhes das métricas da análise de núcleo
-A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análise de núcleo. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
+A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análises principais para **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Akamai** e da **CDN Standard/Premium do Azure da Verizon**. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
 
 
-|Métrica                     | Descrição   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Número total de ocorrências de solicitação durante esse período| Sim  |Sim   |
-| RequestCountHttpStatus2xx |Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202)              | Sim  |Sim   |
-| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302)              | Sim  |Sim   |
-| RequestCountHttpStatus4xx |Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404)               | Sim   |Sim   |
-| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504)              | Sim  |Sim   |
-| RequestCountHttpStatusOthers |  Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx) | Sim  |Sim   |
-| RequestCountHttpStatus200 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 200              |Não   |Sim   |
-| RequestCountHttpStatus206 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 206              |Não   |Sim   |
-| RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302              |Não   |Sim   |
-| RequestCountHttpStatus304 |  Contagem de todas as solicitações que resultaram em um código de resposta HTTP 304             |Não   |Sim   |
-| RequestCountHttpStatus404 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 404              |Não   |Sim   |
-| RequestCountCacheHit |Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. O ativo foi servido diretamente do POP para o cliente.               | Sim  |Não   |
-| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa que o ativo não foi encontrado no POP mais próximo ao cliente e, portanto, foi recuperado da Origem.              |Sim   | Não  |
-| RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda.              |Sim   | Não  |
-| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                |Sim   |Não   |
-| RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima.              |Sim   | Não  |
-| EgressTotal | Transferência de dados de saída em GB              |Sim   |Sim   |
-| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB            |Sim   |Não   |
-| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de status HTTP 3xx em GB              |Sim   |Não   |
-| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB               |Sim   | Não  |
-| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB               |Sim   |  Não |
-| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB                |Sim   |Não   |
-| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN  |Sim   |  Não |
-| EgressCacheMiss | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem              |Sim   |  Não |
-| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda.                |Sim   |Não   |
-| EgressCacheUncacheable | Transferência de dados de saída para ativos impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo. Indica que não deve ser armazenado em cache em um POP ou pelo cliente HTTP.                   |Sim   | Não  |
-| EgressCacheOthers |  Transferências de dados de saída para outros cenários de cache.             |Sim   | Não  |
+|Métrica                     | DESCRIÇÃO | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | sim | sim |sim |
+| RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | sim | sim |sim |
+| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302). | sim | sim |sim |
+| RequestCountHttpStatus4xx | Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404). | sim | sim |sim |
+| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504). | sim | sim |sim |
+| RequestCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx). | sim | sim |sim |
+| RequestCountHttpStatus200 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 200. | sim | Não   |sim |
+| RequestCountHttpStatus206 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 206. | sim | Não   |sim |
+| RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302. | sim | Não   |sim |
+| RequestCountHttpStatus304 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 304. | sim | Não   |sim |
+| RequestCountHttpStatus404 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 404. | sim | Não   |sim |
+| RequestCountCacheHit | Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. O ativo foi servido diretamente do POP para o cliente. | sim | sim | Não   |
+| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa que o ativo não foi encontrado no POP mais próximo ao cliente e, portanto, foi recuperado da Origem. | sim | sim | Não  |
+| RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda. | sim | sim | Não  |
+| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP. | sim | sim | Não  |
+| RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima. | Não  | sim | Não   |
+| EgressTotal | Transferência de dados de saída em GB | sim |sim |sim |
+| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB. | sim | sim | Não   |
+| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de status HTTP 3xx em GB. | sim | sim | Não   |
+| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB. | sim | sim | Não   |
+| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB. | sim | sim | Não  |
+| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB. | sim | sim | Não   |
+| EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN. | sim | sim | Não  |
+| EgressCacheMiss. | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem. | sim | sim | Não  |
+| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda. | sim | sim | Não  |
+| EgressCacheUncacheable | Transferência de dados de saída para ativos impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo. Indica que não deve ser armazenado em cache em um POP ou pelo cliente HTTP. | sim | sim | Não  |
+| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não  | sim | Não  |
 
 * Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
 
@@ -368,7 +370,7 @@ Todos os logs são armazenados em formato JSON e cada entrada tem campos de cade
 }
 ```
 
-Em que ‘time’ representa a hora de início do limite da hora pela qual as estatísticas são relatadas. Quando uma métrica não é compatível com um provedor da CDN, em vez de um valor duplo ou inteiro, há um valor nulo. Esse valor nulo indica a ausência de uma métrica e isso é diferente de um valor de 0. Há um conjunto dessas métricas por domínio configurado no ponto de extremidade.
+Em que *time* representa a hora de início do limite da hora pela qual as estatísticas são relatadas. Quando uma métrica não é compatível com um provedor da CDN, em vez de um valor duplo ou inteiro, há um valor nulo. Esse valor nulo indica a ausência de uma métrica e isso é diferente de um valor de 0. Há um conjunto dessas métricas por domínio configurado no ponto de extremidade.
 
 Propriedades de exemplo:
 
@@ -410,7 +412,7 @@ Propriedades de exemplo:
 
 * [Logs de Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise principal por meio do portal suplementar da CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Log Analytics do OMS do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API REST do Log Analytics do Azure](https://docs.microsoft.com/rest/api/loganalytics)
 
 

@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 5/9/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939191"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo responde às perguntas frequentes sobre componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,10 +31,10 @@ Para verificar rapidamente as seções neste artigo, use os links à direita, em
 ## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Há algum limite para o número de cofres que podem ser criados em cada assinatura do Azure? <br/>
-Sim. A partir de janeiro de 2018, é possível criar até 25 cofres dos Serviços de Recuperação, por região com suporte do Backup Azure, por assinatura. Se você precisar de cofres adicionais, crie outra assinatura.
+Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte do Backup do Azure por assinatura. Se você precisar de cofres adicionais, crie outra assinatura.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre? <br/>
-Você pode registrar no máximo 200 máquinas virtuais do Azure por cofre. Se você estiver usando o agente MAB, você pode registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
+Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente MAB, você pode registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar dados de um servidor de outro servidor ao restaurar os dados?<br/>
 Todos os servidores registrados no mesmo cofre poderão recuperar os dados do backup feito por outros servidores *que usem a mesma senha*. Se houver servidores cujos dados de backup que você deseja isolar de outros servidores em sua organização, use uma senha designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
@@ -67,12 +68,19 @@ Sim.
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Posso registrar meu Servidor DPM para diversos cofres? <br/>
 Nº Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Há suporte para qual versão do System Center Data Protection Manager? <br/>
-Recomendamos a instalação do agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações (UR) mais recente para o System Center Data Protection Manager (DPM). A partir de agosto de 2016, o Pacote Cumulativo de Atualizações 11 é o mais recente.
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Há suporte para qual versão do System Center Data Protection Manager?
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Eu instalei o agente do Backup do Azure para proteger meus arquivos e minhas pastas. Agora posso instalar o System Center DPM para trabalhar com o agente do Backup do Azure para proteger as cargas de trabalho do aplicativo/VM local no Azure? <br/>
-Para usar o Backup do Azure com o System Center DPM (Data Protection Manager), instale o DPM e, em seguida, instale o agente de Backup do Azure. Instalar os componentes de Backup do Azure nesta ordem garante que o agente de Backup do Azure funcione com o DPM. Instalar o agente de Backup do Azure antes de instalar o DPM não é aconselhável e não há suporte para isso.
+Recomendamos a instalação do agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações (UR) mais recente para o System Center Data Protection Manager (DPM). 
+- Para o System Center DPM 2012 R2, [Atualize o monitoramento 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) é a atualização mais recente.
+- Para o System Center DPM 2016, [Atualize o monitoramento 2](https://support.microsoft.com/en-us/help/3209593) é a atualização mais recente.
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Eu instalei o agente do Backup do Azure para proteger meus arquivos e minhas pastas. Agora posso instalar o System Center DPM para proteger os aplicativos no local/cargas de trabalho VM para o Microsoft Azure?
+
+Sim. No entanto, para usar o Backup do Microsoft Center Data Protection Manager (DPM), instale o DPM e, em seguida, instale o agente de Backup do Azure. Instalar os componentes de Backup do Azure nesta ordem garante que o agente de Backup do Azure funcione com o DPM. Instalar o agente de Backup do Azure antes de instalar o DPM não é aconselhável e não há suporte para isso.
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode usar o DPM para fazer backup de aplicativos na pilha do Azure?
+
+Nº Embora você possa usar o Backup do Azure para proteger a pilha do Azure, Backup do Azure não oferece atualmente suporte usando o DPM para fazer backup de aplicativos na pilha do Azure.
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Backup do Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos? <br/>
@@ -81,13 +89,13 @@ Nº Todos os dados transferidos para o cofre, antes do cancelamento do trabalho 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Há algum limite de quando ou quantas vezes um backup pode ser agendado?<br/>
-Sim. Você pode executar os trabalhos de backup no Windows Server ou em estações de trabalho do Windows até três vezes por dia. Você pode executar trabalhos de backup no System Center DPM até duas vezes por dia. Você pode executar um trabalho de backup para VMs IaaS uma vez por dia. Você pode usar a política de agendamento para o Windows Server ou a estação de trabalho do Windows para especificar programações diárias ou semanais. Usando o System Center DPM, especifique o agendamento diário, semanal, mensal e anual.
+Sim. Você pode executar os trabalhos de backup no Windows Server ou em estações de trabalho do Windows até três vezes por dia. Você pode executar trabalhos de backup no System Center DPM até duas vezes por dia. Você pode executar um trabalho de backup para VMs IaaS uma vez por dia. Use a política de agendamento para o Windows Server ou a estação de trabalho do Windows para especificar programações diárias ou semanais. Com o System Center DPM, especifique o agendamento diário, semanal, mensal e anual.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados submetido a backup?<br/>
  Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre dos Serviços de Recuperação serão de 30 a 40% menores.
 
 ## <a name="what-can-i-back-up"></a>Do que eu posso fazer backup
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quais sistemas operacionais dão suporte ao Backup do Azure? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Quais sistemas operacionais o Backup do Azure dá suporte? <br/>
 O Backup do Azure dá suporte à seguinte lista de sistemas operacionais para backup de arquivos e pastas, além de aplicativos de carga de trabalho protegidos usando o Servidor de Backup do Azure e o System Center Data Protection Manager (DPM).
 
 | Sistema operacional | Plataforma | SKU |
@@ -112,7 +120,7 @@ O Backup do Azure dá suporte à seguinte lista de sistemas operacionais para ba
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Há um limite para o tamanho de cada fonte de dados submetida a backup? <br/>
-Não há nenhum limite para a quantidade de dados cujo backup você pode fazer backup em um cofre. O Backup do Azure restringe o tamanho máximo da fonte de dados, no entanto, esses limites são grandes. A partir de agosto de 2015, o tamanho máximo de fonte de dados para os sistemas operacionais com suporte é:
+O Backup do Azure impõe um tamanho máximo para uma fonte de dados, no entanto, os limites para a fonte são grandes. A partir de agosto de 2015, o tamanho máximo de fonte de dados para os sistemas operacionais com suporte é:
 
 | S.Não | Sistema operacional | Tamanho máximo da fonte de dados |
 |:---:|:--- |:--- |
@@ -132,13 +140,16 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 | Microsoft Exchange |Soma de todos os bancos de dados do Exchange em um servidor Exchange do qual está sendo feito o backup |
 | Estado do Sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da máquina da qual está sendo feito o backup |
 
-Para backup de VM do Azure, cada VM pode ter até 16 discos de dados com cada disco de dados tendo 4.095 GB ou menos. <br>
+Para backup de VM de IaaS do Azure, cada VM pode ter até 16 discos de dados e cada disco de dados pode ter até 4095 GB.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Há um limite na quantidade de dados mantidos em um cofre de Serviços de Recuperação?
+Não há nenhum limite para a quantidade de dados que você pode fazer backup para um cofre de Serviços de Recuperação.
 
 ## <a name="retention-policy-and-recovery-points"></a>Política de retenção e pontos de recuperação
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Há alguma diferença entre a política de retenção do DPM e do Windows Server/cliente Windows (ou seja, no Windows Server sem o DPM)?<br/>
 Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?<br/>
 Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?<br/>

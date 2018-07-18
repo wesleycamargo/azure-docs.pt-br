@@ -1,11 +1,11 @@
 ---
-title: "Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Azure: clássico | Microsoft Docs"
-description: "Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
+title: 'Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Azure: clássico | Microsoft Docs'
+description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Você pode configurar um, dois ou todos os três emparelhamentos (privado e púb
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Entre em sua conta do Azure e selecione uma assinatura
 1. Abra o console do PowerShell com direitos elevados e conecte-se à sua conta. Use o exemplo a seguir para ajudar a se conectar:
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
 2. Verificar as assinaturas da conta.
 

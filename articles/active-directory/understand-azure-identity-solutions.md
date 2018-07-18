@@ -1,23 +1,23 @@
 ---
 title: Compreender a identidade do Azure | Microsoft Docs
-description: "Obtenha uma compreensão básica dos termos, dos conceitos e das recomendações da solução de identidade do Microsoft Azure para que você possa tomar a melhor decisão de controle de identidade para sua organização."
-keywords: 
+description: Obtenha uma compreensão básica dos termos, dos conceitos e das recomendações da solução de identidade do Microsoft Azure para que você possa tomar a melhor decisão de controle de identidade para sua organização.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acd69b6ea4d7a1d5c13cd0172f15b93eac96058e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 O Microsoft Azure Active Directory (Azure AD) é um dispositivo de nuvem de gerenciamento de identidade e acesso que fornece serviços de diretório, governança de identidade e gerenciamento de acesso do aplicativo. O Azure AD rapidamente [habilita SSO (logon único)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) para milhares de aplicativos comerciais e personalizados pré-integrados na [Galeria de aplicativos do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Muitos desses aplicativos você provavelmente já usa, como o Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -32,7 +32,7 @@ O Microsoft Azure oferece várias maneiras de aproveitar IDaaS (identidade como 
 
 Antes de tomar uma decisão quanto à solução de identidade do Azure para a sua organização, você precisará ter uma compreensão básica dos termos comumente usados quando falamos sobre os serviços de identidade do Azure.
 
-|Termo a conhecer| Descrição|
+|Termo a conhecer| DESCRIÇÃO|
 |-----|-----|
 |Assinatura do Azure |As assinaturas são usadas para pagar pelos serviços de nuvem do Azure e normalmente são vinculadas a um cartão de crédito. Você pode ter várias assinaturas, mas pode ser difícil compartilhar recursos entre assinaturas.|
 |Locatário do Azure | Um locatário do Azure AD é representativo de uma única organização. É uma instância dedicada e confiável do Azure AD criada automaticamente quando uma organização inscreve-se para uma assinatura do serviço de nuvem da Microsoft, como Azure, Intune ou Office 365. Os locatários podem obter acesso a serviços em um ambiente dedicado (locatário único) ou em um ambiente compartilhado com outras organizações (multilocatário).|
@@ -49,11 +49,11 @@ Antes de tomar uma decisão quanto à solução de identidade do Azure para a su
 
 Agora que você conhece os termos básicos de identidade do Azure, deve saber mais sobre esses conceitos de identidade do Azure que o ajudarão a tomar uma decisão bem informada sobre o serviço de identidade do Azure.
 
-|Conceito a entender |Descrição|
+|Conceito a entender |DESCRIÇÃO|
 |-----|-----|
 |[Como as assinaturas do Azure são associadas ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Cada assinatura do Azure tem uma relação de confiança com um diretório do Azure AD para autenticar usuários, serviços e dispositivos. *Várias assinaturas podem confiar no mesmo diretório do Azure AD, mas uma assinatura confiará apenas em um único diretório do Azure AD*. Essa relação de confiança é diferente da relação que uma assinatura tem com outros recursos do Azure (sites, bancos de dados e assim por diante), que são mais como recursos filho de uma assinatura. Se uma assinatura expirar, o acesso aos recursos associados à assinatura que não o Azure AD também será interrompido. No entanto, o diretório do Azure AD permanece no Azure, de modo que você pode associar outra assinatura a esse diretório e continuar a gerenciar recursos de locatário.|
 |[Como funciona o licenciamento do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Quando você compra ou ativa o Enterprise Mobility Suite, Azure AD Premium ou Azure AD Basic, seu diretório é atualizado com a assinatura, incluindo período de validade e licenças pré-pagas. Quando a assinatura está ativa, o serviço pode ser gerenciado pelos administradores globais do Azure AD e usado por usuários licenciados. Suas informações de assinatura, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis no portal do Azure na folha **Azure Active Directory** > **Licenças**. Este é também o melhor lugar para gerenciar suas atribuições de licença.|
-|[Controle de acesso baseado em função no Portal do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|O Azure RBAC (controle de acesso baseado em função) fornece o gerenciamento de acesso refinado para os recursos do Azure. Um excesso de permissões pode expor uma conta a invasores. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. Usando o RBAC, você pode oferecer aos funcionários as permissões exatas necessárias com base em três funções básicas que se aplicam a todos os grupos de recursos: proprietário, colaborador, leitor. Você também pode criar até 2.000 das suas próprias [funções de RBAC personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) para atender às suas necessidades específicas. |
+|[Controle de acesso baseado em função no Portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)|O Azure RBAC (controle de acesso baseado em função) fornece o gerenciamento de acesso refinado para os recursos do Azure. Um excesso de permissões pode expor uma conta a invasores. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. Usando o RBAC, você pode oferecer aos funcionários as permissões exatas necessárias com base em três funções básicas que se aplicam a todos os grupos de recursos: proprietário, colaborador, leitor. Você também pode criar até 2.000 das suas próprias [funções de RBAC personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) para atender às suas necessidades específicas. |
 |[Identidade híbrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Identidade híbrida é obtida integrando seu Windows Server Active Directory (AD DS) local com o Azure AD usando o [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Isso permite que você forneça uma identidade comum para seus usuários para Office 365, Azure e aplicativos locais ou aplicativos SaaS integrados ao Azure AD. Com identidade híbrida, você efetivamente estende seu ambiente local para a nuvem para acesso e identidade.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>A diferença entre o Windows Server AD DS e o Azure AD
@@ -107,16 +107,16 @@ Aqui estão alguns dos cenários comuns de identidade e acesso com recomendaçõ
 Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o AD do Azure. Aqui está uma lista de artigos excelentes para você começar:
 
 * [Habilitando seu diretório para gerenciamento híbrido com o Azure AD Connect](active-directory-aadconnect.md)
-* [Segurança adicional para um mundo sempre conectado](../multi-factor-authentication/multi-factor-authentication.md)
+* [Segurança adicional para um mundo sempre conectado](authentication/multi-factor-authentication.md)
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Introdução aos Relatórios do AD do Azure](active-directory-reporting-getting-started.md)
 * [Gerenciar suas senhas de qualquer lugar](active-directory-passwords-update-your-own-password.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
+* [Como fornecer acesso remoto seguro a aplicativos locais](manage-apps/application-proxy.md)
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [O que é o licenciamento do Active Directory do Microsoft Azure?](active-directory-licensing-whatis-azure-portal.md)
-* [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
+* [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](manage-apps/cloud-app-discovery.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

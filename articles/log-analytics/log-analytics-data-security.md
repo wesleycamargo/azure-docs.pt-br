@@ -1,24 +1,24 @@
 ---
-title: "Segurança de dados do Log Analytics | Microsoft Docs"
+title: Segurança de dados do Log Analytics | Microsoft Docs
 description: Saiba mais sobre como o Log Analytics protege a sua privacidade e seus dados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Azure Log Analytics para complementar as informações na [Central de Confiabilidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -157,7 +157,7 @@ Conforme descrito acima, os dados do servidor de gerenciamento ou de agentes con
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço Log Analytics recebe e processa os dados
 O serviço Log Analytics garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados com a autenticação do Azure. Os dados brutos não processados são armazenados em um Hub de Eventos do Azure na região em que eventualmente serão armazenados os dados em repouso. Os tipos de dados armazenados dependem dos tipos de soluções importados e usados para coletar dados. Em seguida, o serviço Log Analytics processa os dados brutos e os consome no banco de dados.
 
-O período de retenção dos dados coletados armazenados no banco de dados depende do plano selecionado quando o espaço de trabalho foi criado.  Para a camada paga, os dados coletados ficam disponíveis por 31 dias por padrão, mas podem ser estendidos para 365 dias.  Esses dados ainda não estão criptografados em repouso e estão previstos para meados de 2018. 
+O período de retenção dos dados coletados armazenados no banco de dados depende do plano de preços selecionado. Para a camada *Livre* camada, os dados coletados estão disponíveis por 7 dias. Para a camada *Paga*, os dados coletados ficam disponíveis por 31 dias por padrão, mas podem ser estendidos para 720 dias. Os dados são armazenados criptografados em repouso no armazenamento do Azure, para garantir a confidencialidade dos dados. As duas últimas semanas de dados também são armazenadas em cache baseado em SSD e este cache não está criptografado.  Estamos planejando suporte para essa criptografia no segundo semestre de 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Usar o Log Analytics para acessar os dados
 Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure usando a conta organizacional ou uma conta da Microsoft configurada anteriormente. Todo o tráfego entre o portal e o Log Analytics no serviço é enviado por um canal HTTPS seguro. Ao usar o portal, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do Azure é encerrada.

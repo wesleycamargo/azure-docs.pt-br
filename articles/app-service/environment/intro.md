@@ -1,6 +1,6 @@
 ---
-title: "Introdução aos ambientes do Serviço de Aplicativo do Azure"
-description: "Uma breve visão geral sobre os ambientes do Serviço de Aplicativo do Azure"
+title: Introdução aos Ambientes de Serviço de Aplicativo do Azure
+description: Uma breve visão geral dos Ambientes de Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,26 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355229"
 ---
-# <a name="introduction-to-app-service-environments"></a>Introdução aos ambientes do Serviço de Aplicativo #
+# <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicativo #
  
 ## <a name="overview"></a>Visão geral ##
 
-Um Ambiente do Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Esse recurso pode hospedar os aplicativos Web, [aplicativos móveis][mobileapps], aplicativos de API e [funções][Functions].
+O Ambiente de Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Essa capacidade pode hospedar:
+
+* Aplicativos Web do Windows
+* Aplicativos Web do Linux (em Versão prévia)
+* Contêineres do Docker (em Versão prévia)
+* Aplicativos móveis
+* Funções
 
 Os ASEs (Ambientes do Serviço de Aplicativo) são apropriados para cargas de trabalho de aplicativos que exijam:
 
-- Escala muito alta.
-- Isolamento e acesso à rede segura.
-- Alta utilização de memória.
+* Escala muito alta.
+* Isolamento e acesso à rede segura.
+* Alta utilização de memória.
 
 Os clientes podem criar vários ASEs dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso torna os ASEs ideais para escalar horizontalmente camadas de aplicativo sem monitoração de estado para dar suporte a cargas de trabalho RPS altas.
 
@@ -39,11 +46,11 @@ Os ASEs são isolados para executar somente aplicativos de um único cliente e s
 * Os ASEs permitem a hospedagem de aplicativos de grande escala com acesso à rede segura. Para obter mais informações, consulte o [Aprofundamento no AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sobre ASEs.
 * Vários ASEs podem ser usados para escalar horizontalmente. Para obter mais informações, consulte [Como configurar uma marca do aplicativo distribuído geograficamente](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs podem ser usados para configurar a arquitetura de segurança, conforme mostrado no Aprofundamento no AzureCon. Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o [artigo sobre a como implementar uma arquitetura de segurança em camadas](app-service-app-service-environment-layered-security.md) com os ambientes do Serviço de Aplicativo.
-* Os aplicativos executados nos ASEs podem ter seu acesso restrito por dispositivos upstream como WAFs (firewalls do aplicativo Web). Para saber mais, confira [Configurar um WAF para ambientes do Serviço de Aplicativo](app-service-app-service-environment-web-application-firewall.md).
+* Os aplicativos executados nos ASEs podem ter seu acesso restrito por dispositivos upstream como WAFs (firewalls do aplicativo Web). Para saber mais, confira [Integrar o Ambiente do Serviço de Aplicativo do ILB ao Gateway de Aplicativo Azure][AppGW].
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
-Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 100 instâncias. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
+Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 100 instâncias do Plano do Serviço de Aplicativo. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
 
 Um ASE é composto de funções de trabalho e front-ends. Os front-ends são responsáveis pela terminação HTTP/HTTPS, bem como pelo balanceamento de cargas automático de solicitações do aplicativo em um ASE. Os front-ends são automaticamente adicionados já que os planos de Serviço de Aplicativo no ASE são escalados horizontalmente.
 
@@ -59,7 +66,7 @@ Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não alte
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
-Um ASE pode ser criado apenas em uma rede virtual do Azure Resource Manager. Para saber mais sobre redes virtuais do Azure, consulte [Perguntas frequentes sobre redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e de saída para seus aplicativos.
+O recurso ASE é uma implantação do Serviço de Aplicativo Azure diretamente na rede virtual do Azure Resource Manager. Para saber mais sobre redes virtuais do Azure, consulte [Perguntas frequentes sobre redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e de saída para seus aplicativos.
 
 Um ASE pode ser voltado para a Internet com um endereço IP público ou voltado para o interior com apenas um endereço de ILB (balanceador de carga Interno) do Azure.
 
@@ -87,7 +94,7 @@ O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cad
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md

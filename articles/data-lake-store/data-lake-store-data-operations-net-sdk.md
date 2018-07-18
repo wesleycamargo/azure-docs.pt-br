@@ -1,8 +1,8 @@
 ---
-title: "SDK do .NET: operações de filesystem no Azure Data Lake Store | Microsoft Docs"
-description: "Use o SDK do .NET para Azure Data Lake Store para executar operações de filesystem no Data Lake Store, como criar pastas etc."
+title: 'SDK do .NET: operações de filesystem no Azure Data Lake Store | Microsoft Docs'
+description: Use o SDK do .NET para Azure Data Lake Store para executar operações de filesystem no Data Lake Store, como criar pastas etc.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun

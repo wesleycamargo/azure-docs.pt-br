@@ -1,9 +1,9 @@
 ---
-title: "Habilitar automaticamente as Configurações de Diagnóstico usando um modelo do Resource Manager | Microsoft Docs"
-description: "Saiba como usar um modelo do Resource Manager para criar configurações de diagnóstico que ajudarão a transmitir seus logs de diagnóstico para os Hubs de Eventos ou armazená-los em uma conta de armazenamento."
+title: Habilitar automaticamente as Configurações de Diagnóstico usando um modelo do Resource Manager | Microsoft Docs
+description: Saiba como usar um modelo do Resource Manager para criar configurações de diagnóstico que ajudarão a transmitir seus logs de diagnóstico para os Hubs de Eventos ou armazená-los em uma conta de armazenamento.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: ce61e50d5c00ef44b8eba562928d383510d4ccf4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
@@ -40,13 +40,13 @@ Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para 
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de Não Computação
 Para os recursos de Não Computação, você precisará fazer duas coisas:
 
-1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do espaço de trabalho do Log Analytics do OMS (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
+1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID da regra de autorização do hub de eventos e/ou ID do espaço de trabalho do Log Analytics (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
    
     ```json
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -116,7 +116,7 @@ Para os recursos de Não Computação, você precisará fazer duas coisas:
     ]
     ```
 
-O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas, desde que [o recurso ofereça suporte para as métricas do Azure Monitor](monitoring-supported-metrics.md).
+O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas, desde que [o recurso ofereça suporte para as métricas do Azure Monitor](monitoring-supported-metrics.md).
 
 Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streaming para Hubs de eventos e o armazenamento em uma conta de armazenamento.
 
@@ -134,12 +134,12 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+      "defaultValue": "http://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -176,7 +176,7 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
       "location": "[resourceGroup().location]",
       "properties": {
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -259,7 +259,7 @@ Para habilitar o diagnóstico em um recurso de Computação, por exemplo uma Má
 3. Adicionar o conteúdo do arquivo XML WADCfg na propriedade XMLCfg, substituindo todos os caracteres XML corretamente.
 
 > [!WARNING]
-> Esta última etapa pode ser difícil de fazer. [Confira este artigo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o Esquema de Configuração de Diagnóstico em variáveis que são substituídas e formatadas corretamente.
+> Esta última etapa pode ser difícil de fazer. [Confira este artigo](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o Esquema de Configuração de Diagnóstico em variáveis que são substituídas e formatadas corretamente.
 > 
 > 
 

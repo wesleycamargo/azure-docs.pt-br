@@ -1,25 +1,20 @@
 ---
-title: "O que é o SQL Data Warehouse do Azure? | Microsoft Docs"
-description: "Banco de dados distribuído de nível corporativo com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado questão de segundos."
+title: O que é o SQL Data Warehouse do Azure? | Microsoft Docs
+description: Banco de dados distribuído de nível corporativo com capacidade de processar volumes de petabytes de dados relacionais e não relacionais. Ele é o primeiro data warehouse de nuvem do setor que pode ser expandido, reduzido e pausado questão de segundos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: c8e6af4eabc96845ff6c237735cdb0da2ed24743
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>O que é o SQL Data Warehouse do Azure?
 
@@ -37,13 +32,6 @@ O SQL Data Warehouse armazena dados em tabelas relacionais com armazenamento col
 
 Os resultados da análise podem ir para aplicativos ou bancos de dados em todo o mundo. Os analistas de negócios podem então obter informações para tomar decisões de negócios bem informadas.
 
-## <a name="optimization-choices"></a>Opções de otimização
-
-O SQL Data Warehouse oferece [níveis de desempenho](performance-tiers.md) projetados para flexibilidade para atender às suas necessidades dos dados, grandes ou pequenos. Você pode escolher um data warehouse otimizado para elasticidade ou para a computação. 
-
-- A **camada de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Essa opção se destaca em cargas de trabalho que podem aproveitar ao máximo a separação entre o armazenamento e a computação, dimensionando com frequência para dar suporte a curtos períodos de atividade na atividade de pico. Essa camada de computação tem o menor ponto de preço de entrada e é dimensionada para dar suporte à maioria das cargas de trabalho do cliente.
-
-- O **nível de desempenho Otimizado para Computação** usa o hardware mais recente do Azure para apresentar um novo cache de disco de estado sólido NVMe que mantém os dados acessados com mais frequência próximos às CPUs, que está exatamente onde você os deseja. Ao criar camadas de armazenamento automaticamente, esse nível de desempenho se destaca com consultas complexas, já que todas as E/S são mantidas locais na camada de computação. Além disso, o columnstore foi aprimorado para armazenar uma quantidade ilimitada de dados no SQL Data Warehouse. O nível de desempenho Otimizado para Computação fornece o maior nível de escalabilidade, permitindo que você aumente até 30.000 cDWU (Unidades de Data Warehouse de computação). Escolha essa camada para cargas de trabalho que exijam desempenho contínuo e ultrarrápido.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de amostra][load sample data] rapidamente. Se você ainda não conhece o Azure, poderá achar o [Glossário do Azure][Azure glossary] útil à medida que encontrar nova terminologia. Ou, dê uma olhada em alguns desses outros Recursos do SQL Data Warehouse.  
@@ -82,6 +70,6 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um S
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/en-us/support/legal/sla/
+[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o TINFOIL SECURITY."
+title: 'Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7794564396c2ade8ba45b9f2b1238f304f6b3921
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 96d7b75078fd1075d17d70ee677f28ba1bbb1576
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY
 
@@ -30,9 +30,9 @@ A integração do TINFOIL SECURITY com o Azure AD oferece os seguintes benefíci
 - É possível permitir que seus usuários façam logon automaticamente no TINFOIL SECURITY (logon único) com as contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o TINFOIL SECURITY, serão necessários os seguintes itens:
 
@@ -64,11 +64,11 @@ Para configurar a integração do TINFOIL SECURITY com o Azure AD, é necessári
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **TINFOIL SECURITY**, selecione **TINFOIL SECURITY** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -97,7 +97,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 1. No Portal do Azure, na página de integração de aplicativos do **TINFOIL SECURITY**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
@@ -105,7 +105,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
 3. Na seção **URLs e Domínio do TINFOIL SECURITY**, o usuário não precisa seguir nenhuma etapa, uma vez que o aplicativo já está integrado ao Azure.
 
-    ![Configurar Logon Único](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
 
 
 4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL**.
@@ -255,7 +255,7 @@ Quando você clicar no bloco TINFOIL SECURITY no Painel de Acesso, você deverá
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

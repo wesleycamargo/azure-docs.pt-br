@@ -3,21 +3,21 @@ title: Tutorial do Kubernetes no Azure - atualizar cluster
 description: Tutorial do Kubernetes no Azure - atualizar cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16c8892743ac25c21b7004e10796c77c3ac9f900
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0886d13b62b6b8ad1c0dcd430ce48bcc51d6d465
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Fazer upgrade do Kubernetes no AKS (Serviço de Contêiner do Azure)
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: fazer upgrade do Kubernetes no Serviço de Kubernetes do Azure (AKS)
 
-Um cluster AKS (Serviço de Contêiner do Azure) pode ser atualizado usando a CLI do Azure. Durante o processo de upgrade, os nós Kubernetes são cuidadosamente [isolados e esvaziados][kubernetes-drain] para minimizar as interrupções nos aplicativos em execução.
+Um cluster AKS (Serviço de Kubernetes do Azure) pode ser atualizado usando a CLI do Azure. Durante o processo de upgrade, os nós Kubernetes são cuidadosamente [isolados e esvaziados][kubernetes-drain] para minimizar as interrupções nos aplicativos em execução.
 
 Neste tutorial, parte oito de oito, é feito o upgrade de um cluster Kubernetes. As tarefas a serem concluídas incluem:
 
@@ -41,7 +41,7 @@ Antes de atualizar um cluster, use o comando `az aks get-upgrades` para verifica
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Aqui você pode ver que a versão atual do nó é `1.7.9`, e as versões de atualização disponíveis na coluna de atualizações.
+Neste exemplo, a versão atual do nó é `1.7.9` e as versões de atualização disponíveis na coluna de atualizações.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -115,7 +115,7 @@ Saída:
 
 ## <a name="validate-upgrade"></a>Validar o upgrade
 
-Agora você pode confirmar se o upgrade obteve êxito com o comando `az aks show`.
+Confirme se o upgrade teve êxito com o comando `az aks show`.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360097"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 Com o Visual Studio e o [SDK do Azure](https://azure.microsoft.com/downloads/), você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. Ou pode definir uma Máquina Virtual, uma Rede Virtual e uma Conta de Armazenamento e implantar essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implantação **Grupo de Recursos do Azure** permite a você implantar todos os recursos necessários em uma única operação repetida. Para obter mais informações sobre como implantar e gerenciar seus recursos, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
@@ -53,7 +54,7 @@ Neste procedimento, você cria um projeto do Grupo de Recursos do Azure com um m
    
     Como escolhemos o modelo do aplicativo Web + SQL para este exemplo, você vê os arquivos a seguir: 
    
-   | Nome do arquivo | Descrição |
+   | Nome do arquivo | DESCRIÇÃO |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que invoca comandos do PowerShell a implantar para o Gerenciador de Recursos do Azure.<br />**Observação** O Visual Studio usa esse script do PowerShell para implantar seu modelo. As alterações feitas no script afetam a implantação no Visual Studio. Portanto, tenha cuidado. |
    | WebSiteSQLDatabase.json |O modelo do Resource Manager que define a infraestrutura que você deseja implantar no Azure e os parâmetros que você pode fornecer durante a implantação. Também define as dependências entre os recursos para que o Resource Manager implante-os na ordem correta. |
@@ -148,7 +149,7 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 5. Escolha o botão **Implantar** para implantar o projeto no Azure. Um console do PowerShell é aberto fora da instância do Visual Studio. Digite a senha de administrador do SQL Server no console do PowerShell quando for solicitado. **O console do PowerShell pode estar oculto por trás de outros itens ou minimizado na barra de tarefas.** Procure esse console e selecione-o para fornecer a senha.
    
    > [!NOTE]
-   > O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Você precisa dos cmdlets do Azure PowerShell para implantar com êxito os grupos de recursos. Se solicitado, instale-os.
+   > O Visual Studio pode solicitar que você instale os cmdlets do Azure PowerShell. Você precisa dos cmdlets do Azure PowerShell para implantar com êxito os grupos de recursos. Se solicitado, instale-os. Para obter mais informações, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
    > 
    > 
 6. A implantação pode demorar alguns minutos. Nas janelas de **Saída** , confira o status da implantação. Quando a implantação tiver sido concluída, a última mensagem indicará uma implantação bem-sucedida com algo semelhante a:
@@ -216,6 +217,102 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
     
      ![mostrar aplicativo implantado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>Adicionar um painel de operações à sua implantação
+Agora que criamos uma solução, é hora dar os últimos passos e torná-la operacional. Você não está limitado apenas aos recursos disponíveis por meio da interface do Visual Studio. Podemos aproveitar os painéis compartilhados, que são definidos como recursos em JSON. Fazemos isso editando nosso modelo e adicionando um recurso personalizado. 
+
+1. Abra o arquivo WebsiteSqlDeploy.json e adicione o seguinte bloco de código json após o recurso da conta de armazenamento, mas antes do ] de fechamento da seção de recursos.
+
+```json
+    ,{
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "0": {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "colSpan": 4,
+                  "rowSpan": 6
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "resourceGroup",
+                      "isOptional": true
+                    },
+                    {
+                      "name": "id",
+                      "value": "[resourceGroup().id]",
+                      "isOptional": true
+                    }
+                  ],
+                  "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart"
+                }
+              },
+              "1": {
+                "position": {
+                  "x": 4,
+                  "y": 0,
+                  "rowSpan": 3,
+                  "colSpan": 4
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "__Customizations__\n\nUse this dashboard to create and share the operational views of services critical to the application performing. To customize simply pin components to the dashboard and then publish when you're done. Others will see your changes when you publish and share the dashboard.\n\nYou can customize this text too. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                        "title": "Operations",
+                        "subtitle": "[resourceGroup().name]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": {
+              "value": {
+                "relative": {
+                  "duration": 24,
+                  "timeUnit": 1
+                }
+              },
+              "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+            }
+          }
+        }
+      },
+      "apiVersion": "2015-08-01-preview",
+      "name": "[concat('ARM-',resourceGroup().name)]",
+      "type": "Microsoft.Portal/dashboards",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "hidden-title": "[concat('OPS-',resourceGroup().name)]"
+      }
+    }
+}
+```
+
+2. Reimplante o grupo de recursos e, quando você examinar seu painel no Portal do Azure, verá o painel compartilhado adicionado à lista de opções. 
+
+    ![Painel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+
+
+
+   > [!NOTE] 
+   > O acesso ao painel pode ser gerenciado usando grupos RBAC, e as personalizações podem ser publicadas no recurso após sua implantação. Observe que, quando você reimplantar o grupo de recursos, ele será redefinido para o valor padrão no modelo. Considere a atualização do modelo com as personalizações. Para obter ajuda sobre como fazer isso, consulte [Criar programaticamente os Painéis do Azure](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+
+
+    ![Painel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
+    
+    
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como gerenciar seus recursos com o portal, consulte [Usando o Portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).
 * Para saber mais sobre os modelos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).

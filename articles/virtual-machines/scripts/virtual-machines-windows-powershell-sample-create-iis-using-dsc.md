@@ -1,13 +1,13 @@
 ---
-title: "Amostra de script do Azure PowerShell – IIS com DSC | Microsoft Docs"
-description: "Amostra de script do Azure PowerShell – IIS com DSC"
+title: Amostra de script do Azure PowerShell – IIS com DSC | Microsoft Docs
+description: Amostra de script do Azure PowerShell – IIS com DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: nepeters
 ms.openlocfilehash: c80c2a3229866833dbbe188ec5150a7095816ea8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Criar uma VM IIS com o PowerShell
 
@@ -33,7 +33,7 @@ Esse script cria uma Máquina Virtual do Azure que executa o Windows Server 2016
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-dsc/create-windows-vm-iis-dsc.ps1 "Create VM IIS DSC")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -45,7 +45,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Cria a máquina virtual e a conecta à placa de rede, a rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também abre a porta 80 e define as credenciais administrativas. |

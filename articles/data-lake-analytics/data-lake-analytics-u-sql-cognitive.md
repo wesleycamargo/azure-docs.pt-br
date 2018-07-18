@@ -1,8 +1,8 @@
 ---
 title: Usando recursos cognitivos do U-SQL no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como usar a inteligência de recursos Cognitivos no U-SQL"
+description: Saiba como usar a inteligência de recursos Cognitivos no U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311107"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Tutorial: introdução aos recursos Cognitivos do U-SQL
 
@@ -37,8 +38,8 @@ Os seguintes recursos cognitivos estão disponíveis:
 
 O processo geral é simples:
 
-* Usar a instrução REFERENCE ASSEMBLY para habilitar os recursos cognitivos para o Script U-SQL
-* Use a PROCESS em um conjunto de linhas de entrada usando um Cognitivo UDO, para gerar um conjunto de linhas de saída
+* Usar a instrução `REFERENCE ASSEMBLY` para habilitar os recursos cognitivos para o Script U-SQL
+* Usar a `PROCESS` em um conjunto de linhas de entrada usando um Cognitivo UDO, para gerar um conjunto de linhas de saída
 
 ### <a name="detecting-objects-in-images"></a>Detecção de objetos em imagens
 

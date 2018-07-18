@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notas de versão para o agente de Sincronização de arquivos do Azure (versão prévia)
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -93,11 +93,12 @@ Os seguintes itens não são sincronizados, mas o restante do sistema continua a
 - Um ponto de extremidade de servidor não pode estar no volume do sistema. Por exemplo, C:\MyFolder não é um caminho aceitável, a menos que C:\MyFolder seja um ponto de montagem.
 - O Clustering de Failover só tem suporte com discos de cluster, não com CSVs (Volumes Compartilhados Clusterizados).
 - Um ponto de extremidade de servidor não pode estar aninhado. Ele pode coexistir no mesmo volume em paralelo com outro ponto de extremidade.
-- A exclusão de um número grande de diretórios (mais de 10.000) de um servidor por vez pode causar falhas de sincronização. Exclua diretórios em lotes de menos de 10.000. Verifique se as operações de exclusão foram sincronizadas com êxito antes de excluir o próximo lote.
 - Esta versão adiciona suporte à sincronização de raiz na raiz de um volume.
 - Não armazene um sistema operacional ou o arquivo de paginação do aplicativo que esteja dentro de um ponto de extremidade de servidor.
 - Mudou com esta versão: adicionados novos eventos para controlar o tempo de execução total para disposição em camadas de nuvem (EventID 9016), sincronizar o andamento do upload (EventID 9302) e arquivos que não foram sincronizados (EventID 9900).
-- Mudou com esta versão: o desempenho de sincronização do namespace de recuperação de desastres rápida aumentou significativamente.
+- Melhorado nesta versão: 
+- O desempenho de sincronização do namespace de recuperação de desastres rápida aumentou significativamente.
+- A exclusão de números grandes (mais de 10.000) de diretórios não precisa ser feita em lotes com v2*.
  
 ### <a name="cloud-tiering"></a>Disposição em camadas de nuvem
 - Alterado da versão anterior: novos arquivos são organizadas em camadas em uma hora (anteriormente, 32 horas), sujeito à configuração de política de camadas. Fornecemos um cmdlet do PowerShell para camada sob demanda. Você pode usar o cmdlet para avaliar a criação de camadas com mais eficiência sem esperar pelo processo em segundo plano.

@@ -1,11 +1,11 @@
 ---
-title: "Como configurar o logon único com senha para um aplicativo inexistente na galeria | Microsoft Docs"
-description: "Como configurar um aplicativo personalizado inexistente na galeria para logon único baseado em senha quando ele não está listado na Galeria de Aplicativos do Azure AD"
+title: Como configurar o logon único com senha para um aplicativo inexistente na galeria | Microsoft Docs
+description: Como configurar um aplicativo personalizado inexistente na galeria para logon único baseado em senha quando ele não está listado na Galeria de Aplicativos do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: afa976d94b77a98e4c8678310bb80d81b74e54f6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
 
@@ -113,6 +113,8 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
+12. **Opcional:** Para determinados aplicativos de mídia social como Twitter e Facebook, há também a opção de habilitar sobreposição automática da senha para o aplicativa em uma frequência selecionada. Para habilitar isso, selecione **Desejo que o Microsoft Azure gerencie automaticamente a senha deste usuário ou grupo** ao inserir credenciais em nome de um usuário ou grupo. Em seguida, selecione **Frequência de sobreposição (em semanas)**.
+
 ## <a name="assign-a-user-to-an-application-directly"></a>Atribuir um usuário diretamente a um aplicativo
 
 Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapas:
@@ -188,4 +190,4 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga estas etapa
 Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

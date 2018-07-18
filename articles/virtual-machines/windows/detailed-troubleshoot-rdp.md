@@ -1,26 +1,26 @@
 ---
-title: "Solução de problemas detalhada da área de trabalho remota no Azure | Microsoft Docs"
-description: "Examinar as etapas detalhadas para solução de problemas para erros da área de trabalho remota, em que não é possível usar a área de trabalho remota para conectar às máquinas virtuais do Windows no Azure"
+title: Solução de problemas detalhada da área de trabalho remota no Azure | Microsoft Docs
+description: Examinar as etapas detalhadas para solução de problemas para erros da área de trabalho remota, em que não é possível usar a área de trabalho remota para conectar às máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "não é possível conectar à área de trabalho remota, solucionar problemas da área de trabalho remota, a área de trabalho remota não pode conectar, erros da área de trabalho remota, solução de problemas da área de trabalho remota, problemas da área de trabalho remota"
+keywords: não é possível conectar à área de trabalho remota, solucionar problemas da área de trabalho remota, a área de trabalho remota não pode conectar, erros da área de trabalho remota, solução de problemas da área de trabalho remota, problemas da área de trabalho remota
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/06/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Etapas detalhadas de solução de problemas para problemas de conexão de área de trabalho remota para VMs do Windows no Azure
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
@@ -39,7 +39,7 @@ Estes são os componentes envolvidos em uma conexão RDP:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo:
+Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo: 
 
 * O endereço IP público da VM ou do serviço de nuvem que contém a máquina virtual (também chamado de [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address), endereço IP virtual) foi alterado. A falha RDP pode ter ocorrido porque o cache do cliente DNS ainda tem o *endereço IP antigo* registrado para o nome DNS. Libere o cache do cliente DNS e tente conectar-se novamente à VM. Ou tente conectar-se diretamente com o novo VIP.
 * Você está usando um aplicativo de terceiros para gerenciar suas conexões de Área de Trabalho Remota em vez de usar a conexão gerada pelo portal do Azure. Verifique se a configuração do aplicativo inclui a porta TCP correta para o tráfego de Área de Trabalho Remota. Você pode verificar essa porta para ter uma máquina virtual clássica no [portal do Azure](https://portal.azure.com), clicando em Configurações da VM > Pontos de Extremidade.
@@ -194,7 +194,7 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como redefinir uma senha ou o serviço da Área de Trabalho Remota para as máquinas virtuais do Windows](reset-rdp.md)
 
-[Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+[Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 
 [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

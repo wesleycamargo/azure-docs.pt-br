@@ -1,8 +1,8 @@
 ---
-title: "Portas usadas por serviços de Hadoop no HDInsight – Azure | Microsoft Docs"
-description: "Uma lista de portas usadas pelos serviços do Hadoop em execução no HDInsight."
+title: Portas usadas por serviços de Hadoop no HDInsight – Azure | Microsoft Docs
+description: Uma lista de portas usadas pelos serviços do Hadoop em execução no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4490ac9bccb406bd2e882fc8afcbaf05aa8ddfab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Hadoop em execução no HDInsight
 
@@ -58,6 +56,7 @@ Veja a seguir os tipos de cluster específicos que estão disponíveis:
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |API REST do HBase. Confira [Introdução ao HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST do Spark. Confira [Enviar trabalhos do Spark remotamente usando o Livy](spark/apache-spark-livy-rest-interface.md) |
+| Servidor do Spark Thrift |443 |HTTPS |Spark |Servidor do Spark Thrift usado para enviar consultas do Hive. Consulte [Usar o Beeline com o Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface de usuário do Storm para Web. Confira [Implantar e gerenciar topologias Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autenticação

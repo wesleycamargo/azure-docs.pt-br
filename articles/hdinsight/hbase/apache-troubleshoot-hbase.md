@@ -2,22 +2,20 @@
 title: Solucionar problemas do HBase usando o Azure HDInsight | Microsoft Docs
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o HBase e o Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinver
 manager: ashitg
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d5d50121cd0375af1b57baadeb40efb237aaea11
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Solucionar problemas do HBase usando o Azure HDInsight
 
@@ -421,5 +419,5 @@ Devido a esse desligamento inesperado, a porta associada ao processo talvez não
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Veja também
 [Solucionar problemas usando o Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

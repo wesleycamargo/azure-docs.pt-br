@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes de configuração para aplicativos web do Azure | Microsoft Docs"
-description: "Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para a funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure."
+title: Perguntas frequentes de configuração para aplicativos web do Azure | Microsoft Docs
+description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para a funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -69,7 +69,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
@@ -84,7 +84,7 @@ Para obter a lista de endereços IP de saída para seu aplicativo web:
 
 A lista de endereços IP de saída é exibida.
 
-Se seu site estiver hospedado em um ambiente de Serviço de Aplicativo para o PowerApps, para saber como obter seu endereço IP de saída, consulte [Endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Para saber como obter seu endereço IP de saída se seu site estiver hospedado em um ambiente de Serviço do Aplicativo, consulte [Endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
@@ -251,7 +251,7 @@ Para obter mais informações sobre WebJobs agendados, consulte [Criar um WebJob
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como executar testes de penetração para meu aplicativo de Serviço de Aplicativo?
 
-Para executar o teste de penetração, [enviar uma solicitação](https://security-forms.azure.com/penetration-testing/terms).
+Para executar o teste de penetração, [enviar uma solicitação](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo usando o Gerenciador de Tráfego?
 
@@ -268,7 +268,7 @@ Como a mensagem indica, esse processo de verificação de fraude pode levar até
 Se seu certificado de Serviço de Aplicativo continua mostrando esta mensagem após 24 horas, execute o seguinte script do PowerShell. O script contata o [provedor de certificado](https://www.godaddy.com/) diretamente para resolver o problema.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
@@ -279,7 +279,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como funcionam a autenticação e autorização no Serviço de Aplicativo?
 
 Para obter documentação detalhada para autenticação e autorização no Serviço de Aplicativo, consulte os documentos sobre várias entradas de provedor de identidade:
-* [Active Directory do Azure](app-service-mobile-how-to-configure-active-directory-authentication.md)
+* [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Google](app-service-mobile-how-to-configure-google-authentication.md)
 * [Conta da Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)

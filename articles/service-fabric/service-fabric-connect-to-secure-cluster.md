@@ -1,24 +1,25 @@
 ---
-title: "Conectar com segurança a um cluster do Azure Service Fabric | Microsoft Docs"
-description: "Descreve como autenticar o acesso do cliente a um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster."
+title: Conectar com segurança a um cluster do Azure Service Fabric | Microsoft Docs
+description: Descreve como autenticar o acesso do cliente a um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364804"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 
@@ -89,25 +90,53 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Conectar-se a um cluster seguro usando um certificado de cliente
-Execute o comando do PowerShell a seguir para se conectar a um cluster seguro que usa certificados de cliente para autorizar o acesso do administrador. Forneça a impressão digital do certificado do cluster, bem como a impressão digital do certificado de cliente que recebeu permissões para o gerenciamento de cluster. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
+Execute o comando do PowerShell a seguir para se conectar a um cluster seguro que usa certificados de cliente para autorizar o acesso do administrador. 
+
+#### <a name="connect-using-certificate-common-name"></a>Conectar usando o nome comum do certificado
+Forneça o nome comum do certificado do cluster e o nome comum do certificado de cliente que recebeu permissões para o gerenciamento de cluster. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
+```
+*ServerCommonName* é o nome comum do certificado do servidor instalado nos nós do cluster. *FindValue* é o nome comum do certificado de cliente do administrador. Quando os parâmetros são preenchidos, o comando se parece com o exemplo a seguir:
+```powershell
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
+```
+
+#### <a name="connect-using-certificate-thumbprint"></a>Conectar usando a impressão digital do certificado
+Forneça a impressão digital do certificado do cluster, bem como a impressão digital do certificado de cliente que recebeu permissões para o gerenciamento de cluster. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `  
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `  
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* é a impressão digital do certificado do servidor instalado nos nós do cluster. *FindValue* é a impressão digital do certificado de cliente do administrador.
-Quando os parâmetros são preenchidos, o comando se parece com o exemplo a seguir: 
+*ServerCertThumbprint* é a impressão digital do certificado do servidor instalado nos nós do cluster. *FindValue* é a impressão digital do certificado de cliente do administrador.  Quando os parâmetros são preenchidos, o comando se parece com o exemplo a seguir:
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `  
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `  
+          -StoreLocation CurrentUser -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Conectar-se a um cluster seguro usando o Windows Active Directory

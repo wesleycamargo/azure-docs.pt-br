@@ -1,18 +1,18 @@
 ---
-title: "Práticas recomendadas para a Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs"
-description: "Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure (versão prévia)."
+title: Práticas recomendadas para a Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs
+description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure (versão prévia).
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>Práticas recomendadas para a Sincronização de Dados SQL (Versão prévia) 
 
@@ -212,7 +212,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL (versão pré
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-sync-data.md)
 -   [Configurar a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-get-started-sql-data-sync.md)
--   [Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics do OMS](sql-database-sync-monitor-oms.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure (versão prévia) com o Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure (versão prévia)](sql-database-troubleshoot-data-sync.md)  
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL (versão prévia):  
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  

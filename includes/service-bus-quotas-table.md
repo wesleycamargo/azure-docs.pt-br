@@ -1,18 +1,18 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -20,7 +20,7 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 | --- | --- | --- | --- | --- |
 | Número máximo de namespaces básico/standard por assinatura do Azure |Namespace |As solicitações subsequentes por namespaces adicionais básico/standard são rejeitadas pelo portal. |100|
 | Número máximo de namespaces premium por assinatura do Azure |Namespace |As solicitações subsequentes por namespaces adicionais premium são rejeitadas pelo portal. |10 |
-| Tamanho do tópico/fila |Entidade |Definido na criação do tópico/fila. <br/><br/> Mensagens de entrada subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 ou 5 GB.<br /><br />Se [particionamento](../articles/service-bus-messaging/service-bus-partitioning.md) for habilitado, o tamanho máximo do tópico/fila será de 80 GB. |
+| Tamanho do tópico/fila |Entidade |Definido na criação do tópico/fila. <br/><br/> Mensagens de entrada subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 ou 5 GB.<br /><br />No SKU Premium, bem como Standard com [particionamento](../articles/service-bus-messaging/service-bus-partitioning.md) habilitado, o tamanho máximo de fila/tópico é de 80 GB. |
 | Número de conexões simultâneas em um namespace |Namespace |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. Operações REST não são consideradas conexões TCP simultâneas. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Número de solicitações de recebimento simultâneas em uma entidade de fila/tópico/assinatura |Entidade |Solicitações de recebimento subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. Essa cota aplica-se ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico. |5.000 |
 | Número de tópicos/filas por namespace de serviço |Namespace |Solicitações subsequentes de criação de um novo tópico ou fila no namespace de serviço são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |10.000<br /><br />O número total de tópicos mais filas em um namespace de serviço deve ser menor ou igual a 10.000.<br/>Isso não é aplicável para Premium, pois todas as entidades são particionadas. |

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Salesforce | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce."
+title: 'Tutorial: Integração do Azure Active Directory com o Salesforce | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -30,9 +30,9 @@ A integração do Salesforce ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Salesforce (logon único) com as contas do Azure AD deles.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Salesforce, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Salesforce da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Adicionar Salesforce da galeria
 Para configurar a integração do Salesforce ao Azure AD, você precisará adicionar o Salesforce da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -139,29 +139,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 8. Clique na **Configuração** no **ícone de configurações**, no canto superior direito da página.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/configure1.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/configure1.png)
 
 9. Role para baixo até **CONFIGURAÇÕES** no painel de navegação e clique em **Identidade** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
 
 10. Na página **Configurações de Logon Único**, clique no botão **Editar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
     
     > [!NOTE]
     > Se não for possível habilitar as configurações de Logon Único para a conta do Salesforce, talvez seja necessário entrar em contato com a [equipe de suporte do Cliente Salesforce](https://help.salesforce.com/support). 
 
 11. Selecione **SAML Habilitado** e, em seguida, clique em **Salvar**.
 
-      ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
+      ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
 12. Para definir as configurações de logon único do SAML, clique em **Novo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
 
 13. Na página **Edição de Configuração de Logon Único do SAML** , realize as seguintes configurações:
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
 
     a. Para o campo **Nome** , digite um nome amigável para essa configuração. Fornecer um valor para **Nome** preenche automaticamente a caixa de texto **Nome da API**.
 
@@ -192,15 +192,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 14. No painel de navegação à esquerda no Salesforce, clique em **Configurações da Empresa** para expandir a seção correspondente e clique em **Meu Domínio**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 
 15. Role para baixo até a seção **Configuração de Autenticação** e, em seguida, clique no botão **Editar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
 16. Na seção **Configuração de Autenticação**, marque a **Página de Logon** como **Serviço de Autenticação** de sua configuração de SSO do SAML e clique em **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
+    ![Configurar o logon único](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Se mais de um serviço de autenticação estiver selecionado, quando os usuários tentarem iniciar o logon único em seu ambiente do Salesforce, serão solicitados a selecionar o serviço de autenticação com o qual desejam entrar. Se você não quiser que isso aconteça, deverá **deixar todos os outros serviços de autenticação desmarcados**.
@@ -286,7 +286,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

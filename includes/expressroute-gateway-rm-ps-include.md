@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/19/2018
+---
 As etapas para essa tarefa usam uma VNet com base nos valores na lista de referência de configuração a seguir. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
 
 **Lista de referência de configuração**
@@ -20,7 +36,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 1. Conecte-se à sua Assinatura do Azure.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
@@ -47,7 +63,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 5. Defina a configuração.
 
   ```powershell
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 6. Armazene a sub-rede de gateway como uma variável.
 

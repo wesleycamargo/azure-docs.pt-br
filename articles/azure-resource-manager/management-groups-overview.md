@@ -7,16 +7,16 @@ editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure 
 
@@ -24,17 +24,15 @@ Se sua organização tiver muitas assinaturas, talvez seja necessária uma manei
 
 O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, faça logo no [Portal do Azure](https://portal.azure.com) e procure **Grupos de Gerenciamento** na seção **Todos os serviços**. 
 
-O suporte ao Azure Policy para grupos de gerenciamento ainda não está disponível na Visualização Pública, porém, a disponibilidade está prevista para as próximas semanas.  
-
 Como exemplo, é possível aplicar políticas a um grupo de gerenciamento que limita as regiões disponíveis para a criação de VM (máquina virtual). Essa política seria aplicada a todos os grupos de gerenciamento, assinaturas e recursos nesse grupo de gerenciamento, permitindo que as VMs fossem criadas nessa região.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gerenciamento e assinaturas 
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso. O diagrama a seguir mostra uma hierarquia de exemplo que consiste em grupos de gerenciamento e assinaturas organizados por departamentos.    
 
-![hierarquia](media/management-groups/MG_overview.png)
+![árvore](media/management-groups/MG_overview.png)
 
-Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funções de [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md) que *herdam* dos departamentos sob esse grupo de gerenciamento. Ao usar grupos de gerenciamento, você pode reduzir sua carga de trabalho e reduzir o risco de erro, apenas tendo que atribuir a função uma vez. 
+Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funções de [RBAC (Controle de Acesso Baseado em Função do Azure)](../role-based-access-control/overview.md) que *herdam* dos departamentos sob esse grupo de gerenciamento. Ao usar grupos de gerenciamento, você pode reduzir sua carga de trabalho e reduzir o risco de erro, apenas tendo que atribuir a função uma vez. 
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre os grupos de gerenciamento
 - 10.000 grupos de gerenciamento podem ter suporte em um único diretório. 
@@ -43,9 +41,21 @@ Ao criar uma hierarquia agrupada por departamentos, é possível atribuir funç�
 - Cada grupo de gerenciamento somente pode dar suporte a um pai.
 - Cada grupo de gerenciamento pode ter vários elementos filhos. 
 
+### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de assinatura na versão prévia 
+Atualmente, há uma limitação na versão prévia em que não é possível visualizar as assinaturas às quais você tenha acesso herdado. O acesso é herdado para a assinatura, mas o Azure Resource Manager ainda não é capaz de reconhecer o acesso de herança.  
+
+O uso da API REST para obter informações sobre a assinatura retorna detalhes do acesso que você tem, mas no Portal do Azure e no Azure Powershell as assinaturas não são exibidas. 
+
+Esse item está sendo trabalhado e será resolvido antes que os Grupos de Gerenciamento sejam anunciados como "Disponibilidade Geral."  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Limitação do CSP (Provedor de Soluções na Nuvem) durante a versão prévia 
+Há uma limitação atual para Parceiros do CSP (Provedor de Soluções na Nuvem), em que não é possível criar ou gerenciar os grupos de gerenciamento de seus clientes no diretório do cliente.  
+Esse item está sendo trabalhado e será resolvido antes que os Grupos de Gerenciamento sejam anunciados como "Disponibilidade Geral."
+
+
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
-Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz". Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível de diretório. O Administrador de Diretório [precisa elevar-se](../active-directory/role-based-access-control-tenant-admin-access.md) para ser o proprietário desse grupo raiz inicialmente. Quando o administrador for o proprietário do grupo, ele poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia.  
+Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz". Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível de diretório. O Administrador de Diretório [precisa elevar-se](../role-based-access-control/elevate-access-global-admin.md) para ser o proprietário desse grupo raiz inicialmente. Quando o administrador for o proprietário do grupo, ele poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Fatos importantes sobre o grupo de gerenciamento raiz
 - A ID e o nome do grupo de gerenciamento raiz recebem a ID do Azure Active Directory por padrão. O nome de exibição pode ser atualizado a qualquer momento para mostrar diferentes no Portal do Azure. 
@@ -57,9 +67,9 @@ Cada diretório recebe um único grupo de gerenciamento de nível superior chama
   
 ## <a name="management-group-access"></a>Acesso do Grupo de Gerenciamento
 
-Os Grupos de Gerenciamento do Azure fornecem suporte para [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md) a todos os acessos de recursos e definições de função. Essas permissões são herdadas de recursos filho existentes na hierarquia.   
+Os Grupos de Gerenciamento do Azure fornecem suporte para [RBAC (Controle de Acesso Baseado em Função do Azure)](../role-based-access-control/overview.md) a todos os acessos de recursos e definições de função. Essas permissões são herdadas de recursos filho existentes na hierarquia.   
 
-Embora qualquer [função de RBAC interna](../active-directory/role-based-access-control-what-is.md#built-in-roles) possa ser atribuída a um grupo de gerenciamento, existem quatro funções normalmente utilizadas: 
+Embora qualquer [função de RBAC interna](../role-based-access-control/overview.md#built-in-roles) possa ser atribuída a um grupo de gerenciamento, existem quatro funções normalmente utilizadas: 
 - **proprietário** tem acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários. 
 - **Colaborador** pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 - **Colaborador da Política de Recursos** pode criar e gerenciar políticas no diretório nos recursos.     
@@ -72,5 +82,5 @@ Para saber mais sobre grupos de gerenciamento, consulte:
 - [Como alterar, excluir ou gerenciar grupos de gerenciamento](management-groups-manage.md)
 - [Instalar o módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Revisar as especificações API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Instalar a extensão CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Instalar a extensão CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

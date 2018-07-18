@@ -1,11 +1,11 @@
 ---
-title: "Tutorial da Central de Segurança do Azure - Responder a incidentes de segurança | Microsoft Docs"
-description: "Tutorial da Central de Segurança do Azure - responder a incidentes de segurança"
+title: Tutorial da Central de Segurança do Azure - Responder a incidentes de segurança | Microsoft Docs
+description: Tutorial da Central de Segurança do Azure - responder a incidentes de segurança
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: a69ecc4bdff8e65c3529afab0c11afccfdd894c7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -82,14 +82,14 @@ Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de
 2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
 3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
 4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a camada Gratuita.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
 2. Selecione a assinatura em que você deseja desabilitar o provisionamento automático.
 3. Em **Política de segurança – Coleta de dados**, selecione **Desativar** em **Integração** para desabilitar o provisionamento automático.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 >[!NOTE]
 > Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.

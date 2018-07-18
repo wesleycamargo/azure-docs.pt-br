@@ -1,9 +1,9 @@
 ---
-title: "Filtrando e pré-processando no SDK do Azure Application Insights | Microsoft Docs"
+title: Filtrando e pré-processando no SDK do Azure Application Insights | Microsoft Docs
 description: Escreva Processadores de Telemetria e Inicializadores de Telemetria para o SDK filtrar ou adicionar propriedades aos dados antes da telemetria ser enviada ao portal do Application Insights.
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 987ae184a0812f24df99a0b6e6543c8be55a9e79
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -135,17 +135,6 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
 ```
 
 Os TelemetryClients criados depois desse ponto usarão seus processadores.
-
-O código a seguir mostra como adicionar um inicializador de telemetria no ASP.NET Core.
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    var initializer = new SuccessfulDependencyFilter();
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-    configuration.TelemetryInitializers.Add(initializer);
-}
-```
 
 ### <a name="example-filters"></a>Filtros de exemplo
 #### <a name="synthetic-requests"></a>Solicitações sintéticas

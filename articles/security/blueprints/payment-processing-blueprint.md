@@ -1,9 +1,9 @@
 ---
-title: "Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS"
-description: "Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS"
+title: Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS
+description: Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895470"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Projeto de Segurança e Conformidade do Azure – ambientes de processamento do pagamento em conformidade com PCI DSS
 
@@ -43,7 +44,7 @@ A arquitetura fundamental consiste nos seguintes componentes:
 - **Modelos de implantação** Nessa implantação, os [modelos do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são usados para implantar os componentes da arquitetura automaticamente no Microsoft Azure especificando parâmetros de configuração durante a instalação.
 - **Scripts de implantação automatizada**. Esses scripts ajudam a implantar a solução de ponta a ponta. Os scripts consistem em:
     - Uma instalação do módulo e um script de configuração de [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) são usados para instalar e verificar se os módulos do PowerShell obrigatórios e as funções de administrador global foram configuradas corretamente.
-    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise no [repositório de código do projeto][code-repo]. 
+    - Um script de instalação do PowerShell é usada para implantar a solução completa, fornecida por meio de um arquivo .zip e um arquivo .bacpac que contêm um aplicativo Web de demonstração criado previamente com o [conteúdo de exemplo de banco de dados SQL](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código-fonte desta solução está disponível para análise [ repositório do código de Blueprint] [código repositório]. 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
@@ -120,7 +121,7 @@ A solução usou os serviços do Azure a seguir. Os detalhes da arquitetura de i
 >- Gateway de Aplicativo
 >- Azure Active Directory
 >- Ambiente do Serviço de Aplicativo v2
->- Log Analytics do OMS
+>- Log Analytics
 >- Cofre da Chave do Azure
 >- Grupos de segurança de rede
 >- BD SQL do Azure
@@ -173,7 +174,7 @@ Cada NSG tem portas e protocolos específicos abertos para o funcionamento segur
 
 Cada NSG tem portas e protocolos específicos abertos para o funcionamento seguro e correto da solução. Além disso, as seguintes configurações estão habilitadas para cada NSG:
 - Os [eventos e logs de diagnóstico](/azure/virtual-network/virtual-network-nsg-manage-log) habilitados são armazenados na conta de armazenamento 
-- O OMS Log Analytics está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- O Log Analytics está conectado ao [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Sub-redes
  Verifique se cada sub-rede está associada ao seu NSG correspondente.
@@ -203,12 +204,12 @@ A instância do Banco de Dados SQL usa as seguintes medidas de segurança de ban
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
 
-O [OMS (Operations Management Suite)](/azure/operations-management-suite/) pode fornecer à Contoso Webstore um registro em log extensivo de todas as atividades de sistema e usuário, inclusive registro em log do titular dos dados. A precisão das alterações pode ser examinada e verificada. 
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics) pode fornecer à Contoso Webstore um registro em log extensivo de todas as atividades do sistema e de usuário, incluindo o registro em log de dados do titular do cartão. A precisão das alterações pode ser examinada e verificada. 
 
 - **Logs de atividades:** os [logs de atividades](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos em sua assinatura.
 - **Logs de Diagnóstico: os** [Logs de diagnóstico](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são todos os logs emitidos por cada recurso. Esses logs são logs de eventos do sistema Windows, Armazenamento de Blobs do Azure, tabelas e logs de fila.
 - **Logs de firewall**: o Gateway de Aplicativo fornece logs de diagnóstico e acesso completos. Logs do firewall estão disponíveis para recursos do Gateway de Aplicativo que têm o WAF habilitado.
-- **Arquivamento de logs:** todos os logs de diagnóstico estão configurados para gravar em uma conta de armazenamento do Azure centralizada e criptografada com arquivamento após um período de retenção definido (2 dias). Os logs são conectados ao Azure Log Analytics para processar, armazenar e usar painéis. O [Log Analytics](https://azure.microsoft.com/services/log-analytics) é um serviço do OMS que ajuda a coletar e analisar dados gerados pelos recursos em seus ambientes local e de nuvem.
+- **Arquivamento de logs:** todos os logs de diagnóstico estão configurados para gravar em uma conta de armazenamento do Azure centralizada e criptografada com arquivamento após um período de retenção definido (2 dias). Os logs são conectados ao Azure Log Analytics para processar, armazenar e usar painéis. O [Log Analytics](https://azure.microsoft.com/services/log-analytics) é um serviço que ajuda a coletar e analisar dados gerados pelos recursos nos ambientes locais e de nuvem.
 
 ### <a name="encryption-and-secrets-management"></a>Gerenciamento de criptografia e segredos
 
@@ -224,7 +225,7 @@ As tecnologias a seguir oferecem recursos de gerenciamento de identidade no ambi
 - O [Azure AD (Azure Active Directory)](https://azure.microsoft.com/services/active-directory/) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. Todos os usuários da solução foram criados no Azure Active Directory, incluindo os usuários que acessam o Banco de Dados SQL.
 - A autenticação para o aplicativo é executada usando o Azure AD. Para saber mais, confira [Integrando aplicativos com o Active Directory do Azure](/azure/active-directory/develop/active-directory-integrating-applications). Além disso, a criptografia de coluna do banco de dados também usa o Azure AD para autenticar o aplicativo no Banco de Dados SQL do Azure. Para obter mais informações, consulte [Always Encrypted: proteger dados confidenciais no Banco de Dados SQL](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - O [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detecta possíveis vulnerabilidades que afetam as identidades da organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas a identidades de sua organização e investiga incidentes suspeitos e toma a medida apropriada para resolvê-los.
-- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/active-directory/role-based-access-control-configure) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso ao Azure Key Vault é restrito a todos os usuários.
+- O [RBAC (Controle De Acesso Baseado Em Função) do Azure](/azure/role-based-access-control/role-assignments-portal) permite o gerenciamento de acesso detalhado para o Azure. O acesso à assinatura é limitado ao administrador da assinatura, e o acesso ao Azure Key Vault é restrito a todos os usuários.
 
 Para saber mais sobre como usar os recursos de segurança do Banco de Dados SQL do Azure, confira o exemplo [Aplicativo de demonstração da Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample) exemplo.
    
@@ -278,11 +279,11 @@ Use o [Application Insights](https://azure.microsoft.com/services/application-in
 
 #### <a name="log-analytics"></a>Log Analytics
 
-O Log Analytics é um serviço do [OMS (Operations Management Suite)](https://azure.microsoft.com/services/log-analytics/) que ajuda a coletar e analisar dados gerados pelos recursos em seus ambientes local e de nuvem.
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a coletar e analisar dados gerados por recursos nos ambientes locais e de nuvem.
 
-#### <a name="oms-solutions"></a>Soluções do OMS
+#### <a name="management-solutions"></a>Soluções de gerenciamento
 
-Essas soluções OMS adicionais devem ser consideradas e configuradas:
+Essas soluções de gerenciamento adicionais devem ser consideradas e configuradas:
 - [Log Analytics de Atividade](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Usar a Análise de Rede do Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -299,7 +300,7 @@ A implantação padrão destina-se a fornecer uma linha de base de recomendaçõ
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
-Os componentes para implantar essa solução estão disponíveis no [repositório de código Diagrama de PCI][code-repo]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
+Os componentes para implantar essa solução estão disponíveis no [repositório de código Blueprint PCI] [código-reposição]. A implantação da arquitetura fundamental requer várias etapas executadas por meio do Microsoft PowerShell v5. Para conectar-se ao site, você deve fornecer um nome de domínio personalizado (por exemplo, contoso.com). Isso é especificado usando a opção `-customHostName` na etapa 2. Para saber mais, confira [Comprar um nome de domínio personalizado Aplicativos Web do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implantar e executar a solução com êxito, mas não será possível se conectar ao site para fins de demonstração.
 
 Os scripts adicionam usuários de domínio ao locatário do Azure AD que você especifica. Recomendamos criar um novo locatário do Azure AD para usar como teste.
 
@@ -338,9 +339,9 @@ Se você encontrar problemas durante a implantação, confira [Perguntas frequen
     
     Para obter instruções detalhadas de uso, confira [instruções de Script - Implantar e configurar recursos do Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Registro em log e monitoramento do OMS Depois que a solução for implantada, um espaço de trabalho do [OMS (Microsoft Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview) pode ser aberto e os modelos de exemplo fornecidos no repositório de solução podem ser usados para ilustrar como um painel de monitoramento pode ser configurado. Para os modelos de exemplo do OMS, consulte a [pasta omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observe que os dados devem ser coletados no OMS para que os modelos sejam implantados corretamente. Isso pode levar até uma hora ou mais dependendo da atividade do site.
+3. Registro em log e monitoramento. Depois que a solução é implantada, um espaço de trabalho do Log Analytics pode ser aberto e os modelos de exemplo fornecidos no repositório da solução podem ser utilizados para ilustrar como um painel de monitoramento pode ser configurado. Para os modelos de exemplo, consulte a pasta [omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observe que os dados devem ser coletados no Log Analytics para que os modelos sejam implantados corretamente. Isso pode levar até uma hora ou mais dependendo da atividade do site.
  
-    Ao configurar o registro em log do OMS, considere a inclusão desses recursos:
+    Ao configurar o registro em log do Log Analytics, considere a inclusão desses recursos:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -384,11 +385,3 @@ A solução foi revisada pela Coalfire systems, Inc. (Supervisor de Segurança Q
 - Todos os nomes de cliente, registros de transações e dados relacionados nesta página são fictícios, criados para essa arquitetura fundamental e meramente ilustrativos. Nenhuma associação ou conexão real é intencional ou deve ser inferida.  
 - Esta solução foi desenvolvida em conjunto pela Microsoft e a Avyan Consulting e está disponível de acordo com a [Licença MIT](https://opensource.org/licenses/MIT).
 - Esta solução foi examinada pela Coalfire, auditora de PCI-DSS da Microsoft. O [Exame de conformidade com PCI](https://aka.ms/pciblueprintcrm32) fornece uma análise independente e de terceiros da solução, e componentes que precisam ser tratados. 
-
-### <a name="document-authors"></a>Autores de documentos
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositório do código"

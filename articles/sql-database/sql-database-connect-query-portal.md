@@ -10,11 +10,11 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e9dbeb5915f98ec4d08d8656b6b338ea78117da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: usar o editor Consulta SQL para se conectar e consultar dados
 
@@ -142,19 +142,25 @@ Use o código a seguir para excluir o novo produto que você adicionou anteriorm
 
 ## <a name="query-editor-considerations"></a>Considerações sobre o Editor de consultas
 
-Há algumas coisas que se deve saber ao trabalhar com o Editor de consultas enquanto ele permanece em estado de versão prévia:
+Há algumas coisas que se deve saber ao trabalhar com o Editor de consultas:
 
 1. Verifique se a opção "Permitir acesso aos serviços do Azure" nas configurações do firewall do Azure SQL Server foi definida como "Ativada". Essa opção dá ao Editor de consultas SQL o acesso aos seus bancos de dados e data warehouses SQL.
 
-2. O logon no Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores habilitada.
+2. Se o SQL Server estiver em uma Rede Virtual, o Editor de consultas não pode ser usado para consultar os bancos de dados no servidor.
 
-3. Contas de email (por exemplo, outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ainda não contam com suporte como administradoras de Active Directory. Verifique se escolheu um usuário que foi originalmente criado ou federado no Azure Active Directory
+3. Pressionar a tecla F5 atualiza a página do Editor de consultas e faz perder a consulta que está sendo trabalhada. Use o botão Executar na barra de ferramentas para executar consultas.
 
-4. Consultas de tipos de dados espaciais ainda não têm suporte no Editor de consultas. Consultar colunas espaciais resultará em um erro de 'System.IO.FileNotFoundException'.
+4. O Editor de consulta não oferece suporte para conexão ao banco de dados mestre
 
-5. Não há suporte para IntelliSense para tabelas e exibições de banco de dados. No entanto, o editor oferece suporte de preenchimento automático nos nomes que já foram digitados.
+5. Há um tempo limite de 5 minutos para a execução da consulta.
 
-6. Pressionar a tecla F5 atualiza a página do Editor de consultas e faz perder a consulta que está sendo trabalhada. Use o botão Executar na barra de ferramentas para executar consultas.
+6. O logon no Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores habilitada.
+
+7. Contas de email (por exemplo, outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ainda não contam com suporte como administradoras de Active Directory. Verifique se escolheu um usuário que foi originalmente criado ou federado no Azure Active Directory
+
+8. O Editor de consultas só oferece suporte a projeção cilíndrica para tipos de dados geográficos.
+
+9. Não há suporte para IntelliSense para tabelas e exibições de banco de dados. No entanto, o editor oferece suporte de preenchimento automático nos nomes que já foram digitados.
 
 
 ## <a name="next-steps"></a>Próximas etapas

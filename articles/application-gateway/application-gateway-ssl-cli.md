@@ -1,20 +1,20 @@
 ---
-title: "Criar um gateway de aplicativo com terminação SSL – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando a CLI do Azure."
+title: Criar um gateway de aplicativo com terminação SSL – CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando a CLI do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
-ms.author: davidmu
-ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 03b5d0447ef732586fe2104690c609a3adec2b6c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação SSL usando a CLI do Azure
 
@@ -52,9 +52,9 @@ Insira a senha para o certificado. Neste exemplo, *Azure123456!* está sendo usa
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group#create).
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group#create).
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -111,9 +111,9 @@ az network application-gateway create \
 
 - *appGatewayBackendPool* - Um gateway de aplicativo deve ter pelo menos um pool de endereços de back-end.
 - *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
-- *appGatewayHttpListener* - O listener padrão associado com *appGatewayBackendPool*.
-- *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* para *appGatewayHttpListener*.
-- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
+- *appGatewayHttpListener* - O ouvinte padrão associado ao *appGatewayBackendPool*.
+- *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* ao *appGatewayHttpListener*.
+- *rule1* - A regra padrão de roteamento que está associada ao *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
@@ -162,7 +162,7 @@ az network public-ip show \
 
 ![Aviso de segurança](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e **Prosseguir para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
+Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
 
 ![Testar a URL de base no gateway de aplicativo](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 
@@ -176,4 +176,4 @@ Neste tutorial, você aprendeu como:
 > * Criar um gateway de aplicativo com o certificado
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
-Para saber mais sobre os gateways de aplicativo e seus recursos associados, siga até os artigos de instrução.
+Para saber mais sobre os gateways de aplicativo e seus recursos associados, prossiga até os artigos de instrução.

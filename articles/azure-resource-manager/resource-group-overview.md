@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Azure Resource Manager | Microsoft Docs"
-description: "Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure."
+title: Visão geral do Azure Resource Manager | Microsoft Docs
+description: Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: bff67bc617a0dfba10b3150aaa8bae92e84304b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359961"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -215,7 +216,7 @@ O Azure também fornece várias funções específicas de recursos. Alguns tipos
 4. Colaborador do SQL Server - pode gerenciar servidores SQL e bancos de dados, mas não suas políticas de segurança
 5. Colaborador do Site - pode gerenciar sites, mas não os planos da Web aos quais eles estão conectados
 
-Para obter a lista completa de funções e ações permitidas, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). 
+Para obter a lista completa de funções e ações permitidas, confira [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md). 
 
 Em alguns casos, você deseja executar código ou script que acessa recursos, mas não deseja executá-los usando as credenciais do usuário. Em vez disso, você deseja criar uma identidade chamada entidade de serviço para o aplicativo e atribuir a função apropriada à entidade de serviço. O Gerenciador de Recursos o habilita a criar credenciais para o aplicativo e autenticá-lo de forma programática. Para saber mais sobre como criar entidades de serviço, confira um dos seguintes tópicos:
 

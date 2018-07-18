@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Noções básicas sobre como os módulos do IoT Edge podem ser usados, configurados e reutilizados - versão prévia
 
@@ -134,32 +134,21 @@ A origem especifica de onde as mensagens são provenientes. Pode ser qualquer um
 ### <a name="condition"></a>Condição
 A condição é opcional em uma declaração de rota. Se você deseja passar todas as mensagens do coletor para a fonte, deixe-o inteiramente fora da cláusula **WHERE**. Ou você pode usar a [linguagem de consulta de Hub IoT][lnk-iothub-query] para filtrar determinadas mensagens ou tipos de mensagem que satisfazem a condição.
 
-Mensagens de IoT do Azure são formatadas como JSON e sempre têm pelo menos um parâmetro **corpo**. Por exemplo: 
+As mensagens que passam entre módulos no IoT Edge são formatadas da mesma forma que as mensagens que passam entre seus dispositivos e o Hub IoT do Azure. Todas as mensagens são formatadas como JSON e têm os parâmetros **systemProperties**, **appProperties** e **body**. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+Você pode criar consultas baseadas nos três parâmetros com a seguinte sintaxe: 
+
+* Propriedades do sistema: `$<propertyName>` ou `{$<propertyName>}`
+* Propriedades do aplicativo: `<propertyName>`
+* Propriedades do corpo: `$body.<propertyName>` 
+
+Para obter exemplos sobre como criar consultas para propriedades de mensagem, consulte [Expressões de consulta de rotas de mensagem do dispositivo para a nuvem](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Um exemplo específico do IoT Edge é quando você deseja filtrar as mensagens que chegaram a um dispositivo de gateway vindo de um dispositivo de folha. Mensagens que chegam de módulos contêm uma propriedade do sistema chamada **connectionModuleId**. Então se você quiser rotear mensagens de dispositivos de folha diretamente ao Hub IoT, use a rota a seguir para excluir mensagens de módulo:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Dada essa mensagem de exemplo, há uma série de condições que podem ser definidas, tais como:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-A condição também pode ser usada para classificar os tipos de mensagem, por exemplo, em um gateway que deseja para rotear mensagens que vêm de dispositivos de folha. Mensagens que chegam de módulos contêm uma propriedade específica chamada **connectionModuleId**. Então se você quiser rotear mensagens de dispositivos de folha diretamente ao Hub IoT, use a rota a seguir para excluir mensagens de módulo:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Coletor
 O coletor define onde as mensagens são enviadas. Pode ser qualquer um dos seguintes valores:
@@ -179,7 +168,7 @@ O manifesto de implantação pode especificar propriedades desejadas para o gêm
 
 Se você não especificar as propriedades desejadas de um gêmeo de módulo no manifesto de implantação, o Hub IoT não modifica o gêmeo de módulo de qualquer forma, e você poderá definir as propriedades desejadas programaticamente.
 
-Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Consulte o [guia do desenvolvedor do dispositivo gêmeo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) para obter mais informações.   
+Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Consulte o [guia do desenvolvedor do dispositivo gêmeo](../iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações.   
 
 ## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implantação
 

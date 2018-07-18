@@ -1,25 +1,23 @@
 ---
-title: "Analisar os logs do Application Insight com Spark – Azure HDInsight | Microsoft Docs"
+title: Analisar os logs do Application Insight com Spark – Azure HDInsight | Microsoft Docs
 description: Saiba como exportar logs do Application Insight para o armazenamento de blobs e, em seguida, analise os logs com Spark no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/12/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: larryfr
-ms.openlocfilehash: 2512bf452c628c6c4a20f40f2182025f4591f200
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 31068376e20b240a440432319e65f4e479163ee0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analisar logs de telemetria do Application Insights com Spark no HDInsight
 

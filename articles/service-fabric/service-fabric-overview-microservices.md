@@ -1,24 +1,24 @@
 ---
-title: "Introdução aos microsserviços no Azure | Microsoft Docs"
-description: "Uma visão geral sobre por que criar aplicativos de nuvem com uma abordagem de microsserviços é importante para o desenvolvimento moderno de aplicativos e como o Azure Service Fabric oferece uma plataforma para conseguir isso."
+title: Introdução aos microsserviços no Azure | Microsoft Docs
+description: Uma visão geral sobre por que criar aplicativos de nuvem com uma abordagem de microsserviços é importante para o desenvolvimento moderno de aplicativos e como o Azure Service Fabric oferece uma plataforma para conseguir isso.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Atualmente, essa fatoração tende a assumir a forma de classes e interfaces entre as camadas de tecnologia e as bibliotecas compartilhadas. Em geral, uma abordagem em camadas é adotada com um repositório de back-end, lógica de negócios de camada intermediária e uma IU (interface do usuário) de front-end. O que *mudou* nos últimos anos é que nós, como desenvolvedores, estamos compilando aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -101,7 +101,7 @@ Voltando à questão da abordagem monolítica versus microsserviço por um momen
 
 ***À esquerda, a abordagem monolítica à esquerda tem um único banco de dados e camadas de tecnologias específicas.***
 
-***A abordagem de microsserviços à direita tem um gráfico de microsserviços interconectados em que o estado normalmente tem como escopo o microsserviço e várias tecnologias são usadas.***
+***A abordagem de microsserviços à direita tem um grafo de microsserviços interconectados em que o estado normalmente tem como escopo o microsserviço e várias tecnologias são usadas.***
 
 Em uma abordagem monolítica, normalmente o aplicativo usa um único banco de dados. A vantagem é que se trata de um único local, facilitando a implantação. Cada componente pode ter uma única tabela para armazenar seu estado. As equipes precisam separar estritamente estado, que é um desafio. Há, inevitavelmente, tentações para adicionar uma nova coluna a uma tabela de clientes existente, para fazer uma associação entre as tabelas e para criar dependências na camada de armazenamento. Quando isso acontecer, não será possível dimensionar os componentes individuais. 
 
@@ -168,7 +168,7 @@ Muitas organizações param aqui. Elas já têm os benefícios de contêineres e
 
 **Modernização** - é a adição de novos serviços junto com o código em contêineres existente. Se você pretende escrever um novo código, é recomendável dar pequenos passos e seguir o caminho dos microsserviços. Isso pode adicionar um novo ponto de extremidade de API REST ou uma nova lógica de negócios. Dessa forma, você inicie a jornada de criação de novos microsserviços e pratica o desenvolvimento e a implantação destes.
 
-**Inovar** - lembra-se daquelas necessidades de alteração de negócio originais no início deste artigo, que estão levando a uma abordagem de microsserviços? Neste estágio da decisão é, elas estão ocorrendo no meu aplicativo atual e nesse caso, preciso começar a dividir o monolito ou a inovar. Um exemplo aqui é quando um banco de dados se torna um afunilamento de processamento, pois ele está sendo usado como uma fila de fluxo de trabalho. Conforme o número de solicitações de fluxo de trabalho aumenta o trabalho precisa ser distribuído para dimensionamento. Para essa parte específica do aplicativo que não é dimensionamento, ou quando é necessário atualizar com mais frequência, divida em um microsserviço e inove. 
+**Inovar** - lembra-se daquelas necessidades de alteração de negócio originais no início deste artigo, que estão levando a uma abordagem de microsserviços? Neste estágio da decisão é, elas estão ocorrendo no meu aplicativo atual e nesse caso, preciso começar a dividir o monolito ou a inovar. Um exemplo aqui é quando um banco de dados se torna um gargalo de processamento, pois ele está sendo usado como uma fila de fluxo de trabalho. Conforme o número de solicitações de fluxo de trabalho aumenta o trabalho precisa ser distribuído para dimensionamento. Para essa parte específica do aplicativo que não é dimensionamento, ou quando é necessário atualizar com mais frequência, divida em um microsserviço e inove. 
 
 **Transformado em microsserviços** - é quando o aplicativo é totalmente composto de (ou decomposto em) microsserviços. Para chegar aqui, você percorreu a jornada dos microsserviços. Você pode iniciar aqui, mas fazer isso sem uma plataforma de microsserviços para ajudá-lo é um investimento significativo. 
 
@@ -181,7 +181,7 @@ O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativ
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
-* [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

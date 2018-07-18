@@ -1,24 +1,24 @@
 ---
-title: "Implantar e atualizar aplicativos e serviços com o Azure Resource Manager | Microsoft Docs"
-description: "Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager."
+title: Implantar e atualizar aplicativos e serviços com o Azure Resource Manager | Microsoft Docs
+description: Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 8c8ee30a603d439c0fadd0c1569813762bdf4351
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
@@ -109,7 +109,7 @@ O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciad
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -123,7 +123,7 @@ O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciad
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }

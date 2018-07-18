@@ -1,11 +1,11 @@
 ---
-title: "Visão geral de máquinas virtuais do Windows | Microsoft Docs"
-description: "Saiba mais sobre como criar e gerenciar máquinas virtuais do Windows no Azure."
+title: Visão geral de máquinas virtuais do Windows | Microsoft Docs
+description: Saiba mais sobre como criar e gerenciar máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -62,7 +62,7 @@ Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíve
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | API REST |Use a operação [Listar locais](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
-| CLI do Azure |Use a operação [az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
+| CLI do Azure |Use a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
 
 ### <a name="vm-size"></a>Tamanho da VM
 O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da VM que você usa é determinado pela carga de trabalho que deseja executar. O tamanho que você escolhe, em seguida, determina fatores como capacidade de processamento, memória e armazenamento. O Azure oferece uma grande variedade de tamanhos para oferecer suporte a muitos tipos de usos.
@@ -70,7 +70,7 @@ O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da VM
 O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos usados. O armazenamento terá o preço e será cobrado separadamente.
 
 ### <a name="vm-limits"></a>Limites de VM
-Sua assinatura do Azure tem [limites de cota](../../azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados preenchendo um tíquete de suporte para solicitar um aumento.
+Sua assinatura do Azure tem [limites de cota](../../azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados [pelo preenchimento de um tíquete de suporte para solicitar um aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Imagens e discos de sistema operacional
 As máquinas virtuais usam [VHDs (discos rígidos virtuais)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar seus dados e sistema operacional (SO). Os VHDs também são usados para as imagens que você pode optar por instalar um sistema operacional. 
@@ -84,7 +84,7 @@ Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 | Portal do Azure |Os valores são especificados automaticamente quando você seleciona uma imagem a ser usada. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -local "local"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -local "local"-"publisherName" do editor<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | APIs REST |[Listar editores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 Você pode optar por [carregar e usar sua própria imagem](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) e, quando faz isso, o nome do editor, da oferta e da sku não são usados.
 
@@ -121,7 +121,7 @@ Esta tabela fornece informações para ajudá-lo a criar a VM.
 | Azure PowerShell |[Criar uma VM do Windows usando o PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | SDKs do cliente |[Implantar recursos do Azure usando C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | APIs REST |[Criar ou atualizar uma VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
-| CLI do Azure |[Criar uma VM com a CLI do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
+| CLI do Azure |[Criar uma VM com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 Você espera que isso nunca aconteça, mas ocasionalmente algo dá errado. Se essa situação ocorrer, examine as informações em [Solucionar problemas de implantação do Resource Manager com a criação de uma máquina virtual do Windows no Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -137,7 +137,7 @@ Esta tabela mostra algumas das maneiras de obter informações sobre uma VM.
 | Azure PowerShell |Para obter informações sobre como usar o PowerShell para gerenciar VMs, consulte [Criar e gerenciar máquinas virtuais do Windows com o módulo do Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | API REST |Use a operação [Obter informações da VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) para obter informações sobre uma VM. |
 | SDKs do cliente |Para obter informações sobre como usar c# para gerenciar VMs, confira [Gerenciar máquinas virtuais do Azure usando o Azure Resource Manager e C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| CLI do Azure |Para saber mais sobre como usar a CLI do Azure para gerenciar VMs, consulte [Referência da CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/vm). |
+| CLI do Azure |Para saber mais sobre como usar a CLI do Azure para gerenciar VMs, consulte [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Faça logon na VM
 Você usa o botão [Conectar](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP). Às vezes, podem ocorrer problemas ao se tentar usar uma conexão remota. Se essa situação ocorrer, verifique as informações da Ajuda em [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -145,7 +145,7 @@ Você usa o botão [Conectar](connect-logon.md?toc=%2fazure%2fvirtual-machines%2
 ### <a name="manage-availability"></a>Gerenciar disponibilidade
 É importante entender como [garantir a alta disponibilidade](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para o aplicativo. Essa configuração envolve a criação de várias VMs para garantir que pelo menos uma esteja em execução.
 
-Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Essa configuração garante que as VMs sejam distribuídas entre vários domínios de falha e implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo.
+Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Essa configuração garante que as VMs sejam distribuídas entre vários domínios de falha e implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
 ### <a name="back-up-the-vm"></a>Fazer backup da VM
 Um [dos serviços de recuperação de cofre](../../backup/backup-introduction-to-azure-backup.md) é usado para proteger dados e ativos nos serviços de Backup do Azure e do Azure Site Recovery. Você pode usar um cofre de serviços de recuperação para [implantar e gerenciar backups para VMs implantadas pelo Gerenciador de Recursos usando o PowerShell](../../backup/backup-azure-vms-automation.md). 

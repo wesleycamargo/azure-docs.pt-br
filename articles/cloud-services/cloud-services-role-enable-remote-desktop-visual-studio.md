@@ -1,24 +1,21 @@
 ---
-title: Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure | Microsoft Docs
+title: Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de Área de Trabalho Remota
 services: cloud-services
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.topic: conceptual
+ms.workload: azure
 ms.date: 03/06/2018
-ms.author: kraigb
-ms.openlocfilehash: bcb7d24a302b57a1739c9c98763cd658c29b17bd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: ghogen
+ms.openlocfilehash: fe8b2b59616246743b38aa3b7a7972c092529b5d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure usando o Visual Studio
 

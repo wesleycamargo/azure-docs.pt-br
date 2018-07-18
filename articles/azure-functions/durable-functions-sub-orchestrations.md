@@ -1,12 +1,12 @@
 ---
-title: "Suborquestrações para Funções Duráveis – Azure"
-description: "Como chamar orquestrações de orquestrações na extensão de Funções Duráveis do Azure Functions."
+title: Suborquestrações para Funções Duráveis – Azure
+description: Como chamar orquestrações de orquestrações na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestrações em Funções Duráveis (Azure Functions)
 
@@ -27,6 +27,9 @@ Além de chamar funções de atividade, as funções de orquestrador podem chama
 Uma função de orquestrador pode chamar outra função de orquestrador chamando os métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_). O artigo [Tratamento de Erro e Compensação](durable-functions-error-handling.md#automatic-retry-on-failure) fornece mais informações sobre a repetição automática.
 
 Da perspectiva do chamador, as funções de suborquestrador se comportam como funções de atividade. Elas podem retornar um valor, lançar uma exceção e podem ser aguardadas pela função de orquestrador pai.
+
+> [!NOTE]
+> Os métodos `CallSubOrchestratorAsync` e `CallSubOrchestratorWithRetryAsync` ainda não estão disponíveis em JavaScript.
 
 ## <a name="example"></a>Exemplo
 

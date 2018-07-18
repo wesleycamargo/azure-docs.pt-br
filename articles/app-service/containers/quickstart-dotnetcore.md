@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
+ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0f40d2d953f028f2014c88a22f9ad31fed705b76
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web .NET Core no Serviço de Aplicativo no Linux
 
@@ -41,7 +41,7 @@ Você pode seguir as etapas deste artigo usando um computador Mac, Windows ou Li
 Para concluir este guia de início rápido:
 
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
-* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Instalar o SDK 1.1 do .NET Core</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Instalar o .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Criar o aplicativo localmente
 

@@ -1,11 +1,11 @@
 ---
-title: "Pontuações de parâmetro de comparação de computação de VMs do Windows | Microsoft Docs"
-description: "Compare as pontuações de parâmetro de comparação de computação do SPECint de VMs do Linux que executam o Windows Server"
+title: Pontuações de parâmetro de comparação de computação para VMs do Windows Azure | Microsoft Docs
+description: Compare as pontuações de parâmetro de computação SPECint para VMs do Azure executando Windows Server.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
-ms.author: cynthn
-ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 04/09/2018
+ms.author: cynthn;davberg
+ms.openlocfilehash: 2831f177bbcd02be02124812de144bd7a6867aa4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
-As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
+> [!NOTE]
+> Os números de Linux foram atualizados recentemente e contêm um conjunto mais abrangente de VMs.
 
 ## <a name="a-series---compute-intensive"></a>Série A – computação intensiva
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev |

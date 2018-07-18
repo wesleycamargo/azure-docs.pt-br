@@ -1,12 +1,12 @@
 ---
-title: "Guia de solução de problemas do Gerenciador de Armazenamento do Azure | Microsoft Docs"
-description: "Visão geral dos dois recursos de depuração do Azure"
+title: Guia de solução de problemas do Gerenciador de Armazenamento do Azure | Microsoft Docs
+description: Visão geral dos dois recursos de depuração do Azure
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,141 +14,110 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777070"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
-O Gerenciador de Armazenamento do Microsoft Azure (versão prévia) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Microsoft Azure no Windows, no macOS e no Linux. O aplicativo pode conectar contas de armazenamento hospedadas no Azure, Nuvens Nacionais e no Microsoft Azure Stack.
+O Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux. O aplicativo pode conectar contas de armazenamento hospedadas no Azure, Nuvens Nacionais e no Microsoft Azure Stack.
 
 Este guia resume as soluções de problemas comuns encontrados no Gerenciador de Armazenamento.
 
-## <a name="sign-in-issues"></a>Problemas de entrada
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado autoassinado na cadeia confiável (e erros semelhantes)
 
-Somente contas do AAD (Azure Active Directory) têm suporte. Se você usar uma conta do ADFS, espera-se que a entrada no Gerenciador de Armazenamento não funcione. Antes de continuar, tente reiniciar o aplicativo e verifique se os problemas podem ser corrigidos.
-
-### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erro: Certificado autoassinado na cadeia confiável
-
-Você pode encontrar esse erro por vários motivos, os dois mais comuns são estes:
+Erros de certificado são causados por uma das duas seguintes situações:
 
 1. O aplicativo está conectado por meio de um "proxy transparente", o que significa que um servidor (como o servidor de sua empresa) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando usando um certificado autoassinado.
+2. Você está executando um aplicativo que está injetando um certificado SSL autoassinado para as mensagens HTTPS recebidas. Exemplos de aplicativos que injetam certificados incluem software de inspeção de tráfego de antivírus e rede.
 
-2. Você está executando um aplicativo, como um software antivírus, que está injetando um certificado SSL autoassinado para as mensagens HTTPS recebidas.
+Quando o Gerenciador de Armazenamento vê um assinatura de autoatendimento ou o certificado não confiável, ele não sabe se a mensagem recebida do HTTPS foi alterada. Se você tiver uma cópia do certificado autoassinado, poderá permitir que o Gerenciador de Armazenamento confie nele realizando as seguintes etapas:
 
-Quando o Gerenciador de Armazenamento encontra um dos problemas, ele não consegue mais saber se a mensagem HTTPS recebida foi violada. Se você tiver uma cópia do certificado autoassinado, poderá permitir que o Gerenciador de Armazenamento confie nele. Se você não tiver certeza de quem está injetando o certificado, execute estas etapas para encontrá-lo:
+1. Obter a cópia codificada de Base 64 x. 509 (. cer) do certificado
+2. Clique em **Editar** > **Certificados SSL** > **Importar Certificados** e, depois, use o seletor de arquivo para localizar, selecionar e abrir os arquivos .cer
+
+Esse problema também pode ser o resultado de vários certificados (intermediário e raiz). Ambos os certificados devem ser adicionados para superar o erro.
+
+Se você não tiver certeza de que o certificado é proveniente, você pode tentar estas etapas para encontrá-lo:
 
 1. Instalar o Open SSL
 
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves deve ser suficiente)
-
-    - Mac e Linux: deve estar incluído com o sistema operacional
-
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves deve ser suficiente)
+    * Mac e Linux: deve estar incluído com o sistema operacional
 2. Executar Open SSL
 
-    - Windows: abra o diretório de instalação, clique em **/bin/** e clique duas vezes em **openssl.exe**.
-    - Mac e Linux: execute **openssl** de um terminal.
-
-3. Execute s_client -showcerts -connect microsoft.com:443
-
-4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
-
+    * Windows: abra o diretório de instalação, clique em **/bin/** e clique duas vezes em **openssl.exe**.
+    * Mac e Linux: execute **openssl** de um terminal.
+3. Execute `s_client -showcerts -connect microsoft.com:443`
+4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto `("s:")` e o emissor `("i:")` são os mesmos.
 5. Depois de encontrar os certificados autoassinados, para cada um deles, copie e cole tudo a partir, e incluindo, **---BEGIN CERTIFICATE---** até **---END CERTIFICATE---** em um novo arquivo .cer.
-
 6. Abra o Gerenciador de Armazenamento, clique em **Editar** > **Certificados SSL** > **Importar Certificados** e, depois, use o seletor de arquivo para localizar, selecionar e abrir os arquivos .cer que você criou.
 
-Se você não conseguir encontrar certificados autoassinados usando as etapas anteriores, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda.
+Se você não conseguir encontrar certificados autoassinados usando as etapas anteriores, entre em contato conosco por meio da ferramenta de comentários para obter mais ajuda. Como alternativa, você pode optar por iniciar o Gerenciador de Armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Gerenciador de Armazenamento irá ignorar erros de certificado.
 
-### <a name="unable-to-retrieve-subscriptions"></a>Não é possível recuperar as assinaturas
+## <a name="sign-in-issues"></a>Problemas de credenciais
 
-Se não for possível recuperar as assinaturas após a entrada bem-sucedida, execute estas etapas para solucionar esse problema:
+Se você não conseguir entrar, tente os seguintes métodos:
 
-- Verifique se sua conta tem acesso às assinaturas entrando no Portal do Azure.
+* Se você estiver usando macOS e a janela de logon não aparecer na caixa de diálogo "Aguardando para autenticação...", tente [estas etapas](#Resetting-the-Mac-Keychain)
+* Reiniciar o Gerenciador de Armazenamento
+* Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
+* Certifique-se de que as configurações de proxy e de certificado estão configuradas adequadamente no seu computador e no Gerenciador de Armazenamento
+* Se você estiver no Windows e ter acesso ao Visual Studio de 2017 no mesmo computador e logon, tente entrar no Visual Studio de 2017
 
-- Verifique se você entrou usando o ambiente certo (Azure, Azure China, Azure Alemanha, Azure US Government nos ou Ambiente Personalizado/Azure Stack).
+Se nenhum desses métodos funcionar [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-- Se você estiver atrás de um proxy, verifique se você configurou o proxy do Gerenciador de Armazenamento apropriadamente.
+## <a name="unable-to-retrieve-subscriptions"></a>Não é possível recuperar as assinaturas
 
-- Tente remover e readicionar a conta.
+Se não for possível recuperar as assinaturas após a entrada bem-sucedida, tente os métodos de solução de problemas a seguir:
 
-- Tente excluir os seguintes arquivos do diretório raiz (ou seja,C:\Users\ContosoUser) e, em seguida, adicione a conta novamente:
+* Verifique se sua conta tem acesso às assinaturas que você espera. Você pode verificar se você tem acesso ao entrar no portal para o ambiente do Azure que você está tentando usar.
+* Verifique se você entrou usando o ambiente certo (Azure, Azure China, Azure Alemanha, Azure US Government nos ou Ambiente Personalizado).
+* Se você estiver atrás de um proxy, verifique se você configurou o proxy do Gerenciador de Armazenamento apropriadamente.
+* Tente remover e readicionar a conta.
+* Assista o console de ferramentas de desenvolvedor (Ajuda > Ferramentas de desenvolvedor de alternância) enquanto o Gerenciador de Armazenamento está carregando assinaturas. Procure por mensagens de erro (texto vermelho) ou qualquer mensagem que contém o texto "Não foi possível carregar as assinaturas de locatários." Se você vir alguma mensagem a respeito, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-    - .adalcache
+## <a name="cannot-remove-attached-account-or-storage-resource"></a>Não é possível remover o recurso de conta ou armazenamento anexado
 
-    - .devaccounts
+Se não for possível remover uma conta anexada ou um recurso de armazenamento por meio da interface do usuário, exclua manualmente todos os recursos anexados, excluindo as seguintes pastas:
 
-    - .extaccounts
-
-- Fique atento ao console de ferramentas de desenvolvedor (pressionando F12) enquanto estiver tentando entrar para ver se aparecem mensagens de erro:
-
-![ferramentas de desenvolvedor](./media/storage-explorer-troubleshooting/4022501_en_2.png)
-
-### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
-
-Se não for possível ver a página de autenticação, execute estas etapas para solucionar esse problema:
-
-- Dependendo da velocidade de sua conexão, talvez demore algum tempo para a página de entrada carregar. Aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
-
-- Se você estiver atrás de um proxy, verifique se você configurou o proxy do Gerenciador de Armazenamento apropriadamente.
-
-- Exiba o console do desenvolvedor pressionando a tecla F12. Veja as respostas no console do desenvolvedor e tente encontrar alguma dica do motivo do não funcionamento da autenticação.
-
-### <a name="cannot-remove-account"></a>Não é possível remover a conta
-
-Se você estiver conseguindo remover uma conta, ou se o link de reautenticação não responder, execute estas etapas para solucionar esse problema:
-
-- Tente excluir os seguintes arquivos do diretório raiz e adicione novamente a conta:
-
-    - .adalcache
-
-    - .devaccounts
-
-    - .extaccounts
-
-- Se você quiser remover SAS associado a recursos de Armazenamento, exclua os seguintes arquivos:
-
-    - Pasta %AppData%/StorageExplorer para Windows
-
-    - /Usuários/<seu_nome>/Library/Applicaiton SUpport/StorageExplorer para Mac
-
-    - ~/.config/StorageExplorer para Linux
+* Windows: `%AppData%/StorageExplorer`
+* macOS - `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Após excluir os arquivos anteriores, será necessário entrar novamente em suas contas.
+>  Feche o Gerenciador de Armazenamento antes de excluir as pastas acima.
+
+> [!NOTE]
+>  Se você já importou todos os certificados SSL e o conteúdo de backup do diretório `certs`. Posteriormente, você pode usar o backup para reimportar os certificados SSL.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
 Primeiro, certifique-se de que as seguintes informações inseridas estejam corretas:
 
-- A URL do proxy e o número da porta
-
-- Nome de usuário e senha, caso seja solicitado pelo proxy
+* A URL do proxy e o número da porta
+* Nome de usuário e senha, caso seja solicitado pelo proxy
 
 ### <a name="common-solutions"></a>Soluções comuns
 
-Se você ainda estiver enfrentando problemas, execute estas etapas para solucioná-los:
+Se você ainda tiver problemas, tente os seguintes métodos:
 
-- Se você puder se conectar à Internet sem usar o proxy, verifique se o Gerenciador de Armazenamento funciona sem as configurações de proxy habilitadas. Se esse for o caso, talvez haja um problema com as configurações de proxy. Trabalhe com seu administrador de proxy para identificar os problemas.
-
-- Verifique se outros aplicativos estão usando o servidor proxy conforme o esperado.
-
-- Verifique se você pode se conectar ao Portal do Microsoft Azure usando seu navegador da Web
-
-- Verifique se que você pode receber respostas de seus pontos de extremidade de serviço. Insira uma das suas URLs de ponto de extremidade em seu navegador. Se você puder se conectar, deverá receber um InvalidQueryParameterValue ou resposta XML semelhante.
-
-- Se outra pessoa também estiver usando o Gerenciador de Armazenamento com o servidor proxy, verifique se eles podem se conectar. Se eles puderem se conectar, talvez seja necessário entrar em contato com o administrador de seu servidor proxy.
+* Se você puder se conectar à Internet sem usar o proxy, verifique se o Gerenciador de Armazenamento funciona sem as configurações de proxy habilitadas. Se esse for o caso, talvez haja um problema com as configurações de proxy. Trabalhe com seu administrador de proxy para identificar os problemas.
+* Verifique se outros aplicativos estão usando o servidor proxy conforme o esperado.
+* Verifique se você pode conectar ao portal para o ambiente do Azure que você está tentando usar
+* Verifique se que você pode receber respostas de seus pontos de extremidade de serviço. Insira uma das suas URLs de ponto de extremidade em seu navegador. Se você puder se conectar, deverá receber um InvalidQueryParameterValue ou resposta XML semelhante.
+* Se outra pessoa também estiver usando o Gerenciador de Armazenamento com o servidor proxy, verifique se eles podem se conectar. Se eles puderem se conectar, talvez seja necessário entrar em contato com o administrador de seu servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
 Se você tiver ferramentas de rede, como o Fiddler para Windows, poderá diagnosticar os problemas da seguinte maneira:
 
-- Se você tiver que trabalhar por meio do proxy, será necessário configurar a ferramenta de rede para se conectar por meio do proxy.
-
-- Verifique o número da porta usado por sua ferramenta de rede.
-
-- Insira a URL do host local e o número de porta da ferramenta de rede como configurações de proxy no Gerenciador de Armazenamento. Se isso for feito corretamente, a ferramenta de rede passará a registrar solicitações de rede feitas pelo Gerenciador de Armazenamento para pontos de extremidade de serviço e de gerenciamento. Por exemplo, insira https://cawablobgrs.blob.core.windows.net/ do ponto de extremidade de blob em um navegador e você receberá uma resposta semelhante à seguinte, que sugere que o recurso existe, embora não seja possível acessá-lo.
+* Se você tiver que trabalhar por meio do proxy, será necessário configurar a ferramenta de rede para se conectar por meio do proxy.
+* Verifique o número da porta usado por sua ferramenta de rede.
+* Insira a URL do host local e o número de porta da ferramenta de rede como configurações de proxy no Gerenciador de Armazenamento. Quando feito corretamente, a ferramenta de rede passará a registrar solicitações de rede feitas pelo Gerenciador de Armazenamento para pontos de extremidade de serviço e de gerenciamento. Por exemplo, insira https://cawablobgrs.blob.core.windows.net/do ponto de extremidade de blob em um navegador e você receberá uma resposta semelhante à seguinte, que sugere que o recurso existe, embora não seja possível acessá-lo.
 
 ![exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -156,22 +125,19 @@ Se você tiver ferramentas de rede, como o Fiddler para Windows, poderá diagnos
 
 Se as configurações de proxy estiverem corretas, talvez seja necessário entrar em contato com seu administrador de servidor proxy e
 
-- Verifique se o seu proxy não bloqueia o tráfego nos pontos de extremidade de gerenciamento ou recurso do Azure.
-
-- Verifique o protocolo de autenticação usado por seu servidor proxy. No momento, o Gerenciador de Armazenamento não dá suporte a proxies NTLM.
+* Verifique se o seu proxy não bloqueia o tráfego nos pontos de extremidade de gerenciamento ou recurso do Azure.
+* Verifique o protocolo de autenticação usado por seu servidor proxy. No momento, o Gerenciador de Armazenamento não dá suporte a proxies NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é Possível Recuperar Filhos"
 
 Se você estiver conectado ao Azure por meio de um proxy, verifique se as configurações do proxy estão corretas. Se você tiver recebido acesso a um recurso do proprietário da assinatura ou conta, verifique se você tem permissões de leitura ou de lista para esse recurso.
 
-### <a name="issues-with-sas-url"></a>Problemas com a URL SAS
+## <a name="issues-with-sas-url"></a>Problemas com a URL SAS
 Se você estiver se conectando a um serviço usando uma URL SAS e enfrentando este erro:
 
-- Verifique se a URL fornece as permissões necessárias para ler ou lista recursos.
-
-- Verifique se a URL não expirou.
-
-- Se a URL SAS tiver base em uma política de acesso, verifique se a política de acesso não foi revogada.
+* Verifique se a URL fornece as permissões necessárias para ler ou lista recursos.
+* Verifique se a URL não expirou.
+* Se a URL SAS tiver base em uma política de acesso, verifique se a política de acesso não foi revogada.
 
 Se você anexou acidentalmente usando uma URL da SAS inválida e não é possível desanexá-la, execute as seguintes etapas:
 1.  Ao executar o Gerenciador de Armazenamento, pressione F12 para abrir a janela de ferramentas para desenvolvedores.
@@ -183,16 +149,28 @@ Se você anexou acidentalmente usando uma URL da SAS inválida e não é possív
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
 Para distribuições Linux diferentes do Ubuntu 16.04, talvez seja necessário instalar algumas dependências manualmente. Em geral, são necessários os seguintes pacotes:
-* libgconf-2-4
-* libsecret
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libsecret`
+* `libgconf-2-4`
 * GCC atualizado
 
 Dependendo da sua distribuição, talvez seja necessário instalar outros pacotes. O Gerenciador de Armazenamento[Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém etapas específicas para algumas distribuições.
 
+## <a name="resetting-the-mac-keychain"></a>Redefinindo o conjunto de chaves do Mac
+O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa problemas para a biblioteca de autenticação do Gerenciador de Armazenamento. Para obter o conjunto de chaves fora desse estado, tente as seguintes etapas:
+1. Feche o Gerenciador de Armazenamento.
+2. Abra o conjunto de chaves (**cmd + espaço**, digite conjunto de chaves, clique enter).
+3. Selecione o conjunto de chaves "logon".
+4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
+
+    ![imagem](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Inicie o Gerenciador de Armazenamento.
+6. Um pop up deve aparecer dizendo algo como "Hub do serviço quer acessar o conjunto de chaves", digite sua senha de conta de administrador do Mac e clique em **Permitir sempre** (ou **Permitir** se **Permitir sempre** não estiver disponível).
+7. Tente entrar.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Se nenhuma das soluções funcionar para você, envie seu problema por meio da ferramenta de comentários com seu email e com o máximo de detalhes possível sobre o problema, para que possamos entrar em contato com você para corrigir o problema.
+Se nenhuma das soluções funcionar para então [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Você pode também obter rapidamente GitHub, usando o botão "Relatar problema ao GitHub" no canto inferior esquerdo.
 
-Para fazer isso, clique no menu **Ajuda** e clique em **Enviar Comentários**.
-
-![Comentários](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Comentários](./media/storage-explorer-troubleshooting/feedback-button.PNG)

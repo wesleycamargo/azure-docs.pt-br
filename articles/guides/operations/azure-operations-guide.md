@@ -1,25 +1,25 @@
 ---
-title: "Guia de introdução para operadores de TI do Azure | Microsoft Docs"
-description: "Guia de introdução para operadores de TI do Azure"
-services: 
-documentationcenter: 
+title: Guia de introdução para operadores de TI do Azure | Microsoft Docs
+description: Guia de introdução para operadores de TI do Azure
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -148,7 +148,7 @@ Um dos benefícios de utilizar o Azure é que você pode implantar seus aplicati
 ### <a name="azure-portal"></a>Portal do Azure
 
 
-O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O Portal do Azure está localizado em https://portal.azure.com. Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O portal do Azure está localizado em https://portal.azure.com. Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Recursos
 
@@ -238,7 +238,7 @@ O preço para cada serviço no Azure é diferente. Muitos serviços do Azure for
 
 Após implantar seu aplicativo ou solução no Azure será possível criar alertas, os quais enviarão emails para você ao se aproximar dos limites de gastos definidos no alerta. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
-## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 O Azure Resource Manager é um mecanismo de implantação, gerenciamento e organização de recursos do Azure. Usando o Resource Manager, você pode colocar muitos recursos individuais juntos em um grupo de recursos.
 
@@ -323,7 +323,7 @@ Aqui estão algumas funções de exemplo criadas no Azure:
 
 -   **Colaborador da conta de armazenamento**: um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
 
-Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../../active-directory/role-based-access-control-configure.md).
+Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
@@ -485,7 +485,7 @@ Você pode conectar uma rede local a uma rede virtual do Azure pelo uso de uma c
 
 Já que a rede virtual do Azure é conectada à sua rede local, as redes virtuais entre instalações devem usar uma parte exclusiva do espaço de endereço usado por sua organização. Da mesma forma que diferentes localizações da empresa serão atribuídas a uma sub-rede IP específica, o Azure torna-se outra localização à medida que você estende sua rede.
 
-###<a name="deploying-a-virtual-network"></a>Implantar uma rede virtual
+### <a name="deploying-a-virtual-network"></a>Implantar uma rede virtual
 
 Há várias opções para a implantação de uma rede virtual.
 
@@ -509,7 +509,7 @@ Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azur
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 
-Você pode ajudar a proteger redes virtuais do Azure usando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Você pode associar NSGs a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando você associar um NSG a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede. Além disso, você pode restringir ainda mais o tráfego para uma VM individual por meio da associação de um NSG diretamente a essa VM. Para obter mais informações, consulte [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
+Você pode ajudar a proteger redes virtuais do Azure usando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Você pode associar NSGs a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando você associar um NSG a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede. Além disso, você pode restringir ainda mais o tráfego para uma VM individual por meio da associação de um NSG diretamente a essa VM. Para obter mais informações, consulte [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

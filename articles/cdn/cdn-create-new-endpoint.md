@@ -1,111 +1,93 @@
 ---
-title: "Introdução à CDN do Azure | Microsoft Docs"
-description: "Este tópico mostra como habilitar a CDN (Rede de Distribuição de Conteúdo do Azure). O tutorial o orienta ao longo da criação de um novo perfil da CDN e do ponto de extremidade."
+title: 'Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure | Microsoft Docs'
+description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade e perfil de CDN.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/25/2018
+ms.topic: quickstart
+ms.date: 03/13/2018
 ms.author: mazha
-ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.custom: mvc
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198700"
 ---
-# <a name="getting-started-with-azure-cdn"></a>Introdução à CDN do Azure
-Este artigo descreve como habilitar a [Rede de Distribuição de Conteúdo (CDN)](cdn-overview.md) do Azure criando um novo perfil e ponto de extremidade de CDN.
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: criar um ponto de extremidade e um perfil de CDN do Azure
+Neste início rápido você habilita a Rede de Distribuição de Conteúdo (CDN) do Azure criando um novo ponto de extremidade e perfil de CDN. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes.
 
-## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
-Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil pode conter um ou mais pontos de extremidade CDN. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> Uma assinatura do Azure tem limites padrão para os seguintes recursos:
-> - O número de perfis CDN que podem ser criados
-> - O número de pontos de extremidade que podem ser criados em um perfil CDN 
-> - O número de domínios personalizados que podem ser mapeados para um ponto de extremidade
->
-> Para saber mais sobre limites de assinatura de CDN, veja [Limites CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
->
-> Os preços da CDN são aplicados no nível de perfil CDN. Portanto, para usar uma combinação dos tipos de preço da CDN do Azure, você precisará de vários perfis de CDN.
-> 
-> 
+## <a name="prerequisites"></a>pré-requisitos
+Para os fins deste início rápido, você deve ter criado uma conta de armazenamento denominada *mystorageacct123*, que você usa para o nome de host de origem. Para obter mais informações, confira [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md)
+
+## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Criar um novo ponto de extremidade CDN
-**Para criar um novo ponto de extremidade CDN**
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Em caso negativo, encontre-o selecionando **Todos os serviços** e selecionando **Perfis de CDN**. No painel **Perfis de CDN**, selecione o perfil ao qual você pretende adicionar seu ponto de extremidade. 
+Depois de criar um perfil CDN, você pode usá-lo para criar um ponto de extremidade.
+
+1. No portal do Azure, selecione o perfil CDN que você criou em seu painel. Se você não conseguir encontrá-lo, selecione **Todos os serviços** e, em seguida, selecione **Perfis CDN**. Na página **Perfis CDN**, selecione o perfil que você deseja usar. 
    
-    O painel Perfil de CDN é exibido.
-   
-    ![Perfil CDN][cdn-profile-settings]
+    A página Perfil CDN é exibida.
 
 2. Selecione o **Ponto de extremidade**.
    
-    ![Adicionar botão de ponto de extremidade][cdn-new-endpoint-button]
+    ![Perfil CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    O painel **Adicionar um ponto de extremidade** é exibido.
-   
-    ![Painel Adicionar ponto de extremidade][cdn-add-endpoint]
+    A página **Adicionar um ponto de extremidade** é exibida.
 
-3. Em **Nome**, insira um nome exclusivo para o novo ponto de extremidade de CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<endpointname>.azureedge.net`.
+    Use as configurações especificadas na tabela que acompanha a imagem.
+   
+    ![Painel Adicionar ponto de extremidade](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-4. Em **Tipo de origem**, selecione um tipo de origem. Selecione **Armazenamento** para uma conta de armazenamento do Azure, **Serviço de nuvem** para um Serviço de Nuvem do Azure, **Aplicativo Web** para um Aplicativo Web do Azure ou **Origem personalizada** para qualquer outra origem de servidor Web acessível publicamente (hospedado no Azure ou em outro lugar).
-   
-    ![Tipo de origem CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-
-5. Em **Nome de host de origem**, selecione ou insira o domínio de origem. O menu suspenso lista todas as origens disponíveis do tipo especificado na etapa 4. Se você tiver selecionado **Origem personalizada** como o tipo de origem, insira o domínio de sua origem personalizada.
+    | Configuração | Valor |
+    | ------- | ----- |
+    | **Nome** | Digite *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net.|
+    | **Tipo de origem** | Selecione **Armazenamento**. | 
+    | **Nome do host de origem** | Digite *mystorageacct123.blob.core.windows.net* para seu nome de host. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente |
+    | **Caminho de origem** | Deixe em branco. |
+    | **Cabeçalho de host de origem** | Deixe o valor padrão gerado. |  
+    | **Protocolo** | Deixe as opções padrão **HTTP** e **HTTPS** selecionadas. |
+    | **Porta de origem** | Deixe os valores de porta padrão. | 
+    | **Otimizado para** | Deixe a seleção padrão: **Distribuição na Web geral**. |
     
-6. Em **Caminho de origem**, insira o caminho até os recursos que você deseja armazenar em cache, ou deixe em branco para permitir o armazenamento em cache de qualquer recurso no domínio especificado na etapa 5.
-    
-7. Em **Cabeçalho de host de origem**, insira o cabeçalho de host que você deseja que a CDN do Azure envie com cada solicitação, ou deixe o padrão.
-   
-   > [!WARNING]
-   > Alguns tipos de origens, como o Armazenamento do Azure e Aplicativos Web, exigem que o cabeçalho de host corresponda ao domínio da origem. A menos que tenha uma origem que exija um cabeçalho de host diferente do seu domínio, você deverá deixar o valor padrão.
-   > 
-    
-8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos na origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS). Use o domínio fornecido pela CDN (`<endpointname>.azureedge.net`) para acessar o conteúdo HTTPS. 
-   
-   > [!NOTE]
-   > O valor da **Porta de origem** determina somente a porta usada pelo ponto de extremidade para recuperar as informações da origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente do valor de **Porta de origem**.  
-   > 
-   > Os pontos de extremidade na **CDN do Azure do Akamai** não permitem o intervalo de portas TCP completo para portas de origens. Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
-   > 
-   > Quando você acessar o conteúdo da CDN usando HTTPS, há as seguintes restrições:
-   > 
-   > * Use o certificado SSL fornecido pela CDN. Não há suporte a certificados de terceiros.
-   > * O suporte a HTTPS para domínios personalizados do Azure CDN está disponível apenas com produtos **CDN do Azure da Verizon** (Standard e Premium). Ele não tem suporte em produtos **Azure CDN do Akamai**. Para saber mais, veja [Configurar o HTTPS em um domínio personalizado CDN do Azure](cdn-custom-ssl.md).
-    
-9. Selecione **Adicionar** para criar um novo ponto de extremidade.
+3. Selecione **Adicionar** para criar um novo ponto de extremidade.
    
    Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade do perfil.
     
-   ![Ponto de extremidade CDN][cdn-endpoint-success]
+   ![Ponto de extremidade CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   > [!IMPORTANT]
-   > Como o registro demora um pouco para se propagar, o ponto de extremidade não fica imediatamente disponível para uso. Para perfis da **CDN do Azure da Akamai** , a propagação normalmente é concluída em um minuto. Para perfis da **Azure CDN da Verizon**, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo.
-    > 
-    > Se você tentar usar o nome de domínio da CDN antes que a configuração do ponto de extremidade seja propagada para os POPs, talvez você receba um status de resposta HTTP 404. Se passaram várias horas desde que você criou o ponto de extremidade e ainda está recebendo um status de resposta 404, veja [Solução de problemas dos pontos de extremidade CDN retornando status 404](cdn-troubleshoot-endpoint.md).
-    > 
-    > 
+   Como o registro demora um pouco para se propagar, o ponto de extremidade não fica imediatamente disponível para uso: 
+   - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
+   - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+   - Para perfis da **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**, a propagação geralmente conclui em 90 minutos. 
 
-## <a name="see-also"></a>Veja também
-* [Controle do comportamento do cache de solicitações com cadeias de caracteres de consulta](cdn-query-string.md)
-* [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
-* [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
-* [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
-* [Solucionando problemas dos pontos de extremidade CDN retornando status 404](cdn-troubleshoot-endpoint.md)
+## <a name="clean-up-resources"></a>Limpar recursos
+Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um grupo de recursos. Salve esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como adicionar um domínio personalizado em seu ponto de extremidade. No entanto, se você não espera usar esses recursos no futuro, poderá excluí-los ao excluir o grupo de recursos, evitando assim encargos adicionais:
 
-[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
-[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
-[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
-[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
+1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, selecione **my-resource-group-123**.
+
+2. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos**, digite *my-resource-group-123* na caixa de texto e, em seguida, selecione **Excluir**.
+
+    Essa ação excluirá o grupo de recursos, o perfil e o ponto de extremidade que você criou neste início rápido.
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre como adicionar um domínio personalizado em seu ponto de extremidade CDN, confira o tutorial a seguir:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
+
+

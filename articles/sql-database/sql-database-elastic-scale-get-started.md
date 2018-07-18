@@ -7,13 +7,13 @@ author: anumjs
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 04/01/2018
 ms.author: anjangsh
-ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fa6899b285bcd1d3f2d4c1e17e3fbab7a6e0f839
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
 Este documento apresenta a experiência do desenvolvedor para a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), ajudando você a executar um aplicativo de exemplo. O aplicativo de exemplo cria um aplicativo fragmentado simples e explora os principais recursos das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Microsoft Azure. Ele se concentra nos casos de uso para [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como para Java. 

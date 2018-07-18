@@ -1,34 +1,36 @@
 ---
-title: Criar seu primeiro banco de dados SQL do Azure | Microsoft Docs
-description: Aprenda a criar seu primeiro banco de dados SQL do Azure no portal do Azure e com o SQL Server Management Studio.
+title: 'Tutorial: Projetar seu primeiro banco de dados SQL do Azure usando o SSMS| Microsoft Docs'
+description: Aprenda a projetar seu primeiro banco de dados SQL do Azure com o SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>Criar seu primeiro banco de dados SQL do Azure
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Projetar seu primeiro banco de dados SQL do Azure usando o SSMS
 
 O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Microsoft Cloud (Azure). Neste tutorial, você aprenderá a usar o Portal do Azure e o SSMS ([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)) para: 
 
 > [!div class="checklist"]
-> * Criar um banco de dados no Portal do Azure
+> * Criar um banco de dados no portal do Azure*
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
 > * Conectar-se ao banco de dados com o SSMS
 > * Criar tabelas com SSMS
 > * Carregar dados em massa com o BCP
 > * Consultar dados com o SSMS
-> * Restaurar um banco de dados para uma [restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore) no Portal do Azure
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+   >[!NOTE]
+   > Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -42,13 +44,13 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 
 1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
-2. Selecione **Bancos de Dados** na página **Novo** e selecione **Criar** em **Banco de Dados SQL** na página **Novo**.
+2. Na página **Novo**, selecione **Bancos de Dados** na seção do Azure Marketplace e, em seguida, clique em **Banco de Dados SQL** na seção **Em Destaque**.
 
    ![criar banco de dados vazio](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 5. Clique em **Selecionar**.
 
-6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs e a quantidade de armazenamento. Explore as opções para o número de DTUs e o armazenamento disponível em cada camada de serviço. 
+6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Explore as opções para o número de DTUs/vCores e o armazenamento disponível em cada camada de serviço. Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
 
 7. Para este tutorial, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
 
@@ -83,10 +85,9 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 8. Aceite os termos da versão prévia para usar a opção **Armazenamento Complementar**. 
 
    > [!IMPORTANT]
-   > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >-  Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, EUA Central, França Central, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, US Gov – Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
@@ -108,7 +109,7 @@ O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedind
 
 1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais. 
 
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e a seus bancos de dados nos próximos guias de início rápido. 
+2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e bancos de dados nos próximos tutoriais e inícios rápidos. 
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -297,26 +298,6 @@ Execute as seguintes consultas para recuperar as informações das tabelas do ba
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar um banco de dados em um ponto anterior no tempo
-
-Imagine que você excluiu acidentalmente uma tabela. Isso é algo que você não pode se recuperar facilmente. O Banco de Dados SQL do Azure lhe permite voltar para qualquer ponto no tempo, até os últimos 35 dias, e restaurar esse ponto no tempo em um novo banco de dados. Você pode usar esse banco de dados para recuperar os dados excluídos. As etapas a seguir restauram o banco de dados de exemplo para um ponto anterior à adição das tabelas.
-
-1. Na página do Banco de Dados SQL do seu banco de dados, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** será aberta.
-
-   ![restaurar](./media/sql-database-design-first-database/restore.png)
-
-2. Preencha o formulário **Restaurar** com as informações necessárias:
-    * Nome do Banco de Dados: fornece um nome de banco de dados 
-    * Ponto no tempo: selecione a guia **Ponto no tempo** no formulário Restaurar 
-    * Ponto de restauração: selecione uma hora anterior à alteração do banco de dados
-    * Servidor de destino: não é possível alterar esse valor ao restaurar um banco de dados 
-    * Pool de banco de dados elástico: selecione **Nenhum**  
-    * Tipo de preço: selecione **20 DTUs** e **40 GB** de armazenamento.
-
-   ![ponto de restauração](./media/sql-database-design-first-database/restore-point.png)
-
-3. Clique em **OK** para restaurar o banco de dados [a um ponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore) anterior à adição das tabelas. A restauração de um banco de dados para um ponto diferente no tempo cria um banco de dados duplicado no mesmo servidor do banco de dados original do ponto no tempo que você especificar, contanto que esteja dentro do período de retenção da sua [camada de serviço](sql-database-service-tiers.md).
-
 ## <a name="next-steps"></a>Próximas etapas 
 Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar um banco de dados e tabelas, carregar e consultar dados e restaurar o banco de dados para um ponto anterior no tempo. Você aprendeu como:
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ Neste tutorial, você aprendeu as tarefas básicas de banco de dados, como criar
 > * Criar tabelas
 > * Carregar dados em massa
 > * Consultar os dados
-> * Restaurar o banco de dados para um ponto anterior no tempo usando os recursos de [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore) do Banco de Dados SQL
 
 Avance para o próximo tutorial para saber mais sobre como criar um banco de dados usando Visual Studio e C#.
 

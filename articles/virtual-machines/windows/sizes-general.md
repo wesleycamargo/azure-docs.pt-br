@@ -1,25 +1,25 @@
 ---
-title: "Tamanhos de VM Windows do Azure — Finalidade geral | Microsoft Docs"
-description: "Lista os tamanhos diferentes para fins gerais disponíveis para máquinas virtuais Windows no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série."
+title: Tamanhos de VM Windows do Azure — Finalidade geral | Microsoft Docs
+description: Lista os tamanhos diferentes para fins gerais disponíveis para máquinas virtuais Windows no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 04/10/2018
 ms.author: jonbeck
-ms.openlocfilehash: 08fcbae1be5ff865a39bb3f213f1c6af7c430ee9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 2515aef2ca9c13408452eca512d8d296c88feafc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos das Máquinas Virtuais de uso geral
 

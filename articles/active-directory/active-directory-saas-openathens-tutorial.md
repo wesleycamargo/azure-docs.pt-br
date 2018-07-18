@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o OpenAthens | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o OpenAthens."
+title: 'Tutorial: Integração do Azure Active Directory com o OpenAthens | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: integração do Azure Active Directory com o OpenAthens
 
@@ -30,9 +30,9 @@ A integração do OpenAthens ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no OpenAthens (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o OpenAthens, você precisará dos seguintes itens:
 
@@ -48,7 +48,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o OpenAthens da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-openathens-from-the-gallery"></a>Adicionar o OpenAthens da galeria
 Para configurar a integração do OpenAthens ao Azure AD, você precisará adicionar o OpenAthens da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -178,7 +178,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa de texto **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
   
 ### <a name="create-an-openathens-test-user"></a>Criar um usuário de teste do OpenAthens
 
@@ -224,7 +224,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * Para obter uma lista de tutoriais como integrar aplicativos SaaS com o Azure Active Directory, consulte os [tutoriais de integração de aplicativos SaaS para uso com o Azure AD](active-directory-saas-tutorial-list.md).
-* Para obter mais informações sobre o acesso de aplicativos e logon único com o Azure Active Directory, consulte [O que é o acesso de aplicativo e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* Para obter mais informações sobre o acesso de aplicativos e logon único com o Azure Active Directory, consulte [O que é o acesso de aplicativo e o logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

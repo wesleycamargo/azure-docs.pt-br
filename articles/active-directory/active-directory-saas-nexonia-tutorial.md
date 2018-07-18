@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Nexonia | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Nexonia."
+title: 'Tutorial: Integração do Azure Active Directory ao Nexonia | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Nexonia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: aae1c8c0471e18e36accdcb7c12e08bccfdd8e7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Azure Active Directory ao Nexonia
 
@@ -30,7 +30,7 @@ A integração do Nexonia ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários faça logon automaticamente no Nexonia (logon único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -95,7 +95,7 @@ Para configurar e testar o logon único do Azure AD com o Nexonia, você precisa
 Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Nexonia.
 
   > [!Note]
-   > Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
+   > Se você tiver problemas na integração, consulte este [link](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) para um guia de solução de problemas. Se você ainda não encontrou a solução, acione a solicitação de suporte do Portal do Azure.
 
 **Para configurar o logon único do Azure AD com o Nexonia, execute as seguintes etapas:**
 
@@ -211,7 +211,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

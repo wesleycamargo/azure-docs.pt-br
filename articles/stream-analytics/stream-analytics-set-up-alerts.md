@@ -1,28 +1,21 @@
 ---
-title: Configurar alertas para consultas no Stream Analytics | Microsoft Docs
-description: "Noções básicas sobre alertas do Stream Analytics"
-keywords: configurar alertas
+title: Configurar alertas de monitoramento para trabalhos do Azure Stream Analytics
+description: Este artigo descreve como usar o Portal do Azure para configurar o monitoramento e alertas para trabalhos do Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: samacha
-ms.openlocfilehash: cdbd7da36f3eb2795fc4548915ebbf18200ca44d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Stream Analytics do Azure
-## <a name="introduction-monitor-page"></a>Introdução: Página do monitor
+# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Tutorial: Configurar alertas para trabalhos do Azure Stream Analytics
 Você pode configurar alertas para disparar um alerta quando uma métrica atinge uma condição que você especifica. Por exemplo, você pode configurar um alerta para uma condição semelhante à seguinte:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
@@ -50,7 +43,7 @@ Para obter mais detalhes sobre como configurar alertas no portal do Azure, consu
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

@@ -3,27 +3,29 @@ title: Como alterar, excluir ou gerenciar seus grupos de gerenciamento - Azure |
 description: Saiba como manter e atualizar sua hierarquia de grupos de gerenciamento.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/15/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento 
-Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Você pode alterar, excluir e gerenciar esses contêineres para ter hierarquias que podem ser usadas com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função (RBAC) do Azure](../active-directory/role-based-access-control-what-is.md). Para saber mais sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md).
+Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Você pode alterar, excluir e gerenciar esses contêineres para ter hierarquias que podem ser usadas com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função (RBAC) do Azure](../role-based-access-control/overview.md). Para saber mais sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md).
 
-O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, faça logon no [Portal do Azure](https://portal.azure.com) ou use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) ou [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerenciar seus grupos de gerenciamento.
+O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, faça logon no [Portal do Azure](https://portal.azure.com) ou use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) ou [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerenciar seus grupos de gerenciamento.
 
-Para fazer alterações em um grupo de gerenciamento, você deve ter uma função de Proprietário ou Colaborador no grupo de gerenciamento. Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md).
+Para fazer alterações em um grupo de gerenciamento, você deve ter uma função de Proprietário ou Colaborador no grupo de gerenciamento. Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../role-based-access-control/overview.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Alterar o nome de um grupo de gerenciamento 
 Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShell ou a CLI do Azure.
@@ -39,7 +41,7 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 5. Quando o menu for aberto, digite o novo nome que gostaria de exibir.
 
     ![Renomear Grupo](media/management-groups/rename_context.png) 
-4. Selecione **Salvar**. 
+4. Clique em **Salvar**. 
 
 ### <a name="change-the-name-in-powershell"></a>Alterar o nome no PowerShell
 
@@ -64,7 +66,7 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 1. Não existem grupos de gerenciamento filhos ou assinaturas no grupo de gerenciamento. 
     - Para mover uma assinatura de um grupo de gerenciamento, consulte [Mover assinatura para outro grupo de gerenciamento](#Move-subscriptions-in-the-hierarchy). 
     - Para mover um grupo de gerenciamento para outro grupo de gerenciamento, consulte [Mover grupos de gerenciamento na hierarquia](#Move-management-groups-in-the-hierarchy). 
-2. Você tem permissões de gravação na função de Proprietário ou Colaborador do grupo de gerenciamento no grupo de gerenciamento. Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. Você tem permissões de gravação na função de Proprietário ou Colaborador do grupo de gerenciamento no grupo de gerenciamento. Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Excluir no portal
 
@@ -103,9 +105,9 @@ Você pode exibir qualquer grupo de gerenciamento no qual você tem uma função
 ### <a name="view-in-the-portal"></a>Exibir no portal
 1. Fazer logon no [Portal do Azure](https://portal.azure.com)
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento** 
-3. A página de hierarquia Grupo de Gerenciamento é carregada em todos os grupos aos quais você tem acesso. 
+3. A página de hierarquia do grupo de gerenciamento carrega de onde você pode explorar todas as assinaturas que você tem acesso a e grupos de gerenciamento. Selecionar o nome do grupo leva você a um nível abaixo da hierarquia. A navegação funciona da mesma forma que um explorador de arquivos. 
     ![Principal](media/management-groups/main.png)
-4. Selecione um grupo de gerenciamento individual para os detalhes  
+4. Para ver os detalhes do grupo de gerenciamento, selecione o link **(detalhes)** ao lado do título do grupo de gerenciamento. Se esse link não estiver disponível, você não tem permissões para exibir esse grupo de gerenciamento.  
 
 ### <a name="view-in-powershell"></a>Exibir no PowerShell
 Você pode usar o comando Get-AzureRmManagementGroup para recuperar todos os grupos.  
@@ -139,7 +141,7 @@ Para mover a assinatura, há várias permissões que você deve ter:
 - Função de "Proprietário" na assinatura filho.
 - Função de "Proprietário" ou "Colaborador" no novo grupo de gerenciamento pai. 
 - Função de "Proprietário" ou "Colaborador" no antigo grupo de gerenciamento pai.
-Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../active-directory/role-based-access-control-what-is.md). 
+Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Mover assinaturas no portal
 
@@ -231,4 +233,4 @@ Para saber mais sobre grupos de gerenciamento, consulte:
 - [Criar grupos de gerenciamento para organizar recursos do Azure](management-groups-create.md)
 - [Instalar o módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Revisar as Especificações de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Instalar a Extensão CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Instalar a Extensão CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

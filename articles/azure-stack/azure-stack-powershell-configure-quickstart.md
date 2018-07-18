@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Colocar em funcionamento com o PowerShell na pilha do Azure
 
@@ -32,9 +32,6 @@ Este artigo é uma versão condensada das etapas descritas a [instalar o PowerSh
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurar o PowerShell para implantações com base no Active Directory do Azure
 
 Entrar no seu Kit de desenvolvimento de pilha do Azure, ou um cliente externo baseado em Windows se você estiver conectado por meio de VPN. Abra uma sessão de ISE do PowerShell com privilégios elevados e, em seguida, execute o seguinte script. Certifique-se de atualizar o **TenantName**, **ArmEndpoint**, e **GraphAudience** variáveis conforme necessário para a sua configuração de ambiente:
-
-> [!IMPORTANT]
-> A versão do módulo do PowerShell AzureRM 1.2.11 vem com uma lista de alterações significativas. Para atualizar a partir de 1.2.10 versão, consulte o [guia de migração](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -95,7 +92,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
@@ -161,7 +158,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```

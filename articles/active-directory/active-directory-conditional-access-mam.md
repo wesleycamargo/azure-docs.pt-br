@@ -2,11 +2,11 @@
 title: Acesso condicional com base no aplicativo do Azure Active Directory | Microsoft Docs
 description: Saiba como funciona o acesso condicional com base no aplicativo do Azure Active Directory.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Acesso condicional baseado em aplicativo do Azure Active Directory  
 
@@ -50,7 +50,7 @@ Você pode combinar políticas de acesso condicional baseado em aplicaitvos com 
  
 
 
-##<a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
 Este tópico pressupõe que você esteja familiarizado com:
 
@@ -64,7 +64,7 @@ Este tópico pressupõe que você esteja familiarizado com:
 - A [migração das políticas de acesso condicional](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de criar uma política de acesso condicional com base no aplicativo, você deve ter uma assinatura Premium do Azure Active Directory ou do Enterprise Mobility + Security, e os usuários devem ser licenciados para o EMS ou o Azure AD. 
 

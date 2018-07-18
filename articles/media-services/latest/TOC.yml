@@ -1,0 +1,101 @@
+- name: Documentação de Serviços de Mídia
+  href: ./index.yml
+- name: Visão geral
+  items:
+    - name: Sobre os Serviços de Mídia
+      href: media-services-overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Transmitir arquivos de vídeo com .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Tutoriais
+  items:
+    - name: 'Carregar, codificar e transmitir'
+      items:
+        - name: Com .NET
+          href: stream-files-tutorial-with-api.md
+        - name: Com REST
+          href: stream-files-tutorial-with-rest.md
+    - name: Analisar seu vídeo
+      items:
+        - name: Com .NET
+          href: analyze-videos-tutorial-with-api.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código do Azure
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: CLI do Azure
+      href: cli-samples.md
+- name: Conceitos
+  items:
+    - name: Ativos
+      href: assets-concept.md
+    - name: Codificação
+      items:
+        - name: Visão geral
+          href: encoding-concept.md
+        - name: Escada de taxa de bits adaptável Autogen
+          href: autogen-bitrate-ladder.md
+    - name: Inteligência de mídia
+      href: intelligence-concept.md
+    - name: Reagindo a eventos
+      href: reacting-to-media-services-events.md
+    - name: Contas de armazenamento
+      href: storage-account-concept.md
+    - name: Transformações e trabalhos
+      href: transform-concept.md
+- name: Guias de instruções
+  items:
+    - name: Migrar de v2 para v3
+      href: migrate-from-v2-to-v3.md
+    - name: Criar uma conta - CLI
+      href: create-account-cli-how-to.md
+    - name: APIs de acesso - CLI
+      href: access-api-cli-how-to.md
+    - name: Eventos de estado do trabalho - CLI
+      href: job-state-events-cli-how-to.md
+    - name: Upload de conteúdo - .NET
+      items:
+        - name: De HTTP (s)
+          href: job-input-from-http-how-to.md
+        - name: De um arquivo local
+          href: job-input-from-local-file-how-to.md
+    - name: Personalizar predefinições de transformação
+      items:
+        - name: Com .NET Core
+          href: customize-encoder-presets-how-to.md
+- name: Referência
+  items:
+    - name: Especificação OpenAPI (Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
+    - name: CLI do Azure 2.0
+      href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
+    - name: Python
+      href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node .js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
+    - name: Esquemas de evento
+      href: media-services-event-schemas.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Notas de versão
+      href: release-notes.md
+    - name: Cotas e limitações
+      href: limits-quotas-constraints.md
+    - name: Perguntas frequentes
+      href: frequently-asked-questions.md

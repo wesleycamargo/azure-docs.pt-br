@@ -1,21 +1,20 @@
 ---
-title: "Tutorial: Usar o Azure Active Directory B2C para autenticação de usuário em um aplicativo Web ASP.NET"
-description: "Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo Web ASP.NET."
+title: Tutorial - Permitir que um aplicativo Web autentique com contas usando o Azure Active Directory B2C | Microsoft Docs
+description: Tutorial sobre como usar o Azure Active Directory B2C para fornecer o logon do usuário para um aplicativo Web ASP.NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: saraford
+author: davidmu1
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar usuários com o Azure Active Directory B2C em um aplicativo Web ASP.NET
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: permitir que um aplicativo Web autentique com contas usando o Azure Active Directory B2C
 
 Este tutorial mostra como usar o Azure Active Directory (Azure AD) B2C para inscrever e conectar usuários em um aplicativo Web ASP.NET. O Azure AD B2C permite que seus aplicativos quem com contas sociais, corporativas e do Azure Active Directory usando protocolos padrão.
 
@@ -41,22 +40,22 @@ Entre no [portal do Azure](https://portal.azure.com/) como administrador global 
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecione **Azure AD B2C** da lista de serviços no Portal do Azure.
+1. Selecione **Azure AD B2C** da lista de serviços no Portal do Azure. 
 
-2. Nas configurações de B2C, clique em **Aplicativos** e em **Adicionar**.
+2. Nas configurações de B2C, clique em **Aplicativos** e em **Adicionar**. 
 
     Para registrar o aplicativo Web de exemplo no locatário, use as seguintes configurações:
 
     ![Adicionar um novo aplicativo](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | Meu aplicativo Web de exemplo | Insira um **Nome** que descreve seu aplicativo para os consumidores. | 
     | **Incluir aplicativo Web/API Web** | sim | Selecione **Sim** para um aplicativo Web. |
     | **Permitir fluxo implícito** | sim | Selecione **Sim**, já que o aplicativo usa [entrada OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de Resposta** | `https://localhost:44316` | As URLs de Resposta são pontos de extremidade para onde o Azure AD B2C retornará os tokens que o aplicativo solicitar. Neste tutorial, o exemplo é executado localmente (localhost) e escuta na porta 44316. |
-    | **Cliente nativo** | Não  | Como esse é um aplicativo Web e não um cliente nativo, selecione Não. |
-
+    | **Incluir cliente nativo** | Não  | Como esse é um aplicativo Web e não um cliente nativo, selecione Não. |
+    
 3. Clique em **Criar** para registrar o aplicativo.
 
 Os aplicativos registrados são exibidos na lista de aplicativos para o locatário do Azure AD B2C. Selecione o aplicativo Web na lista. O painel de propriedade da do aplicativo Web é exibido.
@@ -67,11 +66,11 @@ Anote a **ID do aplicativo cliente**. A ID identifica o aplicativo exclusivament
 
 ### <a name="create-a-client-password"></a>Criar uma senha de cliente
 
-O Azure AD B2C usa autorização OAuth2 para [aplicativos clientes](../active-directory/develop/active-directory-dev-glossary.md#client-application). Os aplicativos Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e exigem um segredo do cliente (senha). O segredo do cliente e a ID de cliente do aplicativo são usados quando o aplicativo Web autentica com o Azure Active Directory. 
+O Azure AD B2C usa autorização OAuth2 para [aplicativos clientes](../active-directory/develop/active-directory-dev-glossary.md#client-application). Os aplicativos Web são [clientes confidenciais](../active-directory/develop/active-directory-dev-glossary.md#web-client) e exigem uma ID de cliente ou ID do aplicativo e um segredo do cliente, uma senha do cliente ou uma chave de aplicativo.
 
 1. Selecione a página Chaves para o aplicativo Web registrado e clique em **Gerar chave**.
 
-2. Clique em **Salvar** para exibir a chave.
+2. Clique em **Salvar** para exibir a chave do aplicativo.
 
     ![página de chaves gerais do aplicativo](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -113,7 +112,7 @@ Para permitir que os usuários redefinam suas informações de perfil de usuári
     | **Nome** | SiPe | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SiPe** no código de exemplo. | 
     | **Provedor de identidade** | Entrada na conta local | O provedor de identidade usado para identificar o usuário exclusivamente. |
     | **Atributos de perfil** | Nome de exibição e CEP | Selecione os atributos que os usuários podem modificar durante a edição de perfil. |
-    | **Declarações do aplicativo** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/active-directory-dev-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
+    | **Declarações do aplicativo** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/active-directory-dev-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
 
 2. Clique em **Criar** para criar a sua política. 
 
@@ -135,7 +134,7 @@ Para habilitar a redefinição de senha no seu aplicativo, você precisará cria
 
 ## <a name="update-web-app-code"></a>Atualizar o código do aplicativo Web
 
-Agora que você registrou o aplicativo Web e criou as políticas, precisa configurar o aplicativo para usar o locatário do Azure AD B2C. Neste tutorial, você configura um aplicativo Web de exemplo. 
+Agora que você registrou o aplicativo Web e criou as políticas, precisa configurar o aplicativo para usar o locatário do Azure AD B2C. Neste tutorial, você deve configurar um aplicativo Web de exemplo que pode ser baixado do GitHub. 
 
 [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
 
@@ -143,7 +142,7 @@ Agora que você registrou o aplicativo Web e criou as políticas, precisa config
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-O aplicativo Web ASP.NET de exemplo é um aplicativo de lista de tarefas simples para criação e atualização de uma lista de tarefas pendentes. O aplicativo usa [componentes de middleware do Microsoft OWIN](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) para permitir que os usuários se inscrevam para usar o aplicativo em seu locatário do Azure AD B2C. Ao criar uma política do Azure AD B2C, os usuários podem usar uma conta social ou criar uma conta para usar como identidade na hora de acessar o aplicativo. 
+O aplicativo Web ASP.NET de exemplo é um aplicativo de lista de tarefas simples para criação e atualização de uma lista de tarefas pendentes. O aplicativo usa [componentes de middleware do Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) para permitir que os usuários se inscrevam para usar o aplicativo em seu locatário do Azure AD B2C. Ao criar uma política do Azure AD B2C, os usuários podem usar uma conta social ou criar uma conta para usar como identidade na hora de acessar o aplicativo. 
 
 Há dois projetos na solução de exemplo:
 
@@ -151,20 +150,20 @@ Há dois projetos na solução de exemplo:
 
 **O aplicativo de API Web de exemplo (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
-Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
+Você precisa alterar o aplicativo para usar o registro do aplicativo em seu locatário, o que inclui a ID do cliente ou a ID do aplicativo e a chave do aplicativo ou senha do cliente. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
-2. No projeto de aplicativo Web **TaskWebApp**, abra o arquivo **Web.config** e faça as seguintes atualizações:
+2. No projeto de aplicativo Web **TaskWebApp**, abra o arquivo **Web.config** e faça as seguintes atualizações nas chaves existentes:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Atualize as configurações de política com o nome gerado ao criar as políticas.
+3. Atualize as chaves existentes com os valores dos nomes de política que você criou na etapa anterior. Lembre-se de incluir o prefixo *b2c_1_*.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

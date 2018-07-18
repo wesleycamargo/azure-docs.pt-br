@@ -1,24 +1,21 @@
 ---
-title: "Personalização da UI (interface do usuário) – Azure AD B2C | Microsoft Docs"
-description: "Um tópico sobre os recursos de personalização de IU (interface do usuário) no Azure Active Directory B2C"
+title: Personalização da UI (interface do usuário) – Azure AD B2C | Microsoft Docs
+description: Um tópico sobre os recursos de personalização de IU (interface do usuário) no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: davidmu
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 
@@ -335,7 +332,17 @@ Nesta página, os usuários pode verificar seus números de telefone (usando men
 
 ## <a name="localizing-your-html-content"></a>Localização do conteúdo HTML
 
-Localize o conteúdo HTML ativando a [“Personalização de idioma”](active-directory-b2c-reference-language-customization.md).  Habilitar esse recurso permite que o Azure AD B2C encaminhe o parâmetro do Open ID Connect, `ui-locales`, para seu ponto de extremidade.  O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML personalizadas que são específicas a um idioma.
+Há duas maneiras de localizar o conteúdo HTML. Uma maneira é ativar a [personalização de idioma](active-directory-b2c-reference-language-customization.md). Habilitar esse recurso permite que o Azure AD B2C encaminhe o parâmetro do Open ID Connect, `ui-locales`, para seu ponto de extremidade.  O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML personalizadas que são específicas a um idioma.
+
+Como alternativa, é possível extrair conteúdo de lugares diferentes com base na localidade que está sendo usada. No ponto de extremidade habilitado para CORS, é possível configurar uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará adequadamente se usar o valor curinga `{Culture:RFC5646}`.  Por exemplo, suponha que essa é a sua URI de página personalizada:
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+Você pode carregar a página em `fr`. Quando a página efetua pulls de conteúdo HTML e CSS, ela efetua pulls de:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>O que lembrar ao criar seu próprio conteúdo
 
@@ -348,3 +355,4 @@ Se você estiver planejando usar o recurso de personalização de interface do u
   * Suporte limitado para o Internet Explorer 9, 8
   * Google Chrome 42.0 e superior
   * Mozilla Firefox 38.0 e superior
+* Não inclua marcas `<form>` no HTML, pois isso irá interferir com as operações POST geradas pelo HTML injetado do Azure AD B2C.

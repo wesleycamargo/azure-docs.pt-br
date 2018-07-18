@@ -1,6 +1,6 @@
 ---
-title: "Balanceamento de carga em várias configurações de IP no Azure | Microsoft Docs"
-description: "Balanceamento de carga entre as configurações de IP primárias e secundárias."
+title: Balanceamento de carga em várias configurações de IP no Azure | Microsoft Docs
+description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261448"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -27,7 +28,6 @@ ms.lasthandoff: 02/21/2018
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Neste artigo, mostraremos como usar o Azure Load Balancer com vários endereços IP em um NIC (controlador de adaptador de rede). O diagrama a seguir ilustra nosso cenário:
 
@@ -63,7 +63,7 @@ Execute as etapas a seguir para obter o cenário descrito neste artigo.
 
 Adicione a configuração de IP para o NIC secundário para cada VM na sua rede virtual:  
 
-1. Faça logon no Portal do Azure em http://portal.azure.com. Faça logon usando sua conta do Azure.
+1. Navegue até o Portal do Azure: http://portal.azure.com. Faça logon usando sua conta do Azure.
 
 2. No canto superior esquerdo da tela, selecione o ícone **Grupo de Recursos**. Em seguida, selecione o grupo de recursos em que suas VMs se encontram (por exemplo, **contosofabrikam**). O painel **Grupos de recursos** exibe todos os recursos e as NICs para as VMs.
 
@@ -87,7 +87,7 @@ Após concluir a segunda configuração de IP para o NIC secundário, ela será 
 
 Crie seu balanceador de carga para a configuração:
 
-1. Faça logon no Portal do Azure em http://portal.azure.com. Faça logon usando sua conta do Azure.
+1. Navegue até o Portal do Azure: http://portal.azure.com. Faça logon usando sua conta do Azure.
 
 2. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Balanceador de carga**. Em seguida, selecione **Criar**.
 
@@ -121,7 +121,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 4. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar o pool de IPs de front-end.
 
-5. Em **Configurações**, selecione **Pools de Front-end**. No próximo painel, selecione **Adicionar** na parte superior.
+5. Em **Configurações**, selecione **configuração IP de Front-end**. No próximo painel, selecione **Adicionar** na parte superior.
 
 6. Digite um nome para o endereço IP de front-end (por exemplo, **contosofe** ou **fabrikamfe**).
 
@@ -129,7 +129,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 8. Crie o segundo endereço IP de front-end repetindo a <a href="#step3-3">etapa 3</a> até a <a href="#step3-7">etapa 7</a> nesta seção.
 
-Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **Pool de IP de front-end** do balanceador de carga. 
+Depois que o pool de front-end estiver configurado, os endereços IP serão exibidos nas configurações de **configuração de IP de front-end** do balanceador de carga. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Etapa 4: Configurar o pool de back-end
 
@@ -173,7 +173,7 @@ Configure uma investigação de integridade para o balanceador de carga:
 
 Configure as regras de balanceamento de carga para cada site (contoso.com e fabrikam.com):
     
-1. <a name="step6-1"></a>Em **Configurações**, selecione **Investigação de integridade**. No próximo painel, selecione **Adicionar** na parte superior. 
+1. <a name="step6-1"></a>Em **Configurações**, selecione ** Regras de balanceamento de carga**. No próximo painel, selecione **Adicionar** na parte superior. 
 
 2. Para **Nome**, digite um nome para a regra de balanceamento de carga (por exemplo, **HTTPc** para Contoso ou **HTTPf** para Fabrikam).
 

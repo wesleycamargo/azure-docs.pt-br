@@ -1,47 +1,46 @@
 ---
-title: "Principais diferenças entre o Azure e a pilha do Azure quando você usa os serviços e criar aplicativos | Microsoft Docs"
-description: "O que você precisa saber quando você usa os serviços ou compilar aplicativos para a pilha do Azure."
+title: Compreender as principais diferenças entre o Azure e o Azure pilha ao usar compilando aplicativos e serviços | Microsoft Docs
+description: O que você precisa saber para usar os serviços ou compilar aplicativos para a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
+ms.date: 04/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
-
-Quando você usa os serviços ou compilar aplicativos para a pilha do Azure, você deve entender que há diferenças entre a pilha do Azure e o Azure. Este artigo fornece uma visão geral dos principais considerações quando você direcionar a pilha do Azure como seu ambiente de desenvolvimento de nuvem híbrida.
+Antes de usar os serviços ou compilar aplicativos para a pilha do Azure, você deve entender as diferenças entre a pilha do Azure e o Azure. Este artigo identifica as principais considerações ao usar o Azure pilha como seu ambiente de desenvolvimento de nuvem híbrida.
 
 ## <a name="overview"></a>Visão geral
 
-O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos que são executados na pilha do Azure. Você pode implantar esses aplicativos com a pilha do Azure, no Azure, ou você pode criar realmente aplicativos híbridos que podem aproveitam a conectividade entre uma nuvem de pilha do Azure e o Azure.
+O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Você pode criar um aplicativo na pilha do Azure e, em seguida, implantá-lo a pilha do Azure, Azure ou a sua nuvem híbrida do Azure.
 
 O operador de pilha do Azure permitirá que você sabe quais serviços estão disponíveis para uso e como obter suporte. Eles oferecem esses serviços por meio de seus planos personalizados e ofertas.
 
 O conteúdo técnico do Azure pressupõe que os aplicativos estão sendo desenvolvidos para um serviço do Azure, em vez de pilha do Azure. Quando você criar e implanta aplicativos com a pilha do Azure, você deve entender algumas diferenças importantes, como:
 
 * A pilha do Azure oferece um subconjunto dos serviços e recursos que estão disponíveis no Azure.
-* Sua empresa ou provedores de serviços podem escolher quais serviços que desejam oferecer. Isso inclui aplicativos ou serviços personalizados. Eles podem oferecer sua própria documentação personalizada.
+* Sua empresa ou provedores de serviços podem escolher quais serviços que desejam oferecer. As opções disponíveis podem incluir aplicativos ou serviços personalizados. Eles podem oferecer sua própria documentação personalizada.
 * Você deve usar o correto pontos de extremidade específicos de pilha do Azure (por exemplo, as URLs para o endereço do portal e o ponto de extremidade do Gerenciador de recursos do Azure).
-* Você deve usar o PowerShell e a API de versões com suporte pela pilha do Azure. Isso garante que seus aplicativos funcionará na pilha do Azure e o Azure.
+* Você deve usar o PowerShell e a API de versões com suporte pela pilha do Azure. Usar as versões com suporte, você garante que seus aplicativos funcionará na pilha do Azure e o Azure.
 
 ## <a name="cheat-sheet-high-level-differences"></a>Roteiro: diferenças de alto nível
 
-A tabela a seguir descreve as diferenças de alto nível entre a pilha do Azure e o Azure. Mantenha em mente ao desenvolver para o Azure pilha ou usar os serviços de pilha do Azure.
+A tabela a seguir descreve as diferenças de alto nível entre a pilha do Azure e o Azure. Mantenha essas diferenças em mente ao desenvolver para o Azure pilha ou usar os serviços de pilha do Azure.
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 | Área | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
@@ -64,15 +63,15 @@ A tabela a seguir descreve as diferenças de alto nível entre a pilha do Azure 
 | Recomendações | Referências | 
 | -------- | ------------- | 
 | Instale as ferramentas corretas em sua estação de trabalho do desenvolvedor. | - [Instale o PowerShell](azure-stack-powershell-install.md)<br>- [Baixar ferramentas](azure-stack-powershell-download.md)<br>- [Configurar o PowerShell](azure-stack-powershell-configure-user.md)<br>- [Instalar o Visual Studio](azure-stack-install-visual-studio.md) 
-| Examinar as informações sobre o seguinte:<br>-Considerações sobre o modelo azure Resource Manager<br>-Como encontrar modelos de início rápido<br>-Use um módulo de diretiva para ajudá-lo a usar o Azure para desenvolver para a pilha do Azure | [Desenvolver para o Azure Stack](azure-stack-developer.md) | 
+| Examinar as informações sobre os seguintes itens:<br>-Considerações sobre o modelo azure Resource Manager<br>-Como encontrar modelos de início rápido<br>-Use um módulo de diretiva para ajudá-lo a usar o Azure para desenvolver para a pilha do Azure | [Desenvolver para o Azure Stack](azure-stack-developer.md) | 
 | Examine e siga as práticas recomendadas para modelos. | [Modelos do Gerenciador de recursos de início rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
 ## <a name="version-requirements"></a>Requisitos de versão
 
-A pilha do Azure oferece suporte a versões específicas do Azure PowerShell e APIs do serviço do Azure. Você deve usar as versões com suporte para garantir que seu aplicativo pode ser implantado para ambos os pilha do Azure e do Azure.
+A pilha do Azure oferece suporte a versões específicas do Azure PowerShell e APIs do serviço do Azure. Use versões com suporte para garantir que seu aplicativo pode ser implantado para ambos os pilha do Azure e do Azure.
 
-Para certificar-se de que você use uma versão correta do PowerShell do Azure, use [perfis de versão de API](azure-stack-version-profiles.md). Para determinar o último perfil de versão de API que você pode usar, você deve saber que compilação da pilha do Azure que você está usando. Você pode obter essas informações do administrador de pilha do Azure.
+Para certificar-se de que você use uma versão correta do PowerShell do Azure, use [perfis de versão de API](azure-stack-version-profiles.md). Para determinar o último perfil de versão de API que você pode usar, descubra a compilação da pilha do Azure que você está usando. Você pode obter essas informações do administrador de pilha do Azure.
 
 >[!NOTE]
  Se você estiver usando o Kit de desenvolvimento de pilha do Azure, e você tem acesso administrativo, consulte a seção "Determinar a versão atual" [gerenciar atualizações](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) para determinar a compilação de pilha do Azure.

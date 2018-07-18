@@ -1,29 +1,26 @@
 ---
-title: Elementos da linguagem Transact-SQL do SQL Data Warehouse | Microsoft Docs
-description: "Lista de links para conteúdo de referência dos elementos da linguagem Transact-SQL usados para o SQL Data Warehouse."
+title: Elementos da linguagem T-SQL — SQL Data Warehouse do Azure | Microsoft Docs
+description: Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="language-elements"></a>Elementos de linguagem
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem T-SQL compatíveis com o SQL Data Warehouse do Azure
+Links para a documentação para elementos da linguagem T-SQL compatíveis no SQL Data Warehouse do Azure.
+
 ## <a name="core-elements"></a>Elementos principais
-* [convenções de sintaxe](https://msdn.microsoft.com/library/ms177563.aspx)
+* [convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [regras de nomenclatura do objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 * [agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
@@ -279,11 +276,5 @@ ms.lasthandoff: 10/11/2017
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
+Para obter mais informações de referência, consulte [Instruções T-SQL no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-statements.md) e [Exibições do sistema no SQL Data Warehouse do Azure](sql-data-warehouse-reference-tsql-system-views.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->

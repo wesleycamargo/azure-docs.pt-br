@@ -1,24 +1,18 @@
 ---
-title: "Análise de tráfego de pesquisa para o Azure Search | Microsoft Docs"
-description: "Habilite a análise de tráfego de pesquisa para a pesquisa do Azure, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para ter ideias sobre os usuários e seus dados."
+title: Análise de tráfego de pesquisa para o Azure Search | Microsoft Docs
+description: Habilite a análise de tráfego de pesquisa para o Azure Search, um serviço de pesquisa hospedado na nuvem no Microsoft Azure, para ter ideias sobre os usuários e seus dados.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: 4b40e8c9f681b7489c0ab2ffe7b369cc869c73e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>O que é análise de tráfego de pesquisa
 Análise de tráfego de pesquisa é um padrão de implementação de um loop de comentários para seu serviço de pesquisa. Esse padrão descreve os dados necessários e como coletá-los usando o Application Insights, líder no setor de serviços de monitoramento em várias plataformas.
@@ -157,7 +151,7 @@ Sempre que um usuário clica em um documento, esse é um sinal que deve ser regi
 
 *JavaScript*
 
-    appInsights.TrackEvent("Click", {
+    appInsights.trackEvent("Click", {
         SearchServiceName: <service name>,
         SearchId: <search id>,
         ClickedDocId: <clicked document id>,

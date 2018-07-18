@@ -1,12 +1,11 @@
 ---
 title: Exemplos do Azure PowerShell para o BD Cosmos do Azure | Microsoft Docs
-description: "Exemplos do Azure PowerShell – scripts para ajudá-lo a criar contas do BD Cosmos do Azure."
+description: Exemplos do Azure PowerShell – scripts para ajudá-lo a criar contas do BD Cosmos do Azure.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
@@ -14,16 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
-ms.author: mimig
-ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: fc2ae1ee87b525f2ec6725cea2b19a8b8b3cef86
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o BD Cosmos do Azure
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o BD Cosmos do Azure. Neste momento, só é possível gerenciar o accountlayer do Azure Cosmos DB por meio do PowerShell. Outros recursos como bancos de dados e coleções não podem ser gerenciados por meio do PowerShell.
 

@@ -1,25 +1,25 @@
 ---
-title: "Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs"
-description: "Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory"
+title: Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs
+description: Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-editor: 
-ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: daveba
+ms.date: 04/19/2018
+ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: b65284f799eca956c30db21d5d4171d0495297ea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1609942269a0c737239cf4198289fdc44ade2b32
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
@@ -72,6 +72,8 @@ Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá te
 
 Para saber mais sobre como atribuir um usuário a uma função de aplicativo, consulte a documentação sobre [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
+Para atribuir um grupo a um aplicativo empresarial, é preciso substituir `Get-AzureADUser` por `Get-AzureADGroup`.
+
 ### <a name="example"></a>Exemplo
 
 Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) usando o PowerShell.
@@ -101,6 +103,7 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
 5. Execute o seguinte comando para atribuir o usuário à função de aplicativo:

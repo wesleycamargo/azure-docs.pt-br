@@ -3,7 +3,7 @@ title: Associações de armazenamento do Blob do Azure para o Azure Functions
 description: Entenda como usar gatilhos e associações do Armazenamento de blob do Azure em Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356402"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -32,7 +33,7 @@ Este artigo explica como trabalhar com associações de armazenamento de blob do
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Não há suporte para[Contas de armazenamento exclusivas de Blobs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral. Para associações de entrada e saída, é possível utilizar contas de armazenamento exclusivas de blobs.
+> Use o gatilho de Grade de Eventos em vez do disparador do armazenamento de Blob apenas para contas de armazenamento de blob, para alta escala, ou para evitar atrasos de inicialização a frio. Para saber mais, veja a seção [Gatilho](#trigger) a seguir. 
 
 ## <a name="packages"></a>Pacotes
 
@@ -40,14 +41,37 @@ As associações de armazenamento de Blobs são fornecidas no pacote NuGet [Micr
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="trigger"></a>Gatilho
 
-Use um gatilho de armazenamento de Blob para iniciar uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
+O gatilho de armazenamento de Blob inicia uma função quando é detectado um blob novo ou atualizado. O conteúdo do blob é fornecido como entrada para a função.
 
-> [!NOTE]
-> Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para evitar esse atraso inicial, considere uma das seguintes opções:
-> - Use um plano do Serviço de Aplicativo com a opçao Sempre ativado habilitada.
-> - Use outro mecanismo para disparar o processamento de blob, como uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [exemplo de associações de entrada de blob mais adiante neste artigo](#input---example).
+O [gatilho de Grade de Eventos](functions-bindings-event-grid.md) tem suporte interno para [eventos de blob](../storage/blobs/storage-blob-event-overview.md) e também pode ser usado para iniciar uma função quando um blob novo ou atualizado é detectado. Para obter um exemplo, consulte o tutorial [Redimensionamento de imagem com Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+Use a Grade de Eventos em vez do disparador de armazenamento de Blobs para os seguintes cenários:
+
+* Contas de armazenamento íntegras exclusivas de blob
+* Alta escala
+* Atraso de inicialização a frio
+
+### <a name="blob-only-storage-accounts"></a>Contas de armazenamento íntegras exclusivas de blob
+
+[Contas de armazenamento exclusivas de blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) têm suporte para associações de entrada e saída de blobs, mas não para gatilhos de blob. Os gatilhos de armazenamento de Blobs requerem uma conta de armazenamento de uso geral.
+
+### <a name="high-scale"></a>Alta escala
+
+A alta escala pode ser definida vagamente como contêineres que possuem mais de 100.000 blobs ou contas de armazenamento que têm mais de 100 atualizações de blobs por segundo.
+
+### <a name="cold-start-delay"></a>Atraso de inicialização a frio
+
+Se seu aplicativo de funções está no plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs se um aplicativo de funções ficar ocioso. Para evitar esse atraso de inicialização a frio, você pode alterar para um plano do Serviço de Aplicativo com Always On habilitado, ou use um tipo de gatilho diferente.
+
+### <a name="queue-storage-trigger"></a>Gatilho de armazenamento de filas
+
+Além da Grade de Eventos, outra alternativa para blobs de processamento é o gatilho de armazenamento de Fila, mas ele não tem suporte interno para eventos de blob. Você precisaria criar mensagens de fila ao criar ou atualizar blobs. Suponto que você fez isso, consulte o [exemplo de associação de entrada de blob mais adiante neste artigo](#input---example).
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
@@ -233,12 +257,12 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para o blob 
 * `string`
 * `Byte[]`
 * Um POCO serializado como JSON
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Associação para `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
@@ -283,7 +307,7 @@ Para procurar as chaves em nomes de arquivos, escape as chaves usando duas chave
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se o blob é nomeado *{20140101}-soundfile.mp3*, o `name` valor da variável no código da função é *soundfile.mp3*. 
+Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no código da função é *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Gatilho - metadados
 
@@ -364,7 +388,7 @@ Consulte o exemplo específico a um idioma:
 
 ### <a name="input---c-example"></a>Entrada – exemplo de C#
 
-O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila e uma associação de blob de entrada. A mensagem de fila contém o nome do blob e a função faz o tamanho do blob.
+O exemplo a seguir é uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila e uma associação de blob de entrada. A mensagem da fila contém o nome do blob e a função registra o tamanho do blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +398,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -431,7 +454,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-O exemplo a seguir mostra as associações de entrada e de saída de blob em um arquivo *function.json* e [código JavaScript] (functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado *{originalblobname}-Copy*.
+O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo blob é nomeado *{originalblobname}-Copy*.
 
 No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
 
@@ -534,12 +557,12 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a assoc
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob for pequeno, pois o conteúdo inteiro do blob é carregado na memória. Geralmente, é preferível usar um tipo `Stream` ou `CloudBlockBlob`. Para obter mais informações, consulte [Concorrência e uso de memória](#trigger---concurrency-and-memory-usage) mais adiante neste artigo.
 
@@ -737,21 +760,23 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="output---usage"></a>Saída - uso
 
-Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a associação de saída de blob:
+Em script C# e C#, é possível associar os tipos a seguir para gravar blobs:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudBlockBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudPageBlob` (exige a direção de associação "inout" em *function.json*)
-* `CloudAppendBlob` (exige a direção de associação "inout" em *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Como observado, alguns desses tipos exigem uma `inout`direção de associação no *function.json*. Não há suporte para essa direção pelo editor padrão no portal do Azure, então você deve usar o editor avançado.
+<sup>1</sup> Requer associação "in" `direction` em *function.json* ou `FileAccess.Read` em uma biblioteca de classes C#. No entanto, você pode usar o objeto de contêiner que o tempo de execução fornece para operações de gravação, como carregar blobs no contêiner.
+
+<sup>2</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
 Em funções assíncronas, use o valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
 

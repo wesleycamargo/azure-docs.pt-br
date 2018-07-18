@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 12/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 73839127c23eca29e3a20ab4d68668dfb7c6a375
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a026eafeb71c67a2cb98c20c4fc5af16073be083
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-ruby-and-mysql-web-app-in-azure-app-service-on-linux"></a>Compilar um aplicativo Web em Ruby e MySQL no Serviço de Aplicativo do Azure no Linux
 
@@ -161,14 +161,14 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!NOTE]
-> Atualmente, o Banco de Dados do Azure para MySQL (Versão Prévia) não limita as conexões somente aos serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP. O serviço está em versão prévia. Estamos planejando melhores métodos para proteger o banco de dados.
+> [!TIP] 
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conectar-se ao servidor MySQL de produção localmente

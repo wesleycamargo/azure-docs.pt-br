@@ -1,16 +1,16 @@
 ---
-title: "Refinar um grupo de avaliação com o mapeamento do grupo de dependência nas Migrações para Azure | Microsoft Docs"
-description: "Descreve como refinar uma avaliação usando o mapeamento de dependência de grupo no serviço Migrações para Azure."
+title: Refinar um grupo de avaliação com o mapeamento do grupo de dependência nas Migrações para Azure | Microsoft Docs
+description: Descreve como refinar uma avaliação usando o mapeamento de dependência de grupo no serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 690231b938f60f16dcd10656b9a1f99c8c8f29cb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo usando o mapeamento de dependências de grupo
 
@@ -37,8 +37,8 @@ Para instalar o agente em uma máquina com Windows:
 1. Clique duas vezes no agente baixado.
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**. 
-4. Em **Opções de Instalação do Agente**, selecione **Azure Log Analytics (OMS)** > **Avançar**. 
-5. Clique em **Adicionar** para adicionar um novo espaço de trabalho OMS. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
+4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**. 
+5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
 
 
 Para instalar o agente em uma máquina com Linux:
@@ -55,7 +55,7 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Saiba mais](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência. 
+[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Refinar o grupo com base na visualização de dependências
 Depois de instalar os agentes em todas as máquinas do grupo, você pode visualizar as dependências do grupo e refiná-lo seguindo as etapas abaixo.

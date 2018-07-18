@@ -1,13 +1,13 @@
 ---
-title: "Introdução ao Cloud Foundry no Microsoft Azure | Microsoft Docs"
+title: Introdução ao Cloud Foundry no Microsoft Azure | Microsoft Docs
 description: Executar OSS ou Pivotal Cloud Foundry no Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 94fbde7707ea9a91076780fdefc3f5a827e0e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -65,5 +65,5 @@ O Cloud Foundry serve para o desenvolvimento rápido de software, incluindo o us
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar o Pivotal Cloud Foundry do Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
+- [Implantar o Pivotal Cloud Foundry do Microsoft Azure Marketplace](https://azure.microsoft.com/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
 - [Implantar um aplicativo no Cloud Foundry no Azure](./cloudfoundry-deploy-your-first-app.md)

@@ -1,24 +1,24 @@
 ---
-title: "Gerenciar certificados de federação no Azure AD | Microsoft Docs"
-description: "Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve."
+title: Gerenciar certificados de federação no Azure AD | Microsoft Docs
+description: Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 Este artigo aborda dúvidas comuns e informações relacionadas aos certificados que o Azure Active Directory (Azure AD) cria para estabelecer SSO (logon único) federado para seus aplicativos SaaS. Adicione aplicativos pela galeria de aplicativos do Azure AD ou usando um modelo de aplicativo inexistente na galeria. Configure o aplicativo usando a opção de SSO federada.
@@ -76,5 +76,5 @@ As etapas de renovação abaixo não devem resultar em nenhum tempo de inativida
 ## <a name="related-articles"></a>Artigos relacionados
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [Índice de artigos para gerenciamento de aplicativos no Azure Active Directory](active-directory-apps-index.md)
-* [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+* [Acesso a aplicativos e logon único com o Active Directory do Azure](manage-apps/what-is-single-sign-on.md)
 * [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)

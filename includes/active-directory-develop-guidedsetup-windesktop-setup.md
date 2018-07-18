@@ -1,4 +1,26 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d407b015699925a6a3ce6ef9108ace1e9900303f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
 Nesta seção, você cria um novo projeto para demonstrar como integrar um aplicativo .NET da Área de Trabalho do Windows (XAML) com a opção *Entrar com uma Conta da Microsoft*, de forma que o aplicativo possa consultar APIs Web que exigem um token.
@@ -6,7 +28,7 @@ Nesta seção, você cria um novo projeto para demonstrar como integrar um aplic
 O aplicativo que você criar com este guia exibe um botão que é usado para chamar um gráfico, uma área para mostrar os resultados na tela e um botão de saída.
 
 > [!NOTE]
-> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) e vá para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+> Prefere baixar este projeto do Visual Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) e vá para a [Etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 >
 
 Para criar seu aplicativo, faça o seguinte:
@@ -51,6 +73,7 @@ Nesta etapa, você cria uma classe para lidar com a interação com a MSAL, por 
     ```
 
 ## <a name="create-the-application-ui"></a>Criar a interface do usuário do aplicativo
+
 Esta seção mostra como um aplicativo pode consultar um servidor de back-end protegido como o Microsoft Graph. 
 
 Um arquivo *MainWindow.xaml* deve ser criado automaticamente como parte de seu modelo de projeto. Abra esse arquivo e, em seguida, substitua o nó *\<Grade>* de seu aplicativo pelo código a seguir:

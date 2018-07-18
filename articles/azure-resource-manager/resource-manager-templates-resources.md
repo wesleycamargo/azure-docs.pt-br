@@ -1,6 +1,6 @@
 ---
-title: Estrutura e sintaxe do modelo do Azure Resource Manager | Microsoft Docs
-description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
+title: Recursos de modelo do Azure Resource Manager | Microsoft Docs
+description: Descreve a seção de recursos dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 12dc5921cc1977b53f0457d89537193eadded188
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Seção de recursos dos modelos do Azure Resource Manager
 
@@ -42,9 +42,9 @@ Você define recursos com a seguinte estrutura:
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -58,6 +58,21 @@ Você define recursos com a seguinte estrutura:
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -78,11 +93,14 @@ Você define recursos com a seguinte estrutura:
 | cópia |Não  |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial, quando você não deseja que sejam todos ou os recursos para implantação ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não  |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, são implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md). |
 | propriedades |Não  |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Você também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. |
+| sku | Não  | Alguns recursos permitem que os valores definam a SKU para implantar. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
+| kind | Não  | Alguns recursos permitem que um valor defina o tipo de recurso que você implantar. Por exemplo, você pode especificar o tipo de Cosmos DB para criar. |
+| plan | Não  | Alguns recursos permitem que um valor defina o plano para implantar. Por exemplo, você pode especificar a imagem do marketplace para uma máquina virtual. | 
 | recursos |Não  |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recurso permitidos pelo esquema do recurso pai. O tipo totalmente qualificado do recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência do recurso pai não é implícita. Você deve definir explicitamente essa dependência. |
 
 ## <a name="resource-specific-values"></a>Valores específicos do recurso
 
-A **apiVersion**, **tipo**  e **propriedades** são diferentes para cada tipo de recurso. Para determinar valores para essas propriedades, consulte [referência de modelo](/azure/templates/).
+A **apiVersion**, **tipo**  e **elementos de propriedades** são diferentes para cada tipo de recurso. Os elementos de **sku**, **tipo**, e **plano** estão disponíveis para alguns tipos de recursos, mas não todos. Para determinar valores para essas propriedades, consulte [referência de modelo](/azure/templates/).
 
 ## <a name="resource-names"></a>Nomes de recurso
 Normalmente, você trabalha com três tipos de nome de recurso no Resource Manager:

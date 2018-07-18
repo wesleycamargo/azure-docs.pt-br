@@ -1,6 +1,6 @@
 ---
-title: "Início rápido: criar um Banco de Dados do Azure para servidor MySQL – CLI do Azure"
-description: "Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure."
+title: 'Início rápido: criar um Banco de Dados do Azure para servidor MySQL – CLI do Azure'
+description: Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 2cd867f09550f922479955b885f10ff329715c1c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: afab8eb981f59a4ab2ba5528e0518e370d8e05fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure
 Este início rápido descreve como usar a CLI do Azure para criar um servidor de Banco de dados do Azure para MySQL no grupo de recursos do Azure em aproximadamente cinco minutos. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
@@ -38,31 +38,6 @@ O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no loc
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## <a name="add-the-extension"></a>Adicionar a extensão
-Adicione a extensão de gerenciamento atualizada do Banco de Dados do Azure para MySQL usando o seguinte comando:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verifique se que você tem a versão de extensão correta instalada. 
-```azurecli-interactive
-az extension list
-```
-
-O retorno JSON deve incluir o seguinte: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.3"
-}
-```
-
-Se a versão 0.0.3 não for retornada, execute as etapas a seguir para atualizar a extensão: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL

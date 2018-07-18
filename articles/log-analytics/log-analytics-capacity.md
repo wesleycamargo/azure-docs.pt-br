@@ -1,11 +1,11 @@
 ---
-title: "Solução de capacidade e desempenho do Log Analytics do Azure | Microsoft Docs"
-description: "Use a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V."
+title: Solução de capacidade e desempenho do Log Analytics do Azure | Microsoft Docs
+description: Use a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planeje a capacidade da máquina virtual do Hyper-V com a solução de capacidade e desempenho (visualização)
 
 ![Símbolo de capacidade e desempenho](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> A solução Capacidade e Desempenho foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Capacidade e Desempenho não pode ser adicionada a nenhum novo espaço de trabalho.
 
 Você pode usar a solução de capacidade e desempenho no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V. A solução fornece percepções sobre seu ambiente Hyper-V e apresentando uma visão geral da utilização (CPU, memória e disco) dos hosts e das VMs em execução nos hosts do Hyper-V. As métricas são coletadas para a CPU, memória e discos em todos os hosts e VMs em execução.
 
@@ -120,20 +123,8 @@ Para resumir, a solução coleta dados de desempenho e capacidade de uma varieda
 
 A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenho e capacidade coletados e calculados pela solução.
 
+
 | Consultar | DESCRIÇÃO |
-|---|---|
-| Todas as configurações de memória do host | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Todas as configurações de memória da VM | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Divisão dos IOPS de disco totais em todas as VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão da taxa de transferência de disco total em todas as VMs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão de IOPS total em todos os CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão da taxa de transferência total em todos os CSVs | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Divisão da latência total em todos os CSVs | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
-
-> | Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | Todas as configurações de memória do host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Todas as configurações de memória da VM | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
@@ -145,4 +136,4 @@ A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenh
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de capacidade e desempenho.
+* Use [pesquisas de log no Log Analytics](log-analytics-log-search.md) para exibir dados detalhados de capacidade e desempenho.

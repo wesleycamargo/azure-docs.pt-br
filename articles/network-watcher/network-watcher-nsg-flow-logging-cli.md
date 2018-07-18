@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar logs de fluxo de grupo de segurança de rede com o Observador de Rede do Azure - CLI do Azure | Microsoft Docs"
-description: "Esta página explica como gerenciar logs de fluxo de grupo de segurança de rede no Observador de Rede do Azure com CLI do Azure"
+title: Gerenciar logs de fluxo de grupo de segurança de rede com o Observador de Rede do Azure - CLI do Azure | Microsoft Docs
+description: Esta página explica como gerenciar logs de fluxo de grupo de segurança de rede no Observador de Rede do Azure com CLI do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 51683e937b7985bb61671645f3e2e1be6d786201
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203402"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar logs de fluxo de grupo de segurança de rede com a CLI do Azure
 
@@ -50,6 +51,8 @@ O comando para habilitar os logs de fluxo é mostrado no exemplo a seguir:
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
+
+A conta de armazenamento que você especificar não pode ter regras de rede configuradas para ela que restrinjam o acesso à rede somente aos serviços da Microsoft ou redes virtuais específicas. A conta de armazenamento pode ser a mesma ou uma assinatura diferente do Azure do que o NSG que você habilitar o log de fluxo. Se você usar assinaturas diferentes, ambas devem estar associadas ao mesmo locatário do Microsoft Azure Active Directory. A conta que você usa para cada assinatura deve ter as [permissões necessárias](required-rbac-permissions.md).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Desabilitar os logs do Fluxo de Grupo de Segurança de Rede
 

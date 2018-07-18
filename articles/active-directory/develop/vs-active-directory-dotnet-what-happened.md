@@ -1,25 +1,22 @@
 ---
-title: Alterações feitas em um projeto de MVC quando você se conecta ao Azure AD | Microsoft Docs
+title: Alterações feitas em um projeto do MVC quando você se conecta ao Azure AD
 description: Descreve o que acontece ao seu projeto do MVC quando você se conecta ao AD do Azure usando os serviços conectados do Visual Studio
 services: active-directory
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: b17c5fe500f3e2a8370ec5c4a09b62737d9afb84
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 
@@ -62,7 +59,7 @@ Referências adicionais se você selecionou a opção **Ler dados do diretório*
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (somente Visual Studio 2015) |
 | .NET; NuGet | System.Spatial |
 
-As seguintes referências são removidas (ASP.NET 4 de projetos, como Visual Studio 2015):
+As seguintes referências são removidas (somente projetos ASP.NET 4, como no Visual Studio 2015):
 
 | type | Referência |
 | --- | --- |
@@ -70,11 +67,11 @@ As seguintes referências são removidas (ASP.NET 4 de projetos, como Visual Stu
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
 | .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
-## <a name="project-file-changes"></a>Alterações de arquivo do projeto
+## <a name="project-file-changes"></a>Alterações de arquivo de projeto
 
 - Defina a propriedade `IISExpressSSLPort` para um número distinto.
 - Defina a propriedade `WebProject_DirectoryAccessLevelKey` para 0, ou 1 se você selecionou a opção **Ler dados do diretório**.
-- Defina a propriedade `IISUrl` e `https://localhost:<port>/` onde `<port>` corresponde com o valor `IISExpressSSLPort`.
+- Defina a propriedade `IISUrl` e `https://localhost:<port>/` onde `<port>` corresponde ao valor `IISExpressSSLPort`.
 
 ## <a name="webconfig-or-appconfig-changes"></a>alterações de web.config ou app.config
 
@@ -146,7 +143,7 @@ Alterações adicionais se você selecionou a opção **Ler dados do diretório*
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup de arquivo (Visual Studio 2015)
 
-Ao adicionar o serviço conectado, Visual Studio 2015 faz backup dos arquivos alterados e removidos. Todos os arquivos afetados são salvos na pasta `Backup/AzureAD`. O Visual Studio 2017 não cria backups.
+Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos alterados e removidos. Todos os arquivos afetados são salvos na pasta `Backup/AzureAD`. O Visual Studio 2017 não cria backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -159,10 +156,10 @@ Ao adicionar o serviço conectado, Visual Studio 2015 faz backup dos arquivos al
 
 ## <a name="changes-on-azure"></a>Alterações no Azure
 
-- Criado um aplicativo do Azure AD no domínio que você selecionou ao adicionar o serviço conectado.
+- Criado um Aplicativo do Azure AD no domínio que você selecionou ao adicionar o serviço conectado.
 - Atualizado o aplicativo para incluir a permissão **Ler dados do diretório** se essa opção foi selecionada.
 
-[Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/).
+[Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

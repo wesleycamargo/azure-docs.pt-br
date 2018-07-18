@@ -1,30 +1,34 @@
 ---
-title: "Referência da API de relatório da atividade de entrada do Azure Active Directory | Microsoft Docs"
-description: "Referência para a API de relatório de atividade de entrada do Azure Active Directory"
+title: Referência da API de relatório da atividade de entrada do Azure Active Directory | Microsoft Docs
+description: Referência para a API de relatório de atividade de entrada do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155789"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
-Este tópico faz parte de uma coleção de tópicos sobre a API de relatório do Azure Active Directory.  
-Os relatórios do Azure AD fornecem uma API que permite a você acessar dados de relatórios de atividade de entrada usando código ou ferramentas relacionadas.
-O escopo deste tópico é fornecer informações de referência sobre a **API de relatório de atividade de entrada**.
+
+> [!TIP] 
+> Confira a nova API do Microsoft Graph para [relatórios](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), que substituirá finalmente essa API. 
+
+Este artigo faz parte de uma coleção de artigos sobre a API de relatório do Azure Active Directory (Azure AD). Os relatórios do Azure AD fornecem uma API que permite a você acessar dados de auditoria usando código ou ferramentas relacionadas.
+O escopo deste artigo é fornecer informações de referência sobre a **API de auditoria**.
 
 Consulte:
 
@@ -49,11 +53,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>pré-requisitos
 Para acessar esse relatório por meio da API de relatórios, você deve ter:
 
-* Um [Azure Active Directory Premium edição P1 ou P2](active-directory-editions.md)
+* Um [Azure Active Directory Premium edição P1 ou P2](active-directory-whatis.md)
 * Concluído os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Como acessar a API
-Você pode acessar essa API por meio de [Graph Explorer](https://graphexplorer2.cloudapp.net) ou usando programaticamente, por exemplo, o PowerShell. Para o PowerShell interpretar corretamente a sintaxe de filtro OData usada nas chamadas REST Graph do AAD, você deve usar o caractere de acento grave para "escapar" o caractere $. O caractere de acento grave serve como [caractere de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell faça uma interpretação literal do caractere $ e evite confundi-lo como um nome de variável do PowerShell (ou seja: $filter).
+Você pode acessar essa API por meio de [Graph Explorer](https://graphexplorer2.cloudapp.net) ou usando programaticamente, por exemplo, o PowerShell. Use o caractere de acento grave para "escapar" o caractere $ aa fim de garantir que o PowerShell possa interpretar a sintaxe do filtro OData usada nas chamadas REST do AAD Graph. O caractere de acento grave serve como [caractere de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell faça uma interpretação literal do caractere $ e evite confundi-lo como um nome de variável do PowerShell (por exemplo: $filter).
 
 O foco deste tópico é no Graph Explorer. Para obter um exemplo do PowerShell, consulte [scripts do PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,17 +68,16 @@ Você pode acessar essa API usando o seguinte URI de base:
 
 
 
-Devido ao volume de dados, essa API tem um limite de um milhão de registros retornados. 
+Devido ao volume de dados, essa API tem um limite de um 1.000.000 de registros retornados. 
 
-Essa chamada retorna os dados em lotes. Cada lote tem no máximo 1000 registros.  
-Para obter o próximo lote de registros, use o link Próximo. Obtenha as informações de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) do primeiro conjunto de registros retornados. O token skip estará no final do conjunto de resultados.  
+Essa chamada retorna os dados em lotes. Cada lote tem no máximo 1000 registros. Para obter o próximo lote de registros, use o link Próximo. Obtenha as informações de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) do primeiro conjunto de registros retornados. O token skip estará no final do conjunto de resultados.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Filtros com suporte
 Você pode reduzir o número de registros retornados por uma chamada de API na forma de um filtro.  
-Para entrar dados de entrada relacionados à API, os filtros a seguir recebem suporte:
+Para dados relacionados à API de conexão, os filtros a seguir recebem suporte:
 
 * **$top=\<número de registros a serem retornados\>** – para limitar o número de registros retornados. Esta é uma operação cara. Não use esse filtro se você quiser retornar milhares de objetos.  
 * **$filter=\<sua instrução de filtro\>** – para especificar, com base nos campos de filtro com suporte, o tipo de registro com o qual você se preocupa
@@ -94,7 +97,7 @@ Para especificar o tipo de registro com o qual você se preocupa, compile uma in
 > 
 > 
 
-Para restringir o escopo dos dados retornados, você pode compilar combinações dos campos de filtro e filtros com suporte. Por exemplo, a instrução a seguir retorna os 10 primeiros registros entre 1º de julho de 2016 e 6 de julho de 2016:
+Para restringir o escopo dos dados retornados, você pode compilar combinações dos campos de filtro e filtros com suporte. Por exemplo, a instrução a seguir retorna os 10 primeiros registros entre 1º de julho de 2016 e 6 de julho de 6 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 

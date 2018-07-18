@@ -1,25 +1,22 @@
 ---
-title: Introdução ao Azure AD em projetos WebApi do Visual Studio | Microsoft Docs
+title: Introdução ao Azure AD em projetos WebApi do Visual Studio
 description: Como começar a usar o Active Directory do Azure em projetos da API Web após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio
 services: active-directory
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
+author: ghogen
+manager: douge
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: a5953a8ae4ef3fc221c984cc7520422251ef2c82
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 109de9fb78ae3abfc09a37c6b8cb38c554f7613c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (projetos WebApi)
 

@@ -1,24 +1,25 @@
 ---
-title: "Melhores práticas de segurança de máquinas virtuais do Azure"
-description: "Este artigo fornece uma variedade de práticas recomendadas de segurança a serem usadas em máquinas virtuais localizadas no Azure."
+title: Melhores práticas de segurança de máquinas virtuais do Azure
+description: Este artigo fornece uma variedade de práticas recomendadas de segurança a serem usadas em máquinas virtuais localizadas no Azure.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364396"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Práticas recomendadas para a segurança de VM do Azure
 
@@ -49,14 +50,14 @@ O artigo examina as seguintes práticas recomendadas de segurança da VM:
 
 A primeira etapa para proteger sua VM é garantir que somente usuários autorizados podem configurar novas VMs. É possível usar [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer convenções para recursos na organização, criar políticas personalizadas e aplicá-las a recursos, como [grupo de recursos](../azure-resource-manager/resource-group-overview.md).
 
-Máquinas virtuais que pertencem a um grupo de recursos naturalmente herdam suas políticas. Apesar de recomendarmos essa abordagem para gerenciar VMs, você também pode controlar o acesso às políticas VM individuais usando [o controle de acesso baseado em função (RBAC)](../active-directory/role-based-access-control-configure.md).
+Máquinas virtuais que pertencem a um grupo de recursos naturalmente herdam suas políticas. Apesar de recomendarmos essa abordagem para gerenciar VMs, você também pode controlar o acesso às políticas VM individuais usando [o controle de acesso baseado em função (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Quando você habilita as políticas do Gerenciador de recursos e o RBAC para controlar o acesso VM, você ajuda a melhorar a segurança geral de VM. É recomendável que você consolide VMs com o mesmo ciclo de vida no mesmo grupo de recursos. Usando grupos de recursos, você pode implantar, monitorar e acumular custos para os seus recursos de cobrança. Para habilitar os usuários acessar e configurar máquinas virtuais, use uma [abordagem de privilégios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando você atribuir privilégios a usuários, planeje usar as seguintes funções internas do Azure:
 
-- [Colaborador de Máquina Virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
-- [Colaborador de Máquina Virtual Clássica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
-- [Gerente de Segurança](../active-directory/role-based-access-built-in-roles.md#security-manager): pode gerenciar componentes de segurança, políticas de segurança e VMs.
-- [Usuário do DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): pode exibir tudo e se conectar a VMs, iniciá-las, reiniciá-las e desligá-las.
+- [Colaborador de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
+- [Colaborador de Máquina Virtual Clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
+- [Administrador de Segurança](../role-based-access-control/built-in-roles.md#security-admin): pode gerenciar componentes de segurança e políticas de segurança.
+- [Usuário do DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): pode exibir tudo e se conectar a VMs, iniciá-las, reiniciá-las e desligá-las.
 
 Não compartilhe contas e senhas entre administradores nem reutilize senhas em várias contas de usuário ou serviços, particularmente, as senhas destinadas à mídia social ou outras atividades não administrativas. O ideal é que você use modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar suas VMs com segurança. Ao usar essa abordagem, é possível fortalecer as opções de implantação e impor configurações de segurança em toda a implantação.
 
@@ -68,7 +69,7 @@ Se a VM executar aplicativos críticos que precisam ter alta disponibilidade, se
 
 O [Azure Load Balancer](../load-balancer/load-balancer-overview.md) também exige que as VMs com balanceamento de carga pertençam ao mesmo conjunto de disponibilidade. Se essas VMs devem ser acessadas da Internet, você deve configurar um [balanceador de carga para Internet](../load-balancer/load-balancer-internet-overview.md).
 
-Quando as VMs são expostas à Internet, é importante que você [controle o fluxo de tráfego de rede com grupos de segurança de rede (NSGs)](../virtual-network/virtual-networks-nsg.md). Como os NSGs podem ser aplicados às sub-redes, você pode minimizar o número de NSGs agrupando recursos por sub-rede e aplicando NSGs às sub-redes. O objetivo é criar uma camada de isolamento de rede, o que você pode fazer por meio da configuração correta das funcionalidades de [segurança de rede](../best-practices-network-security.md) no Azure.
+Quando as VMs são expostas à Internet, é importante que você [controle o fluxo de tráfego de rede com grupos de segurança de rede (NSGs)](../virtual-network/security-overview.md). Como os NSGs podem ser aplicados às sub-redes, você pode minimizar o número de NSGs agrupando recursos por sub-rede e aplicando NSGs às sub-redes. O objetivo é criar uma camada de isolamento de rede, o que você pode fazer por meio da configuração correta das funcionalidades de [segurança de rede](../best-practices-network-security.md) no Azure.
 
 Você também pode usar o recurso de acesso à VM just-in-time (JIT) na Central de Segurança do Azure para controlar quem tem acesso remoto a uma VM específica.
 
@@ -124,6 +125,6 @@ Abuso de recursos pode ser um problema quando os processos VM consomem mais recu
 
 Analisando [arquivos de log de diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), você pode monitorar os recursos VM e identificar problemas potenciais que podem comprometer o desempenho e disponibilidade. A Extensão de Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em VMs baseadas no Windows. É possível habilitar essas funcionalidades ao incluir a extensão como parte do [modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Também é possível usar o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obter visibilidade da integridade do recurso.
+Use também o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obter visibilidade da integridade dos recursos.
 
 As organizações que não monitoram o desempenho da máquina virtual não conseguem determinar se são determinadas alterações nos padrões de desempenho normais ou anormais. Se a VM está consumindo mais recursos do que o normal, tal uma anomalia pode indicar um ataque potencial de um recurso externo ou um processo comprometido em execução na máquina virtual.

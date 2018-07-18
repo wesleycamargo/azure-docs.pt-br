@@ -1,141 +1,90 @@
 ---
 title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando Java | Microsoft Docs
-description: "Guia de Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT"
+description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 services: iot-dps
-keywords: 
-author: msebolt
-ms.author: v-masebo
-ms.date: 12/21/2017
+keywords: ''
+author: bryanla
+ms.author: v-masebo;bryanla
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 72460e19d202b79369844db6fea24f2914c8bbbe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estas etapas mostram como simular um dispositivo X.509 no computador de desenvolvimento que executa o sistema operacional Windows e usam um exemplo de código para conectar este dispositivo simulado com o Serviço de Provisionamento do Dispositivo e o hub IoT. 
 
-Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar.
-
+Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
 1. Certifique-se de ter o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado no computador.
 
-1. Baixe e instale o [Maven](https://maven.apache.org/install.html).
+2. Baixe e instale o [Maven](https://maven.apache.org/install.html).
 
-1. Verifique se o `git` está instalado em seu computador e é adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
+3. Verifique se o Git está instalado em seu computador e se foi adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
 
-1. Abra um prompt de comando. Clone o repositório do GitHub para obter exemplo de código de simulação do dispositivo:
+4. Abra um prompt de comando. Clone o repositório do GitHub para obter exemplo de código de simulação do dispositivo:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-
-1. Navegue até o projeto do gerador de certificados e compile o projeto. 
+5. Navegue até o diretório raiz `azure-iot-sdk-`java e compile o projeto para fazer o download de todos os pacotes necessários.
+   
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
+6. Navegue até o projeto do gerador de certificados e compile o projeto. 
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
     mvn clean install
     ```
 
-1. Navegue até a pasta de destino e execute o arquivo jar criado.
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
+
+1. Usando o prompt de comando das etapas anteriores, navegue até a pasta `target`, depois execute o arquivo jar criado na etapa anterior.
 
     ```cmd/sh
     cd target
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-1. Crie informações de registro em uma das seguintes maneiras, conforme sua configuração:
+2. Insira **N** em _Do you want to input common name_. Copie para a área de transferência a saída de `Client Cert` de *-----BEGIN CERTIFICATE-----* até *-----END CERTIFICATE-----*.
 
-    - **Registro individual**:
+   ![Gerador de certificado individual](./media/java-quick-create-simulated-device-x509/individual.png)
 
-        1. Insira **N** em _Do you want to input common name_. Copie para a área de transferência a saída `Client Cert` de *-----BEGIN CERTIFICATE-----* que termina em *-----END CERTIFICATE-----*.
+3. Crie um arquivo chamado **_X509individual.pem_** no computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo e feche o editor.
 
-            ![Gerador de certificado individual](./media/java-quick-create-simulated-device-x509/individual.png)
+4. No prompt de comando, insira **N** para _Deseja inserir o Código de Verificação_ e mantenha a saída do programa aberta para consulta posterior no Início Rápido. Depois, copie os valores `Client Cert` e `Client Cert Private Key`, para uso na próxima seção.
 
-        1. Crie um arquivo chamado **_X509individual.pem_** no computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo.
+5. Entre no [Portal do Azure](https://portal.azure.com), clique no botão **Todos os recursos** no menu esquerdo e abra a instância do Serviço de Provisionamento de Dispositivos.
 
-        1. Insira **N** em _Do you want to input Verification Code_ e mantenha a saída do programa aberta para referência mais tarde no Guia de Início Rápido. Anote os valores _Client Cert_ e _Client Cert Private Key_.
-    
-    - **Grupos de registros**:
+6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
 
-        1. Insira **N** em _Do you want to input common name_. Copie para a área de transferência a saída `Root Cert` de *-----BEGIN CERTIFICATE-----* que termina em *-----END CERTIFICATE-----*.
+7. No painel **Adicionar registro**, insira as seguintes informações:
+    - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
+    - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
+    - Opcionalmente, você pode fornecer as seguintes informações:
+      - Selecione um hub IoT vinculado com o serviço de provisionamento.
+      - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
+      - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
+   - Uma vez concluído, clique no botão **Salvar**. 
 
-            ![Gerador de certificado de grupo](./media/java-quick-create-simulated-device-x509/group.png)
+    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
-        1. Crie um arquivo chamado **_X509group.pem_** no computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo.
+     Após o registro bem-sucedido, o dispositivo X.509 será exibido como **microsoftriotcore** na coluna *ID de Registro* na guia *Registros Individuais*. 
 
-        1. Insira **Y** em _Do you want to input Verification Code_ e mantenha a saída do programa aberta para referência mais tarde no Guia de Início Rápido. Anote os valores _Client Cert_, _Client Cert Private Key_, _Signer Cert_ e _Root Cert_.
-
-        > [!NOTE]
-        > O `Root Cert` acima só é aplicável aos certificados criados na saída do console e não pode ser usado para assinar certificados de cliente adicionais. Se você precisar de um conjunto de certificados de teste mais avançado, confira [Gerenciando Exemplo de Certificados de Autoridade de Certificação](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
-        >
-
-## <a name="create-a-device-enrollment-entry"></a>Criar uma entrada de registro de dispositivo
-
-1. Faça logon no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de provisionamento.
-
-1. Crie as informações de registro em uma das seguintes maneiras, conforme sua configuração:
-
-    - **Registro individual**: 
-
-        1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. 
-
-        1. Em **Adicionar a entrada da lista de registro**, insira as seguintes informações:
-            - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
-            - No *arquivo Certificate .pem ou .cer*, selecione o arquivo de certificado **_X509individual.pem_** criado nas etapas anteriores usando o widget *Explorador de Arquivos*.
-            - Opcionalmente, você pode fornecer as seguintes informações:
-                - Selecione um hub IoT vinculado com o serviço de provisionamento.
-                - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
-                - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-            - Uma vez concluído, clique no botão **Salvar**. 
-
-        ![Inserir informações de registro de dispositivo X.509 na folha do portal](./media/java-quick-create-simulated-device-x509/enter-device-enrollment.png)  
-
-       No registro bem-sucedido, o dispositivo X.509 é exibido como **microsoftriotcore** na coluna *ID de Registro* na guia *Registros Individuais*. 
-
-    - **Grupos de registros**: 
-
-        1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Certificados** e clique no botão **Adicionar** na parte superior.
-
-        1. Em **Adicionar Certificado**, insira as seguintes informações:
-            - Digite um nome de certificado exclusivo.
-            - Selecione o arquivo **_X509group.pem_** criado anteriormente.
-            - Uma vez concluído, clique no botão **Salvar**.
-
-        ![Adicionar certificado](./media/java-quick-create-simulated-device-x509/add-certificate.png)
-
-        1. Selecione o certificado recém-criado:
-            - Clique em **Gerar Código de Verificação**. Copie o código gerado.
-            - Insira o _código de verificação_ ou clique com o botão direito do mouse para colar na janela _provisioning-x509-cert-generator_ em execução.  Pressione **Enter**.
-            - Copie para a área de transferência a saída `Verification Cert` de *-----BEGIN CERTIFICATE-----* que termina em *-----END CERTIFICATE-----*.
-            
-                ![Gerador de validação](./media/java-quick-create-simulated-device-x509/validation-generator.png)
-
-            - Crie um arquivo chamado **_X509validation.pem_** no computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo.
-            - Selecione o arquivo **_X509validation.pem_** no portal do Azure. Clique em **Verificar**.
-
-            ![Validar certificado](./media/java-quick-create-simulated-device-x509/validate-certificate.png)
-
-        1. Selecione **Gerenciar registros**. Selecione a guia **Grupos de Registro** e clique no botão **Adicionar** na parte superior.
-            - Insira um nome de grupo exclusivo.
-            - Selecionar o nome do certificado exclusivo criado anteriormente
-            - Opcionalmente, você pode fornecer as seguintes informações:
-                - Selecione um hub IoT vinculado com o serviço de provisionamento.
-                - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-
-        ![Inserir informações de registro do grupo X.509 na folha do portal](./media/java-quick-create-simulated-device-x509/enter-group-enrollment.png)
-
-        No registro bem-sucedido, o grupo de dispositivos X.509 aparece na coluna *Nome do Grupo* na guia *Grupos de Registro*.
 
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
@@ -144,77 +93,42 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
     ![Informações de serviço](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-1. Abra um prompt de comando. Navegue até a pasta de projeto de exemplo.
+2. Abra um prompt de comando. Navegue até o exemplo de pasta de projeto do repositório do SDK do Java.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Crie as informações de registro em uma das seguintes maneiras, conforme sua configuração:
+3. Insira as informações de identidade de X.509 e do serviço de provisionamento em seu código. Isso é usado durante o provisionamento automático, para comprovação do dispositivo simulado, antes do registro do dispositivo:
 
-    - **Registro individual**: 
+   - Edite o arquivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ conforme anotado antes. Inclua também _Certificado do Cliente_ e _Chave Privada do Certificado do Cliente_ conforme anotado na seção anterior.
 
-        1. Edite `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para incluir o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_ conforme anotado antes. Inclua também _Client Cert_ e _Client Cert Private Key_ conforme anotado antes.
+      ```java
+      private static final String idScope = "[Your ID scope here]";
+      private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+      private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+      private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+      private static final String leafPrivateKey = "<Your Private PEM Key here>";
+      ```
 
-            ```java
-            private static final String idScope = "[Your ID scope here]";
-            private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-            private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-            private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-            private static final String leafPrivateKey = "<Your Private PEM Key here>";
-            ```
-
-            - Use o seguinte formato para incluir certificado e chave:
-            
-                ```java
-                private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXX\n" +
-                    "-----END PRIVATE KEY-----\n";
-                ```
-
-    - **Grupos de registros**: 
-
-        1. Siga as instruções para **Registro individual** acima.
-
-        1. Adicione as seguintes linhas de código ao início da função `main`:
+   - Use este formato ao copiar/colar seu certificado e a chave privada:
         
-            ```java
-            String intermediatePem = "<Your Signer Certificate here>";          
-            String rootPem = "<Your Root Certificate here>";
-                
-            signerCertificates.add(intermediatePem);
-            signerCertificates.add(rootPem);
-            ```
-    
-            - Use o seguinte formato para incluir seus certificados:
-        
-                ```java
-                String intermediatePem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                String rootPem = "-----BEGIN CERTIFICATE-----\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                    "-----END CERTIFICATE-----\n";
-                ```
+      ```java
+      private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+      private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXX\n" +
+            "-----END PRIVATE KEY-----\n";
+      ```
 
-1. Compile o exemplo. Navegue até a pasta de destino e execute o arquivo jar criado.
+4. Compile o exemplo. Navegue até a pasta `target` e execute o arquivo jar criado.
 
     ```cmd/sh
     mvn clean install
@@ -222,7 +136,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-1. No portal, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. No provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS* **habilitado**. Observe que talvez você precise clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
+5. No Portal do Azure, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. Após o provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS* **habilitado**.  Talvez seja necessário clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
 
     ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
 
@@ -236,13 +150,13 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 Se você planeja continuar a trabalhar e explorar o dispositivo cliente de exemplo, não limpe os recursos criados neste Guia de Início Rápido. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este Guia de Início Rápido.
 
 1. Feche a janela de saída de exemplo de dispositivo cliente em seu computador.
-1. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra a folha **Gerenciar Registros** de seu serviço e clique na guia **Registros Individuais**. Selecione *ID de REGISTRO* do dispositivo descrito no Guia de Início Rápido e clique no botão **Excluir** na parte superior. 
-1. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Abra a folha **Dispositivos IoT** do hub, selecione *DEVICE ID* registrado nesse Guia de Início Rápido, e clique no botão **Excluir** na parte superior.
+2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra a folha **Gerenciar Registros** de seu serviço e clique na guia **Registros Individuais**. Selecione *ID de REGISTRO* do dispositivo descrito no Guia de Início Rápido e clique no botão **Excluir** na parte superior. 
+3. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Abra a folha **Dispositivos IoT** do hub, selecione *DEVICE ID* registrado nesse Guia de Início Rápido, e clique no botão **Excluir** na parte superior.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Guia de Início Rápido, você criou um dispositivo simulado X.509 no seu computador Windows e o provisionou no Hub IoT usando o Serviço de Provisionamento de Dispositivos do Hub IoT do Azure no portal. Para saber como registrar seu dispositivo X.509 programaticamente, continue com o Guia de Início Rápido para registro programático de dispositivos X.509. 
+Neste Início Rápido, você criou um dispositivo X.509 simulado em seu computador com Windows. Você configurou a inscrição em seu Serviço de Provisionamento de Dispositivos no Hub IoT do Azure e depois provisionou automaticamente o dispositivo em seu Hub IoT. Para saber como registrar seu dispositivo X.509 programaticamente, continue com o Guia de Início Rápido para registro programático de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
 > [Guia de Início Rápido do Azure – Registre dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure](quick-enroll-device-x509-java.md)

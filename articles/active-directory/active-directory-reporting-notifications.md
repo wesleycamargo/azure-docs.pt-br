@@ -1,11 +1,11 @@
 ---
-title: "Notificações de Relatórios do Active Directory do Azure"
-description: "Como usar as notificações de relatórios do Active Directory do Azure para entradas suspeitas."
+title: Notificações de Relatórios do Active Directory do Azure
+description: Como usar as notificações de relatórios do Active Directory do Azure para entradas suspeitas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notificações de Relatórios do Active Directory do Azure
 ## <a name="what-reports-generate-email-notifications"></a>Quais relatórios geram notificações por email
@@ -39,7 +39,7 @@ O email será enviado se 10 novas atividades de entrada irregular ocorrerem nos 
 Ao clicar no link, você será redirecionado à página do relatório no Portal do Azure. Para acessar o relatório, você precisa ser ambos:
 
 * Um administrador ou coadministrador de sua assinatura do Azure
-* Um administrador global no diretório e ter uma licença do Active Directory Premium atribuída a você. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+* Um administrador global no diretório e ter uma licença do Active Directory Premium atribuída a você. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Posso desativar esses emails?
 Sim. Para desativar as notificações relacionadas a entradas anômalas no Portal do Azure, clique em **Configurar** e, em seguida, selecione **Desabilitado** na seção **Notificações**.

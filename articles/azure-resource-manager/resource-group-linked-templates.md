@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359434"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -148,7 +149,7 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
 }
 ```
 
-Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado (talvez devido a controle de versão) ou para evitar embutir URLs no arquivo de modelo.
+Você também pode usar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado (talvez devido a controle de versão) ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
 
 ```json
 "variables": {
@@ -209,7 +210,7 @@ O modelo principal implanta o modelo vinculado e obtém o valor retornado. Obser
 }
 ```
 
-Assim como outros tipos de recurso, você pode definir dependências entre o modelo vinculado e outros recursos. Portanto, quando outros recursos exigirem um valor de saída do modelo vinculado, você poderá ter certeza de que o modelo vinculado foi implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, você poderá verificar se outros recursos foram implantados antes do modelo vinculado.
+Assim como outros tipos de recurso, você pode definir dependências entre o modelo vinculado e outros recursos. Portanto, quando outros recursos exigirem um valor de saída do modelo vinculado,certifique-se de que o modelo vinculado foi implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, certifique-se que outros recursos foram implantados antes do modelo vinculado.
 
 O exemplo a seguir mostra um modelo que implanta um endereço IP público e retorna a ID do recurso:
 
@@ -446,7 +447,7 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 }
 ```
 
-No PowerShell, você obtém um token para o contêiner e implanta os modelos com:
+No PowerShell, você obtém um token para o contêiner e implanta os modelos com os comandos a seguir. Observe que o parâmetro **containerSasToken** está definido no modelo. Não é um parâmetro no comando **New-AzureRmResourceGroupDeployment**.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

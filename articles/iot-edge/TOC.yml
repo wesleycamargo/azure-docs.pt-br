@@ -1,3 +1,5 @@
+- name: Conceitos básicos do Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Documentação do Azure IoT Edge
   href: index.yml
 - name: Visão geral
@@ -17,8 +19,12 @@
       href: tutorial-simulate-device-linux.md
     - name: Simular um dispositivo de borda - Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'Desenvolver um módulo C#'
-      href: tutorial-csharp-module.md
+    - name: Implantar o código em um módulo
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: Implantar o Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Implantar o Azure Machine Learning
@@ -41,14 +47,14 @@
       href: how-to-install-iot-core.md
     - name: Usar o VS Code para desenvolver soluções do IoT Edge
       items:
-        - name: 'Desenvolver e implantar um módulo de C#'
-          href: how-to-vscode-develop-csharp-module.md
+        - name: Trabalhar com vários módulos
+          href: tutorial-multiple-modules-in-vscode.md
         - name: 'Depurar módulo de C#'
           href: how-to-vscode-debug-csharp-module.md
-        - name: Desenvolver e implantar o Azure Functions
-          href: how-to-vscode-develop-azure-function.md
         - name: Depurar Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: CI/CD no VSTS
+      href: how-to-ci-cd.md
     - name: Armazenar dados na borda
       href: sql-storage.md
     - name: Solucionar problemas
@@ -74,6 +80,32 @@
       href: security.md
     - name: Glossário do IoT Edge
       href: iot-edge-glossary.md
+- name: Relacionados
+  items:
+    - name: Soluções
+      items:
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Catálogo de dispositivos Azure Certified para IoT

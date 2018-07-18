@@ -1,8 +1,8 @@
 ---
-title: "Ferramenta de avaliação da solução do Cortana Intelligence | Microsoft Docs"
-description: "Como parceiro da Microsoft, aqui estão todas as etapas que você precisa seguir para publicar sua Cortana Intelligence para o AppSource."
+title: Ferramenta de avaliação da solução do Cortana Intelligence | Microsoft Docs
+description: Como parceiro da Microsoft, aqui estão todas as etapas que você precisa seguir para publicar sua Cortana Intelligence para o AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Visão geral
@@ -54,7 +54,7 @@ Usamos essas informações para entender melhor como sua solução utiliza vári
 A ingestão neste caso significa quaisquer fontes de dados que são usadas para efetuar pull de dados de fora da solução ou quaisquer serviços fora da solução usados para enviar dados por push para ela.
 
 ### <a name="consumption"></a>Consumo
-O consumo neste caso significa qualquer conjunto de dados que são utilizados para enviar dados por push aos usuários finais, direta ou indiretamente. Por exemplo:
+O consumo neste caso significa qualquer conjunto de dados que são utilizados para enviar dados por push aos usuários finais, direta ou indiretamente. Por exemplo: 
 - Conjuntos de dados usados em consultas diretas da PowerBI.
 - Conjuntos de dados consultados em um aplicativo Web.
 
@@ -195,7 +195,7 @@ Para saber mais sobre como criar reciclagem de serviços Web em AzureML, consult
 Para saber mais sobre o processo de treinamento do modelo de automatização usando o Azure Data Factory, consulte [Atualizando os modelos da Azure Machine Learning usando a atividade de Recurso de atualização](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Documentação existente
-[Expanda seu negócio em nuvem com o Microsoft Azure Certified](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Expanda seu negócio em nuvem com o Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Certified para Cortana Intelligence](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Certified para Cortana Intelligence](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

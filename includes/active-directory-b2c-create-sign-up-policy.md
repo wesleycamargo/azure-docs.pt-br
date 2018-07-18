@@ -1,4 +1,4 @@
-Para habilitar a inscrição no seu aplicativo, você precisará criar uma política de inscrição. Essa política descreve as experiências pelas quais os consumidores passarão durante a inscrição e o conteúdo dos tokens que o aplicativo receberá após inscrições bem-sucedidas.
+Se quiser apenas habilitar a inscrição no aplicativo, use uma política de **inscrição**. Essa política descreve as experiências pelas quais os clientes passam durante a inscrição e o conteúdo dos tokens que o aplicativo recebe em inscrições com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

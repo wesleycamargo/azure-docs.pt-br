@@ -1,25 +1,20 @@
 ---
-title: Usar ferramentas do Azure Stream Analytics para Visual Studio | Microsoft Docs
-description: Tutorial de introdução para as Ferramentas do Stream Analytics do Azure para Visual Studio
-keywords: visual studio
-documentationcenter: ''
+title: Usar ferramentas do Azure Stream Analytics para Visual Studio
+description: Este artigo descreve como começar a usar as Ferramentas do Azure Stream Analytics para Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: jhubbard
-editor: cgronlun
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/05/2018
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941829"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usar ferramentas do Azure Stream Analytics para Visual Studio
 As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para os usuários do Stream Analytics solucionarem problemas, bem como escreverem consultas complexas e até mesmo escreverem consultas localmente. Você também pode exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
@@ -34,6 +29,20 @@ Depois de concluir este tutorial, você poderá:
 * Testar seu trabalho local com os dados de exemplo locais.
 * Usar o monitoramento para solucionar problemas.
 * Exportar os trabalhos existentes para projetos.
+
+>[!IMPORTANT]
+>
+>Na preparação para o novo GDPR (Regulamento Geral sobre a Proteção de Dados), que entrará em vigor em 25 de maio de 2018, é recomendável que os usuários das Ferramentas do Azure Stream Analytics para Visual Studio atualizem para a versão 2.3.3000.5 ou posterior. Esta versão inclui alterações com base nos requisitos de proteção de dados mais recentes. Observe que as versões anteriores não estão disponíveis para download e foram preteridas. 
+>
+>**O que preciso fazer?**
+>
+>1. Verifique se você está usando uma versão anterior à 2.3.3000.5 das Ferramentas do Azure Stream Analytics para Visual Studio. 
+>   
+>   ![Verifique a versão da ferramenta](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Se a sua versão for uma versão anterior do 2.3.3000.5, atualize as Ferramentas do Azure Data Lake para Visual Studio, visitando o centro de download: 
+>    - [Para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Para Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>pré-requisitos
 Você precisará dos seguintes pré-requisitos para concluir este tutorial:
@@ -115,7 +124,7 @@ Agora, todas as entradas estão definidas.
 
 4. Para **Nome de Usuário**, insira **tolladmin**. Para **Senha**, insira **123toll!**. Para **Tabela**, insira **TollDataRefJoin**.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    ![Configurações de saída](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -157,7 +166,7 @@ Você pode primeiro compilar a consulta para ver se há algum erro de sintaxe.
    
    ![Adicionar entrada local](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-2. Na janela pop-up, selecione os dados de exemplo do caminho local. Selecione **Salvar**.
+2. Na janela pop-up, selecione os dados de exemplo do caminho local. Clique em **Salvar**.
    
    ![Adicionar entrada local](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    

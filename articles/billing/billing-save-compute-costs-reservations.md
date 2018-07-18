@@ -1,73 +1,76 @@
 ---
-title: "Economizar dinheiro por pagar previamente para máquinas virtuais do Azure – Azure | Microsoft Docs"
-description: "Saiba mais sobre a Instância de Máquina Virtual Reservada do Azure para economizar custos com suas máquinas virtuais."
+title: O que são as Instâncias Reservadas do Azure? – Cobrança do Azure | Microsoft Docs
+description: Saiba mais sobre as Instâncias de VM Reservadas do Azure e os preços de VM para economizar nas máquinas virtuais e obter o melhor preço efetivo.
 services: billing
-documentationcenter: 
-author: vikramdesai01
-manager: vikramdesai01
-editor: 
+documentationcenter: ''
+author: yashesvi
+manager: yashesvi
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/09/2018
+ms.author: yashar
+ms.openlocfilehash: 93be4bb037af400599b88bb71f34143ee65a5deb
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301695"
 ---
-# <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Economizar dinheiro de máquinas virtuais com Instâncias de Máquinas Virtuais Reservadas 
-As Instâncias de Máquina Virtual Reservada permitem que você pague previamente por um ou três anos de capacidade de computação para receber um desconto nas máquinas virtuais que você usa. Isso reduz de maneira significativa os custos com máquina virtual em até 72% nos preços pagos conforme o uso, com comprometimento antecipado de um ou de três anos. As Instâncias de Máquina Virtual Reservada são um desconto na cobrança e não afeta o estado de tempo de execução de máquinas virtuais.
+# <a name="what-are-azure-reserved-vm-instances"></a>O que são as Instâncias de VM Reservadas do Azure?
+As [Instâncias de VM Reservadas do Azure](https://azure.microsoft.com/pricing/reserved-vm-instances) ajudam você a economizar dinheiro com o pagamento antecipado de um ou três anos de capacidade de computação, permitindo que você receba um desconto nas máquinas virtuais utilizadas. As Instâncias Reservadas do Azure podem reduzir de maneira significativa os custos com máquina virtual em até 72% nos preços pagos conforme o uso, com compromisso antecipado de um ou três anos. As Instâncias Reservadas oferecem um desconto na cobrança e não afetam o estado de tempo de execução das máquinas virtuais.
 
-Você pode comprar uma Instância de Máquina Virtual Reservada no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, consulte [Pagar antecipadamente por máquinas virtuais e economizar dinheiro com Instâncias de Máquina Virtual Reservada](https://go.microsoft.com/fwlink/?linkid=861721).
+Compre uma RI (Instância Reservada) no [portal do Azure](https://aka.ms/reservations). Para obter mais informações, confira [Pagar antecipadamente por máquinas virtuais e economizar dinheiro com Instâncias Reservadas](https://go.microsoft.com/fwlink/?linkid=861721).
 
-## <a name="why-should-i-buy-a-reserved-virtual-machine-instance"></a>Por que devo comprar uma Instância de Máquina Virtual Reservada?
-Se você tiver máquinas virtuais que são executadas por longos períodos de tempo, adquirir uma instância de máquina virtual reservada oferece a você o melhor custo-benefício. Por exemplo, se você executa continuamente quatro instâncias de D2 padrão na região Oeste dos EUA, sem uma reserva você é cobrado com taxas de pagamentos pré-pago. Se você adquirir uma Instância de Máquina Virtual Reservada para essas quatro VMs, elas receberão imediatamente o benefício de cobrança. Elas não serão mais cobradas com as taxas pré-pagas. 
+## <a name="why-should-i-buy-a-reserved-instance"></a>Por que deveria comprar uma Instância Reservada?
+Caso você tenha máquinas virtuais que são executadas por longos períodos, a compra de uma Instância Reservada oferece a você a opção de melhor custo-benefício. Por exemplo, se você executar continuamente quatro instâncias de uma VM Standard D2 na região Oeste dos EUA, sem uma Instância Reservada, você será cobrado com base em taxas pagas conforme o uso. Se você comprar uma Instância Reservada para essas quatro VMs, elas receberão imediatamente o benefício de cobrança. Elas não serão mais cobradas com base nas taxas pagas conforme o uso. 
 
-## <a name="what-charges-does-a-reserved-virtual-machine-instance-cover"></a>Quais cobranças uma Instância de Máquina Virtual Reservada contempla?
-Uma reserva apenas abrange os encargos de infraestrutura da máquina virtual para suas máquinas virtuais Windows ou Linux. Uma reserva não cobre encargos adicionais de software, rede e armazenamento. Para máquinas virtuais do Windows, você pode cobrir os custos de licenciamento do Windows com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+## <a name="what-charges-does-a-reserved-instance-cover"></a>Quais encargos são cobertos por uma Instância Reservada?
+Uma Instância Reservada cobre somente os encargos de infraestrutura da máquina virtual para as máquinas virtuais do Windows ou do Linux. Uma Instância Reservada não cobre encargos adicionais de software, rede ou armazenamento. Para máquinas virtuais do Windows, você pode cobrir os custos de licenciamento do Windows com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="whos-eligible-to-purchase-a-reserved-virtual-machine-instance"></a>Quem está qualificado para adquirir uma Instância de Máquina Virtual Reservada?
-Clientes do Azure com estes tipos de assinaturas podem adquirir uma Instância de Máquina Virtual Reservada:
+## <a name="whos-eligible-to-purchase-a-reserved-instance"></a>Quem está qualificado para comprar uma Instância Reservada?
+Os clientes do Azure com estes tipos de assinaturas podem comprar uma Instância Reservada:
 -   Tipo de oferta de assinatura de Contrato Enterprise (MS-AZR-0017P).
--   Tipo de oferta de assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P).
-Você deve ter a função "Proprietário" na assinatura para comprar uma Instância Reservada. Para comprar reservas em um registro Enterprise, o administrador da empresa deve habilitar compras de reserva no portal EA; por padrão, a configuração está habilitada.
+-   Tipo de oferta de assinatura [paga conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Você deve ter a função "Proprietário" na assinatura para comprar uma Instância Reservada. Para comprar Instâncias Reservadas em um Registro Enterprise, o administrador corporativo precisa habilitar as compras de Instância Reservada no portal do EA. Por padrão, essa configuração está habilitada.
+-   Os parceiros do CSP (Provedor de Soluções na Nuvem) podem usar o portal do Azure ou o [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) para comprar Instâncias Reservadas.
 
-## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Como uma compra de Instância de Máquina Virtual Reservada é cobrada?
-A compra de reserva é cobrada no método de pagamento associado à assinatura. Se você tiver uma assinatura do Enterprise, o custo de reserva será deduzido do seu saldo de investimento. Se o saldo de investimento não cobrir o custo da reserva, você será cobrado pelo excedente.
+## <a name="how-is-a-reserved-instance-purchase-billed"></a>Como uma compra de Instância Reservada é cobrada?
+A compra de Instância Reservada é cobrada na forma de pagamento vinculada à assinatura. Caso você tenha uma assinatura do Enterprise, o custo da Instância Reservada será deduzido de seu saldo de compromisso monetário. Se o saldo de compromisso monetário não cobrir o custo da Instância Reservada, você será cobrado pelo excedente.
 Se você tiver uma assinatura paga conforme o uso, será cobrado imediatamente do seu cartão de crédito. Se você for cobrado por fatura, verá os encargos na sua próxima fatura.
 
-## <a name="how-is-the-purchased-reserved-virtual-machine-instance-discount-applied"></a>Como o desconto da Instância de Máquina Virtual Reservada adquirida é aplicado?
-O desconto de Instância de Máquina Virtual Reservada se aplica às máquinas virtuais que correspondem aos atributos que você selecionar ao adquirir a reserva. Os atributos incluem o escopo em que as VMs correspondentes são executadas. Por exemplo, se você quiser um desconto de Instância de VM Reservada para quatro máquinas virtuais de D2 padrão na região Oeste dos EUA, selecione a assinatura em que as máquinas virtuais estão em execução. Se as máquinas virtuais são executadas em diferentes assinaturas em sua conta ou registro, então, selecione o escopo como compartilhado. O escopo compartilhado permite que o desconto de reserva seja aplicado entre assinaturas.
-Você pode alterar o escopo depois de comprar uma Instância de VM Reservada. Para alterar o escopo, consulte a documentação sobre como gerenciar reservas.
+## <a name="how-is-the-purchased-reserved-instance-discount-applied"></a>Como o desconto da Instância Reservada adquirida é aplicado?
+O desconto de Instância Reservada aplica-se às máquinas virtuais que correspondem aos atributos selecionados no momento da compra da Instância Reservada. Os atributos incluem o escopo em que as VMs correspondentes são executadas. Por exemplo, caso deseje obter um desconto de Instância Reservada para quatro máquinas virtuais Standard D2 na região Oeste dos EUA, selecione a assinatura na qual as VMs estão em execução. Se as máquinas virtuais são executadas em diferentes assinaturas em sua conta ou registro, então, selecione o escopo como compartilhado. O escopo compartilhado permite que o desconto de Instância Reservada seja aplicado entre assinaturas. Você pode alterar o escopo depois de comprar uma Instância Reservada. Para alterar o escopo, confira a documentação sobre como gerenciar Instâncias Reservadas.
 
-O desconto de reserva se aplica somente a máquinas virtuais em assinaturas com tipos de oferta Enterprise ou pagas conforme o uso. Máquinas virtuais em execução em uma assinatura com outros tipos de oferta não recebem o desconto de reserva. Para registros do Enterprise, as assinaturas de desenvolvimento/teste do Enterprise não são qualificadas para os benefícios de Instância Reservada.
+O desconto de Instância Reservada só se aplica às máquinas virtuais associadas aos tipos de assinatura Enterprise ou Pagamento Conforme o Uso. As máquinas virtuais executadas em uma assinatura com outros tipos de oferta não recebem o desconto de Instância Reservada. Para registros do Enterprise, as assinaturas de desenvolvimento/teste do Enterprise não são qualificadas para os benefícios de Instância Reservada.
 
-Como a reserva afeta a cobrança de máquina virtual está explicado em [Noções básicas da aplicação do benefício de cobrança de reserva](https://go.microsoft.com/fwlink/?linkid=863405).
+Para entender melhor como a Instância Reservada afeta a cobrança de sua máquina virtual, confira [Noções básicas sobre a aplicação do benefício de cobrança às Instâncias Reservadas](https://go.microsoft.com/fwlink/?linkid=863405).
 
-## <a name="what-happens-when-the-reservation-term-expires"></a>O que acontece quando o prazo de reserva expira?
-No final do prazo da reserva, o desconto na cobrança expira e a infraestrutura de máquina virtual é cobrada com o preço pré-pago. As reservas não são renovadas automaticamente. Para continuar a receber o desconto de cobrança, é necessário comprar uma nova Instância de Máquina Virtual Reservada. 
+## <a name="what-happens-when-the-reserved-instance-term-expires"></a>O que acontece quando o prazo da Instância Reservada expira?
+Ao final do prazo da Instância Reservada, o desconto na cobrança expira e a infraestrutura da máquina virtual é cobrada com base no preço pago conforme o uso. As Instâncias Reservadas não são renovadas automaticamente. Para continuar recebendo o desconto na cobrança, é necessário comprar uma nova Instância Reservada. 
 
 ## <a name="sizes-and-regional-availability"></a>Tamanhos e disponibilidade regional
-As reservas de estão disponíveis para a maioria dos tamanhos de VM, com algumas exceções:
-- Tamanhos de VM de versão prévia – qualquer tamanho que esteja na versão prévia não está disponível para compra de Instância de Máquina Virtual Reservada.
-- Nuvens – Instâncias de Máquina Virtual Reservadas não estão disponíveis para compra nas regiões do Azure Governo dos EUA, Alemanha ou China. 
-- Cota insuficiente – Uma Instância de VM Reservada que tenha um escopo para uma assinatura única deve ter uma cota de vCPU disponível na assinatura para a nova RI. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a família da série D, você não poderá adquirir uma Instância de VM Reservada para 11 instâncias Standard_D1. A verificação de cota para reservas inclui as VMs já implantadas na assinatura. Por exemplo, se a assinatura tiver uma cota de 10 vCPUs para a família da série D. Se esta assinatura tiver duas instâncias standard_D1 implantadas, você poderá comprar uma Instância de VM Reservada para 10 instâncias standard_D1 nesta assinatura. 
-- Restrições de capacidade – em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de tamanhos de VM, devido à baixa capacidade em uma região.
+As Instâncias Reservadas estão disponíveis para a maioria dos tamanhos de VM, com algumas exceções:
+- VMs em Versão Prévia – qualquer série ou tamanho de VM que esteja em versão prévia não está disponível para compra de Instância Reservada.
+- Nuvens – as Instâncias Reservadas não estão disponíveis para compra nas regiões Azure US Government, Alemanha ou China. 
+- Cota insuficiente – uma Instância Reservada que tenha um escopo de uma assinatura única precisa ter uma cota de vCPU disponível na assinatura para a nova RI. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a Série D, você não poderá comprar uma Instância Reservada para 11 instâncias Standard_D1. A verificação de cota para as Instâncias Reservadas inclui as VMs já implantadas na assinatura. Por exemplo, se a assinatura tiver uma cota de 10 vCPUs para a Série D e duas instâncias standard_D1 implantadas, você poderá comprar uma Instância Reservada para 10 instâncias standard_D1 nessa assinatura. 
+- Restrições de capacidade – em circunstâncias raras, o Azure limita a compra de novas Instâncias Reservadas para o subconjunto de tamanhos de VM, devido à baixa capacidade em uma região.
 
 ## <a name="next-steps"></a>Próximas etapas
-Comece a economizar em máquinas virtuais comprando uma [Instância de Máquina Virtual Reservada](https://go.microsoft.com/fwlink/?linkid=861721). 
+Comece a economizar em máquinas virtuais comprando uma [Instância Reservada do Azure](https://go.microsoft.com/fwlink/?linkid=861721). 
 
-Para saber mais sobre as instâncias de máquina virtual reservada, consulte os artigos a seguir.
+Para saber mais sobre as Instâncias Reservadas, confira os seguintes artigos:
 
-- [Pagar antecipadamente pelas Máquinas Virtuais com Instâncias de VM Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerenciar instâncias de máquina virtual reservadas](billing-manage-reserved-vm-instance.md)
-- [Entender como é aplicado o desconto em Instâncias de Máquina Virtual Reservada](billing-understand-vm-reservation-charges.md)
+- [Pagar antecipadamente por Máquinas Virtuais com Instâncias Reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerenciar as Instâncias Reservadas](billing-manage-reserved-vm-instance.md)
+- [Entender como é aplicado o desconto de Instância Reservada](billing-understand-vm-reservation-charges.md)
 - [Entender o uso da Instância Reservada na sua assinatura Paga pelo Uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso da Instância Reservada no seu registro de Empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Os custos de software do Windows não estão incluídos nas Instâncias Reservadas](billing-reserved-instance-windows-software-costs.md)
+- [Instâncias reservadas no programa do CSP (Provedor de Soluções na Nuvem CSP) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
-Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
+
+Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

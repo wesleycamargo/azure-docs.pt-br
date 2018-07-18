@@ -1,11 +1,11 @@
 ---
 title: Atividade If Condition no Azure Data Factory | Microsoft Docs
-description: "A atividade If Condition permite que você controle o fluxo de processamento com base em uma condição."
+description: A atividade If Condition permite que você controle o fluxo de processamento com base em uma condição.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: db012097011d57434e35ef395ebe69a2156c92f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade If Condition no Azure Data Factory
 A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`. 
@@ -252,7 +252,7 @@ Os pipeline define o **folderPath** com o valor do parâmetro **outputPath1** ou
 Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines-linux, virtual-machines-windows
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 05/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/12/2018
+---
 As organizações têm necessidades de computação em larga escala. Essas cargas de trabalho de computação intensa incluem o design e a análise de engenharia, cálculos de riscos financeiros, renderização de imagem, modelagens complexas, simulações Monte Carlo e muito mais. 
 
 Use a nuvem do Azure para executar com eficiência em cargas de trabalho Linux e Windows, de trabalhos em lote paralelos a simulações de HPC tradicionais. Execute o HPC e cargas de trabalho em lotes na infraestrutura do Azure, com sua opção de computação serviços, gerenciadores de grade, soluções do Marketplace e hospedado pelo fornecedor aplicativos SaaS (). O Azure fornece soluções flexíveis para distribuir o trabalho e é dimensionado para milhares de máquinas virtuais ou núcleos e então reduzido quando menos recursos forem necessários. 
@@ -21,6 +37,7 @@ Use a nuvem do Azure para executar com eficiência em cargas de trabalho Linux e
 * **Soluções de Big Compute como serviço**
     * Desenvolva soluções personalizadas de Big Compute e fluxos de trabalho usando o [Lote do Azure](#azure-batch) e os [serviços do Azure](#related-azure-services).
     * Execute soluções de engenharia e simulação habilitadas para o Azure de fornecedores como [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) e [Cycle Computing](https://cyclecomputing.com/) (agora [associada à Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
+    * Use um [supercomputador cray](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) como um serviço hospedado no Microsoft Azure.
 * **Soluções do Marketplace**
     * Use a escala de [aplicativos HPC](#hpc-applications) e [soluções](#marketplace-solutions) oferecidas no [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
     
@@ -107,17 +124,18 @@ Saiba como:
 * [Usar exemplos de código do Lote do Azure](https://github.com/Azure/azure-batch-samples)
 * [Usar VMs de baixa prioridade com o Lote](../articles/batch/batch-low-pri-vms.md)
 * [Executar cargas de trabalho de HPC em contêineres com Shipyard do Lote](https://github.com/Azure/batch-shipyard)
-* [Usar a linguagem R com o Lote](https://github.com/Azure/doAzureParallel)
-* [Executar o Kit de ferramentas de Engenharia de Dados distribuídos do Azure no Lote](https://github.com/Azure/aztk)
+* [Executar cargas de trabalho paralelas R em lote](https://github.com/Azure/doAzureParallel)
+* [Executar trabalhos Spark sob demanda no Lote](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Gerenciadores de carga de trabalho
 
 A seguir, os exemplos de gerenciadores de cluster e de carga de trabalho que podem ser executados na infraestrutura do Azure. Crie clusters autônomos em VMs do Azure ou se espalhe para máquinas virtuais do Azure de um cluster local. 
+* [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
 * [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony e Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) -veja as opções para execução em VMS do [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx) -veja as opções para execução em VMS do [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
 
 
@@ -127,7 +145,7 @@ Cargas de trabalho do Lote e de HPC em larga escala têm exigências de armazena
 
 Saiba mais:
 
-* [Sistemas de arquivos paralelos para o armazenamento HPC no Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Sistemas de arquivo virtual paralelo no Microsoft Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
 * Soluções de armazenamento em nuvem de alto desempenho da [Avere](http://www.averesystems.com/about-us/about-avere) (agora [unida à Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
@@ -144,11 +162,13 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Fábrica de dados](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [Banco de Dados SQL](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="ai-and-cognitive-services"></a>IA e serviços cognitivos
+### <a name="ai-and-machine-learning"></a>IA e machine learning
+* [Serviços de Machine Learning](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Lote AI](../articles/batch-ai/overview.md)
+* [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Rede
 * [Rede Virtual](../articles/virtual-network/virtual-networks-overview.md)
@@ -156,18 +176,20 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 
 ### <a name="containers"></a>Contêineres
 * [Serviço de Contêiner](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [AKS (Serviço do Kubernetes do Azure)](../articles/aks/intro-kubernetes.md)
 * [Registro de Contêiner](../articles/container-registry/container-registry-intro.md)
 
 
 
 ## <a name="customer-stories"></a>Relatos de clientes
 
-Aqui estão exemplos de clientes que solucionaram problemas de negócios com soluções de HPC do Azure:
+Exemplos de clientes que solucionaram problemas de negócios com soluções de HPC do Azure:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
@@ -178,10 +200,10 @@ Aqui estão exemplos de clientes que solucionaram problemas de negócios com sol
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as soluções de computação intensa para [simulação de engenharia](https://simulation.azure.com/), [renderização](https://simulation.azure.com/), [bancos e mercados de capital](https://finance.azure.com/) e [genômicas](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
+* Saiba mais sobre as soluções de computação intensa para [simulação de engenharia](https://simulation.azure.com/), [renderização](https://azure.microsoft.com/solutions/big-compute/rendering/), [bancos e mercados de capital](https://finance.azure.com/) e [genômicas](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Usar o serviço [Lote](https://azure.microsoft.com/services/batch/) do Azure gerenciável e escalável para executar cargas de trabalho de computação intensa sem ter que gerenciar a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Usar o serviço [Lote](https://azure.microsoft.com/services/batch/) do Azure gerenciável e escalável para executar cargas de trabalho de computação intensa sem ter que gerenciar a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

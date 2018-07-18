@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gerenciar recursos do Azure Data Lake Store usando o Gerenciador de Armazenamento
 
-O [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Store no Gerenciador de Armazenamento do Azure permite acessar e gerenciar dados e recursos do Azure Data Lake Store juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
+O [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. É possível obter acesso aos dados de qualquer lugar via HTTP ou HTTPS. O Data Lake Store no Gerenciador de Armazenamento do Azure permite acessar e gerenciar dados e recursos do Azure Data Lake Store juntamente com outras entidades do Azure, como blobs e filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local.
 
 Outra vantagem é que não é preciso ter permissão de assinatura para gerenciar dados do Azure Data Lake Store. No Gerenciador de Armazenamento, é possível anexar o caminho do Data Lake Store para o nó **Local e Anexados**, desde que alguém conceda a permissão.
 
@@ -32,7 +32,7 @@ Outra vantagem é que não é preciso ter permissão de assinatura para gerencia
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 *   Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Uma conta do Azure Data Lake Store. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Uma conta do Azure Data Lake Store. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalar o Gerenciador de Armazenamento
 
@@ -197,7 +197,7 @@ Se tiver uma URL, você pode inserir apenas ela no caminho de endereço do Explo
 
 ## <a name="next-steps"></a>Próximas etapas
 * Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](http://www.storageexplorer.com).
-* Saiba como [gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Saiba como [gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Assista a um [vídeo do YouTube sobre como usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

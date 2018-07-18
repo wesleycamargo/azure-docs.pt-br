@@ -1,18 +1,18 @@
 ---
-title: "Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)"
-description: "Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)"
+title: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
+description: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
@@ -21,13 +21,13 @@ Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog],
 ## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure
 
-* CLI do Azure 2.0: você pode [instalá-lo localmente][azure-cli-install], ou usá-lo no [Azure Cloud Shell][azure-cloud-shell].
+* CLI 2.0 do Azure: [instale localmente][azure-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: você pode [instalá-lo localmente][helm-cli-install], ou usá-lo no [Azure Cloud Shell][azure-cloud-shell].
+* CLI 2.7+ do Helm: [instale localmente][helm-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissões para criar uma Entidade de Serviço com a função de Colaborador na sua assinatura Azure
 
-* Um cluster existente no Serviço de Contêiner do Azure (AKS). Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS][create-aks-cluster].
+* Um cluster do Serviço de Kubernetes do Azure (AKS) existente. Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalar o catálogo de serviços
 
@@ -76,17 +76,45 @@ Comece adicionando o Service Broker Aberto para o repositório do Helm do Azure:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Em seguida, use o script a seguir para criar uma [Entidade de Serviço] [ create-service-principal] e preencher diversas variáveis. Essas variáveis são usadas ao executar o gráfico do Helm para instalar o Service Broker.
+Crie uma [Entidade de Serviço][create-service-principal] com o seguinte comando CLI do Azure:
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Agora que você preencheu essas variáveis de ambiente, execute o comando a seguir para instalar o Service Broker.
+A saída deverá ser semelhante à esta abaixo. Anote os valores `appId`, `password` e `tenant`. Você irá usá-los na próxima etapa.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Defina as seguintes variáveis de ambiente com os valores anteriores:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+Agora, obtenha sua ID da assinatura do Azure:
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+Defina novamente as seguintes variáveis de ambiente com o valor anterior:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+Agora que você preencheu essas variáveis de ambiente, execute o seguinte comando para instalar o Service Broker aberta para o Azure usando o gráfico Helm:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -154,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ao seguir as instruções deste artigo, você implantou o catálogo de serviços para um cluster do Serviço de Contêiner do Azure (AKS). Você usou o Service Broker Aberto para o Azure para implantar uma instalação do WordPress que usa os serviços gerenciados pelo Azure, neste caso, o Banco de Dados do Azure para MySQL.
+Ao seguir as instruções deste artigo, você implantou o catálogo de serviços para um cluster do Serviço de Kubernetes do Azure (AKS). Você usou o Service Broker Aberto para o Azure para implantar uma instalação do WordPress que usa os serviços gerenciados pelo Azure, neste caso, o Banco de Dados do Azure para MySQL.
 
 Consulte o repositório [Azure/gráficos-helm][helm-charts] para acessar outros gráficos Helm com base em OSBA atualizados. Se você estiver interessado em criar seus próprios gráficos que funcionam com OSBA, consulte [criar um novo gráfico][helm-create-new-chart].
 

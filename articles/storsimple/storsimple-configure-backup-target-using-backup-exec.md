@@ -1,12 +1,12 @@
 ---
-title: "StorSimple série 8000 como um destino de backup com o Backup Exec | Microsoft Docs"
-description: "Descreve a configuração de destino de backup do StorSimple com o Veritas Backup Exec."
+title: StorSimple série 8000 como um destino de backup com o Backup Exec | Microsoft Docs
+description: Descreve a configuração de destino de backup do StorSimple com o Veritas Backup Exec.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: a28b46e10bbdd5331cc665fad3f80523b3aa8a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
 
@@ -371,7 +371,7 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 | StorSimple semanas 2 a 4 |Disco StorSimple (longo prazo) | 1 | 4 | 4 |
 | Mensal completo |Disco StorSimple (longo prazo) | 1 | 12 | 12 |
 | Anual completo |Disco StorSimple (longo prazo) | 1 | 1 | 1 |
-|Requisito de tamanho de volumes do GFS |  |  |  | 18*|
+|Requisito de tamanho de volumes do GFS |  |  |  | 18\*|
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 

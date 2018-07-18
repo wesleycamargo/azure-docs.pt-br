@@ -1,8 +1,8 @@
 ---
 title: Usar pacotes personalizados do Maven com o Jupyter no Spark no Azure HDInsight | Microsoft Docs
-description: "Instruções passo a passo sobre como configurar os blocos de notas do Jupyter disponíveis com clusters Spark HDInsight para usar pacotes personalizados do Maven."
+description: Instruções passo a passo sobre como configurar os blocos de notas do Jupyter disponíveis com clusters Spark HDInsight para usar pacotes personalizados do Maven.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 93b29480b51f7a664411ffa92ed07c26b2ebafca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dfecdd5c9399c1bd6eb021f097481e3c73f699ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usar pacotes externos com blocos de anotações Jupyter em clusters Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -64,7 +62,7 @@ Você deve ter o seguinte:
     >[!IMPORTANT] 
     >Se esquecer de configurar o kernel na primeira célula, você poderá usar `%%configure` com o parâmetro `-f`, mas isso reiniciará a sessão e todo o progresso será perdido.
 
-    | Versão do HDInsight | Get-Help |
+    | Versão do HDInsight | Comando |
     |-------------------|---------|
     |Para HDInsight 3.3 e HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
     | Para HDInsight 3.5 e HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|

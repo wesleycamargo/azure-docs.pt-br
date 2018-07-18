@@ -1,25 +1,25 @@
 ---
-title: "Configurações de implantação para o Kit de desenvolvimento do Azure pilha (ASDK) de postagem | Microsoft Docs"
-description: "Descreve as alterações de configuração recomendada para fazer depois de instalar o Kit de desenvolvimento de pilha do Azure (ASDK)."
+title: Configurações de implantação para o Kit de desenvolvimento do Azure pilha (ASDK) de postagem | Microsoft Docs
+description: Descreve as alterações de configuração recomendada para fazer depois de instalar o Kit de desenvolvimento de pilha do Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação de ASDK tarefas de configuração
 Depois de [instalando o ASDK](asdk-install.md), há algumas alterações de configuração de pós-instalação recomendada ser feita. 
@@ -37,7 +37,10 @@ Set-PSRepository `
 
  Módulos de AzureRM compatíveis pilha do Azure são instalados por meio de perfis de versão de API. A pilha do Azure exige que o perfil de versão de API de 2017-03-09-perfil, que está disponível ao instalar o módulo AzureRM.Bootstrapper. 
  
- Você pode instalar o Azure PowerShell de pilha com ou sem conectividade com a internet no computador de host ASDK:
+ Você pode instalar o módulo mais recente da pilha do PowerShell do Azure com ou sem conectividade com a internet no computador de host ASDK:
+
+> [!IMPORTANT]
+> Antes de instalar a versão necessária, certifique-se de que você [desinstalar todos os módulos do PowerShell do Azure existentes](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **Com uma conexão de internet** do computador host ASDK. Execute o seguinte script do PowerShell para instalar esses módulos em sua instalação do kit de desenvolvimento:
 

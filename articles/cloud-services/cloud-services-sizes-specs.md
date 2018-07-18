@@ -1,11 +1,11 @@
 ---
-title: "Tamanhos de máquinas virtuais para serviços de Nuvem do Azure | Microsoft Docs"
-description: "Lista os tamanhos diferentes da máquina virtual (e IDs) para funções Web e de trabalho do serviço de nuvem do Azure."
+title: Tamanhos de máquinas virtuais para serviços de Nuvem do Azure | Microsoft Docs
+description: Lista os tamanhos diferentes da máquina virtual (e IDs) para funções Web e de trabalho do serviço de nuvem do Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940277"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Cada tamanho tem uma ID que você coloca em seu [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na página [Preços de Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -81,21 +82,21 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 * A largura de banda de rede máxima é a largura de banda agregada máxima alocada e atribuída por tipo de VM. A largura de banda máxima fornece diretrizes para selecionar o tipo correto de VM, a fim de garantir que uma capacidade adequada de rede está disponível. Ao mover-se entre Baixa, Moderada, Alta e Muito Alta, a taxa de transferência aumenta de acordo. O desempenho real da rede dependerá de vários fatores, incluindo cargas de rede e aplicativos, bem como configurações de rede do aplicativo.
 
 ## <a name="a-series"></a>Séria A
-| Tamanho            | Núcleos de CPU | Memória: GiB  | HDD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
-| Pequena           | 1         | 1,75         | 225                  | 1 / moderada |
-| Média          | 2         | 3,5 GB       | 490                  | 1 / moderada |
-| grande           | 4         | 7            | 1000                 | 2 / alta |
-| ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |
-| A5              | 2         | 14           | 490                  | 1 / moderada |
-| A6              | 4         | 28           | 1000                 | 2 / alta |
-| A7              | 8         | 56           | 2040                 | 4 / alta |
+| Pequena           | 1         | 1,75         | 70                   | 1 / moderada |
+| Média          | 2         | 3,5          | 135                  | 1 / moderada |
+| grande           | 4         | 7            | 285                  | 2 / alta |
+| ExtraLarge      | 8         | 14           | 605                  | 4 / alta |
+| A5              | 2         | 14           | 135                  | 1 / moderada |
+| A6              | 4         | 28           | 285                  | 2 / alta |
+| A7              | 8         | 56           | 605                  | 4 / alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
 Para obter informações e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Tamanho            | Núcleos de CPU | Memória: GiB  | HDD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2 / alta |
 | A9*             |16         | 112          | 1817                 | 4 / muito alta |
@@ -106,7 +107,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 
 ## <a name="av2-series"></a>Série Av2
 
-| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderada                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2 / moderada                 |
@@ -118,7 +119,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 
 
 ## <a name="d-series"></a>Série D
-| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3,5          | 50                   | 1 / moderada |
 | Standard_D2     | 2         | 7            | 100                  | 2 / alta |
@@ -130,7 +131,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_D14    | 16        | 112          | 800                  | 8 / muito alta |
 
 ## <a name="dv2-series"></a>Série Dv2
-| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / moderada |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / alta |
@@ -145,7 +146,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 
 ## <a name="dv3-series"></a>Dv3-series
 
-| Tamanho            | Núcleos de CPU | Memória: GiB   | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB   | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2 / moderada |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2 / alta |
@@ -156,7 +157,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 
 ## <a name="ev3-series"></a>Ev3-series
 
-| Tamanho            | Núcleos de CPU | Memória: GiB   | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB   | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2 / moderada |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2 / alta |
@@ -167,7 +168,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 
 
 ## <a name="g-series"></a>Série G
-| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / alta |
 | Standard_G2     | 4         | 56           | 768                  |2 / alta |
@@ -180,7 +181,7 @@ As máquinas virtuais da série H do Azure são a próxima geração de VMs de c
 
 Além de potência de CPU considerável, a série H oferece diversas opções para RDMA e rede de baixa latência usando FDR InfiniBand e várias configurações de memória para dar suporte a requisitos computacionais com uso intensivo de memória.
 
-| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8 / alta |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / muito alta |

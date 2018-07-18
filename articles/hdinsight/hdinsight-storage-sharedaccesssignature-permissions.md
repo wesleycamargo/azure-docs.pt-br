@@ -1,8 +1,8 @@
 ---
-title: "Restringir o acesso usando Assinaturas de Acesso Compartilhado – HDInsight do Azure | Microsoft Docs"
+title: Restringir o acesso usando Assinaturas de Acesso Compartilhado – HDInsight do Azure | Microsoft Docs
 description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir o acesso do HDInsight a dados armazenados em blobs de armazenamento do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -10,20 +10,18 @@ ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/25/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 328f052e1ccad3ac26cce62c858e050253192ae8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados no HDInsight
 
-O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. Por exemplo, para fornecer acesso somente leitura aos dados. As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazenamento do Azure que permitem que você limite o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
+O HDInsight tem acesso completo aos dados nas contas de Armazenamento do Azure associadas ao cluster. Você pode usar Assinaturas de Acesso Compartilhado no contêiner de blob para restringir o acesso aos dados. As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazenamento do Azure que permitem que você limite o acesso aos dados. Por exemplo, oferecendo acesso somente leitura aos dados.
 
 > [!IMPORTANT]
 > Para uma solução que usa o Apache Ranger, considere usar HDInsight ingressado em domínio. Para obter mais informações, consulte o documento [Configurar HDInsight ingressado em domínio](./domain-joined/apache-domain-joined-configure.md).
@@ -165,7 +163,7 @@ Um exemplo de criação de um cluster HDInsight que use a SAS foi incluído no d
 1. No prompt, use o seguinte comando para se autenticar em sua assinatura do Azure:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Quando solicitado, faça logon com a conta da sua assinatura do Azure.

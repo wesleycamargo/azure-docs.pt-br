@@ -1,24 +1,21 @@
 ---
-title: "Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Docs"
-description: "Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
+title: Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Docs
+description: Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: 1d64070a-078d-468a-87f4-e6715de6475f
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 1d64070a-078d-468a-87f4-e6715de6475f
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 9a35de7ca0e7161468181b21709e1bd9915d566f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 738c9d12beed6ba73872d520cb16bd3a6c813a35
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
 ## <a name="overview"></a>Visão geral

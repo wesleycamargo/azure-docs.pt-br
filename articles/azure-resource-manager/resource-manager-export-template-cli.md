@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportar modelos do Azure Resource Manager com a CLI do Azure
 
@@ -26,7 +26,7 @@ O Gerenciador de Recursos permite que você exporte um modelo do Gerenciador de 
 É importante observar que há duas maneiras diferentes de exportar um modelo:
 
 * Você pode exportar o **modelo atual usado para uma implantação**. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você precisa recuperar um modelo.
-* Você pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um “instantâneo” ou “backup” do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Use esta opção para reimplantar recursos no mesmo grupo de recursos. Para usar este modelo para outro grupo de recursos, você pode ter significativamente modificá-lo.
+* Você pode exportar um **modelo gerado que representa o estado atual do grupo de recursos**. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um “instantâneo” ou “backup” do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Use esta opção para reimplantar recursos no mesmo grupo de recursos. Para usar este modelo para outro grupo de recursos, talvez seja necessário modificá-lo significativamente.
 
 Este artigo mostra as duas abordagens.
 

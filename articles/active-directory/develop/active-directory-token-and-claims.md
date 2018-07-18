@@ -2,41 +2,44 @@
 title: Saiba mais sobre o token diferente e tipos de declaração suportados pelo Azure AD | Microsoft Docs
 description: Um guia para compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo AAD (Active Directory do Azure)
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
-ms.author: hirsin
+ms.date: 05/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157914"
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
-O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
+O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token. 
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
-O AD do Azure dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md), que usa access_tokens e refresh_tokens.  Ele também oferece suporte à autenticação e conexão por meio do [OpenID Connect](active-directory-protocols-openid-connect-code.md), que introduz um terceiro tipo de token, o id_token.  Cada um desses tokens é representado como um "token de portador".
+O AD do Azure dá suporte ao [protocolo de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md), que usa access_tokens e refresh_tokens. Ele também oferece suporte à autenticação e conexão por meio do [OpenID Connect](active-directory-protocols-openid-connect-code.md), que introduz um terceiro tipo de token, o id_token. Cada um desses tokens é representado como um "token de portador".
 
 Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora a autenticação com o AD do Azure seja necessária para receber um token de portador, as etapas devem ser executadas para proteger o token, para impedir a interceptação por uma parte não intencional. Como os tokens de portador não têm um mecanismo interno para evitar que partes não autorizadas os utilizem, eles devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado para adquirir o token e ganhar acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
 
-Muitos dos tokens emitidos pelo Azure AD são implementados como Tokens Web JSON, ou JWTs.  Um JWT é um meio compacto e protegido por URL de transferir informações entre duas partes.  As informações contidas em JWTs são conhecidas como "declarações" ou asserções de informações sobre o portador e o assunto do token.  As declarações em JWTs são objetos JSON codificados e serializados para transmissão.  Uma vez que os JWTs emitidos pelo Azure AD são assinados, mas não criptografados, você pode inspecionar com facilidade o conteúdo de um JWT para fins de depuração.  Há várias ferramentas disponíveis para isso, como [jwt.ms](https://jwt.ms/). Para obter mais informações sobre JWTs, você pode consultar a [Especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muitos dos tokens emitidos pelo Azure AD são implementados como Tokens Web JSON, ou JWTs. Um JWT é um meio compacto e protegido por URL de transferir informações entre duas partes. As informações contidas em JWTs são conhecidas como "declarações" ou asserções de informações sobre o portador e o assunto do token. As declarações em JWTs são objetos JSON codificados e serializados para transmissão. Uma vez que os JWTs emitidos pelo Azure AD são assinados, mas não criptografados, você pode inspecionar com facilidade o conteúdo de um JWT para fins de depuração. Há várias ferramentas disponíveis para isso, como [jwt.ms](https://jwt.ms/). Para obter mais informações sobre JWTs, você pode consultar a [Especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Id_tokens
-Id_tokens são uma forma de token de segurança de conexão que seu aplicativo recebe ao executar a autenticação usando o [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Eles são representados como [JWTs](#types-of-tokens)e contêm declarações que você pode usar para conectar o usuário ao aplicativo.  Você pode usar as declarações em um id_token como julgar conveniente — geralmente elas são usadas para exibir informações de conta ou tomar decisões de controle de acesso em um aplicativo.
+Id_tokens são uma forma de token de segurança de conexão que seu aplicativo recebe ao executar a autenticação usando o [OpenID Connect](active-directory-protocols-openid-connect-code.md). Eles são representados como [JWTs](#types-of-tokens)e contêm declarações que você pode usar para conectar o usuário ao aplicativo. Você pode usar as declarações em um id_token como julgar conveniente — geralmente elas são usadas para exibir informações de conta ou tomar decisões de controle de acesso em um aplicativo.
 
-Atualmente, Id_tokens são assinados, mas não criptografados.  Quando seu aplicativo recebe um id_token, ele deve [validar a assinatura](#validating-tokens) para comprovar a autenticidade do token e validar algumas declarações no token para comprovar sua validade.  As declarações validadas por um aplicativo variam de acordo com os requisitos do cenário, mas há algumas [validações comuns de declaração](#validating-tokens) que seu aplicativo deve executar em cada cenário.
+Atualmente, Id_tokens são assinados, mas não criptografados. Quando seu aplicativo recebe um id_token, ele deve [validar a assinatura](#validating-tokens) para comprovar a autenticidade do token e validar algumas declarações no token para comprovar sua validade. As declarações validadas por um aplicativo variam de acordo com os requisitos do cenário, mas há algumas [validações comuns de declaração](#validating-tokens) que seu aplicativo deve executar em cada cenário.
 
-Consulte a seção a seguir para obter informações sobre declarações id_tokens, bem como um id_token de exemplo.  Observe que as declarações em id_tokens não são retornadas em uma ordem específica.  Além disso, novas declarações podem ser introduzidas nos id_tokens a qualquer momento — o aplicativo não deve ser interrompido conforme novas declarações são introduzidas.  A lista a seguir inclui as declarações que o aplicativo pode interpretar confiavelmente no momento em que este documento foi escrito.  Se necessário, mais detalhes podem ser encontrados na [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Consulte a seção a seguir para obter informações sobre declarações id_tokens, bem como um id_token de exemplo. Observe que as declarações em id_tokens não são retornadas em uma ordem específica. Além disso, novas declarações podem ser introduzidas nos id_tokens a qualquer momento — o aplicativo não deve ser interrompido conforme novas declarações são introduzidas. A lista a seguir inclui as declarações que o aplicativo pode interpretar confiavelmente no momento em que este documento foi escrito. Se necessário, mais detalhes podem ser encontrados na [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-idtoken"></a>Exemplo de Id_Token
 ```
@@ -52,14 +55,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | Declaração JWT | NOME | DESCRIÇÃO |
 | --- | --- | --- |
-| `appid` |ID do aplicativo |Identifica o aplicativo que está usando o token para acessar um recurso. O aplicativo pode agir como ele próprio ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no AD do Azure. <br><br> **Valor de exemplo de JWT**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Público-alvo |O destinatário pretendido do token. O aplicativo que recebe o token deve verificar se o valor de público-alvo está correto e rejeitar quaisquer tokens destinados a um público-alvo diferente. <br><br> **Valor de exemplo de SAML**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de exemplo de JWT**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Referência de classe de contexto de autenticação de aplicativo |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se a ID do cliente e o segredo do cliente são usados, o valor é 1. <br><br> **Valor de exemplo de JWT**: <br> `"appidacr": "0"` |
 | `acr` |Referência de classe de contexto de autenticação |Indica como o assunto foi autenticado, em oposição ao cliente na declaração de Referência de Classe de Contexto de Autenticação do Aplicativo. Um valor "0" indica que a autenticação do usuário final não atendeu aos requisitos da ISO/IEC 29115. <br><br> **Valor de exemplo de JWT**: <br> `"acr": "0"` |
 | Instante da autenticação |Registra a data e o horário em que ocorreu a autenticação. <br><br> **Valor de exemplo de SAML**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Método de autenticação |Identifica como o assunto do token foi autenticado. <br><br> **Valor de exemplo de SAML**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Valor de exemplo de JWT**: `“amr”: ["pwd"]` |
 | `given_name` |Nome |Fornece o nome ou nome “determinado” do usuário, como definido no objeto de usuário do Azure AD. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `"given_name": "Frank"` |
-| `groups` |Grupos |Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+| `groups` |Grupos |Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br> **Observações**: <br> Consulte a declaração `hasgroups` abaixo para obter detalhes de como usar a declaração `groups` com a concessão implícita. <br> Para outros fluxos, se o número de grupos a que o usuário pertence ultrapassar determinado limite (150 para SAML, 200 para JWT), será adicionada, então, uma declaração excedente às fontes de declaração que apontam para o ponto de extremidade do Graph que contém a lista de grupos do usuário. (em . <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | Indicador de excedente de grupos de fluxo implícitos do JWT| Se houver algum, sempre `true`, indicando que o usuário pertence a pelo menos um grupo. Usado no lugar da declaração `groups` de JWTs em fluxos de concessão implícitos se a declaração completa de grupos ultrapassar o fragmento de URI para além dos limites de extensão da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar o Graph para determinar os grupos do usuário (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Indicador de excedente de grupos | Para solicitações de token sem limite de tamanho (consulte `hasgroups` acima), mas ainda muito grandes para o token, será incluído um link para a lista completa de grupos do usuário. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |Provedor de identidade |Registra o provedor de identidade que autenticou a entidade do token. Esse valor é idêntico ao valor da declaração Emissor, a menos que a conta de usuário esteja em um locatário diferente que o emissor. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Armazena a hora em que o token foi emitido. Ela geralmente é usada para mensurar o quanto o token é recente. <br><br> **Valor de exemplo de SAML**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Valor de exemplo de JWT**: <br> `"iat": 1390234181` |
 | `iss` |Emissor |Identifica o STS (serviço de token de segurança) que constrói e retorna o token. Nos tokens que o AD do Azure retorna, o emissor é sts.windows.net. A GUID no valor de declaração do emissor é a ID do locatário do diretório do AD do Azure. A ID do locatário é um identificador imutável e confiável do diretório. <br><br> **Valor de exemplo de SAML**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Valor de exemplo de JWT**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -79,30 +83,29 @@ Após a autenticação bem-sucedida, o Azure AD retorna um token de acesso que p
 
 Se seu aplicativo só *usa* tokens de acesso para obter acesso às APIs, você pode (e deve) tratar tokens de acesso como completamente opacos, pois são apenas cadeias de caracteres que seu aplicativo pode passar a recursos em solicitações HTTP.
 
-Quando você solicita um token de acesso, o Azure AD também retorna alguns metadados sobre o token de acesso para consumo do aplicativo.  Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido.  Isso permite ao aplicativo realizar caching, de modo inteligente, dos tokens de acesso sem precisar analisar abertamente o token de acesso em si.
+Quando você solicita um token de acesso, o Azure AD também retorna alguns metadados sobre o token de acesso para consumo do aplicativo. Essas informações incluem a data de expiração do token de acesso e os escopos para os quais ele é válido. Isso permite ao aplicativo realizar caching, de modo inteligente, dos tokens de acesso sem precisar analisar abertamente o token de acesso em si.
 
-Se seu aplicativo for uma API protegida com o Azure AD que espera tokens de acesso em solicitações HTTP, você deverá executar a validação e a inspeção dos tokens que receber. Seu aplicativo deve executar a validação do token de acesso antes de usá-lo para acessar recursos. Para obter mais informações sobre validação, consulte [Validando Tokens](#validating-tokens).  
-Para obter detalhes sobre como fazer isso com o .NET, veja [Proteger uma API da Web usando os tokens de portador do Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Se seu aplicativo for uma API protegida com o Azure AD que espera tokens de acesso em solicitações HTTP, você deverá executar a validação e a inspeção dos tokens que receber. Seu aplicativo deve executar a validação do token de acesso antes de usá-lo para acessar recursos. Para obter mais informações sobre validação, consulte [Validando Tokens](#validating-tokens). Para obter detalhes sobre como fazer isso com o .NET, veja [Proteger uma API da Web usando os tokens de portador do Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## <a name="refresh-tokens"></a>Tokens de atualização
 
-Os tokens de atualização são tokens de segurança que o aplicativo pode usar para adquirir novos tokens de acesso em um fluxo do OAuth 2.0.  Ele permite ao aplicativo obter acesso a longo prazo a recursos em nome de um usuário sem a necessidade de interação do usuário.
+Os tokens de atualização são tokens de segurança que o aplicativo pode usar para adquirir novos tokens de acesso em um fluxo do OAuth 2.0. Ele permite ao aplicativo obter acesso a longo prazo a recursos em nome de um usuário sem a necessidade de interação do usuário.
 
-Os tokens de atualização têm vários recursos.  Isso quer dizer que um token de atualização recebido durante uma solicitação de token para um recurso pode ser resgatado para tokens de acesso para um recurso totalmente diferente. Para fazer isso, defina o parâmetro `resource` na solicitação para o recurso de destino.
+Os tokens de atualização têm vários recursos. Isso quer dizer que um token de atualização recebido durante uma solicitação de token para um recurso pode ser resgatado para tokens de acesso para um recurso totalmente diferente. Para fazer isso, defina o parâmetro `resource` na solicitação para o recurso de destino.
 
-Os tokens de atualização são completamente opacos para seu aplicativo. Eles têm longa duração, mas o aplicativo não deve ser escrito para esperar que um token de atualização dure por qualquer período de tempo.  Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos - consulte [revogação de tokens](#token-revocation) para esses motivos.  A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao ponto de extremidade do Azure AD.
+Os tokens de atualização são completamente opacos para seu aplicativo. Eles têm longa duração, mas o aplicativo não deve ser escrito para esperar que um token de atualização dure por qualquer período de tempo. Os tokens de atualização podem ser invalidados a qualquer momento por vários motivos - consulte [revogação de tokens](#token-revocation) para esses motivos. A única maneira de o aplicativo saber se um token de atualização é válido, é tentando resgatá-lo fazendo uma solicitação de token ao ponto de extremidade do Azure AD.
 
-Ao resgatar um token de atualização para um novo token de acesso, você receberá um novo token de atualização na resposta de token.  É preciso salvar o token de atualização recentemente emitido, substituindo o que você usou na solicitação.  Isso garantirá que seus tokens de atualização permanecem válidos pelo máximo tempo possível.
+Ao resgatar um token de atualização para um novo token de acesso, você receberá um novo token de atualização na resposta de token. É preciso salvar o token de atualização recentemente emitido, substituindo o que você usou na solicitação. Isso garantirá que seus tokens de atualização permanecem válidos pelo máximo tempo possível.
 
 ## <a name="validating-tokens"></a>Validando tokens
 
-Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
-Fornecemos bibliotecas e códigos de exemplo que mostram como tratar com facilidade a validação do token. As informações abaixo são fornecidas simplesmente para aqueles que desejam entender o processo subjacente.  Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT; há pelo menos uma opção para quase todos os idiomas e plataformas. Para saber mais sobre bibliotecas de autenticação e exemplos de código do AD do Azure, veja [bibliotecas de autenticação do AD do Azure](active-directory-authentication-libraries.md).
+Fornecemos bibliotecas e códigos de exemplo que mostram como tratar com facilidade a validação do token. As informações abaixo são fornecidas simplesmente para aqueles que desejam entender o processo subjacente. Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT; há pelo menos uma opção para quase todos os idiomas e plataformas. Para saber mais sobre bibliotecas de autenticação e exemplos de código do AD do Azure, veja [bibliotecas de autenticação do AD do Azure](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Validação da assinatura
 
-Um JWT contém três segmentos, que são separados pelo caractere `.` .  O primeiro segmento é conhecido como o **cabeçalho**, o segundo como o **corpo** e o terceiro como a **assinatura**.  O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele.
+Um JWT contém três segmentos, que são separados pelo caractere `.` . O primeiro segmento é conhecido como o **cabeçalho**, o segundo como o **corpo** e o terceiro como a **assinatura**. O segmento de assinatura pode ser usado para validar a autenticidade do token, de modo que seu aplicativo possa confiar nele.
 
 Os tokens emitidos pelo Azure AD são assinados usando algoritmos de criptografia assimétrica padrão do setor, como o RSA 256. O cabeçalho do JWT contém informações sobre o método de criptografia e a chave usados para assinar o token:
 
@@ -116,7 +119,7 @@ Os tokens emitidos pelo Azure AD são assinados usando algoritmos de criptografi
 
 A declaração `alg` indica o algoritmo que foi usado para assinar o token, enquanto a declaração `x5t` indica a chave pública privada que foi usada para assinar o token.
 
-Em qualquer ponto no tempo, o AD do Azure pode assinar um id_token usando qualquer um de um determinado conjunto de pares de chaves públicas-privadas. O AD do Azure gira o possível conjunto de chaves em intervalos periódicos, de modo que o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente.  Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD é a cada 24 horas.
+Em qualquer ponto no tempo, o AD do Azure pode assinar um id_token usando qualquer um de um determinado conjunto de pares de chaves públicas-privadas. O AD do Azure gira o possível conjunto de chaves em intervalos periódicos, de modo que o aplicativo deve ser escrito para tratar essas mudanças de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD é a cada 24 horas.
 
 Você pode adquirir os dados de chave de assinatura necessários para validar a assinatura usando o documento de metadados do OpenID Connect localizado em:
 
@@ -129,15 +132,15 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > 
 > 
 
-Esse documento de metadados é um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade exigidos para execução da autenticação do OpenID Connect.  
+Esse documento de metadados é um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade exigidos para execução da autenticação do OpenID Connect. 
 
-Ele também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens.  O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico.  Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico.  Assim, ele pode executar a validação da assinatura usando a chave pública correta e o algoritmo indicado.
+Ele também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Assim, ele pode executar a validação da assinatura usando a chave pública correta e o algoritmo indicado.
 
 Executar a validação da assinatura está fora do escopo deste documento — há muitas bibliotecas de software livre disponíveis para ajudar você a fazer isso, caso seja necessário.
 
 #### <a name="validating-the-claims"></a>Validação das declarações
 
-Quando seu aplicativo recebe um token (um id_token na entrada do usuário, ou um token de acesso como um token de portador na solicitação HTTP), ele também deve executar algumas verificações em relação às declarações no token.  Elas incluem, mas sem limitação:
+Quando seu aplicativo recebe um token (um id_token na entrada do usuário, ou um token de acesso como um token de portador na solicitação HTTP), ele também deve executar algumas verificações em relação às declarações no token. Elas incluem, mas sem limitação:
 
 * A declaração **Público-alvo** - para verificar se o token foi destinado a ser fornecido ao aplicativo.
 * As declarações **Não Antes de** e **Data de Expiração** - para verificar se o token não expirou.
@@ -145,25 +148,26 @@ Quando seu aplicativo recebe um token (um id_token na entrada do usuário, ou um
 * O **Nonce**: para reduzir o ataque de reprodução do token.
 * e mais...
 
-Para obter uma lista completa das validações de declaração que seu aplicativo deve executar, veja a [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Detalhes dos valores esperados para essas declarações estão incluídos na seção [id_token section](#id-tokens) anterior.
+Para obter uma lista completa das validações de declaração que seu aplicativo deve executar, veja a [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Os detalhes dos valores esperados para essas declarações estão incluídos na seção sobre [id_token](#id-tokens) anterior.
 
 ## <a name="token-revocation"></a>Revogação de tokens
 
-Os tokens de atualização podem ser invalidados ou revogados a qualquer momento por vários motivos.  Eles se encaixam em duas categorias principais: tempos limite e revogações. 
+Os tokens de atualização podem ser invalidados ou revogados a qualquer momento por vários motivos. Eles se encaixam em duas categorias principais: tempos limite e revogações. 
 * Tempos limite de token
   * MaxInactiveTime: Se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
-  * MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor foi definida como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession *.  
+  * MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor foi definida como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession *. 
   * Exemplos:
-    * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias.  Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente. 
-    * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de 1 dia.  Se um usuário fizer logon na segunda-feira e na terça-feira (após decorridas 25 horas), ele deverá autenticar-se novamente.  
+    * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente. 
+    * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de 1 dia. Se um usuário fizer logon na segunda-feira e na terça-feira (após decorridas 25 horas), ele deverá autenticar-se novamente. 
 * Revogação
-  * Alteração de senha voluntária: Se um usuário altera sua senha, ele pode ter que autenticar-se novamente em alguns de seus aplicativos, dependendo do modo que o token foi obtido.  Consulte as observações abaixo para exceções. 
-  * Involuntária alteração de senha: Se um administrador força o usuário a alterar sua senha ou a redefini-la, os tokens de usuário serão invalidados se foram obtidos usando sua senha.  Consulte as observações abaixo para exceções. 
-  * Violação de segurança: No caso de uma violação de segurança (por exemplo, o armazenamento local de senhas for ultrapassado) o administrador pode revogar todos os tokens de atualização emitidos no momento.  Isso forçará todos os usuários para autenticar novamente. 
+  * Alteração de senha voluntária: Se um usuário altera sua senha, ele pode ter que autenticar-se novamente em alguns de seus aplicativos, dependendo do modo que o token foi obtido. Consulte as observações abaixo para exceções. 
+  * Involuntária alteração de senha: Se um administrador força o usuário a alterar sua senha ou a redefini-la, os tokens de usuário serão invalidados se foram obtidos usando sua senha. Consulte as observações abaixo para exceções. 
+  * Violação de segurança: No caso de uma violação de segurança (por exemplo, o armazenamento local de senhas for ultrapassado) o administrador pode revogar todos os tokens de atualização emitidos no momento. Isso forçará todos os usuários para autenticar novamente. 
 
-Observação: 
-
-Se um método diferente de senha de autenticação foi usado (Windows Hello, o aplicativo Authenticator, biometria como uma face ou impressão digital) para obter o token, alterar a senha do usuário não forçará o usuário a autenticar novamente (mas vai forçar seu aplicativo autenticador a autenticar novamente).  Isso ocorre porque a autenticação escolhida de entrada (uma face, por exemplo) não foi alterado e, portanto, pode ser usado novamente para autenticar novamente.
+> [!NOTE]
+>Se um método diferente de senha de autenticação foi usado (Windows Hello, o aplicativo Authenticator, biometria como uma face ou impressão digital) para obter o token, alterar a senha do usuário não forçará o usuário a autenticar novamente (mas vai forçar seu aplicativo autenticador a autenticar novamente). Isso ocorre porque a autenticação escolhida de entrada (uma face, por exemplo) não foi alterado e, portanto, pode ser usado novamente para autenticar novamente.
+>
+> Confidential clients are not impacted by password change revocations. A confidential client with a refresh token issued before a password change will continue to be abl to use that refresh token to get more tokens. 
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
@@ -321,3 +325,4 @@ Além de declarações, o token inclui um número de versão em ver; **inclui** 
 ## <a name="related-content"></a>Conteúdo relacionado
 * Consulte as [Operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) do Graph do AD do Azure e o [Entidade de política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), para saber mais sobre o gerenciamento de políticas de tempo de vida do token por meio da API do Graph do AD do Azure.
 * Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](../active-directory-configurable-token-lifetimes.md). 
+* Adicione [declarações opcionais e personalizadas](active-directory-optional-claims.md) para os tokens do aplicativo. 

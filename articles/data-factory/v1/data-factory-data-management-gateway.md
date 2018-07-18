@@ -2,10 +2,9 @@
 title: Gateway de Gerenciamento de Dados para Data Factory | Microsoft Docs
 description: Configure um gateway de dados para mover dados entre o local e a nuvem. Use o Gateway de Gerenciamento de Dados no Azure Data Factory para mover os dados.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771041"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -277,30 +277,30 @@ Você pode habilitar/desabilitar o recurso de atualização automática seguindo
 
 [Para o gateway de nó único]
 1. Inicie o Windows PowerShell no computador do gateway.
-2. Mude para a pasta C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Mude para a pasta C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. Para ativá-la novamente:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [Para vários nós altamente disponíveis e gateway escalonável (versão prévia)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador do gateway.
-2. Mude para a pasta C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Mude para a pasta C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.   
 
     Para o gateway com o recurso de alta disponibilidade (versão prévia), um parâmetro AuthKey adicional é necessário.
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. Para ativá-la novamente:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>Gerenciador de Configurações
@@ -347,7 +347,7 @@ No Portal do Azure, você pode exibir o instantâneo quase em tempo real de util
 
 1. No Portal do Azure, navegue até a home page do data factory e clique no bloco **Serviços vinculados**. 
 
-    ![Página inicial da data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+    ![Página inicial do data factory](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
 2. Selecione o **gateway** na página **Serviços vinculados**.
 
     ![Página Serviços vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
@@ -485,7 +485,7 @@ Esta seção descreve como criar e registrar um gateway usando cmdlets do PowerS
 2. Faça logon na sua conta do Azure executando o seguinte comando e digitando suas credenciais do Azure.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Use o cmdlet **New-AzureRmDataFactoryGateway** para criar um gateway lógico da seguinte maneira:
 

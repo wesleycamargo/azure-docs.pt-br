@@ -1,11 +1,11 @@
 ---
-title: "Controles de página do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre os controles de página disponíveis para uso em modelos de portal do desenvolvedor no Gerenciamento de API do Azure."
+title: Controles de página do Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre os controles de página disponíveis para uso em modelos de portal do desenvolvedor no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página do Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelos de portal do desenvolvedor.  
@@ -30,7 +30,7 @@ Para usar um controle, coloque-o no local desejado no modelo do portal do desenv
   
  Os valores para os parâmetros são passados como parte do modelo de dados do modelo. Na maioria dos casos, você pode simplesmente colar o exemplo fornecido para cada controle para que ele funcione corretamente. Para obter mais informações sobre os valores de parâmetro, você pode ver a seção de modelo de dados de cada modelo no qual um controle pode ser usado.  
   
- Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ## <a name="developer-portal-template-page-controls"></a>Controles de página do modelo do portal do desenvolvedor  
   
@@ -56,7 +56,7 @@ Para usar um controle, coloque-o no local desejado no modelo do portal do desenv
   
 ### <a name="parameters"></a>parâmetros  
   
-|Parâmetro|Descrição|  
+|Parâmetro|DESCRIÇÃO|  
 |---------------|-----------------|  
 |appId|A ID do aplicativo.|  
   
@@ -200,7 +200,7 @@ Para usar um controle, coloque-o no local desejado no modelo do portal do desenv
   
 ### <a name="parameters"></a>parâmetros  
   
-|Parâmetro|Descrição|  
+|Parâmetro|DESCRIÇÃO|  
 |---------------|-----------------|  
 |subscriptionId|A ID da assinatura a ser cancelada.|  
 |cancelUrl|A assinatura cancela a URL.|  
@@ -211,4 +211,4 @@ Para usar um controle, coloque-o no local desejado no modelo do portal do desenv
 -   [Produto](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

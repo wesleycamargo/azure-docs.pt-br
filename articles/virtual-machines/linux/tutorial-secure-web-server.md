@@ -1,28 +1,28 @@
 ---
-title: Proteger um servidor Web com certificados SSL no Azure | Microsoft Docs
-description: Saiba como proteger o servidor Web NGINX com certificados SSL em uma VM do Linux no Azure
+title: Tutorial – Proteger um servidor Web Linux com certificados SSL no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para proteger uma máquina virtual do Linux que executa o servidor Web do NGINX com certificados SSL armazenados no Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2017
+ms.date: 04/30/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 02118533c4ab552f81157f644bb794e68fbc4ce3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f86cc891b67cddf3a4046260d2977371af3d0596
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Proteger um servidor Web com certificados SSL em uma máquina virtual do Linux no Azure
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado SSL (protocolo SSL) pode ser usado para criptografar o tráfego da Web. Esses certificados SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Para proteger servidores Web, um certificado SSL (protocolo SSL) pode ser usado 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.22 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).  
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 
 ## <a name="overview"></a>Visão geral
@@ -70,14 +70,14 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Preparar um certificado para usar com uma VM
-Para usar o certificado durante o processo de criação de VM, obtenha a identificação do seu certificado com as [ versões secretas de az keyvault](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Converter o certificado com [az vm format-secret](/cli/azure/vm#az_vm_format_secret). O exemplo a seguir atribui a saída desses comandos variáveis de facilidade de uso nas próximas etapas:
+Para usar o certificado durante o processo de criação de VM, obtenha a identificação do seu certificado com as [ versões secretas de az keyvault](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Converta o certificado com [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). O exemplo a seguir atribui a saída desses comandos variáveis de facilidade de uso nas próximas etapas:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm format-secret --secret "$secret")
+vm_secret=$(az vm secret format --secrets "$secret")
 ```
 
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Criar uma configuração de cloud-init para proteger o NGINX
@@ -159,4 +159,3 @@ Siga este link para ver exemplos de script de máquina virtual predefinido.
 
 > [!div class="nextstepaction"]
 > [Exemplos de script de máquina virtual do Linux](./cli-samples.md)
-

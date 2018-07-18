@@ -3,7 +3,7 @@ title: Configurar o Provisionamento de Dispositivos usando um modelo do Azure Re
 description: Início Rápido do Azure – Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando um modelo
 services: iot-dps
 keywords: ''
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
@@ -12,21 +12,21 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8bb27cca9e976ff8433793ef378cc6a43449d4bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
-É possível usar o [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de nuvem do Azure necessários para o provisionamento dos dispositivos. Essas etapas mostram como criar um Hub IoT, um novo Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços usando um modelo do Azure Resource Manager. Este Início Rápido usa a [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli) para executar as etapas programáticas necessárias para criar um grupo de recursos e implantar o modelo, mas é possível usar facilmente o [Portal do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby ou outras linguagens de programação para executar essas etapas e implantar o modelo. 
+É possível usar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar programaticamente os recursos de nuvem do Azure necessários para o provisionamento dos dispositivos. Essas etapas mostram como criar um Hub IoT, um novo Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços usando um modelo do Azure Resource Manager. Este Início Rápido usa a [CLI 2.0 do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para executar as etapas programáticas necessárias para criar um grupo de recursos e implantar o modelo, mas é possível usar facilmente o [Portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby ou outras linguagens de programação para executar essas etapas e implantar o modelo. 
 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este Início Rápido requer que você execute a CLI do Azure localmente. Você deve ter a CLI do Azure versão 2.0 ou posterior instalada. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar a CLI, confira [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Este Início Rápido requer que você execute a CLI do Azure localmente. Você deve ter a CLI do Azure versão 2.0 ou posterior instalada. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar a CLI, confira [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Entrar no Azure e criar um grupo de recursos
@@ -116,7 +116,7 @@ Use um modelo JSON para criar um serviço de provisionamento e um Hub IoT vincul
 
    ```
 
-4. Para criar um Hub IoT, adicione as linhas a seguir para a coleção **recursos**. O JSON especifica as propriedades mínimas necessárias para criar um Hub IoT. As propriedades **name** e **location** são passadas como parâmetros. Para saber mais sobre as propriedades que você pode especificar para um Hub IoT em um modelo, confira a [referência de modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs).
+4. Para criar um Hub IoT, adicione as linhas a seguir para a coleção **recursos**. O JSON especifica as propriedades mínimas necessárias para criar um Hub IoT. As propriedades **name** e **location** são passadas como parâmetros. Para saber mais sobre as propriedades que você pode especificar para um Hub IoT em um modelo, confira a [referência de modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -136,9 +136,9 @@ Use um modelo JSON para criar um serviço de provisionamento e um Hub IoT vincul
 
    ``` 
 
-5. Para criar o serviço de provisionamento, adicione as seguintes linhas após a especificação do Hub IoT na coleção **recursos**. O **nome** e o **local** do serviço de provisionamento são passados em parâmetros. Especifique os Hubs IoT para vincular ao serviço de provisionamento na coleção **iotHubs**. No mínimo, você deve especificar as propriedades **connectionString** e **location** para cada Hub IoT vinculado. Também é possível definir propriedades como **allocationWeight** e **applyAllocationPolicy** em cada Hub IoT, além de propriedades como **allocationPolicy** e **authorizationPolicies** no serviço de provisionamento em si. Para saber mais, confira a [referência de modelo Microsoft.Devices/provisioningServices](https://docs.microsoft.com/en-us/azure/templates/microsoft.devices/provisioningservices).
+5. Para criar o serviço de provisionamento, adicione as seguintes linhas após a especificação do Hub IoT na coleção **recursos**. O **nome** e o **local** do serviço de provisionamento são passados em parâmetros. Especifique os Hubs IoT para vincular ao serviço de provisionamento na coleção **iotHubs**. No mínimo, você deve especificar as propriedades **connectionString** e **location** para cada Hub IoT vinculado. Também é possível definir propriedades como **allocationWeight** e **applyAllocationPolicy** em cada Hub IoT, além de propriedades como **allocationPolicy** e **authorizationPolicies** no serviço de provisionamento em si. Para saber mais, confira a [referência de modelo Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
-   A propriedade **dependsOn** é usada para garantir que o Gerenciador de Recursos crie o Hub IoT antes de criar o serviço de provisionamento. O modelo requer a cadeia de conexão do Hub IoT para especificar o vínculo com o serviço de provisionamento, para que o hub e suas chaves sejam criados primeiro. O modelo usa funções como **concat** e **listKeys** para criar a cadeia de conexão. Para saber mais, confira [Funções de modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions).
+   A propriedade **dependsOn** é usada para garantir que o Gerenciador de Recursos crie o Hub IoT antes de criar o serviço de provisionamento. O modelo requer a cadeia de conexão do Hub IoT para especificar o vínculo com o serviço de provisionamento, para que o hub e suas chaves sejam criados primeiro. O modelo usa funções como **concat** e **listKeys** para criar a cadeia de conexão. Para saber mais, confira [Funções de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -301,7 +301,7 @@ O modelo que você definiu na última etapa usa parâmetros para especificar o n
 
 Use os seguintes comandos da CLI do Azure para implantar seus modelos e verificar a implantação.
 
-1. Para implantar o modelo, execute o seguinte [comando para iniciar uma implantação](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. Para implantar o modelo, execute o seguinte [comando para iniciar uma implantação](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Use os seguintes comandos da CLI do Azure para implantar seus modelos e verifica
    ![Saída do provisionamento](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Para verificar sua implantação, execute o seguinte [comando para listar recursos](https://docs.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest#az_resource_list) e procure pelo novo serviço de provisionamento e pelo Hub IoT na saída:
+2. Para verificar sua implantação, execute o seguinte [comando para listar recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) e procure pelo novo serviço de provisionamento e pelo Hub IoT na saída:
 
     ```azurecli
      az resource list -g {your resource group name}

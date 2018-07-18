@@ -1,11 +1,11 @@
 ---
 title: Consultas SQL para o Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. O SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
-keywords: "sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas"
+keywords: sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
-manager: jhubbard
+manager: kfile
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para o Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON em contas de API do SQL. O Azure Cosmos DB é verdadeiramente sem esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários.
 
@@ -34,11 +32,17 @@ Ao criar a linguagem de consulta para o Cosmos DB, temos dois objetivos em mente
 
 Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
 
-Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Ramachandran mostra as funcionalidades de consulta do Cosmos DB e visitando nosso [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Cosmos DB e executar consultas SQL em nosso conjunto de dados.
+Recomendamos que você comece assistindo ao vídeo a seguir, em que o Gerente do Programa Azure Cosmos DB, Andrew Liu, mostra as funcionalidades de consulta do Cosmos DB e demonstra o [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Azure Cosmos DB e executar consultas SQL em nosso conjunto de dados conforme demonstrado no vídeo.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Técnicas de consulta mais avançadas são demonstradas neste vídeo de acompanhamento:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Em seguida, retorne a este artigo, em que começamos com um tutorial de consulta SQL que apresenta alguns documentos JSON e comandos SQL simples.
 
@@ -2258,9 +2262,9 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 4. [Níveis de consistência do Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. Especificação do JavaScript JSON [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Técnicas de avaliação de consulta para bancos de dados de grande porte [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Técnicas de avaliação de consulta para grandes bancos de dados [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

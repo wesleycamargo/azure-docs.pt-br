@@ -16,15 +16,60 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895309"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
 Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais no Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Perguntas frequentes sobre os conjuntos de dimensionamento
+**P.** Quantas VMs posso ter em um conjunto de dimensionamento?
+
+**A.** Um conjunto de dimensionamento pode ter de 0 a 1.000 VMs baseadas em imagens da plataforma ou de 0 a 300 VM máquinas virtuais baseadas em imagens personalizadas. 
+
+**P.** Há suporte para os discos de dados nos conjuntos de dimensionamento?
+
+**A.** Sim. Um conjunto de dimensionamento pode definir uma configuração de discos de dados anexados que se aplica a todas as máquinas virtuais no conjunto. Para saber mais, confira [Conjuntos de dimensionamento do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). Outras opções para armazenamento de dados incluem:
+
+* Arquivos do Azure (unidades compartilhada de SMB)
+* Unidade do sistema operacional
+* Unidade TEMP (local, não tem relação com o Armazenamento do Azure)
+* Serviço de dados do Azure (por exemplo, Tabelas e Blobs do Azure)
+* Serviço de dados externo (por exemplo, banco de dados remoto)
+
+**P.** Quais são as regiões do Azure que dão suporte aos conjuntos de dimensionamento?
+
+**A.** Todas as regiões dão suporte aos conjuntos de dimensionamento.
+
+**P.** Como posso criar um conjunto de dimensionamento usando uma imagem personalizada?
+
+**A.** Crie um disco gerenciado com base em seu VHD de imagem personalizada e faça referência a ele em seu modelo de conjunto de dimensionamento. [Aqui está um exemplo](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**P.** Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
+
+**A.** Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
+
+**P.** E se eu aumentar a capacidade de 15 para 18?
+
+**A.** Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
+
+**P.** Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
+
+**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída. Encontre orientações adicionais sobre o sequenciamento de extensão na postagem de blog [Sequenciamento de extensão em conjuntos de dimensionamento de máquinas virtuais do Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
+
+**A.** Uma conjunto de dimensionamento regional (não zonal) usa *grupos de posicionamento* e cada um deles pode ser configurado para atuar como uma conjunto de disponibilidade implícito com cinco domínios de falha e cinco domínios de atualização. Conjuntos de dimensionamento de mais de 100 VMs abrangem vários grupos de posicionamento. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
+
+**P.** Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
+
+**A.** Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
+
 
 ## <a name="autoscale"></a>Autoscale
 
@@ -126,7 +171,7 @@ Para obter mais informações, veja [Criar ou atualizar um conjunto de dimension
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -358,9 +403,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Você pode encontrar o valor extensionName em `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Há um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Há um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Log Analytics?
 
-Para ver um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Operations Management Suite, consulte o segundo exemplo [Implantar um cluster do Service Fabric do Azure e habilitar o monitoramento usando o Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Para ver um exemplo de modelo do conjunto de dimensionamento de máquinas virtuais que se integra com o Log Analytics, consulte o segundo exemplo [Implantar um cluster do Azure Service Fabric e habilitar o monitoramento usando o Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>A extensões parecem ser executadas em paralelo nos conjuntos de dimensionamento de máquinas virtuais. Isso faz com que minha extensão de script personalizada falhe. O que fazer para corrigir isso?
 
@@ -406,9 +451,9 @@ Se a definição da extensão no modelo do conjunto de dimensionamento de máqui
 
 Se uma VM existente tiver o serviço reparado, parecerá uma reinicialização e as extensões não serão executadas novamente. Se a imagem for recriada, será como substituir a unidade do SO pela imagem de origem. Qualquer especialização do modelo mais recente, como as extensões, será executada.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Como faço para ingressar em um conjunto de dimensionamento de máquinas virtuais para um domínio do Azure AD?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Como faço para ingressar em um conjunto de dimensionamento de máquinas virtuais para um domínio do Active Directory?
 
-Para ingressar em um conjunto de dimensionamento de máquinas virtuais para um domínio do Azure AD (Azure Active Directory), você pode definir uma extensão. 
+Para ingressar em um conjunto de dimensionamento de máquinas virtuais para um domínio do Active Directory (AD), você pode definir uma extensão. 
 
 Para definir uma extensão, use a propriedade JsonADDomainExtension:
 
@@ -649,9 +694,9 @@ Sim, você pode usar a operação de recriação de imagem para redefinir uma VM
 
 Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>É possível integrar conjuntos de dimensionamento ao Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>É possível integrar conjuntos de dimensionamento ao Azure Log Analytics?
 
-Sim, você pode por meio da instalação da extensão do OMS nas VMs do conjunto de dimensionamento. Veja um exemplo da CLI do Azure:
+Sim, isso é possível instalando a extensão do Log Analytics nas VMs do conjunto de dimensionamento. Veja um exemplo da CLI do Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

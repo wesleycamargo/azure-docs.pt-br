@@ -6,37 +6,32 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303361"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory
-No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos.
+No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos. Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
 
 Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos.
 
 > [!NOTE]
-> Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
->
 > Este recurso exige uma licença Azure AD Premium P1 para cada membro de usuário adicionado a pelo menos um grupo dinâmico. Não é obrigatório, na verdade, atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas você precisa ter o número mínimo de licenças no locatário para cobrir todos esses usuários. Por exemplo: se você tiver um total de 1.000 usuários exclusivos em todos os grupos dinâmicos no seu locatário, você precisa ter pelo menos de 1.000 licenças para o Azure AD Premium P1 ou superior para cumprir o requisito de licença.
 >
 > Você pode criar um grupo dinâmico para usuários ou dispositivos, mas não pode criar uma regra que contenha objetos de usuário e de dispositivo.
 > 
 > Nesse momento não é possível criar um grupo de dispositivos com base em atributos do usuário proprietário. As regras de associação de dispositivo só podem fazer referência a atributos imediatos dos objetos de dispositivo no diretório.
-> 
-> As Equipes da Microsoft ainda não dão suporte à Associação de Grupos Dinâmicos. Você pode validar o erro nos logs associados com "Não é possível migrar o Grupo de associação dinâmica"
 
 ## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador da conta de usuário.
@@ -172,7 +167,7 @@ Operadores permitidos
 | mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
 | Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
-| ID do objeto |GUID do objeto de usuário |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| ID do objeto |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *null* |(user.physicalDeliveryOfficeName -eq "valor") |
@@ -228,9 +223,9 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar um valor nulo em uma regra, você pode usar o valor *null*. Tenha cuidado para não usar a palavra aspas em *null* -nesse caso, ele será interpretado como um valor de cadeia de caracteres literal. A maneira correta para referenciar o valor nulo é da seguinte maneira:
+Para especificar um valor nulo em uma regra, você pode usar o valor *null*. Tenha cuidado para não usar a palavra aspas em *null* -nesse caso, ele será interpretado como um valor de cadeia de caracteres literal. O operador -not não pode ser usado como um operador comparativo para nulo. Se for utilizado, você receberá um erro se usar nulo ou $null. Em vez disso, use -eq ou -ne. A maneira correta para referenciar o valor nulo é da seguinte maneira:
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados
@@ -253,14 +248,15 @@ Você pode criar um grupo contendo todos os subordinados diretos de um gerente. 
 
 > [!NOTE]
 > 1. Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em seu locatário. Você pode verificar o valor atual de um usuário na respectiva **guia Perfil**.
-> 2. Essa regra só dá suporte a subordinados **diretos**. No momento não é possível criar um grupo para uma hierarquia aninhada, por exemplo, um grupo que inclua os subordinados diretos e os subordinados deles.
+> 2. Essa regra só dá suporte a subordinados **diretos**. Atualmente, não é possível criar um grupo para uma hierarquia aninhada; por exemplo, um grupo que inclui relatórios diretos e os respectivos relatórios.
+> 3. Esta regra não pode ser combinada com nenhuma outra regra avançada.
 
 **Para configurar o grupo**
 
 1. Siga as etapas de 1 a 5 da seção [Para criar a regra avançada](#to-create-the-advanced-rule) e selecione o **Tipo de associação** como **Usuário Dinâmico**.
 2. Na folha **Regras de associação dinâmica** , insira a regra com a seguinte sintaxe:
 
-    *Subordinados diretos para "{obectID_of_manager}"*
+    *Relatórios diretos para "{objectID_of_manager}"*
 
     Um exemplo de uma regra válida:
 ```
@@ -283,7 +279,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
  deviceModel | Um valor de cadeia de caracteres. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, Empresa, Desconhecido | (device.deviceOwnership -eq "Company")
  domainName | Um valor de cadeia de caracteres. | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Nome do perfil de registro do dispositivo da Apple | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nome do perfil de perfil de registro de dispositivo Apple ou Autopilot do Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  organizationalUnit | qualquer valor de cadeia de caracteres correspondente ao nome da unidade organizacional definido por um Active Directory local | (device.organizationalUnit -eq "US PCs")
@@ -295,19 +291,43 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Alterando a associação dinâmica para estática e vice-versa
 É possível alterar como a associação é gerida em um grupo. Isso é útil quando você quer manter o mesmo ID e nome de grupo no sistema, então, todas as referências existentes no grupo ainda serão válidas; criar um novo grupo exigiria atualizar essas referências.
 
-Estamos atualizando o portal do Azure para oferecer suporte a essa funcionalidade. Enquanto isso, você pode usar cmdlets do PowerShell conforme mostrado abaixo.
+Atualizamos o Centro de administração do Azure AD para adicionar suporte a essa funcionalidade. Agora, os clientes podem converter os grupos existentes de associação dinâmica para associação atribuída, e vice-versa, por meio do Centro de Administração do Microsoft Azure AD ou de cmdlets do PowerShell, conforme mostrado abaixo.
 
 > [!WARNING]
 > Ao alterar um grupo estático existente para um grupo dinâmico, todos os membros existentes serão removidos do grupo e, em seguida, a regra de associação será processada para adicionar novos membros. Se o grupo for utilizado para controlar o acesso a aplicativos ou recursos, os membros originais poderão perder o acesso até que a regra de associação seja totalmente processada.
 >
-> É uma prática recomendada testar previamente a nova regra de associação para garantir que a nova associação no grupo seja conforme o esperado.
+> É recomendável testar a nova regra de associação antes para garantir que a nova associação no grupo esteja conforme esperado.
 
-**Usando o PowerShell para alterar o gerenciamento de associação em um grupo**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Usar o Centro de Administração do Microsoft Azure AD para alterar o gerenciamento de associação em um grupo 
+
+1. Entre no [Centro de Administração do Microsoft Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de usuário no locatário.
+2. Selecione **Grupos**.
+3. Na lista **Todos os grupos**, abra o grupo que você deseja alterar.
+4. Selecione **Propriedades**.
+5. Na página **Propriedades**do grupo, selecione um **Tipo de Associação** entre Atribuído (estático), Usuário Dinâmico ou Dispositivo Dinâmico, dependendo do tipo de associação desejado. Para associação dinâmica, é possível usar o construtor de regras para selecionar opções para uma regra simples ou gravar uma regra avançada. 
+
+As etapas a seguir são um exemplo de alteração de um grupo de associação estática para dinâmica para um grupo de usuários. 
+
+1. Na página **Propriedades** do grupo selecionado, selecione um **Tipo de Associação** do **Usuário Dinâmico** e, em seguida, selecione Sim na caixa de diálogo explicando as alterações na associação do grupo para continuar. 
+  
+   ![selecionar tipo de associação do usuário dinâmico](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Selecione **Adicionar consulta dinâmica** e, em seguida, forneça a regra.
+  
+   ![inserir a regra](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. Depois de criar a regra, selecione **Adicionar consulta** na parte inferior da página.
+4. Selecione **Salvar** na página **Propriedades** para o grupo salvar suas alterações. O **Tipo de Associação** do grupo é imediatamente atualizado na lista de grupos.
+
+> [!TIP]
+> A conversão de grupo poderá falhar se a regra avançada que você inseriu estiver incorreta. Uma notificação é exibida no canto superior direito do portal, explicando porque a regra não pode ser aceita pelo sistema. Leia com atenção para entender como você pode ajustar a regra para torná-la válida.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Usar o PowerShell para alterar o gerenciamento de associação em um grupo
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets **da versão prévia da** [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets **da versão prévia da** [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Observe que toma-se cuidado ao manipular a propriedade GroupTypes corretamente e preservar quaisquer valores que possam existir, não relacionados à associação dinâmica.
+Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Neste exemplo, é preciso ter cuidado para manipular corretamente a propriedade GroupTypes e preservar quaisquer valores não relacionados à associação dinâmica.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

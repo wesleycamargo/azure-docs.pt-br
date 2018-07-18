@@ -1,25 +1,26 @@
 ---
-title: "Visão Geral do Azure Monitor| Microsoft Docs"
-description: "O Azure Monitor coleta estatísticas para uso em alertas, webhooks, dimensionamento automático e automação. O artigo também lista outras opções de monitoramento da Microsoft."
+title: Visão Geral do Azure Monitor| Microsoft Docs
+description: O Azure Monitor coleta estatísticas para uso em alertas, webhooks, dimensionamento automático e automação. O artigo também lista outras opções de monitoramento da Microsoft.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312161"
 ---
 # <a name="overview-of-azure-monitor"></a>Visão geral do Azure Monitor
 Este artigo fornece uma visão geral do Serviço do Azure Monitor no Microsoft Azure. Ele aborda o que o Azure Monitor faz e fornece ponteiros para informações adicionais sobre como usar o Azure Monitor.  Se preferir uma introdução em vídeo, consulte os links em Próximas etapas no final deste artigo. 
@@ -35,15 +36,13 @@ O Azure Monitor tem uma página de aterrissagem que ajuda os usuários a:
 - Compreender as funcionalidades de monitoramento oferecidas pelo Azure.
 - Descobrir, configurar e integrar as funcionalidades de monitoramento premium de plataforma do Azure.
 
-Embora o serviço Azure Monitor esteja liberado, a página de aterrissagem de visão geral está em versão prévia. 
-
 A página é um ponto de partida para a navegação, incluindo a integração. Ela mostra problemas importantes selecionados de diferentes serviços e permite ao usuário navegar para eles no contexto.
  
 ![Modelo para o monitoramento e diagnóstico dos recursos não de computação](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Ao abrir a página, selecione uma entre as assinaturas às quais você tem acesso de leitura. Para uma assinatura selecionada, você poderá ver:
 
-- **Alertas disparados e fontes de alerta** – essa tabela mostra as contagens resumidas, as fontes de alerta e quantas vezes os alertas foram disparados na duração selecionada. Ela se aplica alertas de métricas e do log de atividades. *<Editar: Alertas (Versão prévia) com a experiência unificada também são mostrados para todos os alertas - eventos, métricas e logs>*
+- **Alertas disparados e fontes de alerta** – essa tabela mostra as contagens resumidas, as fontes de alerta e quantas vezes os alertas foram disparados na duração selecionada. Ela se aplica aos alertas novos e antigos. Leia mais sobre os [Alertas mais recentes do Azure](monitoring-overview-unified-alerts.md). 
 - **Erros do Log de Atividades** – se um dos recursos do Azure registrar eventos com uma gravidade em nível de erro, você poderá exibir uma contagem de alto nível e clicar para acessar a página do log de atividades para investigar cada evento.
 - **Integridade do Serviço do Azure** – você pode ver uma contagem de problemas do serviço de Integridade do Serviço, eventos de manutenção planejada e avisos de integridade. A Integridade do Serviço do Azure fornece informações personalizadas quando problemas na infraestrutura do Azure afetam os serviços.  Consulte [Integridade do Serviço do Azure](../service-health/service-health-overview.md) para obter mais informações.  
 - **Application Insights** – consulte os KPIs de cada recurso do AppInsights na assinatura atual. Os KPIs são otimizados para o monitoramento de aplicativos do lado do servidor em tipos de aplicativo ASP.NET, aplicativos Web, Java, Node e Geral. Os KPIs incluem métricas de taxa de solicitação, duração da resposta, taxa de falha e % de disponibilidade. 
@@ -110,7 +109,7 @@ Os exemplos incluem:
 
 ### <a name="store-and-archive"></a>Armazenar e arquivar
 Alguns dados de monitoramento já ficam armazenados e disponíveis no Azure Monitor por um período determinado. 
-- As métricas são armazenadas por 30 dias. 
+- As métricas são armazenadas por 90 dias. 
 - As entradas do log de atividades são armazenadas por 90 dias. 
 - Logs de diagnóstico não são armazenados. 
 
@@ -143,12 +142,12 @@ Alguns métodos de visualização incluem:
 
 ### <a name="automate"></a>Automatizar
 > [!NOTE]
-> Como parte da evolução contínua de Alertas no Microsoft Azure, agora há uma experiência unificada para o alerta em versão prévia. Obtenha mais detalhes sobre [Alertas do Azure (Versão prévia)](monitoring-overview-unified-alerts.md)
+> Como parte da evolução contínua de Alertas no Microsoft Azure, agora há uma experiência unificada disponível para o alerta. Obtenha mais detalhes sobre [Novos alertas do Azure](monitoring-overview-unified-alerts.md)
 
-Nos Alertas do Azure padrão, você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
+Nos alertas do Azure, você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
 
 * Use os dados para dimensionar automaticamente as instâncias de computação com base na carga do aplicativo.
-* Envie emails quando uma métrica passar de um limite predeterminado.
+* Envie emails com base nas condições de métrica ou de log. 
 * Chame uma URL da Web (webhook) para executar uma ação em um sistema fora do Azure
 * Inicie um runbook na automação do Azure para executar quaisquer tarefas
 
@@ -170,4 +169,4 @@ Saiba mais sobre
 - Configure as [Extensões de Diagnóstico do Azure](../azure-diagnostics.md) se você estiver tentando diagnosticar problemas em seu Serviço de Nuvem, Máquina Virtual, conjunto de dimensionamento de máquinas virtuais ou aplicativo do Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você tiver problemas de diagnóstico em seu aplicativo Web do Serviço de Aplicativo.
 - [Solucionar de problemas no Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md) ao usar os Blobs, Tabelas ou Filas de Armazenamento
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

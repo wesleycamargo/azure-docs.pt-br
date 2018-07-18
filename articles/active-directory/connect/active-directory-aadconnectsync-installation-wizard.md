@@ -1,12 +1,12 @@
 ---
-title: "Executar novamente o assistente de instalação do Azure AD Connect | Microsoft Docs"
-description: "Explica como o assistente de instalação funciona na segunda vez que é executado."
-keywords: "O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado"
+title: Executar novamente o assistente de instalação do Azure AD Connect | Microsoft Docs
+description: Explica como o assistente de instalação funciona na segunda vez que é executado.
+keywords: O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150508"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
 Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
@@ -79,7 +80,7 @@ Para alterar o estado, selecione essa opção e marque ou desmarque a caixa de s
 ![Opção que também está mostrando o estado atual do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Alterar a entrada do usuário
-Esta opção permite mudar da sincronização de senha para federação ou o oposto. Você não pode alterar para **não configurar**.
+Essa opção permite que você altere o método de entrada do usuário de e para sincronização de hash de senha, autenticação de passagem ou federação. Você não pode alterar para **não configurar**.
 
 Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

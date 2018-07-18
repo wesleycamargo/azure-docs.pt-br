@@ -1,29 +1,29 @@
 ---
-title: "Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0 | Microsoft Docs"
-description: "Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0"
+title: Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0 | Microsoft Docs
+description: Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Implantar módulos para dispositivos IoT Edge usando a extensão de IoT da CLI do Azure 2.0
 
-A [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de software livre para gerenciamento dos recursos do Azure como, por exemplo, o IoT Edge. A CLI do Azure 2.0 está disponível para Windows, Linux e MacOS.
+A [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de software livre para gerenciamento dos recursos do Azure como, por exemplo, o IoT Edge. A CLI do Azure 2.0 está disponível para Windows, Linux e MacOS.
 
 A CLI do Azure 2.0 permite que você gerencie instantaneamente recursos, instâncias de serviço de provisionamento de dispositivos e hubs vinculados do Hub IoT do Azure. A nova extensão de IoT aprimora a CLI do Azure 2.0 com recursos como gerenciamento de dispositivos e todos os recursos do IoT Edge.
 
-Neste tutorial, você primeiro conclui as etapas para configurar a CLI do Azure 2.0 e a extensão de IoT. Em seguida, você aprende como implantar módulos em um dispositivo de IoT Edge usando os comandos disponíveis da CLI.
+Neste artigo, que você configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, você aprende como implantar módulos em um dispositivo de IoT Edge usando os comandos disponíveis da CLI.
 
 ## <a name="prerequisites"></a>pré-requisitos
 

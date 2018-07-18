@@ -6,13 +6,13 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/15/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -57,7 +57,8 @@ Você pode personalizar as propriedades a seguir da VM de destino ao proteger no
 |---------|---------|
 |Grupo de recursos de destino     | Modifique o grupo de recursos de destino no qual a VM é criada. Como parte da nova proteção, a VM de destino é excluída. Você pode escolher um novo grupo de recursos sob o qual criar a VM após o failover.        |
 |Rede virtual de destino     | A rede de destino não pode ser alterada durante o trabalho de nova proteção. Para alterar a rede, refaça o mapeamento de rede.         |
-|Armazenamento de destino     | Você pode alterar a conta de armazenamento que a VM usa após o failover.         |
+|Armazenamento de destino (a VM secundária não usa discos gerenciados)     | Você pode alterar a conta de armazenamento que a VM usa após o failover.         |
+|Discos gerenciados de réplica (a VM secundária usa discos gerenciados)    | O Site Recovery cria discos gerenciados de réplica na região primária para espelhar discos gerenciados da VM secundária.         | 
 |Armazenamento de cache     | Você pode especificar uma conta de armazenamento de cache a ser usada durante a replicação. Por padrão, uma nova conta de armazenamento de cache será criada se ela não existir.         |
 |Conjunto de disponibilidade     |Se a VM na região secundária for parte de um conjunto de disponibilidade, você poderá escolher um conjunto de disponibilidade para a VM de destino na região primária. Por padrão, o Site Recovery tenta localizar o conjunto de disponibilidade existente na região primária e usá-lo. Durante a personalização, você pode especificar um novo conjunto de disponibilidade.         |
 
@@ -68,7 +69,8 @@ Por padrão, acontece o seguinte:
 
 1. Uma conta de armazenamento de cache é criada na região primária
 2. Se a conta de armazenamento de destino (a conta de armazenamento original na região primária) não existir, uma nova será criada. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento usada pela VM secundária, com o sufixo "asr".
-3. Se o conjunto de disponibilidade de destino não existir, um novo será criado como parte do trabalho de nova proteção, se necessário. Se você personalizar as configurações de nova proteção, o conjunto selecionado será usado.
+3. Se a sua VM usar discos gerenciados, os discos gerenciados de réplica serão criados na região primária para armazenar os dados replicados dos discos da VM secundária. 
+4. Se o conjunto de disponibilidade de destino não existir, um novo será criado como parte do trabalho de nova proteção, se necessário. Se você personalizar as configurações de nova proteção, o conjunto selecionado será usado.
 
 Quando você dispara um trabalho de nova proteção e a VM de destino existe, ocorre o seguinte:
 

@@ -1,10 +1,10 @@
 ---
-title: "IP privado interno estático – VM do Azure – Clássico"
-description: "Noções básicas sobre IPs estáticos internos (DIPs) e como gerenciá-los"
+title: IP privado interno estático – VM do Azure – Clássico
+description: Noções básicas sobre IPs estáticos internos (DIPs) e como gerenciá-los
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
-ms.author: jdial
-ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 05/18/2018
+ms.author: genli
+ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366606"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP privado interno estático usando o PowerShell (clássico)
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento. 
@@ -95,7 +96,7 @@ Para remover o IP interno estático adicionado à VM no script acima, execute o 
     | Update-AzureVM
 
 ## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Como adicionar um IP interno estático a uma VM existente
-Para adicionar um IP interno estático à VM criada usando o script acima, execute o comando a seguir:
+Para adicionar um IP interno estático à VM criada usando o script acima, execute o seguinte comando:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

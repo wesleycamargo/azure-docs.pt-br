@@ -3,9 +3,9 @@ title: Gerenciar uma conta do Azure Cosmos DB pelo Portal do Azure | Microsoft D
 description: Saiba como gerenciar sua conta do Azure Cosmos DB pelo Portal do Azure. Encontre um guia sobre como usar o Portal do Azure para exibir, copiar, excluir e acessar contas.
 keywords: Portal do Azure, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9c8126c7f902beec348419c0362722a692cb393e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerenciar uma conta do Azure Cosmos DB
 Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do Azure Cosmos DB no portal do Azure.
@@ -64,7 +64,7 @@ Se você tiver aplicativos ou serviços de nuvem que usam a conta do Azure Cosmo
 
 1. Atualize a chave de acesso no código do aplicativo para referenciar a chave de acesso secundária da conta do Azure Cosmos DB.
 2. Regenere a chave de acesso primária de sua conta do Azure Cosmos DB. No [portal do Azure](https://portal.azure.com/), acesse sua conta do Azure Cosmos DB.
-3. Na página **Conta do Microsoft Azure Cosmos DB**, clique em **Chaves** (ou **Cadeia de caracteres de conexão** para contas MongoDB**).
+3. Na página **Conta do Microsoft Azure Cosmos DB**, clique em **Chaves** (ou **Cadeia de caracteres de conexão** para contas MongoDB\*\*).
 4. Na página **Chaves**/**Cadeia de conexão**, clique no botão Regenerar e clique em **OK** para confirmar que você quer gerar uma nova chave.
     ![Regenerar chaves de acesso](./media/manage-account/regenerate-keys.png)
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente cinco minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.

@@ -1,20 +1,20 @@
 ---
 title: Esquema da Grade de Eventos do Azure para Hub IoT | Microsoft Docs
-description: "Página de referência para as propriedades de Hub IoT e o formato de esquema de evento"
+description: Página de referência para as propriedades de Hub IoT e o formato de esquema de evento
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos da Grade de Eventos do Azure para Hub IoT
 
@@ -27,7 +27,7 @@ Hub IoT do Azure emite os seguintes tipos de evento:
 | Tipo de evento | DESCRIÇÃO |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo é registrado para um Hub IoT. |
-| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído para um Hub IoT. | 
+| Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é excluído de um Hub IoT. | 
 
 ## <a name="example-event"></a>Exemplo de evento
 

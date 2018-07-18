@@ -1,35 +1,35 @@
 ---
-title: "Exemplo do PowerShell – Sincronização entre o Banco de Dados SQL e o SQL Server local | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para sincronização entre um Banco de Dados SQL do Azure e um banco de dados SQL Server local"
+title: Exemplo do PowerShell – Sincronização entre o Banco de Dados SQL e o SQL Server local | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para sincronização entre um Banco de Dados SQL do Azure e um banco de dados SQL Server local
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/31/2017
+ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: a29c8c7fbd583b45849be6fcab046c578dbbb98a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: bef2e3088bf3f3d32f59b382792608fbf3a03a60
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Use o PowerShell para sincronizar entre um Banco de Dados SQL e um banco de dados local do SQL Server
 
-Este exemplo do PowerShell configura a Sincronização de Dados para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. 
+Este exemplo do PowerShell configura a Sincronização de Dados (versão prévia) para sincronização entre um Banco de Dados SQL do Azure e um banco de dados do SQL Server local. 
 
-Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](../sql-database-sync-data.md).
 
@@ -101,7 +101,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount 
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
@@ -358,7 +358,7 @@ else
 
 ```
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Após a execução do exemplo de script, execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
@@ -369,9 +369,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Cria um novo Agente de Sincronização |
 | [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Gera a chave do agente associada ao Agente de sincronização |
@@ -395,7 +395,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md)
 -   [Configurar a Sincronização de Dados SQL do Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics do OMS](../sql-database-sync-monitor-oms.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

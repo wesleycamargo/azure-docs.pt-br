@@ -1,23 +1,22 @@
 ---
-title: Encaminhar dados de trabalho de Automação do Azure para o OMS Log Analytics
-description: Este artigo demonstra como enviar status de trabalho e fluxos de trabalho de runbook para Gerenciamento e Log Analytics do Microsoft Operations Management Suite para fornecer informações adicionais.
+title: Encaminhar dados de trabalho de Automação do Azure para o Log Analytics
+description: Este artigo demonstra como enviar fluxos de trabalho de runbook e status de trabalho para o Azure Log Analytics para fornecer informações e gerenciamento adicionais.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics (OMS)
-A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS). Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Com o Log Analytics, você pode:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Com o Log Analytics, você pode:
 
 * Obter informações sobre os Trabalhos de automação.
 * Disparar um email ou um alerta com base no status de trabalho de runbook (por exemplo, com falha ou suspenso).
@@ -157,7 +156,7 @@ Ao depurar um trabalho, talvez você também queira examinar os fluxos de trabal
 Finalmente, talvez você queira visualizar o histórico de trabalho ao longo do tempo. Você pode usar essa consulta para pesquisar o status dos trabalhos ao longo do tempo.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Gráfico de status de trabalho histórico do OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Gráfico de status de trabalho histórico do Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Resumo
 Ao enviar seus dados de fluxo e status do Trabalho de automação para Log Analytics, você poderá ter mais informações sobre o status de seus Trabalhos de automação:
@@ -170,4 +169,4 @@ O Log Analytics oferece maior visibilidade operacional para os Trabalhos de auto
 * Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Para entender como criar e recuperar mensagens de erro e de saída de runbooks, confira [Saída e mensagens de Runbook](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md).
-* Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md).
+* Para saber mais sobre o Log Analytics e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md).

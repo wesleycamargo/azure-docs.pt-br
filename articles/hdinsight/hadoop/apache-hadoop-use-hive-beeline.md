@@ -1,8 +1,8 @@
 ---
-title: "Usar o Beeline com o Apache Hive – Azure HDInsight | Microsoft Docs"
-description: "Aprenda a usar o cliente Beeline para executar consultas Hive com Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 sobre JDBC."
+title: Usar o Beeline com o Apache Hive – Azure HDInsight | Microsoft Docs
+description: Aprenda a usar o cliente Beeline para executar consultas Hive com Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 sobre JDBC.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/02/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usar o cliente Beeline com o Apache Hive
 
@@ -110,7 +108,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Essas informações descrevem as colunas na tabela. Embora possamos executar algumas consultas nestes dados, vamos criar uma nova tabela para demonstrarmos como carregar os dados no Hive e como aplicar um esquema.
+    Essas informações descrevem as colunas na tabela.
 
 4. Insira as instruções a seguir para criar uma tabela chamada **log4jLogs** usando os dados de exemplo fornecidos com o cluster HDInsight:
 
@@ -143,7 +141,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 
     * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Essa consulta deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` – O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.
+    * `INPUT__FILE__NAME LIKE '%.log'` – O Hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que deve retornar apenas dados de arquivos que terminam em .log.
 
   > [!NOTE]
   > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
@@ -254,10 +252,17 @@ Para localizar o nome de domínio totalmente qualificado de um nó principal, us
 
 O Spark fornece sua própria implementação de HiveServer2, que, às vezes, é referenciado como o servidor Spark Thrift. Esse serviço usa Spark SQL para resolver consultas em vez de Hive e pode fornecer um desempenho melhor, dependendo da consulta.
 
-Para se conectar ao servidor Spark Thrift de um Spark no cluster HDInsight, use a porta `10002` em vez de `10001`. Por exemplo, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+A __cadeia de conexão__ usada ao conectar pela internet é um pouco diferente. Em vez de conter `httpPath=/hive2` é `httpPath/sparkhive2`. A seguir, um exemplo de conexão pela Internet:
 
-> [!IMPORTANT]
-> O servidor Spark Thrift não pode ser acessado diretamente pela internet. Você pode conectar-se a ele somente partir de uma sessão SSH ou dentro da mesma Rede Virtual do Azure que o cluster HDInsight.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Ao conectar diretamente do nó principal do cluster ou de um recurso dentro da mesma Rede Virtual do Azure que o cluster HDInsight, a porta `10002` deve ser usada para o servidor do Spark Thrift em vez de `10001`. A seguir, um exemplo de conexão direta ao nó principal:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Próximas etapas
 

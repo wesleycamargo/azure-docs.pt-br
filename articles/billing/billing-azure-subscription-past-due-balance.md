@@ -1,25 +1,25 @@
 ---
 title: Email de saldo vencido do Azure | Microsoft Docs
 description: Descreve como fazer um pagamento se a sua assinatura do Azure tiver um saldo devido anterior
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/30/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 20761f9c6caf029b2b6bbc8e02b2f041c45abf01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e5d8849e59d95640b490d29bf1233135980486c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver o saldo vencido de sua assinatura do Azure após receber um email do Azure
 

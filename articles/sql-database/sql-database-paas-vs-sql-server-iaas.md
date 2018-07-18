@@ -8,13 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: a7fde828c7a88f440cf69e3a4b26bb6c75cdaafb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c42d99d101307b17d0f6d15520c97457d5065c5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194892"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 O Azure tem duas opções para hospedar cargas de trabalho do SQL Server no Microsoft Azure:
@@ -74,7 +75,10 @@ Seja você uma startup sem recursos financeiros ou uma equipe em uma empresa est
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de licenciamento e cobrança
 **SQL Database** é vendido a clientes como um serviço, não com uma licença.  [SQL Server nas VMs do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) é vendido com uma licença incluída que você paga por minuto. Se você tiver uma licença existente, também poderá usá-la.  
 
-Atualmente, o **Banco de Dados SQL** está disponível em várias camadas de serviço, todas as quais são cobradas por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho que você escolher. Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. As camadas de serviço Basic, Standard e Premium são projetadas para oferecer um desempenho previsível com vários níveis de desempenho para atender às necessidades de pico do seu aplicativo. Você pode alterar entre as camadas de serviço e os níveis de desempenho para atender às necessidades de produtividade variadas do seu aplicativo. Se o banco de dados tem alto volume transacional e precisa oferecer suporte a muitos usuários simultaneamente, recomendamos a camada de serviço Premium. Para obter as últimas informações sobre as camadas de serviço atuais com suporte, consulte [Camadas de Serviço do Banco de Dados SQL do Azure](sql-database-service-tiers.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos de desemprenho entre instâncias de banco de dados.
+Atualmente, o **Banco de Dados SQL** está disponível em várias camadas de serviço, todas as quais são cobradas por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho que você escolher. Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. As camadas de serviço Básico, Standard, Premium, Uso Geral e Crítico são projetados para fornecer desempenho previsível com vários níveis de desempenho para atender aos requisitos de pico do aplicativo. Você pode alterar entre as camadas de serviço e os níveis de desempenho para atender às necessidades de produtividade variadas do seu aplicativo. Para obter as informações mais recentes sobre as camadas de serviço atuais com suporte, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos de desemprenho entre instâncias de banco de dados.
+
+> [!IMPORTANT]
+> Se o banco de dados tiver um alto volume de transações e precisar dar suporte a muitos usuários simultâneos, são recomendáveis as camadas de serviço Premium ou Crítico. Para minimizar a latência entre o aplicativo e o banco de dados SQL, localize o aplicativo na mesma região que o banco de dados e, em seguida, teste o desempenho - aumentando a camada de serviço e o nível de desempenho, conforme necessário.
 
 Com o **Banco de Dados SQL**, o software de banco de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, seus recursos de [backup interno](sql-database-automated-backups.md) o ajudam a obter economia significativa, principalmente quando você tem um grande número de bancos de dados.
 
@@ -112,7 +116,7 @@ Com o **SQL Server nas VMs do Azure**, você tem controle total sobre o sistema 
 ### <a name="service-level-agreement-sla"></a>Contrato de nível de serviço (SLA)
 Para vários departamentos de TI, atender às obrigações de tempo de atividade de um SLA (Contrato de Nível de Serviço) é uma grande prioridade. Nesta seção, vamos examinar qual SLA se aplica a cada opção de hospedagem de banco de dados.
 
-Para as camadas de serviço Básico, Standard e Premium do **Banco de Dados SQL** , a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as últimas informações, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as últimas informações sobre as camadas de serviço do Banco de Dados SQL e os planos de continuidade de negócios com suporte, consulte [Camadas de Serviço](sql-database-service-tiers.md).
+Para camadas de serviço Básico, Standard, Premium, Uso Geral e Crítico do **Banco de Dados SQL**, a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as últimas informações, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as informações mais recentes sobre as camadas de serviço de Banco de Dados SQL e planos de continuidade de negócios com suporte, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 
 Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a Máquina Virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como [Grupos de Disponibilidade AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja > 99,99% de disponibilidade do banco de dados.
 

@@ -1,24 +1,24 @@
 ---
-title: "Estágio de implantação do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "As metas, as tarefas e as entregas para o estágio de implantação dos seus projetos de ciência de dados"
+title: Estágio de implantação do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: As metas, as tarefas e as entregas para o estágio de implantação dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 45d801bf0096879143f91feb230445625559379f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: a56aa9c317703186e1ba2ab6bed9aa1875d318c2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="deployment"></a>Implantação
 

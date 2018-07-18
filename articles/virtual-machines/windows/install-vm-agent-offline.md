@@ -2,23 +2,24 @@
 title: Instalar o Agente de VM do Azure no modo offline | Microsoft Docs
 description: Saiba como instalar o Agente de VM do Azure no modo offline.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 3770cc3338c89a9bf88e2cf9ec3faa37e2ff109b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363287"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o Agente de Máquina Virtual do Azure no modo offline 
 
@@ -106,12 +107,11 @@ Use as etapas a seguir para instalar o Agente de VM no modo offline.
 
 13.  Acesse a VM. Observe que o RdAgent está em execução e os logs estão sendo gerados.
 
-Se você cria a VM usando o modelo de implantação clássico, está pronto.
-
+Se você criou a VM usando o modelo de implantação do Resource Manager, você está pronto.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Use a propriedade ProvisionGuestAgent para VMs criadas com o Azure Resource Manager
 
-Se você criar a VM usando o modelo de implantação do Resource Manager, use o módulo Azure PowerShell para atualizar a propriedade **ProvisionGuestAgent**. A propriedade informa o Azure que a VM tem o Agente de VM instalado.
+Se você tiver criado a VM usando o modelo clássico, use o módulo do Azure PowerShell para atualizar a propriedade **ProvisionGuestAgent**. A propriedade informa o Azure que a VM tem o Agente de VM instalado.
 
 Para definir a propriedade **ProvisionGuestAgent**, execute os seguintes comandos do Azure PowerShell:
 
@@ -130,5 +130,5 @@ Em seguida, execute o `Get-AzureVM` comando. Observe que a propriedade **GuestAg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral do Agente de Máquina Virtual do Azure](agent-user-guide.md)
+- [Visão geral do Agente de Máquina Virtual do Azure](../extensions/agent-windows.md)
 - [Recursos e extensões da máquina virtual para Windows](extensions-features.md)

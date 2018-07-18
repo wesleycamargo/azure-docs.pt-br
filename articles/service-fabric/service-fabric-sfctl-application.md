@@ -1,12 +1,12 @@
 ---
-title: "CLI do Azure Service Fabric – aplicativo sfctl | Microsoft Docs"
+title: CLI do Azure Service Fabric – aplicativo sfctl | Microsoft Docs
 description: Descreve os comandos do aplicativo sfctl da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
 Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
 
 ## <a name="commands"></a>Comandos
 
-|Get-Help|DESCRIÇÃO|
+|Comando|DESCRIÇÃO|
 | --- | --- |
 | create       | Crie um aplicativo do Service Fabric usando a descrição especificada.|
 | excluir       | Exclui um aplicativo existente do Service Fabric.|
@@ -71,7 +71,7 @@ Crie um aplicativo do Service Fabric usando a descrição especificada.
 | --debug              | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h            | Mostrar esta mensagem de ajuda e sair.|
 | --output -o          | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query              | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query              | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose            | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-delete"></a>sfctl application delete
@@ -94,7 +94,7 @@ Exclui um aplicativo existente do Service Fabric. Um aplicativo deve ser criado 
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
@@ -117,7 +117,7 @@ Obtém as informações sobre um aplicativo implantado em um nó do Service Fabr
 | --debug                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                 | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                 | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-health"></a>sfctl application health
@@ -143,7 +143,7 @@ Retorna o estado de integridade do aplicativo do service fabric. A resposta most
 | --debug                                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                                 | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                                 | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -166,7 +166,7 @@ Retorna as informações sobre o aplicativo que foi criado, ou que está sendo c
 | --debug                      | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                    | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                  | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.             Padrão: json.|
-| --query                      | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                      | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                    | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
@@ -192,7 +192,7 @@ Obtém as informações sobre os aplicativos que foram criados, ou que estão se
 | --debug                      | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                    | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                  | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.             Padrão: json.|
-| --query                      | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                      | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose                    | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-load"></a>sfctl application load
@@ -212,7 +212,7 @@ Retorna as informações de carga sobre o aplicativo que foi criado ou que estav
 |--debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
     --help -h                  | Mostrar esta mensagem de ajuda e sair.|
     --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-    --query                    | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+    --query                    | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
     --verbose                  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -235,15 +235,13 @@ Obtém o manifesto que descreve um tipo de aplicativo. A resposta contém o XML 
 | --debug                           | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                         | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                       | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.                  Padrão: json.|
-| --query                           | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                           | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                         | Aumentar o nível de detalhes do log. Use --debug para todos os logs de depuração.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
 Provisiona ou registra um tipo de aplicativo do Service Fabric com o cluster usando o pacote SFPKG no armazenamento externo ou o pacote de aplicativos no repositório de imagens.
 
-Provisiona um tipo de aplicativo do Service Fabric com o cluster. Isso é necessário antes que qualquer aplicativo novo possa ser instanciado. A operação de provisionamento pode ser executada no pacote do aplicativo especificado pelo relativePathInImageStore, ou usando o URI do SFPKG externo. A menos que --external-provision esteja definido, esse comando espera o provisionamento do repositório
-
-de imagens.
+Provisiona um tipo de aplicativo do Service Fabric com o cluster. Isso é necessário antes que qualquer aplicativo novo possa ser instanciado. A operação de provisionamento pode ser executada no pacote do aplicativo especificado pelo relativePathInImageStore, ou usando o URI do SFPKG externo. A menos que --external-provision esteja definido, esse comando provisionará o pacote de aplicativos do repositório de imagens.
         
 
 
@@ -266,7 +264,7 @@ de imagens.
 | --debug                              | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                            | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                          | O formato da saída.  Valores permitidos: json, jsonc, table,                     tsv.  Padrão: json.|
-| --query                              | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                              | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                            | Aumentar o nível de detalhes do log. Use --debug para todos os logs de depuração.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
@@ -293,7 +291,7 @@ Retorna as informações sobre os tipos de aplicativos provisionados, ou que est
 | --debug                        | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                      | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                    | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.               Padrão: json.|
-| --query                        | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                        | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose                      | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
@@ -317,7 +315,7 @@ Remove ou cancela o registro de um tipo de aplicativo do Service Fabric do clust
 | --debug                           | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                         | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                       | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.                  Padrão: json.|
-| --query                           | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query                           | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose                         | Aumentar o nível de detalhes do log. Use --debug para todos os logs de depuração.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
@@ -354,7 +352,7 @@ Valida os parâmetros de atualização de aplicativo fornecidos e começa a atua
 | --debug                     | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                   | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                 | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.            Padrão: json.|
-| --query                     | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --query                     | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | --verbose                   | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-upload"></a>sfctl application upload
@@ -377,7 +375,7 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 | --debug       | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h     | Mostrar esta mensagem de ajuda e sair.|
 | --output -o   | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query       | Cadeia de caracteres de consulta JMESPath. Para mais informações, consulte http://jmespath.org/.|
+| --query       | Cadeia de caracteres de consulta JMESPath. Para obter mais informações, consulte http://jmespath.org/.|
 | --verbose     | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

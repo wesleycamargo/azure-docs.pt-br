@@ -3,7 +3,7 @@ title: Diagrama de processamento de pagamento do Azure - Requisitos de CHD
 description: Requisito 3 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 9736f7c8-c632-4b86-8b8a-6e4f45c1a7aa
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 7ff8a412b16025afe2640b73b51d9b2a2fdca354
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Requisitos de CHD para ambientes em conformidade com o PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Requisito 3 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Proteger os dados do titular do cartão armazenados**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte o PCI DSS para obter informações sobre procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 Métodos de proteção, como criptografia, truncamento, mascaramento e hash, são essenciais na proteção dos dados do titular do cartão. Se um invasor contorna outros controles de segurança e obtém acesso aos dados criptografados, sem as chaves de criptografia adequadas, os dados não podem ser lidos ou usados por ele. Outros métodos eficazes de proteger os dados armazenados também devem ser considerados como possíveis oportunidades de mitigação de risco. Por exemplo, os métodos para minimizar os riscos incluem não armazenar os dados do titular do cartão a menos que seja absolutamente necessário; truncar os dados do titular do cartão se não for necessário um PAN completo e não enviar PANs desprotegidos usando tecnologias de mensagem de usuário final, como email e sistema de mensagens instantâneas.
 Consulte o Glossário de termos, as Abreviações e os Acrônimos de PCI DSS e PA-DSS para obter definições de "criptografia forte" e outros termos de PCI DSS.
@@ -44,7 +44,7 @@ Consulte o Glossário de termos, as Abreviações e os Acrônimos de PCI DSS e P
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Azure é responsável por garantir que os dados do cliente designados para exclusão sejam encerrados com segurança usando protocolos compatíveis com NIST 800-88 especificados nas suas políticas de Descarte Seguro. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não exclui ou destrói CHDs armazenados. No entanto, todos os dados são criptografados e nenhum dado de PAN (número de conta primária) é armazenado.<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não exclui ou destrói CHDs armazenados. No entanto, todos os dados são criptografados e nenhum dado de PAN (número de conta primária) é armazenado.<br /><br />|
 
 
 
@@ -61,7 +61,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não excluir ou destrói CHDs armazenados; os dados de exemplo são armazenados apenas a fins de demonstração. No entanto, todos os dados são criptografados e nenhum dado de PAN (número de conta primária) é armazenado.<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não excluir ou destrói CHDs armazenados; os dados de exemplo são armazenados apenas a fins de demonstração. No entanto, todos os dados são criptografados e nenhum dado de PAN (número de conta primária) é armazenado.<br /><br />|
 
 
 
@@ -83,7 +83,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não armazena o conteúdo completo de nenhum CHD.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não armazena o conteúdo completo de nenhum CHD.|
 
 
 
@@ -96,7 +96,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore criptografa todos os dados, incluindo os exemplos de CVV.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore criptografa todos os dados, incluindo os exemplos de CVV.|
 
 
 
@@ -109,7 +109,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore não armazena informações de PIN.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore não armazena informações de PIN.|
 
 
 
@@ -125,7 +125,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore mascara o PAN (número da conta primária) usando Transparent Data Encryption, colunas sempre criptografadas e mascaramento de dados dinâmico. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore mascara o PAN (número da conta primária) usando Transparent Data Encryption, colunas sempre criptografadas e mascaramento de dados dinâmico. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -145,7 +145,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore criptografa todos os dados de cartão de crédito e usa o Azure Key Vault para gerenciar chaves, impedindo a recuperação de CHD.<br /><br />Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore criptografa todos os dados de cartão de crédito e usa o Azure Key Vault para gerenciar chaves, impedindo a recuperação de CHD.<br /><br />Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -161,7 +161,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore criptografa todos os dados armazenados e separa o tráfego para evitar a elevação de privilégios de funções de DevOps.<br /><br />Como o Ambiente do Serviço de Aplicativo é protegido e bloqueado, é preciso haver um mecanismo para permitir as versões ou alterações feitas por DevOps que possam ser necessárias, como a capacidade de monitorar um aplicativo Web usando Kudu.<br /><br />Uma máquina virtual é definida como jumpbox (host bastião) com as seguintes configurações:<br /><br /><ul><li>[Extensão de antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensão de monitoramento do OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensão Diagnóstico de VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco criptografado com BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>O uso do Azure Key Vault atende aos requisitos de HIPAA, PCI DSS e Azure Governamental.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore criptografa todos os dados armazenados e separa o tráfego para evitar a elevação de privilégios de funções de DevOps.<br /><br />Como o Ambiente do Serviço de Aplicativo é protegido e bloqueado, é preciso haver um mecanismo para permitir as versões ou alterações feitas por DevOps que possam ser necessárias, como a capacidade de monitorar um aplicativo Web usando Kudu.<br /><br />Uma máquina virtual é definida como jumpbox (host bastião) com as seguintes configurações:<br /><br /><ul><li>[Extensão de antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensão de monitoramento do Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensão Diagnóstico de VM](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco criptografado com BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>O uso do Azure Key Vault atende aos requisitos de HIPAA, PCI DSS e Azure Governamental.|
 
 
 
@@ -177,7 +177,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />O Microsoft Azure faz com que os cofres de chaves do cliente fiquem logicamente isolados uns dos outros e logicamente isolados do plano de gerenciamento do serviço Key Vault. O Key Vault foi projetado para que a Microsoft não tenha nenhum acesso permanente ao cofre de chaves do cliente. <br /><br />As chaves são protegidas pelo Microsoft Azure, usando HSMs (módulos de segurança de hardware), comprimentos da chave e algoritmos padrão da indústria.<br /><br />Uma chave armazenada no Microsoft Azure Key Vault pode ser usada para proteger outra chave. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece documentação para explicar e ajudar a implantar uma solução de chave protegida para proteger o CHD de demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece documentação para explicar e ajudar a implantar uma solução de chave protegida para proteger o CHD de demonstração.|
 
 
 
@@ -196,7 +196,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />O Microsoft Azure faz com que os cofres de chaves do cliente fiquem logicamente isolados uns dos outros e logicamente isolados do plano de gerenciamento do serviço Key Vault. O Key Vault foi projetado para que a Microsoft não tenha nenhum acesso permanente ao cofre de chaves do cliente. <br /><br />As chaves são protegidas pelo Microsoft Azure, usando HSMs (módulos de segurança de hardware), comprimentos da chave e algoritmos padrão da indústria.<br /><br />Uma chave armazenada no Microsoft Azure Key Vault pode ser usada para proteger outra chave. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece documentação para explicar e ajudar a implantar uma solução de chave protegida para proteger o CHD de demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece documentação para explicar e ajudar a implantar uma solução de chave protegida para proteger o CHD de demonstração.|
 
 
 
@@ -210,7 +210,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />O Key Vault dá suporte a políticas de acesso granular, que permitem a um proprietário do Key Vault conceder acesso a funções específicas para a execução de operações específicas em entidades específicas. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | O gerenciamento de chaves da Contoso Webstore é isolado em uma conta de usuário (administrador##@contosowebstore.com).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | O gerenciamento de chaves da Contoso Webstore é isolado em uma conta de usuário (administrador##@contosowebstore.com).|
 
 
 
@@ -229,7 +229,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente.<br /><br />O Key Vault pode ser acessado globalmente e simultaneamente por vários aplicativos, o que reduz a necessidade de copiar uma chave e armazená-la em vários locais. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -243,7 +243,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />As chaves são armazenadas nos cofres de chaves específicos identificados pelo cliente. <br /><br />O Key Vault pode ser acessado globalmente e simultaneamente por vários aplicativos, o que reduz a necessidade de copiar uma chave e armazená-la em vários locais. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -259,7 +259,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -272,7 +272,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:** <br /><br />Ao gerar chaves no Key Vault, o Azure será responsável por gerar chaves de acordo com as especificações do cliente. As chaves são geradas usando um HSM. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -285,7 +285,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />A ferramenta BYOK (traga sua própria chave) encapsula a chave de cliente e tem como alvo um cofre de segurança específico que está associado a uma assinatura do Azure específica. A chave só pode ser importada para o cofre de chaves da assinatura definida, na região especificada. Esse processo usa os procedimentos de criptografia fornecidos pelo fabricante do hardware. Os clientes recebem uma notificação de que a transferência foi bem-sucedida. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -298,7 +298,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />As chaves são armazenadas em HSMs e protegidas por meio de segurança criptográfica do fabricante do hardware. Os metadados sobre as chaves são armazenados no Armazenamento do Azure em estado criptografado, que é exclusivo para cada cofre de chaves. <br /><br /> |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -311,7 +311,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />O Key Vault dá suporte à funcionalidade de atualizar ou reverter chaves, que é definida pelo cliente. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -327,7 +327,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />O Key Vault dá suporte à funcionalidade de aposentar ou sustituir, que é definida pelo cliente. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -343,7 +343,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -356,7 +356,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | **Para clientes usando o Key Vault:**<br /><br />Os cofres de chaves são separados logicamente e não dão suporte à autorização entre diretórios. Com isso, evita-se a substituição não autorizada. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -369,7 +369,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | O gerenciamento de chaves da Contoso Webstore é isolado em uma conta de usuário (administrador##@contosowebstore.com).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | O gerenciamento de chaves da Contoso Webstore é isolado em uma conta de usuário (administrador##@contosowebstore.com).|
 
 
 
@@ -382,7 +382,7 @@ Os dados confidenciais de autenticação incluem os dados mencionados nos seguin
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore usa o Azure Key Vault em todo o gerenciamento de chaves. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 

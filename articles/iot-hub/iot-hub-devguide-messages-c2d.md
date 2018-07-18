@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
 
 Para enviar notificações unidirecionais para o aplicativo do dispositivo do back-end de solução, envie mensagens de nuvem para o dispositivo do seu Hub IoT para seu dispositivo. Para uma discussão sobre outras opções de nuvem para o dispositivo com suporte do Hub IoT, consulte [Diretrizes de comunicação de nuvem para o dispositivo][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Você pode enviar mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço (**/messages/devicebound**). Um dispositivo recebe as mensagens através de um ponto de extremidade específico do dispositivo (**/devices/{deviceId}/messages/devicebound**).
 

@@ -1,25 +1,23 @@
 ---
-title: "Analisar dados de atraso de voo com o Hadoop no HDInsight – Azure | Microsoft Docs"
+title: Analisar dados de atraso de voo com o Hadoop no HDInsight – Azure | Microsoft Docs
 description: Saiba como usar um script do Windows PowerShell para criar um cluster HDInsight, executar um trabalho do Hive, executar um trabalho do Sqoop e excluir o cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Hadoop no HDInsight
 O Hive fornece um meio para executar trabalhos MapReduce do Hadoop por meio de uma linguagem de script semelhante à SQL, chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicada para resumo, consulta e análise de grandes volumes de dados.
@@ -51,11 +49,11 @@ Nos apêndices, você pode encontrar instruções de carregamento dos dados de a
 > [!NOTE]
 > As etapas deste documento são específicas de clusters HDInsight baseados no Windows. Para conhecer as etapas que funcionam em um cluster baseado em Linux, confira [Analisar dados de atraso de voos usando o Hive no HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Uma estação de trabalho com o PowerShell do Azure**.
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma estação de trabalho com o PowerShell do Azure.**
 
     > [!IMPORTANT]
     > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e foi removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
@@ -72,7 +70,7 @@ Se quiser saber como obter/carregar os dados em sua própria conta de Armazename
 A tabela a seguir lista os arquivos usados neste tutorial:
 
 <table border="1">
-<tr><th>Arquivos</th><th>Descrição</th></tr>
+<tr><th>Arquivos</th><th>DESCRIÇÃO</th></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>O arquivo de script HiveQL usado pelo o trabalho do Hive. Este script foi carregado em uma conta de Armazenamento de Blob do Azure com acesso público. O <a href="#appendix-b">Apêndice B</a> contém instruções para preparar e carregar este arquivo em sua própria conta de Armazenamento de Blobs do Azure.</td></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Dados de entrada para o trabalho do Hive. Os dados foram carregados em uma conta de armazenamento de Blob do Azure com acesso público. O <a href="#appendix-a">Apêndice A</a> contém instruções para obter e carregar os dados em sua própria conta de Armazenamento de Blobs do Azure.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>O caminho de saída para o trabalho do Hive. O contêiner padrão é usado para armazenar os dados de saída.</td></tr>
@@ -134,7 +132,7 @@ Para obter mais informações sobre como criar um cluster HDInsight e executar t
         $acct = Get-AzureRmSubscription
     }
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionID $subscriptionID
 
@@ -256,12 +254,13 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
 2. Na página, selecione os valores a seguir:
 
     <table border="1">
-    <tr><th>Nome</th><th>Valor</th></tr>
+    <tr><th>NOME</th><th>Valor</th></tr>
     <tr><td>Filtrar por ano</td><td>2013 </td></tr>
     <tr><td>Filtrar por período</td><td>Janeiro</td></tr>
     <tr><td>Campos</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
     </table>
-3. Clique em **Baixar**.
+
+3. Clique em **Download**.
 4. Descompacte o arquivo na pasta **C:\Tutorials\FlightDelay\2013Data**. Cada arquivo é um arquivo CSV e tem aproximadamente 60 GB de tamanho.
 5. Renomeie o arquivo com o nome do mês ao qual seus dados se referem. Por exemplo, o arquivo que contém os dados de janeiro seria nomeado *January.csv*.
 6. Repita as etapas 2 e 5 para baixar um arquivo para cada um dos 12 meses de 2013. Você precisará de pelo menos um arquivo para executar o tutorial.
@@ -275,6 +274,7 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
     <tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar os dados.</td></tr>
     <tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar os dados.</td></tr>
     </table>
+    
 2. Abra o ISE do PowerShell do Azure.
 3. Cole o seguinte script no painel de script:
 
@@ -299,7 +299,7 @@ Carregar o arquivo de dados e os arquivos de script HiveQL (consulte o [Apêndic
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -383,8 +383,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
     <tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure para a qual você deseja carregar o script do HiveQL.</td></tr>
     <tr><td>$blobContainerName</td><td>O contêiner de Blob para o qual você deseja carregar o script do HiveQL.</td></tr>
     </table>
-2. Abra o ISE do PowerShell do Azure.
-3. Copie e cole o seguinte script no painel de script:
+    
+2. Abra o ISE do PowerShell do Azure.  
+
+3. Copie e cole o seguinte script no painel de script:  
 
     ```powershell
     [CmdletBinding()]
@@ -418,7 +420,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
@@ -573,8 +575,10 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
     <tr><td>$sqlDatabaseLocation</td><td>Esse valor é usado somente quando você estiver criando um novo servidor de banco de dados do Azure.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>O banco de dados SQL usado para criar a tabela AvgDelays para o trabalho do Sqoop. Deixar em branco criará um banco de dados chamado HDISqoop. O nome da tabela para a saída do trabalho Sqoop é AvgDelays. </td></tr>
     </table>
+    
 2. Abra o ISE do PowerShell do Azure.
-3. Copie e cole o seguinte script no painel de script:
+
+3. Copie e cole o seguinte script no painel de script:  
 
     ```powershell
     [CmdletBinding()]
@@ -635,7 +639,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
     #Region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #EndRegion
 
     #region - Create and validate Azure resouce group
@@ -699,7 +703,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Linguagem de Defini
     ```
 
    > [!NOTE]
-   > O script usa um serviço de transferência de estado representacional REST, http://bot.whatismyipaddress.com, para recuperar seu endereço IP externo. O endereço IP é usado para criar uma regra de firewall para seu servidor do Banco de Dados SQL.
+   > O script usa um serviço REST (Transferência de Estado Representacional), http://bot.whatismyipaddress.com, para recuperar seu endereço IP externo. O endereço IP é usado para criar uma regra de firewall para seu servidor do Banco de Dados SQL.
 
     A seguir estão algumas das variáveis usadas no script:
 

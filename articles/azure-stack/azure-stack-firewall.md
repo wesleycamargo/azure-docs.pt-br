@@ -1,25 +1,26 @@
 ---
 title: Sistemas de firewall de pilha do Azure, planejamento de pilha do Azure integrados | Microsoft Docs
-description: "Descreve as considerações de firewall de pilha do Azure para implantações de vários nós conectados do Azure de pilha do Azure."
+description: Descreve as considerações de firewall de pilha do Azure para implantações de vários nós conectados do Azure de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604209"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração do Azure de firewall de pilha
 É recomendável que você use um dispositivo de firewall para ajudar a proteger pilha do Azure. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuídos, detecção de intrusão e inspeção de conteúdo, eles também podem se tornar um afunilamento de taxa de transferência para serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -44,11 +45,11 @@ Estas são algumas das desvantagens do uso de NAT para VIP público:
 Atualmente, é recomendável desabilitar a descriptografia de SSL em todo o tráfego de pilha do Azure. Se ele é suportado em atualizações futuras, serão fornecidas diretrizes sobre como habilitar a descriptografia SSL para a pilha do Azure.
 
 ## <a name="edge-firewall-scenario"></a>Cenário de firewall de borda
-Em uma implantação de borda, a pilha do Azure é implantada diretamente por trás do firewall ou o roteador de borda. Nesses cenários, há suporte para o firewall acima da borda ou atuando como o dispositivo de borda se ele dá suporte a igual Cost Multi Path (ECMP) com BGP ou roteamento estático.
+Em uma implantação de borda, a pilha do Azure é implantada diretamente por trás do firewall ou o roteador de borda. Nesses cenários, há suporte para o firewall acima da borda (cenário 1) em que ele oferece suporte a configurações de firewall ativo-ativo e ativo-passivo ou atuar como o dispositivo de borda (cenário 2) em que suporta apenas firewall ativo-ativo configuração confiável no igual Cost Multi Path (ECMP) com BGP ou roteamento estático para o failover.
 
 Normalmente, os endereços IP roteáveis públicos são especificados para o pool de VIP público da rede externa no momento da implantação. Em um cenário de borda, não é recomendável usar IPs roteável públicos em qualquer outra rede para fins de segurança. Este cenário permite que um usuário tiver a experiência completa de nuvem automaticamente controlado como uma nuvem pública como o Azure.  
 
-![Exemplo de firewall de borda de pilha do Azure](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Exemplo de firewall de borda de pilha do Azure](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Cenário de firewall de rede de perímetro ou intranet de empresa
 Em uma implantação de perímetro ou intranet corporativa Azure pilha é implantada em um firewall com várias zonas ou entre o firewall de borda e o firewall de rede corporativa interna. O tráfego é distribuído, em seguida, entre a rede de perímetro segura, (ou DMZ) e zonas não seguras como descrito abaixo:

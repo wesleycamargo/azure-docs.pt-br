@@ -1,3 +1,26 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 7e9518f8a90faa0566b96d58992b01e4b0a642f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="test-your-code"></a>Testar seu código
 
 Para testar o aplicativo no Visual Studio, pressione **F5** para executar seu projeto. O navegador abre para o local http://<span></span>localhost:{port} e você visualiza o botão **Entrar com a conta da Microsoft**. Selecione o botão para iniciar o processo de entrada.
@@ -9,7 +32,7 @@ Quando estiver pronto para executar o teste, use uma conta do Microsoft Azure AD
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Veja os resultados de aplicativo
-Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro do aplicativo no Portal de Registro de Aplicativos da Microsoft. A home page inclui uma mensagem de boas-vindas "Olá \<Usuário>," um link para sair e um link para exibir as declarações de usuário. O link para as declarações de usuário navega até o controlador **Autorizar** criado anteriormente.
+Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro do aplicativo no Portal de Registro de Aplicativos da Microsoft. A página inicial inclui uma mensagem de boas-vindas *"Olá \<Usuário>,"* um link para sair e um link para exibir as declarações de usuário. O link para as declarações de usuário navega até o controlador *Declarações* criado anteriormente.
 
 ### <a name="browse-to-see-the-users-claims"></a>Navegue para ver as declarações de usuário
 Para ver as declarações de usuário, selecione o link para navegar até a exibição do controlador disponível somente para usuários autenticados.
@@ -28,40 +51,43 @@ Além disso, você deve ver uma tabela de todas as declarações que estão na s
 
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testar o acesso a um método que tenha um atributo Autorizar (opcional)
-Para testar o acesso ao **Autorizar** para declarações de usuário como usuário anônimo, execute essas etapas:
+Para testar o acesso como um usuário anônimo a um controlador protegido com o atributo `Authorize`, siga estas etapas:
 1. Selecione o link para desconectar o usuário e concluir o processo de saída.
-2. No seu navegador, digite http://<span></span>localhost:{port}/authenticated para acessar o controlador que está protegido com o atributo **Autorizar**.
+2. No navegador, digite http://<span></span>localhost:{port}/claims para acessar o controlador que está protegido com o atributo `Authorize`.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Resultados esperados após o acesso a um controlador protegido
 Você será solicitado a autenticar para usar a exibição do controlador protegido.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="advanced-options"></a>Opções Avançadas
 
 <!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Proteja todo o seu site
-Para proteger todo o seu site, no arquivo **Global.asax**, adicione o atributo **AuthorizeAttribute** ao filtro **GlobalFilters** no método **Application_Start**:
+Para proteger todo o site, no arquivo **Global.asax**, adicione o atributo `AuthorizeAttribute` ao filtro `GlobalFilters` no método `Application_Start`:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
 <!--end-collapse-->
 
-### <a name="restrict-sign-in-access-to-your-application"></a>Limite o acesso de entrada para seu aplicativo
-Por padrão, contas pessoais como outlook.com, live.com e outros podem entrar no seu aplicativo. As contas corporativas ou de estudante em organizações integradas com o Microsoft Azure Active Directory também podem entrar, por padrão.
+### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode se conectar ao seu aplicativo
+Por padrão, quando você compila o aplicativo criado por este guia, o aplicativo aceitará conexões de contas pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas ou de estudante de qualquer empresa ou organização que foi integrada ao Azure Active Directory. Essa é uma opção recomendada para aplicativos SaaS.
 
-Para restringir acesso de entrada de usuário para seu aplicativo, há várias opções disponíveis.
+Para restringir acesso de entrada de usuário para seu aplicativo, há várias opções disponíveis:
 
-#### <a name="restrict-access-to-a-single-organization"></a>Restringir o acesso a uma única organização
-É possível restringir o acesso de entrada para o seu aplicativo apenas a contas de usuários que estão em uma única organização doMicrosoft Azure Active Directory:
-1. No arquivo **web.config**, altere o valor para o parâmetro **Locatário**. Altere o valor de **Common** para o nome do locatário da organização, como **contoso.onmicrosoft.com**.
-2. Na classe **OWIN Startup**, defina o argumento **ValidateIssuer** para **true**.
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opção 1: restringir a conexão de usuários da instância do Active Directory de uma única organização ao seu aplicativo (único locatário)
 
-#### <a name="restrict-access-to-a-list-of-organizations"></a>Restringir o acesso a uma lista de organizações
+Essa opção é um cenário comum para *aplicativos LOB*: se você quiser que seu aplicativo aceite entradas somente de contas que pertencem a uma instância específica do Azure Active Directory (incluindo *contas de convidados* dessa instância), faça o seguinte:
+
+1. No arquivo **web. config**, altere o valor para o parâmetro `Tenant` de `Common` para o nome do locatário da organização, como `contoso.onmicrosoft.com`.
+2. Na [classe de inicialização OWIN](#configure-the-authentication-pipeline), defina o argumento `ValidateIssuer` como `true`.
+
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opção 2: restringir o acesso ao seu aplicativo aos usuários em uma lista específica de organizações
+
 É possível restringir acesso de entrada apenas a contas de usuários que estão em uma organização do Microsoft Azure Active Directory que esteja na lista de organizações permitidas:
-1. No arquivo **web.config**, na classe **OWIN Startup**, defina o argumento **ValidateIssuer** para **true**.
-2. Defina o valor do parâmetro **ValidIssuers** para a lista de organizações permitidas.
+1. Na [classe de inicialização OWIN](#configure-the-authentication-pipeline), defina o argumento `ValidateIssuer` como `true`.
+2. Defina o valor do parâmetro `ValidIssuers` para a lista de organizações permitidas.
 
-#### <a name="use-a-custom-method-to-validate-issuers"></a>Usar um método personalizado para validar emissores
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: usar um método personalizado para validar emissores
 É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, leia sobre a [classe TokenValidationParameters](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

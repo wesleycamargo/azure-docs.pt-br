@@ -1,5 +1,5 @@
 ---
-title: "Configurar microsserviços confiáveis do Azure | Microsoft Docs"
+title: Configurar microsserviços confiáveis do Azure | Microsoft Docs
 description: Saiba como configurar o Reliable Services com estado no Service Fabric do Azure.
 services: Service-Fabric
 documentationcenter: .net
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
@@ -27,7 +27,7 @@ Há dois conjuntos de definições de configuração para Reliable Services. Um 
 A configuração do Reliable Service global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
@@ -103,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade em um manifesto de serviço. |

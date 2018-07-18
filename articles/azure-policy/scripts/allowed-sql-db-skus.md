@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – SKUs de BD de SQL permitidos | Microsoft Docs"
-description: "Essa política de exemplo de json requer que os Bancos de Dados SQL usem um SKU aprovado."
+title: Exemplo de json do Azure Policy – SKUs de BD de SQL permitidos | Microsoft Docs
+description: Essa política de exemplo de json requer que os Bancos de Dados SQL usem um SKU aprovado.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3799c61993fd1e7713e2823e3f933525dc65b18d
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 6e72816204d5d811715d8ef24e9d473e22a7c31c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allowed-sql-db-skus"></a>SKUs do BD SQL permitidas
 

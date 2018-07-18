@@ -1,11 +1,11 @@
 ---
-title: "Controlar o roteamento em uma rede virtual do Azure - CLI - Clássico | Microsoft Docs"
-description: "Aprenda a controlar o roteamento em VNets usando o Azure CLI no modelo de implantação clássico"
+title: Controlar o roteamento em uma rede virtual do Azure - CLI - Clássico | Microsoft Docs
+description: Aprenda a controlar o roteamento em VNets usando o Azure CLI no modelo de implantação clássico
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
 ms.service: virtual-network
@@ -14,19 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 6bfdfcdde39d64d662bb6d2ea55fadca24d49091
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: genli
+ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controlar o roteamento e usar dispositivos virtuais (clássico) usando o Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [CLI do Azure](tutorial-create-route-table-cli.md)
-> * [Modelo](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Clássico)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Clássica)](virtual-network-create-udr-classic-cli.md)
 

@@ -1,24 +1,24 @@
 ---
-title: "Lidando com erros nas Funções Duráveis – Azure"
-description: "Saiba como lidar com erros na extensão de Funções Duráveis do Azure Functions."
+title: Lidando com erros nas Funções Duráveis – Azure
+description: Saiba como lidar com erros na extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ee5362d33bb9dadadb4194457cfd7726f4825f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Lidando com erros nas Funções Duráveis (Azure Functions)
 
@@ -26,7 +26,7 @@ Orquestrações de Funções Duráveis são implementadas no código e podem usa
 
 ## <a name="errors-in-activity-functions"></a>Erros em funções de atividade
 
-Qualquer exceção que é lançada em uma função de atividade sofre marshaling de volta para a função de orquestrador e é lançada como um `TaskFailedException`. Você pode escrever o código de compensação e tratamento de erro que atenda às suas necessidades na função de orquestrador.
+Qualquer exceção que é lançada em uma função de atividade sofre marshaling de volta para a função de orquestrador e é lançada como um `FunctionFailedException`. Você pode escrever o código de compensação e tratamento de erro que atenda às suas necessidades na função de orquestrador.
 
 Por exemplo, considere a seguinte função de orquestrador, que transfere fundos de uma conta para outra:
 
@@ -80,7 +80,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
@@ -127,6 +127,9 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
     }
 }
 ```
+
+> [!NOTE]
+> Esse mecanismo não encerra a execução de funções de atividade em andamento. Em vez disso, ele simplesmente permite que a função de orquestrador ignore o resultado e prossiga. Para saber mais, confira a documentação do [Timers](durable-functions-timers.md#usage-for-timeout).
 
 ## <a name="unhandled-exceptions"></a>Exceções sem tratamento
 

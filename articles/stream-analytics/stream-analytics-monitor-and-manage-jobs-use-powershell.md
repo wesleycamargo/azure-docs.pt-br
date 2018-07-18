@@ -1,25 +1,19 @@
 ---
-title: Monitorar e gerenciar trabalhos do Stream Analytics com o PowerShell | Microsoft Docs
-description: PowerShell dSaiba como usar os cmdlets do Azure PowerShell para monitorar e gerenciar trabalhos do Stream Analytics.
-keywords: azure powershell, cmdlets do azure powershell, comando do powershell, scripts do powershell
+title: Monitorar e gerenciar trabalhos do Azure Stream Analytics usando o PowerShell
+description: Este artigo descreve como usar os cmdlets do Azure PowerShell para monitorar e gerenciar trabalhos do Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: b8d362a2789c4e1f5594baa2b86a16e523757037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61c26c55725c19f526680d70f3621d41e9590965
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorar e gerenciar trabalhos do Stream Analytics usando cmdlets do Azure PowerShell
 Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets do Azure PowerShell e script do PowerShell que executam tarefas básicas de análise de fluxo.
@@ -44,7 +38,7 @@ Azure PowerShell 0.9.8:
 Azure PowerShell 1.0:  
 
          # Log in to your Azure account
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
         # Select the Azure subscription you want to use to create the resource group.
         Get-AzureRmSubscription –SubscriptionName “your sub” | Select-AzureRmSubscription
@@ -450,7 +444,7 @@ Azure PowerShell 1.0:
 Esse comando do PowerShell testa o status de conexão da entrada Output no StreamingJob.  
 
 ## <a name="get-support"></a>Obtenha suporte
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

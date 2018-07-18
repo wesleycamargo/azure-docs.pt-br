@@ -1,3 +1,5 @@
+- name: Conceitos básicos do Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Documentação da Análise de Séries Temporais do Azure
   href: index.yml
 - name: Visão geral
@@ -5,10 +7,15 @@
     - name: Sobre o Time Series Insights
       href: time-series-insights-overview.md
 - name: Guia de início rápido
-  expanded: true
   items:
     - name: Explorar o Time Series Insights
       href: time-series-quickstart.md
+- name: Tutoriais
+  items:
+    - name: Explorar biblioteca de clientes TSI JavaScript
+      href: tutorial-explore-js-client-lib.md
+    - name: Criar um ambiente TSI
+      href: tutorial-create-populate-tsi-environment.md
 - name: Conceitos
   items:
     - name: Planejar seu ambiente
@@ -51,22 +58,46 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: Gerenciar recursos usando modelos
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: Modelar JSON para consultas
+      href: how-to-shape-query-json.md
 - name: Referência
   items:
     - name: API de Consulta
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
     - name: Sintaxe de consulta
       href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Relacionados
+  items:
+    - name: Soluções
+      items:
+        - name: Soluções pré-configuradas do IoT Suite
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Stream Analytics do Azure
+      href: /azure/stream-analytics/
 - name: Recursos
   items:
-    - name: Serviços Relacionados
-      items:
-        - name: Azure IoT Suite
-          href: /azure/iot-suite/
-        - name: Hubs de eventos do Azure
-          href: /azure/event-hubs/
-        - name: Stream Analytics do Azure
-          href: /azure/stream-analytics/
+    - name: Solicitações de dados do cliente
+      href: time-series-insights-customer-data-requests.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Preços

@@ -1,26 +1,24 @@
 ---
-title: "Acesso aos logs de aplicativo YARN do Hadoop no HDInsight baseado em Linux – Azure | Microsoft Docs"
+title: Acesso aos logs de aplicativo YARN do Hadoop no HDInsight baseado em Linux – Azure | Microsoft Docs
 description: Saiba como acessar os logs de aplicativo de YARN em um cluster HDInsight (Hadoop) baseado em Linux usando a linha de comando e um navegador da Web.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f61e94d37a5e5f958a706f0db82526996a4ec02
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67732b3a4c63408d8fc6ab5ed75b40a0eb043167
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Acesso aos logs de aplicativo YARN no HDInsight baseado em Linux
 
@@ -72,7 +70,7 @@ Especifique as informações &lt;applicationId>, &lt;user-who-started-the-applic
 
 A interface do usuário do ResourceManager YARN é executada no nó de cabeçalho do cluster. Ele é acessado por meio da interface do usuário da Web do Ambari. Execute as etapas a seguir para exibir os logs do YARN:
 
-1. No seu navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
+1. No navegador da Web, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 2. Na lista de serviços à esquerda da página, selecione **YARN**.
 
     ![Serviço de yarn selecionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

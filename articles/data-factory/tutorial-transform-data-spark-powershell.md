@@ -1,33 +1,32 @@
 ---
 title: Transformar dados usando o Spark no Azure Data Factory | Microsoft Docs
-description: "Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Spark no Azure Data Factory."
+description: Este tutorial fornece instruções passo a passo para transformar dados usando a Atividade Spark no Azure Data Factory.
 services: data-factory
-documentationcenter: 
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shengc
-ms.openlocfilehash: af5e19b212fdebe5220e49eeaa6ec9fc56b1da1c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: douglasl
+ms.openlocfilehash: c8676b4e7228105216f23de7c898c43c40fc2d0a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando a atividade Spark no Azure Data Factory
-Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a Atividade Spark e um serviço vinculado HDInsight sob demanda. Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você pode usar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a Atividade Spark e um serviço vinculado HDInsight sob demanda. Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar e implantar serviços vinculados.
 > * Criar e implantar um pipeline. 
-> * Inicie uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Iniciar uma execução de pipeline.
+> * Monitorar a execução de pipeline.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -207,7 +206,7 @@ Você criou definições de serviço vinculado e de pipeline em arquivos JSON. A
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Execute o comando abaixo para exibir todas as assinaturas dessa conta:
 
@@ -337,11 +336,11 @@ Você criou definições de serviço vinculado e de pipeline em arquivos JSON. A
 O pipeline nessa amostra copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Você aprendeu como: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Criar e implantar serviços vinculados.
 > * Criar e implantar um pipeline. 
-> * Inicie uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Iniciar uma execução de pipeline.
+> * Monitorar a execução de pipeline.
 
 Avance para o próximo tutorial para aprender como transformar dados executando o script Hive em um cluster do Azure HDInsight que está em uma rede virtual. 
 

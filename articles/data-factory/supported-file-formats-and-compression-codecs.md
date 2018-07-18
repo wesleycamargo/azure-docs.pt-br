@@ -2,18 +2,19 @@
 title: Formatos de arquivo com suporte no Azure Data Factory| Microsoft Docs
 description: Este tópico descreve os formatos de arquivo e os códigos de compactação com suporte nos conectores baseados em arquivo no Azure Data Factory.
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940147"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de arquivo e codecs de compactação com suporte no Azure Data Factory
 
@@ -444,6 +445,30 @@ Observe os seguintes pontos:
 * Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION)
 * O arquivo ORC tem três [opções de compactação](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB e SNAPPY. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo ORC, o Data Factory escolhe ZLIB, que é o padrão para ORC. Não há nenhuma opção para substituir esse comportamento neste momento.
 
+### <a name="data-type-mapping-for-orc-files"></a>Mapeamento de tipo de dados para arquivos ORC
+
+| Tipo de dados provisório do Data Factory | Tipos ORC |
+|:--- |:--- |
+| BOOLEAN | BOOLEAN |
+| SByte | Byte |
+| Byte | Curto |
+| Int16 | Curto |
+| UInt16 | int |
+| Int32 | int |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | Cadeia de caracteres |
+| Single | Float |
+| Duplo | Duplo |
+| Decimal | Decimal |
+| Cadeia de caracteres | Cadeia de caracteres |
+| Datetime | Timestamp |
+| DateTimeOffset | Timestamp |
+| timespan | Timestamp |
+| ByteArray | Binário |
+| Guid | Cadeia de caracteres |
+| Char | Char(1) |
+
 ## <a name="parquet-format"></a>Formato Parquet
 
 Se você quiser analisar os arquivos Parquet ou gravar os dados no formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
@@ -462,7 +487,32 @@ Se você quiser analisar os arquivos Parquet ou gravar os dados no formato Parqu
 Observe os seguintes pontos:
 
 * Não há suporte para tipos de dados complexos (MAP, LIST)
-* O arquivo Parquet tem as seguintes opções relacionadas à compactação: NONE, SNAPPY, GZIP e LZO. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo Parquet, o Data Factory escolhe SNAPPY, que é o padrão para o formato Parquet. Não há nenhuma opção para substituir esse comportamento neste momento.
+* O arquivo Parquet tem as seguintes opções relacionadas à compactação: NONE, SNAPPY, GZIP e LZO. O Azure Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo Parquet, o Data Factory escolhe SNAPPY, que é o padrão para o formato Parquet. Não há nenhuma opção para substituir esse comportamento neste momento.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Mapeamento de tipo de dados para arquivos Parquet
+
+| Tipo de dados provisório do Data Factory | Tipo Primitivo Parquet | Tipo Original Parquet (Desserializar) | Tipo Original Parquet (Serializar) |
+|:--- |:--- |:--- |:--- |
+| BOOLEAN | BOOLEAN | N/D | N/D |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/Binário | UInt64 | Decimal |
+| Single | Float | N/D | N/D |
+| Duplo | Duplo | N/D | N/D |
+| Decimal | Binário | Decimal | Decimal |
+| Cadeia de caracteres | Binário | Utf8 | Utf8 |
+| Datetime | Int96 | N/D | N/D |
+| timespan | Int96 | N/D | N/D |
+| DateTimeOffset | Int96 | N/D | N/D |
+| ByteArray | Binário | N/D | N/D |
+| Guid | Binário | Utf8 | Utf8 |
+| Char | Binário | Utf8 | Utf8 |
+| CharArray | Sem suporte | N/D | N/D |
 
 ## <a name="compression-support"></a>Suporte à compactação
 

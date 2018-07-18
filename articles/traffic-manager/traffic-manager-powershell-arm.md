@@ -1,6 +1,6 @@
 ---
-title: "Usando o PowerShell para gerenciar o Gerenciador de Tráfego no Azure | Microsoft Docs"
-description: "Usando o PowerShell para o Gerenciador de Tráfego com o Azure Resource Manager"
+title: Usando o PowerShell para gerenciar o Gerenciador de Tráfego no Azure | Microsoft Docs
+description: Usando o PowerShell para o Gerenciador de Tráfego com o Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
 author: kumudd
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1cd7bd7e32c96398d72c7cd3b51e2b456d60f01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
 
@@ -35,7 +35,7 @@ Cada perfil do Gerenciador de Tráfego é representado por um recurso do tipo "T
 
 Essas instruções usam o Microsoft Azure PowerShell. O artigo a seguir explica como instalar e configurar o Azure PowerShell.
 
-* [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
 
 Os exemplos neste artigo presumem que você tenha um grupo de recursos existente. Você pode criar um grupo de recursos usando o seguinte comando:
 
@@ -56,9 +56,9 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 A tabela a seguir lista os parâmetros:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| Nome |O nome do recurso para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS. |
+| NOME |O nome do recurso para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS. |
 | ResourceGroupName |O nome do grupo de recursos que contém o recurso do perfil. |
 | TrafficRoutingMethod |Especifica o método de roteamento de tráfego usado para determinar qual ponto de extremidade é retornado na resposta a consulta DNS. Os valores possíveis são “Desempenho”, “Ponderado” ou “Prioridade”. |
 | RelativeDnsName |Especifica a parte do nome de host do nome DNS fornecido por esse perfil do Gerenciador de Tráfego. Esse valor é combinado ao nome de domínio DNS usado pelo Gerenciador de Tráfego do Azure para formar o nome de domínio totalmente qualificado (FQDN) do perfil. Por exemplo, definindo o valor de “contoso” se torna “contoso.trafficmanager.net.” |
@@ -203,6 +203,18 @@ Neste exemplo, adicionamos um perfil filho existente como um ponto de extremidad
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+```
+
+## <a name="adding-endpoints-from-another-subscription"></a>Adicionar pontos de extremidade de outra assinatura
+
+O Gerenciador de Tráfego pode trabalhar com pontos de extremidade de assinaturas diferentes. É necessário alternar para a assinatura com o ponto de extremidade que você deseja adicionar para recuperar a entrada necessária para o Gerenciador de Tráfego. Em seguida, você precisa alternar para as assinaturas com o perfil do Gerenciador de Tráfego e adicione o ponto de extremidade a ele. O exemplo abaixo mostra como fazer isso com um endereço IP público.
+
+```powershell
+Set-AzureRmContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+
+Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
+New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Atualizar um Ponto de Extremidade do Gerenciador de Tráfego

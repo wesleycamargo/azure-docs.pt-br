@@ -1,13 +1,13 @@
 ---
-title: "Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
-description: "Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux."
-keywords: "serviço de aplicativo do azure, aplicativo web, perguntas frequentes, linux, oss"
+title: Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux | Microsoft Docs
+description: Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux.
+keywords: serviço de aplicativo do azure, aplicativo web, perguntas frequentes, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -46,6 +46,10 @@ Esta ação é igual a um reinício do Docker.
 **Posso usar o SSH (Secure Shell) para me conectar à VM (máquina virtual) do contêiner de aplicativo?**
 
 Sim, você pode fazer isso por meio do site de gerenciamento do controle de origem (SCM) .
+
+> [!NOTE] 
+> Você também pode se conectar ao contêiner de aplicativo diretamente do seu computador de desenvolvimento local usando SSH, SFTP ou Visual Studio Code (para aplicativos do Node.js de depuração ao vivo). Para obter mais informações, consulte [Depuração remota e SSH no Serviço de Aplicativo no Linux](https://aka.ms/linux-debug).
+>
 
 **Como criar um plano de Serviço de Aplicativo Linux por meio de um SDK ou um modelo do Azure Resource Manager?**
 

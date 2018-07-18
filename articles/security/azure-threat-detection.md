@@ -1,12 +1,12 @@
 ---
-title: "Detecção Avançada de Ameaças do Azure | Microsoft Docs"
-description: "Saiba mais sobre a Proteção de Identidade e seus recursos."
+title: Detecção Avançada de Ameaças do Azure | Microsoft Docs
+description: Saiba mais sobre a Proteção de Identidade e seus recursos.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção Avançada de Ameaças do Azure
 ## <a name="introduction"></a>Introdução
@@ -181,7 +181,7 @@ A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM
 
 Os pesquisadores também recebem informações de inteligência de ameaça que são compartilhadas entre os principais provedores de serviços de nuvem e assinam feeds de inteligência contra ameaças de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos. Alguns exemplos incluem:
 
--   **Utilizando a energia do Machine Learning -** Central de segurança do Azure tem acesso a uma grande quantidade de dados sobre a atividade de rede de nuvem, que pode ser usada para detectar ameaças que visem as implantações do Azure. Por exemplo:
+-   **Utilizando a energia do Machine Learning -** Central de segurança do Azure tem acesso a uma grande quantidade de dados sobre a atividade de rede de nuvem, que pode ser usada para detectar ameaças que visem as implantações do Azure. Por exemplo: 
 
 -   **Detecções de força bruta -** aprendizado de máquina é usado para criar um padrão de histórico de tentativas de acesso remoto, que permite detectar ataques de força bruta contra portas SQL, RDP e SSH.
 

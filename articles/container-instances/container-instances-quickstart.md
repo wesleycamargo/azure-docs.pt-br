@@ -3,17 +3,17 @@ title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêi
 description: Neste guia de início rápido, você usa a CLI do Azure para implantar um contêiner em Instâncias de Contêiner do Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Depois que o contêiner muda para o estado **Êxito**, é possível acessá-lo no navegador, navegando até seu FQDN:
+Depois que o contêiner muda para o estado **Êxito**, navegue até o FDQN no seu navegador:
 
 ![Captura de tela de navegador mostrando aplicativo em execução em uma instância de contêiner do Azure][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Acessar os logs de contêiner
 
-Você pode acessar os logs para o contêiner criado usando o comando [az container logs][az-container-logs]:
+Exibir os logs para uma instância de contêiner é útil ao solucionar problemas com o contêiner ou o aplicativo que é executado.
+
+Retire os logs do contêiner com o comando[az container logs] [ az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Você deve ver saídas semelhantes às seguintes:
+A saída exibe os logs para o contêiner e deve mostrar as solicitações HTTP GET geradas quando o aplicativo é exibido no navegador.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>Excluir o contêiner
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você conclui o contêiner, pode removê-lo usando o comando [az container delete][az-container-delete]:
+Quando você conclui o contêiner, remova-o usando o comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ O contêiner **mycontainer** não deve aparecer na saída do comando. Se você n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Todo o código para o contêiner usado neste início rápido está disponível [no GitHub][app-github-repo], juntamente com seu Dockerfile. Se você quiser tentar criá-lo e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
+Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser tentar criar uma imagem de contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutoriais sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)
+> [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)
 
-Para experimentar as opções para contêineres em execução em um sistema de orquestração no Azure, veja os inícios rápidos do [Service Fabric][service-fabric] ou do [Serviço de Contêiner do Azure (AKS)][container-service].
+Para experimentar as opções para contêineres em execução em um sistema de orquestração no Azure, veja os inícios rápidos do [Service Fabric][service-fabric] ou do [Serviço de Kubernetes do Azure (AKS)][container-service].
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

@@ -1,89 +1,54 @@
 ---
 title: Habilitar o Backup para a pilha do Azure com o PowerShell | Microsoft Docs
-description: "Habilite a infraestrutura de serviço de Backup com o Windows PowerShell para que a pilha do Azure podem ser restaurada, se houver uma falha."
+description: Habilite a infraestrutura de serviço de Backup com o Windows PowerShell para que a pilha do Azure podem ser restaurada, se houver uma falha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 5/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.reviewer: hectorl
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para a pilha do Azure com o PowerShell
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Habilite a infraestrutura de serviço de Backup com o Windows PowerShell para que a pilha do Azure podem ser restaurada, se houver uma falha. Você pode acessar os cmdlets do PowerShell para habilitar o backup, iniciar o backup e obter informações de backup por meio do ponto de extremidade de gerenciamento do operador.
+Habilitar a infraestrutura de serviço de Backup com o Windows PowerShell para executar backups periódicos do:
+ - Certificado de raiz e o serviço de identidade interna
+ - Planos de usuário, ofertas, assinaturas
+ - Keyvault segredos
+ - As políticas e funções de RBAC do usuário
 
-## <a name="download-azure-stack-tools"></a>Baixar ferramentas de pilha do Azure
+Você pode acessar os cmdlets do PowerShell para habilitar o backup, iniciar o backup e obter informações de backup por meio do ponto de extremidade de gerenciamento do operador.
 
-Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [colocar em funcionamento com o PowerShell no Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+## <a name="prepare-powershell-environment"></a>Preparar o ambiente do PowerShell
 
-##  <a name="load-the-connect-and-infrastructure-modules"></a>Carregar os módulos Connect e infraestrutura
+Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para Azure pilha ](azure-stack-powershell-install.md).
 
-Abra o Windows PowerShell com um prompt com privilégios elevados e execute os seguintes comandos:
-
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-   ```
-
-##  <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>Ambiente de Rm e log de instalação para o ponto de extremidade de gerenciamento do operador
-
-Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as variáveis para o seu ambiente. Execute o script atualizado para configurar o ambiente do RM e de log para o ponto de extremidade de gerenciamento do operador.
-
-| Variável    | DESCRIÇÃO |
-|---          |---          |
-| $TenantName | Nome do locatário do Active Directory do Azure. |
-| Nome de conta do operador        | Seu nome de conta do operador de pilha do Azure. |
-| Ponto de extremidade de Gerenciador de recursos do Azure | URL para o Gerenciador de recursos do Azure. |
-
-   ```powershell
-   # Specify Azure Active Directory tenant name
-    $TenantName = "contoso.onmicrosoft.com"
-    
-    # Set the module repository and the execution policy
-    Set-PSRepository `
-      -Name "PSGallery" `
-      -InstallationPolicy Trusted
-    
-    Set-ExecutionPolicy RemoteSigned `
-      -force
-    
-    # Configure the Azure Stack operator’s PowerShell environment.
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience "https://graph.windows.net/"
-    
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName $TenantName `
-      -EnvironmentName AzureStackAdmin
-    
-    # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
-   ```
 ## <a name="generate-a-new-encryption-key"></a>Gere uma nova chave de criptografia
 
+Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure.
+ - Consulte [colocar em funcionamento com o PowerShell no Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+ - Consulte [ferramentas baixar Azure pilha do GitHub](azure-stack-powershell-download.md)
+
+Abra o Windows PowerShell com um prompt com privilégios elevados e execute os seguintes comandos:
+   
+   ```powershell
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+   ```
+   
 Na sessão do PowerShell, execute os seguintes comandos:
 
    ```powershell
@@ -99,7 +64,7 @@ Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as vari
 
 | Variável        | DESCRIÇÃO   |
 |---              |---                                        |
-| $username       | Tipo de **Username** usando o domínio e o nome de usuário para o local da unidade compartilhada. Por exemplo, `Contoso\administrator`. |
+| $username       | Tipo de **Username** usando o domínio e o nome de usuário para o local da unidade compartilhada com permissões suficientes de acesso para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`. |
 | $password       | Tipo de **senha** para o usuário. |
 | $sharepath      | Digite o caminho para o **local de armazenamento de Backup**. Você deve usar uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivo hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local de recursos, como arquivos compartilhados ou dispositivos. Para garantir a disponibilidade dos dados de backup, o dispositivo deve estar em um local separado. |
 
@@ -118,7 +83,7 @@ Na sessão do PowerShell, edite o seguinte script PowerShell adicionando as vari
 Na sessão do PowerShell, execute os seguintes comandos:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 O resultado deve ser semelhante a seguinte saída JSON:
@@ -136,4 +101,4 @@ O resultado deve ser semelhante a seguinte saída JSON:
 ## <a name="next-steps"></a>Próximas etapas
 
  - Saiba como executar um backup, consulte [Azure pilha](azure-stack-backup-back-up-azure-stack.md ).  
-- Saiba como verificar se o backup foi executado, consulte [Confirmar backup concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md ).
+ - Saiba como verificar se o backup foi executado, consulte [Confirmar backup concluído no portal de administração](azure-stack-backup-back-up-azure-stack.md ).

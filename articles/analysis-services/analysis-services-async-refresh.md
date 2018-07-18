@@ -1,25 +1,19 @@
 ---
 title: Atualização assíncrona para modelos do Azure Analysis Services | Microsoft Docs
 description: Aprenda a codificar atualização assíncrona usando a API REST.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192856"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
@@ -104,7 +98,7 @@ Não é necessário especificar parâmetros. O padrão será aplicado.
 
 |NOME  |type  |DESCRIÇÃO  |Padrão  |
 |---------|---------|---------|---------|
-|type     |  Enum       |  O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic, add e defragment.       |   automático      |
+|type     |  Enum       |  O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 |CommitMode     |  Enum       |  Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
 |MaxParallelism     |   int      |  Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
 |RetryCount    |    int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
@@ -205,7 +199,7 @@ Aqui está um exemplo de código em C# para você começar, [RestApiSample on Gi
 1.  Clone ou baixe o repositório. Abra a solução RestApiSample.
 2.  Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
 
-O exemplo de código pode usar um logon interativo, nome de usuário/senha, ou uma [entidade de serviço](#service-principle).
+O exemplo de código pode usar um logon interativo, nome de usuário/senha, ou uma [entidade de serviço](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Logon interativo ou nome de usuário/senha
 

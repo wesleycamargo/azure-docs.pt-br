@@ -1,11 +1,11 @@
 ---
-title: "Adicionar nós de intermitência a um cluster de HPC Pack | Microsoft Docs"
-description: "Saiba como expandir um cluster HPC Pack no Azure sob demanda adicionando instâncias de função de trabalho em execução em um serviço de nuvem"
+title: Adicionar nós de intermitência a um cluster de HPC Pack | Microsoft Docs
+description: Saiba como expandir um cluster HPC Pack no Azure sob demanda adicionando instâncias de função de trabalho em execução em um serviço de nuvem
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 Se você configurar um cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure, poderá preferir uma maneira de dimensionar rapidamente a capacidade de cluster para mais ou menos, sem manter um conjunto de VMs do nó de computação pré-configuradas. Este artigo mostra como adicionar os nós de “disparo contínuo” sob demanda (instâncias de função de trabalho em execução em um serviço de nuvem) como recursos de computação para um nó de cabeçalho no Azure. 
@@ -32,7 +32,7 @@ Se você configurar um cluster [Microsoft HPC Pack](https://technet.microsoft.co
 
 As etapas neste artigo ajudam você a adicionar nós do Azure rapidamente a uma VM de nó de cabeçalho do HPC Pack baseado em nuvem para uma implantação de teste ou de prova de conceito. As etapas de alto nível são as mesmas que aquelas usadas para o “disparo contínuo para o Azure” para adicionar a capacidade de computação em nuvem a um cluster HPC Pack local. Para obter um tutorial, veja [Configurar um cluster de cálculo híbrido com o Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obter diretrizes e considerações detalhadas sobre implantações de produção, veja [Disparo contínuo para o Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * **Nó de cabeçalho do HPC Pack implantado em uma VM do Azure** – Você pode usar uma VM de nó de cabeçalho autônomo ou uma que faça parte de um cluster maior. Para criar um nó de cabeçalho autônomo, veja [Criar o nó principal de um cluster de Pacote HPC em uma VM do Azure com uma imagem do Marketplace](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para obter opções de implantação do cluster HPC Pack, veja [Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) do Windows no Azure com o Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]

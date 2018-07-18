@@ -1,11 +1,11 @@
 ---
-title: "Referência do desenvolvedor de Java do Azure Functions | Microsoft Docs"
-description: "Entenda como desenvolver funções usando Java."
+title: Referência do desenvolvedor de Java do Azure Functions | Microsoft Docs
+description: Entenda como desenvolver funções usando Java.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, java"
+keywords: azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 3f63cb5a16b74458f9b53fddaea13a61ec1196a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
-> [!div class="op_single_selector"]
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 ## <a name="programming-model"></a>Modelo de programação 
 
@@ -325,9 +323,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Variáveis de ambiente
+
+Geralmente é desejável para extrair informações secretas do código-fonte por motivos de segurança. Isso permite que o código seja publicado em repositórios de código de origem sem acidentalmente fornecer credenciais para outros desenvolvedores. Isso pode ser conseguido simplesmente usando variáveis de ambiente, ao executar o Azure Functions localmente e ao implantar suas funções no Azure.
+
+Para definir variáveis de ambiente facilmente ao executar o Azure Functions localmente, você pode optar por adicionar essas variáveis ao arquivo local.settings.json. Se uma não estiver presente no diretório raiz do seu projeto de função, fique à vontade para criar uma. Veja como o arquivo deve se parecer:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Cada chave / valor de mapeamento no mapa `values` estará disponível no tempo de execução como uma variável de ambiente, acessível ao chamar `System.getenv("<keyname>")`, por exemplo, `System.getenv("AzureWebJobsStorage")`. A adição de mais pares de chaves/valores é uma prática aceita e recomendada.
+
+> [!NOTE]
+> Se essa abordagem for adotada, considere se adicionar o arquivo local.settings.json ao seu repositório ignora o arquivo, para que isso não seja confirmado.
+
+Com o código agora dependendo dessas variáveis de ambiente, você pode fazer logon no Portal do Azure para definir os mesmos pares de chaves/valores em suas configurações de aplicativo de função, para que o código funcione de forma equivalente ao ser testado localmente e quando implantado no Azure.
+
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
+* [Azure Functions de Java de Depuração Remota com Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

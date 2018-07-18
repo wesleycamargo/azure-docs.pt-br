@@ -1,11 +1,11 @@
 ---
-title: "Criar um balanceador de carga voltado para a Internet - PowerShell clássico | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell"
+title: Criar um balanceador de carga voltado para a Internet - PowerShell clássico | Microsoft Docs
+description: Saiba como criar um balanceador de carga interno no modelo de implantação clássico usando o PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: timlt
-editor: 
+author: genlin
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
-ms.openlocfilehash: 85fd757bdd6dd9906a23977b760f01bb1f85bf77
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: genli
+ms.openlocfilehash: 8b896705d90b51c056172c285a00dabeed54ebf2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Introdução à criação de um balanceador de carga interno (clássico) usando o PowerShell
 
@@ -62,7 +62,7 @@ Observe que esse uso do cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/li
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Etapa 2: adicionar pontos de extremidade para a instância do Balanceamento de Carga Interno
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```powershell
 $svc="mytestcloud"
@@ -87,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Para usar esses comandos, preencha os valores e remova < e >. Aqui está um exemplo:
+Para usar esses comandos, preencha os valores e remova < e >. Veja um exemplo:
 
 ```powershell
 $svc="mytestcloud"
@@ -148,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Para usar esses comandos, preencha os valores e remova < e >.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```powershell
 $svc="mytestcloud"
@@ -166,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Para usar esses comandos, preencha os valores e remova < e >.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```powershell
 $svc="mytestcloud"

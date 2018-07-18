@@ -1,13 +1,13 @@
 ---
-title: "Início rápido: a instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs"
-description: "Guia de início rápido para a instalação manual do SAP HANA de instância única em máquinas virtuais do Azure"
+title: 'Início rápido: a instalação manual de instância única SAP HANA em máquinas virtuais do Azure | Microsoft Docs'
+description: Guia de início rápido para a instalação manual do SAP HANA de instância única em máquinas virtuais do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: instalação manual do SAP HANA de instância única em VMs do Azure
 ## <a name="introduction"></a>Introdução
@@ -29,7 +29,7 @@ Esta guia ajuda você a configurar o SAP HANA de instância única em máquinas 
 >[!Note]
 >Esta guia descreve as implantações do SAP HANA em VMs do Azure. Para obter informações sobre a implantação do SAP HANA em instâncias grandes do HANA, confira [Como usar SAP no Azure em máquinas virtuais (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Esta guia pressupõe que você está familiarizado com tais infraestruturas como, por exemplo, serviços básicos (Iaas):
  * Como implantar máquinas ou redes virtuais usando o portal do Azure ou o PowerShell.
  * A interface de linha de comando (CLI) de plataforma cruzada do Azure, incluindo a opção de usar modelos JavaScript Object Notation (JSON).
@@ -251,7 +251,7 @@ Para obter uma descrição do layout do sistema de arquivos padrão do SAP HANA,
 
 Quando você instala o SAP NetWeaver em um SLES/SLES padrão para imagem da galeria do Azure para aplicativos SAP 12 padrão, uma mensagem é exibida dizendo que não há nenhum espaço de permuta, conforme exibe a captura de tela a seguir. Para ignorar essa mensagem, você pode adicionar um arquivo de permuta manualmente usando **dd**, **mkswap** e **swapon**. Para saber como fazer isso, pesquise "Como adicionar um arquivo de permuta manualmente" na seção [Como usar o particionador YaST](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) da documentação do SUSE.
 
-Outra opção é configurar o espaço de troca por meio do agente de VM do Linux. Para saber mais, confira o [Guia de usuário do agente Linux para o Azure](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Outra opção é configurar o espaço de troca por meio do agente de VM do Linux. Para saber mais, confira o [Guia de usuário do agente Linux para o Azure](../../extensions/agent-linux.md).
 
 ![Mensagem pop-up informando que não há espaço de troca suficiente](./media/hana-get-started/image010.jpg)
 

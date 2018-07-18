@@ -3,21 +3,21 @@ title: Usar o Arquivo do Azure com o Serviço de Contêiner do Azure
 description: Usar discos do Azure com AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1def417f97a94fa0770b99606cd3a68189d1d51b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e0e62d37fbcc8f296deaee8e0f6658c0f72321ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volumes com arquivos do Azure
 
-Aplicativos baseados em contêiner geralmente precisam acessar e manter dados em um volume de dados externo. Os arquivos do Azure podem ser usados como esse armazenamento de dados externo. Este artigo detalha o uso de arquivos do Azure como um volume Kubernetes no Serviço de Contêiner do Azure.
+Aplicativos baseados em contêiner geralmente precisam acessar e manter dados em um volume de dados externo. Os arquivos do Azure podem ser usados como esse armazenamento de dados externo. Este artigo detalha o uso de arquivos do Azure como um volume Kubernetes no Serviço de Kubernetes do Azure.
 
 Para obter mais informações sobre volumes Kubernetes, consulte [Volumes Kubernetes][kubernetes-volumes].
 
@@ -66,7 +66,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-file-share-as-volume"></a>Montar compartilhamento de arquivos como volume
 
-Você pode montar seu compartilhamento de Arquivos do Azure em seu pod configurando o volume em suas especificações. Crie um novo arquivo chamado `azure-files-pod.yaml` com os conteúdos a seguir. Atualize `aksshare` com o nome fornecido para o compartilhamento de Arquivos do Azure.
+Monte seu compartilhamento de Arquivos do Azure em seu pod configurando o volume em suas especificações. Crie um novo arquivo chamado `azure-files-pod.yaml` com os conteúdos a seguir. Atualize `aksshare` com o nome fornecido para o compartilhamento de Arquivos do Azure.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ Use kubectl para criar um pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Agora você tem um contêiner em execução com o compartilhamento de arquivos do Azure montado no diretório `/mnt/azure`. Você pode ver a montagem do volume ao inspecionar o pod via `kubectl describe pod azure-files-pod`.
+Agora você tem um contêiner em execução com o compartilhamento de arquivos do Azure montado no diretório `/mnt/azure`.  Você pode ver a montagem do volume ao inspecionar o pod via `kubectl describe pod azure-files-pod`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

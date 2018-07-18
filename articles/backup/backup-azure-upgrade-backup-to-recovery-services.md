@@ -1,6 +1,6 @@
 ---
-title: "Atualizar um Cofre de backup para um cofre de Serviços de Recuperação | Microsoft Docs"
-description: "Instruções e informações de suporte para atualizar seu cofre de Backup do Azure em um cofre dos Serviços de Recuperação."
+title: Atualizar um Cofre de backup para um cofre de Serviços de Recuperação | Microsoft Docs
+description: Instruções e informações de suporte para atualizar seu cofre de Backup do Azure em um cofre dos Serviços de Recuperação.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -84,7 +84,7 @@ O script do PowerShell solicita que você insira suas credenciais. Insira suas c
 ### <a name="pre-requisites-checking"></a>Verificação de pré-requisitos
 Depois de inserir suas credenciais do Azure, o Azure verifica se o seu ambiente atende aos seguintes pré-requisitos:
 
-- **Versão mínima do agente** – Atualizar os cofres de Backup para cofres dos Serviços de Recuperação requer que o agente do MARS tenha pelo menos a versão 2.0.9083.0. Se você tiver itens registrados para um cofre de Backup com um agente anterior à versão 2.0.9083.0, a verificação de pré-requisitos falhará. Se a verificação de pré-requisitos falhar, atualize o agente e tente atualizar o cofre novamente. Você pode baixar a versão mais recente do agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versão mínima do agente** – Atualizar os cofres de Backup para cofres dos Serviços de Recuperação requer que o agente do MARS tenha pelo menos a versão 2.0.9083.0. Se você tiver itens registrados para um cofre de Backup com um agente anterior à versão 2.0.9083.0, a verificação de pré-requisitos falhará. Se a verificação de pré-requisitos falhar, atualize o agente e tente atualizar o cofre novamente. Você pode baixar a última versão do agente a partir de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tarefas de configuração em andamento**: se alguém estiver configurando o trabalho para um cofre de Backup definido para ser atualizado ou estiver registrando um item, a verificação de pré-requisitos falhará. Conclua a configuração ou conclua o registro do item e, em seguida, inicie o processo de atualização do cofre.
 - **Modelo de cobrança com base em armazenamento**: cofres dos Serviços de Recuperação dão suporte ao modelo de cobrança baseado em instância. Se você executar a atualização do cofre em um cofre de Backup que use o modelo de cobrança baseado em armazenamento, será solicitado a atualizar o modelo de cobrança junto com o cofre. Caso contrário, poderá atualizar o modelo de cobrança primeiro e então executar a atualização do cofre.
 - Identificar um Grupo de Recursos para o cofre de Serviços de Recuperação. Para aproveitar os recursos de implantação do Resource Manager, coloque um cofre de Serviços de Recuperação em um Grupo de Recursos. Se você não souber qual Grupo de Recursos usar, forneça um nome e o processo de atualização criará o Grupo de Recursos para você. O processo de atualização também associa o cofre ao novo Grupo de Recursos.
@@ -106,7 +106,7 @@ O cofre do Serviços de Recuperação dá suporte à especificação de informa�
 
 ## <a name="enhanced-security"></a>Segurança aprimorada
 
-Quando um cofre de Backup é atualizado para um cofre dos Serviços de Recuperação, as configurações de segurança desse cofre são automaticamente ativadas. Quando as configurações de segurança estão ativadas, determinadas operações, como excluir backups ou alterar uma frase secreta, exigem um PIN da [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md). Para obter mais informações sobre a segurança aprimorada, consulte o artigo [Recursos de segurança para proteger os backups híbridos](backup-azure-security-feature.md). 
+Quando um cofre de Backup é atualizado para um cofre dos Serviços de Recuperação, as configurações de segurança desse cofre são automaticamente ativadas. Quando as configurações de segurança estão ativadas, determinadas operações, como excluir backups ou alterar uma frase secreta, exigem um PIN da [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md). Para obter mais informações sobre a segurança aprimorada, consulte o artigo [Recursos de segurança para proteger os backups híbridos](backup-azure-security-feature.md). 
 
 Quando a segurança aprimorada é ativada, os dados são retidos por até 14 dias após as informações de ponto de recuperação serem excluídas do cofre. Os clientes são cobrados pelo armazenamento de dados de segurança. A retenção de dados de segurança aplica-se aos pontos de recuperação tomados pelo agente do Backup do Azure, o Servidor de Backup do Azure e o System Center Data Protection Manager. 
 

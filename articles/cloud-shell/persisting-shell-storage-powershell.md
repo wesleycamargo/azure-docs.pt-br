@@ -1,12 +1,12 @@
 ---
-title: "Persistir arquivos no PowerShell no Azure Cloud Shell (Versão prévia) | Microsoft Docs"
+title: Persistir arquivos no PowerShell no Azure Cloud Shell (Versão prévia) | Microsoft Docs
 description: Passo a passo de como o Azure Cloud Shell persiste arquivos.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 74488b85ec524e4ad4c06a639a16ddbfd54b3154
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b87c4a408393e4ae341898e8cfa23e9acbcb4fc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154391"
 ---
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -26,14 +27,14 @@ ms.lasthandoff: 02/01/2018
 O PowerShell no Cloud Shell (Versão prévia) mantém arquivos usando o seguinte método: 
 * Montagem do compartilhamento de arquivos do Azure especificado como `clouddrive` no diretório `$Home` para que haja interação direta com o compartilhamento de arquivos.
 
-## <a name="list-cloud-drive-azure-file-shares"></a>Listar compartilhamentos de arquivos do Azure da unidade de nuvem
-O comando `Get-CloudDrive` recupera as informações de compartilhamento de arquivos do Azure montadas no momento pela unidade de nuvem no Cloud Shell. <br>
+## <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Compartilhamentos de Arquivos do Azure
+O comando `Get-CloudDrive` recupera as informações de compartilhamento de arquivos do Azure montadas no momento por `clouddrive` no Cloud Shell. <br>
 ![Executando Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-## <a name="unmount-cloud-drive"></a>Desmontar unidade de nuvem
+## <a name="unmount-clouddrive"></a>Desmontar o `clouddrive`
 Você pode desmontar um compartilhamento de arquivos do Azure que esteja montado no Cloud Shell a qualquer momento. Se o compartilhamento de arquivos do Azure tiver sido removido, será solicitado que você crie e monte um novo compartilhamento de arquivos do Azure na sessão seguinte.
 
-O comando `Dismount-CloudDrive` desmonta um compartilhamento de arquivos do Azure da conta de armazenamento atual. Desmontar a unidade de nuvem encerra a sessão atual. O usuário precisará criar e montar um novo compartilhamento de arquivos do Azure durante a próxima sessão.
+O comando `Dismount-CloudDrive` desmonta um compartilhamento de arquivos do Azure da conta de armazenamento atual. Desmontar `clouddrive` encerra a sessão atual. O usuário precisará criar e montar um novo compartilhamento de arquivos do Azure durante a próxima sessão.
 ![Executando Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]

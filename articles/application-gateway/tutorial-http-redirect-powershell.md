@@ -1,21 +1,21 @@
 ---
 title: Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS - Azure PowerShell | Microsoft Docs
-description: "Saiba como criar um gateway de aplicativo com o tráfego redirecionado de HTTP para HTTPS usando o Azure PowerShell."
+description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado de HTTP para HTTPS usando o Azure PowerShell.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
-ms.author: davidmu
-ms.openlocfilehash: a831171b267cca1ffdbf8eef33baafa71dd9bd79
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 94a619e58de9f456ace1c933cfaa39ae0c6b3912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o Azure PowerShell
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Para executar os comandos neste tutorial, você também precisa executar `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de entidade de serviço inválida para o domínio gerenciado
 
@@ -93,7 +93,7 @@ Siga estas etapas se uma entidade de serviço com a ID ```d87dcbc6-a371-462e-88e
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: O aplicativo de sincronização de senha está desatualizado
 
-**Mensagem de alerta:** A entidade de serviço com a ID do aplicativo "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi excluída e a Microsoft foi capaz de recriá-la. Essa entidade de serviço gerencia outra entidade de serviço e um aplicativo que são usados para sincronização de senha. A entidade de serviço gerenciado e o aplicativo não estão autorizados sob a entidade de serviço recém-criada, e ficarão desatualizados quando expirar o certificado de sincronização. Isso significa que a entidade de serviço recém-criada não poderá atualizar os aplicativos gerenciados antigos e a sincronização de objetos do AAD será afetada.
+**Mensagem de alerta:** a entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” oi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.
 
 
 **Resolução:** É necessário o PowerShell do Azure AD para concluir estas etapas. Para saber mais sobre como instalar o Azure AD PowerShell, veja [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Para resolver esse problema, digite os seguintes comandos em uma janela do Power
 2. Excluir o aplicativo e objeto antigos usando os seguintes comandos do PowerShell
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

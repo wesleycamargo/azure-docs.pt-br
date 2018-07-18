@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao IMPAC Risk Manager | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o IMPAC Risk Manager."
+title: 'Tutorial: integração do Azure Active Directory ao IMPAC Risk Manager | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o IMPAC Risk Manager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d7d45356e7b84d5a4ecbfc964fc1d4b5d8cc8db4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: integração do Azure Active Directory ao IMPAC Risk Manager
 
@@ -30,9 +30,9 @@ A integração do IMPAC Risk Manager ao Azure AD lhe oferece os seguintes benef�
 - Você pode permitir que os usuários façam logon automaticamente no IMPAC Risk Manager (logon único) com as respectivas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o IMPAC Risk Manager, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o IMPAC Risk Manager da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-impac-risk-manager-from-the-gallery"></a>Adicionando o IMPAC Risk Manager da galeria
 Para configurar a integração do IMPAC Risk Manager ao Azure AD, você precisará adicionar o IMPAC Risk Manager da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
 7. Na seção **Configuração do IMPAC Risk Manager**, clique em **Configurar IMPAC Risk Manager** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único SAML, a ID da Entidade SAML** e a **URL de saída** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
+    ![Configurar o logon único](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
 8. Para configurar o logon único no lado do **IMPAC Risk Manager**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML** e **URL do Serviço de Logon Único SAML** para a [equipe de suporte do IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
@@ -228,7 +228,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

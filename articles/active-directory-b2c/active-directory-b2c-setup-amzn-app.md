@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: configuração da Amazon | Microsoft Docs"
-description: "Forneça inscrição e entrada para consumidores com contas da Amazon em seus aplicativos protegidos pelo Azure Active Directory B2C."
+title: 'Azure Active Directory B2C: configuração da Amazon | Microsoft Docs'
+description: Forneça inscrição e entrada para consumidores com contas da Amazon em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas da Amazon
 ## <a name="create-an-amazon-application"></a>Criar um aplicativo da Amazon
-Para usar a Amazon como um provedor de identidade no Azure AD (Azure Active Directory) B2C, é necessário primeiro criar um aplicativo da Amazon e fornecê-lo com os parâmetros corretos. Você precisa de uma conta do Amazon para fazer isso. Se você não tiver uma, poderá obtê-la em [http://www.amazon.com/](http://www.amazon.com/).
+Para usar a Amazon como um provedor de identidade no Azure AD (Azure Active Directory) B2C, é necessário primeiro criar um aplicativo da Amazon e fornecê-lo com os parâmetros corretos. Você precisa de uma conta do Amazon para fazer isso. Se você não tiver uma, é possível obtê-la em [http://www.amazon.com/](http://www.amazon.com/).
 
 1. Acesse o [Centro de Desenvolvedores da Amazon](https://login.amazon.com/) e entre com suas credenciais de conta da Amazon.
 2. Se você ainda não tiver feito isso, clique em **Inscrever-se**, siga as etapas de registro do desenvolvedor e aceite a política.
@@ -40,7 +37,7 @@ Para usar a Amazon como um provedor de identidade no Azure AD (Azure Active Dire
     ![Fornecendo JavaScript Origins e URLs de Retorno para o novo aplicativo na Amazon](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## <a name="configure-amazon-as-an-identity-provider-in-your-tenant"></a>Configurar a Amazon como um provedor de identidade em seu locatário
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no Portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar** , na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira “Amzn”.

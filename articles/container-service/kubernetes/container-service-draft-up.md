@@ -1,19 +1,20 @@
 ---
-title: "Usar Rascunho com o Serviço de Contêiner do Azure e Registro de Contêiner do Azure"
-description: "Crie um cluster Kubernetes ACS e um Registro de Contêiner do Azure para criar seu primeiro aplicativo no Azure com o Rascunho."
+title: Usar Rascunho com o Serviço de Contêiner do Azure e Registro de Contêiner do Azure
+description: Crie um cluster Kubernetes ACS e um Registro de Contêiner do Azure para criar seu primeiro aplicativo no Azure com o Rascunho.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168530"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
 
@@ -100,7 +101,7 @@ Agora que você tem um cluster, pode importar as credenciais usando o comando [a
 
 
 1. Baixe o draft para seu ambiente no https://github.com/Azure/draft/releases e instale em seu caminho de forma que o comando possa ser usado.
-2. Baixe o helm para seu ambiente em https://github.com/kubernetes/helm/releases e [instale-o em seu caminho para que o comando possa ser usado](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+2. Baixe o helm para seu ambiente no https://github.com/kubernetes/helm/releases e [instale-o em seu caminho de forma que o comando possa ser usado](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configure o Rascunho para usar seu registro e crie subdomínios para cada gráfico do Helm criado. Para configurar o Rascunho, você precisará:
   - do nome do Registro de Contêiner do Azure (neste exemplo, `draftacsdemo`)
   - da chave do registro, ou senha, de `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.

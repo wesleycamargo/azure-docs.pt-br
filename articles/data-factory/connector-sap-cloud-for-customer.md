@@ -1,23 +1,23 @@
 ---
 title: Copiar dados de/para SAP Cloud for Customer usando Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do SAP Cloud for Customer para armazenamentos de dados de coletor compatíveis (ou) de armazenamentos de dados de origem compatíveis para o SAP Cloud for Customer usando o Data Factory."
+description: Saiba como copiar dados do SAP Cloud for Customer para armazenamentos de dados de coletor compatíveis (ou) de armazenamentos de dados de origem compatíveis para o SAP Cloud for Customer usando o Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d7df73bec7306b135f5a559c2bc66ac88d88809
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
 
@@ -141,7 +141,7 @@ Consulta de exemplo para obter dados de um dia específico:`"query": "$filter=Cr
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {

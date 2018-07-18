@@ -1,24 +1,24 @@
 ---
-title: "Simular falhas nos microsserviços do Azure | Microsoft Docs"
-description: "Como fortalecer seus serviços contra falhas normais/anormais."
+title: Simular falhas nos microsserviços do Azure | Microsoft Docs
+description: Como fortalecer seus serviços contra falhas normais/anormais.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 7ec671c23e101d0f7401bd4656fb201111602cad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dccd8eeeda1a41f23c9e3dd9896e0630e2a7a0a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante cargas de trabalho de serviço
 Os cenários de possibilidade de teste no Service Fabric do Azure isentam os desenvolvedores da preocupação com o tratamento de falhas individuais. No entanto, há cenários em que uma intercalação explícita das falhas e da carga de trabalho do cliente pode ser necessária. A intercalação das falhas e da carga de trabalho do cliente garante que o serviço realmente execute alguma ação quando a falha acontece. Dado o nível de controle que a possibilidade de teste fornece, elas podem estar em pontos precisos da execução da carga de trabalho. Essa indução de falhas em diferentes estados no aplicativo pode encontrar bugs e melhorar a qualidade.

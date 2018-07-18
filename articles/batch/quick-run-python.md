@@ -1,20 +1,20 @@
 ---
-title: "Início rápido do Azure - Executar trabalho do Lote - Python"
+title: Início rápido do Azure - Executar trabalho do Lote - Python
 description: Execute rapidamente um trabalho e tarefas do Lote usando a biblioteca de cliente do Python do Lote.
 services: batch
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0e6a631a8d4956e2be9fd14941131968d5f4443f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8730cb61ac598a547c58e473bcd26589bd1b2a52
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar o primeiro trabalho do Lote com a API do Python
 
@@ -26,15 +26,15 @@ Este guia de início rápido executa um trabalho do Lote do Azure de um aplicati
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* [Python versão 2.7 ou 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python 2.7 ou 3.3 ou versão posterior](https://www.python.org/downloads/)
 
 * Gerenciador de pacotes de [pip](https://pip.pypa.io/en/stable/installing/)
 
-* Uma conta do Lote do Azure e uma conta de Armazenamento do Azure para fins gerais vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [Portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
+* Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 

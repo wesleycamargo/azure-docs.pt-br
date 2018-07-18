@@ -10,38 +10,42 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/12/2018
+ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
-Neste tutorial, você usa o portal do Azure para criar um pipeline do Azure Data Factory que executa um Databricks Notebook em cluster de trabalhos databricks. Ele também passa parâmetros do Azure Data Factory para o notebook Databricks durante a execução.
+Neste tutorial, você usa o portal do Azure para criar um pipeline do Azure Data Factory que executa um Databricks Notebook em cluster de trabalhos Databricks. Ele também passa parâmetros do Azure Data Factory para o Databricks Notebook durante a execução.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 
-  - Criar uma fábrica de dados.
+  - Criar um data factory.
 
   - Criar um pipeline que usa a atividade Databricks Notebook.
 
   - Dispare uma execução de pipeline.
 
-  - Monitore a execução de pipeline.
+  - Monitorar a execução de pipeline.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
+Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+
 ## <a name="prerequisites"></a>pré-requisitos
 
-  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um Python Notebook no espaço de trabalho do Azure Databricks. Em seguida, execute o Notebook e passe parâmetros para ele usando o Azure Data Factory.
+  - **Espaço de trabalho do Azure Databricks**. [Criar um espaço de trabalho no Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) ou usar um existente. Você pode criar um notebook do Python no espaço de trabalho do Azure Databricks. Em seguida, execute o notebook e passe parâmetros para ele usando o Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1.  Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1.  Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 
 2.  Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**.
 
@@ -49,7 +53,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 3.  No painel **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**.
 
-    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você vir o erro a seguir, altere o nome do data factory. (Por exemplo, use **\<seunome\>ADFTutorialDataFactory**). Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules).
+    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você vir o erro a seguir, altere o nome do data factory. (Por exemplo, use **\<seunome\>ADFTutorialDataFactory**). Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Fornecer um nome para o novo data factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
 
@@ -61,7 +65,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     
     - Selecione **Criar novo**e insira o nome de um grupo de recursos.
 
-    Algumas das etapas neste guia de início rápido supõem que você usa o nome **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+    Algumas das etapas neste guia de início rápido supõem que você usa o nome **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1.  Para **Versão**, selecione **V2 (Versão prévia)**.
 
@@ -119,7 +123,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
         ![Concluir a criação do serviço vinculado](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 
 1.  Selecione o botão **+** (adição) e, em seguida, selecione **Pipeline** no menu.
 
@@ -149,13 +153,13 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
           ![Criar uma nova pasta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python); vamos chamá-lo de **mynotebook** na pasta **adftutorial****.**  Clique em **Criar.**
+       3. [Crie um novo Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), vamos chamá-lo de **mynotebook** na pasta **adftutorial****,** e clique em **Criar.**
 
-          ![Criar um novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Criar um novo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-          ![Definir as propriedades do novo Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Definir as propriedades do novo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. No Notebook recém-criado, "mynotebook'", adicione o seguinte código:
+       4. No notebook recém-criado, “mynotebook”, adicione o seguinte código:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
@@ -225,10 +229,10 @@ Você pode clicar no **nome do trabalho** e navegar para ver mais detalhes. Ao e
 
 O pipeline neste exemplo dispara uma atividade do Databricks Notebook e passa um parâmetro para ele. Você aprendeu como:
 
-  - Criar uma fábrica de dados.
+  - Criar um data factory.
 
   - Criar um pipeline que usa uma atividade do Databricks Notebook.
 
   - Dispare uma execução de pipeline.
 
-  - Monitore a execução de pipeline.
+  - Monitorar a execução de pipeline.

@@ -1,26 +1,24 @@
 ---
-title: "Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark | Microsoft Docs"
+title: Ferramentas do Azure HDInsight – use o Visual Studio Code para o Hive, o LLAP ou pySpark | Microsoft Docs
 description: Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code para criar e enviar consultas e scripts.
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4f0bcd0992a02e64b4b10347fc30776af17900bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -31,7 +29,7 @@ Saiba como usar as Ferramentas do Azure HDInsight para VS Code (Visual Studio Co
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
-- Um cluster HDInsight.  Para criar um cluster, consulte [Introdução ao HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Um cluster HDInsight. Para criar um cluster, consulte [Introdução ao HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e MacOS.
 
@@ -69,9 +67,9 @@ Crie um espaço de trabalho no VSCode para poder se conectar ao Azure.
 
 4. Abra **XXXX_hdi_settings.json** do **EXPLORER** ou clique com o botão direito do mouse no editor de scripts para selecionar **Definir Configuração**. Você pode configurar a entrada de logon, o cluster padrão e os parâmetros de envio do trabalho, conforme visto na amostra no arquivo. Você também pode deixar os parâmetros restantes vazios.
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
+## <a name="connect-to-hdinsight-cluster"></a>Conectar ao Cluster HDInsight
 
-Para enviar scripts a clusters do HDInsight do VS Code, você precisará se conectar à sua conta do Azure.
+Antes de enviar scripts para clusters HDInsight a partir do VS Code, você precisa se conectar à sua conta do Azure ou vincular um cluster (usando o nome de usuário, senha ou conta de domínio associado).
 
 **Para se conectar ao Azure**
 
@@ -102,7 +100,7 @@ Para enviar scripts a clusters do HDInsight do VS Code, você precisará se cone
     - Enviar os scripts em lote do PySpark
     - Definir configurações
 
-**Vincular um cluster**
+<a id="linkcluster"></a>**Para vincular um cluster**
 
 É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
 1. Abra a paleta de comandos selecionando **CTRL+SHIFT+P** e, em seguida, insira **HDInsight: Vincular um cluster**.
@@ -114,7 +112,7 @@ Para enviar scripts a clusters do HDInsight do VS Code, você precisará se cone
    ![caixa de diálogo para vincular cluster](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > Usamos o nome de usuário e a senha vinculados se o cluster registrou na assinatura do Azure e vinculou um cluster. 
+   > O nome de usuário e a senha vinculados serão usados se o cluster for registrado na assinatura do Azure e vinculado um cluster. 
    
 3. É possível ver um cluster vinculado, usando o comando**Listar cluster**. Agora, você pode enviar um script para esse cluster vinculado.
 
@@ -277,8 +275,50 @@ As Ferramentas do HDInsight para VS Code também permitem enviar consultas inter
 
 Depois que você envia um trabalho Python, os logs de envio aparecem na janela **SAÍDA** no VS Code. A **URL de interface do usuário do Spark** e a **URL de interface do usuário do Yarn** também são mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
 
-
+>[!NOTE]
+>O PySpark3 não é mais compatível com o Livy 0.4 (que é o cluster HDI spark 2.2). Somente "PySpark" é compatível com o Python. É um problema conhecido que envia para o spark 2.2 a falha com o python3.
    
+## <a name="livy-configuration"></a>Configuração de Livy
+A configuração de Livy é compatível. É possível defini-la nas configurações do projeto na pasta do espaço de trabalho. Para obter mais detalhes, consulte o [LEIAME do Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ As configurações do projeto:
+
+    ![Configuração de Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ As configurações de Livy compatíveis:   
+
+    **POST /batches**   
+    Corpo da solicitação
+
+    | Nome | Descrição | Tipo | 
+    | :- | :- | :- | 
+    | file | Arquivo que contém o aplicativo a ser executado | caminho (obrigatório) | 
+    | proxyUser | Usuário a ser representado ao executar o trabalho | string | 
+    | className | Classe principal Java/Spark do aplicativo | string |
+    | args | Argumentos de linha de comando do aplicativo | lista de cadeias de caracteres | 
+    | jars | jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
+    | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | de entrada | arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | driverMemory | Quantidade de memória a ser usada para o processo de driver | string |
+    | driverCores | Quantidade de núcleos a ser usado para o processo de driver | int |
+    | executorMemory | Quantidade de memória a ser usada por processo de executor | string |
+    | executorCores | Número de núcleos a serem usados para cada executor | int |
+    | numExecutors | Número de executores a serem iniciados para esta sessão | int |
+    | archives | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | fila | O nome da fila YARN ao qual foi enviado | string |
+    | Nome | O nome desta sessão | string |
+    | conf | Propriedades de configuração do Spark | Mapa de key=val |
+
+    Corpo da resposta   
+    O objeto de lote criado.
+
+    | Nome | Descrição | Tipo | 
+    | :- | :- | :- | 
+    | ID | A id da sessão | int | 
+    | appId | A ID de aplicativo desta sessão |  Cadeia de caracteres |
+    | appInfo | As informações detalhadas do aplicativo | Mapa de key=val |
+    | log | As linhas do log | lista de cadeias de caracteres |
+    | state |   O estado do lote | string |
 
 
 ## <a name="additional-features"></a>Recursos adicionais

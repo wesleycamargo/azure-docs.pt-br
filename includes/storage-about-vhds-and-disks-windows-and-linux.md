@@ -1,11 +1,27 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b8b61f2a512cca2a88274b93d04a1fdc8893a88f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34222906"
+---
 ## <a name="about-vhds"></a>Sobre VHDs
 
 Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 O Azure dá suporte aos discos fixos no formato VHD. O formato fixo dispõe o disco lógico linearmente dentro do arquivo, de forma que o deslocamento X do disco é armazenado no deslocamento X do blob. Um pequeno rodapé ao final do blob descreve as propriedades do VHD. Frequentemente, o formato fixo desperdiça espaço, porque muitos discos têm em si grandes intervalos não usados. No entanto, o Azure armazena arquivos .vhd em um formato livre, assim você obtém os benefícios de discos fixos e dinâmicos ao mesmo tempo. Para obter mais detalhes, consulte [Introdução aos discos rígidos virtuais](https://technet.microsoft.com/library/dd979539.aspx).
 
-Todos os arquivos. vhd no Azure que você deseja usar como uma fonte para criar discos ou imagens são somente para leitura, exceto os arquivos. vhd carregados ou copiados para o Armazenamento do Azure pelo usuário (que pode ser leitura/gravação ou somente leitura). Quando você cria um disco ou uma imagem, o Azure faz cópias dos arquivos .vhd da fonte. Essas cópias podem ser somente leitura ou de leitura e gravação, dependendo de como você usar o VHD.
+Todos os arquivos VHD no Azure que você deseja usar como uma fonte para criar discos ou imagens são somente para leitura, exceto os arquivos. vhd carregados ou copiados para o Armazenamento do Azure pelo usuário (que pode ser leitura/gravação ou somente leitura). Quando você cria um disco ou uma imagem, o Azure faz cópias dos arquivos .vhd da fonte. Essas cópias podem ser somente leitura ou de leitura e gravação, dependendo de como você usar o VHD.
 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco para a máquina virtual que é uma cópia do arquivo .vhd de origem. Para proteger contra exclusão acidental, o Azure faz uma concessão de qualquer arquivo .vhd de origem que é usado para criar uma imagem, um disco de sistema operacional ou um disco de dados.
 
@@ -13,7 +29,6 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 
 > [!WARNING]
 > Se você excluir um arquivo .vhd de origem do armazenamento ou excluir sua conta de armazenamento, a Microsoft não poderá recuperar esses dados para você.
-> 
 
 ## <a name="types-of-disks"></a>Tipos de discos 
 
@@ -30,7 +45,7 @@ Para saber mais sobre como usar o armazenamento Standard com discos de VM, veja 
 
 ### <a name="premium-storage"></a>Armazenamento Premium 
 
-O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Você pode usar o Armazenamento Premium com DS, DSv2, GS, Ls ou FS as VMs do Azure da série. Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
+O Armazenamento Premium tem o suporte de SSDs e oferece suporte de disco de alto desempenho e baixa latência para VMs executando cargas de trabalho intensivas para entradas e saídas. Normalmente você pode usar o armazenamento Premium com tamanhos que incluem um "s" no nome da série. Por exemplo, há a série de Dv3 e a série Dsv3, a série Dsv3 pode ser usada com o Armazenamento Premium.  Para saber mais, veja [Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 

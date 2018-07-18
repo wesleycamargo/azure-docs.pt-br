@@ -4,17 +4,18 @@ description: Consultas de análise entre locatários usando dados extraídos de 
 keywords: tutorial sql
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
-ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 7f04ca4bf324586e0cb34effa324b1703d92d065
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: anjangsh
+ms.reviewer: billgib, genemi
+ms.openlocfilehash: c0ffbdfb9110860a6a9083423b91a571671c3308
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
 

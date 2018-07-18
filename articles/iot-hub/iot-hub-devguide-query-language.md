@@ -1,11 +1,11 @@
 ---
 title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
-description: "Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos do seu Hub IoT."
+description: Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos/módulos gêmeos e trabalhos do seu Hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
 O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs] e [encaminhamento de mensagens][lnk-devguide-messaging-routes]. Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem.
 
-## <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
-Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do dispositivo gêmeo.
-Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte estrutura:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
+Os [dispositivos gêmeos][lnk-twins] e módulos gêmeos podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
 ```json
 {
@@ -80,6 +82,8 @@ Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte 
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 
 O Hub IoT expõe os dispositivos gêmeos como uma coleção de documentos chamada **dispositivos**.
 Então, a consulta a seguir recupera o conjunto completo de dispositivos gêmeos:
@@ -156,6 +160,26 @@ Consultas de projeção permitem que os desenvolvedores retornem apenas as propr
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
+
+Consultar módulos gêmeos é semelhante a consultar dispositivos gêmeos, mas usando uma coleção/namespace diferente, ou seja, em vez de “de dispositivos” que você pode consultar
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Não permitimos a união de coleções de dispositivos e módulos. Se você deseja pesquisar módulos gêmeos em dispositivos, você o faz com base em marcas. Essa consulta retornará todos os módulos gêmeos em todos os dispositivos com o status de “examinando”:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Essa consulta retornará todos os módulos gêmeos com o status de “examinando”, mas somente para o subconjunto especificado de dispositivos.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Exemplo de C#

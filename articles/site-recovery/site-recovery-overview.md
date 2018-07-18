@@ -1,18 +1,19 @@
 ---
 title: Sobre o Azure Site Recovery | Microsoft Docs
-description: "Fornece uma visão geral do serviço Azure Site Recovery e resume os cenários de implantação."
+description: Fornece uma visão geral do serviço Azure Site Recovery e resume os cenários de implantação.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/08/2018
+ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 57b191a5dbdea487a0105c6af2866cdc037864e2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d3cda9bdc75709d46f952309375e82098b6ae0d3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894408"
 ---
 # <a name="about-site-recovery"></a>Sobre o Azure Site Recovery
 

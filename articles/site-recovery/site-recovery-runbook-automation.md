@@ -1,24 +1,24 @@
 ---
-title: "Adicionar runbooks de Automação do Azure aos planos de recuperação no Azure Site Recovery | Microsoft Docs"
-description: "Saiba como o Azure Site Recovery pode ajudar você a estender planos de recuperação usando a Automação do Azure. Saiba como concluir tarefas complexas durante a recuperação no Azure."
+title: Adicionar runbooks de Automação do Azure aos planos de recuperação no Azure Site Recovery | Microsoft Docs
+description: Saiba como o Azure Site Recovery pode ajudar você a estender planos de recuperação usando a Automação do Azure. Saiba como concluir tarefas complexas durante a recuperação no Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: gauravd
-editor: 
+editor: ''
 ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a0a57e4a604a8cadedd5d715acf5f76a147da6d1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 Neste artigo, descrevemos como o Azure Site Recovery é integrado à Automação do Azure para ajudar você a estender seus planos de recuperação. Os planos de recuperação podem orquestrar a recuperação de VMs que são protegidas com o Site Recovery. Os planos de recuperação funcionam para a replicação em uma nuvem secundária e para a replicação no Azure. Os planos de recuperação também ajudam a tornar a recuperação **precisa de forma consistente**, **repetida** e **automatizada**. Se você fizer failover das VMs no Azure, a integração com a Automação do Azure estenderá os planos de recuperação. Você pode usá-la para executar runbooks, que oferecem tarefas de automação avançadas.
@@ -200,7 +200,7 @@ No exemplo a seguir, usamos uma nova técnica e criamos uma [variável complexa]
 1. No PowerShell, entre em sua assinatura do Azure:
 
     ```
-    login-azurermaccount
+    Connect-AzureRmAccount
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```
@@ -244,7 +244,7 @@ No exemplo a seguir, usamos uma nova técnica e criamos uma [variável complexa]
 
 Use o mesmo script para planos de recuperação diferentes. Insira parâmetros diferentes armazenando o valor que corresponde a um plano de recuperação em variáveis diferentes.
 
-## <a name="sample-scripts"></a>Exemplos de scripts
+## <a name="sample-scripts"></a>Scripts de exemplo
 
 Para implantar scripts de exemplo em sua conta de Automação, clique no botão **Implantar no Azure**.
 

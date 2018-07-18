@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 3a950ac837b543cbcbfd4ae43cf4b9ebeb537cd5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação Universal com o Banco de Dados SQL e SQL Data Warehouse (suporte SSMS para MFA)
 O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure dão suporte a conexões do SSMS (SQL Server Management Studio) usando a *Autenticação Universal do Active Directory*. 
@@ -25,7 +25,7 @@ O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure dão suporte a con
 
 - A autenticação `Active Directory - Universal with MFA` é um método interativo que também é compatível com a *Autenticação Multifator do Azure* (MFA). O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
-Para encontrar uma descrição da Autenticação Multifator, consulte [Autenticação Multifator](../multi-factor-authentication/multi-factor-authentication.md).
+Para encontrar uma descrição da Autenticação Multifator, consulte [Autenticação Multifator](../active-directory/authentication/multi-factor-authentication.md).
 Para etapas de configuração, consulte [Configurar Autenticação Multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Parâmetro de ID do locatário ou nome de domínio do Azure AD   

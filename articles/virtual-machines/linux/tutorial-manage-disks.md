@@ -1,12 +1,12 @@
 ---
-title: Gerenciar discos do Azure com o Azure CLI | Microsoft Docs
-description: Tutorial – Gerenciar discos do Azure com o Azure CLI
+title: Tutorial – Gerenciar discos do Azure com a CLI do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para criar e gerenciar discos do Azure para máquinas virtuais
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2a8a6e7da89f864c1bb63bf5b26b297653ff4a94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dff6af6a68dcc454877532c3d6f06cb86e6fe897
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-disks-with-the-azure-cli"></a>Gerenciar discos do Azure com o Azure CLI
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Tutorial – Gerenciar discos do Azure com a CLI 2.0 do Azure
 
 Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de VMs, aplicativos e dados. Ao criar uma VM, é importante escolher um tamanho de disco e a configuração apropriada para a carga de trabalho esperada. Este tutorial aborda a implantação e gerenciamento de discos de VM. Você saberá mais sobre:
 
@@ -35,10 +35,9 @@ Máquinas virtuais do Azure usam discos para armazenar o sistema operacional de 
 > * Redimensionamento de discos
 > * Instantâneos de disco
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
@@ -108,16 +107,17 @@ Crie um grupo de recursos com o comando [az group create](https://docs.microsoft
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Crie uma máquina virtual com o comando [az vm create]( /cli/azure/vm#az_vm_create). O `--datadisk-sizes-gb` argumento é utilizado para especificar que um disco adicional deve ser criado e anexado à máquina virtual. Para criar e anexar mais de um disco, utilize uma lista delimitada por espaço dos valores de tamanho de disco. No exemplo a seguir, uma VM é criada com dois discos de dados, ambos os 128 GB. Como os tamanhos de disco são 128 GB, esses discos são configurados como P10, que fornecem o máximo de 500 IOPS por disco.
+Crie uma máquina virtual com o comando [az vm create]( /cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVM*, adiciona uma conta de usuário chamada *azureuser* e gera as chaves SSH, caso ainda não existam. O `--datadisk-sizes-gb` argumento é utilizado para especificar que um disco adicional deve ser criado e anexado à máquina virtual. Para criar e anexar mais de um disco, utilize uma lista delimitada por espaço dos valores de tamanho de disco. No exemplo a seguir, uma VM é criada com dois discos de dados, ambos os 128 GB. Como os tamanhos de disco são 128 GB, esses discos são configurados como P10, que fornecem o máximo de 500 IOPS por disco.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>Anexar disco à máquina virtual existente

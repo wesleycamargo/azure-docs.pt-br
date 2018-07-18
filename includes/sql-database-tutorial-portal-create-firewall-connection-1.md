@@ -4,7 +4,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 
@@ -47,7 +47,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
    > [!IMPORTANT]
    > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Central do Canadá, Leste do Canadá, França Central, Centro da Alemanha, Leste do Japão, Coreia Central, Centro-Sul dos EUA, Sudeste Asiático, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  

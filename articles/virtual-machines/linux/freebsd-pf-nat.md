@@ -2,12 +2,12 @@
 title: Usar o Filtro de Pacote do FreeBSD para criar um firewall no Azure | Microsoft Docs
 description: Saiba como implantar um firewall NAT usando o PF do FreeBSD no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: KylieLiang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 42312522381529075f544a6c277f66a4ef1982d2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como usar o Filtro de Pacote do FreeBSD para criar um firewall seguro no Azure
 Este artigo apresenta como implantar um firewall NAT usando o Filtro de Pacote do FreeBSD por meio do modelo do Azure Resource Manager para um cenário comum de servidor Web.

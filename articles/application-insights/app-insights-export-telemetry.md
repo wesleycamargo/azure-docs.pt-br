@@ -1,8 +1,8 @@
 ---
-title: "Exportação contínua de telemetria do Application Insights | Microsoft Docs"
-description: "Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá."
+title: Exportação contínua de telemetria do Application Insights | Microsoft Docs
+description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
 
-Usar a exportação contínua pode incorrer em um custo adicional. Verifique o [modelo de preços](http://azure.microsoft.com/pricing/details/application-insights/).
+Usar a exportação contínua pode incorrer em um custo adicional. Verifique o [modelo de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
@@ -31,6 +31,7 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 * O [Analytics](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](app-insights-export-power-bi.md), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
+* Você também pode acessar a configuração da [exportação contínua por meio do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](app-insights-data-retention-privacy.md) normal.
 
@@ -112,7 +113,7 @@ Where
 
 ![Veja a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
 
-As durações de tempo são em tiques, em que 10.000 tiques = 1 ms. Por exemplo, esses valores mostram um tempo de 1 ms para enviar uma solicitação do navegador, 3 ms recebê-la e 1,8 s para processar a página no navegador:
+As durações de tempo são em tiques, onde 10.000 tiques = 1 ms. Por exemplo, esses valores mostram um tempo de 1 ms para enviar uma solicitação do navegador, 3 ms recebê-la e 1,8 s para processar a página no navegador:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
@@ -121,7 +122,7 @@ As durações de tempo são em tiques, em que 10.000 tiques = 1 ms. Por exemplo,
 [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 ## <a name="processing-the-data"></a>Processamento dos dados
-Em pequena escala, você pode escrever um código para extrair e separar seus dados, lê-los em uma planilha e assim por diante. Por exemplo:
+Em pequena escala, você pode escrever um código para extrair e separar seus dados, lê-los em uma planilha e assim por diante. Por exemplo: 
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -176,7 +177,7 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
     Não, infelizmente. Nosso mecanismo de exportação funciona apenas com o armazenamento do Azure no momento.  
 * *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?*
 
-    Não. Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.  
+    Nº Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.  
 * *Quantos blobs devo ver no armazenamento?*
 
   * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).

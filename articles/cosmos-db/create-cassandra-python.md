@@ -1,11 +1,10 @@
 ---
-title: "Início rápido: API Cassandra com Python – Azure Cosmos DB | Microsoft Docs"
-description: "Este guia de início rápido mostra como usar a API do Apache Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Python"
+title: 'Início rápido: API Cassandra com Python – Azure Cosmos DB | Microsoft Docs'
+description: Este guia de início rápido mostra como usar a API do Apache Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Python
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
-ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: sngun
+ms.openlocfilehash: 49ec500db23eeea29baaeeafe9ad39e9b1a5b25a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo do Cassandra com o Python e o Azure Cosmos DB
 
@@ -27,7 +26,7 @@ Este guia de início rápido mostra como usar o Python e a [API Cassandra](cassa
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB.   
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -48,13 +47,19 @@ Antes de criar um banco de dados de documentos, você precisa criar uma conta Ca
 
 Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
-1. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para uma pasta para instalar o aplicativo de exemplo. 
+1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador. 
+3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started.git
@@ -62,7 +67,7 @@ Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos de código são todos obtidos do arquivo `pyquickstart.py`. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos de código são todos obtidos do arquivo pyquickstart.py. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
 
 * O nome de usuário e a senha são definidos usando a página de cadeia de conexão no Portal do Azure. Você substitui o path\to\cert pelo caminho para o certificado X509.
 
@@ -143,7 +148,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     Agora a linha 10 deve ser semelhante a 
 
-    `'contactPoint': 'cosmos-db-quickstarts.documents.azure.com:10350'`
+    `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
 4. Copie o valor NOME DE USUÁRIO do portal e cole-o sobre `<FILLME>` na linha 6.
 
@@ -161,7 +166,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     
 ## <a name="use-the-x509-certificate"></a>Use o certificado X509
 
-1. Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de série 02:00:00:b9 e impressão digital SHA1 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Ele pode ser baixado do https://cacert.omniroot.com/bc2025.crt, salvo em um arquivo local com extensão .cer
+1. Se você precisar adicionar o Baltimore CyberTrust Root, ele possui número de série 02:00:00:b9 e impressão digital SHA1 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Pode ser baixado em https://cacert.omniroot.com/bc2025.crt e salvo em um arquivo local com uma extensão .cer
 
 2. Abra o pyquickstart.py e altere o 'path\to\cert' para apontar para seu novo certificado.
 
@@ -206,7 +211,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

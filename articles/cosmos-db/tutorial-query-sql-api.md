@@ -4,7 +4,7 @@ description: Saiba como consultar com SQL no Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -16,15 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 A [API do SQL](documentdb-introduction.md) do Azure Cosmos DB oferece suporte à consulta de documentos usando SQL. Este artigo fornece um exemplo de documento e dois exemplos de consultas SQL e resultados.
 
@@ -74,7 +72,7 @@ Para saber mais sobre consultas SQL, confira:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-mongodb-nodejs.md) ou o [tutorial de desenvolvedor](tutorial-develop-mongodb.md) para criar uma conta e uma coleção.
+Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Conclua o [início rápido de 5 minutos](create-mongodb-nodejs.md).
 
 ## <a name="example-query-1"></a>Exemplo de consulta 1
 

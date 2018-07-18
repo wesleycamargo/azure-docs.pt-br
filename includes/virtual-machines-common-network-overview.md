@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -48,7 +48,7 @@ Esta tabela lista os métodos que você pode usar para criar uma interface de re
 | Portal do Azure | Quando você cria uma VM no portal do Azure, uma interface de rede é criada automaticamente para você (não é possível usar uma NIC que você cria separadamente). O portal cria uma VM com apenas uma NIC. Se quiser criar uma VM com mais de uma NIC, você deverá criá-la com um método diferente. |
 | [PowerShell do Azure](../articles/virtual-machines/windows/multiple-nics.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) com o parâmetro **-PublicIpAddressId** para fornecer o identificador do endereço IP público que você criou anteriormente. |
 | [CLI do Azure](../articles/virtual-machines/linux/multiple-nics.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) com o parâmetro **--public-ip-address**. |
-| [Modelo](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para a implantação de uma interface de rede usando um modelo. |
+| [Modelo](../articles/virtual-network/template-samples.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para a implantação de uma interface de rede usando um modelo. |
 
 ## <a name="ip-addresses"></a>Endereços IP 
 
@@ -70,7 +70,7 @@ Esta tabela lista os métodos que você pode usar para criar um endereço IP.
 | [Portal do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Por padrão, endereços IP públicos são dinâmicos, e o endereço associado a eles pode ser alterado quando a VM é parada ou excluída. Para assegurar que a VM sempre use o mesmo endereço IP público, crie um endereço IP público estático. Por padrão, o portal atribui um endereço IP privado dinâmico a uma NIC ao criar uma VM. Você pode alterar esse endereço IP para estático após a criação da VM.|
 | [PowerShell do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Você usa [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) com o parâmetro **-AllocationMethod** como Dinâmico ou Estático. |
 | [CLI do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Você usa [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) com o parâmetro **--allocation-method** como Dinâmico ou Estático. |
-| [Modelo](../articles/virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para implantar um IP público de endereço usando um modelo. |
+| [Modelo](../articles/virtual-network/template-samples.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para implantar um IP público de endereço usando um modelo. |
 
 Após criar um endereço IP público, você pode associá-lo a uma VM, atribuindo-o a uma NIC.
 
@@ -95,7 +95,7 @@ Esta tabela lista os métodos que você pode usar para criar uma VNet e sub-rede
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Um [NSG (grupo de segurança de rede)](../articles/virtual-network/virtual-networks-nsg.md) contém uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para sub-redes, NICs ou ambos. Os NSGs podem ser associados a sub-redes ou NICs individuais conectadas a uma sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as VMs na sub-rede. Além disso, o tráfego para uma NIC individual pode ser restringido associando um NSG diretamente a uma NIC.
+Um [NSG (grupo de segurança de rede)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contém uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para sub-redes, NICs ou ambos. Os NSGs podem ser associados a sub-redes ou NICs individuais conectadas a uma sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as VMs na sub-rede. Além disso, o tráfego para uma NIC individual pode ser restringido associando um NSG diretamente a uma NIC.
 
 Os NSGs contêm dois conjuntos de regras: entrada e saída. A prioridade de uma regra deve ser exclusiva em cada conjunto. Cada regra tem propriedades de protocolo, origem e intervalos de porta de destino, prefixos de endereço, direção de tráfego, prioridade e tipo de acesso. 
 
@@ -103,16 +103,16 @@ Todos os NSGs contêm um conjunto de regras padrão. As regras padrão não pode
 
 Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Se um NSG for aplicado a uma única NIC em uma VM com várias NICS, isso não afetará o tráfego para as outras NICs. É possível associar diferentes NSGs a um NIC (ou VM, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. A prioridade é fornecida com base na direção do tráfego.
 
-Não se esqueça de [planejar](../articles/virtual-network/virtual-networks-nsg.md#planning) seus NSGs ao planejar suas VMs e a VNet.
+Não se esqueça de [planejar](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) seus NSGs ao planejar suas VMs e a VNet.
 
 Esta tabela lista os métodos que você pode usar para criar um grupo de segurança de rede.
 
 | Método | DESCRIÇÃO |
 | ------ | ----------- |
 | [Portal do Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Quando você cria uma VM no portal do Azure, um NSG é criado e associado automaticamente à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e **-nsg**. Este NSG contém uma regra de entrada com uma prioridade de 1000, o serviço definido como RDP, o protocolo definido como TCP, a porta configurada para 3389 e as ações definidas para Permitir. Se quiser permitir qualquer outro tráfego de entrada para a VM, você deverá incluir regras adicionais para o NSG. |
-| [PowerShell do Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) e forneça as informações de regra necessárias. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) para criar o NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) para configurar o NSG da sub-rede. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para adicionar o NSG à rede virtual. |
-| [CLI do Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) para criar inicialmente o NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) para adicionar regras para o NSG. Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) para adicionar o NSG à sub-rede. |
-| [Modelo](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Use [Criar um grupo de segurança de rede](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) como um guia para a implantação de um grupo de segurança de rede usando um modelo. |
+| [PowerShell do Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) e forneça as informações de regra necessárias. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) para criar o NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) para configurar o NSG da sub-rede. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para adicionar o NSG à rede virtual. |
+| [CLI do Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) para criar inicialmente o NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) para adicionar regras para o NSG. Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) para adicionar o NSG à sub-rede. |
+| [Modelo](../articles/virtual-network/template-samples.md) | Use [Criar um grupo de segurança de rede](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) como um guia para a implantação de um grupo de segurança de rede usando um modelo. |
 
 ## <a name="load-balancers"></a>Balanceadores de carga
 

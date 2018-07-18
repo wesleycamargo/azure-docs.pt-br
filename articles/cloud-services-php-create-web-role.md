@@ -1,24 +1,23 @@
 ---
-title: "Criar funções Web e de trabalho do Azure para PHP | Microsoft Docs"
-description: "Um guia para a criação de funções da Web do PHP e de trabalho em um serviço de nuvem do Azure e para a configuração do tempo de execução do PHP."
-services: 
+title: Criar funções Web e de trabalho do Azure para PHP
+description: Um guia para a criação de funções da Web do PHP e de trabalho em um serviço de nuvem do Azure e para a configuração do tempo de execução do PHP.
+services: ''
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: 
+author: msangapu
+manager: cfowler
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Como criar funções Web e de trabalho do PHP
 ## <a name="overview"></a>Visão geral

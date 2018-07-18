@@ -1,23 +1,23 @@
 ---
 title: Coletar logs de atividade do Azure em Log Analytics em assinaturas | Microsoft Docs
-description: "Use Hubs de Eventos e Aplicativos Lógicos para coletar dados de log de atividades do Azure e enviá-los para um espaço de trabalho do Log Analytics do Azure em um locatário diferente."
+description: Use Hubs de Eventos e Aplicativos Lógicos para coletar dados de log de atividades do Azure e enviá-los para um espaço de trabalho do Log Analytics do Azure em um locatário diferente.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Coletar logs de atividade do Azure em Log Analytics em assinaturas
 
@@ -113,7 +113,7 @@ Antes de criar seu aplicativo lógico, verifique se que você tem as seguintes i
 - ID do espaço de trabalho do Log Analytics
 - Chave compartilhada do Log Analytics
 
-Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [Verificar permissões do namespace dos Hubs de Eventos e localizar a cadeia de conexão](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [Verificar permissões do namespace dos Hubs de Eventos e localizar a cadeia de conexão](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Criar um aplicativo lógico em branco
@@ -324,9 +324,9 @@ Para ver informações detalhadas sobre cada etapa, clique no nome da etapa para
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Etapa 5 - Exibir o log de atividades do Azure no Log Analytics
 A etapa final é verificar o espaço de trabalho do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
 
-1. No portal do Azure, selecione **Log Analytics**.
-2. Selecione seu espaço de trabalho e, em seguida, o bloco **Pesquisa de Log**.
-3. Na barra de consulta de pesquisa, digite `AzureActivity_CL` e clique no botão de pesquisa. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+2. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
+3.  Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `AzureActivity_CL` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
 
 >[!NOTE]
 > Na primeira vez que um novo log personalizado é enviado para ao Log Analytics pode levar uma hora para o log personalizado ser pesquisado.

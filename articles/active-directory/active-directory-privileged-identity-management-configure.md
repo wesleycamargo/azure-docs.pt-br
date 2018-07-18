@@ -3,23 +3,21 @@ title: Configurar o Azure AD Privileged Identity Management | Microsoft Docs
 description: Um tópico que explica o que é o Azure AD Privileged Identity Management e como usar o PIM para melhorar sua segurança de nuvem.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -34,7 +32,7 @@ Com o Privileged Identity Management do Azure Active Directory (AD), você pode 
 >- São atribuídos a uma função de recursos do Azure com atribuições Just in time ou Direct (com base na hora)  
 >- São atribuídos a uma análise de acesso
 >
->Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
+>Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-whatis.md).
 
 As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um usuário mal-intencionado obter esse tipo de acesso, ou um usuário autorizado afetar acidentalmente um recurso confidencial.  No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure AD, Azure, Office 365 ou SaaS. As organizações podem proporcionar aos usuários acesso privilegiado aos recursos do Azure como Assinaturas e Azure AD. Não há necessidade de supervisão da atividade do usuário com seus privilégios de administrador. O Azure AD Privileged Identity Management ajuda a reduzir o risco de direitos de acesso excessivo, desnecessários ou mal utilizados.
 
@@ -72,7 +70,7 @@ Para funções de RBAC do Azure, somente um administrador de assinatura, um prop
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Visão geral do Privileged Identity Management (ponto de entrada)
 
-O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para Recursos do Azure (versão prévia). A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](role-based-access-control-configure.md). O PIM para as funções de diretório do Azure AD e os Recursos do Azure (versão prévia) podem ser administrados acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão Geral de PIM.
+O Azure AD Privileged Identity Management dá suporte à administração de funções de diretório do Azure AD e funções para Recursos do Azure (versão prévia). A atribuição das funções para recursos do Azure difere das funções administrativas no Azure AD. As funções de recurso do Azure fornecem permissões granulares para o recurso no qual serão atribuídas, e a todos os recursos subordinados na hierarquia de recursos (conhecido como herança). [Saiba mais sobre RBAC, hierarquia de recursos e herança](../role-based-access-control/role-assignments-portal.md). O PIM para as funções de diretório do Azure AD e os Recursos do Azure (versão prévia) podem ser administrados acessando o link apropriado na seção Gerenciar do menu de navegação à esquerda, ponto de entrada Visão Geral de PIM.
 
 O PIM fornece acesso conveniente para ativar funções, exibir ativações/solicitações pendentes, aprovações pendentes (para funções de diretório do Azure AD), e às revisões com resposta pendente na seção Tarefas do menu de navegação esquerdo.
 

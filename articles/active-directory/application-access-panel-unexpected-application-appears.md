@@ -1,11 +1,11 @@
 ---
 title: Como aplicativos aparecem no painel de acesso | Microsoft Docs
-description: "Solucionar problemas relacionados a por que um aplicativo está aparecendo no Painel de Acesso"
+description: Solucionar problemas relacionados a por que um aplicativo está aparecendo no Painel de Acesso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 25e8bd404bc5b622568b8885f241c743f82f59cc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como aplicativos aparecem no painel de acesso
 
-O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Microsoft Azure AD (Azure Active Directory) exibir e iniciar aplicativos baseados em nuvem aos quais o administrador do Azure Active Directory concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O administrador pode provisionar o aplicativo diretamente para o usuário ou para um grupo de que o usuário faz parte, o que faz com que o aplicativo apareça no Painel de Acesso do usuário.
+O Painel de Acesso é um portal baseado na Web, que permite a um usuário com uma conta corporativa ou de estudante no Azure AD (Azure Active Directory) exibir e iniciar aplicativos baseados em nuvem aos quais o administrador do Azure Active Directory concedeu acesso. Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O administrador pode provisionar o aplicativo diretamente para o usuário ou para um grupo de que o usuário faz parte, o que faz com que o aplicativo apareça no Painel de Acesso do usuário.
 
 ## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro
 
@@ -45,7 +45,7 @@ Para verificar se um usuário é atribuído ao aplicativo, execute estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory**, clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -67,7 +67,7 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory**, clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -91,11 +91,11 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer par
 
 ### <a name="check-a-users-group-memberships"></a>Verificar as associações de grupo de um usuário
 
-Para verificar as associações de um grupo, siga estas etapas:
+Para verificar a associação de um grupo, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory**, clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -115,7 +115,7 @@ Para verificar as associações de um grupo, siga estas etapas:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory**, clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
@@ -151,4 +151,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Gerenciando aplicativos com o Azure Active Directory](manage-apps/what-is-application-management.md)

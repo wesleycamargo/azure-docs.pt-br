@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – Auditar a configuração de auditoria no nível do SQL Server | Microsoft Docs"
-description: "Essa política de exemplo de json audita as configurações de auditoria do SQL Server se elas não corresponderem a uma configuração especificada."
+title: Exemplo de json do Azure Policy – Auditar a configuração de auditoria no nível do SQL Server | Microsoft Docs
+description: Essa política de exemplo de json audita as configurações de auditoria do SQL Server se elas não corresponderem a uma configuração especificada.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: e00e920bbb2b44d8e1e96423b5b40ca55867401f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: b7df0b20dd8118cac5f77366af1666d16fd03f0b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-sql-server-level-audit-setting"></a>Auditar a configuração da auditoria no nível do SQL Server
 

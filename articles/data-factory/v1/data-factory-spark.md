@@ -2,10 +2,10 @@
 title: Invocar programas Spark do Azure Data Factory | Microsoft Docs
 description: Saiba como invocar programas Spark em um Azure Data Factory usando a atividade MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -48,7 +48,7 @@ A atividade do Spark é uma das [atividades de transformação de dados](data-fa
 ## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Passo a passo: Criar um pipeline com uma atividade do Spark
 Estas são as etapas típicas para criar um pipeline do data factory com uma atividade do Spark: 
 
-* Criar uma fábrica de dados.
+* Criar um data factory.
 * Crie um serviço vinculado do Armazenamento do Azure para vincular o armazenamento associado ao cluster HDInsight Spark ao data factory.
 * Crie um serviço vinculado do HDInsight para vincular o cluster Spark no HDInsight ao data factory.
 * Crie um conjunto de dados que se refere ao serviço vinculado do Armazenamento. No momento, você deve especificar um conjunto de dados de saída para uma atividade mesmo que não exista nenhuma saída sendo produzida. 
@@ -59,7 +59,7 @@ Estas são as etapas típicas para criar um pipeline do data factory com uma ati
 
 2. Crie um cluster Spark no HDInsight seguindo as instruções descritas no tutorial [Criar um cluster Spark no HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associe a conta de armazenamento criada na etapa 1 a esse cluster.
 
-3. Baixe e examine o arquivo de script do Python **test.py** localizado em [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Baixe e revise o arquivo de script Python **test.py** localizado em [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Carregue **test.py** para a pasta **pyFiles** no contêiner **adfspark** em seu armazenamento de blobs. Crie o contêiner e a pasta, caso eles não existam.
 
@@ -84,7 +84,7 @@ Para criar um data factory, siga estas etapas:
 7. Selecione **Criar**.
 
    > [!IMPORTANT]
-   > Para criar instâncias do Data Factory, você deve ser um membro da função [Colaborador do Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
+   > Para criar instâncias do Data Factory, você deve ser um membro da função [Colaborador do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 
 8. Você vê o data factory sendo criado no painel do portal do Azure.
 
@@ -183,7 +183,7 @@ O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamen
 3. Para implantar o conjunto de dados, selecione **Implantar** na barra de comandos.
 
 
-### <a name="create-a-pipeline"></a>Criar uma pipeline
+### <a name="create-a-pipeline"></a>Criar um pipeline
 Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, o conjunto de dados de saída é o que aciona a agenda. Assim, você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. Portanto, nenhum conjunto de dados de entrada é especificado neste exemplo.
 
 1. No Data Factory Editor, selecione **Mais** > **Novo pipeline**.

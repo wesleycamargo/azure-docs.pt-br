@@ -1,24 +1,18 @@
 ---
-title: "Vários idiomas do Azure Search | Microsoft Docs"
-description: "O Azure Search dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
-services: search
-documentationcenter: 
+title: Indexação de vários idiomas do Azure Search | Microsoft Docs
+description: O Azure Search dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft.
 author: yahnoosh
-manager: pablocas
-editor: 
-ms.assetid: 55a00b44-804d-41bb-9c96-e6ea498616f5
+manager: jlembicz
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 01/23/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Crie um índice para documentos em vários idiomas no Azure Search
 > [!div class="op_single_selector"]
@@ -68,7 +62,7 @@ Muitos aplicativos web e móveis atendem usuários em todo o mundo usando difere
 
 Se o idioma do agente emissor de uma consulta for conhecido, uma solicitação de pesquisa pode ser definida como escopo para um campo específico usando o parâmetro de consulta **searchFields** . A seguinte consulta será emitida apenas com a descrição em polonês:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 Você pode consultar o índice do portal, usando o **Search Explorer** para colar uma consulta semelhante à mostrado acima. O Search Explorer está disponível na barra de comandos na folha de serviço. Confira [Consultar seu Índice de Azure Search no portal](search-explorer.md) para obter detalhes.
 
@@ -83,7 +77,7 @@ Você pode consultar o índice do portal, usando o **Search Explorer** para cola
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 Se você é um desenvolvedor do .NET, é importante lembrar que você pode configurar os analisadores de linguagem usando o [SDK do .NET do Azure Search](http://www.nuget.org/packages/Microsoft.Azure.Search). A versão mais recente também inclui o suporte para os analisadores de linguagem da Microsoft.
 

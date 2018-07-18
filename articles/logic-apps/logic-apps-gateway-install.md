@@ -1,25 +1,26 @@
 ---
-title: "Instalar gateway de dados local - Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Antes de acessar fontes de dados locais, instale o gateway de dados local para transferência e criptografia rápidas de dados entre fontes de dados locais e aplicativos lógicos"
-keywords: "acessar dados, local, transferência de dados, criptografia, fontes de dados"
+title: Instalar gateway de dados local - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Antes de acessar fontes de dados locais, instale o gateway de dados local para transferência e criptografia rápidas de dados entre fontes de dados locais e aplicativos lógicos
+keywords: acessar dados, local, transferência de dados, criptografia, fontes de dados
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179003"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Aplicativo Lógico do Azure
 
@@ -242,6 +243,11 @@ Portanto, quando o usuário na nuvem interage com um elemento que está conectad
 6. Os resultados são enviados da fonte de dados para o gateway e então para o serviço de nuvem. O serviço de nuvem do gateway então usa os resultados.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Administração de nível de locatário 
+
+Não há nenhum único local onde os administradores de locatários possam gerenciar todos os gateways que outros usuários instalaram e configuraram.  Se você for um administrador de locatários, recomendamos que você peça aos usuários em sua organização para adicioná-lo como administrador para cada gateway que instalarem. Isso permite que você gerencie todos os gateways na sua organização por meio da página de Configurações de Gateway ou pelos [comandos do PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

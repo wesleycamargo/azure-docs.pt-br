@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de roteamento
  Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
@@ -72,16 +72,16 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter ma
 ## <a name="routing-domain-comparison"></a>Comparação de domínios de roteamento
 A tabela a seguir compara os três domínios de roteamento:
 
-|  | **Emparelhamento privado** | **Emparelhamento público** | **Emparelhamento da Microsoft*** |
+|  | **Emparelhamento privado** | **Emparelhamento Público** (Preterido para novas criações) | **Emparelhamento da Microsoft** |
 | --- | --- | --- | --- |
 | **Número máximo de prefixos com suporte por emparelhamento** |4000 por padrão, 10.000 com o ExpressRoute Premium |200 |200 |
 | **Intervalos de endereços IP com suporte** |Todos os endereços IP válidos em sua WAN. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |
 | **Requisitos do número do AS** |Números públicos e privados do AS. Você deve possuir número público do AS, se você optar por usar um. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |Números públicos e privados do AS. No entanto, você deve comprovar a propriedade de endereços IP públicos. |
 | **Protocolos IP com suporte**| IPv4 | IPv4 | IPv4, IPv6 |
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
-| **Suporte a Hash MD5** |sim |Sim |sim |
+| **Suporte a Hash MD5** |sim |sim |sim |
 
-(*) Requer a camada de SKU de complemento Premium
+
 
 Você pode optar por habilitar um ou mais domínios de roteamento como parte do seu circuito ExpressRoute. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
 

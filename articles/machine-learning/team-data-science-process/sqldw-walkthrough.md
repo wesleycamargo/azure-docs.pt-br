@@ -1,9 +1,9 @@
 ---
-title: "O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse | Microsoft Docs"
-description: "Processo e Tecnologia de Análise Avançada em ação"
+title: 'O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse | Microsoft Docs'
+description: Processo e Tecnologia de Análise Avançada em ação
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: deguhath
+ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.

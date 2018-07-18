@@ -1,24 +1,24 @@
 ---
-title: "Solução de Análise de Rede do Azure no Log Analytics | Microsoft Docs"
-description: "Você pode usar a solução de Análise de Rede do Azure no Log Analytics para examinar logs de grupo de segurança de rede do Azure e logs do Gateway de Aplicativo do Azure."
+title: Solução de Análise de Rede do Azure no Log Analytics | Microsoft Docs
+description: Você pode usar a solução de Análise de Rede do Azure no Log Analytics para examinar logs de grupo de segurança de rede do Azure e logs do Gateway de Aplicativo do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: ewinner
-editor: 
+editor: ''
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções de monitoramento de rede do Azure no Log Analytics
 
@@ -28,18 +28,19 @@ O Log Analytics oferece as seguintes soluções para monitorar suas redes:
 * Análise do Gateway de Aplicativo do Azure para revisão
  * Logs do Gateway de Aplicativo do Azure
  * Métricas do Gateway de Aplicativo do Azure
-* Análise do Grupo de Segurança de Rede do Azure para revisão
- * Logs do Grupo de Segurança de Rede do Azure
+* Soluções para monitorar e auditar a atividade de rede na rede de nuvem
+* [Análise de Tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Análise de Grupo de Segurança de Rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de Desempenho de Rede (NPM)
 
-A solução de gerenciamento do [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) é uma solução de monitoramento de redes, que monitora a integridade, a disponibilidade e a acessibilidade das redes.  Ela é usada para monitorar a conectividade entre:
+A solução de gerenciamento do [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) é uma solução de monitoramento de redes, que monitora a integridade, a disponibilidade e a acessibilidade das redes.  Ela é usada para monitorar a conectividade entre:
 
 * Nuvem pública e local
 * Data centers e locais de usuário (filiais)
 * Sub-redes hospedando várias camadas de um aplicativo de várias camadas.
 
-Para obter mais informações, confira [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md).
+Para obter mais informações, confira [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Análise do Gateway de Aplicativo e do Grupo de Segurança de Rede do Azure
 Para usar as soluções:
@@ -60,9 +61,9 @@ As soluções de gerenciamento de análise do Grupo de Segurança de Rede e de a
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para a análise do Gateway de Aplicativo do Azure e a análise do Grupo de Segurança de Rede.
 
-| Plataforma | Agente direto | Agente do Systems Center Operations Manager | As tabelas | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
+| Plataforma | Agente direto | Agente do Systems Center Operations Manager | Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| As tabelas |  |  |&#8226; |  |  |quando conectado |
+| Azure |  |  |&#8226; |  |  |quando conectado |
 
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Solução de análise de Gateway de Aplicativo do Azure no Log Analytics
@@ -211,9 +212,9 @@ Para usar as soluções atualizadas:
 
     | Em vez de: | Use: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType="APPLICATIONGATEWAYS" e OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; onde OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType=="APPLICATIONGATEWAYS" e OperationName=ApplicationGatewayPerformance |
+    | NetworkSecurityGroups | AzureDiagnostics &#124; onde ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tenha um sufixo de \_s, \_d ou \_g no nome, altere o primeiro caractere para minúsculo
    + Para qualquer campo que tenha um sufixo de \_o no nome, os dados são divididos em campos individuais com base nos nomes de campos aninhados.
@@ -222,7 +223,7 @@ Para usar as soluções atualizadas:
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

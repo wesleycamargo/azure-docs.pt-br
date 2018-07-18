@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34307610"
+---
 ## <a name="view-device-telemetry"></a>Exibir telemetria de dispositivo
 
 Você pode exibir a telemetria enviada do dispositivo na página **Dispositivos** na solução.
@@ -24,9 +41,9 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
     ![Selecionar o dispositivo físico](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Agendar**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Agendar** mostra os tipos de método comuns a todos os dispositivos selecionados.
+1. Para exibir uma lista dos métodos que você pode chamar em seu dispositivo, escolha **Trabalhos**, em seguida, **Executar método**. Para agendar um método a ser executado em vários dispositivos, você pode selecionar vários dispositivos na lista. O painel **Trabalhos** mostra os tipos de método comuns a todos os dispositivos selecionados.
 
-1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina **Firmware Version** para **2.0.0**, defina **Firmware URI** para **http://contoso.com/updates/firmware.bin** e, em seguida, escolha **Aplicar**:
+1. Escolha **FirmwareUpdate**, defina o nome do trabalho para **UpdatePhysicalChiller**. Defina a **Versão do Firmware** para **2.0.0**, defina **URI do Firmware** para **http://contoso.com/updates/firmware.bin**e, em seguida, escolha **Aplicar**:
 
     ![Agendar a atualização do firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
@@ -41,4 +58,4 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O artigo [Personalizar a solução de monitoramento remoto pré-configurada](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descreve algumas maneiras de personalizar a solução pré-configurada.
+O artigo [Personalizar o acelerador de monitoramento remoto pré-configurado](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas maneiras de personalizar o acelerador da solução.

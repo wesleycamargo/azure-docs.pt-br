@@ -1,32 +1,28 @@
 ---
-title: "Sincronização do Azure Active Directory: configurar o local de dados preferencial para recursos do Multi-Geo no Office 365 | Microsoft Docs"
-description: "Descreve como colocar os recursos de usuário do Office 365 perto do usuário com a sincronização do Azure Active Directory Connect."
+title: 'Sincronização do Azure Active Directory: configurar o local de dados preferencial para recursos do Multi-Geo no Office 365 | Microsoft Docs'
+description: Descreve como colocar os recursos de usuário do Office 365 perto do usuário com a sincronização do Azure Active Directory Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157400"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de Multi-Geo no Office 365, este atributo é usado para designar a localização geográfica de dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
-
-> [!IMPORTANT]
-> A replicação geográfica está em versão prévia no momento. Se você quiser participar do programa de versão prévia, entre em contato com o seu representante da Microsoft.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitar a sincronização de local de dados preferenciais
 Por padrão, os recursos do Office 365 para seus usuários estão localizados na mesma área geográfica que o locatário do Azure AD. Por exemplo, se o seu locatário estiver localizado na América do Norte, as caixas de correio do Exchange dos usuários também estarão localizadas na América do Norte. Para uma organização multinacional, isso pode não ser o ideal.
@@ -34,7 +30,7 @@ Por padrão, os recursos do Office 365 para seus usuários estão localizados na
 Com a configuração do atributo **preferredDataLocation**, a área geográfica do usuário poderá ser definida. Você pode ter os recursos do Office 365 do usuário, como o OneDrive e a caixa de correio, na mesma área geográfica que o usuário e ainda ter um locatário para toda a organização.
 
 > [!IMPORTANT]
-> Para se qualificar para replicação geográfica, você deve ter pelo menos 5.000 estações na sua assinatura do Office 365.
+> Multi-Geo atualmente está disponível aos clientes com um mínimo de 5.000 assinaturas de serviços do Office 365. Converse com seu representante Microsoft para obter detalhes.
 >
 >
 
@@ -50,12 +46,12 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | União Europeia | EUR |
 | Índia | IND |
 | Japão | JPN |
-| Coreia do Sul | KOR |
+| Coreia | KOR |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 
 * Se uma área geográfica não estiver listada nesta tabela, por exemplo, América do Sul, ela não poderá ser usada para Multi-Geo.
-* As áreas geográficas Índia e Coreia do Sul estão disponíveis somente para clientes com endereços de cobrança e licenças compradas nessas áreas.
+* A área geográfica Índia está disponível somente para clientes com endereços de cobrança e licenças compradas nessa área.
 * Nem todas as cargas de trabalho do Office 365 são compatíveis com o uso da configuração de área geográfica do usuário.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Suporte do Azure AD Connect para sincronização

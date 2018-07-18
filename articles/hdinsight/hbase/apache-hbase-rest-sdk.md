@@ -2,25 +2,23 @@
 title: Use o SDK do .NET HBase - HDInsight do Azure | Microsoft Docs
 description: Use o SDK do .NET HBase para criar e excluir tabelas e para ler e gravar dados.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f0e2c6412a965c73b0055a24c799e05ad582a8c7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>Use o SDK .NET do HBase
 

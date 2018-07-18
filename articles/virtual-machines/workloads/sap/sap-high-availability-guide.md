@@ -1,13 +1,13 @@
 ---
-title: "Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs"
-description: "Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure"
+title: Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver | Microsoft Docs
+description: Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/11/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade de várias SID do SAP)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -742,7 +742,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 1.  No portal do Azure, selecione **<*SID*>-lb-ascs load balancer** > **Regras de Balanceamento de Carga**.
 2.  Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-  * Nome
+  * NOME
   * Porta
   * Porta de back-end
 
@@ -773,7 +773,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância SA
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vincular à documentação |[https://technet.microsoft.com/pt-BR/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Vincular à documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** alterar o primeiro parâmetro de TCP/IP_
 
@@ -784,7 +784,7 @@ Em seguida, adicione as seguintes entradas de Registro em nós de cluster do Win
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Vincular à documentação |[https://technet.microsoft.com/pt-BR/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Vincular à documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** alterar o segundo parâmetro de TCP/IP_
 
@@ -954,7 +954,7 @@ Configurar a testemunha de compartilhamento de arquivos do cluster envolve as se
 
   _**Figura 38:** confirmação de que você reconfigurou o cluster_
 
-Depois de instalar com êxito o Cluster de Failover do Windows, é necessário alterar alguns limites para adaptar a detecção de failover às condições no Azure. Os parâmetros a alterar estão documentados neste blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Supondo que as duas VMs que criam a configuração de Cluster do Windows para ASCS/SCS estejam na mesma sub-rede, os parâmetros a seguir precisam ser alterados para estes valores:
+Depois de instalar com êxito o Cluster de Failover do Windows, é necessário alterar alguns limites para adaptar a detecção de failover às condições no Azure. Os parâmetros a serem alterados estão documentados neste blog: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Supondo que as duas VMs que criam a configuração de Cluster do Windows para ASCS/SCS estejam na mesma sub-rede, os parâmetros a seguir precisam ser alterados para estes valores:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1134,7 +1134,7 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
 1.  No Gerenciador de DNS do Windows, crie uma entrada DNS para o nome de host virtual da instância ASCS/SCS.
 
   > [!IMPORTANT]
-  > O endereço IP que você atribui ao nome de host virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que você atribuiu ao Azure Load Balancer (**<*SID*>-lb-ascs**).  
+  > O endereço IP atribuído ao nome do host virtual da instância do ASCS/SCS deve ser o mesmo que o endereço IP atribuído ao Azure Load Balancer (**<*SID*>-lb-ascs**).  
   >
   >
 
@@ -1212,7 +1212,7 @@ Para adicionar uma porta de investigação:
 
   O número da porta é definido nos modelos do Azure Resource Manager para SAP. Você pode atribuir o número da porta no PowerShell.
 
-  Para definir um novo valor de ProbePort para o recurso de cluster **SAP <*SID*> IP**, execute o seguinte script do PowerShell. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
+  Para definir um novo valor de ProbePort para o recurso de cluster **SAP <*SID*> IP**, execute o script do PowerShell a seguir. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script é executado, será solicitado que você reinicie o grupo de clusters do SAP para ativar as alterações.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
@@ -1270,7 +1270,7 @@ Para adicionar uma porta de investigação:
   }
   ```
 
-  Depois de colocar a função de cluster **SAP <*SID*>** online, verifique se **ProbePort** está definido como o novo valor.
+  Depois de colocar a função de cluster SAP **SAP <*SID*>** online, verifique se **ProbePort** está definido com o novo valor.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1318,7 +1318,7 @@ Instalar a instância <*SID*>-di-0 do PAS (Servidor de Aplicativos primário) na
 
 ### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalar o servidor de aplicativos SAP adicional
 
-Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, de <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
+Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas virtuais que você designou para hospedar um Servidor de Aplicativos SAP. Por exemplo, em <*SID*>-di-1 para <*SID*>-di-&lt;n&gt;.
 
 > [!NOTE]
 > Isso conclui a instalação de um sistema SAP NetWeaver de alta disponibilidade. Em seguida, continue com o teste de failover.

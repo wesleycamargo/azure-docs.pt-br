@@ -3,18 +3,17 @@ title: Ativos de conexão na Automação do Azure
 description: Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -92,7 +91,7 @@ Os comandos de exemplo a seguir mostram como usar a conta Executar como menciona
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
 
 ### <a name="graphical-runbook-samples"></a>Exemplos de runbook gráfico

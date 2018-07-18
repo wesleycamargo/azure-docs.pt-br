@@ -14,8 +14,12 @@
     - name: Configurar políticas de Hive
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Gerenciar clusters ingressados no domínio
-      href: apache-domain-joined-manage.md
+    - name: Use o VSCode para vincular ao cluster de ingresso no domínio
+      href: ../hdinsight-for-vscode.md
+    - name: Use o IntelliJ para vincular ao cluster de ingresso no domínio
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Use o Eclipse para vincular ao cluster de ingresso no domínio
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Proteção de dados
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

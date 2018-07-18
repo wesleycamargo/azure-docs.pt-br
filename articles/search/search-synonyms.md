@@ -1,25 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Documentação preliminar para o recurso de sinônimos (versão prévia), exposto na API REST do Azure Search."
-services: search
-documentationCenter: 
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Use sinônimos para expandir o escopo de uma consulta de pesquisa
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/07/2016
+ms.topic: conceptual
+ms.date: 04/20/2018
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186895"
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Sinônimos no Azure Search (versão prévia)
+# <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
 
 Sinônimos nos termos equivalentes associados do mecanismo de pesquisa que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha de fornecer realmente o termo. Por exemplo, considerando o termo "cão" e as associações de sinônimo de "canino" e "filhote de cão", qualquer documento contendo "cão", "canino" ou "filhote de cão" cairá dentro do escopo da consulta.
 
@@ -27,7 +23,7 @@ No Azure Search, a expansão do sinônimo é feita no momento da consulta. Você
 
 ## <a name="feature-availability"></a>Disponibilidade de recursos
 
-O recurso de sinônimos está atualmente em versão prévia e só tem suporte na última api-version da versão prévia (api-version=2016-09-01-Preview). Não há suporte do portal do Azure no momento. Como a versão da API é especificada na solicitação, é possível combinar APIs de versão prévia e disponibilidade geral (GA) no mesmo aplicativo. No entanto, as APIs de versão prévia não estão no SLA e os recursos podem mudar, portanto, não recomendamos usá-las em aplicativos de produção.
+Há suporte para o recurso de sinônimos nas últimas versões da API (api-version=2017-11-11). Não há suporte do portal do Azure no momento.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Como usar sinônimos no Azure Search
 
@@ -47,11 +43,11 @@ A incorporação de sinônimos ao seu aplicativo de pesquisa é um processo de d
 
 Mapas de sinônimos são carregados no serviço via POST ou PUT. Cada regra deve ser delimitada por um caractere de nova linha ('\n'). É possível definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e 10.000 regras em todas as outras SKUs. Cada regra pode ter até 20 expansões.
 
-Nesta versão prévia, os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se você tiver um dicionário de sinônimos em um formato diferente e quiser usá-lo diretamente, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se você tiver um dicionário de sinônimos em um formato diferente e quiser usá-lo diretamente, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -64,7 +60,7 @@ Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
 Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se o mapa de sinônimos não existir, ele será criado.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -90,24 +86,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste os mapas de sinônimos em seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenha um mapa de sinônimos em seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Exclua um mapa de sinônimos em seu serviço.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configure um campo de pesquisa para usar o mapa de sinônimos na definição do índice.
 
 Uma nova propriedade de campo **synonymMaps** pode ser usada a fim de especificar um mapa de sinônimos para usar em um campo pesquisável. Mapas de sinônimos são recursos de nível de serviço e podem ser consultados por qualquer campo de um índice no serviço.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -142,7 +138,7 @@ Uma nova propriedade de campo **synonymMaps** pode ser usada a fim de especifica
 **synonymMaps** pode ser especificado para campos de pesquisa do tipo “Edm.String” ou “Collection(Edm.String)”.
 
 > [!NOTE]
-> Nesta versão prévia, só pode haver um mapa de sinônimos por campo. Se você quiser usar vários mapas de sinônimo, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Só pode haver um mapa de sinônimos por campo. Se você quiser usar vários mapas de sinônimo, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Impacto de sinônimos em outros recursos de pesquisa
 

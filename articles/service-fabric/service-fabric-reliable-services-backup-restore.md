@@ -1,6 +1,6 @@
 ---
-title: "Backup e restauração do Service Fabric | Microsoft Docs"
-description: "Documentação conceitual de backup e restauração do Service Fabric"
+title: Backup e restauração do Service Fabric | Microsoft Docs
+description: Documentação conceitual de backup e restauração do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -9,16 +9,16 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
@@ -99,7 +99,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-No exemplo acima, `ExternalBackupStore` é a classe de exemplo usada para fazer a interface com o Armazenamento de Blobs do Azure e `UploadBackupFolderAsync` é o método que compacta a pasta e a coloca no repositório de Blob do Azure.
+No exemplo acima, `ExternalBackupStore` é a classe de exemplo usada para fazer a interface com o Armazenamento de Blobs do Azure e `UploadBackupFolderAsync` é o método que compacta a pasta e a coloca no repositório de Blobs do Azure.
 
 Observe que:
 
@@ -111,7 +111,7 @@ Em geral, os casos em que você talvez precise executar uma operação de restau
 
   - A partição do serviço perdeu os dados. Por exemplo, o disco de duas entre três réplicas de uma partição (incluindo a réplica primária) é corrompido ou apagado. Pode ser necessário que a nova réplica primária restaure os dados a partir de um backup.
   - O serviço inteiro é perdido. Por exemplo, um administrador remove todo o serviço e, portanto, o serviço e os dados precisam ser restaurados.
-  - O serviço replica dados corrompidos de aplicativo (por exemplo, devido a um bug de aplicativo). Nesse caso, o serviço precisa ser atualizado ou revertido para remover a causa do dano, e os dados não corrompidos precisam ser restaurados.
+  - Os dados do aplicativo corrompidos replicados pelo serviço (por exemplo, devido a um bug de aplicativo). Nesse caso, o serviço precisa ser atualizado ou revertido para remover a causa do dano, e os dados não corrompidos precisam ser restaurados.
 
 Embora muitas abordagens sejam possíveis, oferecemos alguns exemplos sobre como usar `RestoreAsync` para se recuperar dos cenários acima.
 
@@ -153,7 +153,7 @@ Por exemplo, se ele contiver o backup completo, o primeiro e o terceiro backup i
 > 
 
 ## <a name="deleted-or-lost-service"></a>Serviço perdido ou excluído
-Se um serviço for removido, primeiro recrie o serviço antes de restaurar os dados.  É importante criar o serviço com a mesma configuração, por exemplo, esquema de particionamento, para que os dados possam ser restaurados perfeitamente.  Quando o serviço estiver funcionando, a API para restauração de dados (`OnDataLossAsync` acima) precisará ser invocada em todas as partições desse serviço. Uma maneira de fazer isso é usar `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` em cada partição.  
+Se um serviço for removido, primeiro recrie o serviço antes de restaurar os dados.  É importante criar o serviço com a mesma configuração, por exemplo, esquema de particionamento, para que os dados possam ser restaurados com perfeição.  Quando o serviço estiver funcionando, a API para restauração de dados (`OnDataLossAsync` acima) precisará ser invocada em todas as partições desse serviço. Uma maneira de fazer isso é usar `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` em cada partição.  
 
 Neste ponto, a implementação é igual à do cenário anterior. Cada partição deve restaurar o backup mais recente relevante do armazenamento externo. Uma limitação é que a ID de partição pode ter sido alterada, uma vez que o tempo de execução cria IDs de partição dinamicamente. Portanto, o serviço precisa armazenar o nome do serviço e as informações de partição apropriadas para identificar o backup correto mais recente para restauração em cada partição.
 
@@ -222,7 +222,7 @@ Após a habilitação do backup incremental, fazer um backup incremental pode fa
   - Um backup completo da réplica nunca foi feito desde que esta se tornou primária.
   - Alguns dos registros de log foram truncados desde que o último backup foi feito.
 
-Quando o backup incremental é habilitado, `KvsActorStateProvider` não usa o buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema automaticamente truncará os registros de log. Esse intervalo pode ser configurado especificando `logTrunctationIntervalInMinutes` no construtor `KvsActorStateProvider` (semelhante à habilitação do backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar criar outra réplica enviando todos os seus dados.
+Quando o backup incremental é habilitado, `KvsActorStateProvider` não usa o buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema automaticamente truncará os registros de log. Esse intervalo pode ser configurado especificando `logTrunctationIntervalInMinutes` no construtor `KvsActorStateProvider` (semelhante à habilitação do backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar compilar outra réplica enviando todos os seus dados.
 
 Ao fazer a restauração usando uma cadeia de backup, semelhante aos Reliable Services, BackupFolderPath deve conter subdiretórios com um subdiretório contendo o backup completo e outros subdiretórios contendo backups incrementais. A API de restauração acionará FabricException com a mensagem de erro apropriada se a validação da cadeia de backup falhar. 
 
@@ -244,9 +244,9 @@ Veja mais alguns detalhes sobre backup e restauração.
 ### <a name="backup"></a>Backup
 O Gerenciador de Estado Confiável permite a criação de backups consistentes sem bloquear as operações de leitura e gravação. Para fazer isso, ele utiliza um mecanismo de ponto de verificação e persistência de log.  O Gerenciador de Estado Confiável usa pontos de verificação (leves) difusos em determinados pontos para aliviar a pressão do log transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de Estado Confiável instrui todos os objetos Reliable a copiar seus arquivos de ponto de verificação mais recentes em uma pasta de backup local.  Em seguida, o Gerenciador de Estado Confiável copia todos os registros de log, desde o "ponteiro inicial" até o registro de log mais recente, na pasta de backup.  Como todos os registros de log, até o mais recente, são incluídos no backup e o Gerenciador de Estado Confiável preserva o registro em log write-ahead, o Gerenciador de Estado Confiável garante que todas as transações confirmadas (`CommitAsync` retornou com êxito) sejam incluídas no backup.
 
-As transações confirmadas após `BackupAsync` ser chamado podem ou não estar no backup.  Após o preenchimento da pasta de backup local pela plataforma (ou seja, o backup local é concluído pelo tempo de execução), o retorno de chamada de backup do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de backups para um local externo, por exemplo, o Armazenamento do Azure.
+As transações confirmadas após `BackupAsync` ser chamado podem ou não estar no backup.  Depois da pasta de backup local ter sido populada pela plataforma (ou seja, o backup local é concluído pelo tempo de execução), o retorno de chamada de backup do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de backups para um local externo, por exemplo, o Armazenamento do Azure.
 
-### <a name="restore"></a>Restaurar
+### <a name="restore"></a>Restore
 O Gerenciador de Estado Confiável permite a restauração de um backup usando a API `RestoreAsync`.  
 O método `RestoreAsync` em `RestoreContext` pode ser chamado somente dentro do método `OnDataLossAsync`.
 O bool retornado por `OnDataLossAsync` indica se o serviço restaurou seu estado de uma fonte externa.
@@ -255,12 +255,7 @@ Isso significa que, para os implementadores de StatefulService, `RunAsync` não 
 Em seguida, `OnDataLossAsync` será invocado na nova primária.
 A API continua sendo chamada, até que um serviço conclua essa API com êxito, retornando verdadeiro ou falso, e conclua a reconfiguração relevante.
 
-Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primária na qual foi chamado.  
-Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup.  
-Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup.  
-Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação.  
-Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable.  
-Essa etapa garante que o estado recuperado seja consistente.
+Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto de partida" e confirmaram os registros de log na pasta de backup são reproduzidas aos objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
 ## <a name="next-steps"></a>Próximas etapas
   - [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)
@@ -268,4 +263,5 @@ Essa etapa garante que o estado recuperado seja consistente.
   - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Backup e restauração periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

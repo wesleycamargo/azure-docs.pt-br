@@ -1,51 +1,47 @@
 ---
-title: Limites de capacidade do SQL Data Warehouse | Microsoft Docs
-description: Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse.
+title: Limites de capacidade do SQL Data Warehouse do Azure | Microsoft Docs
+description: Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: ''
-ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
+author: antvgski
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 03/15/2018
-ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: anvang
+ms.reviewer: igorstan
+ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189676"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
-As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
+Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gerenciamento de carga de trabalho
 | Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
-| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DWU máxima para um único Data Warehouse do SQL | Otimizado para o [nível de desempenho](performance-tiers.md) Elasticidade: DW6000<br></br>Otimizado para o [nível de desempenho](performance-tiers.md) Computação: DW30000c |
-| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma Cota de DTU de 54.000, que permite até DW6000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte][creating a support ticket] e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de DWU necessário ou 9,0 pelo total de cDWU necessário. Por exemplo: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW600c x 9,0 = 54.000 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
+| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU máxima para um único Data Warehouse do SQL | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma Cota de DTU de 54.000, que permite até DW6000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de DWU necessário ou 9,0 pelo total de cDWU necessário. Por exemplo: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW600c x 9,0 = 54.000 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
 | Conexão de banco de dados |Sessões abertas simultâneas |1024<br/><br/>Cada uma das 1.024 sessões ativas pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
-| [Gerenciamento de carga de trabalho][Workload management] |Máximo de consultas simultâneas |32<br/><br/> Por padrão, o SQL Data Warehouse pode executar um máximo de 32 consultas simultâneas e coloca as consultas restantes na fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recurso superiores ou quando o SQL Data Warehouse tem um [nível de serviço](performance-tiers.md#service-levels) inferior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar. |
-| [tempdb][Tempdb] |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB |
+| [Gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |32<br/><br/> Por padrão, o SQL Data Warehouse pode executar um máximo de 32 consultas simultâneas e coloca as consultas restantes na fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recurso superiores ou quando o SQL Data Warehouse tem uma [unidade de data warehouse](memory-and-concurrency-limits.md) inferior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
 | Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Banco de dados |Tamanho máx. |240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). |
 | Tabela |Tamanho máx. |60 TB compactados em disco |
-| Tabela |Tabelas por banco de dados |2 bilhões |
+| Tabela |Tabelas por banco de dados |10.000 |
 | Tabela |Colunas por tabela |1024 colunas |
-| Tabela |Bytes por coluna |Dependente do [tipo de dados][data type] da coluna.  O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
-| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite que as **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [Dados de estouro de linha que excedem 8 KB][Row-Overflow Data Exceeding 8 KB]. |
+| Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
+| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha, que permite que as **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [Dados de estouro de linha que excedem 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabela |Partições por tabela |15.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
-| Índice |Índices não clusterizados por tabela. |999<br/><br/>Aplica-se somente a tabelas rowstore. |
+| Índice |Índices não clusterizados por tabela. |50<br/><br/>Aplica-se somente a tabelas rowstore. |
 | Índice |Índices clusterizados por tabela. |1<br><br/>Aplica-se a tabelas rowstore e columnstore. |
 | Índice |Tamanho da chave de índice. |900 bytes.<br/><br/>Aplica-se somente a índices rowstore.<br/><br/>Poderão ser criados índices em colunas varchar com um tamanho máximo de mais de 900 bytes se os dados existentes nas colunas não excederem 900 bytes durante a criação do índice. No entanto, as ações INSERT ou UPDATE posteriores nas colunas que excederem os 900 bytes de tamanho total falharão. |
 | Índice |Colunas de chave por índice. |16<br/><br/>Aplica-se somente a índices rowstore. Os índices columnstore clusterizados incluem todas as colunas. |
@@ -72,8 +68,9 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
 | SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
 | SELECIONAR |Bytes por colunas GROUP BY. |8.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
-| SELECIONAR |Bytes por colunas ORDER BY |8.060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8.060 bytes. |
-| Identificadores e constantes por instrução |O número de identificadores referenciados e constantes. |65.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão][Internal error: An expression services limit has been reached]. |
+| SELECIONAR |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
+| Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/>O SQL Data Warehouse do Azure limita o número de identificadores que podem estar contidos em uma única expressão de uma consulta. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, consulte [Erro interno: um limite de serviços de expressão foi atingido][Erro interno: um limite de serviços de expressão foi atingido]. |
+| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O SQL Data Warehouse do Azure limita o número de constantes da cadeias de caracteres em uma única expressão de uma consulta. Exceder esse número resulta no erro 8632 do SQL Server.|
 
 ## <a name="metadata"></a>Metadados
 | Exibição do sistema | Máximo de linhas |
@@ -89,18 +86,4 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 | sys.dm_pdw_sql_requests |As 1000 solicitações de SQL mais recentes armazenadas em sys.dm_pdw_exec_requests. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [Visão geral de referência do SQL Data Warehouse][SQL Data Warehouse reference overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
-[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./resource-classes-for-workload-management.md
-[Tempdb]: ./sql-data-warehouse-tables-temporary.md
-[data type]: ./sql-data-warehouse-tables-data-types.md
-[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
-
-<!--MSDN references-->
-[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
-[Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
+Para obter recomendações sobre como usar o SQL Data Warehouse, consulte o [Cheat Sheet](cheat-sheet.md).

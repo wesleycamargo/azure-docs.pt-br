@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155456"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Os links na página não funcionam para um aplicativo de Proxy de Aplicativo
 
@@ -34,16 +35,16 @@ Há três maneiras de resolver esse problema. As escolhas abaixo estão listadas
 
 1.  Certifique-se de se que a URL interna é uma raiz que contém todos os links relevantes para o aplicativo. Isso permite que todos os links sejam resolvidos como conteúdo publicado no mesmo aplicativo.
 
-    Se você alterar a URL interna, mas não quiser alterar a página de aterrissagem para usuários, altere a URL da home page para a URL interna publicada anteriormente. Isso pode ser feito indo para "Azure Active Directory" -&gt; Registros de aplicativo -&gt; selecione o aplicativo -&gt; Propriedades. Neste guia de propriedades, você verá o campo "URL da Home Page" que pode ser ajustado para a página de aterrissagem desejada.
+    Se você alterar a URL interna, mas não quiser alterar a página de aterrissagem para usuários, altere a URL da home page para a URL interna publicada anteriormente. Isso pode ser feito indo para "Azure Active Directory" -&gt; Registros de aplicativo -&gt; selecione o aplicativo -&gt; Propriedades. Neste guia de propriedades, você verá o campo "URL da Home Page", que pode ser ajustado para a página de aterrissagem desejada.
 
-2.  Se seus aplicativos usam nomes de domínio totalmente qualificados (FQDNs), use [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) para publicar seus aplicativos. Esse recurso permite que a mesma URL seja usada internamente e externamente.
+2.  Se seus aplicativos usam nomes de domínio totalmente qualificados (FQDNs), use [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) para publicar seus aplicativos. Esse recurso permite que a mesma URL seja usada internamente e externamente.
 
-    Essa opção garante que os links em seu aplicativo sejam acessíveis externamente através do Proxy de Aplicativo, pois os links dentro do aplicativo para URLs internas também são reconhecidos externamente. Observe que todos os links ainda precisam pertencer a um aplicativo publicado. No entanto, com essa opção os links não precisam pertencer ao mesmo aplicativo e podem pertencer a vários aplicativos.
+    Essa opção garante que os links em seu aplicativo sejam acessíveis externamente através do Proxy de Aplicativo, pois os links dentro do aplicativo para URLs internas também são reconhecidos externamente. Todos os links ainda precisam pertencer a um aplicativo publicado. No entanto, com essa opção os links não precisam pertencer ao mesmo aplicativo e podem pertencer a vários aplicativos.
 
-3.  Se nenhuma dessas opções for viável, você ingressa na visualização para um novo recurso que faz conversão/regravação de URL. Com essa opção, as URLs internas ou os links existentes no corpo HTML de seus aplicativos serão convertidos ou “mapeados” para URLs de Proxy de Aplicativo externas publicadas. Isso só funciona para links em HTML ou CSS, e não irá ajudar se seu link for gerado através de JS. 
+3.  Se nenhuma dessas opções for viável, você poderá visualizar um novo recurso que faz conversão/regravação de URL. Com esse recurso, as URLs internas ou os links existentes no corpo HTML de seus aplicativos serão convertidos ou "mapeados" para URLs de Proxy de Aplicativo externas publicadas. Essa conversão só funciona em links em HTML ou CSS e não ajudará se o link for gerado pelo JS. 
 
-Como um resultado, é altamente recomendável usar a solução [domínios personalizados](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), se possível. Se você deseja ingressar na visualização, envie um email para <aadapfeedback@microsoft.com> com o(s) applicationId(s).
+Como um resultado, é altamente recomendável usar a solução [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md), se possível. Se você deseja ingressar na visualização, envie um email para <aadapfeedback@microsoft.com> com o(s) applicationId(s).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
+[Trabalhar com servidores proxy locais existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 

@@ -1,24 +1,24 @@
 ---
-title: "Criar e compartilhar painéis do Portal do Azure | Microsoft Docs"
-description: "Este artigo explica como criar e editar painéis no portal do Azure."
+title: Criar e compartilhar painéis do Portal do Azure | Microsoft Docs
+description: Este artigo explica como criar e editar painéis no portal do Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure.  Este artigo percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
@@ -75,7 +75,7 @@ Quando você cria um painel, ele será privado por padrão, o que significa que 
 
 ![compartilhar painel](./media/azure-portal-dashboards/share-dashboard.png)
 
-Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para integrar totalmente os painéis ao ecossistema, implementamos painéis compartilhados como recursos do Azure (e, por isso, não é possível compartilhar ao digitar um endereço de email).  O acesso às informações exibidas pela maioria dos blocos no portal é controlado pelo [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md). Do ponto de vista do controle de acesso, os painéis compartilhados não são diferentes de uma máquina virtual ou de uma conta de armazenamento.  
+Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para integrar totalmente os painéis ao ecossistema, implementamos painéis compartilhados como recursos do Azure (e, por isso, não é possível compartilhar ao digitar um endereço de email).  O acesso às informações exibidas pela maioria dos blocos no portal é controlado pelo [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md). Do ponto de vista do controle de acesso, os painéis compartilhados não são diferentes de uma máquina virtual ou de uma conta de armazenamento.  
 
 Digamos que você tenha uma assinatura do Azure e membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura.  Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura.  Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los.  Os usuários com acesso de leitor podem fazer edições locais em um painel compartilhado, mas não podem publicar essas alterações no servidor.  No entanto, eles podem fazer uma cópia privada do painel para seu próprio uso.  Como sempre, os blocos individuais no painel impõem suas próprias regras de controle de acesso com base nos recursos aos quais eles correspondem.  
 

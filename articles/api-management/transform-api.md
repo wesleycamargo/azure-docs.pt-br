@@ -1,11 +1,11 @@
 ---
 title: Transformar e proteger sua API com o Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como proteger sua API com cotas e políticas de limitação (limite de taxa)."
+description: Saiba como proteger sua API com cotas e políticas de limitação (limite de taxa).
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bebfabfa2c9012fa55bfc6964dc0b638cb7ab3f1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger sua API 
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 
 ![Políticas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
@@ -75,7 +75,7 @@ Para ver a resposta original:
 7. Selecione **Editor de código**.
     
      ![Editar política](./media/set-edit-policies/set-edit-policies01.png)
-9. Posicione o cursor dentro do elemento **<outbound>**.
+9. Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
 10. Na janela à direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho HTTP** duas vezes (para inserir dois trechos de código de política).
 
     ![Políticas](./media/transform-api/transform-api.png)
@@ -111,9 +111,9 @@ Para ver a resposta original:
 5. Na parte superior da tela, selecione a guia **Design**.
 6. Na janela **Processamento de saída**, clique no triângulo (ao lado do lápis).
 7. Selecione **Editor de código**.
-8. Posicione o cursor dentro do elemento **<outbound>**.
+8. Posicione o cursor dentro do elemento **&lt;outbound&gt;**.
 9. Na janela à direita, em **Políticas de transformação**, clique em **+ Localizar e substituir cadeia de caracteres no corpo**.
-10. Modifique seu código **<find-and-replace** (no elemento **<outbound>**) para substituir a URL para corresponder ao gateway de APIM. Por exemplo:
+10. Modifique seu código **<find-and-replace** (no elemento **<outbound>**) para substituir a URL para corresponder ao gateway de APIM. Por exemplo: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,7 +128,7 @@ Esta seção mostra como adicionar a proteção para a API de back-end configura
 5. Na parte superior da tela, selecione a guia **Design**.
 6. Na janela **Processamento de entrada**, clique no triângulo (ao lado de lápis).
 7. Selecione **Editor de código**.
-8. Posicione o cursor dentro do elemento **<inbound>**.
+8. Posicione o cursor dentro do elemento **&lt;inbound&gt;**.
 9. Na janela à direita, em **Políticas de restrição de acesso**, clique em **+ Limit call rate per key (+ Limitar taxa de chamada por chave)**.
 10. Modifique o código **<rate-limit-by-key** (no elemento **<inbound>**) para o código a seguir:
 

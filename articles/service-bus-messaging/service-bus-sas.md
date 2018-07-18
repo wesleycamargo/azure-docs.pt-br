@@ -1,24 +1,24 @@
 ---
-title: "Controle de acesso do Barramento de Serviço do Azure com Assinaturas de Acesso Compartilhado | Microsoft Docs"
-description: "Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure."
+title: Controle de acesso do Barramento de Serviço do Azure com Assinaturas de Acesso Compartilhado | Microsoft Docs
+description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sethm
+ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -273,6 +273,7 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Colocar uma mensagem nas mensagens mortas |Escutar |Qualquer endereço de fila válido |
 | Obter o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
 | Definir o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
+| Agende uma mensagem para entrega posterior; por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
 | **Tópico** | | |
 | Criar um tópico |Gerenciar |Qualquer endereço de namespace |
 | Excluir um tópico |Gerenciar |Qualquer endereço de tópico válido |

@@ -49,6 +49,8 @@
       href: functions-openapi-definition.md
     - name: Redimensionamento de imagem com a Grade de Eventos
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Criar um aplicativo Web sem servidor com Functions como a API
+      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
     - name: Funções no Linux
       items:
         - name: Imagem personalizada
@@ -83,6 +85,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+    - name: Diagnostics
+      href: ../app-service/app-service-diagnostics.md
     - name: Considerações sobre o desempenho
       href: functions-best-practices.md
     - name: Proxies de Funções
@@ -97,6 +101,8 @@
           href: durable-functions-bindings.md
         - name: Ponto de verificação e reprodução
           href: durable-functions-checkpointing-and-replay.md
+        - name: Status de orquestração personalizado
+          href: durable-functions-custom-orchestration-status.md
         - name: Gerenciamento de instância
           href: durable-functions-instance-management.md
         - name: API HTTP
@@ -121,6 +127,8 @@
           href: durable-functions-versioning.md
         - name: Desempenho e escala
           href: durable-functions-perf-and-scale.md
+        - name: Recuperação de desastres e distribuição geográfica
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guias de instruções
   items:
     - name: Desenvolver
@@ -133,6 +141,8 @@
           href: functions-run-local.md
         - name: Desenvolvimento do Visual Studio
           href: functions-develop-vs.md
+        - name: Gerenciar conexões
+          href: manage-connections.md
         - name: Tratamento de erros
           href: functions-bindings-error-pages.md
     - name: Implantar
@@ -175,12 +185,16 @@
           href: durable-functions-sequence.md
         - name: Fan-out/fan-in
           href: durable-functions-cloud-backup.md
-        - name: Singleton com monitoração de estado
-          href: durable-functions-counter.md
+        - name: Monitores
+          href: durable-functions-monitor.md
         - name: Interação humana
           href: durable-functions-phone-verification.md
         - name: Teste de unidade
           href: durable-functions-unit-testing.md
+        - name: Publicação de evento
+          href: durable-functions-event-publishing.md
+        - name: Usar o SDK do WebJobs
+          href: durable-functions-webjobs-sdk.md
 - name: Referência
   items:
     - name: Associações
@@ -188,10 +202,14 @@
         - name: Armazenamento de blob
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
+          items:
+            - name: Funções 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Funções 2.x
+              href: functions-bindings-cosmosdb-v2.md
         - name: Grade de Eventos
           href: functions-bindings-event-grid.md
-        - name: Hubs de evento
+        - name: Hubs de Eventos
           href: functions-bindings-event-hubs.md
         - name: Arquivo externo
           href: functions-bindings-external-file.md

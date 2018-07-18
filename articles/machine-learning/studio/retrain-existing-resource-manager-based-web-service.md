@@ -3,10 +3,10 @@ title: Readaptar um serviço Web de previsão existente | Microsoft Docs
 description: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
-ms.author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: ''
+editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 040b52ae41dc83f103762764b6f2ccea23d36983
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
 Este documento descreve o processo de readaptação do cenário a seguir:
@@ -26,8 +26,8 @@ Este documento descreve o processo de readaptação do cenário a seguir:
 * Você tem um experimento de treinamento e um experimento de previsão implantado como um serviço Web operacionalizado.
 * Você tem novos dados os quais deseja usar em seu serviço Web de previsão para executar sua pontuação.
 
-> [!NOTE] 
-> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md).
 
 Começando com o Serviço web e experimentos existentes, você precisa executar estas etapas:
 
@@ -54,7 +54,7 @@ Para atualizar seu experimento de treinamento:
 
 Execute seu experimento.
 
-Em seguida, você deve implantar o Teste de Treinamento como um serviço Web que produz um modelo treinado e os resultados de avaliação do modelo.  
+Em seguida, você deve implantar o Teste de Treinamento como um serviço Web que produz um modelo treinado e os resultados de avaliação do modelo.
 
 Na parte inferior da tela do experimento, clique em **Configurar o Serviço Web** e selecione **Implantar Serviço Web [Novo]**. O portal dos Serviços Web do Azure Machine Learning abre a página **Implantar Serviço Web**. Digite um nome para o serviço Web, escolha um plano de pagamento e clique em **Implantar**. Você pode usar o método de Execução em Lotes apenas para criar modelos treinados.
 
@@ -84,7 +84,7 @@ Localize a declaração da **apikey**:
 Na seção **Informações básicas de consumo** da página **Consumir**, localize a chave primária e copie-a para a declaração da **apikey**.
 
 ### <a name="update-the-azure-storage-information"></a>Atualize as informações do Armazenamento do Azure
-O código de exemplo de BES carrega um arquivo de uma unidade local (por exemplo "C:\temp\CensusIpnput.csv") para o armazenamento do Azure, processa e grava os resultados de volta para o armazenamento do Azure.  
+O código de exemplo de BES carrega um arquivo de uma unidade local (por exemplo "C:\temp\CensusIpnput.csv") para o armazenamento do Azure, processa e grava os resultados de volta para o armazenamento do Azure.
 
 Depois de executar o experimento, o fluxo de trabalho resultante deve ser semelhante ao seguinte:
 
@@ -126,7 +126,7 @@ Veja a seguir um exemplo de saída de readaptação:
 ## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da readaptação
 Quando você executa o aplicativo, a saída inclui URL e os tokens de assinaturas de acesso compartilhados necessários para acessar os resultados da avaliação.
 
-Você pode ver os resultados do desempenho do modelo readaptado ao combinar *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saída para *output2* (como mostrado na imagem de readaptação anterior) e colando a URL completa na barra de endereço do navegador.  
+Você pode ver os resultados do desempenho do modelo readaptado ao combinar *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saída para *output2* (como mostrado na imagem de readaptação anterior) e colando a URL completa na barra de endereço do navegador.
 
 Examine os resultados para determinar se o modelo treinado recentemente executa bem o suficiente para substituir o existente.
 
@@ -136,7 +136,7 @@ Copie *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saí
 Quando você readapta um novo serviço Web, também atualiza a definição do serviço Web de previsão para fazer referenciar ao novo modelo treinado. A definição do serviço Web é uma representação interna do modelo treinado do serviço Web e não pode ser modificada diretamente. Verifique se você está recuperando a definição do serviço Web para seu experimento de previsão, e não seu teste de treinamento.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Entre no Azure Resource Manager
-Primeiro, você deve entrar em sua conta do Azure no ambiente do PowerShell usando o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx).
+Primeiro, é necessário entrar em sua conta do Azure de dentro do ambiente do PowerShell usando o cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição do serviço Web
 Em seguida, obtenha o objeto de definição do serviço Web chamando o cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).

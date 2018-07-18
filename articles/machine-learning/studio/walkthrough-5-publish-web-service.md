@@ -1,10 +1,11 @@
 ---
-title: "Etapa 5: implantar o serviço Web do Machine Learning | Microsoft Docs"
-description: "Etapa 5 do passo-a-passo Desenvolver uma solução preditiva: implantar um teste preditivo no Machine Learning Studio como um serviço Web."
+title: 'Etapa 5: implantar o serviço Web do Machine Learning | Microsoft Docs'
+description: 'Etapa 5 do passo-a-passo Desenvolver uma solução preditiva: implantar um teste preditivo no Machine Learning Studio como um serviço Web.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6472b795c9b3651160af4d1520bfd1c90a500b5f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -220,4 +220,4 @@ Para monitorar o desempenho do seu serviço Web:
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

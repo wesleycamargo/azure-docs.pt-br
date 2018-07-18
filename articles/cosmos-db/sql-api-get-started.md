@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos Db: tutorial de introdução ao API do SQL | Microsoft Docs"
+title: 'Azure Cosmos Db: tutorial de introdução ao API do SQL | Microsoft Docs'
 description: Um tutorial que cria um banco de dados online e um aplicativo de console C# usando a API do SQL.
 keywords: tutorial do nosql, banco de dados online, aplicativo de console c#
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
-manager: jhubbard
-editor: monicar
+manager: kfile
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9de183ccd60dca0b8c67bc3e17136212b7132439
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introdução à API do SQL
 > [!div class="op_single_selector"]
@@ -31,8 +30,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bem-vindo(a) ao tutorial de introdução ao API do SQL do Azure Cosmos DB! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do Azure Cosmos DB.
 

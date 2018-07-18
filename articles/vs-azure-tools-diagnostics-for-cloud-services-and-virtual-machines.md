@@ -1,11 +1,11 @@
 ---
-title: "Configurar diagnóstico para máquinas virtuais e Serviços de Nuvem do Azure | Microsoft Docs"
-description: "Saiba como configurar o diagnóstico para depurar os serviços de nuvem do Azure e VMs (máquinas virtuais) no Visual Studio."
+title: Configurar diagnóstico para máquinas virtuais e Serviços de Nuvem do Azure | Microsoft Docs
+description: Saiba como configurar o diagnóstico para depurar os serviços de nuvem do Azure e VMs (máquinas virtuais) no Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurar diagnóstico para máquinas virtuais e Serviços de Nuvem do Azure
 Quando você precisa solucionar problemas de uma máquina virtual ou serviço de nuvem do Azure, pode usar o Visual Studio para configurar mais facilmente o Diagnóstico do Azure. O diagnóstico captura dados do sistema e dados de log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem. Dados de diagnóstico são transferidos para uma conta de armazenamento que você escolhe. Para obter mais informações sobre o registro em log de diagnóstico no Azure, consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](app-service/web-sites-enable-diagnostic-log.md).
@@ -155,10 +155,10 @@ Se você estiver usando o SDK do Azure 2.5 e quiser especificar uma fonte de dad
    <DataSource name="CustomDataSource!*" />
 </WindowsEventLog>
 ```
-### <a name="performance-counters"></a>Contadores de desempenho
-As informações do contador de desempenho podem ajudá-lo a localizar afunilamentos do sistema e ajustar o sistema e desempenho do aplicativo. Para obter mais informações, consulte [Criar e usar contadores de desempenho em um aplicativo do Azure](https://msdn.microsoft.com/library/azure/hh411542.aspx). Para capturar contadores de desempenho, marque a caixa de seleção **Habilitar a transferência de contadores de desempenho**. Para aumentar ou diminuir o intervalo entre a transferência de logs de evento para sua conta de armazenamento, altere o valor do **Período de Transferência (min)**. Selecione as caixas de seleção para os contadores de desempenho que você deseja controlar.
+### <a name="performance-counters"></a>contadores de desempenho
+As informações do contador de desempenho podem ajudá-lo a localizar gargalos do sistema e ajustar o sistema e desempenho do aplicativo. Para obter mais informações, consulte [Criar e usar contadores de desempenho em um aplicativo do Azure](https://msdn.microsoft.com/library/azure/hh411542.aspx). Para capturar contadores de desempenho, marque a caixa de seleção **Habilitar a transferência de contadores de desempenho**. Para aumentar ou diminuir o intervalo entre a transferência de logs de evento para sua conta de armazenamento, altere o valor do **Período de Transferência (min)**. Selecione as caixas de seleção para os contadores de desempenho que você deseja controlar.
 
-![Contadores de desempenho](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
+![contadores de desempenho](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
 Para rastrear um contador de desempenho que não esteja listado, insira o contador de desempenho usando a sintaxe sugerida. Então selecione **Adicionar**. O sistema operacional na máquina virtual determina quais contadores de desempenho que você pode controlar. Para obter mais informações sobre a sintaxe, consulte [Especificar um caminho de contador](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
 
@@ -216,11 +216,11 @@ Depois de coletar os dados de diagnóstico para um serviço de nuvem ou uma máq
     No Cloud Explorer ou no Gerenciador de Servidores, abra a conta de armazenamento associada à implantação.
 3. Abra as tabelas de diagnóstico no Visualizador de tabela e, em seguida, analise os dados coletados. Para logs do IIS e os logs personalizados, você pode abrir um contêiner de blob. A tabela a seguir lista as tabelas ou contêineres de blob com os dados para os diferentes arquivos de log. Além dos dados para esse arquivo de log, as entradas de tabela contêm **EventTickCount**, **DeploymentId**, **Role** e **RoleInstance** para ajudá-lo a identificar qual máquina virtual e a função gerou os dados e quando. 
    
-   | Dados de diagnóstico | Descrição | Local |
+   | Dados de diagnóstico | DESCRIÇÃO | Local padrão |
    | --- | --- | --- |
    | Logs de aplicativo |Logs que seu código gera chamando métodos da classe **System.Diagnostics.Trace**. |WADLogsTable |
    | Logs de eventos |Dados dos logs de eventos do Windows nas máquinas virtuais. O Windows armazena informações nesses logs, mas os aplicativos e os serviços também usam os logs para relatar erros ou registrar em log informações. |WADWindowsEventLogsTable |
-   | Contadores de desempenho |Você pode coletar dados de qualquer contador de desempenho disponível na máquina virtual. O sistema operacional fornece contadores de desempenho, que inclui muitas estatísticas, como tempo de processador e uso de memória. |WADPerformanceCountersTable |
+   | contadores de desempenho |Você pode coletar dados de qualquer contador de desempenho disponível na máquina virtual. O sistema operacional fornece contadores de desempenho, que inclui muitas estatísticas, como tempo de processador e uso de memória. |WADPerformanceCountersTable |
    | Logs de infraestrutura |Logs que são gerados por meio da própria infraestrutura de diagnóstico. |WADDiagnosticInfrastructureLogsTable |
    | Logs IIS |Logs que registram solicitações da Web. Se o seu serviço de nuvem obtiver uma quantidade significativa de tráfego, esses logs poderão ser demorados. É uma boa ideia coletar e armazenar esses dados somente quando você precisar dele. |Você pode encontrar os logs de solicitação com falha no contêiner de blob em wad-iis-failedreqlogs em um caminho para essa implantação, função e instância. Você pode encontrar logs completos em wad-iis-logfiles. As entradas para cada arquivo são feitas na tabela WADDirectories. |
    | Despejos de falhas |Fornecem imagens binárias do processo do serviço de nuvem (normalmente uma função de trabalho). |contêiner de blob wad-crush-dumps |

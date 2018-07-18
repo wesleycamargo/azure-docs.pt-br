@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -42,7 +40,7 @@ Todos os usuários têm um único diretório inicial que os autentica, mas eles 
 2. Clique em **Alterar diretório**.
 
     ![Captura de tela mostrando o botão Alterar diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Revise os avisos. Todos os usuários [RBAC (Controle de acesso baseado em função)](role-based-access-control-configure.md) com acesso atribuído e todos os administradores de assinatura perdem o acesso quando o diretório da assinatura é alterado.
+3. Revise os avisos. Todos os usuários [RBAC (Controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) com acesso atribuído e todos os administradores de assinatura perdem o acesso quando o diretório da assinatura é alterado.
 4. Selecione um diretório.
 
     ![Captura de tela mostrando interface de usuário de alteração do diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -54,13 +52,15 @@ Todos os usuários têm um único diretório inicial que os autentica, mas eles 
     ![Captura de tela mostrando o seletor](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
 
+Os cofres de chaves do Azure pertencentes a você também são afetados pela movimentação de uma assinatura; portanto [altere a ID de locatário do cofre de chaves](../key-vault/key-vault-subscription-move-fix.md) antes de retomar as operações.
+
 A alteração do diretório da assinatura é uma operação de nível de serviço. Ela não afeta a propriedade de cobrança da assinatura, e o Administrador da Conta ainda pode alterar o Administrador de Serviço usando o [Centro de Contas](https://account.azure.com/subscriptions). Se você quiser excluir o diretório original, deverá transferir a propriedade de cobrança da assinatura para um novo Administrador de Conta. Para saber mais sobre como transferir a propriedade da conta, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como criar um novo diretório gratuito do Azure AD, consulte [Como obter um locatário do Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Para saber mais sobre como transferir a propriedade da cobrança, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
+* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

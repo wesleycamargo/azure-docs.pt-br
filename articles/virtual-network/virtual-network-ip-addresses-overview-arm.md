@@ -1,11 +1,11 @@
 ---
-title: "Tipos de endereços IP no Azure | Microsoft Docs"
-description: "Saiba mais sobre endereços IP públicos e privados no Azure."
+title: Tipos de endereços IP no Azure | Microsoft Docs
+description: Saiba mais sobre endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -53,11 +53,15 @@ Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. Os endere
 
 Os endereços IP públicos são criados com um dos seguintes SKUs:
 
+>[!IMPORTANT]
+> Os SKUs correspondentes devem ser usados para os recursos do balanceador de carga e de IP público. Não é possível ter uma combinação de recursos de SKU Básico e SKU Standard. Você não pode anexar as máquinas virtuais autônomas, máquinas virtuais em um recurso de conjunto de disponibilidade, ou recursos de conjunto de dimensionamento de máquina virtual para os SKUs simultaneamente.  Os novos designs devem considerar o uso de recursos de SKU Standard.  Examine [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter detalhes.
+
 #### <a name="basic"></a>Basic
 
 Todos os endereços IP públicos criados antes da introdução dos SKUs são endereços IP públicos do SKU Básico. Com a introdução dos SKUs, você tem a opção de especificar qual SKU o endereço IP público deve ser. Endereços do SKU Básico são:
 
 - Atribuídos com o método de alocação estática ou dinâmica.
+- Estão abertos por padrão.  Os grupos de segurança de rede são recomendados, mas opcionais, para restringir o tráfego de entrada ou saída.
 - Atribuídos a qualquer recurso do Azure ao qual possa ser atribuído um endereço IP público, tal como adaptadores de rede, Gateways de VPN, Gateways de Aplicativo e balanceadores de carga voltados para a Internet.
 - Podem ser atribuídos a uma zona específica.
 - Sem redundância de zona. Para saber mais sobre as zonas de disponibilidade, confira [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -67,20 +71,18 @@ Todos os endereços IP públicos criados antes da introdução dos SKUs são end
 Endereços IP públicos do SKU Padrão são:
 
 - Atribuídos somente com o método de alocação estática.
-- Atribuídos a adaptadores de rede ou balanceadores de carga padrão voltados para a Internet. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Com redundância de zona por padrão. Podem ser criados como zonal e com presença garantida em uma zona de disponibilidade específica.  Para saber mais sobre as zonas de disponibilidade, confira [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- São seguros por padrão e fechados para o tráfego de entrada. É necessário definir explicitamente uma lista de permissões do tráfego de entrada permitido com um [grupo de segurança de rede](security-overview.md#network-security-groups).
+- Atribuídos a adaptadores de rede ou a balanceadores de carga Standard públicos. Para obter mais informações sobre os balanceadores de carga Standard do Azure, consulte [Balanceador de carga Standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Com redundância de zona por padrão. Podem ser criados como zonal e com presença garantida em uma zona de disponibilidade específica. Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups).  A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
-
-O SKU padrão está em versão prévia. Antes de criar um endereço IP público do SKU padrão, você deve primeiro se registrar para a versão prévia e criar o endereço em um local com suporte. Para se registrar para a versão prévia, confira [Registrar-se para a versão prévia do SKU padrão](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Para obter uma lista de localizações com suporte (regiões), confira [Disponibilidade da região](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) e monitore a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network) para obter suporte de região adicional.
-
+> A comunicação com o recurso de SKU Standard falha até que você crie e associe um [grupo de segurança de rede](security-overview.md#network-security-groups) e permita explicitamente o tráfego de entrada desejado.
 
 ### <a name="allocation-method"></a>Método de alocação
 
-Há dois métodos de alocar um endereço IP para um recurso de endereço IP público - *dinâmico* ou *estático*. O método de alocação padrão é *dinâmico*, em que o endereço IP **não** é alocado no momento de sua criação. Em vez disso, o endereço IP público é alocado quando você inicia (ou cria) o recurso associado (como um balanceador de carga ou VM). O endereço IP é liberado quando você para (ou exclui) o recurso. Depois de ser liberado do recurso A, por exemplo, o endereço IP pode ser atribuído a um recurso diferente. Se o endereço IP for atribuído a um recurso diferente enquanto o recurso A for interrompido, quando você reiniciar o recurso A, um endereço IP diferente será atribuído.
+Os endereços IP públicos de SKUs Básico e Standard dão suporte ao método de alocação *estático*.  O recurso recebe um endereço IP no momento em que é criado e o endereço IP é liberado quando o recurso é excluído.
 
-Para garantir que o endereço IP para o recurso associado permaneça o mesmo, você pode definir o método de alocação explicitamente como *estático*. Um endereço IP estático é atribuído imediatamente. O endereço é liberado apenas quando você exclui o recurso ou altera seu método de alocação para *dinâmico*.
+Os endereços IP públicos de SKU Básico também dão suporte a um método de alocação *dinâmico*, que é o padrão se o método de alocação não está especificado.  A seleção de um método de alocação *dinâmico* para um recurso de endereço IP público básico significa que o endereço IP **não** é alocado no momento da criação do recurso.  O endereço IP público é alocado quando você associa o endereço IP público a uma máquina virtual ou quando você coloca a primeira instância de máquina virtual no pool de back-end de um balanceador de carga básico.   O endereço IP é liberado quando você para (ou exclui) o recurso.  Depois de ser liberado do recurso A, por exemplo, o endereço IP pode ser atribuído a um recurso diferente. Se o endereço IP for atribuído a um recurso diferente enquanto o recurso A for interrompido, quando você reiniciar o recurso A, um endereço IP diferente será atribuído. Se você alterar o método de alocação de um recurso de endereço IP público básico de *estático* para *dinâmico*, o endereço será liberado. Para garantir que o endereço IP para o recurso associado permaneça o mesmo, você pode definir o método de alocação explicitamente como *estático*. Um endereço IP estático é atribuído imediatamente.
 
 > [!NOTE]
 > Mesmo quando você define o método de alocação para *estático*, não é possível especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP de um pool de endereços IP disponíveis no local do Azure onde o recurso é criado.
@@ -114,21 +116,21 @@ Você pode associar um endereço IP público criado com um dos [SKUs](#SKU) ao [
 
 ### <a name="vpn-gateways"></a>Gateways VPN
 
-Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) conecta uma rede virtual do Azure a outras redes virtuais do Azure ou a uma rede local. Um endereço IP público é atribuído ao Gateway de VPN para permitir que ele se comunique com a rede remota. Você pode atribuir apenas um endereço IP público *dinâmico* a um gateway de VPN.
+Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) conecta uma rede virtual do Azure a outras redes virtuais do Azure ou a uma rede local. Um endereço IP público é atribuído ao Gateway de VPN para permitir que ele se comunique com a rede remota. Você pode atribuir apenas um endereço IP público básico *dinâmico* a um gateway de VPN.
 
 ### <a name="application-gateways"></a>Application gateways
 
-Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você pode atribuir apenas um endereço IP público *dinâmico* a uma configuração de front-end do Application Gateway.
+Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você pode atribuir apenas um endereço IP público básico *dinâmico* a uma configuração de front-end do gateway de aplicativo.
 
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
 
-| Recurso de nível superior | Associação de Endereço IP | dinâmico | estático |
+| Recurso de nível superior | Associação de Endereço IP | Dinâmico | estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
-| Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Não |
+| Máquina virtual |interface de rede |sim |sim |
+| Balanceador de carga voltado para a Internet |Configuração de front-end |sim |sim |
+| gateway de VPN |Configuração de IP do gateway |sim |Não  |
+| Gateway de Aplicativo |Configuração de front-end |sim |Não  |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos de uma [rede virtual](virtual-networks-overview.md) , ou na rede local por meio de um gateway de VPN ou circuito de ExpressRoute, sem usar um endereço IP acessível pela Internet.
@@ -173,11 +175,11 @@ A tabela a seguir mostra a propriedade específica por meio da qual um endereço
 
 | Recurso de nível superior | Associação de Endereço IP | dinâmico | estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
-| Balanceador de carga |Configuração de front-end |Sim |Sim |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
+| Máquina virtual |interface de rede |sim |sim |
+| Balanceador de carga |Configuração de front-end |sim |sim |
+| Gateway de Aplicativo |Configuração de front-end |sim |sim |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 Os limites impostos sobre o endereçamento IP são indicados em todo o conjunto de [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
 ## <a name="pricing"></a>Preços
@@ -185,5 +187,4 @@ Endereços IP públicos podem ter um custo nominal. Para saber mais sobre preço
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar uma VM com um IP público estático usando o Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-* [Implantar uma VM com um IP público estático usando um modelo](virtual-network-deploy-static-pip-arm-template.md)
 * [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - Logs de fluxo do NSG habilitados para os NSGs que deseja monitorar
     - Uma Conta de Armazenamento do Microsoft Azure para armazenar logs de arquivos brutos
     - Espaço de trabalho do Log Analytics (OMS), com acesso para gravação e leitura
+    - Sua conta deve ter as seguintes ações no provedor Microsoft. Network:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Em quais regiões do Azure estão disponíveis a Análise de Tráfego?
 
@@ -52,7 +64,7 @@ ms.lasthandoff: 03/09/2018
 
 7.  É possível armazenar logs brutos em Conta de Armazenamento diferente, em assinatura diferente?
 
-    Não Você pode armazenar logs brutos em qualquer conta de armazenamento onde um NSG esteja habilitado para logs de fluxo, no entanto, tanto a conta de armazenamento quanto os logs brutos devem estar na mesma assinatura e região.
+    Nº Você pode armazenar logs brutos em qualquer conta de armazenamento onde um NSG esteja habilitado para logs de fluxo, no entanto, tanto a conta de armazenamento quanto os logs brutos devem estar na mesma assinatura e região.
 
 8.  Se eu receber um erro "Não encontrado" ao configurar um NSG para Análise de Tráfego, como poderei resolver isso?
 
@@ -83,7 +95,7 @@ ms.lasthandoff: 03/09/2018
 12.  Se eu receber a mensagem a seguir: "1) Analisando seus logs de fluxo NSG pela primeira vez. Esse processo pode demorar de 20 a 30 minutos para ser concluído. Verifique novamente após algum tempo. 2) Se a etapa acima não funcionar e seu espaço de trabalho estiver sob a SKU gratuita, então, verifique o uso de espaço de trabalho aqui para validar a quota, caso contrário consulte as perguntas frequentes para obter mais informações", como faço para resolver isso?
 
         Você pode receber o erro pelos seguintes motivos:
-        - A Análise de Tráfego pode ter sido habilitada recentemente e pode estar agregando dados suficientes para que obtenha informações relevantes antes que qualquer relatório possa ser gerado. Neste caso, tente novamente após 30 minutos
+        - A Análise de tráfego pode ter sido habilitada recentemente e pode não estar agregando dados suficientes para derivar insights significantes.
         - Seu espaço de trabalho OMS está sob a SKU gratuita e violou os limites de cota. Nesse caso, será necessário utilizar um espaço de trabalho em uma SKU com capacidade maior.
     
         Se os problemas persistirem, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -92,11 +104,15 @@ ms.lasthandoff: 03/09/2018
 
         Você está vendo a informação de recursos no painel, no entanto, não há estatísticas relacionadas ao fluxo presentes. Os dados podem estar ausentes porque não há fluxo de comunicação entre os recursos. Aguarde 60 minutos e verifique o status novamente. Se você tiver certeza de que a comunicação flui entre os recursos, então, manifeste as preocupações no [Fórum Voz do Usuário](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Como a Análise de Tráfego é precificada?
+14. Posso Configurar a análise de tráfego usando o PowerShell ou um modelo do Gerenciador de recursos do Azure?
 
-        Não haverá cobrança de encargos enquanto a Análise de Tráfego estiver em Visualização pública. A geração de Logs de Fluxo do NSG e a retenção de dados em um espaço de trabalho OMS estão sujeitas a encargos nas taxas publicadas.
+    Não, as análises de tráfego só podem ser configuradas usando o Portal do Azure.
 
-15.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
+15.  Como a Análise de Tráfego é precificada?
+
+        A análise de tráfego é monitorada para melhorar a redução de logs e armazenar os logs avançados em um espaço de trabalho do Log Analytics. Enquanto estiver na visualização, a análise de tráfego não é cobrada para melhorar os logs de redução, no entanto, a retenção de dados em um espaço de trabalho está sujeita a cobrança em taxas publicadas. Essa resposta será atualizada quando os preços para análise de tráfego estiverem disponíveis.
+
+16.  Como posso navegar usando o Teclado na Exibição do Mapa Geográfico?
 
         A página do mapa geográfico contém duas seções principais:
     

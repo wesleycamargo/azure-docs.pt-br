@@ -1,9 +1,9 @@
 ---
-title: "Criar um gateway de aplicativo com hospedagem de vários sites – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure."
+title: Criar um gateway de aplicativo com hospedagem de vários sites – CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 7728ade5f84cd97f3ff0cebd0d5545d68d0ebd79
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicativo com hospedagem de vários sites usando a CLI do Azure
 
@@ -226,7 +226,7 @@ O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

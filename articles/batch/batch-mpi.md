@@ -1,24 +1,24 @@
 ---
-title: "Usar tarefas de várias instâncias para executar aplicativos MPI - Azure Batch | Microsoft Docs"
-description: "Saiba como executar aplicativos de MPI (interface de transmissão de mensagens) usando o tipo de tarefa de várias instâncias no Lote do Azure."
+title: Usar tarefas de várias instâncias para executar aplicativos MPI - Azure Batch | Microsoft Docs
+description: Saiba como executar aplicativos de MPI (interface de transmissão de mensagens) usando o tipo de tarefa de várias instâncias no Lote do Azure.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 
@@ -49,6 +49,10 @@ Quando você envia uma tarefa com as configurações de várias instâncias para
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos para tarefas de várias instâncias
 As tarefas de várias instâncias exigem um pool com **comunicação entre nós habilitada** e com a **execução de tarefas simultâneas desabilitada**. Para desabilitar a execução de tarefas simultâneas, defina a propriedade [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) para 1.
+
+> [!NOTE]
+> O lote [limita](batch-quota-limit.md#other-limits) o tamanho de um pool que tenha comunicação entre nós habilitada.
+
 
 Este trecho de código mostra como criar um pool para tarefas de várias instâncias usando a biblioteca do Lote para .NET.
 
@@ -107,8 +111,7 @@ Procure os tamanhos especificados como "Compatível com RDMA" nos seguintes arti
   * [Tamanhos das máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Para tirar proveito dos RDMA nos [nós de computação Linux](batch-linux-nodes.md), você deverá usar **Intel MPI** nos nós. Para obter mais informações sobre os pools CloudServiceConfiguration e VirtualMachineConfiguration, consulte a seção Pool da [visão geral do recurso Lote](batch-api-basics.md).
->
+> Para tirar proveito dos RDMA nos [nós de computação Linux](batch-linux-nodes.md), você deverá usar **Intel MPI** nos nós. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Criar uma tarefa de várias instâncias com o .NET do Lote

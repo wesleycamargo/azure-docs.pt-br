@@ -1,11 +1,11 @@
 ---
-title: "Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs"
-description: "Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager."
+title: Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs
+description: Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre as Máquinas Virtuais do Windows
 Este artigo trata de algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas no Azure com o modelo de implantação do Gerenciador de Recursos. Para a versão deste tópico relativa ao Linux, veja [Perguntas frequentes sobre as Máquinas Virtuais Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma V
 Sim, agora isso é possível. Primeiro, a VM precisa ser parada e desalocada. Em seguida, é possível adicionar ou remover uma NIC (a menos que ela seja a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome do computador?
-Sim. O nome do computador pode ter, no máximo, 15 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações sobre como nomear recursos.
+Sim. O nome do computador pode ter, no máximo, 15 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#compute) para obter mais informações sobre como nomear recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Há algum requisito de nome de grupo de recursos?
 Sim. O nome do grupo de recursos pode ter, no máximo, 90 caracteres. Confira [Regras e restrições de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) para obter mais informações sobre grupos de recursos.
@@ -88,27 +88,27 @@ Nomes de usuário podem ter, no máximo, 20 caracteres e não podem terminar com
 Os seguintes nomes de usuário não são permitidos:
 <table>
     <tr>
-        <td style="text-align:center">administrator </td><td style="text-align:center"> administrador </td><td style="text-align:center"> usuário </td><td style="text-align:center"> user1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">administrador</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">administrator</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">julio</td><td style="text-align:center">proprietário</td>
     </tr>
     <tr>
-        <td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+        <td style="text-align:center">root</td><td style="text-align:center">Servidor</td><td style="text-align:center">sql</td><td style="text-align:center">suporte</td>
     </tr>
     <tr>
-        <td style="text-align:center">julio </td><td style="text-align:center"> proprietário </td><td style="text-align:center"> root </td><td style="text-align:center"> Servidor</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">usuário</td><td style="text-align:center">user1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -124,17 +124,17 @@ As seguintes senhas não são permitidas:
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Pa$$word </td>
+        <td>abc@123</td>
+        <td>iloveyou!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Password! </td>
-        <td>Password1 </td>
-        <td>Password22 </td>
-        <td>iloveyou! </td>
+        <td>Pa$$word</td>
+        <td>pass@word1</td>
+        <td>Password!</td>
+        <td>Password1</td>
+        <td>Password22</td>
     </tr>
 </table>

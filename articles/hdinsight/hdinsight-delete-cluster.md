@@ -1,25 +1,23 @@
 ---
-title: "Como excluir um cluster HDInsight – Azure | Microsoft Docs"
-description: "Informações sobre as várias maneiras pelas quais é possível um excluir um cluster HDInsight."
+title: Como excluir um cluster HDInsight – Azure | Microsoft Docs
+description: Informações sobre as várias maneiras pelas quais é possível um excluir um cluster HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 55f7838b-9786-47ff-96db-1b64437bd0bb
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/17/2018
+ms.topic: conceptual
+ms.date: 03/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 04b89b2cceb18a0e3c88d0d1deada1a05b8187f6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01c59d4970bca54417c9b860ec177ecf5a37d8c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
 

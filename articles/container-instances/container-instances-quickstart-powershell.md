@@ -3,17 +3,17 @@ title: Início Rápido – Criar o primeiro contêiner de Instâncias de Contêi
 description: Neste guia de início rápido, você usa o Azure PowerShell para implantar um contêiner do Windows em Instâncias de Contêiner do Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6e43a525010ac57a75f6db4c43f6f1407dab93a8
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
@@ -21,11 +21,11 @@ As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres d
 
 ![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][qs-powershell-01]
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.5 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.5 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -81,9 +81,9 @@ Assim que o contêiner **ProvisioningState** mudar para `Succeeded`, navegue at�
 
 ![IIS implantado usando as Instâncias de Contêiner do Azure exibido no navegador][qs-powershell-01]
 
-## <a name="delete-the-container"></a>Excluir o contêiner
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao concluir o contêiner, você pode removê-lo usando o cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
+Ao concluir o contêiner, remova-o usando o cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +91,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você iniciou um contêiner pré-criado do Windows em Instâncias de Contêiner do Azure. Se você quiser tentar criar um contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
+Neste guia de início rápido, você criou uma instância de Contêiner do Azure com base em uma imagem em no registro do Hub do Docker público. Se você quiser tentar criar uma imagem de contêiner sozinho e implantá-lo nas Instâncias de Contêiner do Azure usando o Registro de Contêiner do Azure, prossiga para o tutorial sobre Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutorial sobre Instâncias de Contêiner do Azure](./container-instances-tutorial-prepare-app.md)

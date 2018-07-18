@@ -3,19 +3,19 @@ title: Solução de problemas de Instâncias de Contêiner do Azure
 description: Saiba como solucionar problemas com as Instâncias de Contêiner do Azure
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solucionar problemas de implantação com as Instâncias de Contêiner do Azure
+# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Solucionar problemas de contêiner e implantação em Instâncias de Contêiner do Azure
 
 Este artigo mostra como solucionar problemas ao implantar contêineres para Instâncias de Contêiner do Azure. Ele também descreve alguns dos problemas comuns que você pode encontrar.
 

@@ -1,24 +1,24 @@
 ---
-title: "Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "As metas, as tarefas e os resultados para o estágio de aceitação do cliente dos seus projetos de ciência de dados"
+title: Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: As metas, as tarefas e os resultados para o estágio de aceitação do cliente dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: e150b3e7c7e98443264dd5b8aaeda1bfe6047b2c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: cba2255cc38c9d5b40628f30c5500f8078e31355
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customer-acceptance"></a>Aceitação do cliente
 

@@ -1,6 +1,6 @@
 ---
 title: Configurar o SSO do Azure AD para aplicativos | Microsoft Docs
-description: "Saiba como conectar aplicativos ao Active Directory do Azure por conta própria usando SAML e SSO baseado em senha"
+description: Saiba como conectar aplicativos ao Active Directory do Azure por conta própria usando SAML e SSO baseado em senha
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,23 +15,24 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 5316cca9d3c944735355d7912a0f1e044c585001
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34339801"
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure
-Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](active-directory-editions.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
+Este artigo é sobre um recurso que permite aos administradores configurar o logon único para aplicativos que não estejam presentes na galeria de aplicativos do Active Directory do Azure *sem escrever código*. Este recurso foi lançado a partir da versão prévia em 18 de novembro de 2015 e está incluído no [Azure Active Directory Premium](active-directory-whatis.md). Se você estiver procurando orientações para desenvolvedores sobre como integrar aplicativos personalizados com o AD do Azure por meio de código, veja [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md).
 
-A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](active-directory-appssoaccess-whatis.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no Portal do Azure para habilitar o logon único.
+A galeria de aplicativos do Active Directory do Azure fornece uma lista de aplicativos que reconhecidamente dão suporte a um formulário de logon único com o Active Directory do Azure, conforme descrito [neste artigo](manage-apps/what-is-single-sign-on.md). Como especialista em TI ou integrador de sistema em sua organização, quando você tiver localizado o aplicativo que deseja conectar, poderá começar seguindo as instruções apresentadas no Portal do Azure para habilitar o logon único.
 
-Clientes com licenças do [Azure Active Directory Premium](active-directory-editions.md) também obtêm esses recursos adicionais:
+Clientes com licenças do [Azure Active Directory Premium](active-directory-whatis.md) também obtêm esses recursos adicionais:
 
 * Integração de autoatendimento de qualquer aplicativo com suporte a provedores de identidade SAML 2.0 (iniciado por SP ou IdP)
-* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Integração de autoatendimento de qualquer aplicativo Web que tenha uma página de entrada baseada em HTML usando o [SSO baseado em senha](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Conexão de autoatendimento de aplicativos que usam o protocolo SCIM para provisionamento de usuários ([descrito aqui](active-directory-scim-provisioning.md))
-* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Capacidade de adicionar links aos aplicativos no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [Painel de acesso do Azure AD](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Isso pode incluir não apenas aplicativos SaaS usados por você que ainda não foram integrados à galeria de aplicativos do AD do Azure, mas também aplicativos Web de terceiros que sua organização implantou em servidores sob seu controle, seja na nuvem ou locais.
 
@@ -115,18 +116,18 @@ Para testar, basta entrar no painel de acesso do Azure AD em https://myapps.micr
 Para obter dicas de depuração, confira este [artigo sobre como depurar logon único baseado em SAML para aplicativos](active-directory-saml-debugging.md) 
 
 ## <a name="password-single-sign-on"></a>Logon único com senha
-Selecione esta opção para configurar o [logon único baseado em senha](active-directory-appssoaccess-whatis.md) para um aplicativo Web que possua uma página de entrada em HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários onde vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização. 
+Selecione esta opção para configurar o [logon único baseado em senha](manage-apps/what-is-single-sign-on.md) para um aplicativo Web que possua uma página de entrada em HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários onde vários usuários precisam compartilhar uma única conta, como contas de aplicativo de mídia social da sua organização. 
 
 Depois de selecionar **Próximo**, você deverá inserir a URL da página de entrada baseada na Web do aplicativo. Observe que deve ser a página que inclui os campos de entrada de nome de usuário e senha. Depois de inserida, o AD do Azure iniciará um processo para analisar a página de entrada em busca de entradas de nome de usuário e de senha. Se o processo não for bem-sucedido, ele o orientará por um processo alternativo de instalação de uma extensão de navegador (requer o Internet Explorer, o Chrome ou o Firefox) que permite que você capture os campos manualmente.
 
-Depois que a página for capturada, os usuários e grupos podem ser atribuídos e as políticas de credencial podem ser definidas como [aplicativos de SSO de senha](active-directory-appssoaccess-whatis.md)normais.
+Depois que a página for capturada, os usuários e grupos podem ser atribuídos e as políticas de credencial podem ser definidas como [aplicativos de SSO de senha](manage-apps/what-is-single-sign-on.md)normais.
 
 Observação: você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo. 
 
 ## <a name="existing-single-sign-on"></a>Logon único existente
 Selecione esta opção para adicionar um link para um aplicativo no Painel de Acesso do AD do Azure ou no portal do Office 365 da sua organização. Você pode usar isso para adicionar links para aplicativos Web personalizado que atualmente usam o Serviços de Federação do Active Directory do Azure (ou outro serviço de federação) em vez do AD do Azure para autenticação. Ou você pode adicionar links profundos para páginas específicas do SharePoint ou outras páginas da Web que você queira que apareçam somente nos Painéis de Acesso do usuário. 
 
-Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) desses usuários.
+Depois de selecionar **Próximo**, você deverá inserir a URL do aplicativo a ser vinculado. Depois de concluído, os usuários e os grupos poderão ser atribuídos ao aplicativo, o que faz com que o aplicativo seja exibido no [inicializador de aplicativos do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso do Azure AD](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) desses usuários.
 
 Observação: você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
 

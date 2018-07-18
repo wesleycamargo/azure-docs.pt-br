@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -26,7 +26,9 @@ A Grade de Eventos do Azure tem três tipos de autenticação:
 
 Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos do Azure. Quando um novo evento estiver pronto, o Webhook da Grade de Eventos enviará uma solicitação HTTP para o ponto de extremidade HTTP configurado com o evento no corpo.
 
-Quando você registra seu próprio ponto de extremidade de WebHook com a Grade de Eventos, ele envia uma solicitação POST com um código de validação simples para comprovar a propriedade do ponto de extremidade. Seu aplicativo precisa responder retornando o código de validação como eco. A Grade de Eventos não entrega eventos para pontos de extremidade do WebHook que não passaram na validação.
+Quando você registra seu próprio ponto de extremidade de WebHook com a Grade de Eventos, ele envia uma solicitação POST com um código de validação simples para comprovar a propriedade do ponto de extremidade. Seu aplicativo precisa responder retornando o código de validação como eco. A Grade de Eventos não entrega eventos para pontos de extremidade do WebHook que não passaram na validação. Se você usar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), você não poderá ecoar programaticamente o código de validação. Para esses serviços, você pode validar manualmente a assinatura usando uma URL de validação que é enviada no evento de validação de assinatura. Copie essa URL e envie uma solicitação GET por meio de um cliente REST ou pelo navegador da web.
+
+A validação manual está em visualização. Para usá-la, instale a [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Você pode instalá-la com `az extension add --name eventgrid`. Se você estiver usando a API REST, verifique se está usando `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
@@ -34,6 +36,7 @@ Quando você registra seu próprio ponto de extremidade de WebHook com a Grade d
 * O evento contém um valor de cabeçalho "Aeg-Event-Type: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * Os dados do evento incluem uma propriedade "validationCode" com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13…".
+* Os dados do evento incluem uma propriedade "validationUrl" com uma URL para validar manualmente a assinatura.
 * A matriz contém apenas o evento de validação. Outros eventos serão enviados em uma solicitação separada, após retornar o código de validação.
 
 Um SubscriptionValidationEvent de exemplo é mostrado no exemplo a seguir:
@@ -44,7 +47,8 @@ Um SubscriptionValidationEvent de exemplo é mostrado no exemplo a seguir:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,11 +64,14 @@ Para provar a propriedade do pronto de extremidade, retorne o código de valida�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Ou então valide a assinatura manualmente, enviando uma solicitação GET para a URL de validação. A inscrição do evento permanece em um estado pendente até que validada.
+
 ### <a name="event-delivery-security"></a>Segurança de entrega de evento
 
 É possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. Defina um desses parâmetros de consulta como um segredo, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que o webhook poderá utilizar para reconhecer o evento proveniente da Grade de Eventos com permissões válidas. A Grade de Eventos inclui esses parâmetros de consulta em cada entrega de evento para o webhook.
 
-Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) seja usado na [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) do Azure.
+Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) seja usado na [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) do Azure.
 
 Por fim, é importante observar que a Grade de Eventos do Azure oferece suporte apenas a ponto de extremidade do webhook HTTPS.
 
@@ -154,7 +161,7 @@ A grade de eventos do Azure oferece suporte às seguintes ações:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações retornam informações possivelmente secretas, as quais são filtradas dentre operações de leitura normais. É uma prática recomendada restringir o acesso a essas operações. É possível criar funções personalizadas usando o [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), a [interface de linha de comando (CLI) do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md) e a [API REST](../active-directory/role-based-access-control-manage-access-rest.md).
+As últimas três operações retornam informações possivelmente secretas, as quais são filtradas dentre operações de leitura normais. É uma prática recomendada restringir o acesso a essas operações. É possível criar funções personalizadas usando o [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), a [interface de linha de comando (CLI) do Azure](../role-based-access-control/role-assignments-cli.md) e a [API REST](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Aplicação da Verificação RBAC (Verificação de acesso com base em função)
 

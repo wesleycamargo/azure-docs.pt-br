@@ -24,7 +24,7 @@ Os Discos do Azure foram projetados para oferecer uma disponibilidade de 99,999%
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
-Use o [RBAC (Controle de acesso baseado em função do Azure)](../articles/active-directory/role-based-access-control-what-is.md) para atribuir permissões específicas a um disco gerenciado a um ou mais usuários. O Managed Disks expõe uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de assinatura de acesso compartilhado (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
+Use o [RBAC (Controle de acesso baseado em função do Azure)](../articles/role-based-access-control/overview.md) para atribuir permissões específicas a um disco gerenciado a um ou mais usuários. O Managed Disks expõe uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de assinatura de acesso compartilhado (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
 
 ### <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure
 Use o serviço de Backup do Azure com o Managed Disks para criar um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. O Managed Disks dá suporte apenas ao LRS (Armazenamento com Redundância Local) como a opção de replicação; isso significa que ele mantém três cópias dos dados em uma única região. Para a recuperação de desastre regional, é necessário fazer backup dos discos da VM em outra região usando o [serviço de Backup do Azure](../articles/backup/backup-introduction-to-azure-backup.md) e uma conta de armazenamento GRS como o cofre de backup. No momento, o Backup do Azure dá suporte a tamanhos de discos de dados de até 1 TB para backup. Leia mais sobre isso em [Usando o serviço de Backup do Azure para VMs com o Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -47,7 +47,7 @@ Vamos examinar esses itens com mais detalhes.
 **Tipo de armazenamento:** o Managed Disks oferece dois níveis de desempenho: [Premium](../articles/virtual-machines/windows/premium-storage.md) (baseado em SSD) e [Standard](../articles/virtual-machines/windows/standard-storage.md) (baseado em disco rígido). A cobrança de um disco gerenciado depende de qual tipo de armazenamento você selecionou para o disco.
 
 
-**Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S20.
+**Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S15.
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
@@ -58,9 +58,9 @@ Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:
 
-| **Tipo de Standard Managed <br>Disk** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Tipo de Standard Managed <br>Disk** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Número de transações**: você será cobrado pelo número de transações executadas em um disco gerenciado padrão. Não há custo para transações de um disco gerenciado premium.
@@ -104,7 +104,7 @@ Há dois tipos de criptografia a serem abordados em referência a discos gerenci
 
 ### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
 
-A [Criptografia do serviço de armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e proteger seus dados para atender aos compromissos de conformidade e segurança da organização. O SSE está habilitado por padrão para todos o Managed Disks, Instantâneos e Imagens em todas as regiões nas quais o discos gerenciados está disponível. Começando em 10 de junho de 2017, todos os novos discos gerenciados/instantâneos/imagens e novos dados gravados em discos gerenciados existentes são automaticamente criptografados em repouso com chaves gerenciadas pela Microsoft.  Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+A [Criptografia do serviço de armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e proteger seus dados para atender aos compromissos de conformidade e segurança da organização. O SSE está habilitado por padrão para todos o Managed Disks, Instantâneos e Imagens em todas as regiões nas quais o discos gerenciados está disponível. Começando em 10 de junho de 2017, todos os novos discos gerenciados/instantâneos/imagens e novos dados gravados em discos gerenciados existentes são automaticamente criptografados em repouso com chaves gerenciadas pela Microsoft, por padrão. Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
 
 
 ### <a name="azure-disk-encryption-ade"></a>ADE (Azure Disk Encryption)

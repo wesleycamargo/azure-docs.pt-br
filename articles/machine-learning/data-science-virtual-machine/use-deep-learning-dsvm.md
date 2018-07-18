@@ -3,22 +3,22 @@ title: Ciência de dados com a máquina virtual de ciência de dados de Deep Lea
 description: Como executar várias tarefas comuns da ciência de dados com a VM de ciência de dados de Deep Learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ab955edec61799495e877943237236fb7fc82cb8
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Usando a máquina virtual de Deep Learning
 
@@ -35,9 +35,12 @@ Além dos exemplos baseados em framework, também é fornecido um conjunto abran
 
 - [Um guia de instruções para criar uma solução de ponta a ponta para detectar produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): a detecção de imagem é uma técnica que pode localizar e classificar objetos em imagens. Essa tecnologia tem o potencial de trazer grande recompensa em vários domínios de negócios da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar qual produto um cliente retirou da prateleira. Por sua vez, essas informações ajudam as lojas a gerenciar o estoque do produtos. 
 
+- [Extração de entidade nomeada de resumos de PubMed](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) Este tutorial mostra como extrair entidades nomeadas, como nomes de droga ou doença, de texto não estruturado. Ele treina uma palavra personalizada inserindo em um corpo de texto de 18 milhões resumos de PubMed, usa esse modelo para criar um modelo de rede neural recorrente de memória de longo curto prazo (LSTM) para extração de entidade e mostra que o modelo que insere a palavra específica de domínio pode ter um desempenho melhor que inserir uma palavra genérica para extração de entidade.
+
+- [Deep learning para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) Este tutorial mostra como treinar um modelo de deep learning para detecção de eventos de áudio no [conjunto de dados de sons urbanos](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e fornece uma visão geral de como trabalhar com dados de áudio.
+
 - [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): esse passo a passo demonstra como compilar e treinar duas arquiteturas de redes neurais diferentes: Rede de Atenção Hierárquica e rede LSTM (Memória Longa de Curto Prazo). Essas redes neurais usam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end para três dentre as estruturas mais populares de aprendizagem profunda: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 A [página de exemplos](dsvm-samples-and-walkthroughs.md) fornece indicadores para os exemplos de código previamente carregados na VM para cada uma das estruturas, a fim de ajudá-lo a começar rapidamente. 
-

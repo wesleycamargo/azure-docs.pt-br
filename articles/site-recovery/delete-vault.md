@@ -7,13 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/16/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1c069e8b09f71ac46017974dfd94945c404b16ba
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209885"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery
 Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As ações necessárias variam de acordo com o cenário do Site Recovery: VMware para o Azure, Hyper-V (com e sem o System Center Virtual Machine Manager) para o Azure e Backup do Azure. Para excluir um cofre usado no Backup do Azure, consulte [Excluir um cofre de Backup no Azure](../backup/backup-azure-delete-vault.md).
@@ -65,10 +66,12 @@ Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 
 Para excluir o cofre o Azure Site Recovery, mesmo se houver itens protegidos, use estes comandos:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmSiteRecoveryVault -Name "vaultname"
+    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmSiteRecoveryVault -Vault $vault
+    Remove-AzureRmRecoveryServicesVault -Vault $vault
+
+Saiba mais sobre [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0), e [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).

@@ -1,10 +1,11 @@
 ---
-title: "Criar módulos R personalizados no Azure Machine Learning | Microsoft Docs"
-description: "Início rápido para a criação de módulos R personalizados no Azure Machine Learning."
+title: Criar módulos R personalizados no Azure Machine Learning | Microsoft Docs
+description: Início rápido para a criação de módulos R personalizados no Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Criar módulos R personalizados no Azure Machine Learning
 Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um espaço de trabalho de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 

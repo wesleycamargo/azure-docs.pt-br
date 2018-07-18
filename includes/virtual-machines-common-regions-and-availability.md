@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: iainfoulds
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: iainfou
+ms.custom: include file
+ms.openlocfilehash: 99e429a2f82d1a9b8d9a87fb3eb4102183c19fe8
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/14/2018
+---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regiões e disponibilidade para máquinas virtuais do Azure
 O Azure opera em vários datacenters no mundo inteiro. Esses datacenters estão agrupados em regiões geográficas, oferecendo a você a flexibilidade de escolher onde compilar seus aplicativos. É importante entender como e onde as VMs (máquinas virtuais) operam no Azure, juntamente com suas opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece uma visão geral dos recursos de redundância e disponibilidade do Azure.
 
@@ -55,8 +71,8 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados entre várias instalações. |Não  |Sim |Sim |sim |
-| Os dados podem ser lidos do local secundário e do local primário. |Não  |Não |Não |sim |
+| Os dados são replicados entre várias instalações. |Não  |sim |sim |sim |
+| Os dados podem ser lidos do local secundário e do local primário. |Não  |Não  |Não  |sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -90,11 +106,9 @@ Para VMs que usam [Azure Managed Disks](../articles/virtual-machines/windows/faq
 
 ## <a name="availability-zones"></a>Zonas de disponibilidade
 
-[Zonas de disponibilidade](../articles/availability-zones/az-overview.md) (versão prévia), uma alternativa para conjuntos de disponibilidade, expandem o nível de controle de que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. Uma Zona de Disponibilidade é uma zona fisicamente separada em uma região do Azure. Há três Zonas de Disponibilidade por região do Azure com suporte. Cada Zona de Disponibilidade tem fonte de alimentação, rede e resfriamento distintos, e está logicamente separada de outras Zonas de Disponibilidade na região do Azure. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e seus dados contra a perda de um data center. Se uma zona for comprometida, os aplicativos e os dados replicados ficarão instantaneamente disponíveis em outra zona. 
+[Zonas de disponibilidade](../articles/availability-zones/az-overview.md), uma alternativa para conjuntos de disponibilidade, expandem o nível de controle de que você precisa para manter a disponibilidade dos aplicativos e dos dados em suas VMs. Uma Zona de Disponibilidade é uma zona fisicamente separada em uma região do Azure. Há três Zonas de Disponibilidade por região do Azure com suporte. Cada zona de disponibilidade tem uma rede, resfriamento e fonte de energia distintos. Ao arquitetar suas soluções para usar VMs replicadas em zonas, você pode proteger seus aplicativos e seus dados contra a perda de um data center. Se uma zona for comprometida, os aplicativos e os dados replicados ficarão instantaneamente disponíveis em outra zona. 
 
 ![Zonas de disponibilidade](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
 Saiba mais sobre como implantar uma VM do [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) ou do [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) em uma Zona de Disponibilidade.
 

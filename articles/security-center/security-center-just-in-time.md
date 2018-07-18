@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366881"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando o just in time
 
@@ -33,7 +34,7 @@ O acesso just in time à VM (máquina virtual) pode ser usado para bloquear o tr
 
 Ataques de força bruta geralmente se destinam às portas de gerenciamento como um meio para obter acesso a uma VM. Se for bem-sucedido, um invasor poderá assumir o controle sobre a VM e estabelecer uma base em seu ambiente.
 
-Uma maneira de reduzir a exposição a um ataque de força bruta é limitar a quantidade de tempo que uma porta fica aberta. As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o just in time está habilitado, a Central de Segurança usa regras de [NSG](../virtual-network/virtual-networks-nsg.md) (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento para que elas não se tornem alvo de invasores.
+Uma maneira de reduzir a exposição a um ataque de força bruta é limitar a quantidade de tempo que uma porta fica aberta. As portas de gerenciamento não precisam ficar abertas o tempo todo. Elas só precisam ser abertas enquanto você estiver conectado à VM, por exemplo, para realizar tarefas de manutenção ou gerenciamento. Quando o Just-In-Time está habilitado, a Central de Segurança usa as regras do [NSG](../virtual-network/security-overview.md#security-rules) (Grupo de Segurança de Rede), que restringem o acesso às portas de gerenciamento, de modo que elas não se tornem alvo de invasores.
 
 ![Cenário just in time][1]
 
@@ -41,7 +42,7 @@ Uma maneira de reduzir a exposição a um ataque de força bruta é limitar a qu
 
 Quando o just in time está habilitado, a Central de Segurança bloqueia o tráfego de entrada às suas VMs do Azure, criando uma regra de NSG. Você seleciona as portas na VM para as quais o tráfego de entrada será bloqueado. Essas portas são controladas pela solução just in time.
 
-Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se o usuário tem permissões de [RBAC (Controle de acesso baseado em função)](../active-directory/role-based-access-control-configure.md) que fornecem acesso de gravação para a VM. Se o usuário tem permissões de gravação, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas de gerenciamento pelo período de tempo que você especificou. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores.
+Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se o usuário tem permissões de [RBAC (Controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) que fornecem acesso de gravação para a VM. Se o usuário tem permissões de gravação, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas selecionadas pelo período de tempo que você especificou. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores.
 
 > [!NOTE]
 > O acesso just in time à VM da Central de Segurança atualmente dá suporte somente a VMs implantadas por meio do Azure Resource Manager. Para saber mais sobre os modelos de implantação clássica e do Resource Manager, consulte [Azure Resource Manager vs implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -79,7 +80,7 @@ Para selecionar as VMs que você deseja habilitar:
 
 2. Em **MÁQUINA VIRTUAL**, selecione as VMs que deseja habilitar. Isso coloca uma marca de seleção ao lado de uma VM.
 3. Selecione **Habilitar JIT nas VMs**.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="default-ports"></a>Portas padrão
 
@@ -120,6 +121,16 @@ Para solicitar acesso a uma VM:
 4. Em **Solicitar acesso**, você configura, para cada VM, as portas a serem abertas juntamente com o IP de origem para o qual a porta está aberta e a janela de tempo para a qual a porta está aberta. Você pode solicitar acesso somente para as portas que estão configuradas na política just in time. Cada porta tem um tempo máximo permitido derivado da política just in time.
 5. Selecione **Abrir portas**.
 
+> [!NOTE]
+> Quando um usuário solicita acesso a uma VM, a Central de Segurança verifica se o usuário tem permissões de [RBAC (Controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) que fornecem acesso de gravação para a VM. Se tiverem permissões de gravação, a solicitação é aprovada.
+>
+>
+
+> [!NOTE]
+> Se um usuário que está solicitando acesso estiver atrás de um proxy, a opção "Meu IP" pode não funcionar. Pode haver a necessidade de definir o intervalo completo da organização.
+>
+>
+
 ## <a name="editing-a-just-in-time-access-policy"></a>Edição de uma política de acesso just in time
 
 Você pode alterar a política just in time existente de uma VM adicionando e configurando uma nova porta a ser aberta para essa VM ou alterando qualquer outro parâmetro relacionado a uma porta já protegida.
@@ -137,7 +148,7 @@ Para editar a política just in time existente de uma VM, usa-se a guia **Config
 
 4. Em **Adicionar configuração de porta**, identifique a porta, o tipo de protocolo, os IPs de origem com permissão e o tempo máximo de solicitação.
 5. Selecione **OK**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="auditing-just-in-time-access-activity"></a>Auditoria em atividades de acesso just in time
 

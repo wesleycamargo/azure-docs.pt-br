@@ -1,9 +1,9 @@
 ---
-title: "Experiências de entrada com o Azure AD Identity Protection | Microsoft Docs"
-description: "Fornece uma visão geral da experiência do usuário quando o Identity Protection tiver atenuado ou corrigido um usuário ou quando a autenticação multifator for exigida por uma política."
+title: Experiências de entrada com o Azure AD Identity Protection | Microsoft Docs
+description: Fornece uma visão geral da experiência do usuário quando o Identity Protection tiver atenuado ou corrigido um usuário ou quando a autenticação multifator for exigida por uma política.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164196"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com a proteção de identidade do Azure AD
 Com o Azure Active Directory Identity Protection, é possível:
@@ -49,10 +50,7 @@ Este tópico fornece uma visão geral da experiência de entrada de um usuário 
 ## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
 A melhor experiência do usuário para ambos, o fluxo de recuperação de conta comprometida e o fluxo de entrada arriscado, é quando o usuário pode recuperar-se automaticamente. Caso os usuários estejam registrados na autenticação multifator, eles já terão um número de telefone associado às suas contas, que pode ser usado para resolver os desafios de segurança. Não é necessário qualquer envolvimento do suporte técnico ou do administrador para recuperar-se do comprometimento da conta. Por isso, é altamente recomendado registra seus usuários para autenticação multifator. 
 
-Os administradores podem:
-
-* definir uma política que exige que os usuários configurem suas contas para verificação de segurança adicional. 
-* permitir que o registro de autenticação multifator seja ignorado por até 30 dias, caso desejem oferecer um período de carência antes de registrar-se.
+Os administradores podem definir uma política que exige que os usuários configurem suas contas para verificação de segurança adicional. Essa política permite que os usuários ignorem o registro de autenticação multifator para até 14 dias. O período de cortesia de 14 dias não é configurável.
 
 **O registro na autenticação multifator tem três etapas:**
 

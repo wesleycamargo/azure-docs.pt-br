@@ -4,7 +4,7 @@ description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 11876b1d178eceb209a36fcc0eeae5779b90a4e8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 * [Preparar uma máquina virtual CentOS 6.x para o Azure](#centos-6x)
@@ -305,7 +305,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
    
    Recompile o initramfs:
    
-        # sudo dracut –f -v
+        # sudo dracut -f -v
 
 11. Instale o agente Linux do Azure e as dependências:
 

@@ -1,27 +1,22 @@
 ---
-title: Drivers do SQL Data Warehouse do Azure | Microsoft Docs
-description: "Cadeias de conexão e drivers para SQL Data Warehouse"
+title: Cadeias de conexão do SQL Data Warehouse do Azure | Microsoft Docs
+description: Cadeias de conexão do SQL Data Warehouse
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 8fce3ba099c871059ffb71a589e4d8cd33d5bcae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="drivers-for-azure-sql-data-warehouse"></a>Drivers do Azure SQL Data Warehouse
+# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadeias de conexão do SQL Data Warehouse do Azure
 Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, por exemplo, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
 ## <a name="sample-adonet-connection-string"></a>Exemplo de cadeia de conexão ADO.NET

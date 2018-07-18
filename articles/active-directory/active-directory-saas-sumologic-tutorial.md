@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao SumoLogic | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o SumoLogic."
+title: 'Tutorial: Integração do Azure Active Directory ao SumoLogic | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o SumoLogic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9b737ce50c1b52c771af275f5722bfd92b2f1491
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 79db92a5ae9de6bb8f2d425c692f4d3e04ee1d3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Integração do Azure Active Directory ao SumoLogic
 
@@ -29,9 +29,9 @@ A integração do SumoLogic ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no SumoLogic (logon único) com as contas do Azure AD deles
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao SumoLogic, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando SumoLogic pela galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-sumologic-from-the-gallery"></a>Adicionando SumoLogic pela galeria
 Para configurar a integração do SumoLogic ao Azure AD, você precisará adicionar o SumoLogic pela galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do SumoLogic ao Azure AD, você precisará adicio
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **SumoLogic**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do SumoLogic ao Azure AD, você precisará adicio
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o SumoLogic, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do SumoLogic é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no SumoLogic.
@@ -86,11 +86,11 @@ No SumoLogic, atribua o valor do **nome de usuário** no Azure AD como o valor d
 
 Para configurar e testar o logon único do Azure AD com o SumoLogic, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criação de um usuário de teste do SumoLogic](#creating-a-sumologic-test-user)** – para ter um equivalente de Brenda Fernandes no SumoLogic que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo **SumoLogic**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_samlbase.png)
 
 3. Na seção **URLs e Domínio do SumoLogic**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_url.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.SumoLogic.com`
 
@@ -126,15 +126,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_general_400.png)
 
 6. Na seção **Configuração do SumoLogic**, clique em **Configurar o SumoLogic** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_configure.png) 
 
 7. Em outra janela do navegador da Web, faça logon em seu site de empresa SumoLogic como um administrador.
 
@@ -253,7 +253,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **SumoLogic**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -278,7 +278,7 @@ Ao clicar no bloco do SumoLogic no Painel de Acesso, você deverá ser conectado
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

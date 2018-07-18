@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 064bda1b4201d30e32766b4d0e19e9950901152f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/05/2018
+---
 > [!IMPORTANT] 
 > Desde 1º de março de 2017, não é possível criar novos circuitos do ExpressRoute no modelo de implantação clássico.
 > 

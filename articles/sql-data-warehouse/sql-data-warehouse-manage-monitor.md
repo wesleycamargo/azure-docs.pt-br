@@ -2,23 +2,19 @@
 title: Monitore sua carga de trabalho usando DMVs | Microsoft Docs
 description: Aprenda a monitorar sua carga de trabalho usando DMVs.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 887fa4b9f950531438986269d041189d45cdecb2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
 Este artigo descreve como usar DMVs (Exibições de Gerenciamento Dinâmico) para monitorar a carga de trabalho. Isso inclui a investigação de execução da consulta no SQL Data Warehouse do Azure.
@@ -289,7 +285,6 @@ Para obter mais informações sobre DMVs, consulte [Exibições do sistema][Syst
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md

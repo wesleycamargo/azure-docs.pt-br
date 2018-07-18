@@ -5,26 +5,26 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 03/09/2018
+ms.topic: reference
+ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 888196225ec5998405113842344469d02a2cf5c7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
 
 Para criar uma assinatura de grade de eventos, você envia uma solicitação para a operação de assinatura Create Event. Use o seguinte formato:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Por exemplo, para criar uma inscrição de evento para uma conta de armazenamento denominada `examplestorage` em um grupo de recursos denominado `examplegroup`, use o seguinte formato:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
@@ -51,7 +51,7 @@ O artigo descreve as propriedades e o esquema para o corpo da solicitação.
 | includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
 | subjectBeginsWith | string | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
 | subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
-| subjectIsCaseSensitive | string | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
+| isSubjectCaseSensitive | string | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de assinatura de exemplo
@@ -69,7 +69,7 @@ O artigo descreve as propriedades e o esquema para o corpo da solicitação.
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
-      "subjectIsCaseSensitive": "true"
+      "isSubjectCaseSensitive ": "true"
     }
   }
 }

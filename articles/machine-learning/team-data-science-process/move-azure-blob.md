@@ -2,8 +2,8 @@
 title: Mover dados de e para o Armazenamento de Blobs do Azure | Microsoft Docs
 description: Mover dados de e para o Armazenamento de Blobs do Azure
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
-ms.openlocfilehash: f282705b6d5d1f6867ea87737f19b5550054789a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 424216226ca4b92f17cec78dadbb0643defa8d0c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Mover dados para e do Armazenamento de Blobs do Azure
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
@@ -43,7 +43,7 @@ Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft
 
 Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Azure Machine Learning](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 * Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).

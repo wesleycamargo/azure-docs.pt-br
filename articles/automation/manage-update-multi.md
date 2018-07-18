@@ -3,16 +3,18 @@ title: Gerenciar atualizações para várias máquinas virtuais do Azure
 description: Este tópico descreve como gerenciar atualizações para máquinas virtuais do Azure.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
+ms.date: 04/20/2018
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194012"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -27,9 +29,9 @@ Você pode usar o gerenciamento de atualizações para gerenciar atualizações 
 
 Para usar o gerenciamento de atualizações, você precisa de:
 
-* Uma execução de Automação do Azure como conta. Para obter instruções sobre como criar uma, consulte [Introdução à Automação do Azure](automation-offering-get-started.md).
+- Uma execução de Automação do Azure como conta. Para obter instruções sobre como criar uma, consulte [Introdução à Automação do Azure](automation-offering-get-started.md).
 
-* Uma máquina virtual ou um computador com um dos sistemas operacionais com suporte instalado.
+- Uma máquina virtual ou um computador com um dos sistemas operacionais com suporte instalado.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
@@ -37,11 +39,11 @@ Há suporte para o gerenciamento de atualizações nos seguintes sistemas operac
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 e superior e implantações de atualização no Windows Server 2008 R2 SP1 e superior. Não há suporte para o Nano Server.
+- Windows Server 2008 e superior e implantações de atualização no Windows Server 2008 R2 SP1 e superior. Não há suporte para o Nano Server.
 
   O suporte à implantação de atualizações para o Windows Server 2008 R2 SP1 requer o .NET Framework 4.5 e Windows Management Framework 5.0 ou posterior.
 
-* Não há suporte para sistemas operacionais clientes do Windows.
+- Não há suporte para sistemas operacionais clientes do Windows.
 
 Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update.
 
@@ -51,30 +53,32 @@ Os agentes do Windows devem ser configurados para se comunicar com um servidor W
 
 ### <a name="linux"></a>Linux
 
-* CentOS 6 (x86/x64) e 7 (x64)  
-* Red Hat Enterprise 6 (x86/x64) e 7 (x64)  
-* SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)  
-* Ubuntu 12.04 LTS e posterior (x86/x64)   
+- CentOS 6 (x86/x64) e 7 (x64)
 
-> [!NOTE]  
+- Red Hat Enterprise 6 (x86/x64) e 7 (x64)
+
+- SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
+
+- Ubuntu 12.04 LTS e posterior (x86/x64)
+
+> [!NOTE]
 > Para prevenir que atualizações sejam aplicadas fora de uma janela de manutenção no Ubuntu, reconfigure o pacote de atualização automática para desabilitar as atualizações automáticas. Para obter mais informações, consulte o [tópico de Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Os agentes do Linux devem ter acesso a um repositório de atualização.
 
-Essa solução não dá suporte a um Agente do OMS para Linux configurado para reportar a vários espaços de trabalho do Operations Management Suite.
+Esta solução não fornece suporte a um Agente do Operations Management Suite para Linux configurado para gerar relatórios em vários espaços de trabalho do Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitar o Gerenciamento de Atualizações para máquinas virtuais do Azure
 
-1. No Portal do Azure, abra a Conta de automação.
-2. No painel esquerdo, selecione **Gerenciamento de atualização**.
-3. Na parte superior da janela, selecione **Adicionar VM do Azure**.
-   ![Guia Adicionar VM do Azure](./media/manage-update-multi/update-onboard-vm.png)
-4. Selecione uma máquina virtual a ser carregada. A caixa de diálogo **Habilitar Gerenciamento de Atualizações** é exibida.
-5. Selecione **Habilitar**.
+No portal do Azure, abra sua conta de automação e selecione **Gerenciamento de atualizações**.
 
-   ![Caixa de diálogo Habilitar Gerenciamento de Atualizações](./media/manage-update-multi/update-enable.png)
+Na parte superior da janela, selecione **Adicionar VM do Azure**.
 
-O gerenciamento de atualizações está habilitado para sua máquina virtual.
+![Adicione tab Azure VM](./media/manage-update-multi/update-onboard-vm.png)
+
+Selecione uma máquina virtual a ser carregada. A caixa de diálogo **Habilitar Gerenciamento de Atualizações** é exibida. Selecione **habilitar** integrar a máquina virtual. Quando o onboarding estiver concluído, o gerenciamento de atualizações será ativado para sua máquina virtual.
+
+![Caixa de diálogo Habilitar Gerenciamento de Atualizações](./media/manage-update-multi/update-enable.png)
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitar o gerenciamento de atualizações para computadores e máquinas virtuais que não são Azure
 
@@ -83,14 +87,22 @@ Para obter instruções sobre como habilitar o gerenciamento de atualizações p
 Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Linux que não são Azure, confira [Conectar computadores Linux ao Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Exibir computadores conectados à sua conta de automação
-Depois de habilitar o gerenciamento de atualizações para suas máquinas, exiba suas informações clicando em **Computadores**. Informações do computador, como *Nome*, *Conformidade*, *Ambiente*, *Tipo de SO*, *Atualizações Críticas e de Segurança*  e *Outras Atualizações* estão disponíveis. 
+
+Depois de habilitar o gerenciamento de atualizações para suas máquinas, exiba suas informações clicando em **Computadores**. Informações do computador, como *Nome*, *Conformidade*, *Ambiente*, *Tipo de SO*, *Atualizações Críticas e de Segurança* ,  *Outras Atualizações* e *pacote de atualizações de leitura* estão disponíveis.
 
   ![Guia Exibir computadores](./media/manage-update-multi/update-computers-tab.png)
 
 Talvez os computadores que foram recentemente habilitados para o gerenciamento de atualizações ainda não foram avaliados. O estado de conformidade desses computadores teria um status de *Não avaliado*.  Confira aqui uma lista de valores para o estado de conformidade:
-* Compatível: computadores com todas as atualizações críticas ou de segurança.
-* Não compatível: computadores que não têm pelo menos uma atualização crítica ou de segurança.
-* Não avaliado: os dados da avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado.  Para computadores Linux, nas últimas três horas, e para computadores com Windows, nas últimas 12 horas.  
+
+- Compatível: computadores com todas as atualizações críticas ou de segurança.
+
+- Não compatível: computadores que não têm pelo menos uma atualização crítica ou de segurança.
+
+- Não avaliado: os dados da avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado.  Para computadores Linux, nas últimas três horas, e para computadores com Windows, nas últimas 12 horas.
+
+Para exibir o status do agente, clique no link a **PREPARAÇÃO para atualização do agente** coluna. Isso abre a página de trabalhador híbrido que mostra o status do trabalhador híbrido. A imagem a seguir mostra um exemplo de um agente que não foi conectado ao gerenciamento de atualizações para um longo período de tempo.
+
+![Guia Exibir computadores](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Exibir uma avaliação de atualização
 
@@ -122,29 +134,30 @@ Pode demorar de 30 minutos a 6 horas para o painel exibir dados atualizados em c
 Para instalar atualizações, agende uma implantação que siga o agendamento de versão e o período de serviço.
 Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
-Agende uma nova implantação de atualização para uma ou mais máquinas virtuais selecionando em **Agendar implantação de atualização** na parte superior da caixa de diálogo **Gerenciamento de atualizações**. No painel **Nova implantação de atualização**, especifique o seguinte:
+Agende uma nova implantação de atualização para uma ou mais máquinas virtuais selecionando em **Agendar implantação de atualização** na parte superior da caixa de diálogo **Gerenciamento de atualizações**.
+No painel **Nova implantação de atualização**, especifique o seguinte:
 
-* **Nome**: forneça um nome exclusivo para identificar a implantação de atualizações.
-* **Tipo de Sistema Operacional**: selecione Windows ou Linux.
-* **Computadores a atualizar**: selecione as máquinas virtuais que você deseja atualizar.
+- **Nome**: forneça um nome exclusivo para identificar a implantação de atualizações.
+- **Tipo de Sistema Operacional**: selecione Windows ou Linux.
+- **Computadores a atualizar**: selecione as máquinas virtuais que você deseja atualizar. A preparação do computador é mostrada no **PREPARAÇÃO para atualização do agente** coluna. Isso lhe permite visualizar o estado de integridade do computador antes de agendar a implantação de atualização.
 
   ![Painel “Nova implantação de atualizações”](./media/manage-update-multi/update-select-computers.png)
 
-* **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluirá. Os tipos de classificação são:
-  * Atualizações críticas
-  * Atualizações de segurança
-  * Pacotes cumulativos de atualização
-  * Feature packs
-  * Service packs
-  * Atualizações de definição
-  * Ferramentas
-  * Atualizações
-* **Configurações de agenda**: você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Ou você pode especificar uma hora diferente.
+- **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluirá. Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-update-management.md#update-classifications). Os tipos de classificação são:
+  - Atualizações críticas
+  - Atualizações de segurança
+  - Pacotes cumulativos de atualização
+  - Feature packs
+  - Service packs
+  - Atualizações de definição
+  - Ferramentas
+  - Atualizações
+- **Configurações de agenda**: você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Ou você pode especificar uma hora diferente.
    Você também pode especificar se a implantação ocorre uma única vez ou em um agendamento recorrente. Para configurar um agendamento recorrente, selecione a opção **Recorrente** em **Recorrência**.
 
    ![Caixa de diálogo Configurações de agendamento](./media/manage-update-multi/update-set-schedule.png)
 
-* **Janela de manutenção (minutos)**: especifique o período de tempo em que deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
+- **Janela de manutenção (minutos)**: especifique o período de tempo em que deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
 Depois de concluir a configuração da agenda, retorne ao painel de status selecionando o botão **Criar**. A tabela **Agendado** mostra a agenda de implantação recém-criada.
 
@@ -164,9 +177,9 @@ Para ver o painel de uma implantação de atualização, selecione a implantaç�
 O painel **Resultados de atualização** exibe o número total de atualizações e os resultados da implantação na máquina virtual.
 A tabela à direita fornece uma análise detalhada de cada atualização e os resultados da instalação. Os resultados de instalação podem ser um dos seguintes valores:
 
-* Não foi tentada: a atualização não foi instalada pois não havia tempo suficiente disponível com base na janela de manutenção definida.
-* Êxito: a atualização foi bem-sucedida.
-* Falha: a atualização falhou.
+- Não foi tentada: a atualização não foi instalada pois não havia tempo suficiente disponível com base na janela de manutenção definida.
+- Êxito: a atualização foi bem-sucedida.
+- Falha: a atualização falhou.
 
 Para ver todas as entradas de log que a implantação criou, selecione **Todos os logs**.
 
@@ -176,5 +189,4 @@ Para ver informações detalhadas sobre quaisquer erros da implantação, seleci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o gerenciamento de atualização – incluindo logs, saída e erros – consulte [Solução Gerenciamento de Atualizações no OMS](../operations-management-suite/oms-solution-update-management.md).
-
+- Para saber mais sobre o gerenciamento de atualização – incluindo logs, saída e erros – consulte [Solução Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).

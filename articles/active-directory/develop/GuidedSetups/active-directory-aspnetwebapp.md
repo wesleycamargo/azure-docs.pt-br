@@ -1,25 +1,25 @@
 ---
-title: "Introdução ao servidor Web ASP.NET no Azure AD v2 | Microsoft Docs"
-description: "Implementando a opção Entrar com uma Conta da Microsoft em uma solução ASP.NET com um aplicativo tradicional baseado em navegador da Web usando o padrão OpenID Connect"
+title: Introdução ao servidor Web ASP.NET no Azure AD v2 | Microsoft Docs
+description: Implementando a opção Entrar com uma Conta da Microsoft em uma solução ASP.NET com um aplicativo tradicional baseado em navegador da Web usando o padrão OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a556ecac6e8ecd7e23a74683b0acbebe300ef3c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1f8876ec21fe8f823bc4ded84ec1cd90142f96c1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 [!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-introduction.md)]
 [!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-aspnetwebapp-setup.md)]

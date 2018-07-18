@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
@@ -30,7 +30,7 @@ O Intelligent Insights detecta automaticamente os problemas de desempenho com o 
 
 | Padrões de desempenho detectáveis | Detalhes da saída |
 | :------------------- | ------------------- |
-| [Atingindo os Limites do Recurso](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho do banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorada atingiram os limites, causando problemas de desempenho do Banco de Dados SQL. |
+| [Atingindo os limites do recurso](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho do banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorada atingiram os limites, causando problemas de desempenho do Banco de Dados SQL. |
 | [Aumento da Carga de Trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados, causando problemas de desempenho do Banco de Dados SQL. |
 | [Pressão de Memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os operadores que solicitaram concessões de memória precisam esperar alocações de memória para quantidades de tempo estatisticamente significativas. Ou existe um acúmulo maior de trabalhadores que solicitaram concessões de memória, o que afeta o desempenho do Banco de Dados SQL. |
 | [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Bloqueio de banco de dados excessivo foi detectado, o que afeta o desempenho do Banco de Dados SQL. |
@@ -52,7 +52,7 @@ O Intelligent Insights detecta automaticamente os problemas de desempenho com o 
 
 A seção a seguir descreve os padrões de desempenho detectáveis listados anteriormente em mais detalhes.
 
-## <a name="reaching-resource-limits"></a>Atingindo os Limites do Recurso
+## <a name="reaching-resource-limits"></a>Atingindo os limites do recurso
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 

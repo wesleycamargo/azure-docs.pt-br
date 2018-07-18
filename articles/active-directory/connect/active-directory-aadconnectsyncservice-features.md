@@ -1,11 +1,11 @@
 ---
-title: "Recursos e configurações do serviço de sincronização do Azure AD Connect | Microsoft Docs"
-description: "Descreve os recursos do serviço de sincronização do Azure AD Connect."
+title: Recursos e configurações do serviço de sincronização do Azure AD Connect | Microsoft Docs
+description: Descreve os recursos do serviço de sincronização do Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150338"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 O recurso de sincronização do Azure AD Connect tem dois componentes:
@@ -56,7 +57,7 @@ As configurações a seguir são definidas pelo Azure AD Connect e não podem se
 | DeviceWriteback |[Azure AD Connect: habilitando o write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões do Directory](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo seja colocado em quarentena quando ele é uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação. |
-| PasswordSync |[Implementação de sincronização de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Implementação de sincronização de hash de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Visualização: write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Não há suporte no momento. |
 
@@ -88,7 +89,7 @@ Historicamente, atualizações do atributo UserPrincipalName usando o serviço d
 
 Para obter mais detalhes, consulte [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou ID de logon alternativo](https://support.microsoft.com/kb/2523192).
 
-Habilitar o recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização da senha. Se você usar a federação, não haverá suporte pra este recurso.
+Habilitar o recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash da senha. Se você usar a federação, não haverá suporte pra este recurso.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se este recurso está habilitado executando:  
 

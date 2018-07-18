@@ -2,7 +2,7 @@
 title: Gerenciar clusters Hadoop no HDInsight usando o portal do Azure | Microsoft Docs
 description: Aprenda a criar e gerenciar clusters HDInsight usando o portal do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,16 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361964"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -63,14 +62,14 @@ Você deve especificar uma assinatura do Azure, quando você cria um cluster HDI
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Assinatura** no menu à esquerda. Ele tem um ícone amarelo de chave. Você verá uma lista de assinaturas.
     3. Clique na assinatura que você usa para criar clusters. 
-    4. Clique em **Minhas permissões**.  Isso mostra a [função](../active-directory/role-based-access-control-what-is.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
+    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/overview.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
 
 - Para usar um grupo de recursos existente:
 
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Grupos de recursos** no menu à esquerda para listar os grupos de recursos.
     3. Clique no grupo de recursos que você deseja usar para criar o cluster do HDInsight.
-    4. Clique em **IAM (Controle de acesso)**e verifique se você (ou um grupo a que pertence) tem pelo menos o acesso de Colaborador para o grupo de recursos.
+    4. Clique em **IAM (Controle de acesso)** e verifique se você (ou um grupo a que pertence) tem pelo menos o acesso de Colaborador para o grupo de recursos.
 
 Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistration, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -89,7 +88,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
 
     **Menu à esquerda:**
     * **Logs de Atividade**: mostrar e consultar logs de atividade.
-    * **Controle de Acesso (IAM)**: usar atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
+    * **Controle de Acesso (IAM)**: usar atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
     * **Marcas**: permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto**e usar um valor comum para todos os serviços associados a um projeto específico.
     * **Diagnosticar e resolver problemas**: exibir informações de solução de problemas.
     * **Bloqueios**: adicione um bloqueio para impedir que o cluster seja modificado ou excluído.
@@ -103,7 +102,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
     * **Metastores Externos**: exiba os Hive e Oozie metastores. Os metastores só podem ser configurados durante o processo de criação do cluster. Consulte [usar metastore do Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Ações de Script**: execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
     * **Aplicativos**: adicionar ou remover aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
-    * **Monitoramento**: monitorar o cluster no Azure Operations Management Suite e no Azure Log Analytics.
+    * **Monitoramento**: monitore o cluster no Azure Log Analytics.
     * **Propriedades**: exiba as propriedades do cluster.
     * **Contas de armazenamento**: exibir as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
     * **Acesso ao Data Lake Store**: configurar o acesso ao Data Lake Store.  Consulte [Criar clusters do HDInsight com o Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -127,7 +126,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
    * **Fonte de dados padrão**: o sistema de arquivos padrão do cluster.
    * **Tamanho dos nós de trabalho**: o tamanho selecionado da VM dos nós de trabalho.
    * **Tamanho dos nós de cabeçalho**: o tamanho selecionado da VM dos nós de cabeçalho.
-   * **Rede virtual**: o nome da rede virtual e da sub-rede na qual o cluster será implantado, se alguma tiver sido selecionada no tempo de implantação.
+   * **Rede virtual**: o nome da Rede Virtual na qual o cluster é implantado, caso uma tenha sido selecionada durante a implantação.
 
 ## <a name="delete-clusters"></a>Excluir clusters
 Excluir um cluster não excluirá a conta de armazenamento padrão, nem nenhuma conta de armazenamento vinculada. Você pode recriar o cluster usando as mesmas contas de armazenamento e as mesmas metastores. Recomendamos usar um novo contêiner de Blobs padrão ao recriar o cluster.

@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar alertas de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda você a usar recursos da Central de segurança do Azure para gerenciar e responder a alertas de segurança."
+title: Gerenciar alertas de segurança na Central de Segurança do Azure | Microsoft Docs
+description: Este documento ajuda você a usar recursos da Central de segurança do Azure para gerenciar e responder a alertas de segurança.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365348"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
@@ -80,7 +81,7 @@ Nesse caso, os alertas disparados referem-se à atividade suspeita do protocolo 
 
 No campo **Descrição**, você encontrará mais detalhes sobre esse evento. Esses detalhes adicionais oferecem informações sobre o que disparou o alerta de segurança, o recurso de destino e, quando aplicável, o endereço IP de origem e as recomendações sobre como corrigir.  Em alguns casos, o endereço IP de origem ficará vazio (não disponível) porque nem todos os logs de eventos de segurança do Windows incluem o endereço IP.
 
-A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista de contatos bloqueados usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre os tipos diferentes de alertas, leia [Alertas de segurança por tipo na Central de segurança do Azure](security-center-alerts-type.md).
+A correção sugerida pela Central de Segurança varia de acordo com o alerta de segurança. Em alguns casos, talvez seja necessário usar outros recursos do Azure para implementar a correção recomendada. Por exemplo, a correção para esse ataque é colocar o endereço IP que está gerando esse ataque em uma lista de contatos bloqueados usando uma [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules). Para saber mais sobre os tipos diferentes de alertas, leia [Alertas de segurança por tipo na Central de segurança do Azure](security-center-alerts-type.md).
 
 > [!NOTE]
 > A Central de Segurança foi lançada para visualização limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie-[nos](mailto:ASC_linuxdetections@microsoft.com) um email com suas IDs de assinatura para ingressar na versão prévia.

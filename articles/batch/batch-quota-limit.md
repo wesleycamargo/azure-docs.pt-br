@@ -1,25 +1,25 @@
 ---
-title: "Cotas do serviço e limites do Lote do Azure | Microsoft Docs"
-description: "Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação"
+title: Cotas do serviço e limites do Lote do Azure | Microsoft Docs
+description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -53,6 +53,7 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | Tamanho do pacote de aplicativos (cada) |Aproximadamente 195 GB<sup>1</sup> |
 | Tamanho de tarefa inicial máximo | 32768 caracteres<sup>2</sup> |
 | Tempo de vida máximo da tarefa | 7 dias<sup>3</sup> |
+| Nós de computação em pool de comunicação entre nós habilitada | 100 |
 
 <sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos<br />
 <sup>2</sup> Inclui arquivos de recurso e variáveis de ambiente<br />

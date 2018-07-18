@@ -1,25 +1,26 @@
 ---
 title: Monitorar um cluster DC/OS do Azure - pilha ELK
-description: "Monitore um cluster de SO/DC no cluster do serviço de contêiner do Azure com ELK (Elasticsearch, Logstash e Kibana)."
+description: Monitore um cluster de SO/DC no cluster do serviço de contêiner do Azure com ELK (Elasticsearch, Logstash e Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163173"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitorar um cluster do Serviço de Contêiner do Azure com ELK
 
 Neste artigo, demonstraremos como implantar a pilha ELK (Elasticsearch, Logstash, Kibana) em um cluster de SO/controlador de domínio no serviço de contêiner do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 [Implantar](container-service-deployment.md) e [conectar](../container-service-connect.md) um cluster DC/OS configurado pelo Serviço de Contêiner do Azure. Explorar o painel de DC/sistema operacional e serviços maratona [aqui](container-service-mesos-marathon-ui.md). Instale também o [balanceador de carga maratona](container-service-load-balancing.md).
 
 
@@ -27,7 +28,7 @@ Neste artigo, demonstraremos como implantar a pilha ELK (Elasticsearch, Logstash
 ELK pilha é uma combinação de Elasticsearch, Logstash e Kibana que fornece uma pilha de ponta a ponta que pode ser usada para monitorar e analisar os logs no cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurar a pilha ELK em um cluster de DC/sistema operacional
-Acessar a interface do usuário do DC/sistema operacional por meio de [http://localhost:80/](http://localhost:80/) uma vez na interface do usuário do controlador de domínio/sistema operacional, navegue até **universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
+Acessar a interface do usuário do DC/sistema operacional por meio de [http://localhost:80/](http://localhost:80/) uma vez na interface do usuário do controlador de domínio/sistema operacional, navegue até **Universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

@@ -1,12 +1,12 @@
 ---
-title: "Usando o Gerenciador de Armazenamento (Visualização) com o Armazenamento de Arquivos do Azure | Microsoft Docs"
-description: "Aprenda a usar o Gerenciador de Armazenamento (Visualização) para trabalhar com compartilhamento de arquivos e arquivos."
+title: Usar o Gerenciador de Armazenamento com o Armazenamento de Arquivos do Azure | Microsoft Docs
+description: Aprenda a usar o Gerenciador de Armazenamento para trabalhar com compartilhamento de arquivos e arquivos.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Usando o Gerenciador de Armazenamento (Visualização) com o Armazenamento de Arquivos do Azure
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
 
-O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o Protocolo SMB (Server Message Block) padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Você pode usar o Armazenamento de Arquivos para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento (Visualização) para trabalhar com compartilhamento de arquivos e arquivos.
+O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o Protocolo SMB (Server Message Block) padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Você pode usar o Armazenamento de Arquivos para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento para trabalhar com compartilhamento de arquivos e arquivos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
-- [Baixe e instale o Gerenciador de Armazenamento (preview)](http://www.storageexplorer.com/)
+- [Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com/)
 
 - [Conectar-se a uma conta de armazenamento ou serviço do Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 Todos os arquivos devem residir em um compartilhamento de arquivos, que é simplesmente um agrupamento lógico de arquivos. Uma conta pode conter um número ilimitado de compartilhamentos de arquivo, e cada compartilhamento pode armazenar um número ilimitado de arquivos.
 
-As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenciador de Armazenamento (Visualização).
+As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenciador de Armazenamento.
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento na qual você deseja criar o compartilhamento de arquivos
 
@@ -58,9 +58,9 @@ As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenc
 
 Compartilhamentos de arquivos contêm arquivos e pastas (que também podem conter arquivos).
 
-As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de arquivos no Gerenciador de Armazenamento (Visualização):+
+As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de arquivos no Gerenciador de Armazenamento:+
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
@@ -78,9 +78,9 @@ As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de ar
 
 Os compartilhamentos de arquivos podem ser criados e excluídos facilmente conforme a necessidade. (Para saber como excluir arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
-As etapas abaixo ilustram como excluir um compartilhamento de arquivos no Gerenciador de Armazenamento (Visualização):
+As etapas a seguir ilustram como excluir um compartilhamento de arquivos no Gerenciador de Armazenamento:
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
@@ -96,11 +96,11 @@ As etapas abaixo ilustram como excluir um compartilhamento de arquivos no Gerenc
 
 ## <a name="copy-a-file-share"></a>Copiar um compartilhamento de arquivos
 
-O Gerenciador de Armazenamento (Visualização) permite que você copie um compartilhamento de arquivos na área de transferência e cole esse compartilhamento de arquivos em outra conta de armazenamento. (Para saber como copiar arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+O Gerenciador de Armazenamento permite que você copie um compartilhamento de arquivos na área de transferência e cole esse compartilhamento de arquivos em outra conta de armazenamento. (Para saber como copiar arquivos individuais, consulte a seção [Gerenciar arquivos em um compartilhamento de arquivo](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma conta de armazenamento para outra.
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento contendo o compartilhamento de arquivos que você deseja copiar.
 
@@ -120,7 +120,7 @@ Uma [SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com//azure
 
 As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arquivos:+
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos para o qual você deseja obter uma SAS.
 
@@ -146,7 +146,7 @@ As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arqui
 
 As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de acesso de um compartilhamento de arquivos:+. As políticas de acesso são usadas para criar URLs de SAS que podem ser usadas para acessar o recurso Arquivo de Armazenamento durante um período de tempo definido.
 
-1. Abra o Gerenciador de Armazenamento (Preview).
+1. Abra o Explorer do Armazenamento.
 
 2. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos cujas políticas de acesso você deseja gerenciar.
 
@@ -180,7 +180,7 @@ Depois de criar um compartilhamento de arquivos, você pode carregar um arquivo 
 
 As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um compartilhamento de arquivos.
 
-1.  Abra o Gerenciador de Armazenamento (Preview).
+1.  Abra o Explorer do Armazenamento.
 
 2.  No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja gerenciar.
 
@@ -258,6 +258,6 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Veja as [Notas de versão e vídeos mais recentes do Gerenciador de Armazenamento (Preview)](http://www.storageexplorer.com/).
+- Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](http://www.storageexplorer.com/).
 
 - Saiba como [criar aplicativos usando os blobs, tabelas, filas e arquivos do Azure](https://azure.microsoft.com/documentation/services/storage/).

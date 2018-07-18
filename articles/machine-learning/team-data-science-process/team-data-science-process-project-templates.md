@@ -1,23 +1,23 @@
 ---
-title: "Planejamento de projetos do Processo de Ciência de Dados de Equipe - Azure  | Microsoft Docs"
-description: "Os modelos do Microsoft Project e Excel que ajudam você a planejar e gerenciar projetos de ciência de dados."
-documentationcenter: 
-author: bradsev
+title: Planejamento de projetos do Processo de Ciência de Dados de Equipe - Azure  | Microsoft Docs
+description: Os modelos do Microsoft Project e Excel que ajudam você a planejar e gerenciar projetos de ciência de dados.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
-ms.author: bradsev;
-ms.openlocfilehash: 6512bf204a1fdc7a413a553b571e3b64b547855b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: deguhath
+ms.openlocfilehash: 2e5a010482bcde5a401d400c12dce7321acea7c5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento de projetos do Processo de Ciência de Dados de Equipe
 

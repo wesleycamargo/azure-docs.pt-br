@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes sobre problemas de rede e conectividade para Serviços de Nuvem do Microsoft Azure | Microsoft Docs"
-description: "Este artigo lista as perguntas frequentes sobre conectividade e rede para Serviços de Nuvem do Microsoft Azure."
+title: Perguntas frequentes sobre problemas de rede e conectividade para Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+description: Este artigo lista as perguntas frequentes sobre conectividade e rede para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e89549f51abb896c1ddf48a46de78fb5e4988f22
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab0fa22e9ba776db3d4af301499545f6e0822478
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -64,7 +64,7 @@ O algoritmo de distribuição usado é um hash de 5 tuplas (IP de origem, porta 
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Como redirecionar o tráfego de entrada para a URL padrão do meu Serviço de Nuvem para uma URL personalizada? 
 
-O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado nas funções web e suas regras são configuradas no web.config do aplicativo, ele sempre está disponível na VM independentemente das reinicializações/recriações de imagem. Para obter mais informações, confira:
+O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado nas funções web e suas regras são configuradas no web.config do aplicativo, ele sempre está disponível na VM independentemente das reinicializações/recriações de imagem. Para obter mais informações, consulte:
 
 - [Criar regras de reescrita para o Módulo de Reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remova o link padrão](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)

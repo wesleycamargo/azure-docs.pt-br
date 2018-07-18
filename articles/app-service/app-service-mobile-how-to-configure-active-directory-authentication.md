@@ -1,24 +1,24 @@
 ---
-title: "Configurar a autenticação do Azure Active Directory para seu aplicativo de Serviços de Aplicativos"
-description: "Saiba como configurar a autenticação do Active Directory do Azure para seu aplicativo de Serviços de Aplicativos."
+title: Configurar a autenticação do Azure Active Directory para seu aplicativo de Serviços de Aplicativos
+description: Saiba como configurar a autenticação do Active Directory do Azure para seu aplicativo de Serviços de Aplicativos.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configure seu aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -65,7 +65,7 @@ O Active Directory do Azure também permite que você registre clientes nativos,
 1. Navegue até o **Azure Active Directory** no [Portal do Azure].
 2. No painel de navegação esquerdo, selecione **Registros de aplicativo**. Clique em **Novo registro de aplicativo** na parte superior.
 4. Na página **Criar** , insira um **Nome** para o registro do seu aplicativo. Selecione **Nativo** em **Tipo de aplicativo**.
-5. Na caixa **URI de redirecionamento**, digite o ponto de extremidade do site */.auth/login/done*, usando o esquema HTTPS. Esse valor deve ser similar a *https://contoso.azurewebsites.net/.auth/login/done*. Caso queira criar um aplicativo do Windows, use o [SID de pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
+5. Na caixa **URI de redirecionamento**, digite o ponto de extremidade do site */.auth/login/done*, usando o esquema HTTPS. Este valor deve ser semelhante a *https://contoso.azurewebsites.net/.auth/login/done*. Caso queira criar um aplicativo do Windows, use o [SID de pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
 5. Clique em **Criar**.
 6. Uma vez que o registro do aplicativo foi adicionado, selecione-o para abri-lo. Localize o **ID do Aplicativo** e anote esse valor.
 7. Clique em **Todas as configurações** > **Permissões necessárias** > **Adicionar** > **Selecionar um API**.

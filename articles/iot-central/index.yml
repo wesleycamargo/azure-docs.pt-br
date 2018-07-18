@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure IoT Central (versão prévia)
+metadata:
+  title: Documentação do Azure IoT Central (versão prévia) - Tutoriais, Referência de API | Microsoft Docs
+  description: O Azure IoT Central é uma solução SaaS (software como serviço) totalmente gerenciada que facilita conectar, monitorar e gerenciar seus ativos de IoT em escala. O Azure IoT Central simplifica a configuração inicial de sua solução IoT e reduz o ônus do gerenciamento, custos operacionais e sobrecarga de um projeto IoT típico. Saiba como criar, personalizar, gerenciar e usar um aplicativo do Azure IoT Central com nossos tutoriais e guias de início rápido.
+  author: dominicbetts
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: dobett
+  ms.service: iot-central
+  services: iot-central
+  manager: timlt
+  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34628565"
+abstract:
+  description: O Azure IoT Central é uma solução SaaS (software como serviço) totalmente gerenciada que facilita conectar, monitorar e gerenciar seus ativos de IoT em escala. O Azure IoT Central simplifica a configuração inicial de sua solução IoT e reduz o ônus do gerenciamento, custos operacionais e sobrecarga de um projeto IoT típico. Saiba como criar, personalizar, gerenciar e usar um aplicativo do Azure IoT Central com nossos tutoriais e guias de início rápido.
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: Saiba como <a href="quick-deploy-iot-central">criar um novo aplicativo do Azure IoT Central</a>.
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Saiba como personalizar e usar seu aplicativo do Azure IoT Central.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-define-device-type">Definir um novo tipo de dispositivo</a>
+    - html: <a href="tutorial-configure-rules">Configurar regras</a>
+    - html: <a href="tutorial-customize-operator">Personalizar exibição do operador</a>
+    - html: <a href="tutorial-monitor-devices">Monitorar seus dispositivos</a>
+    - html: <a href="tutorial-add-device">Adicionar um dispositivo real</a>

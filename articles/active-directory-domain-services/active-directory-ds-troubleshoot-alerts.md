@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: e4b8f31fe3eb79f9b38ae01af598290582a2cde3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -34,7 +34,7 @@ Escolha as etapas de solução de problemas que correspondem à ID ou mensagem d
 | AADDS102 | *Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Entidade de Serviço ausente](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *O intervalo de endereços IP para a rede virtual na qual você habilitou os serviços de domínio do Azure AD está em um intervalo de IP público. Serviços de domínio do Azure AD devem ser habilitados em uma rede virtual com um intervalo de endereços IP privados. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.* | [Endereço está em um intervalo de IP público](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *A Microsoft não consegue alcançar os controladores de domínio para este domínio gerenciado. Isso pode ocorrer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloquear o acesso ao domínio gerenciado. Outro motivo possível é a existência de uma rota definida pelo usuário que bloqueia o tráfego de entrada da internet.* | [Erro de Rede](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *O serviço principal com a ID do aplicativo "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi excluído, e a Microsoft foi capaz de recriá-lo. Essa entidade de serviço gerencia outra entidade de serviço e um aplicativo que são usados para sincronização de senha. A entidade de serviço gerenciado e o aplicativo não estão autorizados sob a entidade de serviço recém-criada, e ficarão desatualizados quando expirar o certificado de sincronização. Isso significa que a entidade de serviço recém-criada não poderá atualizar os aplicativos gerenciados antigos e a sincronização de objetos do AAD será afetada.* | [O aplicativo de sincronização de senha está desatualizado](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.* | [O aplicativo de sincronização de senha está desatualizado](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.* | [A sincronização não é realizada há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *O backup do domínio gerenciado foi feito pela última vez em [data].* | [O backup não é realizado há algum tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *O certificado LDAP seguro para o domínio gerenciado expira em XX.* | [Certificado LDAP seguro perto de expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
@@ -130,7 +130,7 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 
 **Resolução:**
 
-Para restaurar seu serviço, [renove sua assinatura do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associada a seu domínio gerenciado.
+Para restaurar seu serviço, [renove sua assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associada a seu domínio gerenciado.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Suspensão devido a uma configuração inválida
 

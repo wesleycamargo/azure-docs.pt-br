@@ -1,11 +1,11 @@
 ---
-title: "Como criar um namespace do Barramento de Serviço no portal do Azure | Microsoft Docs"
-description: "Crie um namespace do Barramento de Serviço usando o Portal do Azure."
+title: Como criar um namespace do Barramento de Serviço no portal do Azure | Microsoft Docs
+description: Crie um namespace do Barramento de Serviço usando o Portal do Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd

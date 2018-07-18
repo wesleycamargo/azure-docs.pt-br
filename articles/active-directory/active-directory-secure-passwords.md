@@ -1,11 +1,11 @@
 ---
-title: "Segurança de senha em camadas do Azure AD | Microsoft Docs"
-description: "Explica como o Azure AD impõe senhas fortes e protege as senhas dos usuários contra os cibercriminosos."
+title: Segurança de senha em camadas do Azure AD | Microsoft Docs
+description: Explica como o Azure AD impõe senhas fortes e protege as senhas dos usuários contra os cibercriminosos.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas à segurança de senha do Azure AD
 
@@ -84,4 +84,4 @@ Para obter informações sobre a redefinição de senha no Azure Active Director
 
 * [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 * [Os fundamentos do gerenciamento de identidades do Azure](fundamentals-identity.md)
-* [Relatório de atividade de registro de redefinição de senha](active-directory-passwords-reporting.md)
+* [Relatório de atividade de registro de redefinição de senha](authentication/howto-sspr-reporting.md)

@@ -1,8 +1,8 @@
 ---
 title: 'Kit de Ferramentas do Azure para Eclipse: criar aplicativos Scala para HDInsight Spark | Microsoft Docs'
-description: "Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos do Spark escritos em Scala e enviá-los para um cluster do HDInsight Spark, diretamente do IDE Eclipse."
+description: Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para desenvolver aplicativos do Spark escritos em Scala e enviá-los para um cluster do HDInsight Spark, diretamente do IDE Eclipse.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para cluster HDInsight
 
@@ -51,6 +49,8 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
 
 ![Instalação automática do plug-in Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+O usuário pode [entrar a assinatura do Azure](#Sign-in-to-your-Azure-subscription), ou [vincular um cluster HDInsight](#Link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar. 
+
 ## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 1. Inicie o IDE Eclipse e abra o Azure Explorer. No menu **Janela**, selecione **Mostrar Exibição** e selecione **Outros**. Na caixa de diálogo que é aberta, expanda **Azure**, selecione **Azure Explorer** e selecione **OK**.
 
@@ -69,18 +69,19 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
    
    ![Expandindo um nome de cluster para ver recursos](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Vincular um cluster
+<h2 id="linkcluster">Vincular um cluster</h2>
 É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
 1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
 
    ![menu de contexto para vincular cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Insira o **Nome do Cluster**, **Conta de Armazenamento**, **Chave de Armazenamento**e, em seguida, selecione um contêiner do **Contêiner de Armazenamento**, finalmente, insira o nome de usuário e senha. Clique no botão OK para vincular um cluster.
+2. Digite **Nome do Cluster**, **Nome de usuário** e **Senha**, clique no botão OK para vincular o cluster. Opcionalmente, insira a Conta de Armazenamento, Chave de Armazenamento e, em seguida, selecione o Contêiner de Armazenamento para o Gerenciador de armazenamento trabalhar no modo de exibição de árvore à esquerda
    
    ![caixa de diálogo para vincular cluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster.
+   > ![gerenciador de armazenamento no Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. Se as informações estiverem corretas, será possível ver um cluster vinculado no nó **HDInsight**, após clicar no botão OK. Agora, você pode enviar um aplicativo para esse cluster vinculado.
 
@@ -228,13 +229,15 @@ Para resolver esse erro, você deve [baixar o executável](http://public-repo-1.
    ![Resultado da execução local do aplicativo Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Problemas conhecidos
-Para enviar um aplicativo ao Azure Data Lake Store, selecione o modo **Interativo** durante o processo de entrada no Azure. Se você selecionar o modo **Automatizado**, obterá um erro.
+Ao vincular um cluster, sugiro que você forneça credenciais de armazenamento.
 
-![Entrada interativa](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Entrada interativa](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-Você pode escolher um cluster do Azure Data Lake para enviar seu aplicativo com qualquer método de entrada.
+Há dois modos para enviar os trabalhos. Se a credencial de armazenamento for fornecida, o modo de lote será usado para enviar o trabalho. Caso contrário, o modo interativo será usado. Se o cluster estiver ocupado, poderá receber o erro abaixo.
 
-Atualmente, não há suporte para exibir saídas do Spark diretamente.
+![eclipse recebe um erro quando o cluster estiver ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![eclipse recebe um erro quando o cluster estiver ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Comentários
 Se você tiver comentários ou se encontrar problemas ao usar essa ferramenta, fique à vontade para enviar um email para hdivstool@microsoft.com.

@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento de blob e aos serviços conectados do Visual Studio (projetos de Trabalho Web) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de Blob em um projeto WebJob depois de se conectar a um armazenamento do Azure usando os serviços conectados do Visual Studio."
+title: Introdução ao armazenamento de blob e aos serviços conectados do Visual Studio (projetos de Trabalho Web) | Microsoft Docs
+description: Como começar a usar o armazenamento de Blob em um projeto WebJob depois de se conectar a um armazenamento do Azure usando os serviços conectados do Visual Studio.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 4800d6ad0482462b9eccb72de34de56e4f7c370c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (projetos WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

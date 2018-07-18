@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric com visão geral de Gerenciamento de API | Microsoft Docs"
-description: "Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric."
+title: Azure Service Fabric com visão geral de Gerenciamento de API | Microsoft Docs
+description: Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure
 
@@ -78,7 +78,7 @@ Nesse exemplo, uma nova instância de serviço sem estado é criada para cada us
  
  - `fabric:/app/users/<username>`
 
- Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo:
+ Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo: 
 
   - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
   - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`
@@ -97,7 +97,7 @@ Nesse exemplo, uma nova instância de serviço com estado é criada para cada us
  
  - `fabric:/app/users/<username>`
 
- Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo:
+ Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo: 
 
   - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
   - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`

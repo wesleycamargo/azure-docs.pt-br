@@ -1,11 +1,11 @@
 ---
-title: "Políticas no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas disponíveis para uso no Gerenciamento de API do Azure."
+title: Políticas no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas disponíveis para uso no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: f617abc164761b4839b188822585eaa4eb0aacd6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
     -   [Definir variável](api-management-advanced-policies.md#set-variable): persiste um valor em uma variável de contexto nomeada para acesso posterior.  
     -   [Definir método de solicitação](api-management-advanced-policies.md#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.  
     -   [Definir código de status](api-management-advanced-policies.md#SetStatus) – altera o código de status de HTTP para o valor especificado.  
-    -   [Rastreamento](api-management-advanced-policies.md#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
+    -   [Rastreamento](api-management-advanced-policies.md#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).  
     -   [Aguarde](api-management-advanced-policies.md#Wait): espera pelas políticas [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Fluxo de controle](api-management-advanced-policies.md#choose) incorporadas serem concluídas antes de prosseguir.  
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) - Autenticar com um serviço de back-end usando a autenticação Básica.  

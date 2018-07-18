@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar o Box para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Box."
+title: 'Tutorial: Configurar o Box para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
@@ -43,7 +43,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisa dec
 A guia **Box > Usuários e Grupos** no portal do Azure permite especificar quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:
 
 * O Azure AD permite que o usuário atribuído (seja por atribuição direta ou associação de grupo) realize a autenticação no Box. Se um usuário não for atribuído, o Azure AD não permitirá que ele entre no Box e retornará um erro na página de entrada do Azure AD.
-* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)do usuário.
+* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)do usuário.
 * Se o provisionamento automático estiver habilitado, os usuários e/ou grupos atribuídos serão adicionados à fila de provisionamento para serem provisionado automaticamente.
   
   * Se apenas objetos de usuário tiverem sido configurados para serem provisionados, todos os usuários atribuídos diretamente e todos os usuários que são membros de grupos atribuídos serão colocados na fila de provisionamento. 
@@ -120,5 +120,5 @@ Em seu locatário do Box, os usuários sincronizados estão listados em **Usuár
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](active-directory-saas-box-tutorial.md)

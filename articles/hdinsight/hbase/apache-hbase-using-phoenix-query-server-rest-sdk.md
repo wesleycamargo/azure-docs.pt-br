@@ -1,25 +1,23 @@
 ---
 title: SDK REST de Phoenix Query Server - Azure HDInsight | Microsoft Docs
-description: 
+description: ''
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 66ff65a5b74294fe1a8f4373102160a98cd7a8c3
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ef89bcea3eab92c3137a6f532398764462ae204c
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>SDK REST de Phoenix Query Server
 

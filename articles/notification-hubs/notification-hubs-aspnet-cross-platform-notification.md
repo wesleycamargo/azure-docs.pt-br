@@ -1,24 +1,24 @@
 ---
-title: "Enviar notificações de multiplaforma para os usuários com os Hubs de Notificação do Azure (ASP.NET)"
-description: "Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma que se destina a todas as plataformas."
+title: Enviar notificações de multiplaforma para os usuários com os Hubs de Notificação do Azure (ASP.NET)
+description: Saiba como usar modelos de Hubs de notificação para enviar, em uma única solicitação, uma notificação independente de plataforma que se destina a todas as plataformas.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações entre plataformas a usuários com Hubs de Notificação
 Em um tutorial anterior, [Notificar usuários com os Hubs de Notificação], você aprendeu a enviar notificações por push a todos os dispositivos registrados para um usuário autenticado específico. Nesse tutorial, várias solicitações eram necessárias para enviar uma notificação a cada plataforma de cliente com suporte. Os Hubs de Notificação do Azure dão suporte a modelos, com os quais é possível especificar como um dispositivo específico deseja receber notificações. Esse método simplifica o envio de notificações de multiplaforma. 
@@ -83,12 +83,12 @@ Para enviar notificações de multiplaforma usando modelos, faça o seguinte:
    
     Esse código envia uma notificação a todas as plataformas ao mesmo tempo, sem precisar especificar uma carga nativa. Os Hubs de Notificação desenvolve e fornece a carga correta para cada dispositivo com o valor *marca* fornecido, conforme especificado nos modelos registrados.
 
-4. Publicar novamente seu projeto back-end do WebApi.
+4. Publique novamente seu projeto back-end do WebApi.
 
 5. Execute o aplicativo cliente novamente e, em seguida, verifique se o registro foi bem-sucedido.
 
 6. (Opcional) Implante o aplicativo cliente em um segundo dispositivo e, em seguida, execute-o.
-    Observe que uma notificação é exibida em cada dispositivo.
+    Uma notificação é exibida em cada dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial, saiba mais sobre Hubs de Notificação e modelos nestes tópicos:

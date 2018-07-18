@@ -1,22 +1,22 @@
 ---
-title: "Persistir saída de tarefa e de trabalho no Armazenamento do Azure - com API do serviço de Lote do Azure | Microsoft Docs"
-description: "Saiba como usar a API do serviço de lote para manter a saída de tarefa e o trabalho em lotes no Armazenamento do Azure."
+title: Persistir saída de tarefa e de trabalho no Armazenamento do Azure - com API do serviço de Lote do Azure | Microsoft Docs
+description: Saiba como usar a API do serviço de lote para manter a saída de tarefa e o trabalho em lotes no Armazenamento do Azure.
 services: batch
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
-ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -142,7 +142,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Para obter mais informações sobre diretórios virtuais no Armazenamento do Azure, consulte [Listar os blobs em um contêiner](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Para obter mais informações sobre diretórios virtuais no Armazenamento do Azure, consulte [Listar os blobs em um contêiner](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticar erros de carregamento de arquivo

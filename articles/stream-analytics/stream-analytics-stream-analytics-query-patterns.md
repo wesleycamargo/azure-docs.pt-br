@@ -1,29 +1,28 @@
 ---
-title: "Exemplos de consulta para padrões de uso comuns do Stream Analytics | Microsoft Docs"
-description: "Padrões de consulta comuns do Azure Stream Analytics"
-keywords: exemplos de consulta
+title: Padrões de consulta comuns no Azure Stream Analytics
+description: Este artigo descreve vários designs e padrões de consulta comuns que são úteis em trabalhos do Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jenniehubbard
-editor: cgronlun
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
+author: jseb225
+manager: kfile
+ms.author: jeanb
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: samacha
-ms.openlocfilehash: cb0a948416983f33a4ca8d9211a3a114ba011685
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões de uso do Stream Analytics
+
 ## <a name="introduction"></a>Introdução
-As consultas no Azure Stream Analytics são expressas em uma linguagem de consulta parecida com o SQL. Essas consultas estão documentadas no guia [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
+As consultas no Azure Stream Analytics são expressas em uma linguagem de consulta parecida com o SQL. Essas construções de linguagem estão documentadas no guia [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+
+O design de consulta pode expressar lógica de passagem simples para mover dados de evento de um fluxo de entrada para outro armazenamento de dados de saída. Ou ele pode fazer análise de correspondência e temporal padrão avançado para calcular agregações em várias janelas de tempo como a amostra de TollApp. Você pode associar dados de várias entradas para combinar eventos de fluxo contínuo e fazer pesquisas nos dados de referência estática para enriquecer os valores de evento. Além disso, você pode gravar dados para várias saídas.
+
+Este artigo descreve soluções para vários padrões comuns de consulta com base em cenários do mundo real. É um trabalho em andamento e continuará sendo atualizado com novos padrões de forma contínua.
 
 ## <a name="query-example-convert-data-types"></a>Exemplo de consulta: converter tipos de dados
 **Descrição**: defina os tipos das propriedades no fluxo de entrada.
@@ -577,11 +576,11 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Explicação**: a primeira consulta `max_power_during_last_3_mins` usa a [Janela deslizante](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de potência de cada dispositivo durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de potência na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
+**Explicação**: a primeira consulta `max_power_during_last_3_mins` usa a [Janela deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de potência de cada dispositivo durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de potência na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

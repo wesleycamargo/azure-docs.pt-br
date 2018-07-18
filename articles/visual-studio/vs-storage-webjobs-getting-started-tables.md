@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento do Azure e aos Serviços Conectados do Visual Studio (projetos WebJob)"
-description: "Como começar a usar o armazenamento de Tabela do Azure em um projeto WebJobs no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: Introdução ao armazenamento do Azure e aos Serviços Conectados do Visual Studio (projetos WebJob)
+description: Como começar a usar o armazenamento de Tabela do Azure em um projeto WebJobs no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 4e0c77e08bff971277a09d6066f259db84617616
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 78ef7d98d9e11ba9b2c52bfc88d6ecb050cafa84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

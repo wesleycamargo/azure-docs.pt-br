@@ -2,8 +2,8 @@
 title: Mover dados para um Banco de Dados SQL do para o Azure Machine Learning | Microsoft Docs
 description: Criar tabela SQL e carregar dados para a tabela SQL
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 5/04/2018
+ms.author: deguhath
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para um banco de dados do SQL Azure para Azure Machine Learning
 Este tópico descreve as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um Banco de Dados SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
@@ -33,8 +33,8 @@ A tabela a seguir resume as opções para mover dados para um Banco de Dados SQL
 
 | <b>FONTE</b> | <b>DESTINO: Banco de Dados SQL do Azure</b> |
 | --- | --- |
-| <b>Arquivo simples (CSV ou TSV formatado)</b> |<a href="#bulk-insert-sql-query">Consulta SQL de inserção em massa |
-| <b>SQL Server local</b> |1. <a href="#export-flat-file">Exportar para Arquivo simples<br> 2. <a href="#insert-tables-bcp">Assistente de migração de Banco de Dados SQL<br> 3. <a href="#db-migration">Backup e restauração do banco de dados<br> 4. <a href="#adf">Azure Data Factory (ADF) |
+| <b>Arquivo simples (CSV ou TSV formatado)</b> |[Consulta SQL de inserção em massa](#bulk-insert-sql-query) |
+| <b>SQL Server local</b> |1.[Exportar para arquivo simples](#export-flat-file)<br> 2. [Assistente de Migração de Banco de Dados SQL](#insert-tables-bcp)<br> 3. [Backup e restauração de banco de dados](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Pré-requisitos
 O procedimento descrito aqui requer que você tenha:

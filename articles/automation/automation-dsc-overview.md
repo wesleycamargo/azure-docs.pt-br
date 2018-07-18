@@ -1,24 +1,20 @@
 ---
-title: "Visão Geral do DSC de Automação do Azure | Microsoft Docs"
-description: "Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos"
+title: Visão geral do DSC da Automação do Azure
+description: Uma visão geral da DSC (Configuração do Estado Desejado) da Automação do Azure, seus termos e problemas conhecidos
+keywords: powershell dsc, configuração de estado desejada, powershell dsc azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "powershell dsc, configuração de estado desejada, powershell dsc azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+ms.component: dsc
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: conceptual
+manager: carmonm
+ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Visão geral do DSC da Automação do Azure
 
@@ -30,7 +26,7 @@ O DSC de automação do Azure oferece várias vantagens a usar o DSC fora do Azu
 
 ### <a name="built-in-pull-server"></a>Servidor de pull interno
 
-A Automação do Azure oferece um [servidor de pull DSC](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) para que os nós de destino recebam configurações automaticamente, estejam em conformidade com o estado desejado e relatem a respectiva conformidade.
+A Automação do Azure oferece um [servidor de pull DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) para que os nós de destino recebam configurações automaticamente, estejam em conformidade com o estado desejado e relatem a respectiva conformidade.
 O servidor de pull interno na Automação do Azure elimina a necessidade de configurar e manter seu próprio servidor de pull.
 A Automação do Azure pode destinar computadores Windows ou Linux físicos ou virtuais, na nuvem ou localmente.
 
@@ -45,8 +41,8 @@ No portal do Azure ou do PowerShell, você pode gerenciar todas as suas configur
 ### <a name="import-reporting-data-into-log-analytics"></a>Importar dados de relatórios para o Log Analytics
 
 Nós gerenciados com DSC de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno.
-Você pode configurar a DSC de Automação do Azure para enviar esses dados para seu espaço de trabalho do Log Analytics do OMS (Microsoft Operations Management Suite).
-Para saber como enviar dados de status da DSC para seu espaço de trabalho de Log Analytics, consulte [Encaminhar dados de relatório de DSC de Automação do Azure para o Log Analytics do OMS](automation-dsc-diagnostics.md).
+É possível configurar a DSC de Automação do Azure para enviar esses dados ao espaço de trabalho do Log Analytics.
+Para saber como enviar dados de status da DSC para o espaço de trabalho do Log Analytics, consulte [Encaminhar dados de relatório DSC de Automação do Azure para o Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Vídeo de introdução
 

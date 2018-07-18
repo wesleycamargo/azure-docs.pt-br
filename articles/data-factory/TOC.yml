@@ -1,5 +1,7 @@
 - name: Documentação do Data Factory V2
   href: index.yml
+- name: Alternar para a documentação versão 1
+  href: v1/data-factory-introduction.md
 - name: Visão geral
   items:
     - name: Introdução ao Data Factory
@@ -116,8 +118,14 @@
       href: concepts-integration-runtime.md
 - name: Guias de instruções
   items:
-    - name: Criar visualmente as fábricas de dados
-      href: author-visually.md
+    - name: Autor
+      items:
+        - name: Criar visualmente as fábricas de dados
+          href: author-visually.md
+        - name: Integração e implantação contínuas
+          href: continuous-integration-deployment.md
+        - name: Desenvolvimento iterativo e depuração
+          href: iterative-development-debugging.md
     - name: Copiar dados
       items:
         - name: Copiar dados usando Atividade de Cópia
@@ -223,6 +231,8 @@
               href: connector-oracle.md
             - name: Eloqua da Oracle
               href: connector-oracle-eloqua.md
+            - name: Oracle Responsys
+              href: connector-oracle-responsys.md
             - name: PayPal
               href: connector-paypal.md
             - name: Phoenix
@@ -237,6 +247,8 @@
               href: connector-salesforce.md
             - name: Salesforce Service Cloud
               href: connector-salesforce.md
+            - name: Nuvem de Marketing SalesForce
+              href: connector-salesforce-marketing-cloud.md
             - name: SAP Business Warehouse
               href: connector-sap-business-warehouse.md
             - name: SAP Cloud for Customer
@@ -306,22 +318,24 @@
           href: compute-linked-services.md
     - name: Controlar fluxo
       items:
-        - name: Atividade Condição Se
-          href: control-flow-if-condition-activity.md
-        - name: Atividade Until
-          href: control-flow-until-activity.md
-        - name: Atividade da Web
-          href: control-flow-web-activity.md
-        - name: Atividade de pesquisa
-          href: control-flow-lookup-activity.md
-        - name: Atividade de obtenção de metadados
-          href: control-flow-get-metadata-activity.md
         - name: Atividade de execução de pipeline
           href: control-flow-execute-pipeline-activity.md
+        - name: Filtrar atividade
+          href: control-flow-filter-activity.md
         - name: Para cada atividade
           href: control-flow-for-each-activity.md
+        - name: Atividade de obtenção de metadados
+          href: control-flow-get-metadata-activity.md
+        - name: Atividade Condição Se
+          href: control-flow-if-condition-activity.md
+        - name: Atividade de pesquisa
+          href: control-flow-lookup-activity.md
+        - name: Atividade Until
+          href: control-flow-until-activity.md
         - name: Atividade Wait
           href: control-flow-wait-activity.md
+        - name: Atividade da Web
+          href: control-flow-web-activity.md
         - name: Linguagem de expressão
           href: control-flow-expression-language-functions.md
         - name: Variáveis do sistema
@@ -338,16 +352,18 @@
           href: data-factory-service-identity.md
     - name: Monitorar e gerenciar
       items:
-        - name: Usar SDKs
-          href: monitor-programmatically.md
-        - name: Usar o Azure Monitor
-          href: monitor-using-azure-monitor.md
         - name: Monitorar visualmente
           href: monitor-visually.md
-        - name: Gerenciar tempo de execução de integração do Azure-SSIS
-          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorar com Azure Monitor
+          href: monitor-using-azure-monitor.md
+        - name: Monitorar com SDKs
+          href: monitor-programmatically.md
         - name: Monitorar tempo de execução de integração
           href: monitor-integration-runtime.md
+        - name: Monitorar tempo de execução de integração do Azure-SSIS
+          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+        - name: Gerenciar tempo de execução de integração do Azure-SSIS
+          href: manage-azure-ssis-integration-runtime.md
     - name: Criar tempo de execução de integração
       items:
         - name: Integration Runtime do Azure
@@ -358,13 +374,21 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
-        - name: Ingressar o tempo de execução de integração do Azure-SSIS a uma Rede virtual
+        - name: Ingressar o IR Azure-SSIS em uma VNet
           href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Gerenciar tempo de execução de integração do Azure-SSIS
-          href: manage-azure-ssis-integration-runtime.md
-        - name: Configurar definições do desempenho na execução de integração do Azure e SSIS
+        - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Configurar o alto desempenho para IR Azure-SSIS
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Chamar pacotes SSIS usando a atividade de procedimento armazenado
+        - name: Provisionar a Enterprise Edition para IR Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personalizar instalação para IR Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Instalar componentes licenciados para IR Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Executar pacotes SSIS com a atividade Executar pacote do SSIS
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar execução de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
@@ -386,19 +410,19 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Recursos
   items:
-    - name: Perguntas frequentes
-      href: frequently-asked-questions.md
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Stack Overflow
+    - name: Faça uma pergunta — Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
+    - name: Faça uma pergunta — Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Solicitar um recurso
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Disponibilidade de região
-      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Perguntas frequentes
+      href: frequently-asked-questions.md
+    - name: Roteiro
+      href: 'https://azure.microsoft.com/en-us/roadmap/?tag=data-factory'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: Disponibilidade por região
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Opções de suporte
       href: 'https://azure.microsoft.com/support/options/'

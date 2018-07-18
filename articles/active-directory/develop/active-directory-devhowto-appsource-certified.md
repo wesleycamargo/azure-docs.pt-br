@@ -3,23 +3,25 @@ title: Como certificar o AppSource para o Azure Active Directory| Microsoft Docs
 description: Detalhes sobre como certificar o AppSource do seu aplicativo para o Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/03/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
 O [Microsoft AppSource](https://appsource.microsoft.com/) é um local onde os usuários de negócios podem descobrir, experimentar e gerenciar aplicativos SaaS de linha de negócios (SaaS autônomos e o complemento para produtos SaaS da Microsoft existentes).
@@ -41,7 +43,7 @@ Para habilitar a multilocação em seu aplicativo:
 Para saber mais sobre multilocação, confira: [Como conectar qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Aplicativos de locatário único
-Aplicativos que só aceitam entradas de usuários de uma instância definida do Azure Active Directory são conhecidos como *aplicativo de locatário único*. Os usuários externos (incluindo as contas corporativas ou de estudante de outras organizações, ou conta pessoal) podem entrar em um aplicativo de locatário único depois de adicionar cada usuário como *conta convidado* à instância do Azure Active Directory em que o aplicativo está registrado. Você pode adicionar usuários como contas de convidado a um Azure Active Directory por meio de [ *colaboração B2B do Azure AD* ](../active-directory-b2b-what-is-azure-ad-b2b.md), e isso pode ser feito [programaticamente](../active-directory-b2b-code-samples.md). Quando você adiciona um usuário como conta de convidado a um Azure Active Directory, um email de convite é enviado para o usuário, que tem de aceitar o convite clicando no link no email de convite. Convites enviados para um usuário adicional em uma organização que convida e também é membro da organização do parceiro não são necessários para se aceitar um convite para entrar.
+Aplicativos que só aceitam entradas de usuários de uma instância definida do Azure Active Directory são conhecidos como *aplicativo de locatário único*. Os usuários externos (incluindo as contas corporativas ou de estudante de outras organizações, ou conta pessoal) podem entrar em um aplicativo de locatário único depois de adicionar cada usuário como *conta convidado* à instância do Azure Active Directory em que o aplicativo está registrado. Você pode adicionar usuários como contas de convidado a um Azure Active Directory por meio de [ *colaboração B2B do Azure AD* ](../b2b/what-is-b2b.md), e isso pode ser feito [programaticamente](../b2b/code-samples.md). Quando você adiciona um usuário como conta de convidado a um Azure Active Directory, um email de convite é enviado para o usuário, que tem de aceitar o convite clicando no link no email de convite. Convites enviados para um usuário adicional em uma organização que convida e também é membro da organização do parceiro não são necessários para se aceitar um convite para entrar.
 
 Os aplicativos de único locatário podem habilitar a experiência *Entre em Contato Comigo*, mas se você deseja habilitar a experiência de avaliação gratuita/clique simples recomendada pelo AppSource, habilite a multilocação em seu aplicativo.
 

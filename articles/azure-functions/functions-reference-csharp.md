@@ -1,25 +1,25 @@
 ---
-title: "Referência do desenvolvedor de scripts C# do Azure Functions"
+title: Referência do desenvolvedor de scripts C# do Azure Functions
 description: Entenda como desenvolver Azure Functions usando script C#.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
-ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: tdykstra
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
@@ -233,7 +233,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## <a name="async"></a>Assíncrono
 
-Para tornar uma função assíncrona, use a palavra-chave `async` e retorne um objeto `Task`.
+Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -335,7 +335,7 @@ Os seguintes assemblies podem ser referenciados por um nome simples (por exemplo
 ## <a name="referencing-custom-assemblies"></a>Referenciando assemblies personalizados
 
 Para referenciar um assembly personalizado, use um assembly *compartilhado* ou *particular*:
-- Assemblies compartilhados são compartilhados entre todas as funções em um aplicativo de funções. Para referenciar um assembly personalizado, carregue o assembly no aplicativo de funções, como em uma pasta `bin` na raiz do aplicativo de funções. 
+- Assemblies compartilhados são compartilhados entre todas as funções em um aplicativo de funções. Para fazer referência a um assembly personalizado, carregue o assembly em uma pasta chamada `bin` em sua [pasta raiz do aplicativo de funções](functions-reference.md#folder-structure) (wwwroot). 
 - Assemblies particulares fazem parte do contexto de determinada função e dão suporte ao sideload de versões diferentes. Os assemblies particulares devem ser carregados em uma pasta `bin` do diretório da função. Referencie os assemblies usando o nome de arquivo, como `#r "MyAssembly.dll"`. 
 
 Para obter informações sobre como carregar arquivos na pasta da função, consulte a seção sobre [gerenciamento de pacotes](#using-nuget-packages).
@@ -479,7 +479,7 @@ A tabela a seguir lista os atributos .NET para cada tipo de associação e os pa
 | Associação | Atributo | Adicionar referência |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| Hubs de evento | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Hubs de Eventos | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Aplicativos Móveis | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 | Hubs de Notificação | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Barramento de Serviço | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |

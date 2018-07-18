@@ -1,19 +1,19 @@
 ---
-title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Java | Microsoft Docs
-description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Java a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando Java | Microsoft Docs
+description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Java a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Início rápido: Carregar, baixar e listar blobs usando Java
 
@@ -46,11 +46,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 Este comando clona o repositório para sua pasta do git local. Para abrir o projeto, inicialize o Eclipse e feche a tela de boas-vinda. Selecione **Arquivo**, em seguida, **Abrir projetos do sistema de arquivos...** . Certifique-se de que **Detectar e configurar natureza do projeto** esteja marcado. Selecione **Diretório**, em seguida, vá até onde você armazenou o repositório clonado, dentro dele, selecione a pasta **javaBlobsQuickstart**. Verifique se o projeto **javaBlobsQuickstarts** aparece como um projeto do Eclipse, em seguida, selecione **Concluir**.
 
 Depois que o projeto termina a importação, abra **AzureApp.java** (localizado em **blobQuickstart.blobAzureApp** dentro de **/src/main/java**) e substitua `accountname` e `accountkey` dentro da cadeia de caracteres `storageConnectionString`. Em seguida, execute o aplicativo.
-     
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
     
-No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Abra o arquivo **AzureApp.Java**. Localize a variável `storageConnectionString`. Substitua os valores de `AccountName` e `AccountKey` na cadeia de conexão pelos valores que você salvou do Portal do Azure. Seu `storageConnectionString` deve ser semelhante ao seguinte:
+No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Abra o arquivo **AzureApp.Java**. Localize a variável `storageConnectionString` e cole o valor da cadeia de conexão copiada na seção anterior. A variável `storageConnectionString` deve ser semelhante ao seguinte:
 
 ```java
 public static final String storageConnectionString =
@@ -213,7 +214,7 @@ Consulte estes recursos adicionais para o desenvolvimento em Java com armazename
 
 ### <a name="client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de clientes
 
-- Confira a [referência da API Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes Java.
+- Confira a [referência da API Java](https://docs.microsoft.com/java/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes Java.
 - Explore [exemplos de armazenamento de Blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) gravados usando a biblioteca de clientes de Java.
 
 ## <a name="next-steps"></a>Próximas etapas

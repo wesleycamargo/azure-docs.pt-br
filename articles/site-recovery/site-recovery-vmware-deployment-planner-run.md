@@ -1,24 +1,24 @@
 ---
-title: "Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs"
-description: "o artigo descreve o modo de execução do Planejador de Implantações do Azure Site Recovery para o cenário do VMware para o Azure."
+title: Planejador de implantação do Azure Site Recovery para VMware ao Azure | Microsoft Docs
+description: o artigo descreve o modo de execução do Planejador de Implantações do Azure Site Recovery para o cenário do VMware para o Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1d9fa845171ffa5a40ce569170dfbb577ea4e8c8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar o Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -179,7 +179,7 @@ Por padrão, a ferramenta é configurada para analisar e gerar relatórios de at
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualiztion VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Exemplo 2: gerar um relatório quando os dados de criação de perfil estiverem em um servidor remoto

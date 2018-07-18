@@ -3,7 +3,7 @@ title: Painel do Power BI sobre a integridade do veículo e hábitos de conduç�
 description: Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: deguhath
+ms.openlocfilehash: 2689e87dd41aa4494cf63c9ead1d1ca011b0b720
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de instalação do Painel de Power BI do modelo de solução de análise de telemetria do veículo
 Este menu fornece links para os capítulos deste manual: 
@@ -308,7 +308,7 @@ Você configurou com êxito o relatório em tempo real "Veículos que precisam d
 
     ![Áreas Detalhes, Tamanho, Eixo e Legenda](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Altere o gráfico **Título** para **Média de combustível, média de temperatura do motor, contagem de vin por modelo e modelo**.
+25. Altere o gráfico **Título** para **Média de combustível, média de temperatura do motor, contagem de vin por modelo**.
 
     ![Título do gráfico de dispersão](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

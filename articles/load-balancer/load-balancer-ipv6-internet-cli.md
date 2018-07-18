@@ -1,12 +1,12 @@
 ---
-title: "Criar um balanceador de carga público com o IPv6 – CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga público com IPv6 no Azure Resource Manager usando a CLI do Azure."
+title: Criar um balanceador de carga público com o IPv6 – CLI do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga público com IPv6 no Azure Resource Manager usando a CLI do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
+keywords: ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 no Azure Resource Manager usando a CLI do Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/08/2017
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). Os balanceadores de carga fornecem alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço íntegras em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. Os balanceadores de carga também podem apresentar esses serviços em várias portas, em vários endereços IP ou em ambos.
 

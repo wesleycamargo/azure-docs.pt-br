@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao ScaleX Enterprise | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o ScaleX Enterprise."
+title: 'Tutorial: Integração do Azure Active Directory ao ScaleX Enterprise | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 94c30d39a5d72a022dd77d65141f1af679cf3dd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory ao ScaleX Enterprise
 
@@ -29,9 +29,9 @@ A integração do ScaleX Enterprise ao Azure AD oferece os seguintes benefícios
 - É possível permitir que os usuários sejam automaticamente conectados ao ScaleX Enterprise (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. O que é o acesso a aplicativos e logon único com o [Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. O que é o acesso a aplicativos e logon único com o [Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao ScaleX Enterprise, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o ScaleX Enterprise por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>Adicionando o ScaleX Enterprise por meio da galeria
 Para configurar a integração do ScaleX Enterprise ao Azure AD, você precisa adicionar o ScaleX Enterprise à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,11 +63,11 @@ Para configurar a integração do ScaleX Enterprise ao Azure AD, você precisa a
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **ScaleX Enterprise**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do ScaleX Enterprise ao Azure AD, você precisa a
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o ScaleX Enterprise, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do ScaleX Enterprise é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do ScaleX Enterprise.
@@ -86,11 +86,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 
 Para configurar e testar o logon único do Azure AD com o ScaleX Enterprise, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criar um usuário de teste do ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)** – para ter um equivalente de Brenda Fernandes no ScaleX Enterprise que está vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,11 +100,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração de aplicativos do **ScaleX Enterprise**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
 3. Na seção **Domínio e URLs do ScaleX Enterprise**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IdP**:
 
@@ -125,7 +125,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. O aplicativo ScaleX espera as declarações SAML em um formato específico, o que exige a modificação dos mapeamentos de atributo personalizado para sua configuração de atributos do token SAML. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** para abrir as configurações de atributo personalizado.
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
     
     a. Clique com o botão direito do mouse no atributo **name** e clique em Excluir.
 
@@ -133,11 +133,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Clique no atributo **emailaddress** para abrir a janela Editar Atributo. Altere o valor de **user.mail** para **user.userprincipalname** e clique em OK.
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do Certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
@@ -145,7 +145,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
 7. Na seção **Configuração do ScaleX Enterprise**, clique em **Configurar ScaleX Enterprise** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
 8. Para configurar o logon único no **ScaleX Enterprise**, faça logon no site da empresa ScaleX Enterprise como administrador.
 
@@ -154,15 +154,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Contoso é apenas um exemplo. Esse deve ser o Nome real de sua Empresa. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
 10. Selecione **Integrações** no menu superior e, em seguida, **Logon Único**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
 
 11. Preencha o formulário da seguinte maneira:
 
-    ![Configurar Logon Único](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
+    ![Configurar o logon único](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
     
     a. Selecione **“Criar qualquer usuário que pode se autenticar com o SSO”.**
 
@@ -259,7 +259,7 @@ Clique no bloco ScaleX Enterprise no Painel de Acesso e você será automaticame
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

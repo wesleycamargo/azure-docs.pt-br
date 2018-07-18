@@ -8,4 +8,4 @@ O recurso Aplicativos Móveis do Serviço de Aplicativo do Azure usa [Hubs de No
 Agora você se conectou a um hub de notificação para o projeto de back-end dos Aplicativos Móveis. Posteriormente, você configura esse hub de notificação para conectar um PNS (Sistema de Notificação de Plataforma) a fim de enviar por push para dispositivos.
 
 [Portal do Azure]: https://portal.azure.com/
-[Hubs de Notificação]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

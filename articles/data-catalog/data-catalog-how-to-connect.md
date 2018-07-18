@@ -1,12 +1,12 @@
 ---
 title: Como conectar as fontes de dados | Microsoft Docs
-description: "Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure."
+description: Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
 ## <a name="introduction"></a>Introdução
@@ -48,7 +48,7 @@ Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de D
 | Power Query |.xlsx |Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
 | Power BI Desktop |.pbix |Power BI Desktop de julho de 2016 ou posterior |
 | Ferramentas de dados do SQL Server |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
-| Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
+| Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Seus dados, suas ferramentas
 As opções disponíveis no menu dependerão do tipo de ativo de dados selecionado no momento. É claro que nem todas as ferramentas possíveis serão incluídas no menu "Abrir em...", mas ainda é fácil conectar-se à fonte de dados usando uma ferramenta de cliente. Quando um ativo de dados for selecionado no portal do **Catálogo de Dados do Azure**, o local completo será exibido no painel de propriedades.

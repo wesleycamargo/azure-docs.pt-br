@@ -1,32 +1,27 @@
 ---
-title: Como paginar os resultados da pesquisa na Pesquisa do Azure | Microsoft Docs
-description: "Paginação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
-services: search
-documentationcenter: 
+title: Como paginar os resultados da pesquisa no Azure Search | Microsoft Docs
+description: Paginação no Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa na Pesquisa do Azure
-Este artigo fornece orientação sobre como usar a API REST do Serviço de Pesquisa do Azure para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.
+# <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
+Este artigo fornece orientação sobre como usar a API REST do Serviço de Azure Search para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.
 
-Em cada caso mencionado abaixo, as opções relacionadas à página que colaboram com dados ou informações para sua página de resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](http://msdn.microsoft.com/library/azure/dn798927.aspx) enviadas ao Serviço de Pesquisa do Azure. As solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta.
+Em cada caso mencionado abaixo, as opções relacionadas à página que colaboram com dados ou informações para sua página de resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao Serviço de Azure Search. As solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta.
 
 > [!NOTE]
-> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Confira a documentação da [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obter detalhes sobre a sintaxe da solicitação.
+> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Confira a documentação da [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice) para obter detalhes sobre a sintaxe da solicitação.
 > 
 > 
 
@@ -35,7 +30,7 @@ Mostrar o número total de resultados retornados por uma consulta e, em seguida,
 
 ![][1]
 
-Na Pesquisa do Azure, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. O exemplo a seguir mostra um exemplo de solicitação pelo total de ocorrências, a retorna como `@OData.count`:
+No Azure Search, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. O exemplo a seguir mostra um exemplo de solicitação pelo total de ocorrências, a retorna como `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -56,7 +51,7 @@ Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem 
 
  ![][2]
 
-Na Pesquisa do Azure, você usaria `$select` e um comando de pesquisa para implementar essa experiência.
+No Azure Search, você usaria `$select` e um comando de pesquisa para implementar essa experiência.
 
 Para retornar um subconjunto dos campos para um layout lado a lado:
 
@@ -64,7 +59,7 @@ Para retornar um subconjunto dos campos para um layout lado a lado:
 
 Arquivos de imagem e de mídia não são diretamente pesquisáveis e devem ser armazenados em outra plataforma de armazenamento, por exemplo, o armazenamento do Blob do Azure, para reduzir os custos. No índice e nos documentos, defina um campo que armazena o endereço da URL do conteúdo externo. Em seguida, use o campo como uma referência de imagem. A URL da imagem deve estar no documento.
 
-Para recuperar uma página de descrição de produto em um evento **onClick** , use [Pesquisar Documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para passar a chave do documento que será recuperada. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
+Para recuperar uma página de descrição de produto em um evento **onClick** , use [Pesquisar Documento](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) para passar a chave do documento que será recuperada. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -73,7 +68,7 @@ Por padrão, as ordens de classificação normalmente usam a opção de relevân
 
  ![][3]
 
-Na Pesquisa do Azure, a classificação baseia-se na expressão `$orderby`, para todos os campos indexados como `"Sortable": true.`
+No Azure Search, a classificação baseia-se na expressão `$orderby`, para todos os campos indexados como `"Sortable": true.`
 
 A relevância está fortemente associada a perfis de pontuação. Você pode usar a pontuação padrão, que depende de análise de texto e estatísticas para classificar todos os resultados, com pontuações mais altas sendo atribuídas a documentos com mais correspondências, ou correspondências mais sólidas, de um termo de pesquisa.
 
@@ -86,12 +81,12 @@ Você criaria um método que aceitasse a opção de classificação selecionada 
  ![][5]
 
 > [!NOTE]
-> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais. 
+> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) para saber mais. 
 > 
 > 
 
 ## <a name="faceted-navigation"></a>Navegação facetada
-A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. Na Pesquisa do Azure, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md) para mais detalhes.
+A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. No Azure Search, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada no Azure Search](search-faceted-navigation.md) para mais detalhes.
 
 ## <a name="filters-at-the-page-level"></a>Filtros no nível da página
 Se o design da solução incluir páginas de pesquisa dedicada para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online com os departamentos relacionados na parte superior da página), você poderá inserir uma expressão de filtro, junto com um evento **onClick** , para abrir uma página em um estado pré-filtrado. 
@@ -100,14 +95,14 @@ Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, 
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para saber mais sobre expressões `$filter`.
+Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para saber mais sobre expressões `$filter`.
 
-## <a name="see-also"></a>Consulte também
-* [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Operações de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Operações de documento.](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-* [Vídeos e tutoriais sobre a Pesquisa do Azure](search-video-demo-tutorial-list.md)
-* [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md)
+## <a name="see-also"></a>Veja também
+* [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
+* [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Operações de documento.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
+* [Vídeos e tutoriais sobre o Azure Search](search-video-demo-tutorial-list.md)
+* [Navegação facetada no Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

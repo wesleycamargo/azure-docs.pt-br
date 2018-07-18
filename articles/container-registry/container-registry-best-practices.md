@@ -1,18 +1,18 @@
 ---
-title: "Melhores práticas no Registro de Contêiner do Azure"
-description: "Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas."
+title: Melhores práticas no Registro de Contêiner do Azure
+description: Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: 684b778f57da4adb331958c5daef6b9906b6d253
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas para o Registro de Contêiner do Azure
 
@@ -27,7 +27,7 @@ Além disso, todas as nuvens públicas, incluindo do Azure, implementam taxas de
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Replicar geograficamente implantações em várias regiões
 
-Use o recurso de [replicação geográfica](container-registry-geo-replication.md) do Registro de Contêiner do Azure se estiver implantando contêineres em várias regiões. Se você estiver atendendo clientes globais de centros de dados locais ou se sua equipe de desenvolvimento estiver em locais diferentes, é possível simplificar o gerenciamento de registro e minimizar a latência por meio da replicação geográfica do registro. Atualmente na versão prévia, esse recurso está disponível com registros [Premium](container-registry-skus.md).
+Use o recurso de [replicação geográfica](container-registry-geo-replication.md) do Registro de Contêiner do Azure se estiver implantando contêineres em várias regiões. Se você estiver atendendo clientes globais de centros de dados locais ou se sua equipe de desenvolvimento estiver em locais diferentes, é possível simplificar o gerenciamento de registro e minimizar a latência por meio da replicação geográfica do registro. A replicação geográfica está disponível apenas com registros [Premium](container-registry-skus.md).
 
 Para saber como usar a replicação geográfica, consulte o tutorial em três partes, [Replicação geográfica no Registro de Contêiner do Azure](container-registry-tutorial-prepare-registry.md).
 

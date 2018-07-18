@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo, **Etapa 2**, mostra a preparação dos VHDs (discos rígidos virtuais) que você implantará no Azure Marketplace. Seus VHDs são a base de sua SKU. O processo é diferente dependendo se você está fornecendo uma SKU baseada em Linux ou em Windows. Este artigo aborda ambos os cenários. Esse processo pode ser executado em paralelo com [Criação e registro de conta][link-acct-creation].
@@ -446,7 +446,7 @@ A seguir são mostradas as etapas para gerar a URL SAS usando a CLI do Azure
 
     b. **`<Storage Account Key>`**: informe a chave de conta de armazenamento
 
-    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 26 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para garantir a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 25 de outubro de 2016, o valor deverá ser 25/10/2016. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: selecione uma data que seja pelo menos três semanas após a data em **Hora de Início**. O valor deve ser **02/11/2016**. Se estiver usando CLI do Azure 2.0 (comando az), forneça a data e a hora nas datas de início e término, por exemplo: 11-02-2016T00:00:00Z.
 
@@ -514,11 +514,11 @@ Depois de criar sua oferta e SKU, você deve digitar os detalhes da imagem assoc
 
 |Problema|Mensagem de Falha|Correção|Link da Documentação|
 |---|---|---|---|
-|Falha ao copiar imagens – "?" não foi encontrado na URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualizar a URL SAS usando as ferramentas recomendadas|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – Os parâmetros “st” e “se” não existem na URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualizar a URL SAS com datas de Início e Término|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar as imagens – “sp=rl” não existe URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido|Atualizar a URL SAS com permissões definidas como “Leitura” e “Listagem”|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – A URL SAS tem espaços em branco no nome do vhd|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualize a URL SAS sem espaços em branco|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – Erro de autorização da URL SAS|Falha: Copiando Imagens. Não é possível baixar o blob devido a um erro de autorização|Gere novamente a URL SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – "?" não foi encontrado na URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualizar a URL SAS usando as ferramentas recomendadas|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – Os parâmetros “st” e “se” não existem na URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualizar a URL SAS com datas de Início e Término|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar as imagens – “sp=rl” não existe URL SAS|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido|Atualizar a URL SAS com permissões definidas como “Leitura” e “Listagem”|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – A URL SAS tem espaços em branco no nome do vhd|Falha: Copiando Imagens. Não é possível baixar blobs usando o URI SAS fornecido.|Atualize a URL SAS sem espaços em branco|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – Erro de autorização da URL SAS|Falha: Copiando Imagens. Não é possível baixar o blob devido a um erro de autorização|Gere novamente a URL SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Falha ao copiar imagens – os parâmetros "st" e "se" da URL SAS não têm especificação de data e hora completa|Falha: Copiando Imagens. Não é possível baixar o blob devido a uma URL SAS incorreta |Os parâmetros de Data de Início e de Término da URL SAS ("st", "se") são obrigatórios para se ter uma especificação de data e hora completa como 11-02-2017T00:00:00Z e não apenas a data ou versões abreviadas para a hora. É possível encontrar esse cenário usando a CLI do Azure 2.0 (comando az). Verifique se você forneceu a especificação de data e hora completa e gere novamente a URL SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Próxima etapa

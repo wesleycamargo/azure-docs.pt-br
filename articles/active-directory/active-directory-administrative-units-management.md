@@ -1,26 +1,24 @@
 ---
-title: "Versão prévia do gerenciamento de unidades administrativas no Azure Active Directory"
-description: "Usando unidades administrativas para delegação mais granular de permissões no Active Directory do Azure"
+title: Versão prévia do gerenciamento de unidades administrativas no Azure Active Directory
+description: Usando unidades administrativas para delegação mais granular de permissões no Active Directory do Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.component: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4fa93e4bf64e01b44b0826b2182b125004c49609
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gerenciamento de unidades administrativas no Azure AD – visualização pública
 Este artigo descreve as unidades administrativas – um novo contêiner de recursos do Azure Active Directory que pode ser usado para delegar permissões administrativas e aplicar políticas a subconjuntos de usuários. No Active Directory do Azure, unidades administrativas permitem aos administradores centrais delegar permissões para administradores regionais ou definir a diretiva em um nível granular.
@@ -40,4 +38,4 @@ Nesta versão de visualização, você pode criar e gerenciar unidades administr
 Para obter mais informações sobre os requisitos de software e a instalação do módulo do Azure AD, além de informações sobre os cmdlets do Módulo do Azure AD para gerenciar unidades administrativas, incluindo sintaxe, descrições de parâmetros e exemplos, consulte [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Edições do Active Directory do Azure](active-directory-editions.md)
+[Edições do Active Directory do Azure](active-directory-whatis.md)

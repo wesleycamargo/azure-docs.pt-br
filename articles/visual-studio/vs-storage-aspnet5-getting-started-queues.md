@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de filas do Azure em um projeto ASP.NET Core no Visual Studio"
+title: Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Como começar a usar o armazenamento de filas do Azure em um projeto ASP.NET Core no Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: 04977069-5b2d-4cba-84ae-9fb2f5eb1006
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: d83ad26e4f96e1a7670c5212b7e9ca8182b7cec4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: e56f79334aa85d9a0c81bed4f00664fee5789676
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET Core)
 

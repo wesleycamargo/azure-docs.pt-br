@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: contas e permissões | Microsoft Docs"
-description: "Este tópico descreve as contas usadas e criadas e as permissões necessárias."
+title: 'Azure AD Connect: contas e permissões | Microsoft Docs'
+description: Este tópico descreve as contas usadas e criadas e as permissões necessárias.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158979"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 O assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -58,7 +59,7 @@ A [conta](#active-directory-account) criada para leitura e gravação no AD DS t
 
 | Permissão | Usado para |
 | --- | --- |
-| <li>Replicar alterações de diretório</li><li>Replicar todas as alterações de diretório |Sincronização de senha |
+| <li>Replicar alterações de diretório</li><li>Replicar todas as alterações de diretório |Sincronização de hash de senha |
 | Ler/Gravar todas as propriedades Usuário |Importação e Exchange híbrido |
 | Ler/Gravar todas as propriedades iNetOrgPerson |Importação e Exchange híbrido |
 | Ler/Gravar todas as propriedades Grupo |Importação e Exchange híbrido |
@@ -87,10 +88,10 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 | Recurso | Permissões |
 | --- | --- |
 | Recurso msDS-ConsistencyGuid |Permissões de gravação para o atributo msDS-ConsistencyGuid documentados em [Conceitos de design – usando o atributo msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
+| Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-writeback.md) para usuários. |
+| write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.  Para saber mais, confira [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).|
 

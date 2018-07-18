@@ -1,13 +1,13 @@
 ---
-title: "Rede virtual para os serviços do Azure | Microsoft Docs"
-description: "Saiba mais sobre os benefícios da implantação de recursos em uma rede virtual. Recursos em redes virtuais podem se comunicar entre si e com recursos locais, sem que o tráfego atravesse a Internet."
+title: Rede virtual para os serviços do Azure | Microsoft Docs
+description: Saiba mais sobre os benefícios da implantação de recursos em uma rede virtual. Recursos em redes virtuais podem se comunicar entre si e com recursos locais, sem que o tráfego atravesse a Internet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781156"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
@@ -45,7 +46,7 @@ Implantar serviços em uma rede virtual fornece as seguintes funcionalidades:
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Serviços que podem ser implantados em uma rede virtual
 
-Cada serviço implantado diretamente em rede virtual tem requisitos específicos para o roteamento e os tipos de tráfego que devem ser permitidos em entrada e em saída nas sub-redes. Para obter mais informações, confira: 
+Cada serviço implantado diretamente em rede virtual tem requisitos específicos para o roteamento e os tipos de tráfego que devem ser permitidos em entrada e em saída nas sub-redes. Para obter mais informações, consulte: 
  
 - Máquinas virtuais [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Service Fabric](../service-fabric/service-fabric-patterns-networking.md?toc=%2fazure%2fvirtual-network%2ftoc.json#existingvnet)
@@ -56,7 +57,8 @@ Cada serviço implantado diretamente em rede virtual tem requisitos específicos
 - [Gerenciamento da API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway de Aplicativo (interno)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Mecanismo do Serviço de Contêiner do Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): o serviço de contêiner do Azure cria uma rede virtual padrão. Você pode criar uma rede virtual personalizada para usar com o [Mecanismo do Serviço de Contêiner do Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
+- [AKS (Serviço do Kubernetes do Azure)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Mecanismo do Serviço de Contêiner do Azure](https://github.com/Azure/acs-engine) com o [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de Rede Virtual do Microsoft Azure
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): somente rede virtual (clássico)
 - [Lote do Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Serviços de nuvem](https://msdn.microsoft.com/library/azure/jj156091): somente rede virtual (clássico)

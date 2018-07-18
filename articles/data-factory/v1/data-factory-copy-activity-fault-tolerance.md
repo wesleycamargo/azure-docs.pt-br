@@ -1,26 +1,30 @@
 ---
-title: "Adicionar tolerância a falhas na Atividade de Cópia do Azure Data Factory ignorando linhas incompatíveis | Microsoft Docs"
-description: "Saiba como adicionar tolerância a falhas na Atividade de Cópia do Azure Data Factory ignorando linhas incompatíveis durante a cópia"
+title: Adicionar tolerância a falhas na Atividade de Cópia do Azure Data Factory ignorando linhas incompatíveis | Microsoft Docs
+description: Saiba como adicionar tolerância a falhas na Atividade de Cópia do Azure Data Factory ignorando linhas incompatíveis durante a cópia
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 04cab032995731b4e473793eff4b1a3fcd46496a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na Atividade de Cópia ignorando linhas incompatíveis
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versão 1 – já disponível](data-factory-copy-activity-fault-tolerance.md)
+> * [Versão 2 – Versão prévia](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço de Data Factory, que está na versão prévia, consulte [tolerância a falhas na atividade de cópia na versão 2 do Data Factory](../copy-activity-fault-tolerance.md).
 
@@ -40,7 +44,7 @@ A Atividade de Cópia dá suporte a três cenários para detectar, ignorar e reg
 
     Por exemplo: copiar dados de um arquivo CSV no armazenamento de Blobs em um banco de dados SQL com uma definição de esquema que contém seis colunas. As linhas do arquivo CSV que contêm seis colunas são copiadas com êxito no armazenamento do coletor. As linhas do arquivo CSV que contêm mais ou menos de seis colunas são detectadas como incompatíveis e ignoradas.
 
-- **Violação de chave primária ao gravar em banco de dados relacional**
+- **Violação de chave primária ao gravar no  SQL Server/Azure SQL Database/Azure Cosmos DB**
 
     Por exemplo: copiar dados de um servidor SQL em um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A Atividade de Cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 

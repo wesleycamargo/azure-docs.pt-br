@@ -22,7 +22,7 @@
 ### [Desabilitar o Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Referência
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=sql-server-database)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)

@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Sobre o Azure Traffic Manager com o Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Sobre o ExpressRoute com o Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Perguntas frequentes
       href: site-recovery-faq.md
 - name: Guias de instruções
@@ -119,16 +121,20 @@
       items:
         - name: Rede
           items:
-            - name: Gerenciar a rede para a recuperação de desastre da VM do Azure (versão prévia)
+            - name: Gerenciar a rede para a recuperação de desastre da VM do Azure
               href: azure-to-azure-about-networking.md
             - name: Preparar o mapeamento da rede na recuperação de desastre da VM do Azure
               href: azure-to-azure-network-mapping.md
             - name: Configurar o endereçamento IP para failover
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute com a recuperação de desastres de máquinas virtuais do Azure
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Recuperação de desastre
           items:
             - name: Recuperação de desastres das VMs do Azure após a migração para o Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Recuperação de desastres de máquinas virtuais do Azure usando o PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replicação, failover e failback'
           items:
             - name: Habilitar a replicação do Azure para o Azure
@@ -139,6 +145,12 @@
           items:
             - name: Solucionar problemas de replicação do Azure para o Azure
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Solucionar problemas de extensão do Azure Site Recovery
+              href: site-recovery-extension-troubleshoot.md
+        - name: Gerenciar
+          items:
+            - name: Atualização automática da extensão de serviço de mobilidade
+              href: azure-to-azure-autoupdate.md
     - name: VMware/físicos no Azure
       items:
         - name: Rede
@@ -165,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Recuperação de desastre
           items:
-            - name: Recuperação de desastre das VMs do VMware com suporte multilocatário e CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Replicar as máquinas virtuais VMware para o Azure com o PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Recuperação de desastres de servidores físicos para o Azure
@@ -187,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Habilitar a replicação de VM do VMware
               href: vmware-azure-enable-replication.md
+            - name: Multilocação com CSP para VMs VMWare
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Implantar o serviço de Mobilidade
           items:
+            - name: Visão geral do serviço de Mobilidade
+              href: vmware-azure-install-mobility-service.md
             - name: Implante o serviço de Mobilidade usando o System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Implante o serviço de Mobilidade com a DSC de Automação do Azure
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Failover e failback
           items:
             - name: Realizar uma análise detalhada da recuperação de desastre para o Azure
@@ -293,8 +305,8 @@
               href: delete-vault.md
         - name: Monitorar e solucionar problemas
           items:
-            - name: Solucionar problemas de failover no Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Solucionar problemas de replicação do Hyper-V
+              href: hyper-v-azure-troubleshoot.md
             - name: Monitorar o Azure Site Recovery
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V para secundário

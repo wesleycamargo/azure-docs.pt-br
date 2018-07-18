@@ -1,23 +1,23 @@
 ---
-title: "Guia de desempenho e ajuste da atividade de cópia o Azure Data Factory | Microsoft Docs"
-description: "Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados no Azure Data Factory quando você usa a Atividade de Cópia."
+title: Guia de desempenho e ajuste da atividade de cópia o Azure Data Factory | Microsoft Docs
+description: Saiba mais sobre os principais fatores que afetam o desempenho da movimentação de dados no Azure Data Factory quando você usa a Atividade de Cópia.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que repr
 | Copiar dados entre repositórios baseados em arquivo | Entre 4 e 32, dependendo do número e tamanho dos arquivos. |
 | Todos os outros cenários de cópia | 4 |
 
-Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são 2, 4, 8, 16, 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
+Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são **até 256**. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
 
 Você pode ver as unidades de movimentação de dados na nuvem realmente usadas para cada execução na saída da atividade de cópia ao monitorar uma execução da atividade. Obtenha detalhes de [Monitoramento da atividade de cópia](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Para cada execução da Atividade de Cópia, o Data Factory determina o número 
 
 | Copiar cenário | Contagem de cópia paralela padrão determinada pelo serviço |
 | --- | --- |
-| Copiar dados entre repositórios baseados em arquivo |Entre 1 e 64. Depende do tamanho dos arquivos e do número de DMUs (unidades de movimentação de dados) de nuvem usadas para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Integration Runtime auto-hospedado. |
+| Copiar dados entre repositórios baseados em arquivo |Depende do tamanho dos arquivos e do número de DMUs (unidades de movimentação de dados) de nuvem usadas para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Integration Runtime auto-hospedado. |
 | Copiar dados de qualquer armazenamento de dados de origem para o armazenamento de Tabelas do Azure |4 |
 | Todos os outros cenários de cópia |1 |
 
-Normalmente, o comportamento padrão deve fornecer a melhor taxa de transferência. No entanto, para controlar a carga em computadores que hospedam os armazenamentos de dados ou ajustar o desempenho da cópia, você pode optar por substituir o valor padrão e especificar um valor para a propriedade **parallelCopies** . O valor deve ser um inteiro maior ou igual a 1. Na execução, para ter o melhor desempenho, a Atividade de Cópia usa um valor menor ou igual ao valor definido.
+[!TIP]
+> Ao copiar dados entre armazenamentos de arquivo, o comportamento padrão normalmente (automaticamente determinado) oferece a melhor taxa de transferência. 
+
+Para controlar a carga em computadores que hospedam os armazenamentos de dados ou ajustar o desempenho da cópia, você pode optar por substituir o valor padrão e especificar um valor para a propriedade **parallelCopies**. O valor deve ser um inteiro maior ou igual a 1. Na execução, para ter o melhor desempenho, a Atividade de Cópia usa um valor menor ou igual ao valor definido.
 
 ```json
 "activities":[

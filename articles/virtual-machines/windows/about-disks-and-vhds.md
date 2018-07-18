@@ -1,20 +1,21 @@
 ---
-title: "Sobre armazenamento de discos não gerenciado (blobs de página) e gerenciado para VMs Windows do Microsoft Azure | Microsoft Docs"
-description: "Saiba mais sobre os fundamentos de armazenamento de discos não gerenciado (blobs de página) e gerenciados para máquinas virtuais do Windows no Azure."
+title: Sobre armazenamento de discos não gerenciado (blobs de página) e gerenciado para VMs Windows do Microsoft Azure | Microsoft Docs
+description: Saiba mais sobre os fundamentos de armazenamento de discos não gerenciado (blobs de página) e gerenciados para máquinas virtuais do Windows no Azure.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32313504"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre armazenamento de discos para VMs do Windows do Azure
 Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs. 
@@ -70,7 +71,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Observação: O suporte de corte começa com o Windows Server 2012 / Windows 8 e posterior, consulte [Nova API permite que aplicativos enviem "CORTE e desmapeamento" dicas para mídia de armazenamento](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Observação: O suporte de corte começa com o Windows Server 2012 / Windows 8 e posterior, consulte [Nova API permite que aplicativos enviem "TRIM and Unmap" dicas para mídia de armazenamento](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

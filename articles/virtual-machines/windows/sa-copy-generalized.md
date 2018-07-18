@@ -1,13 +1,13 @@
 ---
-title: "Criar uma imagem não gerenciada de uma VM generalizada no Azure | Microsoft Docs"
-description: "Criar uma imagem não gerenciada de uma VM Windows generalizada para usar ao criar várias cópias de uma VM no Azure."
+title: Criar uma imagem não gerenciada de uma VM generalizada no Azure | Microsoft Docs
+description: Criar uma imagem não gerenciada de uma VM Windows generalizada para usar ao criar várias cópias de uma VM no Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072042"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
@@ -28,7 +29,7 @@ Este artigo abrange o uso de contas de armazenamento. É recomendável que você
 
 Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM Azure generalizada utilizando uma conta de armazenamento. Depois você pode usar a imagem para criar outra VM. Esta imagem inclui o disco do SO e os discos de dados anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, de modo que você precisará configurar esses recursos quando criar a nova VM. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para ver as etapas de instalação.
 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
@@ -62,7 +63,7 @@ Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+us
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     Uma janela pop-up é aberta para inserir as credenciais da conta do Azure.
@@ -78,6 +79,11 @@ Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+us
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Desalocar a VM e definir o estado como generalizada
+
+> [!IMPORTANT] 
+> Você não pode adicionar, editar ou remover as marcas de uma VM quando ela está marcada como generalizada. Se você desejar adicionar uma marca à VM, certifique-se de adicionar as marcas antes de marcá-la como generalizada.
+> 
+
 1. Desaloque os recursos da VM.
    
     ```powershell

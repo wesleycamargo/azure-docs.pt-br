@@ -1,9 +1,9 @@
 ---
 title: Gerenciar registros DNS na DNS do Azure usando o Azure PowerShell | Microsoft Docs
-description: "Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registros e registros."
+description: Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registros e registros.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: gwallace
-ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
@@ -57,7 +57,7 @@ O exemplo a seguir cria um conjunto de registros com o nome relativo "www" na Zo
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Para criar um conjunto de registros no "ápice" de uma zona (neste caso, "contoso.com"), use o nome do conjunto de registros '@' (excluindo as aspas):
+Para criar um conjunto de registros no "ápice" de uma zona (neste caso, "contoso.com"), use o nome do conjunto de registros '\@\' (excluindo as aspas):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -118,7 +118,7 @@ New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -ZoneName "contoso.
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Criar um conjunto de registros MX com um registro único
 
-Neste exemplo, usamos o nome do conjunto de registros '@' para criar um registro MX no ápice da zona (nesse caso, "contoso.com").
+Neste exemplo, usamos o nome do conjunto de registros '\@\' para criar um registro MX no ápice da zona (nesse caso, "contoso.com").
 
 
 ```powershell
@@ -141,7 +141,7 @@ New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -R
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Criar um conjunto de registros SRV com um registro único
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir '@' no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir '\@\' no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Priority 0 -Weight 5 -Port 8080 -Target "sip.contoso.com") 

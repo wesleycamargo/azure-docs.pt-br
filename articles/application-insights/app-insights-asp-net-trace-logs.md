@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET no Application Insights
 Se você usar NLog, log4Net ou System.Diagnostics.Trace para o rastreamento de diagnóstico em seu aplicativo ASP.NET, os logs poderão ser enviados ao [Azure Application Insights][start], onde será possível explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
@@ -99,7 +99,7 @@ Para cada fonte, você pode definir os seguintes parâmetros:
 É possível configurar eventos [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -131,14 +131,14 @@ Para cada fonte, você pode definir os seguintes parâmetros:
 ## <a name="using-the-trace-api-directly"></a>Usando a API de rastreamento diretamente
 Você pode chamar a API de rastreamento do Application Insights diretamente. Os adaptadores de log usam essa API.
 
-Por exemplo:
+Por exemplo: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.
 
-Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade que podem ser usados para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
+Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade que podem ser usados para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -154,7 +154,7 @@ Na folha de visão geral do aplicativo, no [portal do Application Insights][port
 
 ![No Application Insights, escolha Pesquisar](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Pesquisar](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Por exemplo, você pode:
 
@@ -173,7 +173,7 @@ Por exemplo, você pode:
 
 [Saiba mais sobre o Search][diagnostic].
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isso no Java?
 Use os [adaptadores de log Java](app-insights-java-trace-logs.md).
 

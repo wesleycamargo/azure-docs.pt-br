@@ -18,6 +18,9 @@ Ao usar as configurações básicas e seleciona apenas uma assinatura, o Cloud S
 
 O compartilhamento de arquivos é montado como `clouddrive` no seu diretório `$Home`. Isso é uma ação única e o compartilhamento de arquivos será montado automaticamente nas sessões subsequentes. 
 
+> [!NOTE]
+> Por questões de segurança, cada usuário deve provisionar seu próprio armazenamento.  Para o controle de acesso baseado em função (RBAC), os usuários devem ter acesso de colaborador ou superior.
+
 No Bash, o compartilhamento de arquivos também contém uma imagem de 5 GB criada para você e que automaticamente mantém os dados em seu diretório `$Home`. 
 
 ### <a name="use-existing-resources"></a>Usar recursos existentes

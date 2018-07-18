@@ -1,11 +1,11 @@
 ---
-title: "Gerenciamento de dispositivos IoT do Azure com a extensão de IoT para a CLI do Azure 2.0 | Microsoft Docs"
-description: "Use a ferramenta extensão de IoT para a CLI do Azure 2.0 para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo."
+title: Gerenciamento de dispositivos IoT do Azure com a extensão de IoT para a CLI do Azure 2.0 | Microsoft Docs
+description: Use a ferramenta extensão de IoT para a CLI do Azure 2.0 para o gerenciamento de dispositivos Hub IoT do Azure, que contam com métodos Diretos e as opções de gerenciamento de propriedades desejadas do Gêmeo.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
+tags: ''
 keywords: gerenciamento de dispositivos iot do azure, gerenciamento de dispositivos hub iot do azure, iot de gerenciamento de dispositivos, gerenciamento de dispositivos hub iot
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27a8dca68000e3f4b7f33508fc6dbc3450fc80b4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Use a extensão de IoT da CLI do Azure 2.0 para gerenciamento de dispositivo Hub IoT do Azure
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[A extensão de IoT para a CLI do Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão IoT de código aberto que adiciona aos recursos da [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) inclui comandos para interagir com pontos de extremidade de gerenciamento de gerente de recursos do Azure. A CLI do Azure 2.0 inclui comandos para interagir com pontos de extremidade de gerenciamento e gerente de recursos do Azure. Por exemplo, é possível usar a CLI do Azure 2.0 para criar um Hub IoT ou uma VM do Azure. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando para todos os Hub IoT, IoT Edge, e recursos do Serviço de Provisionamento de Dispositivos no Hub IoT.
+[A extensão de IoT para CLI do Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma nova extensão de IoT de software livre que adiciona os recursos da [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). A CLI do Azure 2.0 inclui comandos para interagir com pontos de extremidade de gerenciamento e gerente de recursos do Azure. Por exemplo, é possível usar a CLI do Azure 2.0 para criar uma VM do Azure ou um Hub IoT. Uma extensão CLI permite que um serviço do Azure amplie a CLI do Azure, fornecendo acesso a recursos específicos de serviços adicionais. A extensão de IoT fornece aos desenvolvedores de IoT acesso de linha de comando para todos os Hub IoT, IoT Edge, e recursos do Serviço de Provisionamento de Dispositivos no Hub IoT.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Opção de gerenciamento          | Tarefa                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Para obter explicações mais detalhadas sobre as diferenças e diretrizes sobre como usar essas opções, consulte [Diretrizes de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) e [Diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
+Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta a ele. Para obter mais informações sobre dispositivos gêmeos, consulte [Introdução aos dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -61,7 +62,7 @@ Execute a CLI do Azure 2.0 e a extensão do IoT para a CLI do Azure 2.0 com vár
 
 - [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
 
-- Instale a CLI do Azure 2.0. Uma maneira simples de instalar no Windows é fazer o download e instalar o [MSI](https://aka.ms/InstallAzureCliWindows). Você também pode seguir as instruções de instalação no [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI do Azure 2.0 no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar. 
+- Instale a CLI do Azure 2.0. Uma maneira simples de instalar no Windows é fazer o download e instalar o [MSI](https://aka.ms/InstallAzureCliWindows). Você também pode seguir as instruções de instalação no [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar a CLI do Azure 2.0 no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –version` para validar. 
 
 - Instalar a extensão de IoT. A maneira mais simples é executar `az extension add --name azure-cli-iot-ext`. [O Leiame da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias maneiras de instalar a extensão.
 
@@ -95,10 +96,10 @@ Essa propriedade pode ser lido do seu dispositivo.
 Obtenha as propriedades relatadas do dispositivo executando o seguinte comando:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.reported.interval = 3000
+az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-Uma das propriedades é $metadata.$lastUpdated, que mostra a última vez que esse dispositivo enviou ou recebeu uma mensagem.
+Um das propriedades gêmeas relatadas é $metadata. $lastUpdated que mostra a última vez que o aplicativo do dispositivo atualizou o conjunto de propriedades relatadas.
 
 ## <a name="device-twin-tags"></a>Marcas do dispositivo gêmeo
 

@@ -1,23 +1,23 @@
 ---
-title: "Desenvolvimento do Agile de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Como os desenvolvedores podem executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o Processo de Ciência de Dados da Equipe."
-documentationcenter: 
-author: bradsev
+title: Desenvolvimento do Agile de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs
+description: Como os desenvolvedores podem executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o Processo de Ciência de Dados da Equipe.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: deguhath
+ms.openlocfilehash: 03bc287969559308e743a5b8cc192cddfdc085cc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
@@ -184,8 +184,8 @@ Após a criação do modelo do processo de ciência de dados, você poderá cria
 
 Aqui estão os links adicionais para recursos em processos do agile.
 
-- Processo do Agile [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Tipos e fluxo de trabalho de item de trabalho de processo do Agile [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Processo do Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Fluxo de trabalho e tipos de item de trabalho de processo do Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 

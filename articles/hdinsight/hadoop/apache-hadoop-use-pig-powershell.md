@@ -1,26 +1,24 @@
 ---
-title: "Usar o Pig do Hadoop com o PowerShell no HDInsight – Azure | Microsoft Docs"
+title: Usar o Pig do Hadoop com o PowerShell no HDInsight – Azure | Microsoft Docs
 description: Saiba como enviar trabalhos do Pig para um cluster do Hadoop no HDInsight usando o PowerShell do Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/16/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7fa50e206c86b307f7e2a90ff0938571b64f41bb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a3e62647ec41cfdfc7f0f7bb55474215ab435ee8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Pig com o HDInsight
 
@@ -46,7 +44,7 @@ O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabal
 
 Os seguintes cmdlets são usados ao executar trabalhos do Pig em um cluster HDInsight remoto:
 
-* **Login-AzureRmAccount**: autentica o Azure PowerShell para sua assinatura do Azure.
+* **Connect-AzureRmAccount**: autentica o Azure PowerShell para sua assinatura do Azure.
 * **New-AzureRmHDInsightPigJobDefinition**: cria uma *definição de trabalho* usando as instruções de Pig Latin especificadas.
 * **Start-AzureRmHDInsightJob**: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 * **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.

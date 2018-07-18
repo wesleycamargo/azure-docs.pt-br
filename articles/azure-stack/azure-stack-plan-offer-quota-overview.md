@@ -1,25 +1,25 @@
 ---
-title: "Visão geral do Azure de plano, oferta, cotas e assinatura pilha | Microsoft Docs"
+title: Visão geral do Azure de plano, oferta, cotas e assinatura pilha | Microsoft Docs
 description: Como um operador de nuvem, quero entender os planos de pilha do Azure, ofertas, cotas e assinaturas.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Visão geral de plano, oferta, cotas e assinatura
 
@@ -32,10 +32,10 @@ As ofertas que contêm um ou mais planos, e cada plano inclui um ou mais serviç
 - o valor desses recursos que os usuários podem consumir
 - quais regiões têm acesso aos recursos
 
-Quando você fornecer um serviço, você seguirá estas etapas de alto nível:
+Ao fornecer um serviço, siga estas etapas de alto nível:
 
 1. Adicione um serviço que você deseja fornecer aos usuários.
-2. Crie um plano que contém um ou mais serviços. Ao criar um plano, você será selecionar ou criar cotas que definem os limites de recursos de cada serviço no plano.
+2. Crie um plano que contém um ou mais serviços. Ao criar um plano, selecione ou crie cotas que definem os limites de recursos de cada serviço no plano.
 3. Crie uma oferta que contém um ou mais planos (inclusive planos básico e planos de complemento opcional).
 
 Depois de criar a oferta, os usuários possam assiná-lo para acessar os serviços e recursos que ela fornece. Os usuários podem assinar a oferta de quantos desejar. O diagrama a seguir mostra um exemplo simples de um usuário que tenha se inscrito para duas ofertas. Cada oferta tem um plano ou dois, e cada plano oferece acesso a serviços.
@@ -52,13 +52,15 @@ Para ajudá-lo a gerenciar a sua capacidade de nuvem, você pode selecionar ou c
 
 Cotas podem ser configuradas por região. Por exemplo, um plano que contém os serviços de computação da região um pode ter uma cota de duas máquinas virtuais, 4 GB de RAM e 10 núcleos de CPU. No Kit de desenvolvimento de pilha do Azure, apenas uma região (denominado *local*) está disponível.
 
+Saiba mais sobre [tipos de cota na pilha do Azure](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Plano de base
 
 Ao criar uma oferta, o administrador de serviço pode incluir um plano de base. Esses planos de base são incluídos por padrão quando um usuário se inscreve para essa oferta. Quando um usuário assina, eles têm acesso a todos os provedores de recursos especificado nesses planos de base (com as cotas correspondentes).
 
 ### <a name="add-on-plans"></a>Planos de complemento
 
-Você também pode incluir planos de complemento opcional em uma oferta. Planos de complemento não são incluídos por padrão na assinatura. Planos de complemento são planos adicionais (com as cotas) disponíveis em uma oferta que pode adicionar um assinante para suas assinaturas. Por exemplo, você pode oferecer um plano de base com recursos limitados para uma avaliação e um plano de complemento com recursos mais significativas para os clientes que optar por adotar o serviço.
+Planos de complemento são planos opcionais que você adicionar a uma oferta. Planos de complemento não são incluídos por padrão na assinatura. Planos de complemento são planos adicionais (com as cotas) disponíveis em uma oferta que pode adicionar um assinante para suas assinaturas. Por exemplo, você pode oferecer um plano de base com recursos limitados para uma avaliação e um plano de complemento com recursos mais significativas para os clientes que optar por adotar o serviço.
 
 ## <a name="offers"></a>Ofertas
 

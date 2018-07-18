@@ -1,24 +1,20 @@
 ---
 title: Pausar, retomar, dimensionar com o REST no Azure SQL Data Warehouse | Microsoft Docs
-description: "Gerenciar potência de computação no SQL Data Warehouse através de APIs REST."
+description: Gerenciar potência de computação no SQL Data Warehouse através de APIs REST.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: kfile
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/13/2018
-ms.author: barbkess
-ms.openlocfilehash: cb5b6221a5fc1d02ed1d93d56fd3db4858923307
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para SQL Data Warehouse do Azure
 APIs REST para gerenciar computação no SQL Data Warehouse do Azure.
@@ -61,5 +57,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento](./sql-data-warehouse-overview-manage.md).
+Para saber mais, veja [Gerenciar computação](sql-data-warehouse-manage-compute-overview.md).
 

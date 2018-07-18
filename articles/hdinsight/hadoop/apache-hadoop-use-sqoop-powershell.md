@@ -1,26 +1,24 @@
 ---
 title: Executar trabalhos Sqoop usando o PowerShell e o Azure HDInsight | Microsoft Docs
-description: "Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure."
+description: Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/20/2017
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1eaf55ea8e46598e261be43c646b5dbd48ac730b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 138e295bd81a4446568d92171d952b3b0a0374a2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Execute trabalhos Sqoop usando o Azure PowerShell para o Handoop em HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -59,7 +57,7 @@ O seguinte script PowerShell processa previamente o arquivo de origem e exporta 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
+    catch{Connect-AzureRmAccount}
     #endregion
 
     #region - pre-process the source file

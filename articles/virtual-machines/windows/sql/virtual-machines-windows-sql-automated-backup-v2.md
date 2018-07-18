@@ -1,11 +1,10 @@
 ---
-title: "Backup Automatizado v2 para máquinas virtuais do Azure do SQL Server 2016 | Microsoft Docs"
-description: "Explica o recurso de Backup Automatizado para VMs do SQL Server 2016 em execução no Azure. Este artigo é específico para VMs que usam o Resource Manager."
+title: Backup automatizado v2 para VMs do Azure do SQL Server 2016/2017 | Microsoft Docs
+description: Explica o recurso de Backup Automatizado para VMs do SQL Server 2016/2017 em execução no Azure. Este artigo é específico para VMs que usam o Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -13,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/15/2018
+ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894502"
 ---
-# <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para máquinas virtuais do Azure do SQL Server 2016 (Resource Manager)
+# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Backup Automatizado v2 para Máquinas Virtuais do Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
+> * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-O Backup Automatizado v2 configura automaticamente o [Backup Gerenciado no Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure executando o SQL Server 2016 Standard, Enterprise ou Developer Editions. Isso permite que você configure backups regulares do banco de dados que utilizam o durável armazenamento de Blobs do Azure. O Backup Automatizado v2 depende da [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+O Backup Automatizado v2 configura automaticamente o [Backup Gerenciado no Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados existentes e novos em uma VM do Azure executando as edições Standard, Enterprise ou Developer do SQL Server 2016/2017. Isso permite que você configure backups regulares do banco de dados que utilizam o durável armazenamento de Blobs do Azure. O Backup Automatizado v2 depende da [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -41,22 +41,17 @@ Para usar o Backup Automatizado v2, examine os seguintes pré-requisitos:
 
 **Versão/edição do SQL Server**:
 
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
-- SQL Server 2016 Developer
+- SQL Server 2016: Desenvolvedor, Standard ou Enterprise
+- SQL Server 2017: Desenvolvedor, Standard ou Enterprise
 
 > [!IMPORTANT]
-> O Backup Automatizado v2 funciona com o SQL Server 2016. Se você estiver usando o SQL Server 2014, poderá usar o Backup Automatizado v1 para fazer backup de seus bancos de dados. Para obter mais informações, veja [Backup Automatizado para máquinas virtuais do Azure no SQL Server 2014](virtual-machines-windows-sql-automated-backup.md).
+> O Backup Automatizado v2 funciona com SQL Server 2016 ou superior. Se você estiver usando o SQL Server 2014, poderá usar o Backup Automatizado v1 para fazer backup de seus bancos de dados. Para obter mais informações, veja [Backup Automatizado para máquinas virtuais do Azure no SQL Server 2014](virtual-machines-windows-sql-automated-backup.md).
 
 **Configuração do banco de dados**:
 
 - Os bancos de dados de destino devem usar o modelo de recuperação completa. Para obter mais informações sobre o impacto do modelo de recuperação completa em backups, consulte [Backup com o modelo de recuperação completa](https://technet.microsoft.com/library/ms190217.aspx).
 - Os bancos de dados do sistema não precisam usar o modelo de recuperação completa. No entanto, se você precisar que os backups de log sejam considerados para o Modelo ou MSDB, será necessário usar o modelo de recuperação completa.
 - Os bancos de dados de destino devem estar na instância padrão do SQL Server. A extensão de IaaS do SQL Server não oferece suporte a instâncias nomeadas.
-
-**Modelo de implantação do Azure**:
-
-- Gerenciador de Recursos
 
 > [!NOTE]
 > O Backup Automatizado conta com a **Extensão do agente IaaS do SQL Server**. As imagens atuais da galeria da máquina virtual do SQL adicionam essa extensão por padrão. Para obter mais informações, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
@@ -68,7 +63,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 
 | Configuração | Intervalo (Padrão) | DESCRIÇÃO |
 | --- | --- | --- |
-| **Backup Automatizado** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2016 Standard ou Enterprise. |
+| **Backup Automatizado** | Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita o Backup Automatizado para uma VM do Azure em execução no SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de retenção** | Um a 30 dias (30 dias) | O número de dias para manter os backups. |
 | **Conta de armazenamento** | Conta de Armazenamento do Azure | Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de Backup Automatizado no armazenamento de blobs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A convenção de nomenclatura do arquivo de backup inclui a data, a hora e o GUID do banco de dados. |
 | **Criptografia** |Habilitar/desabilitar (Desabilitado) | Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup ficam na conta de armazenamento especificada. Ela usa o mesmo contêiner **automaticbackup** com a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
@@ -89,7 +84,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para o Backup 
 É importante compreender a diferença entre backups completos diários e semanais. Considere os dois cenários de exemplo a seguir.
 
 ### <a name="scenario-1-weekly-backups"></a>Cenário 1: backups semanais
-Você tem uma VM do SQL Server que contém um número de bancos de dados muito grandes.
+Você tem uma VM do SQL Server que contém vários bancos de dados grandes.
 
 Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes configurações:
 
@@ -107,7 +102,7 @@ Quando chegar terça-feira novamente, o Backup Automatizado começará a fazer o
 Este cenário mostra que o Backup Automatizado opera apenas dentro da janela de tempo especificada e cada banco de dados tem o backup feito uma vez por semana. Isso também mostra que é possível que os backups abranjam vários dias no caso de não ser possível concluir todos os backups em um único dia.
 
 ### <a name="scenario-2-daily-backups"></a>Cenário 2: backups diários
-Você tem uma VM do SQL Server que contém um número de bancos de dados muito grandes.
+Você tem uma VM do SQL Server que contém vários bancos de dados grandes.
 
 Na segunda-feira, você habilita o Backup Automatizado v2 com as seguintes configurações:
 
@@ -123,43 +118,41 @@ Em seguida, na terça-feira às 22h, por seis horas, os backups completos de tod
 > [!IMPORTANT]
 > Ao agendar backups diários, é recomendável que você agende uma janela de tempo ampla para garantir que todos os bancos de dados possam ter o backup realizado dentro desse período. Isso é especialmente importante no caso em que você tem uma grande quantidade de dados para backup.
 
-## <a name="configuration-in-the-portal"></a>Configuração no Portal
+## <a name="configure-in-the-portal"></a>Configurar no portal
 
-Você pode usar o Portal do Azure para configurar o Backup Automatizado v2 durante o provisionamento ou para as VMs do SQL Server 2016 existentes.
+É possível usar o portal do Azure para configurar o Backup Automatizado v2 durante o provisionamento ou para VMs do SQL Server 2016/2017 existentes.
 
-### <a name="new-vms"></a>Novas VMs
+## <a name="configure-for-new-vms"></a>Configurar para novas VMs
 
-Use o portal do Azure para configurar o Backup Automatizado v2 quando criar uma nova Máquina Virtual do SQL Server 2016 no modelo de implantação do Resource Manager. 
+Use o portal do Azure para configurar o Backup Automatizado v2 ao criar uma nova Máquina Virtual do SQL Server 2016 ou 2017 no modelo de implantação do Azure Resource Manager.
 
-Na folha **Configurações do SQL Server**, selecione **Backup Automatizado**. A captura de tela do portal do Azure a seguir mostra a folha **Backup Automatizado do SQL** .
+No painel **Configurações do SQL Server**, selecione **Backup Automatizado**. A captura de tela do portal do Azure a seguir mostra as configurações do **Backup Automatizado do SQL**.
 
 ![Configuração de Backup Automatizado do SQL no portal do Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
 > [!NOTE]
 > O Backup Automatizado v2 está desabilitado por padrão.
 
-Para ter contexto, consulte o tópico completo sobre [provisionamento de uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
+## <a name="configure-existing-vms"></a>Configurar VMs existentes
 
-### <a name="existing-vms"></a>VMs existentes
-
-Para máquinas virtuais existentes do SQL Server, selecione sua máquina virtual do SQL Server. Selecione a seção **Configuração do SQL Server** da folha **Configurações**.
+Para máquinas virtuais existentes do SQL Server, selecione sua máquina virtual do SQL Server. Em seguida, selecione a seção **Configuração do SQL Server** das **Configurações** de VM.
 
 ![Backup Automatizado do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-Na folha **Configuração do SQL Server**, clique no botão **Editar** na seção de Backup Automatizado.
+Nas configurações **Configuração do SQL Server**, clique no botão **Editar** na seção Backup Automatizado.
 
 ![Configurar o Backup Automatizado do SQL para VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
 
-Quando terminar, clique no botão **OK** na parte inferior da folha **Configuração do SQL Server** para salvar suas alterações.
+Quando terminar, clique no botão **OK** na parte inferior das configurações **Configuração do SQL Server** para salvar suas alterações.
 
 Se você for habilitar o Backup Automatizado pela primeira vez, o Azure configurará o Agente IaaS do SQL Server em segundo plano. Durante esse tempo, o portal do Azure pode não mostrar que o Backup Automatizado está configurado. Aguarde alguns minutos para que o agente seja instalado e configurado. Depois disso, o portal do Azure refletirá as novas configurações.
 
-## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
+## <a name="configure-with-powershell"></a>Gerenciar com o PowerShell
 
 Você pode usar o PowerShell para configurar o Backup Automatizado v2. Antes de começar, faça o seguinte:
 
 - [Baixe e instale o Azure PowerShell mais recente](http://aka.ms/webpi-azps).
-- Abra o Windows PowerShell e associe-o à sua conta. Você pode fazer isso seguindo as etapas na seção [Configurar sua assinatura](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) do tópico de provisionamento.
+- Abra o Windows PowerShell e associe-o à sua conta com o comando **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Instalar a Extensão IaaS do SQL Server
 Se você tiver provisionado uma máquina virtual do SQL Server no Portal do Azure, a Extensão IaaS do SQL Server já deverá estar instalada. Você pode determinar se ele está instalado para a sua VM chamando o comando **Get-AzureRmVM** e examinando a propriedade **Extensions**.
@@ -321,10 +314,24 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
+## <a name="monitoring"></a>Monitoramento
+
+Para monitorar o Backup Automatizado no SQL Server 2016/2017, há duas opções principais. Como o Backup Automatizado usa o recurso de Backup gerenciado do SQL Server, as mesmas técnicas de monitoramentos se aplicam a ambos.
+
+Primeiro, é possível pesquisar o status chamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função de valor de tabela [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
+
+Outra opção é aproveitar o recurso integrado Database Mail para notificações.
+
+1. Chame o procedimento armazenado [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de email ao parâmetro **SSMBackup2WANotificationEmailIds**. 
+1. Habilitar [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os emails da VM do Azure.
+1. Use o nome de usuário e o servidor SMTP para configurar o Database Mail. Você pode configurar o Database Mail no SQL Server Management Studio ou com comandos Transact-SQL. Para obter mais informações, consulte [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. [Configurar o SQL Server Agent para usar o Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Verifique se a porta SMTP é permitida por meio do firewall da VM local e o grupo de segurança de rede para a VM.
+
 ## <a name="next-steps"></a>Próximas etapas
 O Backup Automatizado v2 configura o Backup Gerenciado em VMs do Azure. Portanto, é importante [ler a documentação do Backup Gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e suas implicações.
 
-Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte tópico: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
+Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte artigo: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

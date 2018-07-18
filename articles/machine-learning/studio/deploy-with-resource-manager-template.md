@@ -1,11 +1,12 @@
 ---
-title: "Implantar Espaço de Trabalho do Machine Learning com o Azure Resource Manager | Microsoft Docs"
-description: "Como implantar um espaço de trabalho para o Azure Machine Learning usando o modelo do Azure Resource Manager"
+title: Implantar Espaço de Trabalho do Machine Learning com o Azure Resource Manager | Microsoft Docs
+description: Como implantar um espaço de trabalho para o Azure Machine Learning usando o modelo do Azure Resource Manager
 services: machine-learning
-documentationcenter: 
-author: ahgyger
-manager: haining
-editor: garye
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
+editor: cgronlun
 ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.author: ahgyger
-ms.openlocfilehash: 6189cd2dce2be8c87255dedecd4493767e857031
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2d00bed1544bc8dcb17af0d35c9c17f1c3113990
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
 ## <a name="introduction"></a>Introdução
@@ -96,7 +96,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Esta etapa precisa ser repetida para cada sessão. Uma vez autenticado, as informações da sua assinatura devem ser exibidas.
 

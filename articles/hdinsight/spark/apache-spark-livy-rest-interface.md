@@ -3,7 +3,7 @@ title: Usar Livy Spark para enviar trabalhos para o cluster do Spark no Azure HD
 description: Saiba como usar a API REST do Apache Spark para enviar trabalhos do Spark remotamente para um cluster do Azure HDInsight.
 keywords: api rest do apache spark, spark livy
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,21 +11,19 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
-Saiba como usar Livy, a API REST do Apache Spark, que é usado para enviar trabalhos remotos para um cluster do Azure HDInsight Spark. Para obter a documentação detalhada, consulte [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Saiba como usar Livy, a API REST do Apache Spark, que é usado para enviar trabalhos remotos para um cluster do Azure HDInsight Spark. Para obter a documentação detalhada, confira [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Você pode usar a Livy para executar shells interativos do Spark ou enviar trabalhos em lotes a serem executados no Spark. Este artigo aborda como usar a Livy para enviar trabalhos em lotes. Os trechos nesse artigo usam cURL para fazer chamadas à API REST para o ponto de extremidade da Livy Spark.
 
@@ -173,7 +171,7 @@ O cluster HDInsight 3.5, por padrão, desabilita o uso de caminhos de arquivo lo
 
 Se você se conectar a um cluster do HDInsight Spark de dentro de uma Rede Virtual do Azure, você poderá se conectar diretamente à Livy no cluster. Nesse caso, a URL de ponto de extremidade da Livy é `http://<IP address of the headnode>:8998/batches`. Aqui, **8998** é a porta na qual a Livy é executada em um nó de cabeçalho do cluster. Para obter mais informações sobre como acessar serviços em portas não públicas, consulte [Portas usadas pelos serviços de Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Veja aqui alguns dos problemas que você pode enfrentar ao usar o Livy para envio de trabalho remoto aos clusters Spark.
 

@@ -1,24 +1,21 @@
 ---
-title: "Active Directory B2C: Residência de dados e disponibilidade de região | Microsoft Docs"
-description: "Um tópico sobre os tipos de locatários do Azure Active Directory B2C"
+title: 'Active Directory B2C: Residência de dados e disponibilidade de região | Microsoft Docs'
+description: Um tópico sobre os tipos de locatários do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: gsacavdm
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: gsacavdm
-ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b982a6b6e0068370ef7b5cb30ea689829e90d494
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Residência de dados e disponibilidade de região
 Residência de dados e disponibilidade de região são dois conceitos muito diferentes que se aplicam a B2C do Azure AD diferentemente do restante do Azure. Este artigo irá explicar as diferenças entre esses dois conceitos e comparar como são aplicáveis para B2C do Azure AD versus Azure.
@@ -48,7 +45,7 @@ Os dados residem nos Estados Unidos para os seguintes países/regiões:
 
 Os dados residem na Europa para os seguintes países/regiões:
 
-> África do Sul, Alemanha, Arábia Saudita, Argélia, Áustria, Azerbaidjão, Barein, Bélgica, Bielorrússia, Bulgária, Cazaquistão, Chipre, Croácia, Dinamarca, Egito, Emirados Árabes Unidos, Eslováquia, Eslovênia, Espanha, Estônia, Finlândia, França, Grécia, Hungria, Irlanda, Islândia, Israel, Itália, Jordânia, Kuwait, Letônia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedônia FYRO, Malta, Marrocos, Montenegro, Nigéria, Noruega, Omã, Países Baixos, Paquistão, Polônia, Portugal, Qatar, Quênia, Reino Unido, República Checa, Romênia, Rússia, Sérvia, Suécia, Suíça, Tunísia, Turquia, Ucrânia.
+> África do Sul, Alemanha, Arábia Saudita, Argélia, Áustria, Azerbaidjão, Barein, Bélgica, Belarus, Bulgária, Cazaquistão, Chipre, Croácia, Dinamarca, Egito, Emirados Árabes Unidos, Eslováquia, Eslovênia, Espanha, Estônia, Finlândia, França, Grécia, Hungria, Irlanda, Islândia, Israel, Itália, Jordânia, Kuwait, Letônia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedônia FYRO, Malta, Marrocos, Montenegro, Nigéria, Noruega, Omã, Países Baixos, Paquistão, Polônia, Portugal, Qatar, Quênia, Reino Unido, República Checa, Romênia, Rússia, Sérvia, Suécia, Suíça, Tunísia, Turquia, Ucrânia.
 
 Os demais países/regiões estão no processo de serem adicionados à lista.  Por enquanto, ainda é possível utilizar B2C do Azure AD, escolhendo qualquer um dos países/regiões acima.
 

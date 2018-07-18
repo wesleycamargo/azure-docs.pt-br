@@ -8,25 +8,25 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/07/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 4d858606b0c645069602fba80cdba3d13582170d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9336de3e244f7a7373f7c1ca3ac8eedd06473d3c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usar o .NET Core (C#) para consultar um banco de dados SQL do Azure
 
-Este tutorial de início rápido demonstra como usar o [.NET Core](https://www.microsoft.com/net/) no Windows/Linux/macOS para criar um programa C# para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este início rápido demonstra como usar o [.NET Core](https://www.microsoft.com/net/) no Windows/Linux/macOS a fim de criar um programa C# para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial de início rápido, certifique-se de que você tenha o seguinte:
+Para concluir este início rápido, tenha o seguinte:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este tutorial de início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que usou para este início rápido.
 
 - Você instalou [.NET Core para o sistema operacional](https://www.microsoft.com/net/core). 
 

@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Modelos do Gerenciador de Recursos
+      href: backup-rm-template-samples.md
 - name: Conceitos
   items:
     - name: Perguntas frequentes
@@ -47,6 +49,8 @@
       href: backup-azure-security-feature.md
     - name: Configurar o backup offline
       href: backup-azure-backup-import-export.md
+    - name: Backup offline do DPM e do Servidor de Backup do Azure
+      href: backup-azure-backup-server-import-export-.md
     - name: Substitua sua biblioteca de fitas
       href: backup-azure-backup-cloud-as-tape.md
 - name: Como
@@ -59,6 +63,8 @@
           items:
             - name: Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure
               href: backup-azure-microsoft-azure-backup.md
+            - name: Instalar Servidor de Backup do Azure no Azure Stack
+              href: backup-mabs-install-azure-stack.md
             - name: Adicionar armazenamento ao Servidor de Backup do Azure
               href: backup-mabs-add-storage.md
             - name: Atualizar Servidor de Backup do Azure para v.2
@@ -67,16 +73,18 @@
               href: backup-mabs-unattended-install.md
         - name: Proteger as cargas de trabalho
           items:
-            - name: Usar o Servidor de Backup do Azure para fazer backup de um servidor do VMware
+            - name: Servidor do VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Usar o Servidor de Backup do Azure para fazer backup do Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Usar o Servidor de Backup do Azure para fazer backup de um farm do SharePoint
+            - name: Farm do SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Usar o Servidor de Backup do Azure para fazer backup do SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Proteger o estado do sistema e recuperação bare-metal
               href: backup-mabs-system-state-and-bmr.md
+            - name: Arquivos e aplicativos no Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Recuperar dados do Servidor de Backup do Azure
           href: backup-azure-alternate-dpm-server.md
     - name: Compartilhamentos de Arquivos do Azure
@@ -85,8 +93,6 @@
           href: backup-azure-files.md
         - name: Perguntas frequentes sobre backup de compartilhamentos de Arquivos do Azure
           href: backup-azure-files-faq.md
-        - name: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
-          href: troubleshoot-azure-files.md
     - name: VMs do Azure
       items:
         - name: Preparar a VM
@@ -102,7 +108,7 @@
         - name: Fazer backup de VMs
           items:
             - name: Fazer backup de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Fazer backup de VMs criptografadas
               href: backup-azure-vms-encryption.md
             - name: Habilitar o backup de VM durante a criação de VM
@@ -153,16 +159,10 @@
           href: backup-dpm-automation.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-    - name: Banco de Dados SQL do Azure
+    - name: SQL em VMs do Azure
       items:
-        - name: Configurar retenção de backup de longo prazo
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Exibir backups em um cofre dos Serviços de Recuperação
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Restaurar desde a retenção de backup de longo prazo
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Excluir backups de longo prazo do SQL do Azure
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Fazer backup do banco de dados SQL no Azure
+          href: backup-azure-sql-database.md
     - name: Windows Server
       items:
         - name: Fazer backup de pastas e arquivos do Windows Server
@@ -185,24 +185,32 @@
           href: backup-azure-delete-vault.md
     - name: Solucionar problemas
       items:
-        - name: Problemas de backup de VM do Azure no portal do Azure
+        - name: VM do Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: 'Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite'
+        - name: O agente de Backup do Azure ou a extensão de VM atingiu o tempo limite
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Lentidão de backup de arquivos e pastas no Backup do Azure
+        - name: O backup de pastas e arquivos está lento
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Solucionar problemas de Servidor de Backup do Azure
+        - name: Servidor de Backup do Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Solucionar Problemas do System Center Data Protection Manager
+        - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Solucionar problemas do Agente de Backup do Azure
+        - name: Agente de Backup do Azure
           href: backup-azure-mars-troubleshoot.md
+        - name: Compartilhamento de arquivos do Azure
+          href: troubleshoot-azure-files.md
 - name: Referência
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: CLI do Azure 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: REST - Backup
+      href: /rest/api/backup/
+    - name: REST - Cofre dos Serviços de Recuperação
+      href: /rest/api/recoveryservices/
 - name: Recursos
   items:
     - name: Roteiro do Azure

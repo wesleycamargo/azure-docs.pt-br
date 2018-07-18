@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777003"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 Desde o início da oferta de PaaS do Banco de Dados SQL do Azure, a Microsoft prometeu aos seus clientes de que a HA (Alta Disponibilidade) seria compilada no serviço e os clientes não seriam obrigados a operar, adicionar lógica especial ou tomar decisões em torno de HA. A Microsoft mantém o controle total sobre a configuração e operação do sistema de HA, oferecendo um SLA aos clientes. O SLA de HA aplica-se a um Banco de Dados SQL em uma região e não oferece proteção nos casos de uma falha total da região devido a fatores fora do controle razoável da Microsoft (por exemplo, desastre natural, guerra, atos de terrorismo, tumultos, ação governamental ou uma falha de rede ou dispositivo externa aos data centers da Microsoft, inclusive em sites de clientes ou entre sites de clientes e data center da Microsoft).
@@ -29,8 +30,8 @@ Embora esses eventos individuais sejam incomuns em escala de nuvem, eles ocorrem
 Os clientes estão mais interessados na resiliência de seus próprios bancos de dados e menos interessados na resiliência do serviço de banco de dados SQL como um todo. 99,99% de tempo produtivo para um serviço é inútil se o "meu banco de dados" for parte do 0,01% dos bancos de dados que estão inativos. Cada banco de dados precisa ser tolerante a falhas, e a mitigação de falhas nunca deve resultar na perda de uma transação confirmada. 
 
 Para dados, o Banco de Dados SQL usa armazenamento local (LS) com base em discos/VHDs anexados diretos e o armazenamento remoto (RS) com base em blobs de páginas de Armazenamento Premium do Azure. 
-- O armazenamento local é utilizado nos pools e bancos de dados Premium, que são projetados para aplicativos OLTP críticos com altos requisitos de IOPS. 
-- O armazenamento remoto é utilizado para camadas de serviço Básico e Standard, projetados para cargas de trabalho comerciais orientadas para o orçamento que exigem potência de computação e armazenamento para escalar de forma independente. Eles usam um único blob de páginas para arquivos de log e banco de dados, e mecanismos de replicação e failover de armazenamento interno.
+- O armazenamento local é usado nos bancos de dados Premium ou Comercialmente Crítico (versão prévia) e pools elásticos, que são projetados para aplicativos de OLTP críticos com altos requisitos de IOPS. 
+- O armazenamento remoto é utilizado para camadas de serviço Basic, Standard e General, que são projetadas para cargas de trabalho comerciais orientadas para o orçamento que exigem potência de computação e armazenamento para escalar de forma independente. Eles usam um único blob de páginas para arquivos de log e banco de dados, e mecanismos de replicação e failover de armazenamento interno.
 
 Em ambos os casos, os mecanismos de replicação, detecção de falhas e failover do Banco de Dados SQL são totalmente automatizados e operam sem intervenção humana. Essa arquitetura foi projetada para garantir que os dados confirmados nunca serão perdidos e que a durabilidade dos dados tenha prioridade sobre tudo.
 
@@ -46,17 +47,17 @@ Principais benefícios:
 
 ## <a name="data-redundancy"></a>Redundância de dados
 
-A solução de alta disponibilidade no Banco de Dados SQL é baseada na tecnologia [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) do SQL Server e funciona com bancos de dados LS e RS com diferenças mínimas. Na configuração LS, o AlwaysON é usado para persistência, enquanto na configuração RS, ele é usado para disponibilidade (baixo RTO). 
+A solução de alta disponibilidade no Banco de Dados SQL é baseada na tecnologia de [Grupos de Disponibilidade AlwaysON](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do SQL Server e funciona com bancos de dados LS e RS com diferenças mínimas. Na configuração LS, a tecnologia de grupo de disponibulidade AlwaysON é usada para persistência, enquanto na configuração RS, ela é usado para disponibilidade (baixo RTO pela replicação geográfica ativa). 
 
 ## <a name="local-storage-configuration"></a>Configuração de armazenamento local
 
 Nessa configuração, cada banco de dados é colocado online pelo MS (serviço de gerenciamento) dentro do anel de controle. Uma réplica primária e pelo menos duas réplicas secundárias (conjunto de quorum) estão localizadas em um anel de locatário que abrange três subsistemas físicos independentes dentro do mesmo centro de dados. Todas as leituras e gravações são enviadas pelo gateway (GW) à réplica primária e as gravações são replicadas assincronamente para as réplicas secundárias. O Banco de Dados SQL usa um esquema de confirmação baseado em quorum em que os dados são gravados na réplica primária e em uma secundária antes de que a transação seja considerada confirmada.
 
-O sistema de failover [Service Fabric](../service-fabric/service-fabric-overview.md) recompila réplicas automaticamente como falhas de nós e mantém a associação do conjunto de quorum conforme os nós saem e se unem ao sistema. A manutenção planejada é cuidadosamente coordenada para evitar que o conjunto de quorum fique abaixo da contagem mínima de réplicas (normalmente é 2). Esse modelo funciona bem para bancos de dados Premium, mas exige redundância de componentes de computação e de armazenamento, e resulta em um custo mais alto.
+O sistema de failover [Service Fabric](../service-fabric/service-fabric-overview.md) recompila réplicas automaticamente como falhas de nós e mantém a associação do conjunto de quorum conforme os nós saem e se unem ao sistema. A manutenção planejada é cuidadosamente coordenada para evitar que o conjunto de quorum fique abaixo da contagem mínima de réplicas (normalmente é 2). Esse modelo funciona bem para bancos de dados Premium e Comercialmente Crítico (versão prévia), mas requer redundância de componentes de computação e armazenamento e resulta em um custo mais alto.
 
 ## <a name="remote-storage-configuration"></a>Configuração de armazenamento remoto
 
-Para configurações de armazenamento remoto (camadas Básico e Standard), exatamente uma cópia é mantida no armazenamento de blobs remoto, usando os recursos dos sistemas de armazenamento para detecção de bits corrompidos, redundância e durabilidade. 
+Para configurações de armazenamento remoto (camadas Básico, Standard ou Uso Geral), exatamente uma cópia é mantida no armazenamento de blobs remoto, usando os recursos dos sistemas de armazenamento para detecção de bits corrompidos, redundância e durabilidade. 
 
 A arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
  
@@ -73,16 +74,30 @@ Para as configurações de armazenamento remoto, o Banco de Dados SQL usa a func
 
 ## <a name="zone-redundant-configuration-preview"></a>Configuração com redundância de zona (versão prévia)
 
-Por padrão, as réplicas do quorum para as configurações de armazenamento locais são criadas no mesmo datacenter. Com a introdução das [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md), é possível colocar as diferentes réplicas no quorum para diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona não cria redundância de banco de dados adicional, o uso de Zonas de Disponibilidade na camada de serviço Premium está disponível sem custo extra. Ao selecionar um banco de dados com redundância de Zona, é possível tornar seus bancos de dados Premium resilientes a um conjunto de falhas muito maior, incluindo interrupções catastróficas do datacenter, sem alterações na lógica de aplicativo. Além disso, é possível converter qualquer pool ou banco de dados Premium existente na configuração com redundância de zona.
+Por padrão, as réplicas do quorum para as configurações de armazenamento locais são criadas no mesmo datacenter. Com a introdução das [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md), é possível colocar as diferentes réplicas no quorum para diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona não cria redundância de banco de dados adicional, o uso de Zonas de Disponibilidade nas camadas de serviço Premium ou Comercialmente Crítico (versão prévia) está disponível sem nenhum custo adicional. Ao selecionar um banco de dados com redundância de zona, você pode tornar seus bancos de dados Premium ou Comercialmente Crítico (versão prévia) resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem quaisquer alterações na lógica de aplicativo. Além disso, é possível converter quaisquer pools ou bancos de dados Premium ou Comercialmente Crítico (versão prévia) existentes para a configuração com redundância de zona.
 
 Como o quórum com redundância de zona tem réplicas em diferentes datacenters com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, desse modo, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é um tamanho de operação de dados e é semelhante à atualização do SLO (Objetivo do Nível de Serviço) regular. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
 
 > [!IMPORTANT]
-> Os bancos de dados com redundância de zona e os pools elásticos somente têm suporte na camada de serviço Premium. Durante a visualização pública, os backups e registros de auditoria são armazenados no armazenamento RA-GRS e, portanto, podem não ser disponibilizados automaticamente no caso de uma interrupção de toda a zona. 
+> Bancos de dados com redundância de zona e pools elásticos somente têm suporte nas camadas de serviço Premium e Comercialmente Crítico (versão prévia). Durante a visualização pública, os backups e registros de auditoria são armazenados no armazenamento RA-GRS e, portanto, podem não ser disponibilizados automaticamente no caso de uma interrupção de toda a zona. 
 
 A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
  
 ![Arquitetura de alta disponibilidade com redundância de zona](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
+
+## <a name="read-scale-out"></a>Expansão de leitura
+Conforme descrito, as camadas de serviço Premium e Comercialmente Crítico (versão prévia) utilizam os conjuntos de quorum e a tecnologia AlwaysON para Alta Disponibilidade em configurações com redundância de zona e única zona. Um dos benefícios do AlwasyON é que as réplicas estão sempre no estado consistente transicionalmente. Como as réplicas têm o mesmo nível de desempenho que o primário, o aplicativo pode aproveitar essa capacidade adicional para atender às cargas de trabalho somente leitura sem custo adicional (expansão de leitura). Dessa forma, as consultas somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso de expansão de leitura destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam aproveitar essa capacidade adicional sem conexão ao primário. 
+
+Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate).
+
+Após a Expansão de Leitura ser habilitada para um banco de dados, aplicativos que se conectam ao banco de dados serão direcionados para a réplica de leitura-gravação ou para uma réplica somente leitura desse banco de dados de acordo com a propriedade `ApplicationIntent` configurada na cadeia de conexão do aplicativo. Para obter informações sobre a propriedade `ApplicationIntent`, consulte [Especificando a intenção do aplicativo](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Se a expansão de leitura está desabilitada ou defina a propriedade ReadScale em uma camada de serviço sem suporte, todas as conexões são direcionadas para a réplica de leitura / gravação, independentemente da `ApplicationIntent` propriedade.  
+
+> [!NOTE]
+> É possível ativar a expansão de leitura em um banco de dados Básico, Standard ou Uso Geral, mesmo se não resultar no roteamento da sessão pretendia apenas leitura em uma réplica separada. Isso é feito para oferecer suporte a aplicativos existentes que são dimensionados para cima e para baixo entre as camadas de finalidade Standard/Uso Geral e Premium/Comercialmente Crítico.  
+
+O recurso de Expansão de Leitura dá suporte à consistência de nível de sessão. Se a sessão somente leitura reconectar após uma causa de erro de conexão pela indisponibilidade de réplica, ela poderá ser redirecionada para uma réplica diferente. Embora improvável, isso pode resultar no processamento do conjunto de dados que está obsoleto. Da mesma forma, se um aplicativo gravar dados usando uma sessão de leitura/gravação e a ler imediatamente usando a sessão somente leitura, é possível que os novos dados não fiquem imediatamente visíveis.
 
 ## <a name="conclusion"></a>Conclusão
 O Banco de Dados SQL do Azure está totalmente integrado com a plataforma do Azure e é altamente dependente do Service Fabric para detecção e recuperação de falhas, no Azure Storage Blob para proteção de dados e Zonas de Disponibilidade para tolerância a falhas mais elevada. Ao mesmo tempo, o Banco de Dados SQL do Azure alavanca totalmente a tecnologia Always On do SQL Server para replicação e failover. A combinação dessas tecnologias permite que os aplicativos percebam em sua totalidade os benefícios de um modelo de armazenamento misto e deem suporte aos SLAs mais exigentes. 

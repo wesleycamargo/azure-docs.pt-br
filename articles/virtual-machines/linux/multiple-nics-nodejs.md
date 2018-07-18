@@ -1,12 +1,12 @@
 ---
-title: "Criar uma VM do Linux no Azure com várias NICs | Microsoft Docs"
-description: "Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager."
+title: Criar uma VM do Linux no Azure com várias NICs | Microsoft Docs
+description: Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: c87d4f07a01fa42ceb2582b974feb4e802b3e03f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma máquina virtual Linux com várias NICs usando a CLI do Azure 1.0
 Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum é ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
@@ -104,7 +104,7 @@ azure network nic create \
     --subnet-name mySubnetBackEnd
 ```
 
-Normalmente, você também criaria um [Grupo de Segurança de Rede](../../virtual-network/virtual-networks-nsg.md) ou [balanceador de carga](../../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Normalmente, você também criaria um [grupo de segurança de rede](../../virtual-network/security-overview.md) ou [balanceador de carga](../../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
 
 ```azurecli
 azure network nsg create \
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+Quando você adiciona várias NICs a uma VM Linux, é necessário criar regras de roteamento. Essas regras permitem que a VM envie e receba tráfego pertencente a uma NIC específica. Caso contrário, o tráfego pertencente a eth1, por exemplo, não poderá ser processado corretamente pela rota padrão definida. Para corrigir esse problema de roteamento, consulte [Configurar o SO convidado para várias NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Criar várias NICs usando modelos do Resource Manager
 Os modelos do Azure Resource Manager usam arquivos JSON declarativos para definir o seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Os modelos do Gerenciador de Recursos oferecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *copiar* para especificar o número de instâncias a serem criadas:
 
@@ -161,7 +163,9 @@ Você também pode usar um `copyIndex()` para acrescentar um número a um nome d
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Gerenciador de Recursos](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Gerenciador de Recursos](../../virtual-network/template-samples.md).
+
+Quando você adiciona várias NICs a uma VM Linux, é necessário criar regras de roteamento. Essas regras permitem que a VM envie e receba tráfego pertencente a uma NIC específica. Caso contrário, o tráfego pertencente a eth1, por exemplo, não poderá ser processado corretamente pela rota padrão definida. Para corrigir esse problema de roteamento, consulte [Configurar o SO convidado para várias NICs](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Próximas etapas
 Certifique-se de rever os [Tamanhos de VM Linux](sizes.md) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 

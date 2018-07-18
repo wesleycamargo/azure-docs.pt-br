@@ -1,5 +1,5 @@
 ---
-title: "Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure | Microsoft Docs"
+title: Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure | Microsoft Docs
 description: " A migração das cargas de trabalho para o Azure IaaS traz oportunidades para reavaliar nosso designs "
 services: security
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 
@@ -52,7 +52,7 @@ No passado, o perímetro da rede era usado para controlar o acesso aos dados cor
 
 Uma das etapas mais vantajosas que podem ser tomadas para proteger uma conta é habilitar a autenticação de dois fatores. A autenticação de dois fatores é uma maneira de autenticar usando algo além de uma senha. Isso ajuda a minimizar o risco do acesso por uma pessoa que consegue obter a senha de outra pessoa.
 
-A [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md) ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ele fornece autenticação forte por meio de uma variedade de opções de fácil verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel. Os usuários escolhem o método preferido.
+A [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md) ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de logon simples. Ele fornece autenticação forte por meio de uma variedade de opções de fácil verificação: chamada telefônica, mensagem de texto ou notificação de aplicativo móvel. Os usuários escolhem o método preferido.
 
 A maneira mais fácil de usar a Autenticação Multifator do Azure é o aplicativo móvel do Microsoft Authenticator, que pode ser usado em dispositivos móveis que executam o Windows, IOS e Android. Com a versão mais recente do Windows 10 e a integração do Active Directory local com o Azure AD (Azure Active Directory), o [Windows Hello para Empresas](../active-directory/active-directory-azureadjoin-passport-deployment.md) pode ser usado para fazer um logon único e perfeito nos recursos do Azure. Neste caso, o dispositivo do Windows 10 é usado como o segundo fator para a autenticação.
 
@@ -83,9 +83,9 @@ Você pode usar o [Privileged Identity Management](../active-directory/active-di
 
 Usar o Azure para laboratórios e ambientes de desenvolvimento permite que as organizações tenham agilidade no desenvolvimento e teste, acabando com os atrasos introduzidos pela aquisição do hardware. Infelizmente, a falta de familiaridade com o Azure ou um desejo de ajudar a agilizar sua adoção pode levar o administrador a ser excessivamente permissivo com a atribuição de direitos. Esse risco pode expor a organização a ataques internos sem querer. Alguns usuários podem receber muito mais acesso do que deveriam.
 
-O serviço [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utiliza o [RBAC](../active-directory/role-based-access-control-what-is.md) (Controle de Acesso Baseado em Função do Azure). Com o RBAC, você pode separar as tarefas dentro de sua equipe em funções que concedem somente o nível de acesso necessário para os usuários fazerem seus trabalhos. O RBAC vem com funções predefinidas (proprietário, usuário do laboratório e colaborador). Você pode até usar essas funções para atribuir direitos a parceiros externos e simplificar muito a colaboração.
+O serviço [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utiliza o [RBAC](../role-based-access-control/overview.md) (Controle de Acesso Baseado em Função do Azure). Com o RBAC, você pode separar as tarefas dentro de sua equipe em funções que concedem somente o nível de acesso necessário para os usuários fazerem seus trabalhos. O RBAC vem com funções predefinidas (proprietário, usuário do laboratório e colaborador). Você pode até usar essas funções para atribuir direitos a parceiros externos e simplificar muito a colaboração.
 
-Como o DevTest Labs usa o RBAC, é possível criar outras [funções personalizadas](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). O DevTest Labs não apenas simplifica o gerenciamento de permissões, mas também o processo de provisionar os ambientes. Ele também ajuda a lidar com outros desafios típicos de equipes que trabalham em ambientes de desenvolvimento e teste. Ele requer certa preparação, mas a longo prazo facilitará as coisas para sua equipe.
+Como o DevTest Labs usa o RBAC, é possível criar outras [funções personalizadas](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). O DevTest Labs não apenas simplifica o gerenciamento de permissões, mas também o processo de provisionar os ambientes. Ele também ajuda a lidar com outros desafios típicos de equipes que trabalham em ambientes de desenvolvimento e teste. Ele requer certa preparação, mas a longo prazo facilitará as coisas para sua equipe.
 
 Os principais recursos do Azure DevTest Labs incluem:
 
@@ -106,7 +106,7 @@ Não há custos adicionais associados ao uso do DevTest Labs. A criação de lab
 
 Hospedar laboratórios ou sistemas de produção no Azure significa que os sistemas precisam ser acessíveis pela Internet. Por padrão, uma nova máquina virtual do Windows tem a porta RDP acessível pela Internet e uma máquina virtual Linux tem a porta SSH aberta. Medidas para 'limitar os pontos de extremidade expostos' são necessárias a fim de minimizar o risco do acesso não autorizado.
 
-As tecnologias no Azure podem ajudá-lo a limitar o acesso a esses pontos de extremidade administrativos. No Azure, você pode usar os [NSGs](../virtual-network/virtual-networks-nsg.md) (grupos de segurança de rede). Quando você usa o Azure Resource Manager para a implantação, os NSGs limitam o acesso de todas as redes para apenas os pontos de extremidade de gerenciamento (RDP ou SSH). Quando você pensar em NSGs, considere as ACLs do roteador. Você pode usá-las para controlar totalmente a comunicação de rede entre os vários segmentos das redes do Azure. Isso é semelhante a criar redes em redes de perímetro ou outras redes isoladas. Elas não inspecionam o tráfego, mas ajudam na segmentação da rede.
+As tecnologias no Azure podem ajudá-lo a limitar o acesso a esses pontos de extremidade administrativos. No Azure, você pode usar os [NSGs](../virtual-network/security-overview.md) (grupos de segurança de rede). Quando você usa o Azure Resource Manager para a implantação, os NSGs limitam o acesso de todas as redes para apenas os pontos de extremidade de gerenciamento (RDP ou SSH). Quando você pensar em NSGs, considere as ACLs do roteador. Você pode usá-las para controlar totalmente a comunicação de rede entre os vários segmentos das redes do Azure. Isso é semelhante a criar redes em redes de perímetro ou outras redes isoladas. Elas não inspecionam o tráfego, mas ajudam na segmentação da rede.
 
 
 No Azure, você pode configurar um [VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) da sua rede local. Um VPN site a site estende sua rede local para a nuvem. Isso lhe dá outra oportunidade de usar NSGs, pois você também pode modificar os NSGs para não permitir o acesso de outro lugar que não seja a rede local. Em seguida, você pode exigir que a administração seja feita primeiro pela conexão com a rede do Azure por meio de VPN.
@@ -118,7 +118,7 @@ Como alternativa, você pode usar a opção [ponto a site](../vpn-gateway/vpn-ga
 >[!NOTE]
 >Você pode usar a opção VPN para reconfigurar as ACLs nos NSGs a fim de impedir o acesso aos pontos de extremidade de gerenciamento pela Internet.
 
-Outra opção que vale a pena considerar é uma implantação do [Gateway da Área de Trabalho Remota](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md). Você pode usar essa implantação para se conectar com segurança a servidores de área de trabalho remota via HTTPS ao mesmo tempo em que aplica controles mais detalhados a essas conexões.
+Outra opção que vale a pena considerar é uma implantação do [Gateway da Área de Trabalho Remota](../active-directory/authentication/howto-mfaserver-nps-rdg.md). Você pode usar essa implantação para se conectar com segurança a servidores de área de trabalho remota via HTTPS ao mesmo tempo em que aplica controles mais detalhados a essas conexões.
 
 Os recursos que você acessaria incluem:
 
@@ -166,7 +166,7 @@ Todas as máquinas virtuais no Azure IaaS devem ser protegidas para que apenas e
 
 O Security Compliance Manager é uma ferramenta gratuita. Você pode usá-lo para configurar e gerenciar seus desktops, data center tradicional e nuvem pública e privada rapidamente usando a política de grupo e o System Center Configuration Manager.
 
-O Security Compliance Manager fornece políticas prontas para implantar e pacotes de configuração de DCM testados. Essas linhas de base são baseadas em recomendações das [Diretrizes de segurança da Microsoft](https://technet.microsoft.com/en-us/library/cc184906.aspx) e práticas recomendadas do setor. Elas ajudam a gerenciar os descompassos de configuração, atender aos requisitos de conformidade e reduzir as ameaças de segurança.
+O Security Compliance Manager fornece políticas prontas para implantar e pacotes de configuração de DCM testados. Essas linhas de base são baseadas em recomendações das [Diretrizes de segurança da Microsoft](https://technet.microsoft.com/library/cc184906.aspx) e práticas recomendadas do setor. Elas ajudam a gerenciar os descompassos de configuração, atender aos requisitos de conformidade e reduzir as ameaças de segurança.
 
 Você pode usar o Security Compliance Manager para importar a configuração atual dos computadores usando dois métodos diferentes. Primeiro, você pode importar as políticas de grupo baseadas no Active Directory. Você também pode importar a configuração de um computador de referência "mestre dourado" usando a [ferramenta LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) para fazer backup da política de grupo local. Você pode importar a política de grupo local para o Security Compliance Manager.
 

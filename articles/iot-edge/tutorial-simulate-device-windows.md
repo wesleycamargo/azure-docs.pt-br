@@ -1,8 +1,8 @@
 ---
 title: Simular o Azure IoT Edge no Windows | Microsoft Docs
-description: "Instalar o tempo de execução do Azure IoT Edge em um dispositivo simulado no Windows e implantar seu primeiro módulo"
+description: Instalar o tempo de execução do Azure IoT Edge em um dispositivo simulado no Windows e implantar seu primeiro módulo
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,12 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166107"
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Implantar o Azure IoT Edge em um dispositivo simulado no Windows – versão prévia
 
@@ -31,7 +32,7 @@ Neste tutorial, você aprenderá a:
 
 O dispositivo simulado criado por você neste tutorial é um monitor em uma turbina eólica que gera temperatura, umidade e dados de pressão. Você está interessado nesses dados porque suas turbinas funcionam em diferentes níveis de eficiência, dependendo das condições climáticas. Os outros tutoriais do Azure IoT Edge se baseiam no trabalho feito aqui com a implantação de módulos que analisam os dados para obter informações de negócios. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este tutorial pressupõe que você esteja usando um computador ou uma máquina virtual que execute o Windows para simular um dispositivo da Internet das Coisas. 
 
@@ -42,7 +43,7 @@ Este tutorial pressupõe que você esteja usando um computador ou uma máquina v
    * Windows 10 
    * Windows Server
 2. Instale o [Docker para Windows][lnk-docker] e verifique se ele está em execução.
-3. Instale o [Python 2.7 no Windows][lnk-python] e verifique se você pode usar o comando Pip.
+3. Instale o [Python no Windows][lnk-python] e verifique se você pode usar o comando pip. Este tutorial foi testado com o Python versões >=2.7.9 e >=3.5.4.  
 4. Execute o comando a seguir para baixar o script de controle do IoT Edge.
 
    ```cmd
@@ -86,7 +87,7 @@ O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edg
 Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie o tempo de execução.
@@ -101,7 +102,7 @@ Verifique o Docker para ver se o agente IoT Edge está sendo executado como um m
 docker ps
 ```
 
-![Conferir o edgeAgent no Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+![Confira o agente Edge no Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 

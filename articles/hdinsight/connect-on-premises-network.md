@@ -8,16 +8,15 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 51307e1bdb31d902636787790d1c4f1248f3886b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361913"
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conectar o HDInsight à sua rede local
 
@@ -297,7 +296,7 @@ Use as etapas no documento [Criar um cluster HDInsight usando o portal do Azure]
 
 ## <a name="connecting-to-hdinsight"></a>Conectando-se ao HDInsight
 
-A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em https://NOMEDOCLUSTER.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
+A maior parte da documentação no HDInsight supõe que você tenha acesso ao cluster via Internet. Por exemplo, que você possa se conectar ao cluster em https://CLUSTERNAME.azurehdinsight.net. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
 
 Alguns documentos também fazem referência `headnodehost` ao se conectarem ao cluster de uma sessão SSH. Esse endereço só está disponível de nós em um cluster e não é utilizável em clientes conectados através da rede virtual.
 
@@ -338,6 +337,6 @@ Para conectar-se diretamente ao HDInsight por meio da rede virtual, use as segui
 
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+* Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
 
-* Para saber mais sobre rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para obter mais informações sobre as rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

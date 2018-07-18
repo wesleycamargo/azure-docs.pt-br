@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 
 O SKU do Azure Load Balancer Standard fornece suporte para cenários de [Zonas de Disponibilidade](../availability-zones/az-overview.md). Vários novos conceitos estão disponíveis com o Load Balancer Standard que permitem otimizar a disponibilidade em seu cenário de ponta a ponta, alinhando os recursos com as zonas e distribuindo entre as regiões.  Analise as [Zonas de Disponibilidades](../availability-zones/az-overview.md) para obter diretrizes sobre o que são Zonas de Disponibilidade, quais regiões atualmente fornecem suporte para Zonas de Disponibilidade, e outros conceitos e produtos relacionados. Zonas de Disponibilidade em combinação com o Load Balancer Standard é um conjunto de recursos expansível e flexível que pode criar muitos cenários diferentes.  Analise este documento para entender esses [conceitos](#concepts) e as [diretrizes de design](#design) de cenário fundamentais.
 
 >[!NOTE]
-> No momento, o SKU do Load Balancer Standard está em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. Para usar [Visualização das Zonas de Disponibilidade](https://aka.ms/availabilityzones) com essa Visualização exige uma [inscrição separada](https://aka.ms/availabilityzones), além de se inscrever na [Visualização padrão do Load Balancer](#preview-sign-up).
+>Veja [Zonas de Disponibilidade ](https://aka.ms/availabilityzones) para outros tópicos relacionados. 
 
 ## <a name="concepts"></a> Conceitos de Zonas de Disponibilidade aplicados ao Load Balancer
 
@@ -43,7 +43,7 @@ Um recurso do Load Balancer em si é regional e nunca zonal.  E uma VNet e sub-r
 
 Um front-end do Load Balancer é uma configuração de IP de front-end que faz referência a um recurso de endereço IP público ou a um endereço IP privado na sub-rede de um recurso de rede virtual.  Ele forma o ponto de extremidade com balanceamento de carga onde o serviço está exposto.
 
-Um recurso do Load Balancer pode conter front-ends zonais e com redundância de zona simultaneamente.
+Um recurso do Load Balancer pode conter front-ends zonais e com redundância de zona simultaneamente. 
 
 Quando um recurso IP público for garantido para uma zona, a zonalidade (ou a falta dela) não será mutável.  Se você deseja alterar ou omitir a zonalidade de um front-end de IP público, é necessário recriar o IP público na zona apropriada.  
 
@@ -151,7 +151,7 @@ Se você estiver usando modelos do Resource Manager existentes em sua configura�
 
 O balanceamento de carga entre zonas é a capacidade do Load Balancer de alcançar um ponto de extremidade de back-end em qualquer zona e é independente do front-end e da zonalidade.
 
-Se você deseja alinhar e garantir a implantação com uma única zona, alinhe os recursos de back-end zonal e front-end zonal com a mesma zona. Nenhuma ação adicional é necessária.
+Se você deseja alinhar e garantir a implantação dentro de uma única zona, alinhe os recursos de back-end zonal e front-end zonal com a mesma zona. Nenhuma ação adicional é necessária.
 
 ### <a name="backend"></a>Back-end
 
@@ -210,7 +210,7 @@ Com redundância de zona pode fornecer uma zona independente e ao mesmo tempo op
 
 Zonal pode fornecer uma garantia explícita para uma zona, compartilhando o destino com a integridade da zona. A associação de um endereço IP zonal ou front-end do Load Balancer zonal pode ser um atributo desejável ou razoável, especialmente se o recurso anexado for uma VM zonal na mesma zona.  Ou talvez o aplicativo exija conhecimento explícito sobre qual zona um recurso está localizado e você deseja avaliar sobre a disponibilidade em zonas separadas explicitamente.  É possível escolher expor vários front-ends zonais para um serviço de ponta a ponta distribuído entre zonas (ou seja, front-ends zonais por zona para vários conjuntos de dimensionamento de máquinas virtuais zonais).  E se os front-ends zonais forem endereços IP públicos, será possível utilizar esses vários front-ends zonais para expor o serviço com o [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).  Ou poderá utilizar vários front-ends zonais para obter análises de desempenho e integridade por zona por meio de soluções de monitoramento de terceiros e expor o serviço geral com um front-end com redundância de zona. Você deve atender apenas recursos zonais com front-ends zonais alinhados à mesma zona e evitar cenários entre zonas potencialmente prejudiciais para recursos zonais.  Somente existem recurso zonais em regiões onde há Zonas de Disponibilidade.
 
-Não há nenhuma diretriz geral informando que uma escolha é melhor que a outra, sem conhecer o serviço de ponta a ponta.
+Não há nenhuma diretriz geral informando que uma escolha é melhor que a outra, sem conhecer a arquitetura do serviço.
 
 ## <a name="limitations"></a>Limitações
 
@@ -219,3 +219,5 @@ Não há nenhuma diretriz geral informando que uma escolha é melhor que a outra
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md)
+- Saiba como [balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](load-balancer-standard-public-zonal-cli.md)
+- Saiba como [balancear carga de VMs entre zonas usando um Load Balancer Standard com um front-end com redundância de zona](load-balancer-standard-public-zone-redundant-cli.md)

@@ -1,12 +1,11 @@
 ---
 title: Exemplos da CLI do Azure para o Azure Cosmos DB | Microsoft Docs
-description: "Exemplos da CLI do Azure - Criar e gerenciar contas, , bancos de dados, contêineres, regiões e firewalls do Azure Cosmos DB."
+description: Exemplos da CLI do Azure - Criar e gerenciar contas, , bancos de dados, contêineres, regiões e firewalls do Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: 
+author: SnehaGunda
+manager: kfile
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -14,16 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 11/29/2017
-ms.author: mimig
-ms.openlocfilehash: 75199225509554a96168eda7993f0340b75e5493
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: sngun
+ms.openlocfilehash: 38b211ec17a2bbe70f2975bd6c8f668c3c30a036
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 A tabela a seguir inclui links para exemplos de scripts de CLI do Azure para o Azure Cosmos DB. Páginas de referência para todos os comandos de CLI do Azure Cosmos DB estão disponíveis na [referência da CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/cosmosdb).
 

@@ -1,12 +1,12 @@
 ---
 title: Integrar o Azure Service Fabric ao Gerenciamento de API | Microsoft Docs
-description: "Neste tutorial, você aprende a iniciar rapidamente com o Gerenciamento de API do Azure e o Service Fabric."
+description: Neste tutorial, você aprende a iniciar rapidamente com o Gerenciamento de API do Azure e o Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Tutorial: Implantar o Gerenciamento de API com o Service Fabric
 Este tutorial é a parte quatro de uma série.  A implantação do Gerenciamento de API do Azure com o Service Fabric é um cenário avançado.  O Gerenciamento de API é útil quando você precisa publicar APIs com um conjunto avançado de regras de roteamento para os serviços do Service Fabric de back-end. Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. No Service Fabric, um gateway pode ser qualquer serviço sem estado projetado para entrada de tráfego, como um aplicativo ASP.NET Core, Hubs de Eventos, Hub IoT ou Gerenciamento de API do Azure. 
@@ -59,7 +59,7 @@ Agora que você tem um [cluster do Windows](service-fabric-tutorial-create-vnet-
 Entre na sua conta do Azure e selecione sua assinatura antes de executar comandos do Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ Para este tutorial, implantamos um servidor Web básico que exiba mensagens de v
 
    Um serviço sem estado Java chamado `fabric:/EchoServerApplication/EchoServerService` agora deve estar em execução no seu cluster do Service Fabric no Azure.
 
-5. Abra um navegador e digite no http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, você deverá ver "[versão 1.0]Olá, Mundo!!!" exibido.
+5. Abra um navegador e digite http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Você deverá ver "[versão 1.0]Olá, mundo!!!" exibido.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Baixar e compreender o modelo do Resource Manager
 Baixe e salve os seguintes modelos do Resource Manager e o arquivo de parâmetros:
@@ -179,7 +179,7 @@ Insira um **displayName** descritivo e uma **descrição** para o produto. Para 
 
 - **displayName** pode ser qualquer nome para a API. Para este tutorial, use "Aplicativo do Service Fabric".
 - **name** fornece um nome exclusivo e descritivo para a API, como "service-fabric-app". Esse nome será exibido nos portais do desenvolvedor e do editor. 
-- **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Para este tutorial, por exemplo, "http://servicefabric". 
+- **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Para este tutorial, por exemplo "http://servicefabric". 
 - **path** é acrescentado à URL base para o serviço de gerenciamento de API. A URL base é comum para todas as APIs hospedadas por uma instância de um serviço de Gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico. 
 - **protocols** determina quais protocolos podem ser usados para acessar a API. Para este tutorial, liste **http** e **https**.
 - **path** é um sufixo para a API. Para este tutorial, use “myapp”.

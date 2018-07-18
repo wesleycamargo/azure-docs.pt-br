@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de PowerShell - Atualizar esquema de sincronização para Sincronização de Dados SQL | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para atualizar o esquema de sincronização para Sincronização de Dados SQL"
+title: Exemplo de PowerShell - Atualizar esquema de sincronização da a Sincronização de Dados SQL (versão prévia) | Microsoft Docs
+description: Script de exemplo do Azure PowerShell para atualizar o esquema de sincronização para Sincronização de Dados SQL
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,24 +17,24 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f306eba91adf574f8bb20b2aa459f890b97bb732
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente
 
-Este exemplo de PowerShell atualiza o esquema de sincronização em um grupo de sincronização existente. Quando você estiver sincronizando várias tabelas, este script ajuda a atualizar o esquema de sincronização com eficiência.
+Este exemplo de PowerShell atualiza o esquema de sincronização em um grupo de sincronização da Sincronização de Dados SQL (versão prévia) existente. Quando você estiver sincronizando várias tabelas, este script ajuda a atualizar o esquema de sincronização com eficiência.
 
 Este exemplo demonstra o uso do script **UpdateSyncSchema**, que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)](../sql-database-sync-data.md).
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Este exemplo exige o módulo do Azure PowerShell, versão 4.2 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 ## <a name="examples"></a>Exemplos
 
@@ -77,7 +77,7 @@ O script **UpdateSyncSchema** tem os seguintes parâmetros:
 
 O script **UpdateSyncSchema** usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Retorna informações sobre um grupo de sincronização. |
 | [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Atualiza um grupo de sincronização. |
@@ -97,7 +97,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md)
 -   [Configurar a Sincronização de Dados SQL do Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics do OMS](../sql-database-sync-monitor-oms.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

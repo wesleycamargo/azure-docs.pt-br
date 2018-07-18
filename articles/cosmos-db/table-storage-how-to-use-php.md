@@ -1,24 +1,23 @@
 ---
-title: "Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Azure Cosmos DB do PHP | Microsoft Docs"
-description: "Saiba como usar a API do serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela."
+title: Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Azure Cosmos DB do PHP | Microsoft Docs
+description: Saiba como usar a API do serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 64ce8206b4b0ab3c831417d6e478f9c059188345
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Como usar o serviço de tabela de armazenamento do Azure ou API da tabela do Cosmos DB do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 02/27/2018
 ## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando o serviço de Tabelas de Armazenamento do Azure e a API de Tabela do Azure Cosmos DB. Os exemplos são escritos em PHP e usam a [Biblioteca do Cliente de PHP da Tabela Armazenamento do Azure][download]. Os cenários abrangidos incluem **criar e excluir uma tabela** e **inserir, excluir e consultar entidades em uma tabela**. Para obter mais informações sobre o serviço Tabela do Azure, consulte a seção [Próximas etapas](#next-steps) .
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 
-Você pode trabalhar com tabelas usando o Armazenamento de Tabelas do Azure ou a API de Tabela do Azure Cosmos DB. Você pode aprender mais sobre as diferenças entre os serviços lendo [Ofertas de tabela](table-introduction.md#table-offerings). Você precisará criar uma conta para o serviço que pretende usar. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-A maneira mais fácil de criar sua primeira conta de Armazenamento é usando o [portal do Azure](https://portal.azure.com). Para saber mais, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-Você também pode criar uma conta de Armazenamento usando o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) ou a [CLI do Azure](../storage/common/storage-azure-cli.md).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de Tabele do Azure Cosmos DB
 
-Se você preferir não criar uma conta de Armazenamento no momento, também poderá usar o emulador de Armazenamento do Azure para executar e testar seu código em um ambiente local. Para saber mais, confira [Usar o emulador de armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
-
-### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
-
-Para obter instruções sobre como criar uma conta do Azure Cosmos DB, consulte [Criar uma conta de API de Tabela](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
 
@@ -435,9 +429,6 @@ O método **TableRestProxy->lote** permite que você execute várias operações
 * **addDeleteEntity** (adiciona uma operação deleteEntity)
 
 O exemplo a seguir mostra como executar as operações **insertEntity** e **deleteEntity** em uma única solicitação. 
-
-> [!NOTE]
-> Azure Cosmos DB ainda não dá suporte para operações em lote para tabelas. 
 
 ```php
 require_once 'vendor/autoload.php';

@@ -3,31 +3,33 @@ title: Credenciais de certificado no Azure AD | Microsoft Docs
 description: Este artigo aborda o registro e uso de credenciais de certificado para autenticação do aplicativo
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
-ms.author: nacanuma
+ms.date: 03/15/2018
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c782429ac2d8ee030ca8b589b4241242c7b101d6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação do aplicativo
 
-O Azure Active Directory permite que um aplicativo use suas próprias credenciais para autenticação, por exemplo, no fluxo de Concessão de Credenciais de Cliente do OAuth 2.0([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) e fluxo On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+O Azure Active Directory permite que um aplicativo use suas próprias credenciais para autenticação. Por exemplo, no fluxo de Concessão de Credenciais de Cliente do OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) no fluxo On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Uma forma de credencial que pode ser usada é uma declaração JWT (Token Web JSON) assinada com um certificado que o aplicativo possui.
 
 ## <a name="format-of-the-assertion"></a>Formato da asserção
-Para calcular a declaração, provavelmente, você desejará usar uma das muitas bibliotecas [Token Web JSON](https://jwt.io/) no idioma de sua escolha. A informação transferida por token é:
+Para calcular a declaração, provavelmente, você desejará usar uma das muitas bibliotecas [Token Web JSON](https://jwt.ms/) no idioma de sua escolha. A informação transferida por token é:
 
 #### <a name="header"></a>Cabeçalho
 
@@ -43,10 +45,10 @@ Para calcular a declaração, provavelmente, você desejará usar uma das muitas
 | --- | --- |
 | `aud` | Público-alvo: Deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data de expiração: a data de expiração do token. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que a validade do token expira.|
-| `iss` | Emissor: deve ser a client_id (Id do aplicativo de serviço do cliente) |
+| `iss` | Emissor: deve ser a client_id (ID do aplicativo de serviço do cliente) |
 | `jti` | GUID: a ID de JWT |
 | `nbf` | Não Antes de: a data anterior à qual o token não pode ser usado. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| `sub` | Assunto: para `iss`, deve ser o client_id (Id do aplicativo de serviço do cliente) |
+| `sub` | Assunto: para `iss`, deve ser a client_id (ID do aplicativo de serviço do cliente) |
 
 #### <a name="signature"></a>Signature
 
@@ -85,7 +87,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registrar o certificado com o Azure AD
 
-Para associar as credenciais de certificado com o aplicativo cliente no AD do Azure, você precisa editar o manifesto do aplicativo.
+Você pode associar a credencial de certificado com o aplicativo cliente no Microsoft Azure AD por meio do Portal do Azure usando qualquer um dos métodos a seguir:
+
+**Carregando o arquivo de certificado**
+
+No registro do aplicativo do Azure para o aplicativo cliente, clique em **Configurações**, clique em **Chaves** e, em seguida, clique em **Carregar a chave pública**. Selecione o arquivo de certificado que você deseja carregar e clique em **Salvar**. Depois que você salva, o certificado é carregado e os valores de impressão digital, data de início e vencimento são exibidos. 
+
+**Atualizando o manifesto do aplicativo**
+
 Com a suspensão de um certificado, você precisa calcular:
 
 - `$base64Thumbprint`, que é o base64 codificação do certificado Hash

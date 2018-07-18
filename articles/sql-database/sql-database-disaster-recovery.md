@@ -2,25 +2,19 @@
 title: Recuperação de desastre do Banco de Dados SQL | Microsoft Docs
 description: Saiba como recuperar um banco de dados de uma interrupção do datacenter regional ou de uma falha com os recursos de Restauração geográfica e Replicação geográfica ativa do Banco de dados SQL do Azure.
 services: sql-database
-documentationcenter: ''
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ac4b26e1b014da792791ca657c9f51230a135b5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
@@ -32,7 +26,7 @@ O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação
 Para saber mais sobre os cenários de continuidade dos negócios e os recursos com suporte para esses cenários, confira [Continuidade dos negócios](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Se você estiver usando bancos de dados Premium ou pools com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica. 
+> Se você estiver usando pools ou banco de dados Comercialmente Crítico (versão prévia) ou Premium com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Prepare-se para o caso de uma interrupção
 Para ter êxito com a recuperação para outra região de dados usando a replicação os grupos de failover ou os backups com redundância geográfica, você precisará preparar um servidor em outra interrupção de data center para que ele se torne o novo servidor primário, caso seja necessário, bem como definir as etapas documentadas e testadas para garantir uma recuperação simples. Essas etapas de preparação incluem:

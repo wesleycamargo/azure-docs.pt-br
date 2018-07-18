@@ -1,4 +1,4 @@
-Para habilitar a redefinição de senha refinada, você precisará criar uma política de redefinição de senha. Observe que a opção de redefinição de senha para todo o locatário é especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Essa política descreve as experiências pelas quais os consumidores passarão durante a redefinição da senha e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
+Para habilitar a redefinição de senha refinada no aplicativo, é utilizada uma política de **redefinição de senha**. Observe que a opção de redefinição de senha para todo o locatário é especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta política descreve as experiências pelas quais os clientes passarão durante a redefinição de senha e o conteúdo dos tokens que o aplicativo receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

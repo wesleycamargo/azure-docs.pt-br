@@ -1,25 +1,24 @@
 ---
-title: "Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB | Microsoft Docs"
-description: "Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados."
-keywords: "feed de alteração"
+title: Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB | Microsoft Docs
+description: Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados.
+keywords: feed de alteração
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e0940ab11f8840ffa2dbdbfd739340f8af5caf51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: be59f1a9dc19fffdb6a952c7db73756909036bf6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -34,7 +33,13 @@ O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie 
 ![Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do SQL e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON. 
+> Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do SQL e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON.
+
+No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra como o feed de alterações do Azure Cosmos DB funciona.
+
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
+>
+>
 
 ## <a name="how-does-change-feed-work"></a>Como o feed de alterações funciona?
 
@@ -154,6 +159,11 @@ Esta seção explica como usar o SDK do SQL para trabalhar com um feed de altera
             }
     }
     ```
+
+> [!NOTE]
+> Em vez de `ChangeFeedOptions.PartitionKeyRangeId`, é possível usar `ChangeFeedOptions.PartitionKey` para especificar uma única chave de partição para a qual obter um feed de alterações. Por exemplo, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> 
+>
 
 Se você tiver vários leitores, poderá usar **ChangeFeedOptions** para distribuir a carga de leitura em diferentes threads ou clientes.
 

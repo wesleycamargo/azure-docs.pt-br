@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: bff006bc208199457d97b6c0d00780869e77078e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 209ca603a3826c6516444ea4f3f4fe592e3b3f2e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302600"
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Recursos e ferramentas para o PowerShell no Azure Cloud Shell (versão prévia)
 
@@ -77,7 +78,7 @@ Usando [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellge
 Após a instalação, os módulos são automaticamente mantidos entre as sessões do Cloud Shell.
 
 > [!TIP]
-> Os módulos instalados pelos usuários são salvos na pasta `$Home\CloudDrive\.pscloudshell\WindowsPowerShell`. Um link simbólico para essa pasta é criado na pasta de documentos do usuário (`$home\Documents\WindowsPowerShell`).
+> Os módulos instalados pelos usuários são salvos na pasta `$Home\clouddrive\.pscloudshell\WindowsPowerShell`. Um link simbólico para essa pasta é criado na pasta de documentos do usuário (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
@@ -90,7 +91,7 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.29)](https://docs.microsoft.com/cli/azure)|
+|Ferramentas do Azure     |[Microsoft Azure PowerShell (6.0.1)](https://docs.microsoft.com/powershell/azure/overview)<br> [CLI do Azure (2.0.32)](https://docs.microsoft.com/cli/azure)|
 |Editores de texto    |vim<br> nano                             |
 |Gerenciador de Pacotes |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Controle do código-fonte  |git                                      |
@@ -102,8 +103,8 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 |**Linguagem**|**Versão**|
 |------------|-----------|
 |.NET        |4.6        |
-|Node.js     |6.10       |
-|PowerShell  |5.1 e [6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|Node.js     |8.9.4       |
+|PowerShell  |5.1 e [6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Próximas etapas

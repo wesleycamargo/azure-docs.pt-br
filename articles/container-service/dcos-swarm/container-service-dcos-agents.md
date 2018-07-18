@@ -1,19 +1,19 @@
 ---
-title: "Pools de agentes DC/OS para Serviço de Contêiner do Azure"
-description: "Como os pools de agentes públicos e privados funcionam com um cluster DC/OS do Serviço de Contêiner do Azure"
+title: Pools de agentes DC/OS para Serviço de Contêiner do Azure
+description: Como os pools de agentes públicos e privados funcionam com um cluster DC/OS do Serviço de Contêiner do Azure
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81059fd75f0e61324221614c4bb8eccd94203478
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Pools de agentes DC/OS para Serviço de Contêiner do Azure
 Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em dois pools, um público e um privado. Um aplicativo pode ser implantado em qualquer um dos pools, afetando a acessibilidade entre computadores no seu serviço de contêiner. Os computadores podem ser expostos à Internet (público) ou mantidos internamente (privado). Este artigo fornece uma visão geral sobre o motivo da existência de pools público e privado.

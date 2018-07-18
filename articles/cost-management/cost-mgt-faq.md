@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302732"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas frequentes sobre o Gerenciamento de Custos do Azure
 
@@ -148,4 +149,4 @@ Nº Os agentes não são usados. Os dados da métrica da máquina virtual do Azu
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Relatórios Cloudyn mostram mais de um locatário do AD por relatório?
 
-Sim. É possível [criar uma correspondência de entidade de conta de nuvem](tutorial-user-access.md#create-entities) para cada locatário do AD que você possui. Então, você poderá visualizar todos os dados de locatário do Azure Active Directory e outros provedores de plataforma de nuvem, incluindo Amazon Web Services e Google Cloud Platform.
+Sim. É possível [criar uma correspondência de entidade de conta de nuvem](tutorial-user-access.md#create-and-manage-entities) para cada locatário do AD que você possui. Então, você poderá visualizar todos os dados de locatário do Azure Active Directory e outros provedores de plataforma de nuvem, incluindo Amazon Web Services e Google Cloud Platform.

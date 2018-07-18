@@ -1,31 +1,26 @@
 ---
 title: Conectar-se ao SQL Data Warehouse do Azure | Microsoft Docs
-description: "Como localizar o servidor de nome e a cadeia de conexão para o Azure SQL Data Warehouse"
+description: Conecte-se ao SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 12/14/2017
-ms.author: anvang;barbkess;kevin
-ms.openlocfilehash: 804d91d309fcce42f0ac50ac98dbad9c5648b4eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
-Este artigo ajuda você a conectar o SQL Data Warehouse pela primeira vez.
+Conecte-se ao SQL Data Warehouse do Azure.
 
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
-A primeira etapa para conectar o SQL Data Warehouse é saber como localizar o nome do servidor.  Por exemplo, o nome do servidor no exemplo a seguir é samplesvr.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
+O nome do servidor no exemplo a seguir é samplesvr.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
 
 1. Acesse o [Portal do Azure][Azure portal].
 2. Clique em **SQL Data Warehouses**.
@@ -35,7 +30,7 @@ A primeira etapa para conectar o SQL Data Warehouse é saber como localizar o no
     ![Nome completo do servidor][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
-SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Clique em um dos drivers anteriores para localizar a versão mais recente e a documentação. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no portal do Azure, você pode clicar em **Mostrar cadeias de conexão do banco de dados** no exemplo anterior.  A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
+SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no Portal do Azure, clique em **Mostrar cadeias de conexão de banco de dados** no exemplo anterior. A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
 
 > [!NOTE]
 > Considere definir o tempo limite de conexão para 300 segundos a fim de permitir que a conexão perdure em curtos períodos de indisponibilidade.

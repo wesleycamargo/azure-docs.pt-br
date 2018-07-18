@@ -1,8 +1,8 @@
 ---
 title: Use uma MSI de VM do Linux para acessar o Armazenamento do Azure usando uma credencial SAS
-description: "Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Linux para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento."
+description: Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Linux para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba

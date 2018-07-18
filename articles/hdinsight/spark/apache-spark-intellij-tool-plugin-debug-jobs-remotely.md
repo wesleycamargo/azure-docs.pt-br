@@ -2,7 +2,7 @@
 title: 'Kit de ferramentas do Azure para IntelliJ: depurar aplicativos remotamente no HDInsight Spark | Microsoft Docs'
 description: Saiba como usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar remotamente os aplicativos Spark executados em clusters do HDInsight por meio de VPN.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6ca69ccab6c9b526c86f6f7a8998089e52c6c939
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o kit de ferramentas do Azure para IntelliJ para depurar aplicativos Spark remotamente no HDInsight por meio de VPN
 
@@ -60,7 +58,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 2. Na interface do usuário do Ambari, selecione **Hosts**.
 
     ![Selecionar Hosts no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn***. Selecione o primeiro nó de cabeçalho.
+3. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn**\*. Selecione o primeiro nó de cabeçalho.
 
     ![Localizar o nó de cabeçalho no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 4. No painel **Resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeçalho e o **nome do host**.

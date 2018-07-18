@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o FieldGlass | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o FieldGlass."
+title: 'Tutorial: Integração do Azure Active Directory com o FieldGlass | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o FieldGlass.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 15d55e00ce635599ba11d1310d9efe03e56cbddf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71f5e0ce3c734c2374da7af3260b99e31babe6b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com o FieldGlass
 
@@ -29,9 +29,9 @@ A integração do FieldGlass ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que os usuários façam logon automaticamente no FieldGlass (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o FieldGlass, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do FieldGlass da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-fieldglass-from-the-gallery"></a>Adição do FieldGlass da galeria
 Para configurar a integração do FieldGlass ao Azure AD, você precisará adicionar o FieldGlass da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do FieldGlass ao Azure AD, você precisará adici
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **FieldGlass**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do FieldGlass ao Azure AD, você precisará adici
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configura e testa o logon único do Azure AD com o Fieldglass com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do FieldGlass é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do FieldGlass.
@@ -86,11 +86,11 @@ No Fieldglass, atribua o valor do **nome de usuário** no Azure AD como o valor 
 
 Para configurar e testar o logon único do Azure AD com o FieldGlass, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Como criar um usuário de teste do FieldGlass](#creating-a-fieldglass-test-user)** – para ter um equivalente de Brenda Fernandes no FieldGlass que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração de aplicativos do **Fieldglass**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_samlbase.png)
 
 3. Na seção **URLs e Domínio do Fieldglass**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_url.png)
 
     a. Na caixa de texto **Identificador**, digite a URL `https://www.fieldglass.com` ou siga o padrão: `https://<company name>.fgvms.com`
 
@@ -127,13 +127,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-fieldglass-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-fieldglass-tutorial/tutorial_general_400.png)
 
 6. Na seção **Configuração do Fieldglass**, clique em **Configurar Fieldglass** para abrir a janela **Configurar logon**. Copie a **URL de Logoff e a ID da Entidade do SAML** da **seção Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-7. Para configurar logon único no lado do **Fieldglass**, você precisa enviar o **Certificado (Base64)** baixado e a **URL de Logoff, ID da Entidade SAML** para a [equipe de suporte do Fieldglass](http://www.fieldglass.com/solutions/support). Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.
+7. Para configurar logon único no lado do **Fieldglass**, você precisa enviar o **Certificado (Base64)** baixado e a **URL de Logoff, ID da Entidade SAML** para a [equipe de suporte do Fieldglass](http://www.fieldglass.com/solutions/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -187,7 +187,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, escolha **FieldGlass**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -212,7 +212,7 @@ Quando você clica no bloco FieldGlass no Painel de Acesso, deve fazer logon aut
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

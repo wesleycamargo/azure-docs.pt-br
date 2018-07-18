@@ -5,19 +5,20 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -157,7 +158,7 @@ O código deve ser implementado da seguinte maneira:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ O código deve ser implementado da seguinte maneira:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken é o método ADAL padrão usado para obter tokens. Em casos em que a identidade do usuário seja obrigatória, AcquireToken tenta obter um token silenciosamente primeiro e, em seguida, exibe a interface do usuário, se necessário (a menos que PromptBehavior.Never seja passado). Em casos em que a identidade do aplicativo seja obrigatória, AcquireToken tenta obter um token, mas não mostra a interface do usuário, pois não há usuário final.  
+AcquireToken é o método ADAL padrão usado para obter tokens. Em casos em que a identidade do usuário seja obrigatória, AcquireToken tenta obter um token silenciosamente primeiro e, em seguida, exibe a interface do usuário, se necessário (a menos que PromptBehavior.Never seja passado). Em casos em que a identidade do aplicativo seja obrigatória, AcquireToken tenta obter um token, mas não mostra a interface do usuário, pois não há usuário final. 
 
-Durante a manipulação de erros AcquireToken, o tratamento de erro depende da plataforma e do cenário que o aplicativo está tentando atingir.  
+Durante a manipulação de erros AcquireToken, o tratamento de erro depende da plataforma e do cenário que o aplicativo está tentando atingir. 
 
 O sistema operacional também pode gerar um conjunto de erros, que exigem o tratamento de erro de acordo com o aplicativo específico. Para obter mais informações, consulte "Erros de sistema operacional" em [Referência de erro registro em log](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ O sistema operacional também pode gerar um conjunto de erros, que exigem o trat
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de erro e etapas práticas: aplicativos de cliente nativo
 
-Se você estiver criando um aplicativo de cliente nativo, há alguns casos de tratamento de erro a serem considerados que estão relacionados a problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, um aplicativo não deve realizar novas tentativas imediatas, e sim aguardar a interação do usuário final que solicita uma entrada.  
+Se você estiver criando um aplicativo de cliente nativo, há alguns casos de tratamento de erro a serem considerados que estão relacionados a problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, um aplicativo não deve realizar novas tentativas imediatas, e sim aguardar a interação do usuário final que solicita uma entrada. 
 
 Há alguns casos especiais em que uma única repetição pode resolver o problema. Por exemplo, quando um usuário precisa habilitar dados em um dispositivo ou concluir o download do agente do Azure Active Directory depois da falha inicial. 
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de erro e etapas práticas: aplicativos de Página Única (adal.js)
 
-Se você estiver criando um aplicativo de página única usando adal.js com AcquireToken, o código de tratamento de erro será semelhante ao de uma chamada silenciosa típica.  Mais especificamente em adal.js, AcquireToken jamais mostra uma interface do usuário. 
+Se você estiver criando um aplicativo de página única usando adal.js com AcquireToken, o código de tratamento de erro será semelhante ao de uma chamada silenciosa típica. Mais especificamente em adal.js, AcquireToken jamais mostra uma interface do usuário. 
 
 Um AcquireToken com falha tem os seguintes casos:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

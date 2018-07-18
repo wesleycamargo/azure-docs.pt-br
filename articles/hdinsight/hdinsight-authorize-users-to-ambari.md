@@ -1,26 +1,24 @@
 ---
-title: "Autorizar usuários para o Ambari Views – Azure HDInsight | Microsoft Docs"
-description: "Como gerenciar permissões de usuário e de grupo do Ambari para clusters HDInsight ingressados no domínio."
+title: Autorizar usuários para o Ambari Views – Azure HDInsight | Microsoft Docs
+description: Como gerenciar permissões de usuário e de grupo do Ambari para clusters HDInsight ingressados no domínio.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 0e7eb7fa57630e5ae52d4bf5e4321456c6bff54a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizar usuários para o Ambari Views
 
@@ -122,7 +120,7 @@ A exibição Lista fornece recursos de edição rápidos em duas categorias: Usu
 
     ![Exibição em lista das funções – usuários](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* A categoria Grupos da exibição Lista exibe todos os grupos e a função atribuída a cada grupo. Em nosso exemplo, a lista de grupos é sincronizada com os grupos do Azure AD especificados na propriedade **Acessar grupo de usuários** das configurações de domínio do cluster. Consulte [Criar cluster HDInsight](./domain-joined/apache-domain-joined-configure.md#create-an-hdinsight-cluster-in-the-vnet).
+* A categoria Grupos da exibição Lista exibe todos os grupos e a função atribuída a cada grupo. Em nosso exemplo, a lista de grupos é sincronizada com os grupos do Azure AD especificados na propriedade **Acessar grupo de usuários** das configurações de domínio do cluster. Veja [Criar um cluster HDInsight associado a um domínio](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Exibição em lista das funções – grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

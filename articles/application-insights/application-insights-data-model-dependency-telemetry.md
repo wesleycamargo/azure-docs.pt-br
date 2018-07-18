@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de dependências | Microsoft Docs"
-description: "Modelo de dados do Application Insights para telemetria de dependências"
+title: Modelo de dados do Azure Application Insights Telemetry – telemetria de dependências | Microsoft Docs
+description: Modelo de dados do Application Insights para telemetria de dependências
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: aa305c30dc358997420be6802d43fa69e45f4a5f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
 A telemetria de dependência (em [Application Insights](app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardinalidade. Os exemplos são o nome do procedimento armazenado e o modelo do caminho da URL.
 
@@ -34,7 +34,7 @@ Identificador de uma instância de chamada de dependência. Usado para correlaç
 
 Comando iniciado por essa chamada de dependência. Exemplos são a instrução SQL e a URL HTTP com todos os parâmetros de consulta.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>type
 
 Nome do tipo de dependência. Valor de baixa cardinalidade para agrupamento lógico de dependências e a interpretação de outros campos como commandName e resultCode. Exemplos são HTTP, tabela do Azure e SQL.
 
@@ -42,7 +42,7 @@ Nome do tipo de dependência. Valor de baixa cardinalidade para agrupamento lóg
 
 Site de destino de uma chamada de dependência. Os exemplos são o nome do servidor e o endereço do host. Para obter mais informações, consulte a página de [correlação](application-insights-correlation.md).
 
-## <a name="duration"></a>Duração
+## <a name="duration"></a>Duration
 
 Duração da solicitação no formato: `DD.HH:MM:SS.MMMMMM`. Deve ser menor que `1000` dias.
 

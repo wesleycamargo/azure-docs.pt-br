@@ -16,6 +16,7 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 | --- | --- |
 | Máximo de hubs IoT por assinatura do Azure |10 |
 | Máximo de hubs IoT por assinatura do Azure |1 |
+| Número máximo de caracteres em uma ID de Dispositivo | 128 |
 | Número máximo de identidades de dispositivo<br/> retornadas em uma única chamada |1000 |
 | Retenção máxima de mensagem do Hub IoT para mensagens do dispositivo para nuvem |7 dias |
 | Tamanho máximo da mensagem do dispositivo para a nuvem |256 KB |
@@ -41,7 +42,7 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 500.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 500.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são excedidas:
 

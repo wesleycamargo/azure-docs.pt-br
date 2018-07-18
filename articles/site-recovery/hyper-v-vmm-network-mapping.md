@@ -1,18 +1,18 @@
 ---
-title: "Sobre o mapeamento de plano de rede para replicação de Hyper-V VM (com VMM) para o Azure com Site Recovery | Microsoft Docs"
-description: "Descreve como preparar o mapeamento de rede para replicação de VMs do Hyper-V gerenciadas em nuvens de VMM com o Azure Site Recovery."
+title: Sobre o mapeamento de plano de rede para replicação de Hyper-V VM (com VMM) para o Azure com Site Recovery | Microsoft Docs
+description: Descreve como preparar o mapeamento de rede para replicação de VMs do Hyper-V gerenciadas em nuvens de VMM com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa596bf4941ac791fa1bc697399a4591d97ba68f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparar o mapeamento da rede para a replicação de VM do Hyper-V para o Azure
 
@@ -58,7 +58,7 @@ A seguir, um exemplo para ilustrar esse mecanismo. Vamos usar uma organização 
 Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Não mapeado
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Não mapeado
+ | | VMNetwork2-Chicago | Não mapeado
 
 Neste exemplo:
 

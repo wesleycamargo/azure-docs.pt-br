@@ -1,31 +1,31 @@
 ---
 title: Tutorial de MongoDB, Angular e Node para Azure | Microsoft Docs
-description: "Saiba como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB com esta série de tutoriais em vídeo."
+description: Saiba como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB com esta série de tutoriais em vídeo.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 37bc34c470190f3acb1f0f2e9bed5e0a4918405b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c7eaa7a5240f58cb3858de037bb74a1191182c13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB 
 
 Este tutorial com várias partes demonstra como criar uma novo aplicativo [API do MongoDB](mongodb-introduction.md) com Express, Angular e Node.js (o grupo MEAN) e conectá-lo ao seu banco de dados do Azure Cosmos DB. O Azure Cosmos DB dá suporte a conexões de cliente do MongoDB e, portanto, você pode usar o Azure Cosmos DB no lugar do MongoDB, mas com o mesmo código que usa para aplicativos do MongoDB; só que com benefícios adicionais. Esses benefícios do Azure Cosmos DB são implantação fácil na nuvem, dimensionamento, segurança, dados replicados globalmente, suporte a vários modelos e leituras e gravações muito rápidas. 
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. Ele permite criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo que se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Ele permite criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo que se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
 Este tutorial com várias partes aborda as seguintes tarefas:
 

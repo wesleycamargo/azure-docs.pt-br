@@ -1,23 +1,23 @@
 ---
 title: Copiar dados do Presto utilizando o Azure Data Factory (Beta) | Microsoft Docs
-description: "Saiba como copiar dados do Presto para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados do Presto para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 713826f890f6fb37a1e231d84e7e3c3b149dd58a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d801dbb8060cf2fa175086fc5324f444870412
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Copiar dados do Presto utilizando o Azure Data Factory (Beta)
 
@@ -74,7 +74,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Presto:
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

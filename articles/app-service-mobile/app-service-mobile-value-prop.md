@@ -1,11 +1,11 @@
 ---
-title: "Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure"
-description: "Saiba mais sobre as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos."
+title: Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
+description: Saiba mais sobre as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e84ac98508b791b4617ead2b6bf3b0edc549bdb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
 O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
@@ -104,4 +104,4 @@ Para saber mais sobre a plataforma de Serviço de Aplicativo do Azure, consulte 
 [redes virtuais]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [Ambientes do Serviço de Aplicativo]: ../app-service/environment/intro.md
-[mapa de aprendizado]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[mapa de aprendizado]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

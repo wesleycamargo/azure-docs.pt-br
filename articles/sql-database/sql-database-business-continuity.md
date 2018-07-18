@@ -7,17 +7,17 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192383"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -27,25 +27,25 @@ Esta visão geral descreve os recursos que o Banco de Dados SQL do Azure fornece
 
 O Banco de Dados SQL fornece vários recursos de continuidade dos negócios, incluindo backups automatizados e replicação opcional do banco de dados. Cada um deles tem características diferentes para o ERT (tempo de recuperação estimado) e para a perda potencial de dados em transações recentes. Depois de compreender essas opções, você poderá escolher entre elas e, na maioria dos cenários, usá-las simultaneamente em cenários diferentes. À medida que desenvolve seu plano de continuidade de negócios, você precisará compreender o tempo máximo aceitável antes que o aplicativo se recupere totalmente após um evento de interrupção - este é o RTO (objetivo do tempo de recuperação). Você também precisará compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que o aplicativo poderá tolerar perder durante a recuperação após um evento de interrupção - esse é seu RPO (objetivo de ponto de recuperação).
 
-A tabela a seguir compara o ERT e RPO para os três cenários mais comuns.
+A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os três cenários mais comuns.
 
-| Recurso | Camada básica | Camada padrão | Camada premium |
-| --- | --- | --- | --- |
-| Recuperação Pontual do backup |Qualquer ponto de restauração dentro de 7 dias |Qualquer ponto de restauração dentro de 35 dias |Qualquer ponto de restauração dentro de 35 dias |
-| Restauração geográfica de backups replicados geograficamente |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
-| Restaurar Cofre de Backup do Azure |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |
-| Replicação geográfica ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
+| Recurso | Basic | Standard | Premium  | Uso geral | Comercialmente Crítico
+| --- | --- | --- | --- |--- |--- |
+| Recuperação Pontual do backup |Qualquer ponto de restauração dentro de 7 dias |Qualquer ponto de restauração dentro de 35 dias |Qualquer ponto de restauração dentro de 35 dias |Qualquer ponto de restauração dentro do período configurado (até 35 dias)|Qualquer ponto de restauração dentro do período configurado (até 35 dias)|
+| Restauração geográfica de backups replicados geograficamente |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
+| Restaurar Cofre de Backup do Azure |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana|ERT < 12h, RPO < 1 semana|
+| Replicação geográfica ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Usar backups de banco de dados para recuperar um banco de dados
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Use a recuperação pontual para recuperar um banco de dados
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento com redundância geográfica por 35 dias, no caso dos bancos de dados das camadas de serviço Standard e Premium, e por sete dias no caso dos bancos de dados da camada de serviço Básica. Para saber mais, consulte [Camadas de serviço](sql-database-service-tiers.md). Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Se você estiver usando o [modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md), a retenção de backups é configurável em até 35 dias nas camadas crítica de Negócios e uso geral. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
 
-Se o período de retenção interno não for suficiente para seu aplicativo, você pode estendê-lo configurando a política de retenção de longo prazo de bancos de dados. Para saber mais, confira [Retenção de longo prazo](sql-database-long-term-retention.md).
+Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 Você pode usar esses backups automáticos do banco de dados para recuperar um banco de dados de diversos eventos de interrupção, tanto em seu data center quanto em outro. Ao usar os backups automáticos de banco de dados, o tempo estimado de recuperação dependerá de vários fatores, incluindo o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados, o tamanho do log de transações e a largura de banda da rede. Normalmente, o tempo de recuperação é menor do que 12 horas. Ao recuperar em outra região de dados, a perda de dados potencial será limitada a uma hora pelo armazenamento com redundância geográfica dos backups de banco de dados diferenciais por hora.
 
 > [!IMPORTANT]
-> Para recuperar usando os backups automáticos, você deverá ser um membro da função Colaborador do SQL Server ou o proprietário da assinatura, consulte [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
+> Para recuperar usando os backups automáticos, você deverá ser um membro da função Colaborador do SQL Server ou o proprietário da assinatura, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o Portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
 >
 
 Use os backups automatizados como o mecanismo de continuidade e recuperação dos negócios se seu aplicativo:
@@ -55,7 +55,7 @@ Use os backups automatizados como o mecanismo de continuidade e recuperação do
 * Tiver uma taxa baixa de alteração de dados (poucas transações por hora), uma vez que perder até uma hora de alterações é uma perda de dados aceitável.
 * Seja suscetível aos custos.
 
-Se você precisar de uma recuperação mais rápida, use a [replicação geográfica ativa](sql-database-geo-replication-overview.md) (discutida a seguir). Se você precisar recuperar dados de um período superior a 35 dias, use a [retenção de backup de longo prazo](sql-database-long-term-retention.md). 
+Se você precisar de uma recuperação mais rápida, use a [replicação geográfica ativa](sql-database-geo-replication-overview.md) (discutida a seguir). Se for necessário recuperar dados de um período anterior a 35 dias, use [Retenção de longo prazo](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usar a replicação geográfica ativa e os grupos de failover automático (em versão prévia) para reduzir o tempo de recuperação e limitar a perda de dados associada a uma recuperação
 
@@ -77,12 +77,12 @@ Use a replicação geográfica ativa e os grupos de failover automático (em ver
 * Tenha uma alta taxa de alteração de dados e que a perda de uma hora de dados não seja aceitável.
 * Que o custo adicional da replicação geográfica ativa seja menor que a responsabilidade financeira potencial e das perdas associadas do negócio.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar um banco de dados após um erro de usuário ou de aplicativo
-*Ninguém é perfeito! Um usuário pode acidentalmente excluir alguns dados, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Ou, um aplicativo pode acidentalmente substituir dados corretos por incorretos por causa de um defeito.
+
+Ninguém é perfeito! Um usuário pode acidentalmente excluir alguns dados, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Ou, um aplicativo pode acidentalmente substituir dados corretos por incorretos por causa de um defeito.
 
 Neste cenário, estas são as opções de recuperação.
 
@@ -98,11 +98,11 @@ Para obter mais informações e as etapas detalhadas para restaurar um banco de 
 
 > [!IMPORTANT]
 > Se o servidor lógico for excluído, você não poderá recuperar um banco de dados excluído.
->
->
 
-### <a name="restore-from-azure-backup-vault"></a>Restaurar Cofre de Backup do Azure
-Se a perda de dados ocorreu fora do período de retenção atual para backups automatizados e seu banco de dados estiver configurado para retenção de longo prazo, você pode restaurar de um backup semanal no Cofre de Backup do Azure para um novo banco de dados. Nesse ponto, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários do banco de dados restaurado para o original. Se precisar recuperar uma versão antiga do banco de dados antes de uma grande atualização do aplicativo, atender a uma solicitação de auditores ou a uma sentença judicial, você pode criar um banco de dados usando um backup completo salvo no Cofre de Backup do Azure.  Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+
+### <a name="restore-backups-from-long-term-retention"></a>Restaurar backups de retenção de longo prazo
+
+Se a perda de dados ocorreu fora do período de retenção atual para backups automatizados e o banco de dados está configurado para retenção de longo prazo, será possível restaurar de um backup completo no armazenamento LTR para um novo banco de dados. Nesse ponto, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários do banco de dados restaurado para o original. Se precisar recuperar uma versão antiga do banco de dados antes de uma grande atualização do aplicativo, atender a uma solicitação de auditores ou a uma sentença judicial, você pode criar um banco de dados usando um backup completo salvo no Cofre de Backup do Azure.  Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperar um banco de dados para outra região de uma interrupção no centro de dados regionais do Azure
 <!-- Explain this scenario -->

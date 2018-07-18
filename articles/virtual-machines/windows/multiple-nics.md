@@ -1,11 +1,11 @@
 ---
-title: "Crie e gerencie as VMs do Windows no Azure que usam várias NICs | Microsoft Docs"
-description: "Saiba como criar e gerenciar uma VM do Windows que tem várias NICs anexadas usando o Azure PowerShell ou modelos do Resource Manager."
+title: Crie e gerencie as VMs do Windows no Azure que usam várias NICs | Microsoft Docs
+description: Saiba como criar e gerenciar uma VM do Windows que tem várias NICs anexadas usando o Azure PowerShell ou modelos do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 776ae83990a7799102c69347196a72a68561ee6b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Cria e gerencia uma máquina virtual do Windows que tem várias NICs
 As máquinas virtuais (VMs) no Azure podem ter várias placas de interface de rede virtual (NICs) anexadas a elas. Um cenário comum é ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece detalhes sobre como criar uma VM que tem várias NICs anexadas. Você também aprenderá a adicionar ou remover as NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
@@ -76,7 +76,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente, você também criaria um [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) para filtrar o tráfego de rede para a VM e um [balanceador de carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego entre diversas VMs.
+Normalmente, você também criaria um [grupo de segurança de rede](../../virtual-network/security-overview.md) para filtrar o tráfego de rede para a VM e um [balanceador de carga](../../load-balancer/load-balancer-overview.md) para distribuir o tráfego entre diversas VMs.
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite para o número total de NICs que podem ser adicionada a uma VM. Para obter mais informações, consulte [Tamanhos da VM no Windows](sizes.md) .
@@ -116,11 +116,13 @@ Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Finalmente, crie sua VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Crie sua VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Adicione rotas para NICs secundárias ao SO, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adicionar uma NIC a uma VM existente
 Para adicionar uma NIC virtual a uma VM existente, você desalocar a VM, adiciona a NIC virtual e inicia a VM. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente. Se necessário, é possível [redimensionar uma VM](resize-vm.md).
@@ -175,6 +177,8 @@ Para adicionar uma NIC virtual a uma VM existente, você desalocar a VM, adicion
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Adicione rotas para NICs secundárias ao SO, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Remover uma NIC de uma VM existente
 Para remover uma NIC virtual de uma VM existente, você desaloca a VM, remove a NIC virtual e inicia a VM.
@@ -231,7 +235,9 @@ Você também pode usar `copyIndex()` para acrescentar um número a um nome de r
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Você pode ler um exemplo completo em [criando várias NICs usando modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Você pode ler um exemplo completo em [criando várias NICs usando modelos do Resource Manager](../../virtual-network/template-samples.md).
+
+Adicione rotas para NICs secundárias ao SO, concluindo as etapas em [Configurar o sistema operacional para várias NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para várias NICs
 

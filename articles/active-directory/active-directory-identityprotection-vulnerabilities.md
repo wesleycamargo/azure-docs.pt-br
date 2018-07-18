@@ -1,9 +1,9 @@
 ---
 title: Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection | Microsoft Docs
-description: "Visão geral das vulnerabilidades detectadas pelo Azure Active Directory Identity Protection."
+description: Visão geral das vulnerabilidades detectadas pelo Azure Active Directory Identity Protection.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são pontos fracos no seu ambiente que podem ser explorados por um invasor. É recomendável resolver essas vulnerabilidades para melhorar a postura de segurança de sua organização e impedir que invasores possam explorá-las.
@@ -38,7 +38,7 @@ A Azure Multi-Factor Authentication fornece uma segunda camada de segurança par
 
 Recomendamos exigir a Autenticação Multifator do Azure para entradas de usuário. A autenticação multifator desempenha um papel fundamental nas políticas de acesso condicional baseadas em risco disponíveis por meio do Identity Protection.
 
-Para obter mais detalhes, veja [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, veja [O que é a Autenticação Multifator do Azure?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicativos de nuvem não gerenciados
 Essa vulnerabilidade ajuda a identificar aplicativos de nuvem não gerenciados na sua organização.
@@ -47,7 +47,7 @@ Nas empresas modernas, os departamentos de TI geralmente não estão cientes de 
 
 Recomendamos que sua organização implante o Cloud App Discovery para descobrir aplicativos de nuvem não gerenciados e gerencie esses aplicativos usando o Azure Active Directory.
 
-Para obter mais detalhes, veja [Encontrando aplicativos de nuvem não gerenciados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Para obter mais detalhes, veja [Encontrando aplicativos de nuvem não gerenciados com o Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de Segurança do Privileged Identity Management
 Essa vulnerabilidade ajuda você a descobrir e resolver alertas sobre identidades com privilégios na sua organização.  

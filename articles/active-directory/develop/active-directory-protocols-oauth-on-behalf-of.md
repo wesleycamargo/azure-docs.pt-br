@@ -1,25 +1,28 @@
 ---
-title: "Autenticação de serviço para serviço do Azure AD usando a especificação de rascunho em nome de OAuth2.0 | Microsoft Docs"
-description: "Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo em nome de do OAuth2.0."
+title: Autenticação de serviço para serviço do Azure AD usando a especificação de rascunho em nome de OAuth2.0 | Microsoft Docs
+description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo em nome de do OAuth2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157207"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço para serviço a identidade do usuário delegado no fluxo em nome de
 O fluxo em nome de do OAuth 2.0 satisfaz o caso de uso em que um aplicativo chama um serviço/API Web, que por sua vez precisa chamar outro serviço/API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. Para o serviço de camada intermediária fazer solicitações autenticadas para o serviço downstream, ele precisa proteger um token de acesso do Azure AD (Azure Active Directory) em nome do usuário.
@@ -74,7 +77,7 @@ Há dois casos, dependendo se o aplicativo cliente escolhe a ser protegida por u
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
-| Parâmetro |  | Descrição |
+| Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | asserção |obrigatório | O valor do token usado na solicitação. |
@@ -106,13 +109,13 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 Uma solicitação de token de acesso de serviço para serviço com certificado contém estes parâmetros:
 
-| Parâmetro |  | Descrição |
+| Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | asserção |obrigatório | O valor do token usado na solicitação. |
 | client_id |obrigatório | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory**, no diretório e depois no nome do aplicativo. |
 | client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obrigatório | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo.  Leia mais sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e saber sobre o formato da asserção.|
+| client_assertion |obrigatório | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Leia mais sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e saber sobre o formato da asserção.|
 | recurso |obrigatório | O URI da ID do Aplicativo do serviço Web de recebimento (recurso protegido). Para localizar o URI de ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory** e depois no diretório, no nome do aplicativo, em **Todas as configurações** e em **Propriedades**. |
 | requested_token_use |obrigatório | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para OpenID Connect, a **openid** do escopo deve ser especificada.|
@@ -120,7 +123,7 @@ Uma solicitação de token de acesso de serviço para serviço com certificado c
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro client_secret ser substituído por dois parâmetros: um client_assertion_type e uma client_assertion.
 
 #### <a name="example"></a>Exemplo
-O HTTP POST a seguir solicita um token de acesso à API Web https://graph.windows.net com um certificado. O `client_id` identifica o serviço que solicita o token de acesso.
+O HTTP POST a seguir solicita um token de acesso para a API Web https://graph.windows.net com um certificado. O `client_id` identifica o serviço que solicita o token de acesso.
 
 ```
 // line breaks for legibility only
@@ -142,7 +145,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ## <a name="service-to-service-access-token-response"></a>Resposta de token de acesso de serviço para serviço
 Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a seguir.
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |
@@ -154,7 +157,7 @@ Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a
 | refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada poderá usar esse token para solicitar outro token de acesso depois que o token de acesso atual expirar. |
 
 ### <a name="success-response-example"></a>Exemplo de resposta de êxito
-O exemplo a seguir mostra uma resposta de êxito a uma solicitação de um token de acesso para a API Web https://graph.windows.net.
+O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um token de acesso para a API Web https://graph.windows.net.
 
 ```
 {

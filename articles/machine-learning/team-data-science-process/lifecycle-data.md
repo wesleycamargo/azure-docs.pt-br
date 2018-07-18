@@ -1,24 +1,24 @@
 ---
-title: "Estágio de aquisição de dados e entendimento do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "As metas, as tarefas e os resultados para o estágio de aquisição de dados e entendimento dos seus projetos de ciência de dados"
+title: Estágio de aquisição de dados e entendimento do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: As metas, as tarefas e os resultados para o estágio de aquisição de dados e entendimento dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 9618653e8f77c69a3a95fe27ee55c4f05c55a66e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 9ed793ac6a2efbd682bb739626c4d3a5f3551a3f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-acquisition-and-understanding"></a>Compreensão e aquisição de dados
 

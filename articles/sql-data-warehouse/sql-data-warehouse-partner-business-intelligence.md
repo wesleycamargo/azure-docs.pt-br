@@ -1,31 +1,26 @@
 ---
 title: Parceiros de Business Intelligence do SQL Data Warehouse | Microsoft Docs
-description: "Listas de parceiros terceirizados de business intelligence com soluções que dão suporte ao SQL Data Warehouse."
+description: Listas de parceiros terceirizados de business intelligence com soluções que dão suporte ao SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: efd968c054543bc0f5bc7b6c768708400cfadf15
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de business intelligence do SQL Data Warehouse
 Para criar uma solução completa de data warehouse, você pode escolher dentre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca empresas parceiras da Microsoft que têm soluções de BI (business intelligence) que dão suporte ao Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Nossos parceiros de business intelligence
-| Parceiro | Descrição | Links | Vídeos |
+| Parceiro | DESCRIÇÃO | Links | vídeos |
 | --- | --- | --- | --- |
 | ![Birst][1] |**Birst**<br>A Birst é uma líder global em análise e BI na nuvem. As empresas podem criar uma fonte de dados confiável dentro do contexto de cada usuário corporativo importante. Assim, os usuários corporativos em toda a organização podem reportar e analisar informações com ferramentas de BI de nível mundial. |[Marketplace][birst_marketplace]<br>[Site][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
 | ![ClearStory Data][2] |**ClearStory Data**<br>A ClearStory Data permite análise de ciclo rápido entre dados distintos armazenados no SQL Data Warehouse. A plataforma integrada baseada em Spark e o aplicativo de análise da ClearStory aceleram o acesso a dados e a harmonização de conjuntos de dados díspares. Eles permitem exploração colaborativa rápida, que proporciona autoconfiança aos usuários corporativos no ganho de percepções. |[Site][clearstory_website]<br>[Folha de dados][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
@@ -99,16 +94,16 @@ Para saber mais sobre alguns de nossos outros parceiros, confira [Parceiros de I
 <!--Marketplace Links -->
 [birst_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
 <!--[clearstory_marketplace]:-->
-[dell_statistica_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dell-software/statistica-data-miner/ 
-[dundas_bi_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/dundas/dundas-bi/ 
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/ 
+[dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 <!--[jinfonet_marketplace]:-->
-[logianalytics_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/logi-analytics/logi-info-11/ 
-[looker_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/looker/looker-analytics-platform-326/ 
-<!--[qlik_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/qliktech-international-ab/qlikview/ -->
-[sisense_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/sisense/sisense-byol/ 
-[tableau_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/tableau/tableau-server/
-[targit_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/targit/targit-decision-suite/ 
-[yellowfin_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
+[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/ 
+[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/ 
+<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
+[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/ 
+[tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
+[targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
+[yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
 
 <!--Press links-->
 <!--[birst_press]:-->

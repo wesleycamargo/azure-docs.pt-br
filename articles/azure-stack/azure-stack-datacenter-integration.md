@@ -1,25 +1,25 @@
 ---
-title: "Considerações sobre a integração geral datacenter Azure pilha integrado sistemas | Microsoft Docs"
-description: "Saiba o que você pode fazer para planejar agora e preparação para a integração do data center com vários nós do Azure pilha."
+title: Considerações sobre a integração geral datacenter Azure pilha integrado sistemas | Microsoft Docs
+description: Saiba o que você pode fazer para planejar agora e preparação para a integração do data center com vários nós do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -50,7 +50,9 @@ Quando um nível mais alto de acesso é necessário para a solução de problema
 ## <a name="identity-considerations"></a>Considerações de identidade
 
 ### <a name="choose-identity-provider"></a>Escolha o provedor de identidade
-Você precisará considerar qual provedor de identidade que você deseja usar para implantação de pilha do Azure, Azure AD ou AD FS. Não é possível alternar os provedores de identidade após a implantação sem reimplantação completa do sistema.
+Você precisará considerar qual provedor de identidade que você deseja usar para implantação de pilha do Azure, Azure AD ou AD FS. Não é possível alternar os provedores de identidade após a implantação sem reimplantação completa do sistema. Se você não possui a conta do AD do Azure e estiver usando uma conta fornecida pelo seu provedor de serviços de nuvem, e se você decidir alterne o provedor e use um AD do Azure diferente da conta, agora você precisará entrar em contato com seu provedor de soluções para reimplantar a solução f ou você em seu custo.
+
+
 
 A opção de provedor de identidade não tem suporte em máquinas virtuais de locatário, o sistema de identidade e contas usarem, se eles podem ingressar em um domínio do Active Directory, etc. Isso é separado.
 

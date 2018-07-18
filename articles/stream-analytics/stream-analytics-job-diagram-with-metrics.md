@@ -1,25 +1,19 @@
 ---
-title: "Depuração orientada a dados do Stream Analytics do Azure usando o diagrama de trabalho | Microsoft Docs"
-description: "Solucionar problemas do trabalho no Stream Analytics usando o diagrama de trabalho e métricas."
-keywords: 
-documentationcenter: 
+title: Depuração controlada por dados no Azure Stream Analytics
+description: Este artigo descreve como solucionar problemas de trabalhos no Azure Stream Analytics usando métrica e diagrama do trabalho no Portal do Azure.
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: samacha
-ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
@@ -82,11 +76,11 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Estamos ficando para trás na leitura dos dados?
 
-*   **InputEventsSourcesBackloggedTotal** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure.
+*   **Input Events Backlogged (Total)** informa quantas mensagens mais precisam ser lidas das entradas dos Hubs de Eventos e do Hub IoT do Azure. Quando esse número for maior que 0, significa que seu trabalho não pode processar os dados tão rápido quanto entram. Nesse caso, pode ser necessário aumentar o número de Unidades de Streaming e/ou verificar se que o trabalho pode ser colocado em paralelo. Você pode ver mais informações sobre isso na [página de paralelização de consulta](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)

@@ -1,25 +1,19 @@
 ---
-title: "Tutorial do Azure Search sobre indexação, consulta e filtragem usando o portal | Microsoft Docs"
-description: "No portal do Azure, use dados de exemplo predefinidos para gerar um índice no Azure Search. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais."
-services: search
-documentationcenter: 
+title: Tutorial do Azure Search sobre indexação, consulta e filtragem usando o portal | Microsoft Docs
+description: No portal do Azure, use dados de exemplo predefinidos para gerar um índice no Azure Search. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.date: 12/04/2017
+ms.topic: tutorial
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar um índice do Azure Search no portal
 
@@ -116,7 +110,7 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
    ![Comandos de índice e API][6]
 
-3. Clique em **Definir versão de API** na barra de comandos para ver quais APIs REST estão disponíveis. As APIs de Visualização dão acesso aos novos recursos que ainda não foram lançados de maneira geral. Para as consultas abaixo, use a versão disponível (2016-09-01), a menos que haja indicação em contrário. 
+3. Clique em **Definir versão de API** na barra de comandos para ver quais APIs REST estão disponíveis. As APIs de Visualização dão acesso aos novos recursos que ainda não foram lançados de maneira geral. Para as consultas abaixo, use a versão disponível (2017-11-11), a menos que haja indicação em contrário. 
 
     > [!NOTE]
     > A [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) e a [biblioteca .NET](search-howto-dotnet-sdk.md#core-scenarios) são totalmente equivalentes, mas o **Search Explorer** só é capaz de lidar com chamadas REST. Ele aceita a sintaxe para a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e para o [analisador de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações [Pesquisar Documento](https://docs.microsoft.com/rest/api/searchservice/search-documents).

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -236,7 +236,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -260,8 +260,8 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
@@ -292,13 +292,13 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -966,7 +966,7 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 
 **Powershell**
 
-* Fazer logon na assinatura com *Login-AzureRmAccount*
+* Fazer logon na assinatura com *Connect-AzureRmAccount*
 * Defina a assinatura do contexto com *Set-AzureRmContext* e o parâmetro SubscriptionId ou SubscriptionName – consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Carregue o VHD com *Add-AzureRmVhd* em uma Conta de Armazenamento do Azure – consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Opcional) Crie um Disco Gerenciado com base no VHD com *New-AzureRmDisk* – consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -979,7 +979,7 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 * Faça logon na sua assinatura com *az login*
 * Selecione a assinatura com o *az account set --subscription `<subscription name or id`>*
 * Carregar o VHD com o *az storage blob upload* - consulte [Usando a CLI do Azure com o Armazenamento do Azure][storage-azure-cli]
-* (Opcional) Criar um disco gerenciado com base no VHD com *az disk create* –consulte https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Opcional) Crie um Disco Gerenciado a partir do VHD com *az disk create* - consulte https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Criar uma nova VM especificando o VHD ou Managed Disk como disco de SO com *az vm create* e o parâmetro *--attach-os-disk*
 * Adicionar um disco de dados a uma nova VM com *az vm disk attach* e o parâmetro *--new*
 
@@ -993,7 +993,7 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 Para carregar uma VM ou um VHD existente da rede local para usá-lo como uma imagem de VM do Azure, a VM ou o VHD precisa atender aos requisitos listados no capítulo [Preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] deste documento.
 
 * Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
-* Fazer logon na assinatura com *Login-AzureRmAccount*
+* Fazer logon na assinatura com *Connect-AzureRmAccount*
 * Defina a assinatura do contexto com *Set-AzureRmContext* e o parâmetro SubscriptionId ou SubscriptionName – consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Carregue o VHD com *Add-AzureRmVhd* em uma Conta de Armazenamento do Azure – consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Opcional) Crie uma Imagem de Disco Gerenciado com base no VHD com *New-AzureRmImage* – consulte <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
@@ -1008,7 +1008,7 @@ Para carregar uma VM ou um VHD existente da rede local para usá-lo como uma ima
 * Faça logon na sua assinatura com *az login*
 * Selecione a assinatura com o *az account set --subscription `<subscription name or id`>*
 * Carregar o VHD com o *az storage blob upload* - consulte [Usando a CLI do Azure com o Armazenamento do Azure][storage-azure-cli]
-* (Opcional) Criar uma imagem do disco gerenciado com base no VHD com *az image create* – consulte https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Opcional) Crie uma Imagem de Disco Gerenciado a partir do VHD com *az image create* - consulte https://docs.microsoft.com/cli/azure/image#az_image_create
 * Criar uma nova VM especificando o VHD ou a Imagem do Managed Disk carregados como disco de SO com *az vm create* e o parâmetro *--image*
 
 **Modelo**

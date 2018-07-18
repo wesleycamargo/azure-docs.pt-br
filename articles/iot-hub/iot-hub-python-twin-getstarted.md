@@ -1,11 +1,11 @@
 ---
-title: "Introdução aos dispositivos gêmeos do Hub IoT do Azure (Python) | Microsoft Docs"
-description: "Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use os SDKs do IoT do Azure para Python para implementar o aplicativo de dispositivo simulado e um aplicativo de serviço que adiciona as marcações e executa a consulta do Hub IoT."
+title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (Python) | Microsoft Docs
+description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use os SDKs do IoT do Azure para Python para implementar o aplicativo de dispositivo simulado e um aplicativo de serviço que adiciona as marcações e executa a consulta do Hub IoT.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo
-ms.openlocfilehash: 20c1eeee6ca690ddcf0b9489b88689213b79488e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: kgremban
+ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -242,7 +242,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
 1. Executar o aplicativo do dispositivo
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     Você deve ver a confirmação de que os dispositivos gêmeos foram atualizados.
@@ -252,7 +252,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
 6. Agora que o dispositivo divulgou suas informações de conectividade, ele deve aparecer em ambas as consultas. Volte e execute as consultas novamente:
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     Desta vez, **{Device Id}** deve aparecer em ambos os resultados da consulta.

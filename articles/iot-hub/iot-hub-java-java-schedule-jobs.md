@@ -1,11 +1,11 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (Java) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto e definir uma propriedade desejada em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Java para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para Java para implementar um aplicativo de serviço que executa o trabalho."
+description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto e definir uma propriedade desejada em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Java para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para Java para implementar um aplicativo de serviço que executa o trabalho.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Agendar e difundir trabalhos (Java)
 
@@ -35,6 +35,8 @@ Para saber mais sobre cada uma dessas capacidades, consulte:
 
 * Dispositivo gêmeo e propriedades: [Introdução a dispositivos gêmeos](iot-hub-java-java-twin-getstarted.md)
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Usar métodos diretos](iot-hub-java-java-direct-methods.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostra como:
 
@@ -62,7 +64,7 @@ Para concluir este tutorial, você precisará:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Se você preferir criar a identidade do dispositivo programaticamente, leia a seção correspondente no artigo [Conectar seu dispositivo ao seu Hub IoT usando Java](iot-hub-java-java-getstarted.md#create-a-device-identity). Você também pode usar a ferramenta [extensão IoT para o Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) para adicionar um dispositivo ao Hub IoT.
+Você também pode usar a ferramenta [extensão IoT para o Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) para adicionar um dispositivo ao Hub IoT.
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
 

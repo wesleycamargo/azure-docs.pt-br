@@ -1,11 +1,11 @@
 ---
 title: Autorizar contas de desenvolvedor usando o Azure Active Directory - Gerenciamento de API do Azure | Microsoft Docs
-description: "Como autorizar usuários usando o Active Directory do Azure no Gerenciamento de API."
+description: Como autorizar usuários usando o Active Directory do Azure no Gerenciamento de API.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155374"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -62,7 +63,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
     O painel **Criar** é exibido à direita. É nela em que você pode inserir as informações relevantes do aplicativo do Azure AD.
 17. Insira um nome para o aplicativo.
 18. Para o tipo de aplicativo, selecione **Aplicativo Web/API**.
-19. Para a URL de entrada, insira a URL de entrada no portal do desenvolvedor. Neste exemplo, a URL de entrada é: https://apimwithaad.portal.azure-api.net/signin.
+19. Para a URL de entrada, insira a URL de entrada no portal do desenvolvedor. Neste exemplo, a URL de entrada é https://apimwithaad.portal.azure-api.net/signin.
 20. Selecione **Criar** para criar o aplicativo.
 21. Para localizar seu aplicativo, selecione **Registros do aplicativo** e pesquisa pelo nome.
 
@@ -100,6 +101,11 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 31. Alterne para o aplicativo de gerenciamento de API. 
 
     Na janela **Adicionar provedor de identidade**, cole a chave na caixa de texto **Segredo do cliente**.
+
+    > [!IMPORTANT]
+    > Certifique-se de atualizar o **Segredo do cliente** antes de a chave expirar. 
+    >  
+    >
 32. A janela **Adicionar provedor de identidade** também contém a caixa de texto **Locatários Permitidos**. Lá, especifique os domínios das instâncias do Azure AD para os quais você deseja conceder acesso às APIs da instância de serviço Gerenciamento da API. Você pode separar múltiplos domínios com novas linhas, espaços ou vírgulas.
 
     Você pode especificar vários domínios na seção **Locatários Permitidos**. Antes que qualquer usuário possa entrar por meio de um domínio diferente do domínio original em que o aplicativo foi registrado, um administrador global do domínio diferente deve conceder permissão para o aplicativo para acessar dados de diretório. Para conceder permissão, o administrador global deve:

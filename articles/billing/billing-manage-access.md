@@ -1,33 +1,33 @@
 ---
-title: "Gerenciar o acesso a cobrança usando funções do Azure | Documentos do Microsoft"
-description: 
-services: 
-documentationcenter: 
+title: Gerenciar o acesso a cobrança usando funções do Azure | Documentos do Microsoft
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerenciar o acesso a informações de cobrança do Azure usando o controle de acesso baseado em função
 
-Você pode conceder acesso a informações de cobrança do Azure para membros da equipe atribuindo uma das seguintes funções de usuário para sua assinatura: Conta de Administrador, Administrador de serviço, Coadministrador, Proprietário, Colaborador, Leitor e Leitor de cobrança. Elas podem ter acesso a informações de cobrança no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de cobrança](billing-usage-rate-card-overview.md) para obter programaticamente os detalhes de uso e notas fiscais (uma vez decidido). Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../active-directory/role-based-access-built-in-roles.md).
+Você pode conceder acesso a informações de cobrança do Azure para membros da equipe atribuindo uma das seguintes funções de usuário para sua assinatura: Conta de Administrador, Administrador de serviço, Coadministrador, Proprietário, Colaborador, Leitor e Leitor de cobrança. Elas podem ter acesso a informações de cobrança no [portal do Azure](https://portal.azure.com/), e eles podem usar o [APIs de cobrança](billing-usage-rate-card-overview.md) para obter programaticamente os detalhes de uso e faturas (uma vez decidido). Para obter mais informações sobre quem pode conceder funções e o que as funções podem fazer, consulte [funções no Azure RBAC](../role-based-access-control/built-in-roles.md).
 
 ## <a name="opt-in"></a>Permitindo que usuários adicionais acessem notas fiscais
 
-O Administrador da Conta deve aceitar usando o [portal do Azure](https://portal.azure.com/) permitir acesso às notas fiscais para outros usuários e por meio da API.
+O Administrador da Conta deve aceitar usando o [portal do Azure](https://portal.azure.com/) permitir acesso às faturas para outros usuários e por meio da API.
 
 1. Como Administrador da Conta, selecione sua assinatura da [folha Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no Portal do Azure.
 
@@ -39,7 +39,7 @@ O Administrador da Conta deve aceitar usando o [portal do Azure](https://portal.
 
     ![Captura de tela mostrando o comando liga/delsiga para delegar acesso a faturas](./media/billing-manage-access/AA-optinAllow.png)
 
-Aceitar permite que o Administrador de serviço, coadministrador, proprietário, colaborador, leitor e o leitor de cobrança da assinatura para fazer o download de notas fiscais PDF no portal do Azure. No entanto, faturas anteriores a dezembro de 2016 ficam disponíveis apenas para o Administrador de Conta por enquanto.
+Aceitar permite que o Administrador de serviço, coadministrador, proprietário, colaborador, leitor e o leitor de cobrança da assinatura para fazer o download de faturas em PDF no portal do Azure. No entanto, faturas anteriores a dezembro de 2016 ficam disponíveis apenas para o Administrador de Conta por enquanto.
 
 O Administrador de Conta também pode configurar para que as faturas sejam enviadas por e-mail. Para obter mais informações, consulte [Obter sua fatura no e-mail](billing-download-azure-invoice-daily-usage-date.md).
 

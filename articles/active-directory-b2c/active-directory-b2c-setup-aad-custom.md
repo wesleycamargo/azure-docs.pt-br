@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory B2C: adicionar um provedor do Azure AD usando políticas personalizadas | Microsoft Docs"
-description: "Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'Azure Active Directory B2C: adicionar um provedor do Azure AD usando políticas personalizadas | Microsoft Docs'
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140216"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: entrar usando contas do Azure AD
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 Este artigo mostra como habilitar a entrada para usuários de uma organização específica do Azure AD (Azure Active Directory) por meio do uso de [políticas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -46,12 +47,12 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 > Usamos "contoso.com" como o locatário do Azure AD da organização e "fabrikamb2c.onmicrosoft.com" como o locatário do Azure AD B2C nas instruções a seguir.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta. Na lista **Diretório**, escolha o locatário do Azure AD organizacional em que deseja registrar seu aplicativo (contoso.com).
-1. Selecione **Mais serviços** no painel esquerdo e pesquise por “Registros do aplicativo”.
-1. Selecione **Novo registro de aplicativo**.
-1. Insira um nome para seu aplicativo (por exemplo, `Azure AD B2C App`).
-1. Selecione **Aplicativo Web/API** como o tipo de aplicativo.
-1. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+2. Na barra superior, selecione sua conta. Na lista **Diretório**, escolha o locatário do Azure AD organizacional em que deseja registrar seu aplicativo (contoso.com).
+3. Selecione **Mais serviços** no painel esquerdo e pesquise por “Registros do aplicativo”.
+4. Selecione **Novo registro de aplicativo**.
+5. Insira um nome para seu aplicativo (por exemplo, `Azure AD B2C App`).
+6. Selecione **Aplicativo Web/API** como o tipo de aplicativo.
+7. Para a **URL de Logon**, insira a URL a seguir, em que `yourtenant` é substituído pelo nome do seu locatário do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >O valor de "yourtenant" deve estar todo em letras maiúsculas no **URL de Logon**.
@@ -60,10 +61,10 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Salve a ID do aplicativo.
-1. Selecione o aplicativo recém-criado.
-1. Na folha **Configurações**, selecione **Chaves**.
-1. Crie uma nova chave e salve-a. Você a usará nas etapas da próxima seção.
+8. Salve a ID do aplicativo.
+9. Selecione o aplicativo recém-criado.
+10. Na folha **Configurações**, selecione **Chaves**.
+11. Insira a descrição da chave e selecione uma duração; depois, clique em **Salvar**. O valor da chave é exibido. Copie-a, pois você a usará nas etapas da próxima seção.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Adicionar a chave do Azure AD ao Azure AD B2C
 
@@ -215,7 +216,7 @@ Agora, você precisa atualizar o arquivo RP (terceira parte confiável) que inic
 1. Modifique o atributo `ReferenceId` em `<DefaultUserJourney>` para que ele corresponda à ID do novo percurso do usuário criado (por exemplo, SignUpOrSignUsingContoso).
 1. Salve as alterações e carregue o arquivo.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Teste a política personalizada que você acabou de carregar abrindo sua folha e clicando em **Executar agora**. Para diagnosticar problemas, leia sobre [solução de problemas](active-directory-b2c-troubleshoot-custom.md).
 

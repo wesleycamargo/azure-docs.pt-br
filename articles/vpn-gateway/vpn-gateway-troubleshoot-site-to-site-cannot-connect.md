@@ -1,24 +1,24 @@
 ---
-title: "Solução de problemas de conexão VPN site a site do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada."
+title: Solução de problemas de conexão VPN site a site do Azure | Microsoft Docs
+description: Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dfd29e0956793cf776b9c0ea5ddbd4689ebcb015
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
@@ -92,7 +92,9 @@ Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de s
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Etapa 7. Verifique a investigação de integridade do gateway do Azure
 
-1. Acesse a investigação de integridade.
+1. Abra a investigação de integridade, navegando até a URL a seguir:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Clique no aviso do certificado.
 3. Se você receber uma resposta, o gateway de VPN será considerado íntegro. Se você não receber uma resposta, o gateway poderá não estar íntegro ou um NSG na sub-rede do gateway estará causando o problema. O texto a seguir é uma resposta de exemplo:

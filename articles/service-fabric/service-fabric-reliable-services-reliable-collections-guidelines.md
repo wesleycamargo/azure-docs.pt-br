@@ -9,16 +9,16 @@ editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -52,7 +52,6 @@ Eis aqui algumas coisas que se deve manter em mente:
 ### <a name="next-steps"></a>Próximas etapas
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Gerenciador de Estado Confiável e aspectos internos da coleção](service-fabric-reliable-services-reliable-collections-internals.md)
 * Gerenciando dados
   * [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)

@@ -1,20 +1,21 @@
 ---
 title: Aplicativos gerenciados do Azure no Marketplace | Microsoft Docs
 description: Descreve os aplicativos gerenciados do Azure que estão disponíveis por meio do Marketplace.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304524"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
@@ -107,7 +108,7 @@ Um SKU aparece sob a oferta pai no marketplace. Ele aparece como sua própria en
 
 É possível adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.
 
-Para saber mais sobre RBAC, consulte [Introdução ao RBAC no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
+Para saber mais sobre RBAC, consulte [Introdução ao RBAC no Portal do Azure](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Formulário do Marketplace
 

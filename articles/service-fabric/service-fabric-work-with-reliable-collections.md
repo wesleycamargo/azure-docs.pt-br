@@ -1,24 +1,25 @@
 ---
-title: "Trabalhando com Coleções Confiáveis | Microsoft Docs"
-description: "Conheça as práticas recomendadas para trabalhar com Reliable Collections."
+title: Trabalhando com Coleções Confiáveis | Microsoft Docs
+description: Conheça as práticas recomendadas para trabalhar com Reliable Collections.
 services: service-fabric
 documentationcenter: .net
 author: rajak
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210810"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vejamos um uso típico de um objeto de dicionário confiável para ver o que ele está fazendo realmente.
@@ -142,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erro do programador
-O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). E, claro, você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download em http://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
+O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). E, claro, você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download de http://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando proveito das recomendações mencionadas anteriormente.
 

@@ -2,10 +2,9 @@
 title: Criar pipelines de dados usando o SDK .NET | Microsoft Docs
 description: Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1ac3dd85b95e021581fbf86d590f3b43ee1cdacc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5de6c401ddbefbe66e23abb99f389e505d9b5120
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
 > [!NOTE]
@@ -43,7 +42,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 2. Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Execute o comando a seguir para exibir todas as assinaturas dessa conta.
 

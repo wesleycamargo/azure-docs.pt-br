@@ -1,22 +1,22 @@
 ---
-title: "Documentação do Azure Data Lake Store - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre como configurar, gerenciar e acessar um repositório data lake compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão."
+title: Documentação do Azure Data Lake Store - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba mais sobre como configurar, gerenciar e acessar um repositório data lake compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão.
 services: data-lake-store
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: data-lake-store
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3c0327ebb4cb8d6ee66d019326ade4f4bcb258ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-lake-store-documentation"></a>Documentação do Data Lake Store
 
@@ -195,7 +195,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Gerenciamento de Conta)</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (Gerenciamento de Conta)</a></p>
                         <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Gerenciamento do sistema de arquivos)</a></p>
                     </div>
                 </div>

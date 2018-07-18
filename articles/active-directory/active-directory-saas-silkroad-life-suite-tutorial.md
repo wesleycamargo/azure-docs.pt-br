@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o SilkRoad Life Suite | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o SilkRoad Life Suite."
+title: 'Tutorial: Integração do Azure Active Directory com o SilkRoad Life Suite | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o SilkRoad Life Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d6af7af7d6b28ff3ea9d518a65b8267a83b71b4
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 96f57f8dca4826840ccb04db25506fb9e45c59ef
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: integração do Active Directory do Azure com o SilkRoad Life Suite
 
@@ -30,9 +30,9 @@ A integração do SilkRoad Life Suite ao Azure AD oferece os seguintes benefíci
 - Você pode habilitar seus usuários a fazer logon automaticamente no SilkRoad Life Suite (logon único) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do AD do Azure com o SilkRoad Life Suite, você precisa dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SilkRoad Life Suite por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Adicionando o SilkRoad Life Suite por meio da galeria
 Para configurar a integração do SilkRoad Life Suite com o AD do Azure, você precisa adicionar o SilkRoad Life Suite por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -156,11 +156,11 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no portal do 
 
 11. Clique em **Adicionar Fonte de Autenticação**. 
    
-    ![Logon único do AD do Azure][13] 
+    ![Logon Único do AD do Azure][13] 
 
 12. Na seção **Adicionar Fonte de Autenticação** , execute as seguintes etapas: 
    
-    ![Logon único do AD do Azure][14]
+    ![Logon Único do AD do Azure][14]
   
     a. Em **Opção 2 – Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado a partir do portal do Azure.
   
@@ -172,7 +172,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no portal do 
 
 14. No diálogo **Editar Fonte de Autenticação** , execute as seguintes etapas: 
     
-     ![Logon único do AD do Azure][16] 
+     ![Logon Único do AD do Azure][16] 
 
     a. Para **Habilitado**, selecione **Sim**.
 
@@ -273,7 +273,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

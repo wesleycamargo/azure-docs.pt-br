@@ -1,34 +1,32 @@
 ---
-title: "Vários front-ends para o Azure Load Balancer | Microsoft Docs"
-description: "Visão geral de vários front-ends no Azure Load Balancer"
+title: Vários front-ends para o Azure Load Balancer | Microsoft Docs
+description: Visão geral de vários front-ends no Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
 Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](load-balancer-get-started-internet-portal.md) ou [interno](load-balancer-get-started-ilb-arm-portal.md). A adição de vários front-ends é um complemento a uma única configuração de front-end. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
 
-Quando você define um Azure Load Balancer, uma configuração front-end e back-end são conectadas às regras. A investigação de integridade referenciada pela regra é usada para determinar como os novos fluxos serão enviados para um nó no pool de back-end. O front-end é definido por uma configuração de IP de front-end (aka VIP), que é uma tupla de 3 composta por um endereço IP (público ou interno), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. Um DIP é um endereço IP em uma NIC virtual do Azure anexado a uma VM no pool de back-end.
+Quando você define um Azure Load Balancer, uma configuração de pool de front-end e back-end são conectadas às regras. A investigação de integridade referenciada pela regra é usada para determinar como os novos fluxos serão enviados para um nó no pool de back-end. O front-end (ou seja, VIP) é definido por uma tupla de 3 composta por um endereço IP (público ou interno), um protocolo de transporte (UDP ou TCP) e um número de porta da regra de balanceamento de carga. O pool de back-end é uma coleção de configurações de IP de Máquinas Virtuais (parte do recurso NIC) que referenciam o pool de back-end do Load Balancer.
 
 A tabela a seguir contém alguns exemplos de configurações de front-end:
 
@@ -134,6 +132,10 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 ## <a name="limitations"></a>Limitações
 
 * Há suporte para várias configurações de front-ends apenas com VMs de IaaS.
-* Com a regra de IP flutuante, seu aplicativo deve usar o DIP para fluxos de saída. Se o seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO Convidado, SNAT não estará disponível para reescrever o fluxo de saída e o fluxo falhará.
+* Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos de saída. Se o seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO Convidado, o SNAT do Azure não estará disponível para reescrever o fluxo de saída e o fluxo falhará.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits) .
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Consulte [Conexões de saída](load-balancer-outbound-connections.md) para entender o impacto de vários front-ends no comportamento da conexão de saída.

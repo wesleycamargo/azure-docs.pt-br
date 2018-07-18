@@ -1,25 +1,25 @@
 ---
-title: "Integração da API de Cobrança do Microsoft Azure e do Cloud Cruiser | Microsoft Docs"
-description: "Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cruiser do Microsoft Azure em suas experiências de integração das APIs de Cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure."
-services: 
-documentationcenter: 
-author: BryanLa
+title: Integração da API de Cobrança do Microsoft Azure e do Cloud Cruiser | Microsoft Docs
+description: Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cruiser do Microsoft Azure em suas experiências de integração das APIs de Cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mobandyo
+ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
 Este artigo descreve como as informações coletadas nas novas APIs de Cobrança Microsoft Azure podem ser usadas no Cloud Cruiser para análise e simulação de custo do fluxo de trabalho.
@@ -107,9 +107,9 @@ Para demonstrar esse cenário, criamos o relatório a seguir:
 
 ![Comparação de custos][9]
 
-O gráfico superior mostra uma comparação de custo por serviços, comparando o preço da execução da carga de trabalho para cada serviço específico entre WAP (azul escuro) e o Azure (azul claro).
+O grafo superior mostra uma comparação de custo por serviços, comparando o preço da execução da carga de trabalho para cada serviço específico entre WAP (azul escuro) e o Azure (azul claro).
 
-O gráfico inferior mostra os mesmos dados, mas divididos por departamento. Os custos de cada departamento para executar sua carga de trabalho no WAP e no Azure, juntamente com a diferença entre eles, são exibidos na barra Economia (verde).
+O grafo inferior mostra os mesmos dados, mas divididos por departamento. Os custos de cada departamento para executar sua carga de trabalho no WAP e no Azure, juntamente com a diferença entre eles, são exibidos na barra Economia (verde).
 
 ## <a name="azure-usage-api"></a>API de Uso do Azure
 ### <a name="introduction"></a>Introdução

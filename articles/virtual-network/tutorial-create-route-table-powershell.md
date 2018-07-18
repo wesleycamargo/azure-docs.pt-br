@@ -1,12 +1,13 @@
 ---
-title: Rotear tráfego de rede - PowerShell | Microsoft Docs
-description: Saiba como rotear tráfego com uma tabela de rotas utilizando o PowerShell.
+title: Rotear tráfego de rede - Azure PowerShell | Microsoft Docs
+description: Neste artigo, saiba como rotear tráfego com uma tabela de rotas utilizando O PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,30 +17,29 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Rotear tráfego com uma tabela de rotas utilizando o PowerShell
 
 Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de uma NVA (solução de virtualização de rede). Neste artigo, você aprenderá a:
 
-> [!div class="checklist"]
-> * Criar uma tabela de rotas
-> * Criar uma rota
-> * Criar uma rede virtual com várias sub-redes
-> * Associar uma tabela de rotas a uma sub-rede
-> * Criar uma NVA que roteia o tráfego
-> * Implantar VMs (máquinas virtuais) em diferentes sub-redes
-> * Rotear o tráfego de uma sub-rede para outra por meio de uma NVA
+* Criar uma tabela de rotas
+* Criar uma rota
+* Criar uma rede virtual com várias sub-redes
+* Associar uma tabela de rotas a uma sub-rede
+* Criar uma NVA que roteia o tráfego
+* Implantar VMs (máquinas virtuais) em diferentes sub-redes
+* Rotear o tráfego de uma sub-rede para outra por meio de uma NVA
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure. 
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo do Azure PowerShell versão 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure. 
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -185,7 +185,7 @@ $vmNva = New-AzureRmVM `
   -AsJob
 ```
 
-O `-AsJob` cria a VM em segundo plano, para que você possa continuar na próxima etapa.
+A opção `-AsJob` cria a VM em segundo plano, para que você possa prosseguir para a próxima etapa.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -239,43 +239,43 @@ Abra o arquivo RDP baixado. Se solicitado, selecione **Conectar**.
 
 Insira o nome de usuário e senha especificados ao criar a VM (talvez seja necessário selecionar **Mais escolhas**, em seguida, **Usar uma conta diferente**, para especificar as credenciais inseridas ao criar a VM) e selecione **OK**. Você pode receber um aviso do certificado durante o processo de logon. Selecione **Sim** para prosseguir com a conexão. 
 
-Em uma etapa posterior, o comando tracert.exe será utilizado para testar o roteamento. O Tracert usa o protocolo ICMP, que é negado por meio do Firewall do Windows. Habilite o ICMP através do firewall do Windows, inserindo o comando do PowerShell a seguir:
+Em uma etapa posterior, o comando tracert.exe será utilizado para testar o roteamento. O Tracert usa o protocolo ICMP, que é negado por meio do Firewall do Windows. Habilite o ICMP pelo firewall do Windows inserindo o seguinte comando do PowerShell na VM *myVmPrivate*:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Embora o Tracert seja utilizado para testar o roteamento neste artigo, não é recomendável o ICMP através do Firewall do Windows para implantações de produção.
+Embora o rastreamento de rota seja utilizado para testar o roteamento neste artigo, não é recomendável o ICMP através do Firewall do Windows para implantações de produção.
 
-Habilite o encaminhamento de IP no sistema operacional da *myVmNva*, completando as etapas seguintes da VM *myVmPrivate*:
+Você habilitou o encaminhamento de IP no Azure para a interface de rede da VM em [Habilitar encaminhamento de IP](#enable-ip-forwarding). Dentro da VM, o sistema operacional, ou um aplicativo em execução na VM, também pode ser capaz de encaminhar o tráfego. Habilite o encaminhamento de IP no sistema operacional do *myVmNva*.
 
-Área de trabalho remota para a VM *myVmNva* com o comando do PowerShell a seguir:
+Em um prompt de comando na VM *myVmPrivate*, a área de trabalho remota para a *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-Para habilitar o encaminhamento de IP dentro do sistema operacional, insira o comando a seguir no PowerShell:
+Para habilitar o encaminhamento de IP dentro do sistema operacional, insira o seguinte comando no PowerShell da VM *myVmNva*:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Reinicie a VM, que também desconecta a sessão da área de trabalho remota.
+Reinicie a VM *myVmNva*, que também desconecta a sessão da área de trabalho remota.
 
-Ainda conectado à VM *myVmPrivate* após a reinicialização da VM *myVmNva* VM restarts, crie uma sessão da área de trabalho remota para a VM *myVmPublic* com o comando a seguir:
+Ainda conectado à VM *myVmPrivate*, crie uma sessão da área de trabalho remota para a VM *myVmPublic* após a reinicialização da VM *myVmNva*:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-Habilite o ICMP através do firewall do Windows, inserindo o comando do PowerShell a seguir:
+Habilite o ICMP pelo firewall do Windows inserindo o seguinte comando do PowerShell na VM *myVmPublic*:
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Para testar o roteamento do tráfego para a VM *myVmPrivate* da VM *myVmPublic*, insira o comando do PowerShell a seguir:
+Para testar o roteamento do tráfego para a VM *myVmPrivate* da VM *myVmPublic*, insira o seguinte comando do PowerShell na VM *myVmPublic*:
 
 ```
 tracert myVmPrivate
@@ -293,10 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado da solução de virtualização de rede. O segundo salto é 10.0.1.4, o endereço IP privado da VM *myVmPrivate*. A rota adicionada à tabela de rotas *myRouteTablePublic* e associada à sub-rede *Pública* fez o Azure encaminhar o tráfego através de NVA, em vez de diretamente para a sub-rede *Privada*.
+Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado da NVA. O segundo salto é 10.0.1.4, o endereço IP privado da VM *myVmPrivate*. A rota adicionada à tabela de rotas *myRouteTablePublic* e associada à sub-rede *Pública* fez o Azure encaminhar o tráfego através de NVA, em vez de diretamente para a sub-rede *Privada*.
 
 Feche a sessão da área de trabalho remota para a VM *myVmPublic*, que ainda mantém você ainda conectado à VM *myVmPrivate*.
-Para testar o roteamento do tráfego para a VM *myVmPublic* da VM *myVmPrivate*, insira o comando a seguir em um prompt de comando:
+
+Para testar o roteamento do tráfego para a VM *myVmPublic* da VM *myVmPrivate*, insira o seguinte comando de um prompt de comando na VM *myVmPrivate*:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma solução de virtualização de rede simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de soluções de virtualização de rede pré-configurados que executam funções de rede, como firewall e otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Antes de implantar tabelas de rotas para uso em produção, é recomendável familiarizar-se completamente com [Roteamento no Azure](virtual-networks-udr-overview.md), [Gerenciar tabelas de rotas](manage-route-table.md) e [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Neste artigo, você criou uma tabela de rotas e associou-a a uma sub-rede. Você criou uma solução de virtualização de rede simples que roteou o tráfego de uma sub-rede pública para uma sub-rede privada. Implante uma variedade de soluções de virtualização de rede pré-configurados que executam funções de rede, como firewall e otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md) e [Gerenciar uma tabela de rotas](manage-route-table.md).
 
-Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Avance para o próximo tutorial para aprender como restringir o acesso à rede para recursos PaaS do Azure.
-
-> [!div class="nextstepaction"]
-> [Restringir o acesso à rede para recursos PaaS](virtual-network-service-endpoints-configure.md#azure-powershell)
+Embora seja possível implantar muitos recursos do Azure dentro de uma rede virtual, os recursos para alguns serviços PaaS do Azure não podem ser implantados em uma rede virtual. Ainda assim, é possível restringir acesso aos recursos de alguns serviços PaaS do Azure somente para tráfego de uma sub-rede de rede virtual. Para saber como, veja [Restringir o acesso à rede para recursos PaaS](tutorial-restrict-network-access-to-resources-powershell.md).

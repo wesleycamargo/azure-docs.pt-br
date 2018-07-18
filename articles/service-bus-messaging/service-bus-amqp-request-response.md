@@ -1,12 +1,12 @@
 ---
-title: "AMQP 1.0 em operações baseadas em solicitação-resposta do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Lista de operações baseadas em solicitação-resposta do Barramento de Serviço do Microsoft Azure."
+title: AMQP 1.0 em operações baseadas em solicitação-resposta do Barramento de Serviço do Azure | Microsoft Docs
+description: Lista de operações baseadas em solicitação-resposta do Barramento de Serviço do Microsoft Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194679"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
 
 Este artigo define a lista de operações baseadas em solicitação/resposta do Barramento de Serviço do Microsoft Azure. Estas informações baseiam-se no rascunho funcional do Gerenciamento de AMQP Versão 1.0.  
   
-Para um guia de protocolo AMQP 1.0 detalhado no nível de transmissão, que explica como o Barramento de Serviço implementa e se baseia na especificação técnica AMQP OASIS, confira o [AMQP 1.0 no guia de protocolo do Barramento de Serviço do Azure e dos Hubs de Eventos][Guia do protocolo AMQP 1.0].  
+Para um guia de protocolo AMQP 1.0 detalhado no nível de transmissão, que explica como o Barramento de Serviço implementa e se baseia na especificação técnica AMQP OASIS, confira o [AMQP 1.0 no guia de protocolo do Barramento de Serviço do Azure e dos Hubs de Eventos][guia do protocolo amqp 1.0].  
   
 ## <a name="concepts"></a>Conceitos  
   
@@ -69,7 +70,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Transferir uma mensagem de solicitação  
 
 Transfere uma mensagem de solicitação.  
-  
+Um estado de transação pode ser adicionado, opcionalmente, para operações que dão suporte a transações.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Receber uma mensagem de resposta  
@@ -195,7 +201,7 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
   
 ### <a name="schedule-message"></a>Agendar mensagem  
 
-Agenda mensagens.  
+Agenda mensagens. Esta operação oferece suporte a transações.
   
 #### <a name="request"></a>Solicitação  
 
@@ -217,8 +223,9 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |message-id|string|sim|`amqpMessage.Properties.MessageId` como uma cadeia de caracteres|  
-|session-id|string|sim|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|string|sim|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|string|Não |`amqpMessage.Properties.GroupId as string`|  
+|partition-key|string|Não |`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|chave por meio de partição|string|Não |`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Message|matriz de bytes|sim|Mensagem codificada por transmissão AMQP 1.0.|  
   
 #### <a name="response"></a>Response  
@@ -537,6 +544,85 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
 |statusCode|int|sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|string|Não |A descrição do status.|  
   
+### <a name="get-rules"></a>Obter regras
+
+#### <a name="request"></a>Solicitação
+
+A mensagem de solicitação deve incluir as seguintes propriedades de aplicativo:
+
+|Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|operation|string|sim|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Não |Tempo limite da operação no servidor em milissegundos.|  
+
+O corpo da mensagem de solicitação deve consistir em uma seção **amqp-value** que contém um **mapa** com as seguintes entradas:  
+  
+|Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|top|int|sim|O número de regras para buscar na página.|  
+|skip|int|sim|O número de regras a serem ignoradas. Define o índice inicial (+ 1) na lista de regras. | 
+
+#### <a name="response"></a>Response
+
+O mensagem de resposta inclui as seguintes propriedades:
+
+|Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|regras| matriz de mapa|sim|Matriz de regras. Cada regra é representada por um mapa.|
+
+Cada entrada de mapa na matriz inclui as seguintes propriedades:
+
+|Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|matriz de objetos descritos|sim|`com.microsoft:rule-description:list` com AMQP descrito código 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` é uma matriz de objetos descritos. A matriz inclui o seguinte:
+
+|Índice|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matriz de objetos descritos | sim | `filter` conforme especificado abaixo. |
+| 1 | matriz de objeto descrito | sim | `ruleAction` conforme especificado abaixo. |
+| 2 | string | sim | nome da regra. |
+
+`filter` pode ser de qualquer um dos seguintes tipos:
+
+| Nome do descritor | Código do descritor | Valor |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlação |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtro True que representa 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtro False que representa 1=0 |
+
+`com.microsoft:sql-filter:list` é uma matriz descrita que inclui:
+
+|Índice|Tipo de valor|Obrigatório|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | sim | Expressão de filtro SQL |
+
+`com.microsoft:correlation-filter:list` é uma matriz descrita que inclui:
+
+|Índice (se existir)|Tipo de valor|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | ID de Correlação |
+| 1 | string | ID da Mensagem |
+| 2 | string | Para |
+| 3 | string | Responder Para |
+| 4 | string | Rótulo |
+| 5 | string | ID da sessão |
+| 6 | string | ID da Sessão Responder Para|
+| 7 | string | Tipo de conteúdo |
+| 8 | Mapa | Mapa de propriedades de aplicativo definido |
+
+`ruleAction` pode ser de qualquer um dos seguintes tipos:
+
+| Nome do descritor | Código do descritor | Valor |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Ação de regra vazia - nenhuma ação de regra presente |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Ação de regra SQL |
+
+`com.microsoft:sql-rule-action:list` é uma matriz de objetos descritos cuja primeira entrada é uma cadeia de caracteres que contém a expressão da ação de regra SQL.
+
 ## <a name="deferred-message-operations"></a>Operações de mensagem adiada  
   
 ### <a name="receive-by-sequence-number"></a>Receber pelo número de sequência  
@@ -583,7 +669,7 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
   
 ### <a name="update-disposition-status"></a>Atualizar status de disposição  
 
-Atualiza o status de disposição das mensagens adiadas.  
+Atualiza o status de disposição das mensagens adiadas. Esta operação oferece suporte a transações.
   
 #### <a name="request"></a>Solicitação  
 

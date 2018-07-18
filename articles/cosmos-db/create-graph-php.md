@@ -1,25 +1,24 @@
 ---
-title: "Guia de início rápido: API do Graph com PHP – Azure Cosmos DB | Microsoft Docs"
-description: "Este guia de início rápido mostra como usar a API do Graph do Azure Cosmos DB para criar um aplicativo de console com o Portal do Azure e o PHP"
+title: 'Guia de início rápido: API do Graph com PHP – Azure Cosmos DB | Microsoft Docs'
+description: Este guia de início rápido mostra como usar a API do Graph do Azure Cosmos DB para criar um aplicativo de console com o Portal do Azure e o PHP
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: dfce0de9-a326-401c-9940-406ac0414461
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o PHP e o Portal do Azure
 
@@ -43,24 +42,7 @@ Antes de criar um banco de dados de grafo, você precisa criar uma conta do banc
 
 ## <a name="add-a-graph"></a>Adicionar um grafo
 
-Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados de grafo. 
-
-1. Clique em **Data Explorer** > **Novo Grafo**.
-
-    A área **Adicionar Grafo** é exibida à direita, talvez seja necessário rolar para a direita para vê-la.
-
-    ![O Data Explorer do Portal do Azure, página Adicionar Grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. Na página **Adicionar Grafo**, insira as configurações do novo grafo.
-
-    Configuração|Valor sugerido|DESCRIÇÃO
-    ---|---|---
-    ID do banco de dados|banco de dados de exemplo|Digite *banco de dados de exemplo* como o nome do novo banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
-    ID do Grafo|grafo de exemplo|Digite *grafo de exemplo* como o nome da nova coleção. Os nomes de grafo têm os mesmos requisitos de caractere do que as IDs de banco de dados.
-    Capacidade de Armazenamento|Fixo (10 GB)|Deixe o valor padrão de **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
-    Throughput|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
-
-3. Quando o formulário estiver preenchido, clique em **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -86,7 +68,7 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Graph
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos são todos obtidos do arquivo `connect.php`na pasta C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos são todos obtidos do arquivo connect.php na pasta C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
 
 * O Gremlin `connection` é inicializado no início do arquivo `connect.php` utilizando o objeto `$db`.
 
@@ -123,7 +105,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
     ![Exibir e copiar uma chave de acesso no Portal do Azure, página Chaves](./media/create-graph-php/keys.png)
 2. Abra o arquivo `connect.php` e na linha 8 cole o valor do URI em `your_server_address`.
 
-    A inicialização do objeto de conexão agora deve ser semelhante a essa:
+    A inicialização do objeto de conexão agora deve ser semelhante ao código a seguir:
 
     ```php
     $db = new Connection([
@@ -137,13 +119,13 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
     ]);
     ```
 
-3. Se sua conta de banco de dados do gráfico foi criada em 20 de dezembro de 2017 ou depois dessa data, altere `graphs.azure.com` no nome do host para `gremlin.cosmosdb.azure.com`.
+3. Se sua conta de banco de dados do gráfico foi criada em 20 de dezembro de 20, 2017 ou depois dessa data, altere `graphs.azure.com` no nome do host para `gremlin.cosmosdb.azure.com`.
 
-4. Altere o parâmetro `username` no objeto de Conexão com o banco de dados e o nome do gráfico. Se você utilizou os valores recomendados de `sample-database` e `sample-graph`, ele devem ser semelhantes a esses:
+4. Altere o parâmetro `username` no objeto de Conexão com o banco de dados e o nome do gráfico. Se você utilizou os valores recomendados de `sample-database` e `sample-graph`, ele devem ser semelhantes ao código ao seguir:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    É desse modo que todo o objeto de Conexão deverá apresentar-se nesse momento:
+    No momento, todo o objeto de Conexão deve parecer com o trecho de código a seguir:
 
     ```php
     $db = new Connection([
@@ -159,7 +141,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
 5. No Portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro de senha.
 
-    A inicialização do objeto DE Conexão deverá ser assim:
+    Agora, a inicialização do objeto de Conexão deve ser semelhante ao código a seguir:
 
     ```php
     $db = new Connection([
@@ -229,7 +211,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
     técnico | java | 
 
     > [!NOTE]
-    > Neste início rápido, criamos uma coleção não particionada. No entanto, se você criar uma coleção particionada especificando uma chave de partição durante a criação da coleção, então, precisará incluir a chave de partição como uma chave em cada novo vértice. 
+    > Neste início rápido, você criou uma coleção não particionada. No entanto, se você criar uma coleção particionada especificando uma chave de partição durante a criação da coleção, então, precisará incluir a chave de partição como uma chave em cada novo vértice. 
 
 6. Clique em **OK**. Talvez seja necessário expandir a tela para ver **OK** na parte inferior da tela.
 
@@ -251,7 +233,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     Conforme você adiciona mais dados, pode usar os filtros para limitar os resultados. Por padrão, o Data Explorer usa `g.V()` para recuperar todos os vértices em um grafo. Você pode alterá-lo para outra [consulta de grafo](tutorial-query-graph.md), como `g.V().count()`, para retornar uma contagem de todos os vértices no grafo no formato JSON. Se você tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para exibir todos os resultados novamente.
 
-12. Agora, podemos conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados**, em seguida, clique no botão de edição ao lado de **Destinos** à direita inferior. Talvez seja necessário ampliar a janela para ver a área **Propriedades**.
+12. Agora, você pode conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados**, em seguida, clique no botão de edição ao lado de **Destinos** à direita inferior. Talvez seja necessário ampliar a janela para ver a área **Propriedades**.
 
    ![Alterar o destino de um vértice em um grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -263,7 +245,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
    ![Dois vértices conectados no Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Isso conclui a parte da criação de recursos deste tutorial. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
+   Isso conclui a parte da criação de recursos deste início rápido. Você pode continuar a adicionar vértices ao seu grafo, modificar os vértices existentes ou alterar as consultas. Agora vamos examinar as métricas que o Azure Cosmos DB fornece e, em seguida, limpar os recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 

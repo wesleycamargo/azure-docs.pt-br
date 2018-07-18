@@ -1,25 +1,23 @@
 ---
-title: "Como ativar ou desativar uma função | Microsoft Docs"
-description: "Aprenda a ativar funções para identidades com privilégios com o aplicativo Azure Privileged Identity Management."
+title: Como ativar ou desativar uma função | Microsoft Docs
+description: Aprenda a ativar funções para identidades com privilégios com o aplicativo Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: a524e1f9d739b42cd63de82291d98ff8c59f2f5f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c12ba7ed076d531c75b5f9a473d124b94a6f0362
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Como ativar ou desativar funções no Azure AD Privileged Identity Management
 O Azure Active Directory (AD) Privileged Identity Management simplifica a forma como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.  

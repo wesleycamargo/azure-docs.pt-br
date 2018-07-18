@@ -1,23 +1,23 @@
 ---
 title: Copiar dados do Phoenix usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Phoenix para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados do Phoenix para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8cc6fa994c750f4718e6cc065819763d8be4f18c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 
 
@@ -46,7 +46,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **Phoenix** | sim |
 | host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | sim |
-| porta | A porta TCP usada pelo servidor Phoenix para ouvir conexões de cliente. O valor padrão é 8765.  | Não  |
+| porta | A porta TCP usada pelo servidor Phoenix para ouvir conexões de cliente. O valor padrão é 8765. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
 | httpPath | A URL parcial correspondente ao servidor do Phoenix. (ou seja, /gateway/sandbox/phoenix/version). O valor padrão é `hbasephoenix` em caso de uso do WindowsAzureHDInsightService.  | Não  |
 | authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor do Phoenix.  | Não  |
@@ -67,7 +67,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
+            "port" : "443",
             "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",

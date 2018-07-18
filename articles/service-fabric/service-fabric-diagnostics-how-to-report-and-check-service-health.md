@@ -1,24 +1,24 @@
 ---
 title: Relatar e verificar a integridade com o Service Fabric do Azure| Microsoft Docs
-description: "Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric."
+description: Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
 Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir os incidentes e as interrupções depende da sua capacidade de detectar os problemas rapidamente. Se relatar problemas e falhas ao gerenciador de integridade do Azure Service Fabric usando seu código de serviço, você pode usar ferramentas padrão de monitoramento de integridade fornecidas pelo Service Fabric para verificar o status de integridade.
@@ -33,7 +33,7 @@ Há três maneiras de relatar a integridade no serviço:
 
 Este artigo apresenta um exemplo que relata a integridade do código de serviço. O exemplo também mostra como as ferramentas fornecidas pelo Service Fabric podem ser usadas para verificar o status de integridade. Este artigo é uma rápida introdução aos recursos de monitoramento de integridade do Service Fabric. Para obter informações mais detalhadas, você pode ler a série de artigos explicativos sobre integridade, começando com o link no fim deste artigo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Você deve ter o seguinte instalado:
 
 * Visual Studio 2015 ou Visual Studio 2017

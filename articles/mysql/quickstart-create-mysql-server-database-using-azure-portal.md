@@ -1,5 +1,5 @@
 ---
-title: "Início rápido: criar um Banco de Dados do Azure para servidor MySQL – portal do Azure"
+title: 'Início rápido: criar um Banco de Dados do Azure para servidor MySQL – portal do Azure'
 description: Este artigo o orienta a usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MySQL de exemplo em aproximadamente cinco minutos.
 services: mysql
 author: ajlam
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 925ea8f365c4a7e987809cb56dfbfbb638b103fd
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 8740da198036e9b628c633b97a02fb4963db9879
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -51,7 +51,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
     Confirmar senha | *Sua escolha*| Confirme a senha da conta do administrador.
     Local padrão | *A região mais próxima de seus usuários*| Escolha o local mais próximo para os usuários ou para outros aplicativos do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a menos que você tenha requisitos específicos que exijam uma outra versão).
-    Tipo de preço  | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore** , **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Tipo de preço  | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
   
     > [!IMPORTANT]
     > O logon de administrador do servidor e a senha especificada aqui são necessários para fazer logon no servidor e em seus bancos de dados posteriormente neste Guia de início rápido. Lembre-se ou registre essas informações para o uso posterior.
@@ -100,7 +100,7 @@ Para encontrar esses valores, execute as seguintes etapas:
 
 2. Passe o cursor sobre cada campo e o ícone de cópia aparecerá à direita do texto. Selecione o ícone de cópia conforme necessário para copiar os valores.
 
-Neste exemplo, o nome do servidor é **mydemoserver.mysql.database.azure.com** e o logon de administrador do servidor é  **myadmin@mydemoserver** .
+Neste exemplo, o nome do servidor é **mydemoserver.mysql.database.azure.com** e o logon de administrador do servidor é **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Conectar-se ao MySQL usando a ferramenta de linha de comando mysql
 Há vários aplicativos que você pode usar para conectar o servidor Banco de Dados do Azure para MySQL. 

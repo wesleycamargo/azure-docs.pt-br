@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
 
 Use o exemplo para modificar um gateway de rede local que não tenha uma conexão de gateway. Ao modificar esse valor, você também pode modificar os prefixos do endereço ao mesmo tempo.

@@ -1,23 +1,21 @@
 ---
-title: "Autenticação serviço a serviço: Python com o Data Lake Store usando o Azure Active Directory | Microsoft Docs"
-description: "Saiba como obter a autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory com o Python"
+title: 'Autenticação serviço a serviço: Python com o Data Lake Store usando o Azure Active Directory | Microsoft Docs'
+description: Saiba como obter a autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory com o Python
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c04b870e72c5d29df95d16b96cc423441af6fd85
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: cde65795fea1ec5f63df54e2452f8618b755eb3e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Autenticação serviço a serviço com o Data Lake Store usando o Python
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 Neste artigo, você aprenderá como usar o SDK do Python para fazer a autenticação serviço a serviço com o Azure Data Lake Store. Para a autenticação do usuário final com o Data Lake Store usando o Python, consulte [Autenticação do usuário final com Data Lake Store usando Python](data-lake-store-end-user-authenticate-python.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * **Python**. Você pode baixar o Python [aqui](https://www.python.org/downloads/). Este artigo usa o Python 3.6.2.
 
@@ -44,7 +42,7 @@ Neste artigo, você aprenderá como usar o SDK do Python para fazer a autentica�
 Para trabalhar com o Data Lake Store usando o Python, você precisa instalar três módulos.
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory etc.
-* O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de contas do Azure Data Lake Store. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* O módulo `azure-mgmt-datalake-store`, que inclui as operações de gerenciamento de contas do Azure Data Lake Store. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de gerenciamento do Azure Data Lake Store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * O módulo `azure-datalake-store`, que inclui as operações do sistema de arquivos do Azure Data Lake Store. Para obter mais informações sobre esse módulo, consulte [Referência do módulo de Sistema de Arquivos do Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use os comandos a seguir para instalar os módulos.
@@ -102,7 +100,15 @@ Use este trecho de código para autenticar no Azure AD para realizar operações
 
 Use o trecho a seguir para autenticar no Azure AD para realizar operações de sistema de arquivos no Data Lake Store como criar a pasta, upload de arquivo, etc. O trecho a seguir pode ser usado para autenticar seu aplicativo de forma não interativa, usando segredo do cliente para entidade de segurança/aplicativo. Use-o com o aplicativo "Aplicativo Web" Azure AD existente.
 
-    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
+    tenant = '<TENANT>'
+    RESOURCE = 'https://datalake.azure.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
+    
+    adlCreds = lib.auth(tenant_id = tenant,
+                    client_secret = client_secret,
+                    client_id = client_id,
+                    resource = RESOURCE)
 
 <!-- ## Service-to-service authentication with certificate for account management
 

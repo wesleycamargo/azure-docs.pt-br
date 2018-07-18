@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor.
@@ -38,7 +38,7 @@ Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monit
 Primeiro, entre em sua assinatura do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Você verá uma tela de entrada. Quando entrar, sua Conta, sua TenantID e a ID da Assinatura padrão serão exibidas. Todos os cmdlets do Azure funcionam no contexto de sua assinatura padrão. Para exibir a lista de assinaturas a que você tem acesso, use o seguinte comando:
@@ -338,7 +338,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Muitos serviços do Azure fornecem logs adicionais e telemetria que podem fazer uma ou mais das seguintes opções: 
  - ser configurado para salvar dados em sua conta de Armazenamento do Azure
  - enviar para Hubs de Eventos
- - enviar para um espaço de trabalho do Log Analytics do OMS. 
+ - enviar um espaço de trabalho do Log Analytics. 
 
 A operação só pode ser executada em um nível de recurso. A conta de armazenamento ou hub de eventos deve estar na mesma região que o recurso de destino em que a configuração de diagnóstico está definida.
 
@@ -377,7 +377,7 @@ Habilitar configuração de diagnóstico para Hubs de Eventos
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Habilitar configuração de diagnóstico para Log Analytics (OMS)
+Habilitar configuração de diagnóstico para Log Analytics
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

@@ -1,16 +1,17 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Documentação do Microsoft Azure
 description: Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f344bf3062add621dc7d0a4cb6f7ed37e6d28d57
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6405adeb697b68a651e31d348ffb525d926fd3f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627186"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,7 +110,7 @@ ms.lasthandoff: 03/23/2018
                                                     <li><a class="barLink" href="/azure/security-center/">Central de Segurança do Azure</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Gerenciamento de Custo do Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Gerenciamento de Custos do Azure</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Serviço de Backup do Azure</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Migrações para Azure</a></li>
@@ -166,7 +167,9 @@ PHP</a>
 Node. js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/"> Go</a>
+                                                        <a class="barLink" href="/go/azure/">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="">
+Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>Modelos de Aplicativo</h4>
@@ -205,10 +208,7 @@ Node. js</a>
                                                 <h4>AI e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">API da Pesquisa Visual Computacional</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/face/">API de Detecção Facial</a></li>
-                                                    <li><a class="barLink" href="/bot-framework/">Serviço de Bot do Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/">Serviços Cognitivos</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -246,9 +246,14 @@ Azure PowerShell </a>
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Implantar no Azure </a>
+                                                        <a class="barLink" href="/azure/ansible/">
+                                                            <img src="media/index/ansible.svg" alt="">
+Ansible </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/chef">
+                                                            <img src="chef/media/Chef_Regular.svg" alt="">
+Chef </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/azure/jenkins">
@@ -260,6 +265,11 @@ Jenkins </a>
                                                             <img src="https://docs.microsoft.com/media/logos/logo_terraform.svg" alt="">
 Terraform </a>
                                                     </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Visual Studio Team Services </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -270,7 +280,7 @@ Terraform </a>
                             <li></li>
                             <li></li>
                             <li class="bottomRightItem">
-                                <a href="https://aka.ms/j3wr7y">
+                                <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
                                     <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Exibir todos os Serviços do Azure<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
@@ -301,18 +311,6 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machine-scale-sets/">
-                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Conjuntos de Escala de Máquina Virtual</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-web/">
-                                                <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Aplicativos Web</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Serviço de Aplicativo</p>
@@ -325,9 +323,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/aks/">
-                                                <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure (AKS)</p>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Lote</p>
                                             </a>
                                         </li>
                                         <li>
@@ -337,9 +335,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
+                                            <a href="/azure/batch-ai/">
+                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                <p>IA do Lote do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -349,9 +347,33 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machine-scale-sets/">
+                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
+                                                <p>Conjuntos de Dimensionamento de Máquinas Virtuais</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/aks/">
+                                                <img src="media/index/containerservice.svg" alt="" />
+                                                <p>AKS (Serviço do Kubernetes do Azure)</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Serviços de Nuvem</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SQL Server em máquinas virtuais</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/workloads/sap/hana-overview-architecture">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SAP HANA em Instâncias Grandes do Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -360,31 +382,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Banco de dados SQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>Banco de Dados do Azure para MySQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/postgresql/">
-                                                <img src="media/index/PostgreSQL.svg" alt="" />
-                                                <p>Banco de Dados do Azure para PostgreSQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Server Stretch Database</p>
+                                                <p>Banco de Dados SQL do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -394,81 +392,21 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cosmos-db/table-storage-overview">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Armazenamento de tabela</p>
+                                            <a href="/azure/sql-data-warehouse/">
+                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <p>SQL Data Warehouse</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
+                                                <p>Data Factory</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Cache Redis</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Contêineres</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/aks/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure (AKS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Instâncias de Contêiner do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-registry/">
-                                                <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Registro de Contêiner do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service/containers/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Aplicativo Web para Contêineres</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Integração Empresarial</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Aplicativos Lógicos</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-bus/">
-                                                <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Barramento de Serviço</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento da API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storsimple/">
-                                                <img src="media/index/StorSimple.svg" alt="" />
-                                                <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
@@ -478,15 +416,99 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-catalog/">
-                                                <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Catálogo de Dados</p>
+                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SQL Server em máquinas virtuais</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data Factory</p>
+                                            <a href="/azure/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Armazenamento de Tabelas</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>Banco de Dados do Azure para PostgreSQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>Banco de Dados do Azure para MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dms/dms-overview">
+                                                <img src="media/index/database-migration.svg" alt="" />
+                                                <p>Serviço de Migração de Banco de Dados do Azure</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Contêineres</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Serviço de Aplicativo</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Lote</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/container-registry.svg" alt="" />
+                                                <p>Registro de Contêiner</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Instâncias de Contêiner</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/aks/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>AKS (Serviço do Kubernetes do Azure)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service/containers/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Aplicativo Web para Contêineres</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Integração</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Gerenciamento de API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
+                                                <p>Barramento de Serviço</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Aplicativos Lógicos</p>
                                             </a>
                                         </li>
                                         <li>
@@ -499,6 +521,51 @@ Terraform </a>
                                             <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
                                                 <p>Serviços BizTalk</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Mídia</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/media-services/">
+                                                <img src="media/index/Media-Services.svg" alt="" />
+                                                <p>Serviços de mídia</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-encode-asset">
+                                                <img src="media/index/Media-encoding.svg" alt="" />
+                                                <p>Codificação</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-manage-channels-overview">
+                                                <img src="media/index/media-ondemand.svg" alt="" />
+                                                <p>Streaming ao vivo e sob demanda</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-playback-content-with-existing-players">
+                                                <img src="media/index/media-player.svg" alt="" />
+                                                <p>Player de Mídia do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-content-protection-overview">
+                                                <img src="media/index/media-protection.svg" alt="" />
+                                                <p>Proteção do conteúdo</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-analytics-overview">
+                                                <img src="media/index/MediaServices.svg" alt="" />
+                                                <p>Análise de Mídia</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                                <img src="media/index/API_VideoIndexer.svg" alt="" />
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -549,45 +616,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/">
-                                                <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                <p>Rede Virtual</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/load-balancer/">
-                                                <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Balanceador de carga</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-gateway/">
-                                                <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Gateway de Aplicativo</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vpn-gateway/">
-                                                <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>Gateway de VPN</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dns/">
-                                                <img src="media/index/DNS.svg" alt="" />
-                                                <p>DNS do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>Rede de Distribuição de Conteúdo</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Gerenciador de Tráfego</p>
                                             </a>
                                         </li>
                                         <li>
@@ -597,9 +628,45 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>DNS do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-network/">
+                                                <img src="media/index/VirtualNetwork.svg" alt="" />
+                                                <p>Rede Virtual</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
+                                                <p>Gerenciador de Tráfego</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/load-balancer/">
+                                                <img src="media/index/LoadBalancer.svg" alt="" />
+                                                <p>Load Balancer</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
+                                                <p>Gateway de VPN</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                <p>Gateway de Aplicativo</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos.svg" alt="" />
-                                                <p>Proteção contra DDOS</p>
+                                                <p>Proteção contra DDoS do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -612,15 +679,9 @@ Terraform </a>
                                     <h3>IA + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/machine-learning/">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
-                                                <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Serviço de Bot do Azure</p>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -630,141 +691,45 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
-                                                <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Serviço Personalizado de Decisão</p>
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Serviço de Bot do Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/entitylinking/home">
-                                                <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                <p>Vinculação de Identidade</p>
+                                            <a href="/azure/genomics/">
+                                                <img src="media/index/genomics.svg" alt="" />
+                                                <p>Microsoft Genomics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/kes/overview">
-                                                <img src="media/index/API_KnowledgeExploration.svg" alt="" />
-                                                <p>KES (Serviço de Exploração de Conhecimento)</p>
+                                            <a href="/azure/machine-learning/service">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Serviços de Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/qnamaker/home">
-                                                <img src="media/index/API_QnAMaker.svg" alt="" />
-                                                <p>QnAMaker</p>
+                                            <a href="/azure/machine-learning/studio">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning Studio</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/academic-knowledge/home">
-                                                <img src="media/index/API_Know_Academic.svg" alt="" />
-                                                <p>Conhecimento Acadêmico</p>
+                                            <a href="/azure/cognitive-services/welcome">
+                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <p>Serviços Cognitivos</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-spell-check/">
-                                                <img src="media/index/API_Bing_Spell_Check.svg" alt="" />
-                                                <p>Verificação Ortográfica do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/luis/">
-                                                <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Reconhecimento Vocal (LUIS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/linguisticanalysisapi/home">
-                                                <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
-                                                <p>Análise Linguística</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/text-analytics/">
-                                                <img src="media/index/API_TextAnalytics.svg" alt="" />
-                                                <p>Análise de texto</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
-                                                <img src="media/index/API_TranslatorSpeech.svg" alt="" />
-                                                <p>Conversor de Fala</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/translator/">
-                                                <img src="media/index/API_TranslatorText.svg" alt="" />
-                                                <p>API de Tradução de Texto</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/web-language-model/home">
-                                                <img src="media/index/API_WebLanguageModel.svg" alt="" />
-                                                <p>Modelo de Linguagem da Web</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/">
-                                                <img src="media/index/API_Bing_News_Search.svg" alt="" />
-                                                <p>Notícias do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
-                                                <img src="media/index/API_Bing_Video_Search.svg" alt="" />
-                                                <p>Pesquisa de Vídeo do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/">
-                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
-                                                <p>Pesquisa da Web do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/Bing-Autosuggest">
-                                                <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
-                                                <p>Sugestão Automática do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search">
-                                                <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
-                                                <p>Pesquisa Personalizada do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-entities-search/">
-                                                <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
-                                                <p>Pesquisa de Entidade do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-image-search">
-                                                <img src="media/index/API_Bing_Image_Search.svg" alt="" />
-                                                <p>Pesquisa de Imagem do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/speech/home">
-                                                <img src="media/index/API_Bing_Speech.svg" alt="" />
-                                                <p>Serviço de Fala do Bing</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
-                                                <img src="media/index/API_Custom_Speech.svg" alt="" />
-                                                <p>Serviço de Fala Personalizado</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/speaker-recognition/home">
-                                                <img src="media/index/API_Speaker_Recognition.svg" alt="" />
-                                                <p>Reconhecimento do Locutor</p>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Azure Search</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Computer_Vision.svg" alt="" />
-                                                <p>Visual Computacional</p>
+                                                <p>API da Pesquisa Visual Computacional</p>
                                             </a>
                                         </li>
                                         <li>
@@ -794,7 +759,210 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Indexador de Vídeo</p>
+                                                <p>Video Indexer</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speech-service/overview">
+                                                <img src="media/index/API_Speech_Service.svg" alt="" />
+                                                <p>Serviço de Fala</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speech/home">
+                                                <img src="media/index/API_Bing_Speech.svg" alt="" />
+                                                <p>Speech API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
+                                                <img src="media/index/API_Custom_Speech.svg" alt="" />
+                                                <p>Serviço de Fala Personalizado</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speaker-recognition/home">
+                                                <img src="media/index/API_Speaker_Recognition.svg" alt="" />
+                                                <p>API de Reconhecimento do Locutor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.microsofttranslator.com/speech-translate.html">
+                                                <img src="media/index/API_TranslatorSpeech.svg" alt="" />
+                                                <p>API de Tradução de Fala</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-spell-check/">
+                                                <img src="media/index/API_Bing_Spell_Check.svg" alt="" />
+                                                <p>API de Verificação Ortográfica do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/luis/">
+                                                <img src="media/index/API_Luis.svg" alt="" />
+                                                <p>Reconhecimento Vocal (LUIS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/linguisticanalysisapi/home">
+                                                <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
+                                                <p>API de Análise Linguística</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/text-analytics/">
+                                                <img src="media/index/API_TextAnalytics.svg" alt="" />
+                                                <p>API de Análise de Texto</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/translator/">
+                                                <img src="media/index/API_TranslatorText.svg" alt="" />
+                                                <p>API de Tradução de Texto</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/web-language-model/home">
+                                                <img src="media/index/API_WebLanguageModel.svg" alt="" />
+                                                <p>API de Modelo de Linguagem da Web</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
+                                                <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
+                                                <p>Serviço Personalizado de Decisão</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/qnamaker/home">
+                                                <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                <p>API do QnA Maker</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/recommendations/overview">
+                                                <img src="media/index/API_Recommendations.svg" alt="" />
+                                                <p>API de Recomendações</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/kes/overview">
+                                                <img src="media/index/API_KnowledgeExploration.svg" alt="" />
+                                                <p>KES (Serviço de Exploração de Conhecimento)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                                <img src="media/index/API_Know_Academic.svg" alt="" />
+                                                <p>API de Conhecimento Acadêmico</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/entitylinking/home">
+                                                <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
+                                                <p>API do Serviço de Inteligência de Vinculação de Entidade</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/url-preview/overview">
+                                                <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                <p>Visualização de URL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/answer-search/overview">
+                                                <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                <p>Pesquisa no Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <p>Localizador de Anomalia</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                <p>Aprendiz de conversa</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-news-search/">
+                                                <img src="media/index/API_Bing_News_Search.svg" alt="" />
+                                                <p>API de Pesquisa de Notícias do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
+                                                <img src="media/index/API_Bing_Video_Search.svg" alt="" />
+                                                <p>API de Pesquisa de Vídeo do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-web-search/">
+                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                <p>API de Pesquisa na Web do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-visual-search/">
+                                                <img src="media/index/API_Bing_Visual_Search.svg" alt="" />
+                                                <p>API da Pesquisa Visual do Bing</p>
+                                            </a>
+                                        </li>
+
+
+                                        <li>
+                                            <a href="/azure/cognitive-services/Bing-Autosuggest/">
+                                                <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
+                                                <p>API de Sugestão Automática do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-custom-search/">
+                                                <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
+                                                <p>API de Pesquisa Personalizada do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-entities-search/">
+                                                <img src="media/index/API_Bing_Entity_Search.svg" alt="" />
+                                                <p>API de Pesquisa de Entidade do Bing</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-image-search/">
+                                                <img src="media/index/API_Bing_Image_Search.svg" alt="" />
+                                                <p>API de Pesquisa de Imagem do Bing</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Migração</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>Site Recovery</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Gerenciamento de Custos</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dms/dms-overview">
+                                                <img src="media/index/database-migration.svg" alt="" />
+                                                <p>Serviço de Migração de Banco de Dados do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/migrate/migrate-overview">
+                                                <img src="media/index/azure-migrate.svg" alt="" />
+                                                <p>Migrações para Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -811,15 +979,33 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storsimple/">
+                                                <img src="media/index/StorSimple.svg" alt="" />
+                                                <p>StorSimple</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Store</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
-                                                <p>Armazenamento de Blob</p>
+                                                <p>Armazenamento de Blobs</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Armazenamento em disco</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                                <img src="media/index/managed-disks.svg" alt="" />
+                                                <p>Managed Disks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -831,40 +1017,28 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
-                                                <p>Armazenamento de arquivo</p>
+                                                <p>Armazenamento de Arquivos</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Repositório Data Lake</p>
+                                            <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
+                                                <img src="media/index/storage.svg" alt="" />
+                                                <p>Gerenciador de Armazenamento</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple/">
-                                                <img src="media/index/StorSimple.svg" alt="" />
-                                                <p>StorSimple</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/backup/">
-                                                <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/site-recovery/">
-                                                <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
+                                            <a href="/azure/storage/blobs/storage-blob-storage-tiers">
+                                                <img src="media/index/storage.svg" alt="" />
+                                                <p>Armazenamento de Arquivos</p>
                                             </a>
                                         </li>
                                     </ul>
                                     <h3>Análise</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/hdinsight/">
-                                                <img src="media/index/HDInsight.svg" alt="" />
-                                                <p>HDInsight</p>
+                                            <a href="/azure/sql-data-warehouse/">
+                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -874,27 +1048,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Análise de fluxo</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-lake-analytics/">
-                                                <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
-                                                <p>Data Lake Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/analysis-services/">
-                                                <img src="media/index/AnalysisServices.svg" alt="" />
-                                                <p>Serviços de análise</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-hubs/">
-                                                <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Hubs de evento</p>
+                                            <a href="/azure/hdinsight/">
+                                                <img src="media/index/HDInsight.svg" alt="" />
+                                                <p>HDInsight</p>
                                             </a>
                                         </li>
                                         <li>
@@ -904,15 +1060,57 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                            <a href="/azure/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/studio">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning Studio</p>
+                                            <a href="/azure/data-lake-analytics/">
+                                                <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
+                                                <p>Data Lake Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-hubs/">
+                                                <img src="media/index/eventhubs.svg" alt="" />
+                                                <p>Hubs de Eventos</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/power-bi-embedded/">
+                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                <p>Power BI Embedded</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>Azure Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/hdinsight/spark/apache-spark-overview">
+                                                <img src="media/index/hdinsight.svg" alt="" />
+                                                <p>Apache Spark para Azure HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/hdinsight/storm/apache-storm-overview">
+                                                <img src="media/index/hdinsight.svg" alt="" />
+                                                <p>Apache Storm para HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/hdinsight/r-server/r-server-overview">
+                                                <img src="media/index/hdinsight.svg" alt="" />
+                                                <p>Servidor R para HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -924,28 +1122,16 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Repositório Data Lake</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/power-bi-embedded/">
-                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>Power BI Embedded</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Ferramentas de Desenvolvedor</h3>
+                                    <h3>DevOps</h3>
                                     <ul>
                                         <li>
                                             <a href="/vsts/">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/devtest-lab/">
-                                                <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -955,9 +1141,21 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento da API</p>
+                                            <a href="/azure/lab-services/">
+                                                <img src="media/index/DevTestLabs.svg" alt="" />
+                                                <p>Azure Lab Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/integrations">
+                                                <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                <p>Integrações de ferramentas de desenvolvedor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -966,31 +1164,64 @@ Terraform </a>
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
+                                    </ul>
+                                    <h3>Ferramentas de Desenvolvedor</h3>
+                                    <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
-                                                <img src="media/index/logo_xamarin.svg" alt="" />
-                                                <p>Xamarin</p>
+                                            <a href="/visualstudio/products">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
+                                                <p>Visual Studio</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/vsts/">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Visual Studio Team Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://code.visualstudio.com/docs">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
+                                                <p>Visual Studio Code</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sdks">
+                                                <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                <p>SDKs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/integrations">
+                                                <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                <p>Integrações de ferramentas de desenvolvedor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cli">
+                                                <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
+                                                <p>CLI</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/blockchain-workbench">
+                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <p>Blockchain Workbench</p>
                                             </a>
                                         </li>
                                     </ul>
                                     <h3>Internet das coisas</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Central de desenvolvedores de IoT</p>
+                                                <p>Conceitos básicos de IoT</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Hub IoT do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-dps/">
-                                                <img src="media/index/dps.svg" alt="" />
-                                                <p>Serviço de Provisionamento de Dispositivos do Hub IoT</p>
+                                                <p>Hub IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1000,45 +1231,39 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-central/">
+                                                <img src="media/index/IoT-central.svg" alt="" />
+                                                <p>Central da IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Azure IoT Suite</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                <p>Serviços do Azure Baseados na Localização</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-hubs/">
-                                                <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Hubs de evento</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Análise de fluxo</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/machine-learning/preview">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Serviços de Machine Learning</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Hubs de Notificação</p>
+                                                <p>Aceleradores de solução do IoT</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
-                                                <p>Análises de Séries Temporais</p>
+                                                <p>Time Series Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-dps/">
+                                                <img src="media/index/dps.svg" alt="" />
+                                                <p>Provisionamento de Dispositivos no Hub IoT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-maps/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Mapas do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-functions/">
+                                                <img src="media/index/AzureFunctions.svg" alt="" />
+                                                <p>Funções</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1048,9 +1273,27 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cosmos-db/">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Azure Cosmos DB</p>
+                                            <a href="/azure/machine-learning/">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/service">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Serviços de Machine Learning</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/studio">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning Studio</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>Stream Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1059,33 +1302,39 @@ Terraform </a>
                                                 <p>Aplicativos Lógicos</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Hubs de Notificação</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Gerenciamento de API</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Web + Celular</h3>
+                                    <h3>Web</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Aplicativos Web</p>
+                                                <p>Serviço de Aplicativo – Aplicativos Web</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/containers/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Aplicativo Web para Contêineres</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Aplicativos Móveis</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-api/">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>Aplicativos de API</p>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>Gerenciamento de API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1095,9 +1344,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/media-services/">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Serviços de mídia</p>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Hubs de Notificação</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1107,9 +1356,18 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
+                                            <a href="/azure/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>Aplicativos de API</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Móvel</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>Serviço de Aplicativo - Aplicativos Móveis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1118,9 +1376,39 @@ Terraform </a>
                                                 <p>Hubs de Notificação</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>Aplicativos de API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-maps/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Mapas do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/features/xamarin">
+                                                <img src="media/index/logo_xamarin.svg" alt="" />
+                                                <p>Xamarin</p>
+                                            </a>
+                                        </li>
                                     </ul>
-                                    <h3>Segurança + Identidade</h3>
+                                    <h3>Segurança</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Informações de segurança</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/security-center">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
@@ -1128,15 +1416,27 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory/develop">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory para Desenvolvedores</p>
+                                            <a href="/azure/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
+                                                <p>Key Vault</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/key-vault/">
-                                                <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Cofre da Chave</p>
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                                <img src="media/index/ddos-protection.svg" alt="" />
+                                                <p>Proteção contra DDoS do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/azure-threat-detection">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Proteção Avançada contra Ameaças do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/information-protection/">
+                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                <p>Proteção de Informações do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1146,9 +1446,42 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory-b2c">
+                                            <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory B2C</p>
+                                                <p>Azure Active Directory para Domain Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                <p>Gateway de Aplicativo</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
+                                                <p>Gateway de VPN</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Identidade</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/multi-factor-authentication/">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                <p>Autenticação Multifator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/information-protection/">
+                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                <p>Proteção de Informações do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1158,9 +1491,9 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/multi-factor-authentication/">
-                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Autenticação Multifator</p>
+                                            <a href="/azure/active-directory-b2c">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1173,36 +1506,6 @@ Terraform </a>
                                     <h3>Ferramentas de gerenciamento</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/azure-policy/">
-                                                <img src="media/index/governance.svg" alt="" />
-                                                <p>Política do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cost-management/">
-                                                <img src="media/index/billing.svg" alt="" />
-                                                <p>Gerenciamento de Custo do Azure</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-insights/">
-                                                <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Application Insights</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/log-analytics/">
-                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                <p>Log Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
@@ -1215,9 +1518,15 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/automation/">
-                                                <img src="media/index/automation.svg" alt="" />
-                                                <p>Automação</p>
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
+                                                <p>Application Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/advisor">
+                                                <img src="media/index/advisor.svg" alt="" />
+                                                <p>Assistente do Azure</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1227,33 +1536,99 @@ Terraform </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/billing/">
-                                                <img src="media/index/billing.svg" alt="" />
-                                                <p>Cobrança</p>
+                                            <a href="/azure/automation/">
+                                                <img src="media/index/automation.svg" alt="" />
+                                                <p>Automação</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/advisor">
-                                                <img src="media/index/advisor.svg" alt="" />
-                                                <p>Azure Advisor</p>
+                                            <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
+                                                <p>Gerenciador de Tráfego</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/log-analytics/">
+                                                <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                <p>Log Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure Monitor</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/securitycenter.svg" alt="" />
+                                                <p>Segurança e conformidade</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Observador de Rede</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/service-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
-                                                <p>Integridade de Serviço do Azure</p>
+                                                <p>Integridade do Serviço do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <p>Portal do Microsoft Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
-                                                <img src="media/index/azuredefaultblack.svg" alt="" />
-                                                <p>Gerenciador de Recursos do Azure</p>
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Resource Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cloud-shell/overview">
+                                                <img src="media/index/cloud-shell.svg" alt="" />
+                                                <p>Cloud Shell</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/ddd/">
+                                                <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
+                                                <p>Aplicativo móvel do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-policy/">
+                                                <img src="media/index/governance.svg" alt="" />
+                                                <p>Azure Policy</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Gerenciamento de Custos</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Aplicativos gerenciados</p>
+                                                <p>Aplicativos gerenciados do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/migrate/migrate-overview">
+                                                <img src="media/index/azure-migrate.svg" alt="" />
+                                                <p>Migrações para Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/billing/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Cobrança</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1303,44 +1678,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machine-scale-sets/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Conjuntos de Escala de Máquina Virtual</h3>
-                                                    <p>Gerenciar e escalar verticalmente até milhares de máquinas virtuais do Linux e do Windows</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/app-service-web">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-web.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Aplicativos Web</h3>
-                                                    <p>Criar e implantar rapidamente aplicativos Web críticos em escala</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1379,18 +1716,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/aks/">
+                                <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                        <img src="media/index/Batch.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
-                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
+                                                    <h3>Lote</h3>
+                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1408,7 +1745,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Instâncias de Contêiner do Azure</h3>
+                                                    <h3>Instâncias de Contêiner</h3>
                                                     <p>Execute facilmente contêineres com um único comando</p>
                                                 </div>
                                             </div>
@@ -1417,18 +1754,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch/">
+                                <a href="/azure/batch-ai/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Batch.svg" alt="" />
+                                                        <img src="media/index/batch-ai.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
+                                                    <h3>IA do Lote do Azure</h3>
+                                                    <p>Experimente facilmente e treine seu aprendizado e modelos de IA em paralelo, em grande escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1455,6 +1792,44 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machine-scale-sets/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AvailabilitySetOld.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Conjuntos de Dimensionamento de Máquinas Virtuais</h3>
+                                                    <p>Gerenciar e escalar verticalmente até milhares de máquinas virtuais do Linux e do Windows</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/aks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>AKS (Serviço do Kubernetes do Azure)</h3>
+                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1467,6 +1842,44 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Serviços de Nuvem</h3>
                                                     <p>Criar aplicativos e APIs na nuvem altamente disponíveis e infinitamente escalonáveis</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VirtualMachine.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Server em máquinas virtuais</h3>
+                                                    <p>Hospede aplicativos empresariais do SQL Server na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/workloads/sap/hana-overview-architecture">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VirtualMachine.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SAP HANA em Instâncias Grandes do Azure</h3>
+                                                    <p>Execute as maiores cargas de trabalhos do SAP HANA de qualquer provedor de nuvem em hiperescala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1498,101 +1911,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Rede Virtual</h3>
-                                                    <p>Provisione redes privadas e, opcionalmente, conecte-se a datacenters locais</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/load-balancer/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/LoadBalancer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Balanceador de carga</h3>
-                                                    <p>Forneça alta disponibilidade e desempenho de rede a seus aplicativos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/application-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gateway de Aplicativo</h3>
-                                                    <p>Crie front-ends da Web seguros, escalonáveis e com alta disponibilidade no Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/vpn-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VPNGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gateway de VPN</h3>
-                                                    <p>Estabeleça conectividade segura entre locais</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/dns/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DNS.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>DNS do Azure</h3>
-                                                    <p>Hospede seu domínio DNS no Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1605,25 +1923,6 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Rede de Distribuição de Conteúdo</h3>
                                                     <p>Assegure uma distribuição de conteúdo segura e confiável, com amplo alcance global</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gerenciador de Tráfego</h3>
-                                                    <p>Faça o roteamento de tráfego de entrada para alto desempenho e disponibilidade</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1650,6 +1949,120 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/dns/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DNS.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>DNS do Azure</h3>
+                                                    <p>Hospede seu domínio DNS no Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VirtualNetwork.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Rede Virtual</h3>
+                                                    <p>Provisione redes privadas e, opcionalmente, conecte-se a datacenters locais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/traffic-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/TrafficManager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gerenciador de Tráfego</h3>
+                                                    <p>Faça o roteamento de tráfego de entrada para alto desempenho e disponibilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/load-balancer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LoadBalancer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Load Balancer</h3>
+                                                    <p>Forneça alta disponibilidade e desempenho de rede a seus aplicativos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/vpn-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VPNGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gateway de VPN</h3>
+                                                    <p>Estabeleça conectividade segura entre locais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/application-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gateway de Aplicativo</h3>
+                                                    <p>Crie front-ends da Web seguros, escalonáveis e com alta disponibilidade no Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1660,7 +2073,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Proteção contra DDOS</h3>
+                                                    <h3>Proteção contra DDoS do Azure</h3>
                                                     <p>Proteger seus aplicativos contra ataques de DDoS (negação de serviço distribuído)</p>
                                                 </div>
                                             </div>
@@ -1712,6 +2125,44 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/StorSimple.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>StorSimple</h3>
+                                                    <p>Redução de custos com uma solução corporativa de armazenamento híbrido em nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-store/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Store</h3>
+                                                    <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/blobs/storage-blobs-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1722,7 +2173,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Armazenamento de Blob</h3>
+                                                    <h3>Armazenamento de Blobs</h3>
                                                     <p>Armazenamento de objetos baseados em REST para dados não estruturados na nuvem</p>
                                                 </div>
                                             </div>
@@ -1743,6 +2194,25 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Armazenamento em disco</h3>
                                                     <p>Opções de disco persistentes e protegidas para dar suporte a máquinas virtuais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/managed-disks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Managed Disks</h3>
+                                                    <p>Armazenamento em disco persistente e seguro para máquinas virtuais do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1779,7 +2249,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Armazenamento de arquivo</h3>
+                                                    <h3>Armazenamento de Arquivos</h3>
                                                     <p>Compartilhamentos de arquivo que usam o protocolo SMB 3.0 padrão</p>
                                                 </div>
                                             </div>
@@ -1788,18 +2258,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/">
+                                <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                        <img src="media/index/Storage.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Repositório Data Lake</h3>
-                                                    <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
+                                                    <h3>Gerenciador de Armazenamento</h3>
+                                                    <p>Gerencie o Armazenamento facilmente e de qualquer lugar com o Windows, o macOS e o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1807,56 +2277,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple/">
+                                <a href="/azure/storage/blobs/storage-blob-storage-tiers">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/StorSimple.svg" alt="" />
+                                                        <img src="media/index/storage.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>StorSimple</h3>
-                                                    <p>Redução de custos com uma solução corporativa de armazenamento híbrido em nuvem</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/backup/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Backup.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Backup</h3>
-                                                    <p>Proteger seus dados com um backup baseado em nuvem como um serviço</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/site-recovery/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SiteRecovery.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>Orquestre proteção e recuperação de nuvens privadas</p>
+                                                    <h3>Armazenamento de Arquivos</h3>
+                                                    <p>Armazenamento em nuvem seguro e de baixo custo para dados raramente acessados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1866,7 +2298,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Web + Celular</a>
+                        <a href="#web">Web</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
@@ -1879,7 +2311,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Aplicativos Web</h3>
+                                                    <h3>Serviço de Aplicativo – Aplicativos Web</h3>
                                                     <p>Criar e implantar rapidamente aplicativos Web críticos em escala</p>
                                                 </div>
                                             </div>
@@ -1888,56 +2320,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/containers/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/appservice.svg" alt="" />
+                                                        <img src="media/index/apimanagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Aplicativo Web para Contêineres</h3>
-                                                    <p>Implantar e executar facilmente aplicativos Web em contêineres dimensionados de acordo com o seu negócio</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/app-service-mobile">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Aplicativos Móveis</h3>
-                                                    <p>Compilar e hospedar o back-end para qualquer aplicativo móvel</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/app-service-api">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-api.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Aplicativos de API</h3>
-                                                    <p>Compile e consuma APIs de nuvem com facilidade</p>
+                                                    <h3>Gerenciamento de API</h3>
+                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1964,18 +2358,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/media-services/">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MediaServices.svg" alt="" />
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviços de mídia</h3>
-                                                    <p>Codificar, armazenar e transmitir áudio e vídeo em escala</p>
+                                                    <h3>Hubs de Notificação</h3>
+                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2002,18 +2396,42 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mobile-engagement/">
+                                <a href="/azure/app-service-api">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
+                                                        <img src="media/index/app-service-api.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>Aumentar o uso do aplicativo e a retenção do usuário</p>
+                                                    <h3>Aplicativos de API</h3>
+                                                    <p>Compile e consuma APIs de nuvem com facilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mobile">Dispositivo móvel</a>
+                        <ul id="mobile" class="cardsA">
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviço de Aplicativo - Aplicativos Móveis</h3>
+                                                    <p>Compilar e hospedar o back-end para qualquer aplicativo móvel</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2039,24 +2457,19 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#containers">Contêineres</a>
-                        <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/aks/">
+                                <a href="/azure/app-service-api">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                        <img src="media/index/app-service-api.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
-                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
+                                                    <h3>Aplicativos de API</h3>
+                                                    <p>Compile e consuma APIs de nuvem com facilidade</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2064,18 +2477,99 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-instances/">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ContainerInstances.svg" alt="" />
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Instâncias de Contêiner do Azure</h3>
-                                                    <p>Execute facilmente contêineres com um único comando</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Envio mais rápido de aplicativos por meio da automatização dos ciclos de vida do aplicativo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-maps">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Mapas do Azure</h3>
+                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/features/xamarin">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_xamarin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Xamarin</h3>
+                                                    <p>Criar aplicativos móveis incríveis movidos a nuvem ainda mais rápidos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#containers">Contêineres</a>
+                        <ul id="containers" class="cardsA">
+                            <li>
+                                <a href="/azure/app-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviço de Aplicativo</h3>
+                                                    <p>Crie rapidamente aplicativos de nuvem poderosos para a Web e para dispositivos móveis</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Lote</h3>
+                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2102,6 +2596,25 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/container-instances/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Instâncias de Contêiner</h3>
+                                                    <p>Execute facilmente contêineres com um único comando</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2114,6 +2627,25 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
                                                     <p>Desenvolver microsserviços e orquestrar contêineres no Windows ou Linux</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/aks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>AKS (Serviço do Kubernetes do Azure)</h3>
+                                                    <p>Simplifique a implantação, o gerenciamento e as operações do Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2139,25 +2671,6 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/azure/batch/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Batch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>Agendamento de trabalho e gerenciamento de computação na nuvem</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2174,84 +2687,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Banco de dados SQL</h3>
+                                                    <h3>Banco de Dados SQL do Azure</h3>
                                                     <p>Banco de dados SQL como serviço relacional e gerenciado</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mysql/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MySQL.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Banco de Dados do Azure para MySQL</h3>
-                                                    <p>Um serviço de banco de dados MySQL gerenciado para desenvolvedores de aplicativos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/postgresql/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/PostgreSQL.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Banco de Dados do Azure para PostgreSQL</h3>
-                                                    <p>Um serviço de banco de dados PostgreSQL gerenciado para desenvolvedores de aplicativos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/sql-data-warehouse/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/sql-server-stretch-database/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SQLDatabase.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>SQL Server Stretch Database</h3>
-                                                    <p>Amplie dinamicamente os bancos de dados SQL Server locais para o Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2278,18 +2715,37 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cosmos-db/table-storage-overview">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Armazenamento de tabela</h3>
-                                                    <p>Repositório de valor de chaves NoSQL usando conjuntos de dados semiestruturados</p>
+                                                    <h3>SQL Data Warehouse</h3>
+                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-factory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DataFactory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Factory</h3>
+                                                    <p>Orquestrar e gerenciar transformação e movimentação de dados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2315,24 +2771,138 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/sql-server-stretch-database/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Server Stretch Database</h3>
+                                                    <p>Amplie dinamicamente os bancos de dados SQL Server locais para o Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VirtualMachine.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Server em máquinas virtuais</h3>
+                                                    <p>Hospede aplicativos empresariais do SQL Server na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cosmos-db/table-storage-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Armazenamento de Tabelas</h3>
+                                                    <p>Repositório de valor de chaves NoSQL usando conjuntos de dados semiestruturados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/postgresql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Banco de Dados do Azure para PostgreSQL</h3>
+                                                    <p>Um serviço de banco de dados PostgreSQL gerenciado para desenvolvedores de aplicativos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Banco de Dados do Azure para MySQL</h3>
+                                                    <p>Um serviço de banco de dados MySQL gerenciado para desenvolvedores de aplicativos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dms/dms-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/database-migration.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviço de Migração de Banco de Dados do Azure</h3>
+                                                    <p>Reduzir a complexidade de sua migração para a nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#analytics">Análise</a>
                         <ul id="analytics" class="cardsA">
                             <li>
-                                <a href="/azure/hdinsight/">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>HDInsight</h3>
-                                                    <p>Provisionar clusters Hadoop, Spark, R Server, HBase e Storm na nuvem</p>
+                                                    <h3>SQL Data Warehouse</h3>
+                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2359,6 +2929,44 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/hdinsight/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>HDInsight</h3>
+                                                    <p>Provisionar clusters Hadoop, Spark, R Server, HBase e Storm na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-factory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DataFactory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Factory</h3>
+                                                    <p>Orquestrar e gerenciar transformação e movimentação de dados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2369,7 +2977,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Análise de fluxo</h3>
+                                                    <h3>Stream Analytics</h3>
                                                     <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
                                                 </div>
                                             </div>
@@ -2397,25 +3005,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/analysis-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AnalysisServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Serviços de análise</h3>
-                                                    <p>Mecanismo de análise de nível empresarial como serviço</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2426,7 +3015,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hubs de evento</h3>
+                                                    <h3>Hubs de Eventos</h3>
                                                     <p>Receber telemetria de milhões de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2435,18 +3024,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/">
+                                <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataFactory.svg" alt="" />
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Factory</h3>
-                                                    <p>Orquestrar e gerenciar transformação e movimentação de dados</p>
+                                                    <h3>Power BI Embedded</h3>
+                                                    <p>Inserir visualizações de dados excelentes e totalmente interativas nos aplicativos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2454,18 +3043,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-data-warehouse/">
+                                <a href="/azure/analysis-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Data warehouse como um serviço elástico com recursos de classe empresarial</p>
+                                                    <h3>Azure Analysis Services</h3>
+                                                    <p>Mecanismo de análise de nível empresarial como serviço</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2473,18 +3062,75 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/studio">
+                                <a href="/azure/hdinsight/spark/apache-spark-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                        <img src="media/index/hdinsight.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning Studio</h3>
-                                                    <p>Crie, implante e gerencie soluções de análise preditiva com facilidade</p>
+                                                    <h3>Apache Spark para Azure HDInsight</h3>
+                                                    <p>Apache Spark na nuvem para implantações críticas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/storm/apache-storm-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/hdinsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Apache Storm para Azure HDInsight</h3>
+                                                    <p>Processamento de streaming em tempo real facilitado para Big Data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/r-server/r-server-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/hdinsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>R Server para Azure HDInsight</h3>
+                                                    <p>Análise preditiva, machine learning e modelagem estatística para Big Data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/log-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Log Analytics</h3>
+                                                    <p>Colete, pesquise e visualize os dados de computador local e na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2521,27 +3167,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Repositório Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositório em hiperescala para cargas de trabalho de análise de Big Data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/power-bi-embedded/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
-                                                    <p>Inserir visualizações de dados excelentes e totalmente interativas nos aplicativos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2557,18 +3184,37 @@ Terraform </a>
                                 <h2>Inteligência Artificial</h2>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
+                                <a href="/azure/azure-databricks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
-                                                    <p>Traga a inteligência artificial para todos com uma plataforma confiável e escalonável de ponta a ponta que inclui experimentação e gerenciamento de modelos</p>
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Criar um espaço de trabalho do Azure Databricks com clusters do Spark</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch-ai/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IA do Lote do Azure</h3>
+                                                    <p>Experimente facilmente e treine seu aprendizado e modelos de IA em paralelo, em grande escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2595,18 +3241,94 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch-ai/">
+                                <a href="/azure/genomics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
+                                                        <img src="media/index/genomics.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IA do Lote do Azure</h3>
-                                                    <p>Experimente facilmente e treine seu aprendizado e modelos de IA em paralelo, em grande escala</p>
+                                                    <h3>Microsoft Genomics</h3>
+                                                    <p>Sequenciamento de genoma e insights de pesquisa poderosos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviços de Machine Learning</h3>
+                                                    <p>Criar, implantar e gerenciar o aprendizado de máquina e modelos de IA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/studio">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Studio</h3>
+                                                    <p>Crie, implante e gerencie soluções de análise preditiva com facilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviços Cognitivos</h3>
+                                                    <p>Introduzir aplicativos, sites e bots com inteligência para ver, ouvir, falar e entender</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/search/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Search.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Search</h3>
+                                                    <p>Pesquisa como serviço totalmente gerenciada</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2614,7 +3336,7 @@ Terraform </a>
                                 </a>
                             </li>
                             <li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">Serviços Cognitivos</h2>
+                                <h2 style="margin-top:24px;margin-bottom:18px;">API de Serviços Cognitivos</h2>
                                 <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
                                     <li>
                                         <div class="cardSize">
@@ -2624,7 +3346,7 @@ Terraform </a>
                                                         <h3>Visão</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Visão computacional</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />API da Pesquisa Visual Computacional</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
@@ -2655,16 +3377,16 @@ Terraform </a>
                                                         <h3>Fala</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Serviço de Fala do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />API de voz do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Serviço de Fala Personalizado&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Reconhecimento do Locutor&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>API de Reconhecimento do Locutor&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Conversor de Fala</a>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />API de Tradução de Fala</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2680,22 +3402,22 @@ Terraform </a>
                                                         <h3>Linguagem</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Verificação Ortográfica do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />API de Verificação Ortográfica do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Reconhecimento Vocal (LUIS)</span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Análise Linguística&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>API de Análise Linguística&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Análises de Texto</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />API de Análise de Texto</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Conversor de Texto</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />API de Tradução de Texto</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Modelo de Linguagem da Web&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>API de Modelo de Linguagem da Web&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2714,11 +3436,56 @@ Terraform </a>
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Serviço de Decisão Personalizada&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>API do QnA Maker&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recomendações&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>API de Recomendações&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview">
+                                                                    <img src="media/index/API_KnowledgeExploration.svg" alt="" />
+                                                                    <span>KES (Serviço de Exploração de Conhecimento)</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home">
+                                                                    <img src="media/index/API_Know_Academic.svg" alt="" />
+                                                                    <span>API de Conhecimento Acadêmico</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home">
+                                                                    <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
+                                                                    <span>API do Serviço de Inteligência de Vinculação de Entidade</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
+                                                                    <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                                    <span>Visualização de URL</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
+                                                                    <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                                    <span>Pesquisa no Search</span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
+                                                                    <span>Localizador de Anomalia</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                                    <span>Aprendiz de conversa</span>
+                                                                </a>
+                                                            </li>
+
+
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -2733,25 +3500,28 @@ Terraform </a>
                                                         <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Pesquisa do Bing Notícias</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />API de Pesquisa de Notícias do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Pesquisa de Vídeo do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />API de Pesquisa de Vídeo do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Pesquisa da Web do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />API de Pesquisa na Web do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Sugestão Automática do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-visual-search/"><img src="media/index/API_Bing_Visual_Search.svg" alt="" />API da Pesquisa Visual do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Pesquisa Personalizada do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />API de Sugestão Automática do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Pesquisa de Entidade do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />API de Pesquisa Personalizada do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Pesquisa de Imagem do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />API de Pesquisa de Entidade do Bing</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />API de Pesquisa de Imagem do Bing</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2767,7 +3537,7 @@ Terraform </a>
                         <a href="#iot">Internet das Coisas</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2777,7 +3547,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Central de desenvolvedores de IoT</h3>
+                                                    <h3>Conceitos básicos de IoT</h3>
                                                     <p>Introdução à conexão de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2805,25 +3575,6 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-dps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/dps.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Serviço de Provisionamento de Dispositivos do Hub IoT</h3>
-                                                    <p>Provisionamento de toque zero e Just-In-Time para o Hub IoT do Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/iot-edge/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2843,6 +3594,25 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-central/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IoTCentralBlue.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Central da IoT</h3>
+                                                    <p>Teste do SaaS para IoT, sem necessidade de experiência em nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2853,103 +3623,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Suite</h3>
+                                                    <h3>Aceleradores de solução do IoT</h3>
                                                     <p>Capturar e analisar dados inexplorados para melhorar os resultados dos negócios</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://docs.microsoft.com/azure/location-based-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Serviços do Azure Baseados na Localização</h3>
-                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/event-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/eventhubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Hubs de evento</h3>
-                                                    <p>Receber telemetria de milhões de dispositivos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/stream-analytics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Análise de fluxo</h3>
-                                                    <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/machine-learning/preview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Serviços de Machine Learning</h3>
-                                                    <p>Traga a inteligência artificial para todos com uma plataforma confiável e escalonável de ponta a ponta que inclui experimentação e gerenciamento de modelos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/notification-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NotificationHubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Hubs de Notificação</h3>
-                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2967,8 +3642,65 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Análises de Séries Temporais</h3>
+                                                    <h3>Time Series Insights</h3>
                                                     <p>Explore e analise instantaneamente dados de série temporal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-dps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dps.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Provisionamento de Dispositivos no Hub IoT</h3>
+                                                    <p>Provisionamento de toque zero e Just-In-Time para o Hub IoT do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-maps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Mapas do Azure</h3>
+                                                    <p>APIs de localização simples e seguras oferecem contexto geoespacial aos dados</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-functions/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureFunctions.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Funções</h3>
+                                                    <p>Processar eventos com o código sem servidor</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2995,6 +3727,120 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/machine-learning/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning</h3>
+                                                    <p>Traga a inteligência artificial para todos com uma plataforma confiável e escalonável de ponta a ponta que inclui experimentação e gerenciamento de modelos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviços de Machine Learning</h3>
+                                                    <p>Criar, implantar e gerenciar o aprendizado de máquina e modelos de IA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/studio">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Studio</h3>
+                                                    <p>Crie, implante e gerencie soluções de análise preditiva com facilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/stream-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stream Analytics</h3>
+                                                    <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aplicativos Lógicos</h3>
+                                                    <p>Automatizar o acesso e o uso dos dados nas nuvens sem precisar escrever código</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notification-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Hubs de Notificação</h3>
+                                                    <p>Envie notificações por push para qualquer plataforma de qualquer back-end</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3014,18 +3860,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                        <img src="media/index/apimanagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Aplicativos Lógicos</h3>
-                                                    <p>Automatizar o acesso e o uso dos dados nas nuvens sem precisar escrever código</p>
+                                                    <h3>Gerenciamento de API</h3>
+                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3035,21 +3881,21 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">Integração Empresarial</a>
+                        <a href="#integration">Integração</a>
                         <ul id="integration" class="cardsA">
                             <li>
-                                <a href="/azure/logic-apps/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                        <img src="media/index/APIManagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Aplicativos Lógicos</h3>
-                                                    <p>Automatizar o acesso e o uso dos dados nas nuvens sem precisar escrever código</p>
+                                                    <h3>Gerenciamento de API</h3>
+                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3076,94 +3922,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                        <img src="media/index/LogicApp.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento da API</h3>
-                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storsimple/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/StorSimple.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>StorSimple</h3>
-                                                    <p>Redução de custos com uma solução corporativa de armazenamento híbrido em nuvem</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/sql-server-stretch-database/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SQLDatabase.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>SQL Server Stretch Database</h3>
-                                                    <p>Amplie dinamicamente os bancos de dados SQL Server locais para o Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-catalog/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/data-catalog.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Catálogo de Dados</h3>
-                                                    <p>Obtenha mais valor de seus ativos de dados corporativos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-factory/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DataFactory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Factory</h3>
-                                                    <p>Orquestrar e gerenciar transformação e movimentação de dados</p>
+                                                    <h3>Aplicativos Lógicos</h3>
+                                                    <p>Automatizar o acesso e o uso dos dados nas nuvens sem precisar escrever código</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3211,65 +3981,8 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">Segurança + Identidade</a>
-                        <ul id="security" class="cardsA">
-                            <li>
-                                <a href="/azure/security-center">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Central de Segurança</h3>
-                                                    <p>Unifique o gerenciamento de segurança e habilite a proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/active-directory/develop">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Active Directory para Desenvolvedores</h3>
-                                                    <p>Autenticação segura, de plataforma cruzada para Web, celular e APIs de back-end</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/key-vault/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/KeyVault.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Cofre da Chave</h3>
-                                                    <p>Garantir e manter o controle das chaves e outros segredos</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                        <a href="#identity">Identidade</a>
+                        <ul id="identity" class="cardsA">
                             <li>
                                 <a href="/azure/active-directory/">
                                     <div class="cardSize">
@@ -3290,18 +4003,37 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory-b2c">
+                                <a href="/azure/multi-factor-authentication/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                        <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Active Directory B2C</h3>
-                                                    <p>Gerenciamento de identidade e de acesso na nuvem</p>
+                                                    <h3>Autenticação Multifator</h3>
+                                                    <p>Adicione segurança para seus dados e aplicativos sem acrescentar complicações para os usuários</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/information-protection/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Proteção de Informações do Azure</h3>
+                                                    <p>Criar e implantar políticas organizacionais para controlar informações confidenciais</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3328,18 +4060,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/multi-factor-authentication/">
+                                <a href="/azure/active-directory-b2c">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Autenticação Multifator</h3>
-                                                    <p>Adicione segurança para seus dados e aplicativos sem acrescentar complicações para os usuários</p>
+                                                    <h3>Azure Active Directory B2C</h3>
+                                                    <p>Gerenciamento de identidade e de acesso na nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3368,8 +4100,203 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Ferramentas de Desenvolvedor</a>
-                        <ul id="devtools" class="cardsA">
+                        <a href="#security">Segurança</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Informações de segurança</h3>
+                                                    <p>Saber mais como o Azure fornece uma infraestrutura segura para compilar suas soluções de nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security-center">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Central de Segurança</h3>
+                                                    <p>Unifique o gerenciamento de segurança e habilite a proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/key-vault/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/KeyVault.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Key Vault</h3>
+                                                    <p>Garantir e manter o controle das chaves e outros segredos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ddos.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Proteção contra DDoS do Azure</h3>
+                                                    <p>Proteger seus aplicativos contra ataques de DDoS (negação de serviço distribuído)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security/azure-threat-detection">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Proteção Avançada contra Ameaças do Azure</h3>
+                                                    <p>Proteja sua empresa contra ameaças locais e na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/information-protection/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Proteção de Informações do Azure</h3>
+                                                    <p>Criar e implantar políticas organizacionais para controlar informações confidenciais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory</h3>
+                                                    <p>Sincronizar diretórios locais e habilitar o logon único</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory-domain-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Active Directory para Domain Services</h3>
+                                                    <p>Unir as máquinas virtuais do Azure a um domínio sem controladores de domínio</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/application-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gateway de Aplicativo</h3>
+                                                    <p>Crie front-ends da Web seguros, escalonáveis e com alta disponibilidade no Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/vpn-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VPNGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gateway de VPN</h3>
+                                                    <p>Estabeleça conectividade segura entre locais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#devops">DevOps</a>
+                        <ul id="devops" class="cardsA">
                             <li>
                                 <a href="/vsts/">
                                     <div class="cardSize">
@@ -3383,25 +4310,6 @@ Terraform </a>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Team Services</h3>
                                                     <p>Serviços para equipes compartilharem código, acompanharem trabalho e enviarem software</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/devtest-lab/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DevTestLabs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DevTest Labs</h3>
-                                                    <p>Criar ambientes rapidamente usando modelos e artefatos reutilizáveis</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3428,18 +4336,56 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                        <img src="media/index/DevTestLabs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento da API</h3>
-                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
+                                                    <h3>Azure Lab Services</h3>
+                                                    <p>Criar laboratórios na nuvem para sala de aula, desenvolvimento e teste e outros cenários (anteriormente conhecido como DevTest Labs)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/appcenter">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Envio mais rápido de aplicativos por meio da automatização dos ciclos de vida do aplicativo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/integrations/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Integrações de ferramentas de desenvolvedor</h3>
+                                                    <p>Estender o Azure com extensões populares</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3465,19 +4411,157 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#devtools">Ferramentas de Desenvolvedor</a>
+                        <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                <a href="/visualstudio/products/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_xamarin.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Xamarin</h3>
-                                                    <p>Criar aplicativos móveis incríveis movidos a nuvem ainda mais rápidos</p>
+                                                    <h3>Visual Studio</h3>
+                                                    <p>Ambiente completo de desenvolvimento integrado (IDE) para iOS, Android, Windows, Web e nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/vsts/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Visual Studio Team Services</h3>
+                                                    <p>Serviços para equipes compartilharem código, acompanharem trabalho e enviarem software</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://code.visualstudio.com/docs">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Visual Studio Code</h3>
+                                                    <p>O Visual Studio Code é um de código-fonte leve mas poderoso, que é executado na área de trabalho e está disponível para Windows, macOS e Linux.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/api-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gerenciamento de API</h3>
+                                                    <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/sdks/index">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SDKs</h3>
+                                                    <p>Compilar aplicativos de nuvem com as linguagens de programação que você já sabe</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/integrations/index">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Integrações de ferramentas de desenvolvedor</h3>
+                                                    <p>Ferramentas de terceiros para ajudar você com o desenvolvimento do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cli/index">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CLI</h3>
+                                                    <p>Acessar a nuvem diretamente a partir de ferramentas de linha de comando</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/blockchain-workbench/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blockchain Workbench</h3>
+                                                    <p>Conecte seu blockchain à nuvem sem esforço</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3489,101 +4573,6 @@ Terraform </a>
                     <li>
                         <a href="#mgmt">Ferramentas de Gerenciamento</a>
                         <ul id="mgmt" class="cardsA">
-                            <li>
-                                <a href="/azure/azure-policy/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/governance.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Política do Azure</h3>
-                                                    <p>Implemente padrões e governança corporativa em escala para os recursos do Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cost-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gerenciamento de Custo do Azure</h3>
-                                                    <p>Otimize os gastos na nuvem e maximize o potencial dela</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/monitoring-and-diagnostics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
-                                                    <p>Dados de monitoramento altamente granulares e em tempo real para qualquer recurso do Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/application-insights/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Application Insights</h3>
-                                                    <p>Detectar, fazer triagem e diagnosticar problemas em seus serviços e aplicativos Web</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/log-analytics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Log Analytics</h3>
-                                                    <p>Colete, pesquise e visualize os dados de computador local e na nuvem</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                             <li>
                                 <a href="/azure/backup/">
                                     <div class="cardSize">
@@ -3623,18 +4612,37 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/automation/">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/automation.svg" alt="" />
+                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Automação</h3>
-                                                    <p>Simplificar o gerenciamento em nuvem com a automação de processo</p>
+                                                    <h3>Application Insights</h3>
+                                                    <p>Detectar, fazer triagem e diagnosticar problemas em seus serviços e aplicativos Web</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/advisor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/advisor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Assistente do Azure</h3>
+                                                    <p>Seu mecanismo personalizado de práticas recomendadas do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3661,6 +4669,291 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/automation/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/automation.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Automação</h3>
+                                                    <p>Simplificar o gerenciamento em nuvem com a automação de processo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/traffic-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/TrafficManager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gerenciador de Tráfego</h3>
+                                                    <p>Faça o roteamento de tráfego de entrada para alto desempenho e disponibilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/log-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Log Analytics</h3>
+                                                    <p>Colete, pesquise e visualize os dados de computador local e na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/monitoring-and-diagnostics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Monitor</h3>
+                                                    <p>Dados de monitoramento altamente granulares e em tempo real para qualquer recurso do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/securitycenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Segurança e conformidade</h3>
+                                                    <p>Habilite a detecção e a prevenção de ameaças por meio de segurança avançada na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Observador de Rede</h3>
+                                                    <p>Solução de monitoramento de desempenho e diagnóstico de rede</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-health/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-health.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Integridade do Serviço do Azure</h3>
+                                                    <p>Obtenha diretrizes e suporte personalizados quando problemas nos serviços do Azure afetarem você</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://portal.azure.com">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Portal do Microsoft Azure</h3>
+                                                    <p>Crie, gerencie e monitore todos os produtos Azure em um console único e unificado</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-resource-manager/resource-group-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Manager</h3>
+                                                    <p>Simplifique como você gerencia seus recursos de aplicativo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cloud-shell/overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-shell.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cloud Shell</h3>
+                                                    <p>Agilizar a administração do Azure com um shell baseado em navegador</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aplicativo móvel do Azure</h3>
+                                                    <p>Mantenha-se conectado aos seus recursos do Azure - em qualquer lugar, a qualquer hora</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-policy/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/governance.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Policy</h3>
+                                                    <p>Implemente padrões e governança corporativa em escala para os recursos do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cost-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gerenciamento de Custos</h3>
+                                                    <p>Otimize os gastos na nuvem e maximize o potencial dela</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/managed-applications">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Aplicativos gerenciados do Azure</h3>
+                                                    <p>Simplifique o gerenciamento de ofertas na nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/migrate/migrate-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-migrate.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Migrações para Azure</h3>
+                                                    <p>Descubra, avalie, redimensione e migre com facilidade suas VMs locais para o Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/billing/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3679,19 +4972,24 @@ Terraform </a>
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#media">Mídia</a>
+                        <ul id="media" class="cardsA">
                             <li>
-                                <a href="/azure/advisor/">
+                                <a href="/azure/media-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/advisor.svg" alt="" />
+                                                        <img src="media/index/media-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Advisor</h3>
-                                                    <p>Seu mecanismo personalizado de práticas recomendadas do Azure</p>
+                                                    <h3>Serviços de mídia</h3>
+                                                    <p>Codificar, armazenar e transmitir áudio e vídeo em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3699,18 +4997,18 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-health/">
+                                <a href="/azure/media-services/media-services-encode-asset">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/resource-health.svg" alt="" />
+                                                        <img src="media/index/media-encoding.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Integridade de Serviço do Azure</h3>
-                                                    <p>Obtenha diretrizes e suporte personalizados quando problemas nos serviços do Azure afetarem você</p>
+                                                    <h3>Codificação</h3>
+                                                    <p>Codificação de nível de estúdio na dimensão da nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3718,18 +5016,175 @@ Terraform </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/managed-applications">
+                                <a href="/azure/media-services/media-services-manage-channels-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/i_managed-application.svg" alt="" />
+                                                        <img src="media/index/media-ondemand.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Aplicativos gerenciados</h3>
-                                                    <p>Simplifique o gerenciamento de ofertas na nuvem</p>
+                                                    <h3>Streaming sob demanda e ao vivo</h3>
+                                                    <p>Forneça seu conteúdo para praticamente todos os dispositivos com escala para atender às necessidades dos seus negócios</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/media-services/media-services-playback-content-with-existing-players">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/media-player.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Player de Mídia do Azure</h3>
+                                                    <p>Um único player para todas as suas necessidades de reprodução</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/media-services/media-services-content-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/media-protection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Proteção do conteúdo</h3>
+                                                    <p>Distribua conteúdo com segurança usando AES, PlayReady, Widevine e FairPlay</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/media-services/media-services-analytics-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/mediaservices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Análise de Mídia</h3>
+                                                    <p>Descubra informações sobre arquivos de vídeo com serviços visuais e de voz</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/media-indexer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Video Indexer</h3>
+                                                    <p>Faça com que suas multimídias sejam mais acessíveis e de fácil descoberta</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#migration">Migração</a>
+                        <ul id="migration" class="cardsA">
+                            <li>
+                                <a href="/azure/site-recovery/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SiteRecovery.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Site Recovery</h3>
+                                                    <p>Orquestre proteção e recuperação de nuvens privadas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cost-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gerenciamento de Custos</h3>
+                                                    <p>Otimize os gastos na nuvem e maximize o potencial dela</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dms/dms-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/database-migration.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Serviço de Migração de Banco de Dados do Azure</h3>
+                                                    <p>Reduzir a complexidade de sua migração para a nuvem</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/migrate/migrate-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-migrate.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Migrações para Azure</h3>
+                                                    <p>Descubra, avalie, redimensione e migre com facilidade suas VMs locais para o Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3843,7 +5298,7 @@ Terraform </a>
                     </li>
                 </ul>
             </li>
-            <li>
+             <li>
                 <a href="#sdkstools">SDKs/Ferramentas</a>
                 <ul id="sdkstools">
                     <li>
@@ -3865,8 +5320,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">Obtenha as Bibliotecas do Azure para .NET</a>
-                                                </h3>
+Azure para desenvolvedores .NET </h3>
                                                 <p>
                                                     <a href="/dotnet/azure">Introdução</a>
                                                 </p>
@@ -3889,8 +5343,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure">Obtenha as bibliotecas do Azure para Python</a>
-                                                </h3>
+Azure para desenvolvedores de Python </h3>
                                                 <p>
                                                     <a href="/python/azure">Introdução</a>
                                                 </p>
@@ -3913,8 +5366,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/">Obtenha as bibliotecas do Azure para Node.js</a>
-                                                </h3>
+Desenvolvedores do Azure para Node.js </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">Introdução</a>
                                                 </p>
@@ -3937,8 +5389,7 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">Obtenha as Bibliotecas do Azure para Java</a>
-                                                </h3>
+Azure para desenvolvedores Java </h3>
                                                 <p>
                                                     <a href="/java/azure">Introdução</a>
                                                 </p>
@@ -3956,47 +5407,17 @@ Terraform </a>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-5.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">Obter o SDK do Ruby</a>
-                                                </h3>
+Azure para desenvolvedores Go </h3>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Introdução</a>
+                                                    <a href="/go/azure/">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Referência de API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Obtenha exemplos</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Saiba mais</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="/go/azure/">Obtenha o SDK móvel</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Introdução</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referência</a>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referência de API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4014,13 +5435,9 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/">Introdução ao REST</a>
-                                                </h3>
+APIs REST do Azure </h3>
                                                 <p>
-                                                    <a href="/rest/api">Referência</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Obtenha exemplos</a>
+                                                    <a href="/rest/api">Referência de API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4043,15 +5460,12 @@ Terraform </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-CLI do Azure 2.0 </h3>
+CLI do Azure </h3>
                                                 <p>
                                                     <a href="/cli/azure">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Baixar a CLI do Azure 2.0</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/cli/azure">Referência</a>
+                                                    <a href="/cli/azure/reference-index">Referência</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4068,47 +5482,12 @@ CLI do Azure 2.0 </h3>
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>PowerShell</h3>
+                                                <h3>Azure PowerShell</h3>
                                                 <p>
                                                     <a href="/powershell/azure/get-started-azureps">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Baixar o PowerShell</a>
-                                                </p>
-                                                <p>
                                                     <a href="/powershell/azure/overview">Referência</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-7.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-CLI do Azure </h3>
-                                                <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introdução</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Configurar a CLI do Azure para Linux</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Baixar a CLI do Azure para Mac</a>
-                                                </p>
-                                                <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Configurar a CLI do Azure para Windows</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Referência</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4126,15 +5505,24 @@ CLI do Azure </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-9.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Ferramentas do Visual Studio para o Azure</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Baixar</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">Serviço de aplicativo</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Armazenamento</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4152,10 +5540,9 @@ CLI do Azure </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/DockerToolsDocs">Ferramentas do Docker</a>
-                                                </h3>
+Docker </h3>
                                                 <p>
-                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introdução</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Ferramentas do Visual Studio para Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download do Visual Studio</a>
@@ -4177,15 +5564,44 @@ CLI do Azure </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-8.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Ferramentas do PowerShell para Visual Studio</a>
+Ferramentas de Java </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/api/overview/azure/maven/readme">Plugins Maven</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/java/azure/java-azure-tools">IntelliJ e Eclipse</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/java">Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="https://www.visualstudio.com/vs/python">Ferramentas do Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Baixar</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4256,18 +5672,23 @@ Ferramentas do SQL </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-2.svg" alt="" />
+                                                    <img src="media/index/Fabric.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Ferramentas do Python</a>
-                                                </h3>
+Ferramentas e SDK do Service Fabric </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Introdução ao Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download do Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://code.visualstudio.com/docs/languages/python">Introdução ao Código do Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download para Linux</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Baixar o Mac OS X</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Baixar a CLI do Service Fabric</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -4322,7 +5743,7 @@ O Centro de Arquitetura do Azure contém orientações para criar soluções de 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Guia de Arquitetura do Aplicativo do Azure</h3>
-                                                    <p>Este guia apresenta uma abordagem estruturada para a criação de aplicativos do Azure que são escalonáveis, flexíveis e altamente disponíveis. Ele se baseia nas práticas comprovadas aprendemos de contratos com clientes.</p>
+                                                    <p>Este guia apresenta uma abordagem estruturada para a criação de aplicativos do Azure que são escalonáveis, flexíveis e altamente disponíveis. Ele se baseia nas práticas comprovadas que aprendemos nos contratos com clientes.</p>
                                                 </div>
                                             </div>
                                         </div>

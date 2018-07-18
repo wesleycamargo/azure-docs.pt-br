@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 522d94e2a6fbd8e7eb32941e2cab59de7b28384c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337241"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário
 
@@ -104,7 +105,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 5. Na seção **Credenciais de Administrador**, insira o **Nome de Usuário Administrador** e a **Senha do Administrador** de sua conta do BlueJeans. Exemplos desses valores são:
 
-    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no Locatário do BlueJeans. Exemplo: admin@contoso.com.
+    *   No campo **Nome de Usuário Administrador**, popule o nome de usuário da conta do administrador no locatário do BlueJeans. Exemplo: admin@contoso.com.
 
     *   No campo **Senha de Administrador**, preencha a senha correspondente ao nome de usuário do administrador.
 
@@ -112,7 +113,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento do BlueJeans](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+7. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Provisionamento do BlueJeans](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -144,10 +145,14 @@ Essa operação inicia a sincronização inicial de todos os usuários e/ou grup
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](./active-directory-saas-provisioning-reporting.md).
 
+## <a name="connector-limitations"></a>Limitações do conector
+
+* Bluejeans não permite nomes de usuários com mais de 30 caracteres.
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

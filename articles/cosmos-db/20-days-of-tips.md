@@ -1,23 +1,23 @@
 ---
 title: 20 dias de dicas do Azure Cosmos DB | Microsoft Docs
-description: "Encontre todas as dicas da série 20 dias de dicas do Azure Cosmos DB de Simona Cotin em um único local."
+description: Encontre todas as dicas da série 20 dias de dicas do Azure Cosmos DB de Simona Cotin em um único local.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de dicas do Azure Cosmos DB
 
@@ -37,7 +37,7 @@ O que é #cosmosdb? O melhor banco de dados NoSQL que você não está usando! [
 
 ## <a name="tip-2-seeing-is-believing"></a>Dica 2: é preciso ver para crer
 
-É preciso ver para crer. Use a interface visual do #cosmosDB no Portal do Azure para inspecionar e consultar o seu BD [https://aka.ms/jprf75](https://aka.ms/jprf75)
+É preciso ver para crer. Use a interface visual #cosmosDB no Portal do Azure para inspecionar e consultar o banco de dados [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -53,7 +53,7 @@ Dica 3: Precisa de seu aplicativo para ser incrivelmente rápido em qualquer lug
 
 ## <a name="tip-4-gremlin-graph-support"></a>Dica 4: Suporte de grafo Gremlin
 
-Dica 4: Gremlin é a sua praia? O #cosmosdb também adora Gremlin! Exibir, consultar e editar seu banco de dados de grafo usando o portal do Azure [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+Dica 4: Gremlin é a sua praia? O #cosmosdb também adora Gremlin! Visualize, consulte e edite o banco de dados gráfico usando o Portal do Azure [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
@@ -61,7 +61,7 @@ Dica 4: Gremlin é a sua praia? O #cosmosdb também adora Gremlin! Exibir, consu
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>Dica 5: Experimente o Azure Cosmos DB gratuitamente
 
-Dica 5: Deseja tentar o Azure #CosmosDB gratuitamente? Nenhuma inscrição ou cartão de crédito necessários, é só acessar [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e começar a codificar!  
+Dica 5: Deseja tentar o Azure #CosmosDB gratuitamente? Não é necessário inscrição nem cartão de crédito, basta ir até [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e iniciar a codificação!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -69,7 +69,7 @@ Dica 5: Deseja tentar o Azure #CosmosDB gratuitamente? Nenhuma inscrição ou ca
 
 ## <a name="tip-6-migrate-your-mean-app"></a>Dica 6: Migrar seu aplicativo MEAN
 
-Dica 6: MEAN é a sua praia? Saiba como migrar facilmente seu aplicativo para o Azure #cosmosDB! https://aka.ms/gfh6i5 Vídeo completo: https://aka.ms/aoojih  
+Dica 6: MEAN é a sua praia? Saiba como migrar facilmente seu aplicativo para o Azure #cosmosDB! https://aka.ms/gfh6i5 Vídeo completo:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
@@ -93,7 +93,7 @@ Dica 9: consulte o Azure #CosmosDB usando a API do MongoDB no Node.js. Saiba mai
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Dica 10: copiar dados do MongoDB usando o Studio 3T
 
-Dica 10: saiba como copiar os dados do MongoDB para o Azure Cosmos DB usando o Studio 3T (MongoChef). Documentos em [https://aka.ms/apzhww](https://aka.ms/apzhww)
+Dica 10: saiba como copiar os dados do MongoDB para o Azure Cosmos DB usando o Studio 3T (MongoChef). Documentos em[https://aka.ms/apzhww](https://aka.ms/apzhww)
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 
@@ -125,7 +125,7 @@ Artigo: [Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB](https://d
 
 ## <a name="tip-14-use-cases"></a>Dica 14: casos de uso
 
-Dica 14: está curioso sobre casos de uso comuns do Azure #CosmosDB? Dê uma olhada nos [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) para saber mais sobre IoT, aplicativos sociais e jogos
+Dica 14: está curioso sobre casos de uso comuns do Azure #CosmosDB? Dê uma olhada em [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) para saber mais sobre IoT, jogos e aplicativos sociais
 
 Artigo: [Casos de uso comuns do Azure Cosmos DB](https://aka.ms/Ihpf00)
 
@@ -142,7 +142,7 @@ Dica 15: crie uma nova conta do Azure #CosmosDB sem jamais sair de @code. Instal
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>Dica 16: demonstração do Functions e do Twilio
 
-Dica 16: demonstração incrível! Integre o Azure #cosmosDB, o Functions e o @twilio para enviar um SMS em qualquer alteração de banco de dados. Veja os documentos em [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+Dica 16: demonstração incrível! Integre o Azure #cosmosDB, o Functions e o @twilio para enviar um SMS em qualquer alteração de banco de dados. Consulte os documentos em [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -151,7 +151,7 @@ Dica 16: demonstração incrível! Integre o Azure #cosmosDB, o Functions e o @t
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>Dica 17: usando discriminadores Mongoose
 
-Dica 17: otimize o custo usando discriminadores Mongoose para armazenar várias entidades em uma única coleção #CosmosDB [https://aka.ms/M488jm](https://aka.ms/M488jm)
+Dica 17: otimizar o custo usando discriminadores do Mongoose para armazenar várias entidades em uma única coleção #CosmosDB [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 Blog: [Usando discriminadores Mongoose para armazenar várias entidades em uma única coleção do Cosmos DB por Antônio Chu](https://aka.ms/M488jm)
 
@@ -159,7 +159,7 @@ Blog: [Usando discriminadores Mongoose para armazenar várias entidades em uma �
 
 ## <a name="tip-18-request-units"></a>Dica 18: Unidades de Solicitação
 
-Dica 18: saiba o que são as RU (Unidades de Solicitação) e como configurá-las no Azure #CosmosDB. Mais informações sobre documentos em [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+Dica 18: saiba o que são as RU (Unidades de Solicitação) e como configurá-las no Azure #CosmosDB. Mais sobre documentos em [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Artigo: [Unidades de Solicitação no Azure Cosmos DB](https://aka.ms/Kt2nbn)
 
@@ -175,7 +175,7 @@ Dica 19: partição! Partition! Partition! O porquê e o como no Azure #CosmosDB
 
 ## <a name="tip-20-cheatsheet"></a>Dica 20: cola
 
-Dica 20: todos adoram a boa e velha cola. O Azure #CosmosDB também tem uma. Dê uma olhadinha em [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
+Dica 20: todos adoram a boa e velha cola. O Azure #CosmosDB também tem uma. Confira em [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
 Roteiro: [Azure Cosmos DB: PDF de roteiro de consultas SQL](https://aka.ms/Nt01nl)
 

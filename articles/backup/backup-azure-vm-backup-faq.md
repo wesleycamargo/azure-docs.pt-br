@@ -1,12 +1,12 @@
 ---
 title: Perguntas frequentes do Backup de VM do Azure | Microsoft Docs
-description: "Respostas para perguntas comuns sobre: como funciona o backup de VM do Azure, limitações e o que acontece quando ocorrem alterações à política"
+description: 'Respostas para perguntas comuns sobre: como funciona o backup de VM do Azure, limitações e o que acontece quando ocorrem alterações à política'
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "backup de vm do Azure, política de backup e restauração de vm do Azure"
+editor: ''
+keywords: backup de vm do Azure, política de backup e restauração de vm do Azure
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205764"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup de VM do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +34,7 @@ Confira os [Sistemas operacionais com suporte](backup-azure-arm-vms-prepare.md#s
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Por que não consigo ver minha VM no assistente de backup de configuração?
 No Assistente de backup de configuração, o Backup do Azure lista apenas as VMs que:
-  * Ainda não está protegido – Você pode verificar o status do backup de uma VM acessando a folha da VM e verificando o status de Backup no Menu de Configurações. Saiba mais sobre como [Verificar o status do backup de uma VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Ainda não está protegido – Você pode verificar o status do backup de uma VM acessando a folha da VM e verificando o status de Backup no Menu de Configurações. Saiba mais sobre como [Verificar o status do backup de uma VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Pertence à mesma região que a VM
 
 ## <a name="backup"></a>Backup
@@ -54,6 +55,9 @@ Sim. Você poderá cancelar o trabalho de backup se ele estiver na fase "Criando
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio de Grupo de Recursos nas minhas VMs de disco gerenciado de backup. Meus backups continuarão a funcionar?
 Se o usuário bloqueia o Grupo de Recursos, o serviço de Backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end. Se os seus backups estiverem falhando com um erro interno após o bloqueio do Grupo de Recursos, siga estas [etapas para remover a coleção do ponto de restauração](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>A política de Backup leva em conta o horário de verão (DST)?
+Nº Lembre-se que a data e hora no computador local são exibidas em sua hora local e com o horário de verão atual. Portanto o tempo configurado para backups agendados pode ser diferente da sua hora local devido ao horário de verão.
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como decidir entre a restauração de discos em comparação com a restauração completa da VM?

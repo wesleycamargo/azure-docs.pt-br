@@ -1,6 +1,6 @@
 ---
-title: "Como configurar parâmetros do servidor no Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve como configurar os parâmetros do MySQL Server no Banco de Dados do Azure para MySQL usando o portal do Azure."
+title: Como configurar parâmetros do servidor no Banco de Dados do Azure para MySQL
+description: Este artigo descreve como configurar os parâmetros do MySQL Server no Banco de Dados do Azure para MySQL usando o portal do Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6865663bebc84df288f4c7e2564ddb4870667c6f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -40,25 +40,24 @@ Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são as
 
 |**Tipo de preço**| **Geração de computação**|**vCore(s)**|**Pool de Buffers InnoDB (MB)**| **Máximo de conexões**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50 |
-|Basic| Gen 4| 2| 2560| 100 |
-|Basic| Gen 5| 1| 1024| 50 |
-|Basic| Gen 5| 2| 2560| 100 |
-|Uso geral| Gen 4| 2| 2560| 200|
-|Uso geral| Gen 4| 4| 5120| 400|
-|Uso geral| Gen 4| 8| 10240| 800|
-|Uso geral| Gen 4| 16| 20480| 1600|
-|Uso geral| Gen 4| 32| 40960| 3200|
-|Uso geral| Gen 5| 2| 2560| 200|
-|Uso geral| Gen 5| 4| 5120| 400|
-|Uso geral| Gen 5| 8| 10240| 800|
-|Uso geral| Gen 5| 16| 20480| 1600|
-|Uso geral| Gen 5| 32| 40960| 3200|
+|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 2| 2560| 100|
+|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 2| 2560| 100|
+|Uso geral| Gen 4| 2| 3584| 300|
+|Uso geral| Gen 4| 4| 7680| 625|
+|Uso geral| Gen 4| 8| 15360| 1250|
+|Uso geral| Gen 4| 16| 31232| 2500|
+|Uso geral| Gen 4| 32| 62976| 5.000|
+|Uso geral| Gen 5| 2| 3584| 300|
+|Uso geral| Gen 5| 4| 7680| 625|
+|Uso geral| Gen 5| 8| 15360| 1250|
+|Uso geral| Gen 5| 16| 31232| 2500|
+|Uso geral| Gen 5| 32| 62976| 5.000|
 |Otimizado para memória| Gen 5| 2| 7168| 600|
 |Otimizado para memória| Gen 5| 4| 15360| 1250|
 |Otimizado para memória| Gen 5| 8| 30720| 2500|
 |Otimizado para memória| Gen 5| 16| 62464| 5.000|
-|Otimizado para memória| Gen 5| 32| 125952| 10000| 
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 

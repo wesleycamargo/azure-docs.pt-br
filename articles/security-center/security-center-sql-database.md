@@ -1,11 +1,11 @@
 ---
-title: "Central de Segurança do Azure e serviço do Banco de Dados SQL | Microsoft Docs"
-description: "Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL."
+title: Central de Segurança do Azure e serviço do Banco de Dados SQL | Microsoft Docs
+description: Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL.
 services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Central de Segurança do Azure e serviço do Banco de Dados SQL
 A [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -35,10 +35,10 @@ A Central de Segurança ajuda você a proteger os dados no Banco de Dados SQL, f
 
 Além de ajudar a proteger seus recursos de Banco de Dados SQL, a Central de Segurança também fornece monitoramento e gerenciamento de segurança para máquinas virtuais do Azure, Serviços de Nuvem, Serviços de Aplicativos, redes virtuais e muito mais. Saiba mais sobre a Central de Segurança [aqui](security-center-intro.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. A camada Gratuita da Central de Segurança é habilitada com sua assinatura. Para saber mais sobre as camadas Gratuito e Standard da Central de Segurança, confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-A Central de segurança dá suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../active-directory/role-based-access-control-configure.md). As Perguntas frequentes da Central de Segurança fornecem informações sobre [como as permissões são tratadas na Central de Segurança](security-center-faq.md#permissions).
+A Central de segurança dá suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../role-based-access-control/role-assignments-portal.md). As Perguntas frequentes da Central de Segurança fornecem informações sobre [como as permissões são tratadas na Central de Segurança](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Acessar a Central de Segurança
 Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). [Entre no Portal](https://portal.azure.com/) e selecione a **opção Central de Segurança**.
@@ -66,7 +66,7 @@ A Central de Segurança analisa periodicamente o estado de segurança de seus re
 
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. Use a tabela a seguir como referência para ajudar você a entender as recomendações disponíveis para o Banco de Dados SQL e o que faz cada recomendação se você aplicá-la. A seleção de uma recomendação leva você até um artigo que explica como implementar a recomendação na Central de Segurança.
 
-| Recomendações | Descrição |
+| Recomendações | DESCRIÇÃO |
 | --- | --- |
 | [Habilitar a detecção de ameaças e auditoria em servidores SQL](security-center-enable-auditing-on-sql-servers.md) |Recomenda que você ative a detecção de ameaças e a auditoria para servidores do Banco de Dados SQL. (Somente o serviço do Banco de Dados SQL. Não inclui o Microsoft SQL Server em execução nas máquinas virtuais.) |
 | [Habilitar a detecção de ameaças e auditoria em Bancos de Dados SQL](security-center-enable-auditing-on-sql-databases.md) |Recomenda que você ative a detecção de ameaças e a auditoria para bancos de dados do Banco de Dados SQL. (Somente o serviço do Banco de Dados SQL. Não inclui o Microsoft SQL Server em execução nas máquinas virtuais.) |

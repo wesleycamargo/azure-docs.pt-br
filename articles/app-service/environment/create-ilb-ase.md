@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355365"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
- O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure. Há duas maneiras de implantar um ASE (Ambiente do Serviço de Aplicativo): 
+ O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure. Há duas maneiras de implantar um ASE (ambiente do serviço de aplicativo): 
 
 - Com um VIP em um endereço IP externo, geralmente chamado de ASE externo.
 - Com um VIP em um endereço IP interno, geralmente chamado de ASE ILB devido ao ponto de extremidade interno ser um balanceador de carga interno (ILB). 
@@ -63,7 +64,9 @@ Para criar um ASE ILB:
 
 4. Selecione ou crie uma VNet.
 
-5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/25`, que tem 128 endereços e é compatível com um ASE com tamanho máximo. E o tamanho mínimo que você pode selecionar é `/28`. Dependendo da necessidade da infraestrutura, esse tamanho pode ser dimensionado para um máximo de 11 instâncias.
+    * Se selecionar uma VNet nova, você poderá especificar um nome e local. Se você pretende hospedar aplicativos do Linux neste ASE, somente estas seis regiões têm suporte no momento: **Oeste dos EUA, Leste dos EUA, Europa Ocidental, Europa Setentrional, Leste da Austrália, Sudeste Asiático.** 
+
+5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/25`, que tem 128 endereços e é compatível com um ASE com tamanho máximo. E o tamanho mínimo que você pode selecionar é `/28`. Dependendo da necessidade da infraestrutura, esse tamanho só pode ser dimensionado para um máximo de três instâncias.
 
     * Vá além do padrão máximo de 100 instâncias nos planos do serviço de aplicativo.
 
@@ -81,7 +84,7 @@ Para criar um ASE ILB:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
+   Há um recurso chamado nomes de domínio personalizado que permite que você mapeie um nome DNS existente para seu aplicativo Web. Você pode ler mais sobre esse recurso no documento [Mapear um nome DNS existente para seu aplicativo Web][customdomain]. O nome de domínio personalizado usado para aplicativos e o nome de domínio usado pelo seu ASE não podem ser os mesmos. Em um ASE ILB com o nome de domínio _contoso.com_, não é possível usar nomes de domínio personalizados para seus aplicativos, como:
 
     * www.contoso.com
 
@@ -106,7 +109,7 @@ Se você definir **Tipo de VIP** como **Interno**, o nome do ASE não será usad
 
 Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um aplicativo em um ASE.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Web** ou **Celular** ou **Aplicativo de API**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
 
 2. Digite o nome do aplicativo.
 
@@ -114,9 +117,13 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 4. Selecione ou crie um grupo de recursos.
 
-5. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
+5. Selecione seu SO. 
 
-6. Selecione **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
+    * Se você quiser criar um aplicativo do Linux usando um contêiner de Docker personalizado, basta trazer seu próprio contêiner usando estas instruções. 
+
+6. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
+
+7. Clique em **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
 
     ![Criação do plano do Serviço de Aplicativo][2]
 
@@ -188,7 +195,7 @@ As Funções e os trabalhos da Web são suportados em um ILB ASE, mas para que o
 
 Quando você usa o Azure Functions em um ASE ILB, você pode receber uma mensagem de erro informando: "Não é possível recuperar as funções no momento. Tente novamente mais tarde.” Esse erro ocorre porque a interface do usuário de Funções aproveita o site SCM por HTTPS e o certificado raiz não está na cadeia de navegadores de confiança. Os trabalhos da Web têm um problema semelhante. Para evitar esse problema, você pode executar uma destas ações:
 
-- Adicionar o certificado ao seu repositório de certificados confiáveis. Isso desbloqueia o Edge e o Internet Explorer.
+- Adicionar o certificado ao seu repositório de certificados confiáveis. Isso desbloqueia o Microsoft Edge e o Internet Explorer.
 - Use o Chrome e acesse o site SCM primeiro, aceite o certificado não confiável e vá para o portal.
 - Use um certificado comercial que esteja na sua cadeia de navegadores confiáveis.  Essa é a melhor opção.  
 
@@ -209,7 +216,7 @@ O nome do site SCM leva você para o console do Kudu, que é chamado de **Portal
 
 No Serviço de Aplicativo multilocatário e em um ASE Externo, há logon único entre o portal do Azure e o console do Kudu. No entanto, para o ASE ILB, você precisa usar suas credenciais de publicação para entrar no console do Kudu.
 
-Sistemas de CI baseados na Internet, como GitHub e o Visual Studio Team Services, não funcionam em ASE ILB porque o ponto de extremidade de publicação não está acessível pela Internet. Em vez disso, você precisa usar um sistema de CI que usa um modelo pull, como o Dropbox.
+Sistemas CI baseado na internet, como GitHub e o Visual Studio Team Services ainda funcionarão com uma ASE ILB se o agente de build é acessível pela internet e na mesma rede como ASE ILB. Dessa forma, no caso do Visual Studio Team Services, se o agente de build for criado na mesma VNET como ILB ASE (sub-rede diferente é adequada),  poderá extrair o código do VSTS git e implantar ao ASE ILB. Se você não quiser criar seu próprio agente de build, você precisa usar um sistema de CI que usa um modelo de pull, como o Dropbox.
 
 Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Este domínio é exibido no perfil de publicação do aplicativo e na folha do portal do aplicativo (**Visão geral** > **Essentials** e também **Propriedades**). Se você tiver um ASE ILB com o subdomínio *contoso.net* e um aplicativo chamado *mytest*, use *mytest.contoso.net* para FTP e *mytest.scm.contoso.net* para implantação da Web.
 
@@ -238,7 +245,7 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira 
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md
@@ -250,3 +257,4 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, confira 
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

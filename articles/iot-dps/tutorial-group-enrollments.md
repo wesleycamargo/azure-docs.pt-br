@@ -1,22 +1,22 @@
 ---
 title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando Java e grupos de registro | Microsoft Docs
-description: "Tutorial do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo para Java e grupos de registro para Java para o Serviço de Provisionamento do Dispositivo Hub IoT"
+description: Tutorial do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo para Java e grupos de registro para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/04/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0d325e71125e875590b54b84700b6ec9e0fe7dd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -33,7 +33,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
 1. Verifique se o `git` está instalado em seu computador e é adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
 
-1. Use a seguinte [Visão geral de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar seus certificados de teste. Para uma visão mais detalhada sobre a criação de certificados, consulte [Scripts do PowerShell para gerenciar certificados X.509 assinados pela autoridade de certificação](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Use a seguinte [Visão geral de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para criar seus certificados de teste. Para uma visão mais detalhada sobre a criação de certificados, consulte [Scripts do PowerShell para gerenciar certificados X.509 assinados pela autoridade de certificação](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
     > [!NOTE]
     > Esta etapa requer [OpenSSL](https://www.openssl.org/), que pode a ser criada e instalada da fonte ou baixada e instalada de [terceiros](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Se você já tiver criado seus certificados de _raiz_, _intermediário_ e _dispositivo_, você pode ignorar esta etapa.

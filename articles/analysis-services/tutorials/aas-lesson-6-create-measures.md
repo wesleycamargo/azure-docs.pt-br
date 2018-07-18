@@ -1,25 +1,18 @@
 ---
-title: "Lição 6 do tutorial do Azure Analysis Services: criar medidas | Microsoft Docs"
+title: 'Lição 6 do tutorial do Azure Analysis Services: criar medidas | Microsoft Docs'
 description: Descreve como criar medidas no projeto de tutorial do Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 31531abb5c2d2309317f1b88a1a794392b914f90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-measures"></a>Criar medidas
 
@@ -33,7 +26,7 @@ Nesta lição, você criará medidas inserindo uma fórmula DAX na barra de fór
   
 Tempo estimado para conclusão desta lição: **30 minutos**  
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 5: criar colunas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Criar medidas  

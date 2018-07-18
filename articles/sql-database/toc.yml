@@ -16,6 +16,7 @@
     - name: Criar Banco de dados – Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Conectar e consultar
+      href: sql-database-connect-query.md
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
@@ -29,6 +30,8 @@
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: Núcleo do .NET
           href: sql-database-connect-query-dotnet-core.md
+        - name: .NET com Autenticação Multifator Ativa
+          href: active-directory-interactive-connect-azure-sql-db.md
         - name: Go
           href: sql-database-connect-query-go.md
         - name: Java
@@ -47,14 +50,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - Criar banco de dados usando .NET
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Migrar para o Banco de dados do SQL Server
+    - name: 2 - Migrar para o banco de dados do SQL Server usando o DMS
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteja o seu Banco de Dados SQL
       href: sql-database-security-tutorial.md
     - name: 4 - implementar um banco de dados distribuído geograficamente
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Criar Instância Gerenciada
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Restaurar um backup para uma instância gerenciada
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - Migrar para uma instância gerenciada usando o DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -69,10 +76,16 @@
       href: sql-database-servers-databases.md
     - name: Instância gerenciada
       href: sql-database-managed-instance.md
-    - name: Camadas de serviço
-      href: sql-database-service-tiers.md
-    - name: Limites de recursos
-      href: sql-database-resource-limits.md
+    - name: Camadas de serviço com base em DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Camadas de serviço com base em vCore
+      href: sql-database-service-tiers-vcore.md
+    - name: Expansão de leitura
+      href: sql-database-read-scale-out.md
+    - name: Limites do recurso baseados em DTU
+      href: sql-database-dtu-resource-limits.md
+    - name: Limites do recurso baseados em vCore
+      href: sql-database-vcore-resource-limits.md
     - name: Bancos de dados únicos
       href: sql-database-single-database-resources.md
     - name: Pools elásticos
@@ -91,6 +104,16 @@
       items:
         - name: Visão geral
           href: sql-database-security-overview.md
+        - name: Proteção Avançada contra Ameaças
+          href: sql-advanced-threat-protection.md
+        - name: Descoberta de dados e classificação
+          href: sql-database-data-discovery-and-classification.md
+        - name: Avaliação de vulnerabilidade
+          href: sql-vulnerability-assessment.md
+        - name: Detecção de ameaças - Banco de Dados SQL
+          href: sql-database-threat-detection.md
+        - name: Detecção de ameaças - Instância Gerenciada
+          href: sql-database-managed-instance-threat-detection.md
         - name: Regras de firewall
           href: sql-database-firewall-configure.md
         - name: Regras de rede virtual do firewall
@@ -107,25 +130,17 @@
           href: sql-database-auditing.md
         - name: Auditoria - instância gerenciada
           href: sql-database-managed-instance-auditing.md
-        - name: Detecção de ameaças - Banco de Dados SQL
-          href: sql-database-threat-detection.md
-        - name: Detecção de ameaças - Instância Gerenciada
-          href: sql-database-managed-instance-threat-detection.md
         - name: Auditoria de tabela e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Mascaramento de dados dinâmicos
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Avaliação de vulnerabilidade
-          href: sql-vulnerability-assessment.md
-        - name: Descoberta de dados e classificação
-          href: sql-database-data-discovery-and-classification.md
     - name: Continuidade dos negócios
       items:
         - name: Visão geral
           href: sql-database-business-continuity.md
         - name: Backups de banco de dados
           href: sql-database-automated-backups.md
-        - name: Retenção de backup
+        - name: Retenção de backup de longo prazo
           href: sql-database-long-term-retention.md
         - name: Grupos de failover
           href: sql-database-geo-replication-overview.md
@@ -305,10 +320,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuidade dos negócios
       items:
-        - name: Configurar o cofre - backups
-          href: sql-database-long-term-backup-retention-configure.md
         - name: Replicação geográfica - Portal
           href: sql-database-geo-replication-portal.md
+        - name: Configurar retenção de backup de longo prazo - Armazenamento do SQL
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Configurar retenção de backup de longo prazo - Cofre do Azure
+          href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Carregar e mover dados
       items:
         - name: Carregar dados com o BCP
@@ -401,8 +418,16 @@
               href: saas-tenancy-schema-management.md
             - name: Relatório entre locatários
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: ETL para análise
-              href: saas-tenancy-tenant-analytics.md
+            - name: Análise de locatário
+              items:
+                - name: Com banco de dados SQL
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Com data warehouse SQL
+                  href: saas-tenancy-tenant-analytics-adf.md
+            - name: Recuperação de desastre usando a restauração geográfica
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Recuperação de desastre usando a replicação geográfica do banco de dados
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Banco de dados multilocatário
           items:
             - name: Implantação do aplicativo de exemplo
@@ -423,6 +448,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Usar o Conector do Spark
+          href: sql-database-spark-connector.md
 - name: Referência
   items:
     - name: Azure PowerShell

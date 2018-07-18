@@ -1,23 +1,23 @@
 ---
-title: "Tarefas e funções do Processo de Ciência de Dados de Equipe – Azure | Microsoft Docs"
-description: "Uma estrutura de tópicos de componentes principais, funções da equipe e tarefas associadas para um projeto de equipe de ciência de dados."
-documentationcenter: 
-author: bradsev
+title: Tarefas e funções do Processo de Ciência de Dados de Equipe – Azure | Microsoft Docs
+description: Uma estrutura de tópicos de componentes principais, funções da equipe e tarefas associadas para um projeto de equipe de ciência de dados.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: deguhath
+ms.openlocfilehash: 00d8761a7afe4b727c04626c0ba7c032b2277f48
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Processo de Ciência de Dados de Equipe
 

@@ -1,8 +1,8 @@
 ---
 title: Usar um MSI de VM do Windows para acessar o SQL do Azure
-description: "Um tutorial que orienta o processo de usar uma MSI (Identidade de Serviço Gerenciada) de VM do Windows para acessar o SQL do Azure."
+description: Um tutorial que orienta o processo de usar uma MSI (Identidade de Serviço Gerenciada) de VM do Windows para acessar o SQL do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Usar a MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o SQL do Azure
 
@@ -39,7 +39,7 @@ Este tutorial mostra como usar uma MSI (Identidade de Serviço Gerenciada) para 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Em seguida, adicione a MSI da VM ao grupo.  Você precisa da **ObjectId** da MSI, que você pode obter usando o Azure PowerShell.  Primeiro, baixe o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Então entre usando `Login-AzureRmAccount` e execute os seguintes comandos para:
+Em seguida, adicione a MSI da VM ao grupo.  Você precisa da **ObjectId** da MSI, que você pode obter usando o Azure PowerShell.  Primeiro, baixe o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Então entre usando `Connect-AzureRmAccount` e execute os seguintes comandos para:
 - Garantir que o contexto da sessão esteja definido para a assinatura do Azure desejada, se você tiver várias.
 - Listar os recursos disponíveis na sua assinatura do Azure e verificar os nomes de VM e grupo de recursos corretos.
 - Obter as propriedades da MSI da VM usando os valores apropriados para `<RESOURCE-GROUP>` e `<VM-NAME>`.
@@ -137,7 +137,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilitar a autenticação do Azure AD para o SQL Server
 
-Agora que você criou o grupo e adicionou a MSI da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL Server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando as seguintes etapas:
+Agora que você criou o grupo e adicionou a MSI da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL Server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) usando as seguintes etapas:
 
 1.  No portal do Azure, selecione **Servidores SQL** na navegação à esquerda.
 2.  Clique no SQL Server a ser habilitado para autenticação do Azure AD.
@@ -183,7 +183,7 @@ O código em execução na VM pode obter um token da MSI e usar o token para aut
 
 O Azure SQL tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando MSI.  Você usa o método **token de acesso** para criar uma conexão para o SQL.  Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
 
-Aqui está um exemplo de código .Net de abertura de uma conexão a SQL usando um token de acesso.  Esse código deve ser executado na VM para poder acessar o ponto de extremidade da MSI da VM.  É necessário ter o **.NET Framework 4.6** ou superior para usar o método de token de acesso.  Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo.  Observe que a ID de recurso do Azure SQL é "https://database.windows.net/".
+Aqui está um exemplo de código .Net de abertura de uma conexão a SQL usando um token de acesso.  Esse código deve ser executado na VM para poder acessar o ponto de extremidade da MSI da VM.  É necessário ter o **.NET Framework 4.6** ou superior para usar o método de token de acesso.  Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo.  Observe a ID de recurso para o SQL Azure é "https://database.windows.net/".
 
 ```csharp
 using System.Net;

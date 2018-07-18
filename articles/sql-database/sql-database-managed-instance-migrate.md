@@ -9,26 +9,32 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: fd8225b2c5c4f897bbf3d7e1b2ba7659f564409d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5b8a2ec7e0401ac239acdefdd77a13b522f73960
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure
 
 Neste artigo, você aprenderá sobre os métodos para migrar um SQL Server 2005 ou instância de versão posterior para a Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia). 
-
-> [!NOTE]
-> Para migrar um único banco de dados para um banco de dados individual ou pool elástico, consulte [Migrar um banco de dados do Microsoft SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
 A Instância Gerenciada do Banco de Dados SQL é uma expansão do serviço existente do Banco de Dados SQL, oferecendo uma terceira opção de implantação junto a pools elásticos e bancos de dados individuais.  Foi projetada para habilitar lift-and-shift do banco de dados para um PaaS totalmente gerenciado, sem a necessidade de projetar o aplicativo novamente. A Instância Gerenciada do Banco de Dados SQL oferece alta compatibilidade com o modelo de programação local do SQL Server e suporte integrado para a grande maioria dos recursos do SQL Server e ferramentas e serviços que o acompanham.
 
 Em alto nível, o processo de migração do aplicativo é semelhante ao diagrama a seguir:
 
 ![processo de migração](./media/sql-database-managed-instance-migration/migration-process.png)
+
+- [Avaliar a compatibilidade da Instância Gerenciada](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
+- [Escolher a opção de conectividade do aplicativo](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
+- [Implantar em uma Instância Gerenciada de tamanho ideal](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
+- [Selecionar o método de migração e migrar](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
+- [Monitorar aplicativos](sql-database-managed-instance-migrate.md#monitor-applications)
+
+> [!NOTE]
+> Para migrar um único banco de dados para um banco de dados individual ou pool elástico, consulte [Migrar um banco de dados do Microsoft SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Avaliar a compatibilidade da Instância Gerenciada
 
@@ -43,14 +49,6 @@ No entanto, há alguns casos em que você precisa considerar uma opção alterna
 - Se for absolutamente necessário permanecer em uma versão específica do SQL Server (2012, por instância).
 - Se os requisitos de computação forem muito menores, a Instância Gerenciada oferece na visualização pública (um vCore, por instância) e a consolidação de banco de dados não é uma opção aceitável.
 
-## <a name="choose-app-connectivity-option"></a>Escolha a opção de conectividade do aplicativo
-
-A Instância Gerenciada é totalmente contida na rede virtual, portanto, fornece o nível máximo de isolamento e segurança para os dados. O diagrama a seguir mostra várias opções para implantar várias topologias de aplicativos completamente no Azure ou em um ambiente híbrido, independentemente de escolher um serviço totalmente gerenciado ou um modelo hospedado para os aplicativos front-end.
-
-![topologias de implantação de aplicativos](./media/sql-database-managed-instance-migration/application-deployment-topologies.png)
-
-Qualquer uma das opções selecionadas permite conectividade a um ponto de extremidade do SQL somente por meio de endereços IP privados, o que garante o nível ideal de isolamento para os dados. <!--- For more information, see How to connect your application to Managed Instance.--->
-
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implantar para uma Instância Gerenciada de tamanho ideal
 
 A Instância Gerenciada é adaptada para cargas de trabalho locais planejadas a moverem-se para a nuvem. Ela introduz um novo modelo de compra que oferece maior flexibilidade na seleção do nível certo de recursos para as cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos. O novo modelo de compra para Instância Gerenciada é baseado em núcleos virtuais, ou "vCores", com armazenamento adicional e E/S disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem.
@@ -59,7 +57,7 @@ A Instância Gerenciada é adaptada para cargas de trabalho locais planejadas a 
 
 ![dimensionamento da instância gerenciada](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Para saber como criar a infraestrutura de VNet e Instância Gerenciada - e restaurar um banco de dados a partir de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+Para aprender como criar a infraestrutura de VNet e uma Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
 
 > [!IMPORTANT]
 > É importante manter a sub-rede e VNet de destino sempre de acordo com os [requisitos de VNET da Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md#requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizar aquelas que você já criou.
@@ -77,11 +75,13 @@ A Instância Gerenciada é um serviço totalmente gerenciado que permite delegar
 
 A Instância Gerenciada oferece suporte às opções de migração de banco de dados a seguir (atualmente, esse são os únicos métodos de migração com suporte):
 
+- Serviço de Migração de Banco de Dados do Azure - migração com tempo de inatividade próximo de zero
+- RESTORE nativo de URL - usa backups nativos do SQL Server e requer algum tempo de inatividade
+- Migrar usando o arquivo BACPAC - usa o arquivo BACPAC do SQL Server ou do Banco de Dados SQL e requer algum tempo de inatividade
+
 ### <a name="azure-database-migration-service"></a>Serviço de Migração de Banco de Dados do Azure
 
 O [DMS (Serviço de Migração de Banco de Dados do Azure)](../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações contínuas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação na Visualização Pública incluem Banco de Dados SQL do Azure, Instância Gerenciada e SQL Server em uma Máquina Virtual do Azure. O DMS é o método recomendado de migração para as cargas de trabalho empresariais. 
-
-![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
 Para saber mais sobre esse cenário e as etapas de configuração do DMS, consulte [Migrar o banco de dados local para a Instância Gerenciada utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -100,12 +100,12 @@ A tabela a seguir fornece mais informações sobre o método que você pode util
 |Coloque o backup no Armazenamento do Microsoft Azure|SQL 2012 SP1 CU2 anterior|Upload do arquivo .bak diretamente para Armazenamento do Microsoft Azure|
 ||2012 SP1 CU2 - 2016|Backup direto utilizando a sintaxe [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)|
 ||2016 e posterior|Backup direto utilizando [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restaurar do Armazenamento do Microsoft Azure para a Instância Gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Restaurar do Armazenamento do Microsoft Azure para a Instância Gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> O PRestore de bancos de dados do sistema não tem suporte. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
+> Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
 
-Para um tutorial completo que inclui restauração de um backup de banco de dados em uma Instância Gerenciada utilizando uma credencial de SAS, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+Para um tutorial completo que inclui a restauração de um backup de banco de dados para uma Instância Gerenciada usando uma credencial de SAS, consulte [Restaurar do backup para uma Instância Gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md).
 
 ### <a name="migrate-using-bacpac-file"></a>Migrar utilizando arquivo BACPAC
 
@@ -127,6 +127,6 @@ Para fortalecer a segurança, considere utilizar alguns dos recursos disponívei
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre a Instância Gerenciada, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md)
-- Para um tutorial que inclua uma restauração do backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-tutorial-portal.md).
+- Para obter informações sobre Instâncias Gerenciadas, consulte [O que é uma Instância Gerenciada?](sql-database-managed-instance.md).
+- Para um tutorial que inclua uma restauração do backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
 - Para um tutorial mostrando a migração utilizando DMS, consulte [Migrar o banco de dados local para a Instância Gerenciada utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

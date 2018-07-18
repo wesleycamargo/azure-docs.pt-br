@@ -1,25 +1,25 @@
 ---
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 5 | Microsoft Docs
-description: "Parte 5 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB"
+description: Parte 5 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c06247279df9eaaedf128a2eeec801b4e323c535
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 7a4b25792577247d3121c5226da55081ed55ff2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 5: usar o Mongoose para se conectar ao Azure Cosmos DB
 
@@ -39,7 +39,7 @@ A Parte 5 do tutorial se baseia na [Parte 4](tutorial-develop-mongodb-nodejs-par
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
 
@@ -221,7 +221,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 1. Agora, vamos executar o aplicativo novamente. No Visual Studio Code, salve todas as suas alterações, clique no botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) no lado esquerdo e clique no botão **Iniciar depuração** botão ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-3. Agora, vamos voltar para o navegador, abrir as ferramentas de desenvolvedor e a guia Rede e navegar até http://localhost:3000, onde está nosso aplicativo.
+3. Agora, vamos voltar para o navegador, abrir as ferramentas de Desenvolvedor e a guia Rede e navegar até http://localhost:3000, onde está nosso aplicativo.
 
     ![Nova conta do Azure Cosmos DB no portal do Azure](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

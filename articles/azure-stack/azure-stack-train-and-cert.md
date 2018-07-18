@@ -1,6 +1,6 @@
 ---
-title: "Certificação e treinamento de pilha do azure"
-description: "Saiba mais sobre as oportunidades de certificação de treinamento de pilha do Azure"
+title: Certificação e treinamento de pilha do azure
+description: Saiba mais sobre as oportunidades de certificação de treinamento de pilha do Azure
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,12 +8,12 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
-keywords: 
-ms.openlocfilehash: 3ac1d83c4f40bd8bbd072486489b72de73084ade
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 19dba180d19967dcd6a01a6b2851d746ad1f9831
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Certificação e treinamento de pilha do azure
 
@@ -25,7 +25,7 @@ As oportunidades de treinamento e certificação seguintes estão disponíveis p
 
 - [Curso 20537A: configurar e operar uma nuvem híbrida com pilha do Microsoft Azure](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
 - [edX: treinamento on-line de pilha do Azure](https://aka.ms/AzureStackMOOC)
-- [Funções de trabalho e roteiro de aprendizagem](https://azure.microsoft.com/en-us/training/learning-paths/)
+- [Funções de trabalho e roteiro de aprendizagem](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certificação
 Certificações de pilha do Azure atualmente estão em desenvolvimento. Verifique as atualizações mais recentes.

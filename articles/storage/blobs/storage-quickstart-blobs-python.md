@@ -1,19 +1,19 @@
 ---
-title: Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Python | Microsoft Docs
-description: Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando Python | Microsoft Docs
+description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
-ms.author: tamram
-ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 04/09/2018
+ms.author: cshoe
+ms.openlocfilehash: 88f148e7ea175e928ee9f35b8728994a738e10da
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Início rápido: Carregar, baixar e listar blobs usando Python
 
@@ -23,7 +23,7 @@ Neste guia de início rápido, você aprenderá como usar Python para carregar, 
 
 Para concluir este guia de início rápido: 
 * Instalar o [Python](https://www.python.org/downloads/)
-* Baixar e instalar o [SDK do Armazenamento do Azure para Python](storage-python-how-to-use-blob-storage.md). 
+* Baixar e instalar o [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -39,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ```
 
 Este comando clona o repositório para sua pasta do git local. Para abrir o programa de Python, procure a pasta storage-blobs-python-quickstart e o arquivo example.py.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 No aplicativo, você deve fornecer o nome da conta de armazenamento e a chave de conta para criar um objeto `BlockBlobService`. Abra o arquivo `example.py` no Gerenciador de Soluções na sua IDE. Substitua os valores **accountname** e **accountkey** pelo nome e chave da conta. 

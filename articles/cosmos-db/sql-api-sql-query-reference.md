@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs"
-description: "Documentação de referência para a linguagem de consulta SQL do Azure Cosmos DB."
+title: 'Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs'
+description: Documentação de referência para a linguagem de consulta SQL do Azure Cosmos DB.
 services: cosmos-db
 author: LalithaMV
-manager: jhubbard
-editor: mimig
-documentationcenter: 
-ms.assetid: 
+manager: kfile
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +13,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este tópico fornece documentação de referência para a linguagem de consulta SQL, que é compatível com contas de API do SQL.
 

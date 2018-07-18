@@ -1,12 +1,13 @@
 ---
-title: "Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API | Microsoft Docs"
-description: "Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API."
-keywords: "aprendizado de máquina, gerenciamento de api"
+title: Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API | Microsoft Docs
+description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API.
+keywords: aprendizado de máquina, gerenciamento de api
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API
 ## <a name="overview"></a>Visão geral
@@ -31,7 +31,7 @@ O Gerenciamento de API do Azure é um serviço do Azure que permite que você ge
 ## <a name="what-is-azureml"></a>O que é o AzureML?
 O AzureML é um serviço do Azure para aprendizado de máquina que permite facilmente criar, implantar e compartilhar soluções de análise avançadas. Clique em [aqui](https://azure.microsoft.com/services/machine-learning/) para obter detalhes sobre AzureML.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este guia, você precisa:
 
 * Uma conta do Azure. Se você não tiver uma conta do Azure, clique [aqui](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes sobre como criar uma conta de avaliação gratuita.
@@ -173,7 +173,7 @@ Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apêndice A - criando e testando um serviço Web do AzureML simples
 ### <a name="creating-the-experiment"></a>Criando o teste
-Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo:
+Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo: 
 
 | Texto | Texto marcado com sustenido |
 | --- | --- |

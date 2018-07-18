@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Suporte | Microsoft Docs'
-description: "Como arquivar solicitações de suporte para o Active Directory B2C do Azure"
+description: Como arquivar solicitações de suporte para o Active Directory B2C do Azure
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: b37575d636356304ca94a55736e7f69605cf8218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: solicitações de suporte a arquivo
 Você pode arquivar solicitações de suporte para o Azure AD (Azure Active Directory) B2C no portal do Azure usando as seguintes etapas:
@@ -38,7 +35,7 @@ Você pode arquivar solicitações de suporte para o Azure AD (Azure Active Dire
    * O **Tipo de emissão** é **Técnico**.
    * Escolha a **Assinatura**apropriada.
    * O **Serviço** é **Active Directory**.
-   * Escolha o **Plano de suporte**apropriado. Se não tiver um, inscreva-se para ter um [aqui](https://azure.microsoft.com/en-us/support/plans/).
+   * Escolha o **Plano de suporte**apropriado. Se não tiver um, inscreva-se para ter um [aqui](https://azure.microsoft.com/support/plans/).
      
      ![Suporte - Noções básicas](./media/active-directory-b2c-support/support-basics.png)
 6. Na folha **Problema**, use esses detalhes e clique em **Próximo**.

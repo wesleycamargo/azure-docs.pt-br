@@ -1,10 +1,10 @@
 ---
 title: Usar a Grade de Eventos do Azure para automatizar o redimensionamento de imagens carregadas | Microsoft Docs
-description: "A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias."
+description: A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -26,7 +26,7 @@ Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenament
 
 Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a um aplicativo de upload de imagens existente.
 
-![Aplicativo Web publicado no navegador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Aplicativo Web publicado no navegador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Neste tutorial, você aprenderá como:
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 Agora você pode implantar um projeto de código de função nesse aplicativo de funções.
@@ -145,7 +145,7 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | **Ponto de extremidade do assinante** | gerado automaticamente | Use a URL de ponto de extremidade gerada para você. | 
     | **Filtro de prefixo** | /blobServices/default/containers/images/blobs/ | Filtra os eventos de armazenamento para somente aqueles no contêiner **images**.| 
 
-4. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `imageresizerfunc` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e as adiciona para o contêiner de *thumbs*.
+4. Clique em **Criar** para adicionar a assinatura de evento. Isso cria uma assinatura de evento que dispara `imageresizerfunc` quando um blob é adicionado ao contêiner de *imagens*. A função redimensiona as imagens e adiciona-as ao contêiner de *miniaturas*.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento da imagem no aplicativo Web de exemplo. 
 
@@ -155,9 +155,9 @@ Para testar o redimensionamento de imagem no aplicativo Web, navegue para a URL 
 
 Clique na região **Carregar fotos** para selecionar e carregar um arquivo. Também arraste uma foto para essa região. 
 
-Observe que, depois que a imagem carregada desaparece, uma cópia da imagem carregada é exibida no carrossel **Miniaturas geradas**. Essa imagem foi redimensionada pela função, adicionada ao contêiner de *thumbs* e baixada pelo cliente Web.
+Observe que, depois que a imagem carregada desaparece, uma cópia da imagem carregada é exibida no carrossel **Miniaturas geradas**. Essa imagem foi redimensionada pela função, adicionada ao contêiner de *miniaturas* e baixada pelo cliente Web.
 
-![Aplicativo Web publicado no navegador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Aplicativo Web publicado no navegador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

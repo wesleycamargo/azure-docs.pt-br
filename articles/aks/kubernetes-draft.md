@@ -1,23 +1,23 @@
 ---
-title: "Usar o Rascunho com AKS e Registro de Contêiner do Azure"
-description: "Usar o Rascunho com AKS e Registro de Contêiner do Azure"
+title: Usar o Rascunho com AKS e Registro de Contêiner do Azure
+description: Usar o Rascunho com AKS e Registro de Contêiner do Azure
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Usar o Rascunho com o Serviço de Contêiner do Azure (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
-O Rascunho é uma ferramenta de software livre que ajuda a compactar e executar o código em um cluster Kubernetes. O Rascunho é direcionado ao ciclo de iteração de desenvolvimento, conforme o código está sendo desenvolvido, mas antes de confirmar no controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
+Rascunho é uma ferramenta de software livre que ajuda a conter e implantar esses contêineres em um cluster do Kubernetes, deixando-o livre para concentrar-se no ciclo de desenvolvimento - o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
 Este documento detalha o uso do Rascunho com um cluster do Kubernetes no AKS.
 
@@ -27,66 +27,53 @@ As etapas detalhadas neste documento pressupõem que você tenha criado um clust
 
 Você também precisa de um Registro do Docker privado no ACR (Registro de Contêiner do Azure). Para obter instruções sobre como implantar uma instância do ACR, consulte o [Início rápido do Registro de Contêiner do Azure][acr-quickstart].
 
-Helm também deve ser instalado em seu cluster AKS. Para obter mais informações sobre como instalar o comando, consulte [Usar o Helm com o serviço de contêiner do Azure (AKS)][aks-helm].
+Helm também deve ser instalado em seu cluster AKS. Para obter mais informações sobre como instalar o comando, consulte [Usar o Helm com o Serviço de Kubernetes do Azure (AKS)][aks-helm].
+
+Finalmente, você deve instalar o [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Instalar o Rascunho
 
 A CLI do Rascunho é um cliente executado no sistema de desenvolvimento e que permite que você implante o código rapidamente em um cluster do Kubernetes.
 
-Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho][install-draft].
+> [!NOTE]
+> Se você instalou o Rascunho antes da versão 0.12, primeiro exclua o Rascunho do cluster usando `helm delete --purge draft` e, em seguida, remova a configuração local executando `rm -rf ~/.draft`. Se estiver no MacOS, execute `brew upgrade draft`.
+
+Para instalar a CLI do Rascunho em um Mac, use `brew`. Para obter opções adicionais de instalação, consulte [Guia de instalação do Rascunho][draft-documentation].
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-Saída:
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
-```
-
-## <a name="configure-draft"></a>Configurar o Rascunho
-
-Ao configurar o Rascunho, um Registro de contêiner deve ser especificado. Nesse exemplo, é usado o Registro de Contêiner do Azure.
-
-Execute o seguinte comando para obter o nome e o nome do servidor de logon da instância do ACR. Atualize o comando com o nome do grupo de recursos que contém sua instância do ACR.
-
-```console
-az acr list --resource-group <resource group> --query "[].{Name:name,LoginServer:loginServer}" --output table
-```
-
-A senha de instância do ACR também é necessária.
-
-Execute o comando a seguir para retornar a senha do ACR. Atualize o comando com o nome da instância do ACR.
-
-```console
-az acr credential show --name <acr name> --query "passwords[0].value" --output table
-```
-
-Inicializar o Rascunho com o comando `draft init`.
+Agora inicialize o Rascunho com o comando `draft init`.
 
 ```console
 draft init
 ```
 
-Durante esse processo, serão solicitadas as credenciais de Registro de contêiner. Ao usar um Registro de Contêiner do Azure, a URL do Registro é o nome do servidor de logon do ACR, o nome de usuário é o nome da instância do ACR e a senha é a senha do ACR.
+## <a name="configure-draft"></a>Configurar o Rascunho
+
+O Rascunho compila as imagens de contêiner localmente e, em seguida, implanta-as a partir do registro local (no caso do Minikube), ou você deverá especificar o registro de imagem a ser utilizado. Esse exemplo usa o ACR (Registro de Contêiner do Azure), portanto, é necessário estabelecer uma relação de confiança entre o cluster do AKS e o registro do ACR e configurar o Rascunho para enviar o contêiner ao ACR.
+
+### <a name="create-trust-between-aks-cluster-and-acr"></a>Criar confiança entre o cluster do AKS e o ACR
+
+Para estabelecer confiança entre um cluster do AKS e um registro do ACR, você modifica a Entidade de Serviço do Azure Active Directory usado com o AKS, adicionando a função de Colaborador a ela com o escopo do repositório do ACR. Para fazer isso, execute os comandos a seguir, substituindo _&lt;aks-rg-name&gt;_ e _&lt;aks-cluster-name&gt;_ com o grupo de recursos e o nome do cluster do AKS e _&lt;acr-rg-nam&gt;_ e _&lt;acr-repo-name&gt;_ com o grupo de recursos e o nome do repositório do repositório do ACR com o qual você deseja criar confiança.
 
 ```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
+export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-Uma vez concluído, o Rascunho está configurado no cluster do Kubernetes e está pronto para uso.
+(Estas etapas e outros mecanismos de autenticação para acessar o ACR estão em [autenticando com ACR](../container-registry/container-registry-auth-aks.md).)
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Configurar o Rascunho para enviar e implantar a partir do ACR
+
+Agora que há uma relação de confiança entre o AKS e o ACR, as etapas a seguir permitem o uso do ACR no cluster do AKS.
+1. Defina o valor da configuração de rascunho `registry` executando `draft config set registry <registry name>.azurecr.io`, onde o _&lt;nome do registro&lt;_ é o nome do registro do ACR.
+2. Faça logon no registro do ACR executando `az acr login -n <registry name>`.
+
+Como agora você está conectado localmente ao ACR e criou uma relação de confiança com o AKS e o ACR, nenhuma senha ou segredo será necessário ao efetuar push para ou efetuar pull do ACR para o AKS. A autenticação ocorre no nível do Microsoft Azure Resource Manager, usando o Azure Active Directory.
 
 ## <a name="run-an-application"></a>Executar um aplicativo
 
@@ -99,7 +86,7 @@ git clone https://github.com/Azure/draft
 Mude para o diretório de exemplos de Java.
 
 ```console
-cd draft/examples/java/
+cd draft/examples/example-java/
 ```
 
 Use o comando `draft create` para iniciar o processo. Este comando cria os artefatos que são usados para executar o aplicativo em um cluster do Kubernetes. Esses itens incluem um Dockerfile, um gráfico do Helm e um arquivo `draft.toml`, que é o arquivo de configuração do Rascunho.
@@ -110,12 +97,14 @@ draft create
 
 Saída:
 
-```
+```console
 --> Draft detected the primary language as Java with 92.205567% certainty.
 --> Ready to sail
 ```
 
-Para executar o aplicativo em um cluster do Kubernetes, use o comando `draft up`. Esse comando carrega os arquivos de configuração e código do aplicativo para o cluster do Kubernetes. Em seguida, executa o Dockerfile para criar uma imagem de contêiner, envia por push a imagem para o Registro de contêiner e finalmente executa o gráfico do Helm para iniciar o aplicativo.
+Para executar o aplicativo em um cluster do Kubernetes, use o comando `draft up`. Esse comando compila o Dockerfile para criar uma imagem de contêiner, envia a imagem para o ACR e finalmente instala o gráfico Helm para iniciar o aplicativo no AKS.
+
+Na primeira vez que isso executar, ao efetuar push e efetuar pull da imagem de container poderá levar algum tempo. Depois que as camadas de base forem armazenadas em cache, o tempo gasto será drasticamente reduzido.
 
 ```console
 draft up
@@ -123,12 +112,13 @@ draft up
 
 Saída:
 
-```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+```console
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## <a name="test-the-application"></a>Testar o aplicativo
@@ -143,7 +133,7 @@ draft connect
 
 Saída:
 
-```
+```console
 Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -153,7 +143,10 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Ao concluir o teste do aplicativo, use `Control+C` para interromper a conexão de proxy.
+Agora teste o aplicativo, navegando até http://localhost:46143 (para o exemplo anterior, sua porta pode ser diferente). Ao concluir o teste do aplicativo, use `Control+C` para interromper a conexão de proxy.
+
+> [!NOTE]
+> Também é possível usar o comando `draft up --auto-connect` para criar e implantar o aplicativo e conectar-se imediatamente ao primeiro contêiner em execução para tornar o ciclo de iteração ainda mais rápido.
 
 ## <a name="expose-application"></a>Expor aplicativo
 
@@ -163,7 +156,7 @@ Ao testar um aplicativo no Kubernetes, talvez você queira disponibilizar o apli
 Primeiro, o pacote do Rascunho precisa ser atualizado para especificar que um serviço com um tipo `LoadBalancer` deve ser criado. Para fazer isso, atualize o tipo de serviço no arquivo `values.yaml`.
 
 ```console
-vi chart/java/values.yaml
+vi charts/java/values.yaml
 ```
 
 Localize a propriedade `service.type` e atualize o valor de `ClusterIP` para `LoadBalancer`.
@@ -203,13 +196,13 @@ kubectl get service -w
 Inicialmente, o *EXTERNAL-IP* do serviço aparece como `pending`.
 
 ```
-deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
+example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
 Depois que o endereço EXTERNAL-IP for alterado de `pending` para um `IP address`, use `Control+C` para interromper o processo de inspeção do kubectl.
 
 ```
-deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
 Para consultar o aplicativo, navegue até o endereço IP externo.
@@ -243,25 +236,35 @@ import static spark.Spark.*;
 
 public class Hello {
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World, I'm Java - Draft Rocks!");
+        get("/", (req, res) -> "Hello World, I'm Java in AKS!");
     }
 }
 ```
 
-Execute o comando `draft up` para reimplantar o aplicativo.
+Execute o comando `draft up --auto-connect` para reimplantar o aplicativo assim que um pod estiver pronto para responder.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
 Saída
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 Por fim, exiba o aplicativo para ver as atualizações.
@@ -273,7 +276,7 @@ curl 52.175.224.118
 Saída:
 
 ```
-Hello World, I'm Java - Draft Rocks!
+Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -285,7 +288,6 @@ Para obter mais informações sobre o uso do Rascunho, consulte a documentação
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

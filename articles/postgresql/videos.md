@@ -1,6 +1,6 @@
 ---
-title: "Vídeos sobre o Banco de Dados do Azure para PostgreSQL"
-description: "Esta página lista conteúdos em vídeo relevantes para o aprendizado sobre o Banco de dados do Azure para PostgreSQL."
+title: Vídeos sobre o Banco de Dados do Azure para PostgreSQL
+description: Esta página lista conteúdos em vídeo relevantes para o aprendizado sobre o Banco de dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

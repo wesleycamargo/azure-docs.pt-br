@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao Carlson Wagonlit Travel | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Carlson Wagonlit Travel."
+title: 'Tutorial: integração do Azure Active Directory ao Carlson Wagonlit Travel | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Carlson Wagonlit Travel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 26d141d73dfee5dd47ba09a32262343488487ad1
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 80873f9dfe94a5e83865b3617ad8dba3198a2dd7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: integração do Azure Active Directory ao Carlson Wagonlit Travel
 
@@ -30,7 +30,7 @@ A integração do Carlson Wagonlit Travel ao Azure AD oferece os seguintes benef
 - Você pode permitir que seus usuários façam logon automaticamente no Carlson Wagonlit Travel (logon único) com as contas do Azure AD deles.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -200,7 +200,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

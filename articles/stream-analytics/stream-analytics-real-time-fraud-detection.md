@@ -1,25 +1,19 @@
 ---
-title: "Stream Analytics: detecção de fraudes em tempo real | Microsoft Docs"
-description: "Aprenda a criar uma solução para detecção de fraudes em tempo real com a Stream Analytics. Use um hub de eventos para o processamento de eventos em tempo real."
-keywords: "detecção de anomalias, detecção de fraudes, detecção de anomalias em tempo real"
+title: Detecção de fraude em tempo real usando o Azure Stream Analytics
+description: Aprenda a criar uma solução para detecção de fraudes em tempo real com a Stream Analytics. Use um hub de eventos para o processamento de eventos em tempo real.
 services: stream-analytics
-documentationcenter: 
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: sngun
-ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso de Stream Analytics do Azure: detecção de fraudes em tempo real
 
@@ -406,7 +400,7 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 
 ## <a name="get-support"></a>Obtenha suporte
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 

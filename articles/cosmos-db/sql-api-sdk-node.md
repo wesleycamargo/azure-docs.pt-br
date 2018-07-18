@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre o SDK e a API do SQL Node.js, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Node.js para o Azure Cosmos DB."
+description: Saiba tudo sobre o SDK e a API do SQL Node.js, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Node.js para o Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -30,23 +30,21 @@ ms.lasthandoff: 03/02/2018
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
 <tr><td>**Baixar o SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[Github](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Exemplos**</td><td>[Exemplos de código do Node.js](sql-api-nodejs-samples.md)</td></tr>
 
@@ -63,6 +61,16 @@ ms.lasthandoff: 03/02/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="1.14.4"/>1.14.4</a>
+* documentação do npm corrigida.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Adicionado suporte para repetições padrão em problemas de conexão.
+* Adicionado suporte para o feed de alteração de coleção de leitura.
+* Bug de consistência de sessão fixa que intermitentemente causou “sessão de leitura não disponível”
+* Adicionado suporte para métricas de consulta.
+* Modificado o número máximo de conexões do Agente de http.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
@@ -195,6 +203,8 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |03 de maio de 2018 |--- |
+| [1.14.3](#1.14.3) |03 de maio de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de dezembro de 2017 |--- |
 | [1.14.1](#1.14.1) |10 de novembro, 2017 |--- |
 | [1.14.0](#1.14.0) |9 de novembro de 2017 |--- |

@@ -1,25 +1,20 @@
 ---
-title: "Práticas recomendadas de carregamento de dados – SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Recomendações para carregar dados e executar ELT com o SQL Data Warehouse do Azure."
+title: Práticas recomendadas de carregamento de dados – SQL Data Warehouse do Azure | Microsoft Docs
+description: Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 48b0f0300ab563e8388c9e99f4f90cd24c56678d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Práticas recomendadas para carregar dados no SQL Data Warehouse do Azure
 Recomendações e otimizações de desempenho para carregar dados no SQL Data Warehouse do Azure. 
@@ -62,11 +57,11 @@ Conecte-se ao data warehouse e crie um usuário. O código a seguir pressupõe q
 ```
 Para executar uma carga com recursos para as classes de recursos staticRC20, simplesmente faça logon como LoaderRC20 e execute a carga.
 
-Execute cargas sob classes de recursos estáticas em vez de dinâmicas. Usar as classes de recursos estáticas garante os mesmos recursos, independentemente de seu [nível de serviço](performance-tiers.md#service-levels). Se você usar uma classe de recursos dinâmicos, os recursos variam de acordo com seu nível de serviço. Para classes dinâmicas, um nível inferior do serviço significa que você provavelmente precisa usar uma classe de recursos maior para seu usuário de carregamento.
+Execute cargas sob classes de recursos estáticas em vez de dinâmicas. Usar as classes de recursos estáticas garante os mesmos recursos, independentemente de suas [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se você usar uma classe de recursos dinâmicos, os recursos variam de acordo com seu nível de serviço. Para classes dinâmicas, um nível inferior do serviço significa que você provavelmente precisa usar uma classe de recursos maior para seu usuário de carregamento.
 
 ## <a name="allowing-multiple-users-to-load"></a>Permitindo que vários usuários façam o carregamento
 
-Geralmente, há a necessidade de ter vários usuários carregando dados em um data warehouse. Carregando com [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requer permissões CONTROL do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas. Talvez você não queira que todos os usuários de carregamento tenham acesso de controle em todos os esquemas. Para limitar as permissões, use a instrução DENY CONTROL.
+Geralmente, há a necessidade de ter vários usuários carregando dados em um data warehouse. Carregar com [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requer permissões CONTROL do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas. Talvez você não queira que todos os usuários de carregamento tenham acesso de controle em todos os esquemas. Para limitar as permissões, use a instrução DENY CONTROL.
 
 Por exemplo: considere os esquemas de banco de dados, schema_A para o departamento A e schema_B para o departamento B. Os usuários de banco de dados user_A e user_B serão usuários de carregamento de PolyBase nos departamentos A e B respectivamente. Ambos receberam permissões de banco de dados CONTROL. Os criadores dos esquemas A e B agora bloquearam seus esquemas usando DENY:
 
@@ -99,13 +94,13 @@ Um carregamento usando uma tabela externa pode falhar com o erro *“Consulta an
 Para corrigir os registros sujos, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserindo dados em uma tabela de produção
-Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql.md), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Porém, inserções únicas de toneladas não são tão eficientes como executar um carregamento em massa. 
+Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Porém, inserções únicas de toneladas não são tão eficientes como executar um carregamento em massa. 
 
 Se você tiver milhares ou mais de inserções únicas ao longo do dia, crie lotes para as inserções para que possa carregá-las em massa.  Desenvolva seus processos para acrescentar as inserções únicas para um arquivo e depois crie outro processo que periodicamente carrega o arquivo.
 
 ## <a name="creating-statistics-after-the-load"></a>Criando estatísticas após o carregamento
 
-Para melhorar o desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou ocorrem alterações significativas nos dados.  Para obter uma explicação detalhada das estatísticas, confira [Estatísticas][Estatísticas]. O exemplo a seguir cria estatísticas em cinco colunas da tabela Customer_Speed.
+Para melhorar o desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou ocorrem alterações significativas nos dados.  Para obter uma explicação detalhada das estatísticas, confira [Estatísticas](sql-data-warehouse-tables-statistics.md). O exemplo a seguir cria estatísticas em cinco colunas da tabela Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,17 +115,21 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para girar chaves de conta de armazenamento do Azure:
 
-Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
+Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
 
 Exemplo:
 
 A chave original é criada
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 Altere a chave 1 para a chave 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 Não é necessária nenhuma outra alteração nas fontes de dados externas subjacentes.
 

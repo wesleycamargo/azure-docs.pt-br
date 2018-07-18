@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: autenticação de passagem | Microsoft Docs"
-description: "Este artigo descreve a autenticação de passagem do Azure AD (Azure Active Directory) e como ela permite entradas do Azure AD por meio da validação de senhas de usuários no Active Directory local."
+title: 'Azure AD Connect: autenticação de passagem | Microsoft Docs'
+description: Este artigo descreve a autenticação de passagem do Azure AD (Azure Active Directory) e como ela permite entradas do Azure AD por meio da validação de senhas de usuários no Active Directory local.
 services: active-directory
-keywords: "o que é a autenticação de passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
-documentationcenter: 
+keywords: o que é a autenticação de passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -28,7 +28,7 @@ A autenticação de passagem do Azure AD (Azure Active Directory) permite que os
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Esse recurso é uma alternativa à [Sincronização de Hash de Senha do Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, as políticas de conformidade e segurança de certas organizações não permitirem que essas organizações enviem as senhas dos usuários, mesmo em um formato com hash, para fora de seus limites internos. A Autenticação de Passagem é a solução ideal para essas organizações.
+Esse recurso é uma alternativa à [Sincronização de Hash de Senha do Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, as políticas de conformidade e segurança de certas organizações não permitirem que essas organizações enviem as senhas dos usuários, mesmo em um formato com hash, para fora de seus limites internos. A Autenticação de Passagem é a solução ideal para essas organizações.
 
 ![O que é a Autenticação de Passagem do Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -39,7 +39,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - *Ótima experiência do usuário*
   - Os usuários usam as mesmas senhas para entrar em aplicativos locais e aplicativos baseados na nuvem.
   - Os usuários perdem menos tempo se comunicando com o suporte técnico de TI para resolver problemas de senha.
-  - Os usuários podem concluir tarefas de [gerenciamento de senha por autoatendimento](../active-directory-passwords-overview.md) na nuvem.
+  - Os usuários podem concluir tarefas de [gerenciamento de senha por autoatendimento](../authentication/active-directory-passwords-overview.md) na nuvem.
 - *Fácil de implantar e administrar*
   - Não são necessárias implantações locais ou configurações de rede complexas.
   - É necessário apenas que um agente leve seja instalado localmente.
@@ -56,7 +56,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - Dá suporte à entrada do usuário em todos os aplicativos baseados em navegador da Web e em aplicativos de cliente do Microsoft Office que usam [autenticação moderna](https://aka.ms/modernauthga).
 - Os nomes de usuário de entrada podem ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
 - O recurso funciona diretamente com recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como a MFA (Autenticação Multifator), para ajudar a proteger seus usuários.
-- Integrado com [gerenciamento de senha de autoatendimento](../active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
+- Integrado com [gerenciamento de senha de autoatendimento](../authentication/active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
 - Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Ele pode ser habilitado por meio do [Azure AD Connect](active-directory-aadconnect.md).

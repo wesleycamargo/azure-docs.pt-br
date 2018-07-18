@@ -1,6 +1,6 @@
 ---
-title: "Criar usuários no servidor de Banco de Dados do Azure para MySQL"
-description: "Este artigo descreve como você pode criar novas contas de usuário para interagir com um servidor de Banco de Dados do Azure para MySQL."
+title: Criar usuários no servidor de Banco de Dados do Azure para MySQL
+description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um servidor de Banco de Dados do Azure para MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh

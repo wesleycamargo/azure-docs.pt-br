@@ -1,26 +1,26 @@
 ---
-title: "Criar sua primeira função no Portal do Azure | Microsoft Docs"
-description: "Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure."
+title: Criar sua primeira função no Portal do Azure | Microsoft Docs
+description: Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/21/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-ms.openlocfilehash: c1f7c1a12aea8336b71d6e3eb47037d193841ddb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
@@ -39,8 +39,6 @@ Entre no portal do Azure em <http://portal.azure.com> com sua conta do Azure.
 Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Em seguida, crie uma nova função no novo aplicativo de funções.
 
@@ -64,7 +62,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 2. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `&name=<yourname>` ao final desta URL e pressione `Enter` em seu teclado para executar a solicitação. Você deverá ver a resposta retornada pela função exibida no navegador.  
 
-    O exemplo a seguir mostra a resposta no navegador Edge (outros navegadores podem incluir XML exibido):
+    O exemplo a seguir mostra a resposta no navegador Microsoft Edge (outros navegadores podem incluir XML exibido):
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 

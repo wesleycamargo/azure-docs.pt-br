@@ -1,11 +1,11 @@
 ---
-title: "Visão geral de redirecionamento do Gateway de Aplicativo do Azure | Microsoft Docs"
+title: Visão geral de redirecionamento do Gateway de Aplicativo do Azure | Microsoft Docs
 description: Saiba mais sobre a capacidade de redirecionamento do Gateway de Aplicativo do Azure
 services: application-gateway
 documentationcenter: na
 author: amsriva
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6352873ea055965b433fbf3e6e46162890e5fec
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="application-gateway-redirect-overview"></a>Visão geral do redirecionamento do Gateway de Aplicativo
 

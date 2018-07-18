@@ -1,9 +1,9 @@
 ---
-title: "Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights | Microsoft Docs"
-description: "Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights"
+title: Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights | Microsoft Docs
+description: Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
-ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: sergkanz;mbullwin
+ms.openlocfilehash: e66d5e8674d6564d3910daddb1119c22a8b8bd9f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -450,7 +450,7 @@ public async Task RunMyTaskAsync()
 
 Descartar a operação faz com que ela seja interrompida, portanto, você pode fazer isso em vez de chamar `StopOperation`.
 
-*Aviso*: em alguns casos, uma exceção não tratada [impede](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` de ser chamado para que operações não possam ser rastreadas.
+*Aviso*: em alguns casos, uma exceção não tratada [impede](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` de ser chamado para que operações não possam ser rastreadas.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Rastreamento e processamento de operações paralelas
 

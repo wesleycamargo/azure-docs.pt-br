@@ -1,8 +1,8 @@
 ---
-title: "Painéis e navegação no Azure Application Insights | Microsoft Docs"
-description: "Crie exibições de suas consultas e gráficos principais do APM."
+title: Painéis e navegação no Azure Application Insights | Microsoft Docs
+description: Crie exibições de suas consultas e gráficos principais do APM.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd

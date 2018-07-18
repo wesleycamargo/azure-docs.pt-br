@@ -1,24 +1,19 @@
 ---
-title: "Tratamento de erros em runbooks gráficos na Automação do Azure | Microsoft Docs"
-description: "Este artigo descreve como implementar a lógica de tratamento de erros em runbooks gráficos na Automação do Azure."
+title: Tratamento de erros em runbooks gráficos na Automação do Azure
+description: Este artigo descreve como implementar a lógica de tratamento de erros em runbooks gráficos na Automação do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/26/2016
-ms.author: magoedte
-ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
+ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Tratamento de erros em runbooks gráficos na Automação do Azure
 

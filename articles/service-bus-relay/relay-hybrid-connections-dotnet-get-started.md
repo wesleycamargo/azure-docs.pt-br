@@ -1,11 +1,11 @@
 ---
-title: "Introdução às conexões híbridas de retransmissão do Azure no .NET | Microsoft Docs"
-description: "Escreva um aplicativo de console C# para Conexões Híbridas da Transmissão do Azure."
+title: Introdução às Websockets de Conexões Híbridas de Retransmissão do Azure em .NET | Microsoft Docs
+description: Escreva um aplicativo de console C# para Websockets de Conexões Híbridas da Retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Introdução às Conexões Híbridas de Retransmissão
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às Websockets de Conexões Híbridas de Retransmissão em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 Este tutorial fornece uma introdução às [Conexões Híbridas de Retransmissão do Azure](relay-what-is-it.md#hybrid-connections). Saiba como usar o Microsoft .NET para criar um aplicativo cliente que envia mensagens para um aplicativo de escuta correspondente. 

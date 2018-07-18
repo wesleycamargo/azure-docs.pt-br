@@ -1,11 +1,11 @@
 ---
 title: 'Como configurar o roteamento (emparelhamento) para um circuito do ExpressRoute: Resource Manager: PowerShell: Azure | Microsoft Docs'
-description: "Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito do ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
+description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito do ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: jonor
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/3/2018
 ms.author: osamaz, jaredr80
-ms.openlocfilehash: 26165748c88629bacdaed6f12a540302ea12513b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4f8f0e6c8fab5dfb4efcc4f1659ba90336c8bf0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando o PowerShell
 
@@ -61,8 +61,6 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
 
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
-
 1. Importe o módulo do PowerShell para ExpressRoute.
 
   Instale o instalador do PowerShell mais recente da [Galeria do PowerShell](http://www.powershellgallery.com/) e importe os módulos do Gerenciador de Recursos do Azure na sessão do PowerShell para começar a usar os cmdlets do ExpressRoute. Você precisará executar o PowerShell como Administrador.
@@ -88,7 +86,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   Entre na sua conta.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selecionar a assinatura na qual você deseja criar um circuito do ExpressRoute.
@@ -215,7 +213,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   Entre na sua conta.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selecionar a assinatura na qual você deseja criar um circuito do ExpressRoute.
@@ -352,7 +350,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   Entre na sua conta.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Selecionar a assinatura na qual você deseja criar um circuito do ExpressRoute.

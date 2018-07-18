@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar capturas de pacote com o Observador de Rede do Azure – CLI 2.0 do Azure | Microsoft Docs"
-description: "Esta página explica como gerenciar o recurso de captura de pacote do Observador de Rede usando a CLI 2.0 do Azure"
+title: Gerenciar capturas de pacote com o Observador de Rede do Azure – CLI 2.0 do Azure | Microsoft Docs
+description: Esta página explica como gerenciar o recurso de captura de pacote do Observador de Rede usando a CLI 2.0 do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2c0cb9b72d23f46e60c96efe96a9ad32ba6fc746
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4c0b65411e9846077036e16204b7a407c6c7ee9e
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261762"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI 2.0 do Azure
 
@@ -125,7 +126,7 @@ azure storage account list
 Filtros podem ser usados para limitar os dados armazenados por pacote de captura. O exemplo a seguir configura uma captura de pacote com vários filtros.  Os três primeiros filtros coletam tráfego de saída TCP apenas de IP local 10.0.0.3 para portas de destino de 20, 80 e 443.  O último filtro coleta apenas o tráfego UDP.
 
 ```azurecli
-az network watcher packet-capture create --resource-group {resoureceurceGroupName} --vm {vmName} --name packetCaptureName --storage-account gwteststorage123abc --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
+az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
 O exemplo a seguir é a saída esperada executem o cmdlet `az network watcher packet-capture create`.
@@ -183,65 +184,30 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Obter uma captura de pacote
 
-Executando o `az network watcher packet-capture show` cmdlet, recupera o status de uma captura de pacote atualmente em execução ou concluído.
+Executando o `az network watcher packet-capture show-status` cmdlet, recupera o status de uma captura de pacote atualmente em execução ou concluído.
 
 ```azurecli
-az network watcher packet-capture show --name packetCaptureName --location westcentralus
+az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-O exemplo a seguir é a saída do cmdlet `az network watcher packet-capture show`. O exemplo a seguir é após a conclusão da captura. O valor de PacketCaptureStatus é Parado, com um StopReason de TimeExceeded. Esse valor mostra que a captura de pacote foi bem-sucedida e executou seu tempo.
+O exemplo a seguir é a saída do cmdlet `az network watcher packet-capture show-status`. O exemplo a seguir ilustra o momento em que a captura é Stopped, com um StopReason de TimeExceeded. 
 
 ```
 {
-  "bytesToCapturePerPacket": 0,
-  "etag": "W/\"b8cf3528-2e14-45cb-a7f3-5712ffb687ac\"",
-  "filters": [
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "20"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "80"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "443"
-    },
-    {
-      "localIpAddress": "",
-      "localPort": "",
-      "protocol": "UDP",
-      "remoteIpAddress": "",
-      "remotePort": ""
-    }
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
-  "name": "packetCaptureName",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "NetworkWatcherRG",
-  "storageLocation": {
-    "filePath": null,
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/gwteststorage123abc",
-    "storagePath": "https://gwteststorage123abc.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapt
-ure_16_22_34_630.cap"
+  "additionalProperties": {
+    "status": "Succeeded"
   },
-  "target": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-  "timeLimitInSeconds": 18000,
-  "totalBytesPerSession": 1073741824
+  "captureStartTime": "2016-12-06T17:20:01.5671279Z",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
+cketCaptures/packetCaptureName",
+  "name": "packetCaptureName",
+  "packetCaptureError": [],
+  "packetCaptureStatus": "Stopped",
+  "stopReason": "TimeExceeded"
 }
 ```
 
-## <a name="stop-a-packet-capture"></a>Parar uma captura de pacote
+## <a name="stop-a-packet-capture"></a>Parar uma captura de pacotes
 
 Ao executar o cmdlet `az network watcher packet-capture stop`, se uma sessão de captura estiver em andamento, será interrompida.
 
@@ -263,7 +229,7 @@ az network watcher packet-capture delete --name packetCaptureName --location wes
 
 ## <a name="download-a-packet-capture"></a>Baixar uma captura de pacote
 
-Quando a sessão de captura de pacote for concluído, o arquivo de captura pode ser carregado no Armazenamento de Blobs ou em um arquivo local na VM. O local de armazenamento da captura de pacote é definido no momento da criação da sessão. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: http://storageexplorer.com/
+Quando a sessão de captura de pacote for concluído, o arquivo de captura pode ser carregado no Armazenamento de Blobs ou em um arquivo local na VM. O local de armazenamento da captura de pacotes é definido na criação da sessão. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: http://storageexplorer.com/
 
 Se uma conta de armazenamento for especificada, os arquivos de captura de pacote serão salvos em uma conta de armazenamento no seguinte local:
 
@@ -273,8 +239,8 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
+Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->

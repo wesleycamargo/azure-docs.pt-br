@@ -1,24 +1,25 @@
 ---
 title: Perguntas frequentes sobre o Azure ExpressRoute | Microsoft Docs
-description: "As Perguntas Frequentes Sobre ExpressRoute contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais."
+description: As Perguntas Frequentes Sobre ExpressRoute contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160862"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -68,13 +69,18 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 
 ### <a name="public-peering"></a>Emparelhamento público
 
+>[!NOTE]
+>O emparelhamento da Microsoft é a maneira preferencial para acessar todos os serviços hospedados no Azure.
+>
+
 * Power BI
 * Dynamics 365 for Finance and Operations (anteriormente conhecido como Dynamics AX Online)
-* A maioria dos serviços do Azure, com algumas exceções seguintes:
-  * CDN
-  * Teste de carga do Visual Studio Team Services
-  * Autenticação Multifator
-  * Gerenciador de Tráfego
+* Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>
+  Não há suporte para os serviços a seguir:
+    * CDN
+    * Teste de carga do Visual Studio Team Services
+    * Autenticação Multifator
+    * Gerenciador de Tráfego
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
@@ -87,7 +93,8 @@ O ExpressRoute dá suporte a [três domínios de roteamento](expressroute-circui
 * Ao usar [filtros de rota](#route-filters-for-microsoft-peering), você recebe acesso aos mesmos serviços públicos com o emparelhamento da Microsoft:
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * A maioria dos serviços do Azure, com algumas exceções seguintes:
+  * Há suporte para a maioria dos serviços do Azure. Verifique diretamente o serviço que você deseja utilizar para confirmar o suporte.<br>
+  Não há suporte para os serviços a seguir:
     * CDN
     * Teste de carga do Visual Studio Team Services
     * Autenticação Multifator
@@ -150,7 +157,7 @@ Se o seu provedor de serviços oferecer o ExpressRoute em ambos os sites, você 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Posso ter vários circuitos do ExpressRoute no mesmo metro? Posso vinculá-los à mesma rede virtual?
 
-Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em vários locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, não será possível vinculá-los à mesma rede virtual.
+Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em diferentes locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, não será possível vinculá-los à mesma rede virtual. Cada nome de local no Portal do Azure ou na API do PowerShell/CLI representa um local de emparelhamento. Por exemplo, você pode selecionar os locais de emparelhamento "Cingapura" e "Cingapura2" e conectar circuitos de cada um à mesma rede virtual. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito do ExpressRoute
 
@@ -214,7 +221,7 @@ Sim. Você terá que criar um gateway de ExpressRoute em sua rede virtual. Há u
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Por que há um endereço IP público associado ao gateway de ExpressRoute em uma rede virtual?
 
-O endereço IP público é usado somente para gerenciamento interno. Esse endereço IP público não é exposto à internet e não constitui uma exposição de segurança de sua rede virtual.
+O endereço IP público é usado apenas para gerenciamento interno e não constitui uma exposição de segurança de sua rede virtual.
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>O que é necessário para conexão ao armazenamento do Azure por meio de ExpressRoute?
 
@@ -340,7 +347,10 @@ Consulte [Parceiros e locais do ExpressRoute](expressroute-locations.md) para ob
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Posso acessar o Office 365 pela Internet mesmo se o ExpressRoute foi configurado para minha organização?
 
-Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora o ExpressRoute tenha sido configurado para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de ExpressRoute, você se conectará por meio de ExpressRoute.
+Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora o ExpressRoute tenha sido configurado para sua rede. Por favor verifique com a equipe de rede de sua organização se a rede local está configurada para conectar os serviços do Office 365 por meio de ExpressRoute.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Como posso planejar para uma alta disponibilidade de tráfego de rede no Office 365 no Azure ExpressRoute?
+Consulte a recomendação para [alta disponibilidade e failover com o Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Posso acessar os serviços da Comunidade Governamental dos EUA (GCC) do Office 365 por um circuito ExpressRoute do Governo dos EUA para o Azure?
 

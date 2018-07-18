@@ -1,11 +1,11 @@
 ---
-title: "Integração contínua no VS Team Services usando os projetos do Grupo de Recursos do Azure | Microsoft Docs"
-description: "Descreve como configurar a integração contínua no Visual Studio Team Services usando os projetos de implantação do Grupo de recursos do Azure no Visual Studio."
+title: Integração contínua no VS Team Services usando os projetos do Grupo de Recursos do Azure | Microsoft Docs
+description: Descreve como configurar a integração contínua no Visual Studio Team Services usando os projetos de implantação do Grupo de recursos do Azure no Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Visual Studio Team Services usando os projetos de implantação do Grupo de recursos do Azure
 Para implantar um modelo do Azure, você precisa executar tarefas de vários estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo. Há duas maneiras diferentes de implantar modelos no Visual Studio Team Services (VS Team Services). Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
@@ -104,9 +104,9 @@ Os procedimentos a seguir percorrer as etapas necessárias para configurar impla
     ![Editar caminho para script][10]
 8. Na caixa **Argumentos do Script** , digite os parâmetros a seguir (em uma única linha). Ao executar o script no Visual Studio, você pode ver como o VS usa os parâmetros na janela **Saída** . Você pode usar isso como um ponto de partida para definir os valores do parâmetro na etapa de compilação.
    
-   | Parâmetro | Descrição |
+   | Parâmetro | DESCRIÇÃO |
    | --- | --- |
-   | -ResourceGroupLocation |O valor da localização geográfica na qual o grupo de recursos está localizado, por exemplo, **eastus** ou **'Leste dos EUA'**. (Adicione aspas se houver um espaço no nome). Veja [Regiões do Azure](https://azure.microsoft.com/en-us/regions/) para saber mais. |
+   | -ResourceGroupLocation |O valor da localização geográfica na qual o grupo de recursos está localizado, por exemplo, **eastus** ou **'Leste dos EUA'**. (Adicione aspas se houver um espaço no nome). Veja [Regiões do Azure](https://azure.microsoft.com/regions/) para saber mais. |
    | -ResourceGroupName |O nome do grupo de recursos usado para essa implantação. |
    | -UploadArtifacts |Esse parâmetro, quando presente, especifica que artefatos do sistema local precisam ser carregados no Azure. Você só precisa definir essa opção se a implantação de seu modelo exigir artefatos adicionais que você deseja testar usando o script do PowerShell (como scripts de configuração ou modelos aninhados). |
    | -StorageAccountName |O nome da conta de armazenamento usada para artefatos de preparação para essa implantação. Esse parâmetro será usado somente se você estiver preparando artefatos para implantação. Se esse parâmetro for fornecido, uma nova conta de armazenamento será criada caso o script não tenha criado uma durante a implantação anterior. Se o parâmetro for especificado, a conta de armazenamento já deverá existir. |

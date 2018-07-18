@@ -2,23 +2,19 @@
 title: Recursos para o desenvolvimento de um data warehouse no Azure | Microsoft Docs
 description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: barbkess
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: develop
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
 Leia estes artigos sobre desenvolvimento para reconhecer melhor as principais decisões de design, recomendações e técnicas de codificação para SQL Data Warehouse.
@@ -49,7 +45,7 @@ Esses artigos destacam recomendações, dicas e técnicas de codificação espec
 * [atribuição de variável][variable assignment]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte a página de [referência Transact-SQL][Transact-SQL reference] para SQL Data Warehouse.
+Para obter mais informações de referência, consulte [Instruções T-AQL do SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
@@ -71,7 +67,7 @@ Para obter mais informações de referência, consulte a página de [referência
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

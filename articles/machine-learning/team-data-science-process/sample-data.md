@@ -1,9 +1,9 @@
 ---
-title: "Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive | Microsoft Docs"
-description: "Como explorar dados armazenados em vários ambientes do Azure."
+title: Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive | Microsoft Docs
+description: Como explorar dados armazenados em vários ambientes do Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: garye;bradsev
-ms.openlocfilehash: 202a70bf17f9cbf655cb4220c4480a5bcc8563f1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 73b0d3992627b7787ee46e61f62717a545c5b9e2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 Este documento leva a artigos que abordam como obter amostras de dados armazenados em um dos três diferentes locais do Azure:

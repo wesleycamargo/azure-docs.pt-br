@@ -1,51 +1,50 @@
 ---
-title: Procedimentos armazenados no SQL Data Warehouse | Microsoft Docs
-description: "Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+title: Usando procedimentos armazenados no SQL Data Warehouse do Azure | Microsoft Docs
+description: Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 9b238789-6efe-4820-bf77-5a5da2afa0e8
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 0ad8a599065a44469a3151813972b3d2561782c6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774651"
 ---
-# <a name="stored-procedures-in-sql-data-warehouse"></a>Procedimentos armazenados no SQL Data Warehouse
-O SQL Data Warehouse oferece suporte a muitos recursos Transact-SQL encontrados no SQL Server. Mais importante, há recursos específicos de expansão que vamos aproveitar para maximizar o desempenho da sua solução.
+# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Usando procedimentos armazenados no SQL Data Warehouse
+Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+
+## <a name="what-to-expect"></a>O que esperar
+
+O SQL Data Warehouse é compatível com muitos recursos T-SQL usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução.
 
 No entanto, para manter a escala e o desempenho do SQL Data Warehouse também há alguns recursos e funcionalidades que apresentam diferenças de comportamento e outros que não têm suporte.
 
-Este artigo explica como implementar procedimentos armazenados no SQL Data Warehouse.
 
 ## <a name="introducing-stored-procedures"></a>Apresentação dos procedimentos armazenados
-Os procedimentos armazenados são uma ótima maneira de encapsular o código SQL, armazenando-o perto de seus dados no data warehouse. O encapsulamento do código em unidades gerenciáveis de procedimentos armazenados ajuda os desenvolvedores a modularizar suas soluções; facilitando a maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
+Os procedimentos armazenados são uma ótima maneira de encapsular o código SQL, armazenando-o perto de seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizarem suas soluções encapsulando o código em unidades gerenciáveis; facilitando a maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
 
-O SQL Data Warehouse fornece uma implementação simplificada e otimizada de procedimentos armazenados. A maior diferença em comparação ao SQL Server é que o procedimento armazenado não é um código pré-compilado. Normalmente, quando se trata de data warehouses, nos preocupamos menos com o tempo de compilação. É mais importante que o código do procedimento armazenado seja otimizado corretamente ao operar com grandes volumes de dados. O objetivo é economizar horas, minutos e segundos, não milissegundos. Portanto, é mais útil pensar em procedimentos armazenados como contêineres para a lógica SQL.     
+O SQL Data Warehouse fornece uma implementação simplificada e otimizada de procedimentos armazenados. A maior diferença em comparação ao SQL Server é que o procedimento armazenado não é um código pré-compilado. Em data warehouses, o tempo de compilação é pequeno em comparação com o tempo necessário para executar consultas em grandes volumes de dados. É mais importante garantir que o código do procedimento armazenado seja otimizado corretamente para grandes consultas. A meta é poupar horas, minutos e segundos, não milissegundos. Portanto, é mais útil pensar em procedimentos armazenados como contêineres para a lógica SQL.     
 
-Quando o SQL Data Warehouse executa o procedimento armazenado, as instruções SQL são analisadas, traduzidas e otimizadas no tempo de execução. Durante esse processo, cada instrução é convertida em consultas distribuídas. O código SQL realmente executado nos dados é diferente da consulta enviada.
+Quando o SQL Data Warehouse executa o procedimento armazenado, as instruções SQL são analisadas, traduzidas e otimizadas no tempo de execução. Durante esse processo, cada instrução é convertida em consultas distribuídas. O código SQL executado nos dados é diferente da consulta enviada.
 
 ## <a name="nesting-stored-procedures"></a>Aninhamento de procedimentos armazenados
-Quando os procedimentos armazenados chamam outros procedimentos armazenados ou executam sql dinâmico, a invocação interna de código ou procedimento armazenado é considerada aninhada.
+Quando os procedimentos armazenados chamam outros procedimentos armazenados ou executam SQL dinâmico, a invocação interna de código ou procedimento armazenado é considerada aninhada.
 
-O SQL Data Warehouse oferece suporte a um máximo de 8 níveis de aninhamento. Isso é um pouco diferente do SQL Server. O nível de aninhamento no SQL Server é de 32.
+O SQL Data Warehouse é compatível com no máximo oito níveis de aninhamento. Isso é um pouco diferente do SQL Server. O nível de aninhamento no SQL Server é de 32.
 
-A chamada de procedimento armazenado de nível superior é igual ao nível 1 de aninhamento
+A chamada de procedimento armazenado de nível superior é igual ao nível 1 de aninhamento.
 
 ```sql
 EXEC prc_nesting
 ```
-Se o procedimento armazenado também fizer outra chamada EXEC, isso aumentará o nível de aninhamento para 2
+Se o procedimento armazenado também criar outra chamada EXEC, o nível de aninhamento aumentará para dois.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -54,7 +53,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-Se o segundo procedimento então executar algum sql dinâmico, isso aumentará o nível de aninhamento para 3
+Se o segundo procedimento executar algum SQL dinâmico, o nível de aninhamento aumentará para três.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -64,12 +63,10 @@ GO
 EXEC prc_nesting
 ```
 
-Observe que atualmente o SQL Data Warehouse não dá suporte ao @@NESTLEVEL. Você precisará manter o controle de seu nível de aninhamento por conta própria. É improvável que você atinja o limite 8 de nível de aninhamento, mas, se atingir, será necessário trabalhar novamente seu código e "nivelá-lo" para que fique dentro do limite.
+Observe que, no momento, o SQL Data Warehouse não dá suporte é compatível com [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). É necessário rastrear o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, será necessário trabalhar novamente em seu código para ajustar os níveis de aninhamento dentro desse limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
-O SQL Data Warehouse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. No entanto, há uma abordagem alternativa.
-
-Confira o seguinte artigo sobre [tabelas temporárias] para obter um exemplo de como fazer isso.
+O SQL Data Warehouse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. No entanto, há uma abordagem alternativa. Para obter um exemplo, consulte o artigo em [tabelas temporárias](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Limitações
 Há alguns aspectos de procedimentos armazenados Transact-SQL que não são implementados no SQL Data Warehouse.
@@ -89,15 +86,5 @@ Eles são:
 * instrução return
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento][development overview].
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[tabelas temporárias]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
-
-<!--Other Web references-->

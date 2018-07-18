@@ -1,48 +1,51 @@
 ---
-title: "Criar aplicativos de aprendizado de máquina do Apache Spark no Azure HDInsight | Microsoft Docs"
-description: "Instruções passo a passo sobre como criar aplicativos de aprendizado de máquina do Apache Spark em clusters do HDInsight Spark usando o bloco de anotações do Jupyter"
+title: 'Tutorial: Criar aplicativo de aprendizado de máquina no HDInsight | Microsoft Docs'
+description: Instruções passo a passo sobre como criar aplicativos de aprendizado de máquina do Apache Spark em clusters do HDInsight Spark usando o bloco de anotações do Jupyter.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 70876196eb6b37065a663afa56ed496a0e9755db
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Criar aplicativos de aprendizado de máquina do Apache Spark no Azure HDInsight
+# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Criar aplicativo de aprendizado de máquina no HDInsight 
 
-Aprenda a criar um aplicativo de aprendizado de máquina do Apache Spark usando um cluster do Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para criar e testar esse aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
+Neste tutorial, você aprenderá como usar o bloco de anotações do Jupyter para criar um aplicativo de aprendizado de máquina do Apache Spark para o Azure HDInsight. 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html): A biblioteca de Machine Learning escalável do Spark que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacente.
+
+Neste tutorial, você aprenderá como:
+> [!div class="checklist"]
+> * Desenvolver um aplicativo de aprendizado de máquina do Spark
+
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 
 Você deve ter o seguinte item:
 
-* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md). 
+* Concluir [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="data"></a>Entender o conjunto de dados
+## <a name="understand-the-data-set"></a>Entender o conjunto de dados
 
-Os dados a seguir mostram a temperatura de destino e a temperatura real de algumas compilações com sistemas de HVAC instalados. A coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio. Você pode usar os dados neste tutorial para prever se um prédio será mais quente ou frio com base na temperatura de destino, uma ID de sistema e a idade do sistema.
+O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão. O arquivo está localizado em **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Os dados mostram a temperatura de destino e a temperatura real de algumas compilações com sistemas de HVAC instalados. A coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio. Usando os dados, você pode prever se um prédio será mais quente ou frio com base na temperatura de destino, uma ID de sistema e a idade do sistema.
 
 ![Exemplo de instantâneo dos dados usados para aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Exemplo de instantâneo dos dados usados para aprendizado de máquina do Spark")
 
-O arquivo de dados, **HVAC.csv**, está localizado em **\HdiSamples\HdiSamples\SensorSampleData\hvac** em todos os clusters do HDInsight.
+## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Desenvolver um aplicativo de aprendizado de máquina do Spark usando o MLlib Spark
 
-## <a name="app"></a>Escrever um aplicativo de aprendizado de máquina do Spark usando o MLlib Spark
 Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) do Spark para executar uma classificação de documento. Pipelines ML fornece um conjunto uniforme de APIs de alto nível criado com base em quadros de dados que ajudam os usuários a criar e ajustar os pipelines de aprendizado de máquina práticos. No pipeline, você divide o documento em palavras, converte as palavras em um vetor de recurso numérico e, finalmente, cria um modelo de previsão usando as etiquetas e vetores de recurso. Execute as seguintes etapas para criar o aplicativo.
 
 1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
@@ -98,7 +101,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    Para obter mais informações sobre o que é um pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
+    Para obter mais informações sobre o pipeline e como ele funciona, confira <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Pipeline de aprendizado de máquina Spark</a>.
 
 5. Ajuste o pipeline para o documento de treinamento.
    
@@ -112,7 +115,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
     training.show()
     ```
    
-    Isso deve fornecer um resultado semelhante ao seguinte:
+    A saída deverá ser semelhante a:
 
     ```
     +----------+----------+-----+
@@ -170,7 +173,7 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
         print row
     ```
 
-    Você deverá ver um resultado semelhante ao seguinte:
+    A saída deverá ser semelhante a:
 
     ```   
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
@@ -182,43 +185,19 @@ Neste aplicativo, você usa um [pipeline ML](https://spark.apache.org/docs/2.2.0
     ```
    
    Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio está quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
-10. Feche o bloco de anotações para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
+10. Feche o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Essa ação desliga e fecha o bloco de anotações.
 
-## <a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para aprendizado de máquina do Spark
-Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, confira [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Use a biblioteca Anaconda scikit-learn para aprendizado de máquina do Spark
+Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também inclui a biblioteca **scikit-learn** para aprendizado de máquina. A biblioteca também inclui vários conjuntos de dados que você pode usar para criar aplicativos de exemplo diretamente de um bloco de anotações do Jupyter. Para obter exemplos sobre como usar a biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="seealso"></a>Consulte também
-* [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+## <a name="next-steps"></a>Próximas etapas
 
-### <a name="scenarios"></a>Cenários
-* [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+Neste tutorial, você aprendeu como:
 
-### <a name="create-and-run-applications"></a>Criar e executar aplicativos
-* [Criar um aplicativo autônomo usando Scala](apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster do Spark usando Livy](apache-spark-livy-rest-interface.md)
+* Desenvolver um aplicativo de aprendizado de máquina do Spark
 
-### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
+Vá para o próximo tutorial para saber como usar IntelliJ IDEA para trabalhos do Spark. 
 
-### <a name="manage-resources"></a>Gerenciar recursos
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+> [Criar um aplicativo Scala Maven usando IntelliJ](./apache-spark-create-standalone-application.md)
 
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-weblogs-sample]:../hadoop/apache-hive-analyze-website-log.md
-[hdinsight-sensor-data-sample]:../hadoop/apache-hive-analyze-sensor-data.md
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md

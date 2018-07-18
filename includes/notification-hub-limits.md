@@ -1,5 +1,5 @@
 
-| CAMADA: | GRATUITO | BASIC | PADRÃO |
+| CAMADA: | GRATUITO | BASIC | STANDARD |
 | --- | --- | --- | --- |
 | Envios incluídos |1 milhão |10 milhões |10 milhões |
 | Dispositivos ativos |500 |200.000 | 10 milhões |

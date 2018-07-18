@@ -3,18 +3,18 @@ title: PowerShell para pontos de extremidade de serviço de Rede virtual e regra
 description: Fornece os scripts do PowerShell para criar e gerenciar pontos de extremidade do Serviço virtual para seu banco de dados SQL do Azure.
 services: sql-database
 author: MightyPen
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: VNet Service endpoints
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2c53eaa0ff6a866f6a061ec1613630ad9626ac9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Use o PowerShell para criar uma regra e um ponto de extremidade de Serviço virtual para o banco de dados SQL do Azure
 
@@ -50,6 +50,9 @@ A lista a seguir mostra a sequência de outros cmdlets *principais* que você de
 - Você já pode fazer logon no Azure, como, por exemplo, por meio do [portal do Azure][http-azure-portal-link-ref-477t].
 - Você já pode executar scripts do PowerShell.
 
+> [!NOTE]
+> Verifique se os pontos de extremidade de serviço estão ativados para a Vnet/sub-rede que você pretende adicionar ao Servidor, caso contrário a criação da Regra de Firewall de Vnet falhará.
+
 #### <a name="one-script-divided-into-four-chunks"></a>Um script dividido em quatro partes
 
 Nosso script do PowerShell de demonstração é dividido em uma sequência de scripts menores. A divisão facilita o aprendizado e fornece flexibilidade. Os scripts devem ser executados em sua sequência indicada. Se você não tiver tempo para executar os scripts, o resultado real do nosso teste será exibido após o script 4.
@@ -79,7 +82,7 @@ Este primeiro script do PowerShell atribui valores a variáveis. Os scripts subs
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Esse script do PowerShell não atualiza nada, a menos que você responda sim se 
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

@@ -1,6 +1,6 @@
 ---
 title: Arquivar dados de monitoramento do Azure | Microsoft Docs
-description: "Arquive dados de log e de métrica produzidos no Azure em uma conta de armazenamento."
+description: Arquive dados de log e de métrica produzidos no Azure em uma conta de armazenamento.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
@@ -22,11 +22,11 @@ Várias camadas do ambiente do Azure produzem dados de log e de métrica que pod
 
 > [!div class="checklist"]
 > * Crie uma conta de armazenamento para manter os dados de monitoramento
-> * Encaminhe os logs de assinatura para ela 
-> * Encaminhe os dados do recurso para ela 
-> * Encaminhe os dados da máquina virtual (SO convidado) para ela 
-> * Exiba os dados de monitoramento nela 
-> * Limpar seus recursos 
+> * Encaminhe os logs de assinatura para ela
+> * Encaminhe os dados do recurso para ela
+> * Encaminhe os dados da máquina virtual (SO convidado) para ela
+> * Exiba os dados de monitoramento nela
+> * Limpar seus recursos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -69,7 +69,7 @@ Agora configuramos os dados no nível do recurso (logs de diagnóstico e métric
 1. Clique no botão **Monitorar** encontrado na lista de navegação à esquerda e, em seguida, em **Configurações de Diagnóstico**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor. Caso não tenha todos os recursos nessa lista, [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de continuar, de modo que você tenha um recurso no qual possa definir uma configuração de diagnóstico.
 
 2. Clique em um recurso na lista e, em seguida, clique em **Ativar diagnóstico**.
-   
+
    ![Ativar diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Se já houver uma configuração definida, consulte as configurações existentes e um botão para **Adicionar configuração de diagnóstico**. Clique neste botão.
@@ -87,12 +87,19 @@ Agora configuramos os dados no nível do recurso (logs de diagnóstico e métric
 5. Marque todas as caixas em **Log** e **Métrica**. Dependendo do tipo de recurso, você poderá ter somente uma dessas opções. Essas caixas de seleção controlam quais categorias de dados de log e métrica disponíveis para o tipo de recurso são enviadas para o destino selecionado, nesse caso, uma conta de armazenamento.
 
    ![Categorias das configurações de diagnóstico](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
+
 6. Defina o controle deslizante **Retenção (dias)** como 30. Esse controle deslizante define um número de dias para reter os dados de monitoramento na conta de armazenamento. O Azure Monitor exclui automaticamente os dados mais antigos do que o número de dias especificado. Uma retenção de zero dias armazena os dados por tempo indeterminado.
 
 7. Clique em **Salvar**.
 
 Os dados de monitoramento de seu recurso agora estão fluindo para a conta de armazenamento.
+
+> [!NOTE]
+> Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
+>
+> *Por exemplo*: a métrica “Mensagens de Entrada” em um Hub de Eventos pode ser explorada e mapeada por nível da fila. No entanto, quando exportada por meio das configurações de diagnóstico, a métrica será representada como todas as mensagens de entrada em todas as filas no Hub de Eventos.
+>
+>
 
 ## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Encaminhar os dados da máquina virtual (SO convidado) para a conta de armazenamento
 
@@ -113,7 +120,7 @@ Os dados de monitoramento de seu recurso agora estão fluindo para a conta de ar
 6. Depois que a configuração de diagnóstico for salva corretamente, a guia **Visão Geral** mostrará uma lista dos dados coletados e onde eles estão sendo armazenados. Clique na seção **Contadores de desempenho** para examinar o conjunto de contadores de desempenho do Windows coletados.
 
    ![Configurações de contadores de desempenho](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
+
 7. Clique na guia **Logs** e marque as caixas de seleção dos logs no nível **Informações** nos logs do Aplicativo e do Sistema.
 
    ![Configurações de logs](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
@@ -166,16 +173,16 @@ Agora você configurou com êxito os dados de monitoramento a serem arquivados e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a configurar os dados de monitoramento do ambiente do Azure (assinatura, recurso e SO convidado) a serem arquivados em uma conta de armazenamento. 
+Neste tutorial, você aprendeu a configurar os dados de monitoramento do ambiente do Azure (assinatura, recurso e SO convidado) a serem arquivados em uma conta de armazenamento.
 
 
 > [!div class="checklist"]
 > * Crie uma conta de armazenamento para manter os dados de monitoramento
-> * Encaminhe os logs de assinatura para ela 
-> * Encaminhe os dados do recurso para ela 
-> * Encaminhe os dados da máquina virtual (SO convidado) para ela 
-> * Exiba os dados de monitoramento nela 
-> * Limpar seus recursos 
+> * Encaminhe os logs de assinatura para ela
+> * Encaminhe os dados do recurso para ela
+> * Encaminhe os dados da máquina virtual (SO convidado) para ela
+> * Exiba os dados de monitoramento nela
+> * Limpar seus recursos
 
 Para obter mais de seus dados e derivar informações adicionais, também envie seus dados para o Log Analytics.
 

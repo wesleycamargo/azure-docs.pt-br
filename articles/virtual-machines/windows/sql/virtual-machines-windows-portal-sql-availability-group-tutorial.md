@@ -1,6 +1,6 @@
 ---
-title: "Grupos de Disponibilidade do SQL Server - máquinas virtuais do Azure - tutorial | Microsoft Docs"
-description: "Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure."
+title: Grupos de Disponibilidade do SQL Server - máquinas virtuais do Azure - tutorial | Microsoft Docs
+description: Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupos de disponibilidade Sempre ativo na VM do Azure manualmente
 
@@ -356,7 +356,7 @@ Nas máquinas virtuais do Azure, um Grupo de Disponibilidade do SQL Server preci
    | **Rede virtual** |Use o nome da rede virtual do Azure. |
    | **Sub-rede** |Use o nome da sub-rede em que a máquina virtual está.  |
    | **Atribuição de endereço IP** |estático |
-   | **Endereço IP** |Use um endereço disponível da sub-rede. |
+   | **Endereço IP** |Use um endereço disponível da sub-rede. Observe que isso é diferente do endereço IP do cluster |
    | **Assinatura** |Use a mesma assinatura da máquina virtual. |
    | **Localidade** |Use o mesmo local da máquina virtual. |
 
@@ -374,22 +374,14 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
    ![Encontrar o Balanceador de Carga no Grupo de Recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Clique no balanceador de carga, clique em **Pools de back-end**e clique em **+Adicionar**. Configure o pool de back-end da seguinte maneira:
+1. Clique no balanceador de carga, clique em **Pools de back-end**e clique em **+Adicionar**. 
 
-   | Configuração | DESCRIÇÃO | Exemplo
-   | --- | --- |---
-   | **Nome** | Digite um nome de texto | SQLLBBE
-   | **Associado a** | Selecione uma opção na lista | Conjunto de disponibilidade
-   | **Conjunto de disponibilidade** | Use um nome do conjunto de disponibilidade em que suas VMs do SQL Server estão | sqlAvailabilitySet |
-   | **Máquinas virtuais** |Os dois nomes de VM do Azure SQL Server | sqlserver-0, sqlserver-1
+1. Associe o pool de back-end com o conjunto de disponibilidade que contém as VMs.
 
-1. Digite o nome do pool de back-end.
+1. Em **Configurações de IP de rede de destino**, marque **MÁQUINA VIRTUAL** e escolha ambas as máquinas virtuais que hospedarão réplicas do grupo de disponibilidade. Não inclua o servidor de testemunha de compartilhamento de arquivos.
 
-1. Clique em **+ Adicionar uma máquina virtual**.
-
-1. Para o conjunto de disponibilidade, escolha o conjunto de disponibilidade em que os SQL Servers estão.
-
-1. No caso das máquinas virtuais, inclua ambos os SQL Servers. Não inclua o servidor de testemunha de compartilhamento de arquivos.
+   >[!NOTE]
+   >Se ambas as máquinas virtuais não forem especificadas, as conexões terão êxito apenas para a réplica primária.
 
 1. Clique em **OK** para criar o pool de back-end.
 

@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de conexões com o Observador de Rede do Azure – API REST do Azure | Microsoft Docs"
-description: "Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a API REST do Azure."
+title: Solucionar problemas de conexões com o Observador de Rede do Azure – API REST do Azure | Microsoft Docs
+description: Saiba como usar o recurso de resolução de problemas de conexão do Observador de Rede do Azure usando a API REST do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Solucionar problemas de conexões com o Observador de Rede do Azure usando a API REST do Azure
 
@@ -37,7 +37,7 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 * Máquinas virtuais para solucionar problemas de conexões.
 
 > [!IMPORTANT]
-> Solucionar problemas de conexão exigem uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A solução de problemas de conexão exige que a VM para solução de problemas tenha a extensão da VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
 
@@ -468,7 +468,7 @@ O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma v
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [Criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md).
 
-Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md).
+Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

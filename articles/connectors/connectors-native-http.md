@@ -1,11 +1,11 @@
 ---
-title: "Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP"
+title: Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplicativo Lógico do Azure | Microsoft Docs
+description: Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
 
@@ -150,7 +150,7 @@ Um * significa que é um campo obrigatório.
 
 > [!TIP]
 > Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
+> [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Por exemplo: 
 
@@ -174,7 +174,7 @@ O seguinte objeto de autenticação é necessário para a autenticação de cert
 
 > [!TIP]
 > Para usar um parâmetro que não será legível na definição após salvar o aplicativo lógico, você poderá usar um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
+> [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Por exemplo: 
 
@@ -198,7 +198,7 @@ O seguinte objeto de autenticação é necessário para a autenticação OAuth d
 | Secret* |segredo |O segredo do cliente que está solicitando o token |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
+> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) para usar um parâmetro que não será legível na definição depois de salvar.
 > 
 > 
 

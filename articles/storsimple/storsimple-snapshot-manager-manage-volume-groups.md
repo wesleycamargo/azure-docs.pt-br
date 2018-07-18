@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
 ## <a name="overview"></a>Visão geral
@@ -47,9 +47,9 @@ Todas essas ações também estão disponíveis no painel **Ações** .
 ## <a name="view-volume-groups"></a>Exibir grupos de volumes
 Se você clicar no nó **Grupos de Volumes**, o painel **Resultados** mostrará as informações a seguir sobre cada grupo de volumes, dependendo das colunas selecionadas. (As colunas no painel **Resultados** são configuráveis. Clique com o botão direito do mouse no nó **Volumes**, selecione **Exibir** e selecione **Adicionar/Remover Colunas**.)
 
-| Coluna de resultados | Descrição |
+| Coluna de resultados | DESCRIÇÃO |
 |:--- |:--- |
-| Nome |A coluna **Nome** contém o nome do grupo de volumes. |
+| NOME |A coluna **Nome** contém o nome do grupo de volumes. |
 | Aplicativo |A coluna **Aplicativos** mostra o número de gravadores VSS atualmente instalados e em execução no host do Windows. |
 | Selecionado |A coluna **Selecionados** mostra o número de volumes contidos no grupo de volumes. Um zero (0) indica que nenhum aplicativo está associado aos volumes no grupo de volumes. |
 | Importado |A coluna **Importados** mostra o número de volumes importados. Quando definida como **True**, essa coluna indica que um grupo de volumes foi importado do portal do Azure e não foi criado no StorSimple Snapshot Manager. |

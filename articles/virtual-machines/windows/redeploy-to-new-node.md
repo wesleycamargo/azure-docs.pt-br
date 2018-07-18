@@ -1,10 +1,10 @@
 ---
-title: "Reimplantar máquinas virtuais Windows no Azure | Microsoft Docs"
-description: "Como reimplantar máquinas virtuais Windows no Azure para atenuar problemas de conexão RDP."
+title: Reimplantar máquinas virtuais Windows no Azure | Microsoft Docs
+description: Como reimplantar máquinas virtuais Windows no Azure para atenuar problemas de conexão RDP.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 5002010e58a5d8e901770c780f07f9bd625d5eb4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f0bda14634e6c8bea5800b9798086fc38279030a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Windows em um novo nó do Azure
 Se você enfrentou dificuldades para solucionar problemas de conexão RDP (Área de Trabalho Remota) ou de acesso ao aplicativo em uma VM (máquina virtual) do Azure baseada em Windows, reimplantar a VM pode ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando o Azure PowerShell ou o Portal do Azure.

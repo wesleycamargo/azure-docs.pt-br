@@ -1,30 +1,34 @@
 ---
-title: "Visão geral do Diagnóstico do Azure | Microsoft Docs"
-description: "Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric"
+title: Visão geral da extensão Diagnóstico do Azure | Microsoft Docs
+description: Usar o diagnóstico do Azure para depurar, medir o desempenho, monitorar e analisar o tráfego em serviços de nuvem, em máquinas virtuais e no Service Fabric
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2017
+ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886388"
 ---
-# <a name="what-is-azure-diagnostics"></a>O que é o Diagnóstico do Azure
-O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem, as Máquinas Virtuais do Azure que executam o Microsoft Windows e o Service Fabric. Outros serviços do Azure têm seu próprios diagnósticos separados.
+# <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão Diagnóstico do Azure
+A extensão Diagnóstico do Azure é um agente no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem do Azure (clássico), as Máquinas Virtuais, os conjuntos de dimensionamento de Máquinas Virtuais e o Service Fabric. Outros serviços do Azure têm métodos diferentes de diagnósticos. Consulte [Visão geral do monitoramento no Azure](monitoring-overview.md). 
+
+## <a name="linux-agent"></a>Agente do Linux
+Uma [versão do Linux da extensão](../virtual-machines/linux/diagnostic-extension.md) está disponível para Máquinas Virtuais que executam o Linux. As estatísticas coletadas e o comportamento variam conforme a versão do Windows. 
 
 ## <a name="data-you-can-collect"></a>Dados que você pode coletar
-O Diagnóstico do Azure pode coletar os seguintes tipos de dados:
+A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 
 | Fonte de dados | DESCRIÇÃO |
 | --- | --- |
@@ -38,16 +42,18 @@ O Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 | Logs de erros personalizados |Logs criados por seu aplicativo ou serviço |
 | Logs de infraestrutura do Diagnóstico do Azure |Informações sobre o próprio Diagnóstico |
 
-A extensão de diagnóstico do Azure pode transferir dados para uma conta de armazenamento do Azure ou enviá-los para serviços como o [Application Insights](../application-insights/app-insights-cloudservices.md). Você pode usar os dados para a depuração e a solução de problemas, a medição de desempenho, o monitoramento de uso de recursos, a análise de tráfego e o planejamento da capacidade, bem como para a auditoria.
+## <a name="data-storage"></a>Armazenamento de dados
+A extensão armazena seus dados em uma [conta do Armazenamento do Azure](azure-diagnostics-storage.md) especificada. 
 
-## <a name="versioning"></a>Controle de versão
-Veja [Histórico de versão do Diagnóstico do Azure](azure-diagnostics-versioning-history.md).
+Você também pode enviá-los para o [Application Insights](../application-insights/app-insights-cloudservices.md). Outra opção é transmiti-los para o [Hub de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md), que permite o envio dos dados para serviços de monitoramento que não fazem parte do Azure. 
+
+
+## <a name="versioning-and-configuration-schema"></a>Controle de versão e esquema de configuração
+Confira [Histórico de versão e esquema do Diagnóstico do Azure](azure-diagnostics-versioning-history.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Escolha de qual serviço você está tentando coletar diagnósticos e use os seguintes artigos para começar. Use os links gerais de diagnóstico do Azure para obter referências de tarefas específicas.
-
-## <a name="web-apps"></a>Aplicativos Web
-Observe que os aplicativos Web não usam o Diagnóstico do Azure. Encontre as informações equivalentes em [Aplicativos Web](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Serviços de Nuvem que usam o Diagnóstico do Azure
 * Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear um aplicativo dos Serviços de Nuvem](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar. Caso contrário, veja
@@ -60,7 +66,7 @@ Para tópicos mais avançados, veja
 * [Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="virtual-machines-using-azure-diagnostics"></a>Máquinas Virtuais que usam o Diagnóstico do Azure
+## <a name="virtual-machines"></a>Máquinas Virtuais
 * Se estiver usando o Visual Studio, veja [Usar o Visual Studio para rastrear Máquinas Virtuais do Azure](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar. Caso contrário, veja
 * [Configurar o Diagnóstico do Azure em uma Máquina Virtual do Azure](../virtual-machines-dotnet-diagnostics.md)
 
@@ -69,12 +75,9 @@ Para tópicos mais avançados, veja
 * [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="service-fabric-using-azure-diagnostics"></a>Service Fabric que usa o Diagnóstico do Azure
+## <a name="service-fabric"></a>Service Fabric
 Comece em [Monitorar um aplicativo do Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Muitos outros artigos de diagnóstico do Service Fabric estarão disponíveis na árvore de navegação à esquerda depois que você acessar este artigo.
 
-## <a name="general-azure-diagnostics-articles"></a>Artigos gerais sobre o Diagnóstico do Azure
-* [Configuração do Esquema de Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) - saiba como alterar o arquivo de esquema para coletar e encaminhar dados de diagnóstico. Observe que você também pode usar o Visual Studio para alterar o arquivo de esquema.
-* [Como os dados do Diagnóstico do Azure são armazenados no Armazenamento do Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) - conheça os nomes das tabelas e dos blobs onde os dados de diagnóstico são gravados.
+## <a name="general-articles"></a>Artigos gerais
 * Saiba como [usar os Contadores de Desempenho no Diagnóstico do Azure](../cloud-services/diagnostics-performance-counters.md).
-* Saiba como [Rotear informações de diagnóstico do Azure para o Application Insights](azure-diagnostics-configure-application-insights.md)
-* Se você tiver problemas com o início do diagnóstico ou com a localização de seus dados nas tabelas do Armazenamento do Azure, veja [Solução de Problemas do Diagnóstico do Azure](azure-diagnostics-troubleshooting.md)
+* Caso tenha problemas com o início do diagnóstico ou a localização de seus dados nas tabelas de armazenamento do Azure, confira [Solução de problemas do Diagnóstico do Azure](azure-diagnostics-troubleshooting.md)

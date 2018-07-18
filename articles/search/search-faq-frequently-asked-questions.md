@@ -1,19 +1,18 @@
 ---
 title: FAQ (perguntas frequentes) sobre o Azure Search | Microsoft Docs
-description: "Obtenha respostas para perguntas frequentes sobre o serviço Microsoft Azure Search"
-services: search
+description: Obtenha respostas para perguntas frequentes sobre o serviço Microsoft Azure Search
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
+services: search
 ms.service: search
-ms.technology: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: f61fe2930bc70e800e5d79773e0de6827621e845
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: d731faffe1b2448670a5fafa0278ff8c7fb21722
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ (perguntas frequentes)
 

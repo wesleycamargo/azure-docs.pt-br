@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure pilha
 Há várias coisas que você precisa saber se você é novo para a administração de pilha do Azure. Este guia fornece uma visão geral de sua função como um operador de pilha do Azure, e o que você precisa informar os usuários para que eles se tornarem rapidamente produtivo.
@@ -31,9 +31,9 @@ Se você estiver usando um sistema de pilha do Azure integrado, versões atualiz
  
 ### <a name="development-kit"></a>Kit de desenvolvimento
 
-Se você estiver usando o Kit de desenvolvimento de pilha do Azure, examine o [o que é a pilha do Azure?](azure-stack-poc.md) artigo para certificar-se de entender a finalidade do kit de desenvolvimento e suas limitações. Você deve usar o kit de desenvolvimento como um "sandbox", onde você pode avaliar a pilha do Azure e desenvolver e testar seus aplicativos em um ambiente de não produção. (Para obter informações de implantação, consulte o [implantação do Kit de desenvolvimento de pilha do Azure](azure-stack-deploy-overview.md) início rápido.)
+Se você estiver usando o Kit de desenvolvimento de pilha do Azure, examine o [o que é a pilha do Azure?](.\asdk\asdk-what-is.md) artigo para certificar-se de entender a finalidade do kit de desenvolvimento e suas limitações. Você deve usar o kit de desenvolvimento como um "sandbox", onde você pode avaliar a pilha do Azure e desenvolver e testar seus aplicativos em um ambiente de não produção. (Para obter informações de implantação, consulte o [implantação do Kit de desenvolvimento de pilha do Azure](.\asdk\asdk-deploy.md) tutorial.)
 
-Como o Azure, estamos inovar rapidamente. Lançaremos regularmente novas compilações. Se você estiver executando o kit de desenvolvimento e você deseja mover para a última compilação, você deve [reimplantar Azure pilha](azure-stack-redeploy.md). Você não pode aplicar os pacotes de atualização. Esse processo leva tempo, mas o benefício é que você pode experimentar os recursos mais recentes. A documentação do kit de desenvolvimento no nosso site reflete a compilação de versão mais recente.
+Como o Azure, estamos inovar rapidamente. Lançaremos regularmente novas compilações. Se você estiver executando o kit de desenvolvimento e você deseja mover para a última compilação, você deve [reimplantar Azure pilha](.\asdk\asdk-redeploy.md). Você não pode aplicar os pacotes de atualização. Esse processo leva tempo, mas o benefício é que você pode experimentar os recursos mais recentes. A documentação do kit de desenvolvimento no nosso site reflete a compilação de versão mais recente.
 
 ## <a name="learn-about-available-services"></a>Saiba mais sobre os serviços disponíveis
 
@@ -63,6 +63,18 @@ Esses serviços exigem configuração adicional antes de você pode torná-los d
 **Mapa de serviço**
 
 Pilha do Azure continuará a adicionar suporte para os serviços do Azure. Para o roteiro projetado, consulte o [pilha do Azure: extensão do Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) white paper. Você também pode monitorar o [postagens no blog do Azure pilha](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para lançamentos de novos.
+
+## <a name="what-account-should-i-use"></a>Qual conta devo usar?
+Há algumas considerações de conta, que você deve estar atento ao gerenciar a pilha do Azure. Especialmente em implantações usando o Windows Server Active Directory Federation Services (AD FS) como o provedor de identidade em vez do Azure Active Directory (AD do Azure). As considerações de conta a seguir se aplicam a sistemas de pilha do Azure integradas e implantações de ASDK:
+
+
+|Conta|AD do Azure|AD FS|
+|-----|-----|-----|
+|Administrador local (. \Administrator)|Administrador de host ASDK|Administrador de host ASDK|
+|AzureStack\AzureStackAdmin|Administrador de host ASDK<br><br>Pode ser usado para fazer logon no portal de administração do Azure pilha<br><br>Acesso para exibir e administrar anéis Service Fabric|Administrador de host ASDK<br><br>Nenhum acesso ao portal de administração de pilha do Azure<br><br>Acesso para exibir e administrar anéis Service Fabric<br><br>Não é mais o proprietário da assinatura de provedor padrão (DPS)|
+|AzureStack\CloudAdmin|Pode acessar e executar comandos permitidos no ponto de extremidade com privilégios|Pode acessar e executar comandos permitidos no ponto de extremidade com privilégios<br><br>Não pode fazer logon no host ASDK<br><br>Proprietário da assinatura de provedor padrão (DPS)|
+|Administrador Global do AD do Azure|Usado durante a instalação<br><br>Proprietário da assinatura de provedor padrão (DPS)|Não aplicável|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Quais ferramentas usar para gerenciar?
  

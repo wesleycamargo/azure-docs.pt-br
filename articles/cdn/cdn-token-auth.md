@@ -1,11 +1,11 @@
 ---
-title: "Proteger ativos da CDN do Azure com autenticação de token | Microsoft Docs"
-description: "Aprenda a usar autenticação de token para proteger o acesso aos ativos da CDN do Azure."
+title: Proteger ativos da CDN do Azure com autenticação de token | Microsoft Docs
+description: Aprenda a usar autenticação de token para proteger o acesso aos ativos da CDN do Azure.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Proteger ativos da Rede de Distribuição de Conteúdo do Azure com autenticação de token
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Visão geral
 
-A autenticação de token é um mecanismo que permite que você impeça que a CDN (Rede de Distribuição de Conteúdo) do Azure forneça ativos a clientes não autorizados. A autenticação de token normalmente é feita para evitar "hotlinking" de conteúdo, em que um site diferente, como um quadro de mensagens, usa seus ativos sem sua permissão. O hotlinking pode ter um impacto sobre os custos de fornecimento de conteúdo. Ao habilitar a autenticação de token na CDN, as solicitações são autenticadas pelo servidor de borda da CDN antes que a CDN entregue o conteúdo. 
+A autenticação de token é um mecanismo que permite que você impeça que a CDN (Rede de Distribuição de Conteúdo) do Azure forneça ativos a clientes não autorizados. A autenticação de token normalmente é feita para impedir *hotlinking* de conteúdo, em que um site diferente, como um quadro de mensagens, usa seus ativos sem permissão. O hotlinking pode ter um impacto sobre os custos de fornecimento de conteúdo. Ao habilitar a autenticação de token na CDN, as solicitações são autenticadas pelo servidor de borda da CDN antes que a CDN entregue o conteúdo. 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -42,6 +42,9 @@ A autenticação de token verifica que as solicitações são geradas por um sit
 
 Para obter mais informações, consulte os exemplos de configuração detalhados para cada parâmetro em [Configuração de autenticação de token](#setting-up-token-authentication).
 
+>[!IMPORTANT] 
+> Se a autorização de token estiver habilitada para qualquer caminho nesta conta, o modo de cache standard é o único modo que pode ser utilizado para o armazenamento em cache da cadeia de caracteres de consulta. Para obter mais informações, confira [controle do comportamento do armazenamento em cache do CDN do Azure com cadeias de caracteres de consulta](cdn-query-string-premium.md).
+
 ## <a name="reference-architecture"></a>Arquitetura de referência
 
 O diagrama de fluxo de trabalho a seguir descreve como a CDN usa autenticação de token para trabalhar com seu aplicativo Web.
@@ -56,11 +59,11 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
 ## <a name="setting-up-token-authentication"></a>Configurar autenticação de token
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil da CDN e clique em **Gerenciar** para inicializar o portal suplementar.
+1. No [Portal do Azure](https://portal.azure.com), navegue até o perfil CDN e selecione **Gerenciar** para inicializar o portal suplementar.
 
     ![Botão Gerenciar perfil da CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Passe o mouse sobre **HTTP Grande** e clique em **Token de Autenticação** no submenu. Então você pode configurar os parâmetros de criptografia e a chave de criptografia da seguinte maneira:
+2. Passe o cursor sobre **HTTP Grande** e, em seguida, selecione **Token de Autenticação** no submenu. Então você pode configurar os parâmetros de criptografia e a chave de criptografia da seguinte maneira:
 
     1. Crie uma ou mais chaves de criptografia. Uma chave de criptografia diferencia maiúsculas de minúsculas e pode conter qualquer combinação de caracteres alfanuméricos. Todos os outros tipos de caracteres, incluindo espaços, não são permitidos. O comprimento máximo é de 250 caracteres. Para garantir que as chaves de criptografia sejam aleatórias, é recomendável criá-las usando a [ferramenta OpenSSL](https://www.openssl.org/). 
 
@@ -68,7 +71,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
        ```rand -hex <key length>```
 
-       Por exemplo:
+       Por exemplo: 
 
        ```OpenSSL> rand -hex 32``` 
 
@@ -76,7 +79,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
     
     2. Insira uma chave de criptografia exclusiva na caixa **Chave Primária** e, opcionalmente, insira uma chave de backup na caixa **Chave de Backup**.
 
-    3. Selecione a versão mínima de criptografia para cada chave de sua lista de **versão Mínima De Criptografia** e, em seguida, clique em **Atualização**:
+    3. Selecione a versão mínima de criptografia para cada chave da lista **Versão Mínima de Criptografia** e, em seguida, selecione **Atualizar**:
        - **V2**: Indica que a chave pode ser usada para gerar tokens da versão 2.0 e 3.0. Use esta opção somente se estiver em transição de uma chave de criptografia legado versão 2.0 para uma chave de versão 3.0.
        - **V3**: (Recomendado) Indica que a chave pode ser usada somente para gerar tokens da versão 3.0.
 
@@ -92,7 +95,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
        > <table>
        > <tr>
        >   <th>Nome do parâmetro</th> 
-       >   <th>Descrição</th>
+       >   <th>DESCRIÇÃO</th>
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
@@ -110,7 +113,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
        >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
        >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
        >       </ul></li>
-       >       <li>Valor de entrada `/pictures/`: somente as solicitações que contêm o caminho `/pictures/` são permitidas. Por exemplo: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>Valor de entrada `/pictures/`: somente as solicitações que contêm o caminho `/pictures/` são permitidas. Por exemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
        >       <li>Valor de entrada `/pictures/city/strasbourg.png`: somente as solicitações para esse caminho e ativos específicos são permitidas.</li>
        >    </ul>
        > </tr>
@@ -156,27 +159,29 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
     
     6. Selecione uma versão de criptografia da lista **Versão Criptografia**: **V2** para a versão 2 ou **V3** para a versão 3 (recomendado). 
 
-    7. Clique em **Criptografar** para gerar o token.
+    7. Selecione **Criptografar** para gerar o token.
 
-    Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados**. Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados**. Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Como opção, teste seu token com a ferramenta de descriptografia para que você possa exibir os parâmetros do token. Cole o valor do token na caixa **Token a Descriptografar**. Selecione a de chave de criptografia para usar na lista **Chave a Descriptografar** e, em seguida, clique em **Descriptografar**.
+    8. Como opção, teste seu token com a ferramenta de descriptografia para que você possa exibir os parâmetros do token. Cole o valor do token na caixa **Token a Descriptografar**. Selecione a de chave de criptografia para usar na lista **Chave a Descriptografar** e, em seguida, selecione **Descriptografar**.
 
     Depois que o token for descriptografado, seus parâmetros são exibidos na caixa **Parâmetros Originais**.
 
-    9. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione **Habilitado**, em seguida, selecione o código de resposta da lista **Código de Resposta**. **Nome do Cabeçalho** é definido automaticamente como **Local**. Clique em **Salvar** para implementar o novo código de resposta. Para determinados códigos de resposta, você também deve inserir o URL da sua página de erro na caixa **Valor do Cabeçalho**. O código de resposta **403** (Proibido) é selecionado por padrão. 
+    9. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione **Habilitado**, em seguida, selecione o código de resposta da lista **Código de Resposta**. **Nome do Cabeçalho** é definido automaticamente como **Local**. Selecione **Salvar** para implementar o novo código de resposta. Para determinados códigos de resposta, você também deve inserir o URL da sua página de erro na caixa **Valor do Cabeçalho**. O código de resposta **403** (Proibido) é selecionado por padrão. 
 
-3. Em **HTTP Grande**, clique em **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](cdn-rules-engine-reference.md).
+3. Em **HTTP Grande**, selecione **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](cdn-rules-engine-reference.md).
 
     1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou o caminho ao qual você deseja aplicar a autenticação de token. 
-    2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](cdn-rules-engine-reference-features.md#token-auth)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Clique em **Atualização** se você estiver atualizando uma regra ou em **Adicionar** se você estiver criando uma regra.
+    2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](cdn-rules-engine-reference-features.md#token-auth)** na lista **Recursos** e, em seguida, selecione **Habilitado**. Selecione **Atualizar**, se você estiver atualizando uma regra ou **Adicionar**, se você estiver criando uma regra.
         
     ![Exemplo de habilitação de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. O mecanismo de regras, você também pode habilitar recursos adicionais relacionados à autenticação de token. Para habilitar qualquer um dos recursos a seguir, selecione-o na lista **Recursos** e, em seguida, selecione **Habilitado**.
     
     - **[Código de negação de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: determina o tipo de resposta retornado para um usuário quando uma solicitação é negada. As regras definidas aqui substituem o código de resposta definido na seção **Tratamento de Negação Personalizado** na página de autenticação baseada em token.
+
     - **[Token de autenticação ignorar URL caso](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: determina se a URL usada para validar o token diferencia Maiúsculas de minúsculas.
+
     - **[Parâmetro de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: renomeia o parâmetro de cadeia de caracteres de consulta de autenticação de token que aparece na URL solicitada. 
         
     ![Exemplo de configurações de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ Os idiomas disponíveis incluem:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Preços de provedor e recursos da Azure CDN
 
-Para informações sobre os recursos, consulte [Visão Geral da CDN](cdn-overview.md). Para obter informações sobre preços, consulte [preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
+Para obter informações sobre recursos, consulte [Recursos do produto CDN do Azure](cdn-features.md). Para obter informações sobre preços, consulte [preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).

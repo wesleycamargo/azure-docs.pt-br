@@ -1,19 +1,19 @@
 ---
-title: "Tutorial do Serviço de Contêiner do Azure – implantar aplicativo"
-description: "Tutorial do Serviço de Contêiner do Azure – implantar aplicativo"
+title: Tutorial do Serviço de Contêiner do Azure – implantar aplicativo
+description: Tutorial do Serviço de Contêiner do Azure – implantar aplicativo
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 02ec97fecd4759e9f35ab313ffe2d18fa076170a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f8f626143e74d65fa9d4e37e1e2bfda37501f102
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-applications-in-kubernetes"></a>Executar aplicativos no Kubernetes
 
@@ -26,7 +26,7 @@ Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em 
 > * Executar um aplicativo no Kubernetes
 > * Testar o aplicativo
 
-Nos tutoriais subsequentes, esse aplicativo é escalado horizontalmente, atualizado e o Operations Management Suite configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo é escalado horizontalmente, e o Log Analytics é configurado para monitorar o cluster Kubernetes.
 
 Este tutorial assume uma compreensão básica dos conceitos de Kubernetes; para obter informações detalhadas sobre Kubernetes consulte a [documentação do Kubernetes](https://kubernetes.io/docs/home/).
 

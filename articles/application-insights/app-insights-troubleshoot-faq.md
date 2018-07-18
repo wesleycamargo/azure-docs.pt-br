@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310007"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas Frequentes
 
@@ -60,7 +61,7 @@ O plano Empresarial incorre em uma encargo para cada dia em que cada nó do serv
 
 ## <a name="how-much-is-it-costing"></a>Quanto isso custa?
 
-* Abra a página **Recursos + Preços** em um recurso do Application Insights. Há um gráfico de uso recente. Você pode definir um limite de volume de dados, se desejar.
+* Abra a **página Uso e custos estimados** em um recurso do Application Insights. Há um gráfico de uso recente. Você pode definir um limite de volume de dados, se desejar.
 * Abra a [Folha de Cobrança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) para ver suas contas em todos os recursos.
 
 ## <a name="q14"></a>O que o Application Insights modifica no meu projeto?
@@ -121,7 +122,7 @@ A partir de outras fontes, se você configurá-las:
 * [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
 * [Contêineres de Docker](app-insights-docker.md)
 * [Importação de tabelas para Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Eu posso filtrar ou modificar alguma telemetria?
@@ -250,19 +251,41 @@ Aqui estão dois métodos:
 
 ### <a name="firewall-door"></a>Porta de firewall
 
-Permitir que seu servidor Web envie telemetria para nossos pontos de extremidade https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
+Permita que o servidor Web envie telemetria para os pontos de extremidade https://dc.services.visualstudio.com:443 e https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Proxy
 
-Encaminhar o tráfego de seu servidor para um gateway na sua intranet, configurando-o em ApplicationInsights.config:
+Encaminhar o tráfego de seu servidor para um gateway na sua intranet, sobrescrevendo essas configurações no exemplo ApplicationInsights.config. Se essas propriedades de "Ponto de extremidade" não estão presentes na sua configuração, essas classes usarão os valores padrão mostrados no exemplo a seguir.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Exemplo ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Seu gateway deve direcionar o tráfego para https://dc.services.visualstudio.com:443/v2/track
+_Observe que ApplicationIdProvider está disponível a partir do v2.6.0_
+
+O gateway deve rotear o tráfego para https://dc.services.visualstudio.com:443
+
+Substitua os valores acima por: `http://<your.gateway.address>/<relative path>`
+ 
+Exemplo: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>É possível executar testes na Web de Disponibilidade em um servidor de intranet?
 

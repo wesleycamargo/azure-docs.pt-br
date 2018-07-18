@@ -1,26 +1,26 @@
 ---
-title: "Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como executar um aplicativo .NET Core no Serviço de Aplicativo do Azure, com uma conexão com um Banco de Dados SQL."
+title: Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como executar um aplicativo .NET Core no Serviço de Aplicativo do Azure, com uma conexão com um Banco de Dados SQL.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Compilar um aplicativo Web .NET Core e com Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -46,8 +46,8 @@ Você aprenderá a:
 
 Para concluir este tutorial:
 
-1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o SDK 1.1.2 do .NET Core](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Instalar o Git](https://git-scm.com/)
+* [Instalar o .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Criar um aplicativo .NET Core local
 
@@ -133,9 +133,13 @@ Crie uma [regra de firewall no nível de servidor de Banco de Dados SQL do Azure
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
+>
+
 ### <a name="create-a-database"></a>Criar um banco de dados
 
-Crie um banco de dados com um [nível de desempenho S0](../sql-database/sql-database-service-tiers.md) no servidor usando o comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Crie um banco de dados com um [nível de desempenho S0](../sql-database/sql-database-service-tiers-dtu.md) no servidor usando o comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -146,7 +150,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Substitua a cadeia de caracteres a seguir pelos *\<server_name>*, *\<db_username>* e *\<db_password>* usados anteriormente.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Esta é a cadeia de conexão do aplicativo .NET Core. Copie-a para uso posterior.
@@ -201,7 +205,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -214,7 +218,8 @@ A chamada `Database.Migrate()` ajuda você quando ele está em execução no Azu
 Salve suas alterações e depois confirme-as no repositório do Git. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Enviar do Git para o Azure
@@ -293,7 +298,7 @@ Faça algumas alterações em seu código para usar a propriedade `Done`. Para s
 
 Abra _Controllers\TodosController.cs_.
 
-Localize o `Create()` método e adicione `Done` à lista de propriedades no atributo `Bind`. Quando terminar, a assinatura do método `Create()` deverá ter o seguinte código:
+Localize o `Create([Bind("ID,Description,CreatedDate")] Todo todo)` método e adicione `Done` à lista de propriedades no atributo `Bind`. Quando terminar, a assinatura do método `Create()` deverá ter o seguinte código:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -346,7 +351,8 @@ No navegador, navegue até `http://localhost:5000/`. Agora você pode adicionar 
 ### <a name="publish-changes-to-azure"></a>Publicar alterações no Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

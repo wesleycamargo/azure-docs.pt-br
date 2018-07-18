@@ -1,11 +1,11 @@
 ---
 title: Usar o Azure PowerShell para configurar o upload do arquivo | Microsoft Docs
-description: "Como usar cmdlets do Azure PowerShell para configurar o Hub IoT a fim de habilitar transferências de arquivos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino."
+description: Como usar cmdlets do Azure PowerShell para configurar o Hub IoT a fim de habilitar transferências de arquivos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de arquivo do Hub IoT usando o PowerShell
 
@@ -37,10 +37,10 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Entre na sua conta do Azure e selecione sua assinatura.
 
-1. No prompt do PowerShell, execute o cmdlet **Login-AzureRmAccount**:
+1. No prompt do PowerShell, execute o cmdlet **Connect-AzureRmAccount**:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Caso tenha várias assinaturas do Azure, entrar no Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Use o comando a seguir para listar as assinaturas do Azure disponíveis para você:
@@ -136,7 +136,7 @@ Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
-* [Implantação de IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
+* [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
 * [Proteger sua solução de IoT desde o início][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md

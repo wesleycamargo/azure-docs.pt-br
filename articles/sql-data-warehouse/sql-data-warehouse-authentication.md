@@ -1,35 +1,23 @@
 ---
-title: "Autenticação no Azure SQL Data Warehouse | Microsoft Docs"
-description: "Autenticação do AAD (Azure Active Directory) e SQL Server no Azure SQL Data Warehouse."
+title: Autenticar no SQL Data Warehouse do Microsoft Azure | Microsoft Docs
+description: Saiba como autenticar no SQL Data Warehouse do Azure usando a autenticação do Microsoft Azure Active Directory ou do Microsoft SQL Server.
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 173bc797cb6436decddb68aaf1599ea7a6dd597e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticação no Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Visão Geral da Segurança](sql-data-warehouse-overview-manage-security.md)
-> * [Autenticação](sql-data-warehouse-authentication.md)
-> * [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticar no SQL Data Warehouse do Azure
+Saiba como autenticar no SQL Data Warehouse do Azure usando a autenticação do Microsoft Azure Active Directory ou do Microsoft SQL Server.
 
 Para se conectar ao SQL Data Warehouse, você precisa inserir credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta.  
 

@@ -1,21 +1,21 @@
 ---
-title: "O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte | Microsoft Docs"
-description: "O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte"
+title: O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte | Microsoft Docs
+description: O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>O Controle de Acesso Baseado em Função (RBAC) do Azure para controlar os direitos de acesso para criação e gerenciamento de solicitações de suporte
 
-O [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permite gerenciamento de acesso refinado para o Azure.
+O [RBAC (Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite gerenciamento de acesso refinado para o Azure.
 A criação de solicitação de suporte no portal do Azure [portal.azure.com](https://portal.azure.com) usa o modelo RBAC do Azure para definir quem pode criar e gerenciar solicitações de suporte.
 O acesso é concedido ao atribuir a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo, que pode ser uma assinatura, um recurso ou um grupo de recursos.
 

@@ -3,10 +3,10 @@ title: Testes de escala e desempenho do Azure Cosmos DB | Microsoft Docs
 description: Saiba como realizar testes de desempenho e escala com o Azure Cosmos DB
 keywords: testes de desempenho
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: 
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
-ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: sngun
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Teste de desempenho e escala com o Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O teste de desempenho e escalabilidade é uma etapa importante no desenvolvimento de aplicativos. Para muitos aplicativos, a camada de banco de dados tem um impacto significativo no desempenho e escalabilidade gerais. Portanto, é um componente crítico do teste de desempenho. O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) foi desenvolvido para escala elástica e desempenho previsível. Esses recursos o tornam ideal para aplicativos que precisam de uma camada de banco de dados de alto desempenho. 
 
@@ -98,7 +96,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET, con
     Press any key to exit...
 
 
-**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudar você a atingir o limite. Se a produtividade do aplicativo cliente estagnar, inicie várias instâncias do aplicativo em computadores cliente adicionais. Se precisar de ajuda com esta etapa, envie um email para askcosmosdb@microsoft.com ou preencha um tíquete de suporte no [portal do Azure](https://portal.azure.com).
+**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção ou de um conjunto de coleções. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudar você a atingir o limite. Se a produtividade do aplicativo cliente estagnar, inicie várias instâncias do aplicativo em computadores cliente adicionais. Se precisar de ajuda com esta etapa, envie um email para askcosmosdb@microsoft.com ou preencha um tíquete de suporte no [portal do Azure](https://portal.azure.com).
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](indexing-policies.md) e [Níveis de consistência](consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 

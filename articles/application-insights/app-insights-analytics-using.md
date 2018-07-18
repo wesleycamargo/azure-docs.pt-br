@@ -1,9 +1,9 @@
 ---
-title: "Usando o Analytics – a ferramenta de pesquisa avançada do Azure Application Insights | Microsoft Docs"
-description: "Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights. "
+title: Usando o Analytics – a ferramenta de pesquisa avançada do Azure Application Insights | Microsoft Docs
+description: 'Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869879"
 ---
 # <a name="using-analytics-in-application-insights"></a>Usando Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -205,7 +206,7 @@ Por exemplo, se usuários autenticados são identificados em sua telemetria por 
 ### <a name="define-your-data-schema"></a>Definir o esquema de dados
 
 1. Clique em **Configurações** (na parte superior esquerda) e, em seguida, **Fontes de dados**. 
-2. Adicione uma fonte de dados de acordo com as instruções a seguir. Será solicitado que você forneça uma amostra dos dados, que devem incluir pelo menos dez linhas. Em seguida, você corrige o esquema.
+2. Adicione uma fonte de dados de acordo com as instruções a seguir. Será solicitado que você forneça uma amostra dos dados, que deve incluir pelo menos 10 linhas. Em seguida, você corrige o esquema.
 
 Isso define uma fonte de dados que você pode usar para importar as tabelas individuais.
 

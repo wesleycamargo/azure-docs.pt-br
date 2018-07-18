@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3a5daea55f2303f695627f06569f04e1c18b5e09
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -26,7 +26,7 @@ Este artigo explica como usar o Azure PowerShell com modelos do Resource Manager
 
 O modelo do Resource Manager que você implanta pode ser um arquivo local do seu computador ou um arquivo externo que está localizado em um repositório como o GitHub. O modelo que você implanta neste artigo está disponível na seção [Modelo de exemplo](#sample-template) ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Se necessário, instale o módulo do Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se necessário, instale o módulo do Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Um modelo pode incluir parâmetros que permitem personalizar a implantação. Po
 O exemplo a seguir cria um grupo de recursos e implanta um modelo do computador local:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
@@ -78,7 +78,9 @@ No Cloud Shell, use os seguintes comandos:
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri <copied URL> `
+  -storageAccountType Standard_GRS
 ```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implantar em mais de um grupo de recursos ou assinatura
@@ -134,7 +136,7 @@ Se o modelo incluir um parâmetro com o mesmo nome que um dos parâmetros no com
 Para testar seus valores de parâmetro e modelo sem realmente implantar os recursos, use [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 

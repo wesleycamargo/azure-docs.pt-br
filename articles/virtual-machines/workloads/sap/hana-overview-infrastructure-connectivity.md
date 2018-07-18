@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778283"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura e conectividade para o SAP HANA (instâncias grandes) no Azure 
 
 Algumas definições prévias antes de ler este guia. Em [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), apresentamos duas classes diferentes de unidades de Instância Grande do HANA com:
 
 - S72, S72m, S144, S144m, S192 e S192m, que chamamos de “classe do Tipo I” de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que chamamos de 'classe do Tipo II' de SKUs.
+- S384, S384m, S384xm, S576m, S768m, e S960m, que chamamos de “Tipo II classe” de SKUs.
 
 Os especificadores de classe serão usados em toda a documentação da Instância Grande do HANA para, em última análise, se referirem a diferentes funcionalidades e requisitos de acordo com os SKUs da Instância Grande do HANA.
 
@@ -49,9 +50,9 @@ Após a compra do SAP HANA no Azure (Instâncias Grandes) ser finalizada entre v
 - Dados para cada sistema de Instâncias Grandes HANA:
   - Nome de host desejado - o ideal é usar o nome de domínio totalmente qualificado.
   - Endereço IP desejado para a unidade de Instância Grande do HANA fora do intervalo de endereços do Pool IP do Servidor – tenha em mente que os 30 primeiros endereços IP no intervalo de endereços do Pool IP do Servidor são reservados para uso interno nas Instâncias Grandes do HANA
-  - Nome do SID do SAP HANA da instância do SAP HANA (necessário para criar os volumes de disco relacionados ao SAP HANA necessários). O SID do HANA é necessário para criar as permissões para <sidadm> nos volumes NFS, que estão sendo anexados à unidade de Instância Grande do HANA. Ele também é usado como um dos componentes de nome dos volumes de disco que são montados. Se você desejar executar mais de uma instância do HANA na unidade, precisará listar vários SIDs do HANA. Cada uma obtém um conjunto separado de volumes atribuídos.
-  - A groupid que o usuário hana-sidadm tem no sistema operacional Linux é necessária para criar os volumes de disco relacionados ao SAP HANA. A instalação do SAP HANA normalmente cria o grupo de sapsys com uma id de grupo de 1001. O usuário hana-sidadm faz parte do grupo
-  - A userid que o usuário hana-sidadm tem no sistema operacional Linux é necessária para criar os volumes de disco relacionados ao SAP HANA. Se você estiver executando várias instâncias do HANA na unidade, precisará listar todos os usuários <sid>adm 
+  - Nome do SID do SAP HANA da instância do SAP HANA (necessário para criar os volumes de disco relacionados ao SAP HANA necessários). O SID do HANA é necessário para criar as permissões para sidadm nos volumes NFS, que estão sendo anexados à unidade de Instância Grande do HANA. Ele também é usado como um dos componentes de nome dos volumes de disco que são montados. Se você desejar executar mais de uma instância do HANA na unidade, precisará listar vários SIDs do HANA. Cada uma obtém um conjunto separado de volumes atribuídos.
+  - A groupid que o usuário sidadm tem no sistema operacional Linux é necessária para criar os volumes de disco relacionados ao SAP HANA. A instalação do SAP HANA normalmente cria o grupo de sapsys com uma id de grupo de 1001. O usuário sidadm faz parte do grupo
+  - A userid que o usuário sidadm tem no sistema operacional Linux é necessária para criar os volumes de disco relacionados ao SAP HANA. Se você estiver executando várias instâncias do HANA na unidade, precisará listar todos os usuários <sid>adm 
 - ID de assinatura do Azure da assinatura do Azure na qual as Instâncias Grandes do HANA do SAP HANA no Azure serão conectadas diretamente. Essa ID de assinatura referencia a assinatura do Azure, que será cobrada com as unidades da Instância Grande do HANA.
 
 Depois de fornecer as informações, a Microsoft provisiona SAP HANA no Azure (instâncias grandes) e retornará as informações necessárias para vincular suas redes virtuais do Azure para instâncias grandes HANA e acessar as unidades de instância grande HANA.
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Neste exemplo, a SKU de gateway HighPerformance foi usada. As opções são HighPerformance ou UltraPerformance como as únicas SKUs de gateway que são suportadas para SAP HANA no Azure (Instâncias Grandes).
 
 > [!IMPORTANT]
-> Para Instâncias Grandes do HANA dos tipos de SKU S384, S384m, S384xm, S576, S768 e S960 (SKUs da classe do Tipo II), o uso do SKU de Gateway de UltraPerformance é obrigatório.
+> Para Instâncias Grandes do HANA dos tipos de SKU S384, S384m, S384xm, S576m, S768m e S960m (SKUs da classe do Tipo II), o uso do SKU de Gateway de UltraPerformance é obrigatório.
 
 ### <a name="linking-vnets"></a>Como vincular redes virtuais
 

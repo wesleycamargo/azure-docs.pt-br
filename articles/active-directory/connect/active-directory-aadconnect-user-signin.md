@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Conexão do usuário | Microsoft Docs"
-description: "Conexão do usuário do Azure AD Connect para configurações personalizadas."
+title: 'Azure AD Connect: Conexão do usuário | Microsoft Docs'
+description: Conexão do usuário do Azure AD Connect para configurações personalizadas.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055079"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
 
 Se já estiver familiarizado com o modelo de identidade do Azure AD e desejar saber mais sobre um método específico, consulte o link apropriado:
 
-* [Sincronização de hash de senha](#password-synchronization) com [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
+* [Sincronização de hash de senha](#password-hash-synchronization) com [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
 * [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md) com o [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
 * [SSO federado (com o AD FS [Serviços de Federação do Active Directory])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federação com PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > É importante lembrar que ao configurar a federação do Azure Active Directory, você estabelece relação de confiança entre seu locatário do Azure Active Directory e seus domínios federados. Com este domínio federado de relação de confiança, os usuários terão acesso aos recursos de nuvem do Azure Active Directory no locatário.  
@@ -54,7 +56,7 @@ Além disso, você também pode habilitar o [SSO contínuo](active-directory-aad
 
 ![Sincronização de hash de senha](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Para obter mais informações, consulte o artigo [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md).
+Para obter mais informações, consulte o artigo [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Autenticação de passagem
 Com a autenticação de passagem, a senha do usuário é validada no controlador do Active Directory local. A senha não precisa estar presente no Azure AD em nenhum formato. Isso permite que as políticas locais, como restrições de horário de conexão, sejam avaliadas durante a autenticação em serviços de nuvem.
@@ -64,7 +66,7 @@ A autenticação de passagem usa um agente simples em um computador ingressado e
 Além disso, você também pode habilitar o logon único para usuários em computadores ingressados no domínio que estão na rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para ajudá-los a acessar com segurança os recursos de nuvem.
 ![Autenticação de passagem](./media/active-directory-aadconnect-user-signin/pta.png)
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 - [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md)
 - [Logon Único](active-directory-aadconnect-sso.md)
 
@@ -88,6 +90,13 @@ Se você estiver implantando um novo farm ou usando um farm existente, será nec
 * O computador no qual você executa o assistente precisa conseguir se conectar aos outros computadores nos quais você deseja instalar o AD FS ou o Proxy de Aplicativo Web usando o Gerenciamento Remoto do Windows.
 
 Para obter mais informações, consulte [Configurando o SSO com o AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Federação com PingFederate
+Com a conexão federada, os usuários podem se conectar aos serviços baseados no Azure AD com suas senhas locais. Embora eles estejam na rede corporativa, eles nem precisam inserir suas senhas.
+
+Para mais informações em como configurar o PingFederate para usá-lo com o Azure Active Directory, veja [Integração PingFederate com o Azure Active Directory e Office 365](https://www.pingidentity.com/AzureADConnect)
+
+Para mais informações em como configurar o Azure AD Connect usando o PingFederate, veja [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Conectar usando uma versão anterior do AD FS ou uma solução de terceiros
 Se você já tiver configurado a conexão na nuvem usando uma versão anterior do AD FS (como o AD FS 2.0) ou um provedor de federação de terceiros, poderá optar por ignorar a configuração de conexão do usuário por meio do Azure AD Connect. Isso permitirá obter a última sincronização e outras funcionalidades do Azure AD Connect enquanto estiver usando a solução existente para conexão.
@@ -113,7 +122,7 @@ A experiência de conexão do Azure AD depende da capacidade do Azure AD de corr
 O Azure AD Connect lista os sufixos UPN que estão definidos para os domínios e tenta correspondê-los a um domínio personalizado no Azure AD. Em seguida, ele ajuda você com a ação apropriada que precisa ser tomada.
 A página de conexão do Azure AD lista os sufixos UPN definidos para o Active Directory local e exibe o status correspondente em cada sufixo. Os valores de status podem ser um dos seguintes:
 
-| Estado | Descrição | Ação necessária |
+| Estado | DESCRIÇÃO | Ação necessária |
 |:--- |:--- |:--- |
 | Verificado |O Azure AD Connect encontrou uma correspondência de domínio verificado no Azure AD. Todos os usuários deste domínio podem se conectar usando suas credenciais locais. |Nenhuma ação é necessária. |
 | Não verificado |O Azure AD Connect encontrou uma correspondência de domínio personalizado, mas ele não é verificado. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão após a sincronização, caso o domínio não seja verificado. | [Verifique o domínio personalizado no Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |

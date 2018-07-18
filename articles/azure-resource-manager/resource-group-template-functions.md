@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fce3fd03f22c7e2d1c1524b9deb1f6935dbc3755
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
 Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager.
@@ -28,6 +28,8 @@ Você adiciona funções aos seus modelos colocando-as entre colchetes: `[` e `]
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
 As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma. Quando avaliada, a função preservará as maiúsculas e minúsculas, a menos que a função modifique-as expressamente (como toUpper ou toLower). Determinados tipos de recursos podem ter requisitos de maiúsculas e minúsculas independentemente de como as funções são avaliadas.
+
+Para criar suas próprias funções, consulte [Funções definidas pelo usuário](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />
@@ -145,7 +147,9 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 ## <a name="resource-functions"></a>Funções de recurso
 O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
 
-* [listKeys e list{Value}](resource-group-template-functions-resource.md#listkeys)
+* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listSecrets](resource-group-template-functions-resource.md#list)
+* [list*](resource-group-template-functions-resource.md#list)
 * [providers](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)

@@ -1,21 +1,20 @@
 ---
-title: Criar um gateway de aplicativo com regras de roteamento baseadas em caminhos de URL - portal do Azure | Microsoft Docs
-description: "Saiba como criar regras de roteamento baseadas em caminhos de URL para um gateway de aplicativo e conjunto de dimensionamento de máquinas virtuais usando o portal do Azure."
+title: Criar um gateway de aplicativo com regras de roteamento baseadas em caminhos de URL - portal do Azure
+description: Saiba como criar regras de roteamento baseadas em caminhos de URL para um gateway de aplicativo e conjunto de dimensionamento de máquinas virtuais usando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -36,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
+Faça logon no Portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
@@ -154,11 +153,11 @@ Neste exemplo, você criará três máquinas virtuais a serem usadas como servid
 
     ![Registrar o endereço IP público do gateway de aplicativo](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Por exemplo, http://http://40.121.222.19.
+2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como http://http://40.121.222.19.
 
     ![Testar a URL de base no gateway de aplicativo](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
+3. Altere a URL para http://&lt;ip-address&gt;:8080/images/test.htm, substituindo &lt;ip-address&gt; pelo seu endereço IP e você verá algo parecido com o exemplo a seguir:
 
     ![Testar a URL de imagens no gateway de aplicativo](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

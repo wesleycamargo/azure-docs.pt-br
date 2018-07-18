@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (serviços de nuvem) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de Tabela do Azure em um projeto de serviço de nuvem no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (serviços de nuvem) | Microsoft Docs
+description: Como começar a usar o armazenamento de Tabela do Azure em um projeto de serviço de nuvem no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: 51b71d783806d9b0d58d4473b8c07f77441dadd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: d88e8e85613faa24213b6e12b5ba4f30e3d84f74
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de tabela do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +27,7 @@ O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de d
 
 Para começar, primeiramente, você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure com código e também como realizar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em código C\# e usam a [Biblioteca de cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
+**OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure são assíncronas. Confira [Programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para saber mais. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
 
 * Consulte [Introdução ao Armazenamento de Tabelas do Azure usando .NET](../storage/storage-dotnet-how-to-use-tables.md) para obter mais informações sobre como manipular tabelas com programação.
 * Consulte a [Documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
@@ -127,7 +124,7 @@ Você pode inserir várias entidades em uma tabela em uma única operação de g
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## <a name="get-all-of-the-entities-in-a-partition"></a>Obter todas as entidades em uma partição
-Para consultar uma tabela de todas as entidades em uma partição, use um objeto **TableQuery** . O exemplo de código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
+Para consultar uma tabela de todas as entidades em uma partição, use um objeto **TableQuery** . O exemplo de código a seguir especifica um filtro para as entidades em que 'Smith’ é a chave de partição. Esse exemplo imprime os campos de cada entidade nos resultados da consulta no console.
 
     // Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()

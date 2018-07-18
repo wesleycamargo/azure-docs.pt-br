@@ -1,12 +1,11 @@
 ---
-title: "Métricas de consulta SQL para a API SQL do Azure Cosmos DB | Microsoft Docs"
-description: "Saiba mais sobre como instrumentar e depurar o desempenho de consultas SQL de solicitações do Azure Cosmos DB."
-keywords: "sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas"
+title: Métricas de consulta SQL para a API SQL do Azure Cosmos DB | Microsoft Docs
+description: Saiba mais sobre como instrumentar e depurar o desempenho de consultas SQL de solicitações do Azure Cosmos DB.
+keywords: sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas
 services: cosmos-db
-documentationcenter: 
-author: arramac
-manager: jhubbard
-editor: monicar
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,16 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
-ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: 00e50c3b2f4dc50e43aac03b162bc637f0821656
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O Azure Cosmos DB fornece um [API do SQL para consultar dados](sql-api-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
 
@@ -140,7 +137,7 @@ Os cabeçalhos de resposta de chave retornados da consulta incluem o seguinte:
 | `x-ms-documentdb-query-metrics` | As estatísticas de consulta para a execução. Isso é uma cadeia de caracteres delimitada que contém as estatísticas de tempo gasto em várias fases de execução de consulta. Retornado se `x-ms-documentdb-populatequerymetrics` é definido como `True`. | 
 | `x-ms-request-charge` | O número de [unidades de solicitação](request-units.md) consumidos pela consulta. | 
 
-Para obter detalhes sobre as opções e os cabeçalhos de solicitação da API REST, consulte [Consultar recursos usando a API REST](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Para obter detalhes sobre as opções e os cabeçalhos de solicitação da API REST, consulte [Consultar recursos usando a API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Práticas recomendadas para desempenho de consulta
 A seguir estão os fatores mais comuns que afetam o desempenho de consulta do Azure Cosmos DB. Podemos obter detalhes de cada um desses tópicos neste artigo.

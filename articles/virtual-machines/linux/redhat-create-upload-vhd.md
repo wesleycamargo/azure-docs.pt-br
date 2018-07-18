@@ -4,7 +4,7 @@ description: Saiba como criar e carregar um disco rígido virtual (VHD) do Micro
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
 Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 * É necessário suporte de kernel para montar sistemas de arquivos de formato de disco universal (UDF). Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à máquina virtual do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a máquina virtual.
 * As versões de kernel do Linux anteriores a 2.6.37 não suportam o acesso não uniforme da memória (NUMA) no Hyper-V com tamanhos maiores de máquina virtual. Esse problema afeta principalmente as distribuições mais antigas que usam o kernel 2.6.32 do Red Hat em upstream e foram corrigidas no RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados anteriores a 2.6.37 ou com base em RHEL anteriores a 2.6.32-504 devem definir o `numa=off`parâmetro de inicialização na linha de comando do kernel em grub.conf. Para obter mais informações, confira o [KB 436883](https://access.redhat.com/solutions/436883) do Red Hat.
 * Não configure uma partição de permuta no disco do sistema operacional. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recurso temporário.  Verifique as etapas a seguir para obter mais informações sobre esse assunto.
-* Todas as imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB. Ao converter de um disco bruto para VHD, certifique-se de que o tamanho do disco seja um múltiplo de 1MB antes da conversão. Encontre mais detalhes nas etapas abaixo. Consulte também [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
+* Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco bruto para VHD, certifique-se de que o tamanho do disco seja um múltiplo de 1MB antes da conversão. Encontre mais detalhes nas etapas abaixo. Consulte também [Notas de Instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina virtual RHEL 6 do Gerenciador do Hyper-V
 
@@ -159,7 +159,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 5. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
@@ -411,7 +411,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 6. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 
@@ -665,7 +665,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 3. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Registre a sua assinatura do Red Hat para habilitar a instalação de pacotes do repositório RHEL ao executar o seguinte comando:
 

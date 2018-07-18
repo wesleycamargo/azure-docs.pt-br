@@ -1,11 +1,11 @@
 ---
-title: "Inteligência contra Ameaças da Central de Segurança do Azure | Microsoft Docs"
-description: "Saiba como usar o recurso de inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e nos computadores."
+title: Inteligência contra Ameaças da Central de Segurança do Azure | Microsoft Docs
+description: Saiba como usar o recurso de inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças nas VMs e nos computadores.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
-ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligência contra Ameaças da Central de Segurança do Azure
 Este artigo ensina a usar a inteligência contra ameaças da Central de Segurança do Azure para tratar de problemas de segurança.

@@ -1,3 +1,5 @@
+- name: Conceitos básicos do Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Documentação do Serviço de Provisionamento de Dispositivos do Hub IoT do Azure
   href: index.yml
 - name: Visão geral
@@ -13,9 +15,9 @@
       href: quick-setup-auto-provision.md
     - name: Configurar provisionamento automático - Modelo
       href: quick-setup-auto-provision-rm.md
-    - name: Criar dispositivo simulado
+    - name: Provisionamento automático de um dispositivo simulado
       items:
-        - name: TPM
+        - name: Atestado de TPM
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +29,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: Atestado de X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +41,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Registrar o dispositivo
+    - name: Registro de dispositivo usando APIs do serviço de provisionamento
       items:
-        - name: TPM
+        - name: Atestado de TPM
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +53,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: Atestado de X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,40 +81,72 @@
       href: tutorial-group-enrollments.md
 - name: Conceitos
   items:
-    - name: Conceitos do dispositivo
+    - name: Provisionamento automático
+      href: concepts-auto-provisioning.md
+    - name: Dispositivos
       href: concepts-device.md
-    - name: Conceitos do serviço
-      href: concepts-service.md
-    - name: Conceitos da segurança
+    - name: Segurança
       href: concepts-security.md
+    - name: Serviço
+      href: concepts-service.md
+    - name: Atestado de TPM
+      href: concepts-tpm-attestation.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar registros do dispositivo
-      items:
-        - name: Gerenciar registros de dispositivo com o portal do Azure
-          href: how-to-manage-enrollments.md
-        - name: Gerenciar registros de dispositivo com os SDKs de Serviço
-          href: how-to-manage-enrollments-sdks.md
-    - name: Revogar o acesso do dispositivo
-      href: how-to-revoke-device-access-portal.md
-    - name: Remover provisionamento dos dispositivos
-      href: how-to-unprovision-devices.md
-    - name: Executar verificação de posse nos certificados de site x.509
-      href: how-to-verify-certificates.md
-    - name: Usar um HSM com SDK
-      href: use-hsm-with-sdk.md
-    - name: Controlar o acesso ao Serviço de Provisionamento
-      href: how-to-control-access.md
-    - name: Use a CLI do Azure para gerenciar o serviço de configuração de dispositivos
-      href: how-to-manage-dps-with-cli.md
-    - name: Use as ferramentas do SDK para desenvolver
-      href: how-to-use-sdk-tools.md
-    - name: Conectar Kit de Desenvolvimento da IoT do MXChip
+    - name: Conectar o MXChip IoT DevKit ao Hub IoT
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Gerenciar a configuração do provisionamento de dispositivos
+      items:
+        - name: Configurar Certificados de Autoridade de Certificação verificados
+          href: how-to-verify-certificates.md
+        - name: Gerenciar o desprovisionamento
+          href: how-to-unprovision-devices.md
+        - name: Gerenciar o cancelamento de registro
+          href: how-to-revoke-device-access-portal.md
+        - name: Gerenciar registros – Portal
+          href: how-to-manage-enrollments.md
+        - name: Gerenciar registros – SDKs de serviço
+          href: how-to-manage-enrollments-sdks.md
+    - name: Gerenciar o serviço de provisionamento de dispositivos
+      items:
+        - name: Configurar o serviço de provisionamento de dispositivos usando a CLI do Azure
+          href: how-to-manage-dps-with-cli.md
+        - name: Controlar o acesso às APIs do serviço de provisionamento
+          href: how-to-control-access.md
+    - name: Usar os mecanismos de atestado com o SDK
+      href: use-hsm-with-sdk.md
+    - name: Usar as ferramentas do SDK para desenvolvimento
+      href: how-to-use-sdk-tools.md
 - name: Referência
   items:
     - name: REST
       href: /rest/api/iot-dps
+- name: Relacionados
+  items:
+    - name: Soluções
+      items:
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Hub IoT do Azure
@@ -121,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centro de Desenvolvedores do IoT do Azure
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Solicitações de dados do cliente
+      href: iot-dps-customer-data-requests.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Ferramenta Device Explorer

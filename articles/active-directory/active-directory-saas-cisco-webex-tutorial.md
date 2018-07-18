@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Cisco Webex | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Webex."
+title: 'Tutorial: integração do Azure Active Directory com o Cisco Webex | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 527d74910244058506e8435d431e239968896cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: integração do Azure Active Directory ao Cisco Webex
 
@@ -30,7 +30,7 @@ A integração do Cisco Webex ao Azure Active Directory oferece os seguintes ben
 - Você pode permitir que os usuários façam logon automaticamente no Cisco Webex com as respectivas contas do Azure Active Directory.
 - Você pode gerenciar suas contas em um único local: o novo Portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -123,7 +123,7 @@ Nesta seção, você habilita o logon único do Azure Active Directory no Portal
 
     ![O link de download do Certificado](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-cisco-webex-tutorial/tutorial_general_400.png)
     
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-cisco-webex-test-user"></a>Criar um usuário de teste do Cisco Webex
 
@@ -278,7 +278,7 @@ Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

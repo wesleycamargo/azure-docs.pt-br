@@ -1,24 +1,26 @@
 ---
-title: "Entrega e repetição da Grade de Eventos do Azure"
-description: "Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues."
+title: Entrega e repetição da Grade de Eventos do Azure
+description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos 
 
 Este artigo descreve como a Grade de Eventos do Azure trata os eventos quando a entrega não é confirmada.
 
-A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue pelo menos uma vez para cada assinatura. Os eventos são imediatamente enviados ao webhook registrado de cada assinatura. Se um webhook não confirmar o recebimento de um evento em até 60 segundos a contar da primeira tentativa de entrega, a Grade de Eventos repete a entrega do evento.
+A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue pelo menos uma vez para cada assinatura. Os eventos são imediatamente enviados ao webhook registrado de cada assinatura. Se um webhook não confirmar o recebimento de um evento em até 60 segundos a contar da primeira tentativa de entrega, a Grade de Eventos repete a entrega do evento. 
+
+Atualmente, a Grade de Eventos envia cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento.
 
 ## <a name="message-delivery-status"></a>Status de entrega da mensagem
 
@@ -33,7 +35,7 @@ Os códigos de resposta HTTP a seguir indicam que um evento foi entregue com êx
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento. A Grade de Eventos tenta enviar o evento novamente. 
+Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento. 
 
 - 400 Solicitação Inválida
 - 401 Não Autorizado
@@ -44,9 +46,9 @@ Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de en
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Qualquer outro código de resposta ou à falta de uma resposta indica uma falha. A Grade de Eventos repete a entrega. 
+Se a Grade de Eventos recebe um erro que indica que o ponto de extremidade não está disponível, ela tenta enviar o evento novamente. 
 
-## <a name="retry-intervals"></a>Intervalos de repetição
+## <a name="retry-intervals-and-duration"></a>Intervalos de repetição e duração
 
 A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Se o seu webhook não responder ou retornar um código de falha, a Grade de Eventos repetirá a entrega nos seguintes intervalos:
 
@@ -60,9 +62,7 @@ A Grade de Eventos usa uma política de repetição de retirada exponencial para
 
 A Grade de Eventos adiciona uma pequena aleatoriedade a todos os intervalos de repetição. Após uma hora, a entrega de eventos é repetida a cada uma hora.
 
-## <a name="retry-duration"></a>Duração da repetição
-
-A Grade de Eventos do Azure expira todos os eventos que não são entregues dentro de 24 horas.
+Por padrão, a Grade de Eventos expira todos os eventos que não são entregues dentro de 24 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,21 @@
 ---
-title: "Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de Tabela do Azure em um projeto do ASP.NET Core no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Como começar a usar o armazenamento de Tabela do Azure em um projeto do ASP.NET Core no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: 4693c637597346e5c72bef6ddca9369e67b740f3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: ghogen
+ms.openlocfilehash: e53e8ed27cfc048f24bda4ef92fcd2a50a85ed07
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introdução ao armazenamento de Tabela do Azure e serviços conectados do Visual Studio
 

@@ -1,24 +1,24 @@
 ---
 title: Criptografia no Azure Data Lake Store | Microsoft Docs
-description: "A criptografia no Azure Data Lake Store ajuda a proteger seus dados, implementar políticas de segurança da empresa e atender aos requisitos de conformidade normativa. Este artigo fornece uma visão geral do design e discute alguns dos aspectos técnicos de implementação."
+description: A criptografia no Azure Data Lake Store ajuda a proteger seus dados, implementar políticas de segurança da empresa e atender aos requisitos de conformidade normativa. Este artigo fornece uma visão geral do design e discute alguns dos aspectos técnicos de implementação.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Criptografia de dados no Azure Data Lake Store
 
@@ -106,7 +106,7 @@ O diagrama a seguir ilustra esses conceitos:
 4.  Armazene o bloco de dados criptografados no armazenamento persistente.
 
 > [!NOTE] 
-> Para fins de desempenho, a DEK criptografada é armazenada em cache na memória por um curto período e é imediatamente apagada posteriormente. Na mídia persistente, ela é sempre armazenada criptografada pela MEK.
+> A DEK sempre é armazenada criptografada pela MEK, seja na mídia persistente ou em cache na memória.
 
 ## <a name="key-rotation"></a>Alteração de chaves
 
@@ -138,3 +138,6 @@ Observe que, se você usar as opções padrão para criptografia, seus dados sem
     ![Captura de tela da janela do Data Lake Store com a mensagem e Alterar realçados](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
+
+> [!IMPORTANT]
+> Após a conclusão da operação de rotação de chaves, a versão antiga da chave não é mais ativamente é usada para criptografar os dados.  No entanto, em casos raros de falha inesperada, em que até mesmo as cópias redundantes de seus dados são afetadas, os dados poderão ser restaurados de um backup que ainda está usando a chave antiga. Para garantir a acessibilidade de seus dados nessas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de criptografia. Consulte [Orientação de recuperação de desastres para dados no Data Lake Store](data-lake-store-disaster-recovery-guidance.md) para conferir as práticas recomendadas de planejamento de recuperação de desastres. 

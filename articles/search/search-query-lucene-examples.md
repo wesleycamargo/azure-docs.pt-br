@@ -1,25 +1,19 @@
 ---
 title: Exemplos de consulta Lucene para Azure Search | Microsoft Docs
-description: "Sintaxe de consulta Lucene para pesquisa difusa, pesquisa por proximidade, aumento de termos, pesquisa com expressão regular e pesquisa com curinga."
-services: search
-documentationcenter: 
+description: Sintaxe de consulta Lucene para pesquisa difusa, pesquisa por proximidade, aumento de termos, pesquisa com expressão regular e pesquisa com curinga.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/21/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para criar consultas no Azure Search
 Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O Analisador de Consulta Lucene dá suporte a constructos de consulta mais complexos, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular.
@@ -28,7 +22,7 @@ Neste artigo, execute exemplos em etapas, que demonstram as operações de consu
 
 ## <a name="viewing-the-examples-in-jsfiddle"></a>Exibindo os exemplos no JSFiddle
 
-Todos os exemplos deste artigo são consultas executáveis que são executadas em um índice de Pesquisa pré-carregado no [JSFiddle](https://jsfiddle.net), um editor de códigos online para teste de script e HTML. 
+Todos os exemplos deste artigo são consultas executáveis que são executadas em um índice do Search pré-carregado no [JSFiddle](https://jsfiddle.net), um editor de códigos online para teste de script e HTML. 
 
 Para executá-los, clique com o botão direito do mouse nas URLs de exemplo de consulta para abrir o JSFiddle em uma janela separada do navegador.
 
@@ -43,13 +37,13 @@ Todos os exemplos deste artigo especificam o parâmetro de pesquisa **queryType=
 
 **Exemplo 1** : clique com o botão direito do mouse no seguinte trecho de código da consulta para abri-la em uma nova página do navegador que carrega o JSFiddle e executa a consulta:
 
-* [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Na nova janela do navegador, a origem JavaScript e a saída HTML são apresentados lado a lado. O script referencia uma consulta completa (não apenas o trecho, conforme mostrado no link). A consulta completa é mostrada nas URLs de cada exemplo. 
 
 Essa consulta retorna documentos de nosso índice New York City Jobs (nycjobs, carregado em um serviço de área restrita). Para resumir, a consulta especifica o retorno apenas de cargos executivos. A consulta subjacente completa é a seguinte:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
 O parâmetro **searchFields** restringe a pesquisa apenas ao campo de título de negócios. O **queryType** é definido como **full**, que instrui o Azure Search a usar o Lucene Query Parser para essa consulta.
 
@@ -69,7 +63,7 @@ O campo especificado em **nomedocampo:termodepesquisa** deve ser um campo pesqui
 
 **Exemplo 2** – clique com o botão direito do mouse no seguinte trecho de consulta Essa consulta pesquisa cargos executivos com o termo sênior, mas não júnior:
 
-* [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
 ## <a name="fuzzy-search-example"></a>Exemplo de pesquisa difusa
 Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
@@ -78,7 +72,7 @@ Para fazer uma pesquisa difusa, acrescente o símbolo til “~” ao final de um
 
 **Exemplo 3** : clique com o botão direito do mouse no trecho código de consulta a seguir. Essa consulta pesquisa os trabalhos com o termo associado (onde ele é escrito incorretamente):
 
-* [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Consultas difusas não são [analisadas](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), o que poderá ser uma surpresa se você esperar a lematização. A análise lexical é realizada somente em termos completos (uma consulta de termo ou de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas.
@@ -89,11 +83,11 @@ As pesquisas de proximidade são usadas para localizar termos que estejam próxi
 
 **Exemplo 4** : clique com o botão direito do mouse na consulta. Procure trabalhos com o termo “analista sênior”, onde ele estiver separado por até uma palavra:
 
-* [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Exemplo 5** : experimente novamente remover as palavras entre o termo "analista sênior".
 
-* [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Exemplos de aumento de termo
 O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Isso é diferente dos perfis de pontuação, já que os perfis de pontuação aumentam determinados campos, em vez de termos específicos. O exemplo a seguir ajuda a ilustrar as diferenças.
@@ -104,11 +98,11 @@ Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aume
 
 **Exemplo 6** - clique com o botão direito do mouse na consulta. Procure trabalhos com o termo "analista de computador", onde podemos ver que não há resultados com ambas as palavras, computador e analista, ainda que trabalhos de analista estejam na parte superior dos resultados.
 
-* [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Exemplo 7** - tente novamente, desta vez aumentando os resultados com o termo computador em relação ao termo analista, caso ambas palavras não existam.
 
-* [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Exemplo de expressão regular
 Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
@@ -117,14 +111,14 @@ Uma pesquisa de expressão regular encontra uma correspondência com base no con
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-A URL para este exemplo não será renderizada corretamente na página. Como solução alternativa, copie a URL abaixo e cole-a no endereço de URL do navegador: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+A URL para este exemplo não será renderizada corretamente na página. Como solução alternativa, copie a URL abaixo e cole-a no endereço de URL do navegador: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Exemplo de pesquisa de curinga
 Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (\*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
 **Exemplo 9** - clique com o botão direito do mouse na consulta. Procure os trabalhos que contenham o prefixo 'prog', que inclui cargos com os termos programação e o programador neles.
 
-* [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.
 

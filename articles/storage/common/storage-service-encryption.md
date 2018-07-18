@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 
@@ -52,7 +52,7 @@ R: A Criptografia do Serviço de Armazenamento está habilitada por padrão em t
 
 **P: Como fazer para criptografar os dados em uma conta de armazenamento do Resource Manager?**
 
-R: A Criptografia do Serviço de Armazenamento está habilitada por padrão para todas as contas de armazenamento – clássico e Resource Manager. No entanto, os dados existentes não são criptografados. Para criptografar os dados existentes, copie-os para outro nome ou outro contêiner e, em seguida, remova as versões não criptografadas. 
+R: a criptografia de serviço de armazenamento é habilitada por padrão para todas as contas de armazenamento – clássicas e o Gerenciador de Recursos, os arquivos existentes na conta de armazenamento criada antes da habilitação da criptografia serão retroativamente criptografados por um processo de criptografia de plano de fundo.
 
 **P: Posso criar contas de armazenamento com a Criptografia do Serviço de Armazenamento habilitada usando o Azure PowerShell e a CLI do Azure?**
 
@@ -72,7 +72,7 @@ R: Sim, se você [usar suas próprias chaves de criptografia](storage-service-en
 
 **P: A Criptografia do Serviço de Armazenamento está habilitada por padrão quando crio uma conta de armazenamento?**
 
-R: Sim, a Criptografia do Serviço de Armazenamento (usando chaves gerenciadas pela Microsoft) está habilitada por padrão para todas as contas de armazenamento – Azure Resource Manager e clássico. Ela está habilitada para todos os serviços também – armazenamento de Blobs, armazenamento de Tabelas, armazenamento de Filas e Arquivos do Azure.
+R: Sim, a Criptografia de Serviço de Armazenamento é habilitada por padrão para todas as contas de armazenamento e para todos os serviços de Armazenamento do Azure.
 
 **P: Qual é a diferença para o Azure Disk Encryption?**
 

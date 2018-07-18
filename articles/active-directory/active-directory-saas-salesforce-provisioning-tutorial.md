@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce."
+title: 'Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3997d913525b44f154ca1e989ee1880308b82096
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344234"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 
@@ -27,9 +28,13 @@ O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Sa
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-*   Um locatário do Azure Active Directory.
-*   É preciso ter um locatário válido para o Salesforce for Work ou Salesforce for Education. Você pode usar uma conta de avaliação gratuita para qualquer serviço.
-*   Uma conta de usuário no Salesforce com permissões de Administrador de Equipe.
+*   Um locatário do Azure Active Directory
+*   Locatário de Salesforce.com
+
+>[!IMPORTANT] 
+>Se você estiver usando uma conta Salesforce.com de avaliação, não será possível configurar o provisionamento automatizado de usuários. Contas de avaliação não têm o acesso à API necessária habilitado até que sejam compradas. Você pode contornar essa limitação usando uma [conta de desenvolvedor gratuita](https://developer.salesforce.com/signup) para concluir este tutorial.
+
+Se você estiver usando um ambiente de área restrita do Salesforce, consulte o [Tutorial de integração de área restrita do Salesforce](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Como atribuir usuários ao Salesforce
 
@@ -89,7 +94,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto**.
 
-11. A **URL do locatário** deve ser inserida se a instância do Salesforce está na Salesforce Government Cloud. Caso contrário, ela é opcional. Insira a URL do locatário usando o formato https://sua-instância.my.salesforce.com, substituindo a instância pelo nome da sua instância do Salesforce.
+11. A **URL do locatário** deve ser inserida se a instância do Salesforce está na Salesforce Government Cloud. Caso contrário, ela é opcional. Insira a URL do locatário usando o formato https://your-instance.my.salesforce.com, substituindo a instância pelo nome da sua instância do Salesforce.
 
 12. No Portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Salesforce.
 
@@ -112,5 +117,5 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar Logon Único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

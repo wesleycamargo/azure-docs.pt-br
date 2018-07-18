@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2018
+ms.date: 05/11/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 7b7655464f26b5bb8c002b53318b5bdb8d109409
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f8db3284d0fb0da6d0091c021581a5275642a42b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158322"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração do aplicativo SaaS com o Azure Active Directory
 
@@ -47,6 +48,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-accredible-tutorial.png)| [Accredible](active-directory-saas-accredible-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-achieve3000-tutorial.png)| [Achieve3000](active-directory-saas-achieve3000-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-adaptivesuite-tutorial.png)| [Adaptive Suite](active-directory-saas-adaptivesuite-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobecaptivateprime-tutorial.png)| [Adobe Captivate Prime](active-directory-saas-adobecaptivateprime-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-creative-cloud-tutorial.png)| [Adobe Creative Cloud](active-directory-saas-adobe-creative-cloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobeexperiencemanager-tutorial.png)| [Adobe Experience Manager](active-directory-saas-adobeexperiencemanager-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-adobe-echosign-tutorial.png)| [Adobe Sign](active-directory-saas-adobe-echosign-tutorial.md)|
@@ -58,14 +60,18 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-alcumus-info-tutorial.png)| [Alcumus Info Exchange](active-directory-saas-alcumus-info-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-allocadia-tutorial.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-aws-multi-accounts-tutorial.png)| [Amazon Web Services (AWS) para se conectar a várias contas](active-directory-saas-aws-multi-accounts-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](active-directory-saas-amplitude-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-anaplan-tutorial.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-andromedascm-tutorial.png)| [Andromeda](active-directory-saas-andromedascm-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-answerhub-tutorial.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-apexportal-tutorial.png)| [Portal Apex](active-directory-saas-apexportal-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-appblade-tutorial.png)| [AppBlade](active-directory-saas-appblade-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-appdynamics-tutorial.png)| [AppDynamics](active-directory-saas-appdynamics-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-appneta-tutorial.png)| [Monitor de Desempenho AppNeta](active-directory-saas-appneta-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-apptio-tutorial.png)| [Apptio](active-directory-saas-apptio-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-aravo-tutorial.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-arc-tutorial.png)| [Arco publicando - SSO](active-directory-saas-arc-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-arcgis-tutorial.png)| [ArcGIS Online](active-directory-saas-arcgis-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ariba-tutorial.png)| [Ariba](active-directory-saas-ariba-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-asana-tutorial.png)| [Asana](active-directory-saas-asana-tutorial.md)|[Asana - Provisionamento de usuário](active-directory-saas-asana-provisioning-tutorial.md)|
@@ -75,6 +81,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-atomiclearning-tutorial.png)| [Atomic Learning](active-directory-saas-atomiclearning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-attendancemanagementservices-tutorial.png)| [Attendance Management Services](active-directory-saas-attendancemanagementservices-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Local de trabalho Autotask](active-directory-saas-autotaskworkplace-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-awardspring-tutorial.png)| [AwardSpring](active-directory-saas-awardspring-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Bambu by Sprout Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC in the Cloud](active-directory-saas-bcinthecloud-tutorial.md)|
@@ -82,6 +89,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefithub-tutorial.png)| [BenefitHub](active-directory-saas-benefithub-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-benefitsolver-tutorial.png)| [Benefitsolver](active-directory-saas-benefitsolver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-benselect-tutorial.png)| [BenSelect](active-directory-saas-benselect-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bersin-tutorial.png)| [Bersin](active-directory-saas-bersin-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-betterworks-tutorial.png)| [BetterWorks](active-directory-saas-betterworks-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bgsonline-tutorial.png)| [BGS Online](active-directory-saas-bgsonline-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bime-tutorial.png)| [Bime](active-directory-saas-bime-tutorial.md)|
@@ -92,7 +100,6 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](active-directory-saas-bluejeans-tutorial.md)|[BlueJeans - Provisionamento de Usuário](active-directory-saas-bluejeans-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](active-directory-saas-bonus-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](active-directory-saas-boomi-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-box-tutorial.png)| [Box](active-directory-saas-box-tutorial.md)|[Box – Provisionamento de usuário](active-directory-saas-box-userprovisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](active-directory-saas-boxcryptor-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](active-directory-saas-bpmonline-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
@@ -110,11 +117,12 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cherwell-tutorial.png)| [Cherwell](active-directory-saas-cherwell-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-chromeriver-tutorial.png)| [Chromeriver](active-directory-saas-chromeriver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](active-directory-saas-cimpl-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco Cloud](active-directory-saas-ciscocloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](active-directory-saas-ciscocloudlock-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](active-directory-saas-cisco-spark-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](active-directory-saas-cisco-webex-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](active-directory-saas-sharefile-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)| [Clarizen - Provisionamento de Usuário]( active-directory-saas-clarizen-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](active-directory-saas-clarizen-tutorial.md)|[Clarizen - Provisionamento de Usuário](active-directory-saas-clarizen-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Clear Review](active-directory-saas-clearreview-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-clearcompany-tutorial.png)| [ClearCompany](active-directory-saas-clearcompany-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-clever-tutorial.png)| [Clever](active-directory-saas-clever-tutorial.md)|
@@ -128,8 +136,9 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-concur-tutorial.png)| [Concur](active-directory-saas-concur-tutorial.md)|[Concur – Provisionamento de usuário](active-directory-saas-concur-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-condeco-tutorial.png)| [Condeco](active-directory-saas-condeco-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-confluencemicrosoft-tutorial.png)| [SSO do SAML para o Confluence da Microsoft](active-directory-saas-confluencemicrosoft-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-contractworks-tutorial.png)| [ContractWorks](active-directory-saas-contractworks-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-convercent-tutorial.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Cornerstone OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Cornerstone OnDemand - Provisionamento de Usuário](active-directory-saas-successcenter-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Cornerstone OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Cornerstone OnDemand - Provisionamento de Usuário](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-coupa-tutorial.png)| [Coupa](active-directory-saas-coupa-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cs-stars-tutorial.png)| [CS Stars](active-directory-saas-cs-stars-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cylanceprotect-tutorial.png)| [CylancePROTECT](active-directory-saas-cylanceprotect-tutorial.md)|
@@ -145,8 +154,9 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 Arc](active-directory-saas-dome9arc-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](active-directory-saas-domo-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](active-directory-saas-dowjones-factiva-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md)|[Dropbox for Business – Provisionamento de Usuário](  active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](active-directory-saas-druva-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Sinal dinâmico](active-directory-saas-dynamicsignal-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](active-directory-saas-easyterritory-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ebsco-tutorial.png)| [EBSCO](active-directory-saas-ebsco-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-edcor-tutorial.png)| [Edcor](active-directory-saas-edcor-tutorial.md)|
@@ -154,8 +164,10 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-efidigitalstorefront-tutorial.png)| [EFI Digital StoreFront](active-directory-saas-efidigitalstorefront-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-egnyte-tutorial.png)| [Egnyte](active-directory-saas-egnyte-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ekincare-tutorial.png)| [eKincare](active-directory-saas-ekincare-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-elium-tutorial.png)| [Elium](active-directory-saas-elium-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-empcenter-tutorial.png)| [EmpCenter](active-directory-saas-empcenter-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-encompass-tutorial.png)| [Abranger](active-directory-saas-encompass-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-envimmis-tutorial.png)| [Envi MMIS](active-directory-saas-envimmis-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](active-directory-saas-envoy-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ethicspoint-incident-management-tutorial.png)| [EthicsPoint Incident Management (EPIM)](active-directory-saas-ethicspoint-incident-management-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-etouches-tutorial.png)| [etouches](active-directory-saas-etouches-tutorial.md)|
@@ -169,9 +181,11 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-filecloud-tutorial.png)| [FileCloud](active-directory-saas-filecloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-filesanywhere-tutorial.png)| [FilesAnywhere](active-directory-saas-filesanywhere-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-firmplay-tutorial.png)| [FirmPlay – Employee Advocacy for Recruiting](active-directory-saas-firmplay-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fiscalnote-tutorial.png)| [FiscalNote](active-directory-saas-fiscalnote-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-five9-tutorial.png)| [Five9 Plus Adapter (CTI, Contact Center Agents)](active-directory-saas-five9-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-flatter-files-tutorial.png)| [Arquivos mais simples](active-directory-saas-flatter-files-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-floqast-tutorial.png)| [FloQast](active-directory-saas-floqast-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fluxxlabs-tutorial.png)| [Fluxx Labs](active-directory-saas-fluxxlabs-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fm-systems-tutorial.png)| [FM:Systems](active-directory-saas-fm-systems-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-formcom-tutorial.png)| [Form.com](active-directory-saas-formcom-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-freshdesk-tutorial.png)| [FreshDesk](active-directory-saas-freshdesk-tutorial.md)|
@@ -180,11 +194,11 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-front-tutorial.png)| [Front](active-directory-saas-front-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fuse-tutorial.png)| [Fuse](active-directory-saas-fuse-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fuze-tutorial.png)| [Fuze](active-directory-saas-fuze-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](active-directory-saas-google-apps-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-gaggleamp-tutorial.png)| [GaggleAMP](active-directory-saas-gaggleamp-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-getabstract-tutorial.png)| [Getabstract](active-directory-saas-getabstract-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-gigya-tutorial.png)| [Gigya](active-directory-saas-gigya-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-github-tutorial.png)| [Github](active-directory-saas-github-tutorial.md)|[GitHub – Provisionamento de Usuário](active-directory-saas-github-provisioning-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Apps](active-directory-saas-google-apps-tutorial.md)|[Google Apps – Provisionamento de Usuário](active-directory-saas-google-apps-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-github-tutorial.png)| [GitHub](active-directory-saas-github-tutorial.md)|[GitHub – Provisionamento de Usuário](active-directory-saas-github-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-citrix-gotomeeting-tutorial.png)| [GoToMeeting](active-directory-saas-citrix-gotomeeting-tutorial.md)|[GoToMeeting – Provisionamento de Usuário](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-greenhouse-tutorial.png)| [Greenhouse](active-directory-saas-greenhouse-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-grovo-tutorial.png)| [Grovo](active-directory-saas-grovo-tutorial.md)|
@@ -211,7 +225,8 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-imagerelay-tutorial.png)| [Image Relay](active-directory-saas-imagerelay-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-imageworks-tutorial.png)| [IMAGE WORKS](active-directory-saas-imageworks-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Manager](active-directory-saas-impacriskmanager-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail â Gestão da Informação](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty regem](active-directory-saas-infogix-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Informações de varejo â gerenciamento de informações](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](active-directory-saas-inkling-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-insidertrack-tutorial.png)| [Insider Track](active-directory-saas-insidertrack-tutorial.md)|
@@ -226,6 +241,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-iriusrisk-tutorial.png)| [IriusRisk](active-directory-saas-iriusrisk-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-itrp-tutorial.png)| [ITRP](active-directory-saas-itrp-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-itslearning-tutorial.png)| [itslearning](active-directory-saas-itslearning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](active-directory-saas-jamfprosamlconnector-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jitbit-helpdesk-tutorial.png)| [Jitbit Helpdesk](active-directory-saas-jitbit-helpdesk-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jive-tutorial.png)| [Jive](active-directory-saas-jive-tutorial.md)|[Jive – Provisionamento de Usuário](active-directory-saas-jive-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jobbadmin-tutorial.png)| [Jobbadmin](active-directory-saas-jobbadmin-tutorial.md)|
@@ -243,10 +259,12 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-kiteworks-tutorial.png)| [Kiteworks](active-directory-saas-kiteworks-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-klue-tutorial.png)| [Klue](active-directory-saas-klue-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-knowbe4-tutorial.png)| [Treinamento de reconhecimento de segurança KnowBe4](active-directory-saas-knowbe4-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-knowledgeowl-tutorial.png)| [KnowledgeOwl](active-directory-saas-knowledgeowl-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-kontiki-tutorial.png)| [Kontiki](active-directory-saas-kontiki-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-kronos-tutorial.png)| [Kronos](active-directory-saas-kronos-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-kudos-tutorial.png)| [Kudos](active-directory-saas-kudos-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-landgorilla-tutorial.png)| [Cliente Land Gorilla](active-directory-saas-landgorilla-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-launchdarkly-tutorial.png)| [LaunchDarkly](active-directory-saas-launchdarkly-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lcvista-tutorial.png)| [LCVista](active-directory-saas-lcvista-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-learning-at-work-tutorial.png)| [Learning at Work](active-directory-saas-learning-at-work-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-learningseatlms-tutorial.png)| [Learning Seat LMS](active-directory-saas-learningseatlms-tutorial.md)|
@@ -258,29 +276,34 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](active-directory-saas-worksmobile-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](active-directory-saas-linkedinelevate-tutorial.md)|[LinkedIn Elevate – Provisionamento de Usuário](active-directory-saas-linkedinelevate-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](active-directory-saas-linkedinlearning-tutorial.md)|[LinkedIn Learning – Provisionamento de Usuário](active-directory-saas-linkedinlearning-provisioning-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](active-directory-saas-linkedinsalesnavigator-tutorial.md)|[LinkedIn Sales Navigator – Provisionamento de Usuário](active-directory-saas-linkedinsalesnavigator-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](active-directory-saas-linkedinsalesnavigator-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](active-directory-saas-liquidfiles-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](active-directory-saas-litmos-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-keylight-tutorial.png)| [LockPath Keylight](active-directory-saas-keylight-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-logicmonitor-tutorial.png)| [LogicMonitor](active-directory-saas-logicmonitor-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lr-tutorial.png)| [lr](active-directory-saas-lr-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lucidchart-tutorial.png)| [Lucidchart](active-directory-saas-lucidchart-tutorial.md)|[Lucidchart - Provisionamento de Usuário](active-directory-saas-lucidchart-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lr-tutorial.png)| [LoginRadius](active-directory-saas-lr-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lucidchart-tutorial.png)| [Lucidchart](active-directory-saas-lucidchart-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-lynda-tutorial.png)| [Lynda.com](active-directory-saas-lynda-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-m-files-tutorial.png)| [M-Files](active-directory-saas-m-files-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-manabipocket-tutorial.png)| [Pocket Manabi](active-directory-saas-manabipocket-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](active-directory-saas-marketo-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-maxxpoint-tutorial.png)| [MaxxPoint](active-directory-saas-maxxpoint-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mcm-tutorial.png)| [MCM](active-directory-saas-mcm-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-menlosecurity-tutorial.png)| [Menlo Security](active-directory-saas-menlosecurity-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mercell-tutorial.png)| [Mercell](active-directory-saas-mercell-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral (MBC)](active-directory-saas-mercerhrs-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [Merchlogix](active-directory-saas-merchlogix-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jiramicrosoft-tutorial.png)| [Logon único do Microsoft Azure Active Directory para JIRA](active-directory-saas-jiramicrosoft-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-jira52microsoft-tutorial.png)| [Logon único do Microsoft Azure Active Directory para JIRA 5.2](active-directory-saas-jira52microsoft-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-admin-console-tutorial.png)| [Mimecast Admin Console](active-directory-saas-mimecast-admin-console-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast Personal Portal](active-directory-saas-mimecast-personal-portal-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mindflash-tutorial.png)| [Mindflash](active-directory-saas-mindflash-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mindwireless-tutorial.png)| [mindWireless](active-directory-saas-mindwireless-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mixpanel-tutorial.png)| [Mixpanel](active-directory-saas-mixpanel-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobi-tutorial.png)| [MOBI](active-directory-saas-mobi-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobilexpense-tutorial.png)| [Xpense móvel](active-directory-saas-mobilexpense-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-mobileiron-tutorial.png)| [MobileIron](active-directory-saas-mobileiron-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-montageonline-tutorial.png)| [Montagem Online](active-directory-saas-montageonline-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-moveittransfer-tutorial.png)| [Transferência de MOVEit - integração do Azure AD](active-directory-saas-moveittransfer-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-moxiengage-tutorial.png)| [Moxi Engage](active-directory-saas-moxiengage-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-moxtra-tutorial.png)| [Moxtra](active-directory-saas-moxtra-tutorial.md)|
@@ -305,11 +328,11 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-openathens-tutorial.png)| [OpenAthens](active-directory-saas-openathens-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-opsgenie-tutorial.png)| [OpsGenie](active-directory-saas-opsgenie-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-optimizely-tutorial.png)| [Optimizely](active-directory-saas-optimizely-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-orgchartnow-tutorial.png)| [OrgChart Now](active-directory-saas-orgchartnow-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-origami-tutorial.png)| [Origami](active-directory-saas-origami-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-overdrive-books-tutorial.png)| [Overdrive](active-directory-saas-overdrive-books-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-pacific-timesheet-tutorial.png)| [Pacific Timesheet](active-directory-saas-pacific-timesheet-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-pagerduty-tutorial.png)| [PagerDuty](active-directory-saas-pagerduty-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-paloaltoadmin-tutorial.png)| [Palo Alto Networks – interface do usuário do administrador](active-directory-saas-paloaltoadmin-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-paloaltonetworks-aperture-tutorial.png)| [Palo Alto Networks - Aperture](active-directory-saas-paloaltonetworks-aperture-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-paloaltonetworks-captiveportal-tutorial.png)| [Palo Alto Networks – Portal cativo](active-directory-saas-paloaltonetworks-captiveportal-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-paloaltoglobalprotect-tutorial.png)| [Palo Alto Networks – GlobalProtect](active-directory-saas-paloaltoglobalprotect-tutorial.md)|
@@ -324,6 +347,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](active-directory-saas-performancecentre-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-picturepark-tutorial.png)| [Picturepark](active-directory-saas-picturepark-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-pingboard-tutorial.png)| [Pingboard](active-directory-saas-pingboard-tutorial.md)|[Pingboard - Provisionamento de usuário](active-directory-saas-pingboard-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-plangrid-tutorial.png)| [PlanGrid](active-directory-saas-plangrid-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-planmyleave-tutorial.png)| [PlanMyLeave](active-directory-saas-planmyleave-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-pluralsight-tutorial.png)| [Pluralsight](active-directory-saas-pluralsight-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-policystat-tutorial.png)| [PolicyStat](active-directory-saas-policystat-tutorial.md)|
@@ -342,6 +366,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-qualtrics-tutorial.png)| [Qualtrics](active-directory-saas-qualtrics-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-questetra-bpm-suite-tutorial.png)| [Questetra BPM Suite](active-directory-saas-questetra-bpm-suite-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-quickhelp-tutorial.png)| [QuickHelp](active-directory-saas-quickhelp-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-qumucloud-tutorial.png)| [Qumu Cloud](active-directory-saas-qumucloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-rally-software-tutorial.png)| [Rally Software](active-directory-saas-rally-software-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-realtimeboard-tutorial.png)| [RealtimeBoard](active-directory-saas-realtimeboard-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-recognize-tutorial.png)| [Reconhecer](active-directory-saas-recognize-tutorial.md)|
@@ -356,9 +381,10 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-rolepoint-tutorial.png)| [RolePoint](active-directory-saas-rolepoint-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-rollbar-tutorial.png)| [Rollbar](active-directory-saas-rollbar-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-runmyprocess-tutorial.png)| [RunMyProcess](active-directory-saas-runmyprocess-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](active-directory-saas-safetynet-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](active-directory-saas-salesforce-tutorial.md)|[Salesforce – Provisionamento de Usuário](active-directory-saas-salesforce-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [Salesforce Sandbox](active-directory-saas-salesforce-sandbox-tutorial.md)|[Salesforce Sandbox – Provisionamento de Usuário](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](active-directory-saas-samanage-tutorial.md)|[Samanage – Provisionamento de Usuário](active-directory-saas-samanage-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](active-directory-saas-samanage-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-tutorial.png)| [SSO de SAML para Bamboo by resolution GmbH](active-directory-saas-bamboo-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bitbucket-tutorial.png)| [SSO de SAML para Bitbucket by resolution GmbH](active-directory-saas-bitbucket-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-samlssoconfluence-tutorial.png)| [SAML SSO for Confluence by resolution GmbH](active-directory-saas-samlssoconfluence-tutorial.md)|
@@ -372,13 +398,13 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-saphana-tutorial.png)| [SAP HANA](active-directory-saas-saphana-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sap-netweaver-tutorial.png)| [SAP NetWeaver](active-directory-saas-sap-netweaver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-scalexenterprise-tutorial.png)| [ScaleX Enterprise](active-directory-saas-scalexenterprise-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-scc-lifecycle-tutorial.png)| [SCC LifeCycle](active-directory-saas-scc-lifecycle-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC LifeCycle](active-directory-saas-scclifecycle-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-schoox-tutorial.png)| [Schoox](active-directory-saas-schoox-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sciforma-tutorial.png)| [Sciforma](active-directory-saas-sciforma-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sciquest-spend-director-tutorial.png)| [SciQuest Spend Director](active-directory-saas-sciquest-spend-director-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-screensteps-tutorial.png)| [ScreenSteps](active-directory-saas-screensteps-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sd-elements-tutorial.png)| [Elementos de SD](active-directory-saas-sd-elements-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-secretserver-on-premises-tutorial.png)| [Servidor Secreto (Local)](active-directory-saas-secretserver-on-premises-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-securedeliver-tutorial.png)| [SECURE DELIVER](active-directory-saas-securedeliver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sedgwickcms-tutorial.png)| [Sedgwick CMS](active-directory-saas-sedgwickcms-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sensoscientific-tutorial.png)| [SensoScientific Wireless Temperature Monitoring System](active-directory-saas-sensoscientific-tutorial.md)|
@@ -401,6 +427,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-softeon-tutorial.png)| [Softeon WMS](active-directory-saas-softeon-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-soonr-tutorial.png)| [Soonr Workplace](active-directory-saas-soonr-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-spaceiq-tutorial.png)| [SpaceIQ](active-directory-saas-spaceiq-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-spacio-tutorial.png)| [Spacio](active-directory-saas-spacio-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.png)| [Splunk Enterprise e Splunk Cloud](active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-spring-cm-tutorial.png)| [SpringCM](active-directory-saas-spring-cm-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-springerlink-tutorial.png)| [Springer Link](active-directory-saas-springerlink-tutorial.md)|
@@ -441,6 +468,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-trakopolis-tutorial.png)| [Trakopolis](active-directory-saas-trakopolis-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-trakstar-tutorial.png)| [Trakstar](active-directory-saas-trakstar-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-trello-tutorial.png)| [Trello](active-directory-saas-trello-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-trisotechdigitalenterpriseserver-tutorial.png)| [Trisotech Digital Enterprise Server](active-directory-saas-trisotechdigitalenterpriseserver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-turborater-tutorial.png)| [TurboRater](active-directory-saas-turborater-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ultipro-tutorial.png)| [UltiPro](active-directory-saas-ultipro-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-unifi-tutorial.png)| [UNIFI](active-directory-saas-unifi-tutorial.md)|
@@ -459,19 +487,21 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-wingspanetmf-tutorial.png)| [Wingspan eTMF](active-directory-saas-wingspanetmf-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-wizergosproductivitysoftware-tutorial.png)| [Wizergos Productivity Software](active-directory-saas-wizergosproductivitysoftware-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-work-com-tutorial.png)| [Work.com](active-directory-saas-work-com-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](active-directory-saas-workday-tutorial.md)|[Workday - Tutorial de Entrada](active-directory-saas-workday-inbound-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](active-directory-saas-workday-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workfront-tutorial.png)| [Workfront](active-directory-saas-workfront-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workpath-tutorial.png)| [Workpath](active-directory-saas-workpath-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workplacebyfacebook-tutorial.png)| [Workplace by Facebook](active-directory-saas-workplacebyfacebook-tutorial.md)|[Workplace by Facebook – Provisionamento de Usuário](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|[xMatters OnDemand - User Provisioning](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardielearning-tutorial.png)| [Yardi eLearning](active-directory-saas-yardielearning-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne]( active-directory-saas-yardione-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne](active-directory-saas-yardione-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](active-directory-saas-yodeck-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Guias interativas do Yonyx](active-directory-saas-yonyx-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|[Zendesk – Provisionamento de Usuário](active-directory-saas-zendesk-provisioning-tutorial.md)
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|[Zendesk – Provisionamento de Usuário](active-directory-saas-zendesk-provisioning-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ziflow-tutorial.png)| [Ziflow](active-directory-saas-ziflow-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](active-directory-saas-zivver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](active-directory-saas-zoho-mail-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoom-tutorial.png)| [Zoom](active-directory-saas-zoom-tutorial.md)|
@@ -483,6 +513,8 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-two-tutorial.png)| [Zscaler Two](active-directory-saas-zscaler-two-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zscaler-zscloud-tutorial.png)| [Zscaler ZSCloud](active-directory-saas-zscaler-zscloud-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zwayam-tutorial.png)| [Zwayam](active-directory-saas-zwayam-tutorial.md)|
+
+
 
 
 ## <a name="related-articles"></a>Artigos relacionados

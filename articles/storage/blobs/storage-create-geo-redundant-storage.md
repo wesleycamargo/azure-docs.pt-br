@@ -1,24 +1,24 @@
 ---
-title: "Tornar os dados de aplicativos altamente disponíveis no Azure | Microsoft Docs"
-description: "Use o armazenamento com redundância geográfica com acesso de leitura para tornar os dados do aplicativo altamente disponíveis"
+title: Tornar os dados de aplicativos altamente disponíveis no Azure | Microsoft Docs
+description: Use o armazenamento com redundância geográfica com acesso de leitura para tornar os dados do aplicativo altamente disponíveis
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Torne os dados do aplicativo altamente disponíveis com o armazenamento do Azure
 
-Este tutorial é a parte um de uma série, a qual mostra como tornar os dados do aplicativo altamente disponíveis no Azure. Quando você terminar, terá um aplicativo de console que carrega e recupera um blob para uma conta de armazenamento RA-GRS ([redundância de área geográfica com acesso de leitura](../common/storage-redundancy.md#read-access-geo-redundant-storage)). RA-GRS funciona por meio da replicação de transações da região primária para a secundária. Esse processo de replicação garante que os dados na região secundária acabem sendo consistentes. O aplicativo usa o padrão de [Disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qual ponto de extremidade se conectar. O aplicativo muda para um ponto de extremidade secundário quando uma falha é simulada.
+Este tutorial é a parte um de uma série, a qual mostra como tornar os dados do aplicativo altamente disponíveis no Azure. Quando você terminar, terá um aplicativo de console que carrega e recupera um blob para uma conta de armazenamento RA-GRS ([redundância de área geográfica com acesso de leitura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)). RA-GRS funciona por meio da replicação de transações da região primária para a secundária. Esse processo de replicação garante que os dados na região secundária acabem sendo consistentes. O aplicativo usa o padrão de [Disjuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qual ponto de extremidade se conectar. O aplicativo muda para um ponto de extremidade secundário quando uma falha é simulada.
 
 Na primeira parte da série, você aprenderá a:
 
@@ -43,8 +43,13 @@ Para concluir este tutorial:
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
 * Instalar o [Python](https://www.python.org/downloads/)
-* Baixe e instale o [SDK do Armazenamento do Azure para Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* Baixe e instale o [SDK do Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python)
 * (Opcional) Baixe e instale o [Fiddler](https://www.telerik.com/download/fiddler)
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+* Instale e configure o [Maven](http://maven.apache.org/download.cgi) para trabalhar a partir da linha de comando
+* Instalar e configurar um [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
@@ -95,6 +100,13 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+[Baixe o projeto de exemplo](https://github.com/Azure-Samples/storage-java-ha-ra-grs) e extraia o arquivo storage-java-ragrs.zip. Também é possível usar o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu ambiente de desenvolvimento. O projeto de exemplo contém um aplicativo Java básico.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
@@ -133,17 +145,22 @@ No código de exemplo, o método `run_circuit_breaker` no arquivo `circuitbreake
 
 A função de repetição do Objeto de armazenamento é definida como uma política de repetição linear. A função de repetição determina se uma solicitação será repetida, além de especificar o número de segundos a aguardar antes de repeti-la. Defina o valor **retry\_to\_secondary** como true se a solicitação deve ser repetida para o secundário no caso de a solicitação inicial para o primário falhar. No aplicativo de exemplo, uma política de repetição personalizada é definida na função `retry_callback` do objeto de armazenamento.
  
-Antes de baixar, o Objeto de serviço [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e a função [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) é definida. Essas funções definem manipuladores de eventos disparados quando um download é concluído com êxito ou caso um download falhe e seja tentado novamente.  
+Antes de baixar, o Objeto de serviço [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e a função [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) é definida. Essas funções definem manipuladores de eventos disparados quando um download é concluído com êxito ou caso um download falhe e seja tentado novamente.  
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+Você pode executar o aplicativo abrindo um terminal ou um prompt de comando de escopo para a pasta do aplicativo baixado. A partir daí, insira `mvn compile exec:java` para executar o aplicativo. Em seguida, o aplicativo carrega a imagem **HelloWorld.png** do diretório para sua conta de armazenamento e faz verificações para garantir que a imagem tenha sido replicada para o ponto de extremidade de RA-GRS secundário. Assim que a verificação estiver concluída, o aplicativo começará a baixar a imagem repetidamente, relatando de qual ponto de extremidade a está baixando.
+
+A função de repetição do objeto de armazenamento é configurada para usar uma política de repetição linear. A função de repetição determina se uma solicitação será repetida, além de especificar o número de segundos a aguardar antes de cada repetição. A propriedade **LocationMode** do seu **BlobRequestOptions** é definida como **PRIMARY\_THEN\_SECONDARY**. Isso permite que o aplicativo alterne automaticamente para o local secundário caso não consiga acessar o local primário ao tentar baixar a imagem **HelloWorld.png**.
 
 ---
 
-### <a name="retry-event-handler"></a>Repetir o manipulador de eventos
+## <a name="understand-the-sample-code"></a>Entender o código de exemplo
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
-O manipulador de eventos `OperationContextRetrying` é chamado quando o download da imagem falha e é definido para repetição. Se o número máximo de repetições definido no aplicativo for atingido o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) da solicitação será alterado para `SecondaryOnly`. Essa configuração força o aplicativo tentar baixar a imagem do ponto de extremidade secundário. Essa configuração reduz o tempo necessário para solicitar a imagem, uma vez que ponto de extremidade primário não é repetido indefinidamente.
+### <a name="retry-event-handler"></a>Repetir o manipulador de eventos
 
-No código de exemplo, a tarefa `RunCircuitBreakerAsync` no arquivo `Program.cs` é usada para baixar uma imagem da conta de armazenamento usando o método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet). Antes da baixar, um [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) é definido. O contexto de operação define manipuladores de eventos que são acionados quando um download é concluído com êxito ou se um download falha e tenta novamente.
+O manipulador de eventos `OperationContextRetrying` é chamado quando o download da imagem falha e é definido para repetição. Se o número máximo de repetições definido no aplicativo for atingido o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) da solicitação será alterado para `SecondaryOnly`. Essa configuração força o aplicativo tentar baixar a imagem do ponto de extremidade secundário. Essa configuração reduz o tempo necessário para solicitar a imagem, uma vez que ponto de extremidade primário não é repetido indefinidamente.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -169,34 +186,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
-O manipulador de eventos `retry_callback` é chamado quando o download da imagem falha e é definido para repetição. Se o número máximo de repetições definido no aplicativo for atingido o [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) da solicitação será alterado para `SECONDARY`. Essa configuração força o aplicativo tentar baixar a imagem do ponto de extremidade secundário. Essa configuração reduz o tempo necessário para solicitar a imagem, uma vez que ponto de extremidade primário não é repetido indefinidamente.  
-
-```python
-def retry_callback(retry_context):
-    global retry_count
-    retry_count = retry_context.count
-    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
-    sys.stdout.flush()
-
-    # Check if we have more than n-retries in which case switch to secondary
-    if retry_count >= retry_threshold:
-
-        # Check to see if we can fail over to secondary.
-        if blob_client.location_mode != LocationMode.SECONDARY:
-            blob_client.location_mode = LocationMode.SECONDARY
-            retry_count = 0
-        else:
-            raise Exception("Both primary and secondary are unreachable. "
-                            "Check your application's network connection.")
-```
-
----
-
-
 ### <a name="request-completed-event-handler"></a>Manipulador de eventos de solicitação concluída
- 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 O manipulador de eventos `OperationContextRequestCompleted` é chamado quando o download da imagem é bem-sucedido. Se o aplicativo estiver usando o ponto de extremidade secundário, o aplicativo continuará a usar esse ponto de extremidade até 20 vezes. Depois de 20 vezes, o aplicativo definirá o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de volta para `PrimaryThenSecondary` e repetirá o ponto de extremidade primário. Se uma solicitação for bem-sucedida, o aplicativo continuará a leitura do ponto de extremidade primário.
  
@@ -219,7 +209,32 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
-O manipulador de eventos `response_callback` é chamado quando o download da imagem é bem-sucedido. Se o aplicativo estiver usando o ponto de extremidade secundário, o aplicativo continuará a usar esse ponto de extremidade até 20 vezes. Depois de 20 vezes, o aplicativo definirá o [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) de volta para `PRIMARY` e repetirá o ponto de extremidade primário. Se uma solicitação for bem-sucedida, o aplicativo continuará a leitura do ponto de extremidade primário.
+### <a name="retry-event-handler"></a>Repetir o manipulador de eventos
+
+O manipulador de eventos `retry_callback` é chamado quando o download da imagem falha e é definido para repetição. Se o número máximo de repetições definido no aplicativo for atingido o [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) da solicitação será alterado para `SECONDARY`. Essa configuração força o aplicativo tentar baixar a imagem do ponto de extremidade secundário. Essa configuração reduz o tempo necessário para solicitar a imagem, uma vez que ponto de extremidade primário não é repetido indefinidamente.  
+
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
+
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+### <a name="request-completed-event-handler"></a>Manipulador de eventos de solicitação concluída
+
+O manipulador de eventos `response_callback` é chamado quando o download da imagem é bem-sucedido. Se o aplicativo estiver usando o ponto de extremidade secundário, o aplicativo continuará a usar esse ponto de extremidade até 20 vezes. Depois de 20 vezes, o aplicativo definirá o [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) de volta para `PRIMARY` e repetirá o ponto de extremidade primário. Se uma solicitação for bem-sucedida, o aplicativo continuará a leitura do ponto de extremidade primário.
 
 ```python
 def response_callback(response):
@@ -234,7 +249,20 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+
+Com o Java, não é preciso fazer o retorno de chamada dos manipuladores se a propriedade **LocationMode** do seu **BlobRequestOptions** estiver definida como **PRIMARY\_THEN\_SECONDARY**. Isso permite que o aplicativo alterne automaticamente para o local secundário caso não consiga acessar o local primário ao tentar baixar a imagem **HelloWorld.png**.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

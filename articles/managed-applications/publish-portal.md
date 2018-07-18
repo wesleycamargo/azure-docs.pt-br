@@ -1,26 +1,26 @@
 ---
 title: Publicar um aplicativo gerenciado do Azure por meio do portal | Microsoft Docs
-description: "Mostra como usar o portal do Azure para criar um aplicativo gerenciado do Azure destinado aos membros de sua organização."
+description: Mostra como usar o portal do Azure para criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar um aplicativo de catálogo de serviços por meio do portal do Azure
 
 Você pode usar o portal do Azure para publicar [aplicativos gerenciados](overview.md) destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que garantem a conformidade com os padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Ao publicar um aplicativo gerenciado, você pode especificar uma identidade para gerenciar os recursos. Recomendamos que você especifique um grupo de usuários do Azure Active Directory. Para criar um novo grupo de usuários do Azure Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
 

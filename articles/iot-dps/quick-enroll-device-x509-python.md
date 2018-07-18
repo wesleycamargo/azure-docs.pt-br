@@ -1,27 +1,27 @@
 ---
-title: "Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Python | Microsoft Docs"
-description: "Guia de Início Rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço de provisionamento Python"
+title: Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Python | Microsoft Docs
+description: Guia de Início Rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço de provisionamento Python
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 01/25/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9cd16ddcd5dfbcd68be37e2988e57604082a338f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a5aef91b4af5668f1b34f029ccd443c9eed01e34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço de provisionamento Python
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Estas etapas mostram como registrar um grupo de dispositivos X.509 simulados programaticamente no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o [SDK do Serviço de Provisionamento do Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) com a ajuda de um aplicativo Python de exemplo. Embora o SDK do serviço Java funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para percorrer o processo de registro.
+Estas etapas mostram como registrar um grupo de dispositivos X.509 simulados programaticamente no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o [SDK do Serviço de Provisionamento do Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) com a ajuda de um aplicativo Python de exemplo. Embora o SDK do serviço Java funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para demonstrar o processo de registro.
 
 Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de prosseguir.
 

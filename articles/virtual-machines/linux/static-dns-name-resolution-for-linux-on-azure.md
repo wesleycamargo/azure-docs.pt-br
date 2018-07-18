@@ -4,7 +4,7 @@ description: Como criar placas de adaptador de rede virtual e usar DNS interno p
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
 Este artigo mostra como definir nomes DNS internos estáticos para VMs Linux usando vNics (placas de interface de rede virtual) e nomes de rótulo DNS com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nomes DNS estáticos são usados para serviços de infraestrutura permanentes como um servidor de build Jenkins, que é usado para este documento ou um servidor Git.
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>Criar o grupo de segurança de rede
-Os grupos de segurança de rede do Azure são equivalentes a um firewall na camada de rede. Para obter mais informações sobre os grupos de segurança de rede, confira [Como criar NSGs na CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Os grupos de segurança de rede do Azure são equivalentes a um firewall na camada de rede. Para obter mais informações sobre os grupos de segurança de rede, confira [Como criar NSGs na CLI do Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). O seguinte exemplo cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 

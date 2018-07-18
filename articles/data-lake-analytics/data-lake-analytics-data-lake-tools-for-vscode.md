@@ -3,8 +3,8 @@ title: 'Ferramentas do Azure Data Lake: Usar as Ferramentas do Azure Data Lake p
 description: 'Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011264"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
@@ -356,13 +357,13 @@ O status é exibido na parte inferior da barra de status quando o download e o c
 
 **Integração do Azure** 
 
-- Antes de fazer logon no Azure, você sempre pode expandir **DATALAKE EXPLORER** e, em seguida, clicar em **Entrar no Azure** para fazer logon no Azure. Após o logon, você verá que todas as assinaturas, em sua conta do Azure, estão listadas no painel esquerdo do **DATALAKE EXPLORER**. 
+- Antes de fazer logon no Azure, sempre é possível expandir **AZURE DATALAKE** e clicar em **Entrar no Azure** para fazer logon no Azure. Após o logon, você verá que todas as assinaturas em sua conta do Azure estão listadas no painel esquerdo do **AZURE DATALAKE**. 
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Navegação de metadados do ADLA** 
+**Navegação de metadados do ADLA**
 
 - Expanda a sua assinatura do Azure; você pode navegar em seu banco de dados U-SQL, exibir os **Esquemas**, as **Credenciais**, os **Assemblies**, a **Tabela**, o **Índice** e assim por diante, no nó Bancos de Dados U-SQL.
 
@@ -382,11 +383,31 @@ O status é exibido na parte inferior da barra de status quando o download e o c
 
 **Integração do ADLS** 
 
- - Navegue até **Conta de Armazenamento**; você pode **Visualizar**, **Baixar**, **Excluir**, **Copiar caminho relativo**, **Copiar caminho completo** por meio do menu de contexto do nó do arquivo. Você pode **Atualizar**, **Carregar**, **Carregar Pasta**, **Excluir** clicando com o botão direito do mouse no menu de contexto do nó da pasta.
+Navegue até o **Data Lake Store**
+
+ - No nó de pasta, é possível **Atualizar**, **Excluir**, **Fazer upload**, **Fazer upload de pasta**, **Copiar caminho relativo** e **Copiar caminho completo** no menu de contexto com clicar com o botão direito do mouse.
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - No nó do arquivo, é possível **Baixar**, **Visualizar**, **Excluir**, **Copiar caminho relativo**, **Copiar caminho completo** no menu de contexto acessado com o botão direito do mouse. 
+
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**Integração ao WASB**
+
+Navegue até o **Armazenamento de Blobs**
+
+- No nó do contêiner de blobs, é possível **Atualizar**, **Excluir o contêiner de blobs**, **Fazer upload de blobs** no menu de contexto acessado ao clicar com o botão direito do mouse.
+
+    ![Nó do contêiner de blobs do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- No nó da pasta, é possível **Atualizar**, **Fazer upload de blobs** no menu de contexto acessado ao clicar com o botão direito do mouse.
+
+    ![Nó da pasta do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- No nó do arquivo, é possível **Visualizar/Editar**, **Baixar**, **Excluir**, **Copiar caminho relativo**, **Copiar caminho completo** no menu de contexto acessado ao clicar com o botão direito do mouse.
+
+    ![Nó do arquivo do Armazenamento de Blobs](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Abrir o gerenciador de armazenamento ADL no portal
 1. Selecione Ctrl + Shift + P para abrir a paleta de comandos.
@@ -429,6 +450,10 @@ As Ferramentas do Data Lake para VS Code dão suporte aos seguintes recursos:
 
     ![Destaques da sintaxe das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >Na preparação para a nova Regulação de Proteção a Dados Gerais (GDPR) que entra em vigor em 25 de maio de 2018, é recomendável que os usuários do Azure Data Lake Tools para Visual Studio Code atualizem para a versão 0.2.13 ou posterior. Esta versão inclui alterações com base nos requisitos de proteção de dados mais recentes. Observe que as versões anteriores não estão disponíveis para fazer o download e foram preteridas. 
+ 
+   
 ## <a name="next-steps"></a>Próximas etapas
 - [Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics no VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Execução local e depuração local do U-SQL com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

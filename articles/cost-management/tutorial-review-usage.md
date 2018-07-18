@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Examinar o uso e os custos do Gerenciamento de Custos do Azure | Microsoft Docs'
-description: "Neste tutorial, você analisa o uso e os custos para acompanhar tendências, detectar ineficiências e criar alertas."
+description: Neste tutorial, você analisa o uso e os custos para acompanhar tendências, detectar ineficiências e criar alertas.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+manager: dougeby
+ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -37,11 +37,11 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 
 ## <a name="open-the-cloudyn-portal"></a>Abra o portal da Cloudyn
 
-O uso e os custos são examinados no portal da Cloudyn. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com e faça logon.
+O uso e os custos são examinados no portal da Cloudyn. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com e faça login.
 
 ## <a name="track-usage-and-cost-trends"></a>Acompanhar as tendências de uso e custo
 
-Acompanhe a quantia de dinheiro real gasta com uso e custos usando relatórios Ao Longo do Tempo para identificar tendências. Para começar a verificar tendências, use o relatório de Custo Real ao Longo do Tempo. No menu de relatórios na parte superior do portal, clique em **Custo** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Quando você abre o relatório pela primeira vez, não há nenhum grupo ou filtro aplicado.
+Acompanhe a quantia de dinheiro real gasta com uso e custos usando relatórios Ao Longo do Tempo para identificar tendências. Para começar a verificar tendências, use o relatório de Custo Real ao Longo do Tempo. No menu na parte superior do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Quando você abre o relatório pela primeira vez, não há nenhum grupo ou filtro aplicado.
 
 Aqui está um exemplo de relatório:
 
@@ -69,7 +69,7 @@ O problema é que a infraestrutura existente já foi paga. Os usuários podiam c
 
 O relatório Recomendações de Dimensionamento Econômico identifica a possível economia anual comparando a capacidade do tipo de instância VM com os dados históricos de uso de CPU e de memória.  
 
-No menu de relatórios na parte superior do portal, clique em **Otimizador** > **Otimização de Preços** > **Recomendações de Dimensionamento Econômico**. Filtre o provedor para o Azure para ver apenas as VMs do Azure. Aqui está uma imagem de exemplo.
+No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Econômico**. Filtre o provedor para o Azure para ver apenas as VMs do Azure. Aqui está uma imagem de exemplo.
 
 ![VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Para assistir a um vídeo de tutorial sobre como detectar ineficiências de uso,
 
 Você pode alertar os stakeholders automaticamente sobre riscos de anomalia de gastos e de excesso de gastos. Você pode criar alertas com rapidez e facilidade usando relatórios que dão suporte para alertas com base no orçamento e nos limites de custo.
 
-Crie um alerta para qualquer gasto usando qualquer relatório de custo. Neste exemplo, use o relatório Custo Real ao Longo do Tempo para ser notificado quando os gastos da VM do Azure se aproximarem do seu orçamento total. No menu de relatórios na parte superior do portal, clique em **Custo** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. Na parte superior direita do relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**.
+Crie um alerta para qualquer gasto usando qualquer relatório de custo. Neste exemplo, use o relatório Custo Real ao Longo do Tempo para ser notificado quando os gastos da VM do Azure se aproximarem do seu orçamento total. Todas as etapas abaixo são necessárias para criar o alerta. No menu na parte superior do portal, clique em **Custos** > **Análise de Custo** > **Custo Real ao Longo do Tempo**. Defina **Grupos** para **Serviço** e defina **Filtrar no serviço** para **Azure/VM**. Na parte superior direita do relatório, clique em **Ações** e, em seguida, selecione **Agendar relatório**.
 
-Use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de $500.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em $250.000 e um **Alerta amarelo** em $240.000. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
+Use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de $500.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em $250.000 e um **Alerta amarelo** em $240.000. Não inclua vírgulas nos valores inseridos. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
 
 ![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
 

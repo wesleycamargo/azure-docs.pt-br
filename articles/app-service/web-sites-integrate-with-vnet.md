@@ -1,8 +1,8 @@
 ---
 title: Integrar um aplicativo a uma Rede Virtual do Azure
-description: "Mostra como conectar um aplicativo do Azure no Serviço de Aplicativo do Azure a uma rede virtual do Azure nova ou existente"
+description: Mostra como conectar um aplicativo do Azure no Serviço de Aplicativo do Azure a uma rede virtual do Azure nova ou existente
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de visualização de integração de rede virtual do Serviço de Aplicativo do Azure e mostra como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se você estiver familiarizado com VNets (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Essas redes podem ser conectadas às redes locais usando uma variedade de tecnologias de VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure][VNETOverview]. 
@@ -57,7 +57,8 @@ Veja aqui algumas coisas para se ter em mente antes de conectar seu aplicativo W
 
 * A integração VNet só funciona com aplicativos em um plano de preços **Standard**, **Premium** ou **Isolado**. Se você habilitar o recurso e dimensionar seu Plano do Serviço de Aplicativo para um plano de preços sem suporte, seus aplicativos perderão suas conexões com as VNets que estão usando. 
 * Se a sua rede virtual de destino já existe, ela deve ter a VPN ponto a site habilitada com um gateway de roteamento dinâmico antes que possa ser conectada a um aplicativo. Se o gateway estiver configurado com roteamento Estático, não será possível habilitar a opção ponto a site da VPN (Rede virtual privada).
-* A VNet deve estar na mesma assinatura que o ASP (Plano do Serviço de Aplicativo). 
+* A VNet deve estar na mesma assinatura que o ASP (Plano do Serviço de Aplicativo).
+* Se o gateway já existir com o ponto a site habilitado e não estiver na SKU básica, o IKEV2 deverá ser desabilitado na configuração ponto a ponto.
 * Os aplicativos que se integram a uma VNet usam o DNS especificado daquela VNet.
 * Por padrão, os aplicativos integrados apenas rotearão o tráfego em sua VNet baseados nas rotas definidas em sua VNet. 
 

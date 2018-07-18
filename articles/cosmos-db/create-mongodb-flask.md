@@ -1,35 +1,35 @@
 ---
 title: 'Azure Cosmos DB: criar um aplicativo Web Flask com Python e a API do MongoDB do Azure Cosmos DB | Microsoft Docs'
-description: "Apresenta um exemplo de código Python do Flask que você pode usar para se conectar à API do MongoDB do Azure Cosmos DB e consultá-la"
+description: Apresenta um exemplo de código Python do Flask que você pode usar para se conectar à API do MongoDB do Azure Cosmos DB e consultá-la
 services: cosmos-db
-documentationcenter: 
-author: hshapiro
-manager: scicoria
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: heatherbshapiro
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 095cc724beb9f35896bd02e299523839a9f43f4b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885095"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: criar um aplicativo Flask com a API do MongoDB
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
-Este guia de início rápido, usa o seguinte [exemplo do Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) e demonstra como criar um aplicativo Flask simples de tarefas pendentes usando o [Emulador do Azure Cosmos DB](/local-emulator.md) em vez do MongoDB.
+Este guia de início rápido, usa o seguinte [exemplo do Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) e demonstra como criar um aplicativo Flask simples de tarefas pendentes usando o [Emulador do Azure Cosmos DB](local-emulator.md) e a [API do MongoDB](mongodb-introduction.md) do Azure Cosmos DB em vez do MongoDB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-- Baixe o [Emulador do Azure Cosmos DB](/local-emulator.md). No momento, o emulador é compatível apenas no Windows. O exemplo mostra como usar o exemplo com uma chave de produção do Azure, o que pode ser feito em qualquer plataforma.
+- Baixe o [Emulador do Azure Cosmos DB](local-emulator.md). No momento, o emulador é compatível apenas no Windows. O exemplo mostra como usar o exemplo com uma chave de produção do Azure, o que pode ser feito em qualquer plataforma.
 
 - Se você ainda não tiver o Visual Studio Code instalado, instale rapidamente o [VS Code](https://code.visualstudio.com/Download) para sua plataforma (Windows, Mac, Linux).
 
@@ -43,8 +43,19 @@ Este guia de início rápido, usa o seguinte [exemplo do Flask](https://github.c
 
 Agora vamos clonar um aplicativo de API Flask-MongoDB do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.
 
-1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.
-2. Execute o comando a seguir para clonar o repositório de exemplo.
+1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -58,7 +69,9 @@ Agora vamos clonar um aplicativo de API Flask-MongoDB do GitHub, definir a cadei
 
 ## <a name="review-the-code"></a>Examine o código
 
-Vamos examinar rapidamente o que está acontecendo no aplicativo. Abra o arquivo **app.py** no diretório raiz e você verá que essas linhas de código criam a conexão do Azure Cosmos DB. O código a seguir usa a cadeia de conexão para o emulador do Azure Cosmos DB local. A senha deve ser dividida da maneira mostrada abaixo para acomodar as barras "/" que não podem ser analisadas de nenhuma outra maneira.
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Executar o aplicativo Web](#run-the-web-app). 
+
+Os trechos de código a seguir são obtidos do arquivo app.py e usam a cadeia de conexão para o Emulador do Azure Cosmos DB. A senha deve ser dividida da maneira mostrada abaixo para acomodar as barras "/" que não podem ser analisadas de nenhuma outra maneira.
 
 * Inicialize o cliente MongoDB, recupere o banco de dados e autentique-se.
 
@@ -143,10 +156,7 @@ Se você não quiser criar um fork deste repositório, clique no botão Implanta
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
-
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

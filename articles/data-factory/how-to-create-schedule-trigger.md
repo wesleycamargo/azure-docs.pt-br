@@ -2,10 +2,10 @@
 title: Criar gatilhos de agendamento no Azure Data Factory | Microsoft Docs
 description: Saiba como criar um gatilho no Azure Data Factory que execute um pipeline em um agendamento.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 Este artigo fornece informações sobre o gatilho de agendamento e as etapas para criar, iniciar e monitorar um gatilho de agendamento. Para outros tipos de gatilhos, consulte [Execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -316,14 +316,14 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 |:--- |:--- |
 | **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
 | **endTime** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
-| **timeZone** | O fuso horário. Atualmente, apenas o fuso horário UTC é compatível. |
+| **timeZone** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
 | **recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência é compatível com os elementos **frequency**, **interva**l, **endTime**, **count** e **schedule**. Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
-| **frequency** | A unidade de frequência com a qual o gatilho se repete. Os valores compatíveis incluem “minute”, “hour”, “day”, “week” e “month”. |
-| **interval** | Um inteiro positivo que indica o intervalo para o valor de **frequency**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o gatilho será repetido a cada 3 semanas. |
+| **frequency** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
+| **interval** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
 | **schedule** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
 
 
-### <a name="schema-defaults-limits-and-examples"></a>Padrões de esquema, limites e exemplos
+### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
 | Propriedade JSON | type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -338,14 +338,14 @@ A seguinte tabela mostra como a propriedade **startTime** controla uma execuçã
 
 | Valor startTime | Recorrência sem agendamento | Recorrência com agendamento |
 |:--- |:--- |:--- |
-| Hora de início no passado | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br/><br/>Faz as execuções seguintes com base no cálculo do tempo da última execução.<br/><br/>Consulte o exemplo após esta tabela. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Faz as execuções seguintes com base no agendamento de recorrência. |
-| Hora de início no futuro ou no momento | É executado uma vez na hora de início especificada.<br/><br/>Faz as execuções seguintes com base no cálculo do tempo da última execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Faz as execuções seguintes com base no agendamento de recorrência. |
+| Hora de início no passado | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução.<br/><br/>Consulte o exemplo após esta tabela. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
+| Hora de início no futuro ou no momento | É executado uma vez na hora de início especificada.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
 
 Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor de **recurrence** é definido pela configuração da propriedade **frequency** como "day" e a propriedade **interval** como 2.) Observe que o valor de **startTime** está no passado e ocorre antes da hora atual.
 
 Sob essas condições, a primeira execução será em `2017-04-09 at 14:00`. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm` e, portanto, a próxima instância ocorrerá dois dias depois dessa hora, que será em `2017-04-09 at 2:00pm`.
 
-A primeira hora de execução é igual, mesmo que o valor de **startTime** seja `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as seguintes são calculadas com o uso do agendamento. Portanto, as execuções seguintes serão em `2017-04-11 at 2:00pm`, depois em `2017-04-13 at 2:00pm`, em `2017-04-15 at 2:00pm` e assim por diante.
+A primeira hora de execução é igual, mesmo que o valor de **startTime** seja `2017-04-05 14:00` ou `2017-04-01 14:00`. Após a primeira execução, as execuções seguintes são calculadas com o uso do agendamento. Portanto, as execuções seguintes serão em `2017-04-11 at 2:00pm`, depois em `2017-04-13 at 2:00pm`, em `2017-04-15 at 2:00pm` e assim por diante.
 
 Por fim, quando as horas ou os minutos não estiverem definidos no agendamento de um gatilho, as horas ou os minutos da primeira execução serão usados como padrões.
 
@@ -380,9 +380,9 @@ Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **fr
 | `{"minutes":[15], "hours":[5,17]}` | Executar às 5h15 e 17h15 todos os dias. |
 | `{"minutes":[15,45], "hours":[5,17]}` | Executar às 5h15, 5h45, 17h15 e 17h45 todos os dias. |
 | `{"minutes":[0,15,30,45]}` | Executar a cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 0h25, 1h25, 2h25, … e 23h25.<br/><br/>Esse agendamento é equivalente a ter um gatilho com um valor de **frequency** igual a “hour”, um valor de **interval** igual a 1 e nenhum **schedule**.  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **frequency** é “month”, o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **frequency** é “day”. |
-| `{"minutes":[0]}` | Executar a cada hora na hora. Esse gatilho é executado a cada hora na hora, começando às 0h, 1h, 2h e assim por diante.<br/><br/>Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos ou nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor de **frequency** é "week" ou "month", o agendamento é executado somente um dia da semana ou um dia do mês, respectivamente. |
-| `{"minutes":[15]}` | Executa 15 minutos após cada hora. Esse gatilho é executado a cada hora em 15 minutos após a hora, começando às 0h15, 1h15, 2h15 e assim por diante, terminando em 23h15. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br/><br/>Esse agendamento é equivalente a ter um gatilho com um valor de **frequency** igual a “hour”, um valor de **interval** igual a 1 e nenhum **schedule**.  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **frequency** é “month”, o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **frequency** é “day”. |
+| `{"minutes":[0]}` | Executar a cada hora na hora. Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br/><br/>Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos ou nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor de **frequency** é "week" ou "month", o agendamento é executado somente um dia da semana ou um dia do mês, respectivamente. |
+| `{"minutes":[15]}` | Executa 15 minutos após cada hora. Esse gatilho é executado a cada hora em 15 minutos após a hora, começando às 24h15, 1h15, 2h15 e assim por diante, terminando em 23h15. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Executar às 17h aos sábados toda semana. |
 | `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana. |
 | `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17h15 e às 17h45 às segundas-feiras, quartas-feiras e sextas-feiras toda semana. |

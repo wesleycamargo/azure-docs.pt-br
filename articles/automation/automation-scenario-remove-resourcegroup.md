@@ -1,24 +1,19 @@
 ---
-title: "Automatizar a remoção de grupos de recursos | Microsoft Docs"
-description: "Versão do Fluxo de Trabalho do PowerShell de um cenário de Automação do Azure, incluindo runbooks para remover todos os grupos de recursos de sua assinatura."
+title: Automatize a remoção de grupos de recursos com a Automação do Azure
+description: Versão do Fluxo de Trabalho do PowerShell de um cenário de Automação do Azure, incluindo runbooks para remover todos os grupos de recursos de sua assinatura.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2016
-ms.author: magoedte
-ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
+ms.topic: conceptual
+manager: carmonm
+ms.openlocfilehash: f0ec42a1e62c4aa35bb6bdffce0acf00a971cb7d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automação do Azure - automatize a remoção de grupos de recursos
 Muitos clientes criam mais de um grupo de recursos. Alguns podem ser usados para gerenciar aplicativos de produção e outros podem ser usados como ambientes de desenvolvimento, teste e preparo. A automatização da implantação desses recursos é uma coisa, mas poder encerrar um grupo de recursos com um clique do botão é outra. Você pode simplificar essa tarefa comum de gerenciamento usando a Automação do Azure. Isso é útil se você está trabalhando com uma assinatura do Azure com um limite de gastos por meio de uma oferta de membro como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.

@@ -1,9 +1,9 @@
 ---
-title: "Plano gráfico de processamento de pagamento do Azure - Requisitos de acesso físico"
+title: Plano gráfico de processamento de pagamento do Azure - Requisitos de acesso físico
 description: Requisito 9 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 91595a69-e9ce-4f9c-8388-10224165d9c0
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: b702f3d3a06b1d47c2853ab51ccf4872441da03d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Os requisitos de acesso físico para ambientes em conformidade com PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Requisito 9 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Restringir o acesso físico aos dados do titular do cartão**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte o PCI DSS para obter informações sobre procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 Qualquer acesso físico aos dados ou aos sistemas que hospedam dados do titular de cartão permite que os indivíduos acessem dados ou dispositivos e removam sistemas ou cópias impressas e deve ser adequadamente restrito. Para os fins do Requisito 9, "pessoal no local" significa os funcionários em tempo integral e de meio expediente, temporários funcionários, prestadores de serviço e consultores que estejam fisicamente presentes nas instalações da entidade. Um "visitante" significa um fornecedor, um convidado de qualquer funcionário da instalação, os trabalhadores de serviço ou qualquer pessoa que precise entrar nas instalações por pouco tempo, normalmente não mais de um dia. "Mídia" significa todas as mídias eletrônicas e de papel que contêm dados do titular do cartão.
 
@@ -39,7 +39,7 @@ Qualquer acesso físico aos dados ou aos sistemas que hospedam dados do titular 
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por implementar, impor e monitorar a segurança de acesso físico para data centers. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -55,7 +55,7 @@ Qualquer acesso físico aos dados ou aos sistemas que hospedam dados do titular 
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por implementar, impor e monitorar CCTV e mecanismos de controle de acesso biométrico para data centers. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -70,7 +70,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não há nenhuma tomada de rede de acesso público na plataforma do Microsoft Azure. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -83,7 +83,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O acesso físico aos hardwares de rede do Microsoft Azure é rigidamente controlado pelas listas de acesso, várias formas de autenticação, barreiras físicas à entrada e aprovação para que a necessidade comercial tenha acesso ao equipamento. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -99,7 +99,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por implementar, impor e monitorar a segurança do acesso físico e a identificação de empregado ou de prestador de serviço quando da visita a data centers. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -114,7 +114,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | As autorizações de acesso a data centers da Microsoft são controladas usando-se uma lista de acesso autorizado aprovada pela equipe do Data Center com base no princípio dos privilégios mínimos. A lista de controle de acesso é revisada, verificada e atualizada trimestralmente.<br /><br />Os data centers do Microsoft Azure utilizam dispositivos de acesso físico, como portas de perímetro, leitores de crachá de acesso eletrônico, leitores biométricos, porta dupla de segurança/portais e dispositivos com a função anti-passback. Os dispositivos de crachá de acesso são monitorados continuamente. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -127,7 +127,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por impor que as entregas pré-aprovadas sejam recebidas em um compartimento de carregamento seguro isolado fisicamente de recursos de processamento de informações e sejam monitorados pelo pessoal autorizado. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -141,7 +141,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure é responsável por impor que as entregas pré-aprovadas sejam recebidas em um compartimento de carregamento seguro isolado fisicamente de recursos de processamento de informações e sejam monitorados pelo pessoal autorizado. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -154,7 +154,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O acesso ao data center da Microsoft deve ser pré-aprovado e os visitantes autorizados precisam se identificar à segurança física no ponto de entrada e fornecer uma prova válida da ID antes de entrada. Os selos indicam claramente os funcionários. Os prestadores de serviço e visitantes recebem crachás temporários que devem ser devolvidos após a saída das instalações. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -167,7 +167,7 @@ Por exemplo, as tomadas de rede localizados em áreas públicas e áreas acessí
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Os visitantes terão de devolver os crachás após a saída de qualquer instalação da Microsoft. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -182,7 +182,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | É responsabilidade do Microsoft Azure manter um log dos visitantes como uma trilha de auditoria física da atividade do visitante na instalação, bem como nas salas de computadores e data centers onde dados do titular do cartão estão armazenados ou são transmitidos. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -195,7 +195,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -208,7 +208,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -221,7 +221,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -234,7 +234,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -247,7 +247,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -260,7 +260,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -273,7 +273,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -287,7 +287,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -300,7 +300,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -313,7 +313,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretriz de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore armazena todos os dados no banco de dados do SQL Azure. Uma instância de banco de dados SQL de PaaS é usada para exibir as medidas de segurança de banco de dados. Para saber mais, confira [Diretrizes de PCI – Banco de Dados SQL do Azure](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -326,7 +326,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | As técnicas de destruição de dados variam dependendo do tipo de objeto de dados que está sendo destruído, seja em assinaturas, armazenamento, máquinas virtuais ou bancos de dados. No ambiente de multilocatário do Microsoft Azure, tenha atenção especial para garantir que os dados de um cliente não possam "vazar" para os dados de outro cliente, ou para que quando um cliente exclui dados nenhum outro cliente (incluindo, na maioria dos casos, o cliente ao qual pertenciam os dados) possa obter acesso aos dados excluídos.<br /><br />O Microsoft Azure segue as Diretrizes NIST 800-88 sobre Limpeza de mídia, que atendem à principal preocupação: assegurar que os dados não sejam liberados acidentalmente. Essas diretrizes abrangem a limpeza eletrônica e física. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore pode ser excluída inteiramente excluindo-se o Grupo de recursos usado durante a implantação.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore pode ser excluída inteiramente excluindo-se o Grupo de recursos usado durante a implantação.|
 
 
 
@@ -342,7 +342,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore utiliza a OMS para registrar em log todas as alterações no sistema.<br /><br />A [Operations Management Suite (OMS)](/azure/operations-management-suite/) fornece um amplo registro em log das alterações. A precisão das alterações pode ser examinada e verificada. Para obter instruções mais específicas, consulte [Diretriz de PCI - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore utiliza o Azure para registrar em log todas as alterações do sistema.<br /><br />O Log Analytics fornece registro em log extensivo de alterações. A precisão das alterações pode ser examinada e verificada. Para diretrizes mais específicas, consulte [Diretrizes de PCI - Registro e auditoria](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -358,7 +358,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece uma arquitetura de referência e uma lista de todos os serviços usados na sua documentação de implantação.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece uma arquitetura de referência e uma lista de todos os serviços usados na sua documentação de implantação.|
 
 
 
@@ -374,7 +374,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -391,7 +391,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 
@@ -404,7 +404,7 @@ Mantenha esse log por pelo menos três meses, a menos que haja alguma restriçã
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável.|
 
 
 

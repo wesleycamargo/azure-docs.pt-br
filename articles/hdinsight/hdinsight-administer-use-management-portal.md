@@ -1,26 +1,24 @@
 ---
 title: Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure | Microsoft Docs
-description: "Saiba como administrar o serviço do HDInsight. Crie um cluster HDInsight, abra o console interativo do JavaScript e abra o console de comando Hadoop."
+description: Saiba como administrar o serviço do HDInsight. Crie um cluster HDInsight, abra o console interativo do JavaScript e abra o console de comando Hadoop.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
 
@@ -84,7 +82,7 @@ Não há suporte para a instalação de software personalizado no cluster usando
 
    * Para personalizar o menu, clique com o botão direito do mouse em qualquer parte do menu e, então, clique em **Personalizar**.
    * **Configurações** e **Todas as Configurações**: exibem a folha **Configurações** do cluster, que permite acessar informações de configuração detalhadas do cluster.
-   * **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux. -**Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
+   * **Painel**, **Painel do Cluster** e **URL: são maneiras de acessar o painel do cluster, que é o Ambari Web para clusters baseados em Linux. -** Secure Shell\*\*: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
    * **Cluster em Escala**: permite alterar o número de nós de trabalho deste cluster.
    * **Excluir**: exclui o cluster.
    * **Início Rápido**: exibe informações que o ajudarão a começar a usar o HDInsight.
@@ -278,7 +276,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
     ![histórico de trabalhos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
+    Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e \*\*Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
 * **Navegador de Arquivos**: procure a conta de armazenamento padrão e as contas de armazenamento vinculadas.
 
     ![Pesquisa do navegador de arquivos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

@@ -2,17 +2,17 @@
 title: Pesquisar dados semi-estruturados no armazenamento de nuvem do Azure
 description: Pesquisando dados de blob semi-estruturados usando o Azure Search.
 author: roygara
-manager: timlt
+manager: cgronlun
+services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: pesquisar dados semiestruturados no armazenamento de nuvem
 
@@ -30,7 +30,7 @@ Na Parte 2, saiba como:
 > [!NOTE]
 > Este tutorial se baseia no suporte para matriz JSON, que é um recurso em versão prévia no Azure Search. Ele não está disponível no portal. Por esse motivo, estamos usando a API REST na versão prévia, que fornece esse recurso e uma ferramenta de cliente REST para chamar a API.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Conclusão do [tutorial anterior](../storage/blobs/storage-unstructured-search.md), que fornece a conta de armazenamento e o serviço de pesquisa criados no tutorial anterior.
 

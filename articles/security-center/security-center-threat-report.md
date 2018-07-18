@@ -1,11 +1,11 @@
 ---
-title: "Relatório de inteligência de ameaças da Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda a usar os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança."
+title: Relatório de inteligência de ameaças da Central de Segurança do Azure | Microsoft Docs
+description: Este documento ajuda a usar os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: 
+author: terrylan
+manager: mbaldwin
+editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ef615fe4ef5a0ce9c002fb00c678bc77fd61440
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Inteligência de Ameaças da Central de Segurança do Azure
 Este documento explica como os Relatórios Inteligentes de Ameças da Central de Segurança do Azure podem ajudá-lo a saber mais sobre uma ameaça que gerou um alerta de segurança.

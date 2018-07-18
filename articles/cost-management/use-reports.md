@@ -5,20 +5,20 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-cost-management-reports"></a>Usar relatórios do Gerenciamento de Custos
 
-Este artigo descreve como usar vários relatórios do Gerenciamento de Custos no portal do Cloudyn. A maioria dos relatórios do Cloudyn é intuitiva e tem uma aparência uniforme. Para obter uma visão geral sobre os relatórios do Cloudyn, confira [Noções básicas sobre relatórios de custo](understading-cost-reports.md). O artigo também descreve várias opções e campos usados na maioria dos relatórios.
+Este artigo descreve como usar vários relatórios do Gerenciamento de Custos no portal do Cloudyn. A maioria dos relatórios do Cloudyn é intuitiva e tem uma aparência uniforme. Para obter uma visão geral sobre os relatórios do Cloudyn, confira [Noções básicas sobre relatórios de custo](understanding-cost-reports.md). O artigo também descreve várias opções e campos usados na maioria dos relatórios.
 
 ## <a name="cost-analysis-reports"></a>Relatórios de análise de custos
 

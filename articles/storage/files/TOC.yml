@@ -18,38 +18,64 @@
       href: storage-how-to-use-files-linux.md
     - name: Montar no Mac
       href: storage-how-to-use-files-mac.md
-    - name: Gerenciar com o portal
+    - name: Gerenciar com portal do Azure
       href: storage-how-to-use-files-portal.md
+    - name: Gerenciar com o PowerShell
+      href: storage-how-to-use-files-powershell.md
+    - name: Gerenciar com CLI do Azure
+      href: storage-how-to-use-files-cli.md
+    - name: Gerenciar com Gerenciador de Armazenamento
+      href: storage-how-to-use-files-storage-explorer.md
 - name: Como
   items:
-    - name: Planejar e projetar
+    - name: Plano
       items:
-        - name: Opções da conta de armazenamento
-          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Planejando uma implantação de Arquivos do Azure
           href: storage-files-planning.md
-        - name: Como implantar Arquivos do Azure
-          href: storage-files-deployment-guide.md
         - name: Planejando uma implantação da Sincronização de Arquivos do Azure
           href: storage-sync-files-planning.md
-        - name: Como implantar a Sincronização de Arquivos do Azure
-          href: storage-sync-files-deployment-guide.md
-        - name: Sobre instantâneos de compartilhamento de arquivos
+        - name: Noções básicas sobre contas de armazenamento
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Noções básicas sobre instantâneos de compartilhamento de arquivos
           href: storage-snapshots-files.md
-        - name: Como trabalhar com instantâneos de compartilhamento de arquivos
-          href: storage-how-to-use-files-snapshots.md
-        - name: Replicação
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Redundância de dados
+          items:
+            - name: Visão geral da redundância
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Armazenamento com redundância local
+              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Armazenamento com redundância de zona
+              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Armazenamento com redundância geográfica
+              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Escalabilidade e metas de desempenho
           href: storage-files-scale-targets.md
-        - name: Lista de verificação de desempenho e escalabilidade
-          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Simultaneidade
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Guia de recuperação de desastres
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Notas de versão da Sincronização de Arquivos do Azure
+          href: storage-files-release-notes.md
+    - name: Implantar
+      items:
+        - name: Como implantar Arquivos do Azure
+          href: storage-files-deployment-guide.md
+        - name: Como implantar a Sincronização de Arquivos do Azure
+          href: storage-sync-files-deployment-guide.md
+        - name: Configurações de proxy e firewall da Sincronização de arquivos do Azure
+          href: storage-sync-files-firewall-and-proxy.md
+    - name: Gerenciar
+      items:
+        - name: Registrar um servidor com a Sincronização de Arquivos do Azure
+          href: storage-sync-files-server-registration.md
+        - name: Adicionar um ponto de extremidade do Servidor de Sincronização de Arquivos do Azure
+          href: storage-sync-files-server-endpoint.md
+        - name: 'PowerShell para nuvens Governamentais, na China e na Alemanha'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Automação do Azure
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Desenvolver
       items:
+        - name: Gerenciando simultaneidade
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-files.md
         - name: Java
@@ -66,26 +92,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurar cadeias de conexão
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Gerenciar
-      items:
-        - name: PowerShell para Arquivos do Azure
-          href: storage-how-to-use-files-powershell.md
-        - name: PowerShell para Armazenamento do Azure
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 'PowerShell para nuvens Governamentais, na China e na Alemanha'
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: CLI do Azure 2.0
-          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: CLI 1.0 do Azure
-          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Registrar um servidor com a Sincronização de Arquivos do Azure
-          href: storage-sync-files-server-registration.md
-        - name: Adicionar um ponto de extremidade do Servidor de Sincronização de Arquivos do Azure
-          href: storage-sync-files-server-endpoint.md
-        - name: Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
-          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Automação do Azure
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Segurança
       items:
         - name: Guia de segurança
@@ -114,12 +120,14 @@
           href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Métricas e logs
           items:
-            - name: Métricas do Armazenamento do Azure no Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Métricas no Azure Monitor
+              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrar para novas métricas
+              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Análise de Armazenamento
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Habilitar e exibir métricas
-              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Habilitar e exibir métricas (clássico)
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transferência de dados
       items:
         - name: Mover dados para e do Armazenamento
@@ -151,13 +159,13 @@
         - name: Gerenciador de Recursos
           href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
     - name: Node.js
-      href: 'http://azure.github.io/azure-storage-node'
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby
       href: 'http://azure.github.io/azure-storage-ruby'
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS
@@ -232,5 +240,3 @@
           href: 'https://github.com/Azure/azure-storage-ruby'
         - name: iOS
           href: 'https://github.com/Azure/azure-storage-ios'
-    - name: Notas de versão da Sincronização de Arquivos do Azure
-      href: storage-files-release-notes.md

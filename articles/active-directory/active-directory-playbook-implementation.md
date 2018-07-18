@@ -1,12 +1,12 @@
 ---
-title: "Implementação da cartilha do PoC do Azure Active Directory | Microsoft Docs"
-description: "Explorar e implementar rapidamente os cenários de Identidade e Gerenciamento de Acesso"
+title: Implementação da cartilha do PoC do Azure Active Directory | Microsoft Docs
+description: Explorar e implementar rapidamente os cenários de Identidade e Gerenciamento de Acesso
 services: active-directory
 keywords: azure active directory, cartilha, Prova de Conceito, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Guia estratégico de prova de conceito do Azure Active Directory: Implementação
 
@@ -87,7 +87,7 @@ Uma identidade híbrida é a base para a maioria dos clientes empresariais que j
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Acesso remoto seguro a aplicativos locais
 
-1. Carlos, o Administrador Global do Azure AD, recebeu várias solicitações para habilitar o acesso dos funcionários remotos a vários recursos locais úteis, como o aplicativo de despesas. Ele segue a [Documentação do Proxy de Aplicativo](active-directory-application-proxy-enable.md) para instalar um conector e publicar as Despesas como um aplicativo de Proxy de Aplicativo. 
+1. Carlos, o Administrador Global do Azure AD, recebeu várias solicitações para habilitar o acesso dos funcionários remotos a vários recursos locais úteis, como o aplicativo de despesas. Ele segue a [Documentação do Proxy de Aplicativo](manage-apps/application-proxy-enable.md) para instalar um conector e publicar as Despesas como um aplicativo de Proxy de Aplicativo. 
 2. Carlos compartilha a URL externa do aplicativo de Despesas com Susana, uma das funcionárias que precisa do acesso remoto. Ela acessa o link e, depois de autenticar no AAD, é capaz de acessar o aplicativo de Despesas e continuar produzindo mesmo remotamente. 
 3. Em seguida, Carlos continua publicando outros aplicativos locais usando o mesmo processo e concede acesso aos usuários conforme o necessário. Ele adiciona o acesso condicional e a autenticação multifator aos aplicativos mais importantes que ele publica, a fim de garantir mais segurança.
 

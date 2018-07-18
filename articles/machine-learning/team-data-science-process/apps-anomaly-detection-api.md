@@ -1,8 +1,8 @@
 ---
-title: "API de detecção de anomalias do Azure Machine Learning | Microsoft Docs"
-description: "A API de detecção de anomalias é um exemplo criado com o Microsoft Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo."
+title: API de detecção de anomalias do Azure Machine Learning | Microsoft Docs
+description: A API de detecção de anomalias é um exemplo criado com o Microsoft Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok;rotimpe
-ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: alok
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 ## <a name="overview"></a>Visão geral
@@ -47,7 +47,7 @@ A oferta da Detecção de Anomalias vem com ferramentas úteis para você começ
 Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dois Serviços Web do AzureML (e seus recursos relacionados) serão implantados na sua assinatura do Azure — um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Dimensionando a API
-Por padrão, sua implantação terá um plano de cobrança de desenvolvimento/teste gratuito que inclui 1.000 transações/mês e 2 horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/en-us/pricing/details/machine-learning/), em "Preço da API Web de produção".
+Por padrão, sua implantação terá um plano de cobrança de desenvolvimento/teste gratuito que inclui 1.000 transações/mês e 2 horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/), em "Preço da API Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerenciando planos do AML 
 Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice), na seção "Gerenciando planos de cobranças".

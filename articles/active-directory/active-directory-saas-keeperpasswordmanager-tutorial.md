@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Gerenciador de Senhas Protetor e Cofre Digital | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Gerenciador de Senhas Protetor e Cofre Digital."
+title: 'Tutorial: Integração do Azure Active Directory ao Gerenciador de Senhas Protetor e Cofre Digital | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Gerenciador de Senhas Protetor e Cofre Digital.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 79ef85e14f36153c086d9e9ae889fa9a51d065db
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c76edea4498e32363a3a4952056e69c012bd468
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: integração do Azure Active Directory ao Gerenciador de Senhas Protetor e Cofre Digital
 
@@ -29,9 +29,9 @@ Integrar do Gerenciador de Senhas Protetor e do Cofre Digital ao Azure AD oferec
 - Você pode habilitar os usuários para serem automaticamente conectados ao Gerenciador de Senhas Protetor e Cofre Digital (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Gerenciador de Senhas Protetor e Cofre Digital, você precisa dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Gerenciador de Senhas Protetor e Cofre Digital da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Adicionando Gerenciador de Senhas Protetor e Cofre Digital da galeria
 Para configurar a integração do Gerenciador de Senhas Protetor e Cofre Digital no Azure AD, você precisa adicionar o Gerenciador de Senhas Protetor e Cofre Digital da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Gerenciador de Senhas Protetor e Cofre Digital
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Gerenciador de Senhas Protetor e Cofre Digital**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Gerenciador de Senhas Protetor e Cofre Digital
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você pode configurar e testar o logon único do Azure AD com o Gerenciador de Senhas Protetor e Cofre Digital com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para o logon único funcionar, o Azure AD precisa saber qual é o usuário correspondente no Gerenciador de Senhas Protetor e Cofre Digital para um usuário no Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Gerenciador de Senhas Protetor e Cofre Digital.
@@ -86,11 +86,11 @@ No Gerenciador de Senhas Protetor e Cofre Digital, atribua o valor do **nome de 
 
 Para configurar e testar o logon único do Azure AD com o Gerenciador de Senhas Protetor e Cofre Digital, você precisa concluir os blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Como criar um usuário de teste do Gerenciador de Senhas Protetor e Cofre Digital](#creating-a-keeperpasswordmanager-test-user)** – para ter um equivalente de Brenda Fernandes no Gerenciador de Senhas Protetor e Cofre Digital vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No portal do Azure, na página de integração do aplicativo do **Gerenciador de Senhas Protetor e Cofre Digital**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_samlbase.png)
 
 3. Na seção **Gerenciador de Senhas Protetor e Domínio do Cofre Digital e URLs**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
@@ -117,7 +117,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     c. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://{SSO CONNECT SERVER}/sso-connect`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta real e a URL de Logon. Entre em contato com a [equipe de suporte do Gerenciador de Senhas Protetor e Cliente do Cofre Digital](https://keepersecurity.com/contact.html) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon. Entre em contato com a [equipe de suporte do Gerenciador de Senhas Protetor e Cliente do Cofre Digital](https://keepersecurity.com/contact.html) para obter esses valores. 
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -125,11 +125,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 5. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_general_400.png)
     
 6. Na seção **Configuração do Gerenciador de Senhas Protetor e Cofre Digital**, clique em **Configurar Gerenciador de Senhas Protetor e Cofre Digital** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
+    ![Configurar o logon único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
 7. Para configurar o logon único no lado da **Configuração do Gerenciador de Senhas Protetor e Cofre Digital**, siga as orientações fornecidas no [Guia de Suporte do Protetor](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf)
 
@@ -186,7 +186,7 @@ Nesta seção, você habilita Brenda Fernandes a usar logon único do Azure conc
 
 2. Na lista de aplicativos, selecione **Gerenciador de Senhas Protetor e Cofre Digital**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -211,7 +211,7 @@ Quando você clicar no bloco Gerenciador de Senhas Protetor e Cofre Digital no P
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

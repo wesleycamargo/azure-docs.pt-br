@@ -1,6 +1,6 @@
 ---
 title: Como montar Armazenamento de Blobs do Azure como um sistema de arquivos no Linux | Microsoft Docs
-description: "Montar um contêiner de Armazenamento de Blobs do Azure com FUSE no Linux"
+description: Montar um contêiner de Armazenamento de Blobs do Azure com FUSE no Linux
 services: storage
 documentationcenter: linux
 author: seguler
@@ -8,15 +8,16 @@ manager: jahogg
 ms.service: storage
 ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072085"
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse (versão prévia)
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
 ## <a name="overview"></a>Visão geral
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um driver de sistema de arquivos virtual para o Armazenamento de Blobs do Azure que permite acessar os Dados do Blob de Blocos existentes em sua conta de Armazenamento através do sistema de arquivos Linux. Armazenamento de Blobs do Azure é um serviço de armazenamento de objeto e, portanto, não possui um namespace hierárquico. O Blobfuse fornece esse namespace usando o esquema de diretório virtual com o uso de barra "/" como um delimitador.  
@@ -24,7 +25,7 @@ ms.lasthandoff: 01/23/2018
 Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de Blobs no Linux e acessar dados. Para saber mais sobre blobfuse, leia os detalhes no [repositório do blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> O blobfuse não garante a conformidade 100% POSIX, pois simplesmente move solicitações em [APIs REST de Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renomeação são atômicas no POSIX, mas não em blobfuse.
+> O blobfuse não garante a conformidade 100% POSIX, pois simplesmente move solicitações em [APIs REST de Blob](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Por exemplo, as operações de renomeação são atômicas no POSIX, mas não em blobfuse.
 > Para obter uma lista completa de diferenças entre um sistema de arquivos nativo e blobfuse, visite o [repositório de código-fonte do blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 

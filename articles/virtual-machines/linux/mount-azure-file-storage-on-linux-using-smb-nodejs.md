@@ -4,9 +4,9 @@ description: Como montar o Armazenamento de arquivos do Azure em VMs Linux usand
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 442c08a03ff3eb8e4c86f8190e16b74744aa9dd3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Montar o Armazenamento de arquivos do Azure em VMs Linux ao usar SMB com CLI 1.0 do Azure
 
@@ -37,7 +37,7 @@ Este artigo mostra como montar o Armazenamento de arquivos do Azure em uma VM Li
 ## <a name="quick-commands"></a>Comandos rápidos
 Para executar a tarefa rapidamente, siga as etapas nesta seção. Para obter informações e contexto detalhados, comece na seção ["Passo a passo detalhado"](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 * Um grupo de recursos
 * Uma Rede virtual do Azure
 * Um grupo de segurança de rede com uma entrada SSH

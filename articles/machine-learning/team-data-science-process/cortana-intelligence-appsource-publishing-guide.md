@@ -1,8 +1,8 @@
 ---
-title: "Guia de publicação do AppSource do Cortana Intelligence | Microsoft Docs"
-description: "Como um Microsoft Partner, aqui estão todas as etapas necessárias a serem seguidas para publicar sua solução do Cortana Intelligence para AppSource."
+title: Guia de publicação do AppSource do Cortana Intelligence | Microsoft Docs
+description: Como um Microsoft Partner, aqui estão todas as etapas necessárias a serem seguidas para publicar sua solução do Cortana Intelligence para AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guia de publicação do AppSource do Cortana Intelligence
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 O AppSource é o destino único para BDMs (Business Decision Makers) para descobrir e experimentar de forma transparente aplicativos/soluções de negócios criados pelos parceiros e avaliados pela Microsoft. Assista [este vídeo](https://youtu.be/hpq_Y9LuIB8) para saber como funciona o AppSource. 
 
 Como um Microsoft Partner, realmente é possível obter benefícios da publicação no AppSource se:
-- Desenvolver um aplicativo/solução inteligente utilizando o [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Desenvolver um aplicativo/solução inteligente utilizando o [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable).
 - Seu aplicativo ou sua solução aborda um problema de negócios específico.
 - Desenvolver módulos ou propriedade intelectual que seus clientes possa reutilizar com relativa rapidez de maneira previsível.
 
@@ -48,7 +48,7 @@ Aqui está a lista de critérios que o aplicativo precisa atender
     - HDInsight
     - Machine Learning
     - Data Lake Analytics
-    - Stream Analytics
+    - Análise de fluxo
     - Serviços Cognitivos
     - Ambas as estruturas
     - Serviços de análise

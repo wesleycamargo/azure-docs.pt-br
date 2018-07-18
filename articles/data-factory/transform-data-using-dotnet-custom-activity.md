@@ -3,21 +3,20 @@ title: Usar atividades personalizadas em um pipeline do Data Factory do Azure
 description: Saiba como criar atividades personalizadas e usá-las em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: douglasl
+ms.openlocfilehash: a9e70ad5296a832e711ebac97302d56429ab5bff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -295,10 +294,10 @@ namespace SampleApp
 Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é possível obter o caminho para o arquivo stdout.txt na expressão "@activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
-  > - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Neste exemplo, activity.json, linkedServices.json e datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Caso seja necessário, limpe-os separadamente. 
+  > - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de tempo de execução da tarefa Batch. Para esse exemplo, o activity.json, linkedServices.json e o datasets.json são armazenados no caminho "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Caso seja necessário, limpe-os separadamente. 
   > - Como os serviços vinculados usam o Integration Runtime (auto-hospedado), as informações confidenciais, como chaves ou senhas, são criptografadas pelo Integration Runtime (auto-hospedado) para garantir que a credencial permaneça no ambiente de rede privada definido pelo cliente. Por esse motivo, alguns campos confidenciais podem ficar faltando na referência do código do aplicativo personalizado. Use SecureString em extendedProperties em vez de usar a referência do serviço vinculado, se necessário. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Comparar a atividade personalizada da v2 e a atividade DotNet (personalizada) da versão 1
+## <a name="compare-v2-v1"></a> Comparar a atividade personalizada da v2 e a atividade DotNet (personalizada) da versão 1
 
   No Azure Data Factory versão 1, implemente uma Atividade DotNet (Personalizada) por meio da criação de um projeto de Biblioteca de classes .NET, com uma classe que implementa o método `Execute` da interface `IDotNetActivity`. Os Serviços Vinculados, os Conjuntos de Dados e as Propriedades Estendidas no conteúdo JSON de uma Atividade DotNet (Personalizada) são passados para o método de execução como objetos fortemente tipados. Para obter detalhes sobre o comportamento da versão 1, consulte [DotNet (personalizado) na versão 1](v1/data-factory-use-custom-activities.md). Devido a essa implementação, seu código de Atividade DotNet versão 1 precisa ser direcionado ao .Net Framework 4.5.2. A Atividade DotNet versão1 também precisa ser executada em nós de Pool do Lote do Azure baseado no Windows. 
 

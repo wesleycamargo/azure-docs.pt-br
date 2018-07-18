@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o QPrism | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o QPrism."
+title: 'Tutorial: Integração do Azure Active Directory com o QPrism | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffd7c828087162f83812da445b0eeb71545b59db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory ao QPrism
 
@@ -30,9 +31,9 @@ A integração de QPrism ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que usuários façam logon automaticamente no QPrism (logon único) com as respectivas contas do Azure AD.
 - Gerencie suas contas em um único local: o portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o QPrism, você precisará dos seguintes itens:
 
@@ -48,7 +49,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do QPrism da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="add-qprism-from-the-gallery"></a>Adicionar o QPrism da galeria
 Para configurar a integração do QPrism com o Azure AD, você precisará adicionar o QPrism à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -110,34 +111,15 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de logon e o identificador reais. Contate a [equipe de suporte ao Cliente do QPrism](mailto:qsupport-ce@quatrro.com) para obter esses valores. 
 
-4. Para gerar a URL de **Metadados**, faça o seguinte:
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
-    a. Selecione **Registros do Aplicativo**.
-    
-    ![Configure registros do aplicativo de logon único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Selecione **Pontos de Extremidade** para abrir a caixa de diálogo **Pontos de Extremidade**.  
-    
-    ![Configurar ponto de extremidade de logon único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
+     ![O link de download do Certificado](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-la no Bloco de Notas.
-    
-    ![Configurar ponto de extremidade de logon único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Agora, vá para a página de propriedades do **QPrism** e copie a **ID do Aplicativo** usando **Copiar**. Em seguida, cole no Bloco de Notas.
- 
-    ![Configurar a ID do aplicativo de logon único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
     ![Configurar botão Salvar no logon único](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Para configurar o logon único no lado do **QPrism**, envie a **URL de Metadados** à [Equipe de suporte do QPrism](mailto:qsupport-ce@quatrro.com). Ela garante que a conexão de logon único do SAML seja definida corretamente em ambos os lados.
-
-> [!TIP]
-> Agora, é possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo. Depois de adicionar este aplicativo da seção **Active Directory** > **Aplicativos Empresariais**, simplesmente selecione a guia **Logon Único** e acesse a documentação inserida na seção **Configuração** na parte inferior. Você pode ler mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Para configurar o logon único no lado do **QPrism**, é necessário enviar a **URL de metadados de Federação do Aplicativo** para a [equipe de suporte do QPrism](mailto:qsupport-ce@quatrro.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -169,7 +151,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
  
 ### <a name="create-a-qprism-test-user"></a>Criar um usuário de teste do QPrism
 
@@ -215,7 +197,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

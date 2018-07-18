@@ -1,11 +1,11 @@
 ---
 title: Tamanhos da VM Linux no Azure | Microsoft Docs
-description: "Lista os tamanhos diferentes disponíveis de máquinas virtuais do Linux no Azure."
+description: Lista os tamanhos diferentes disponíveis de máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: da681171-f045-4c80-a5a9-d8bd47964673
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 3f2c44a6402845ddfbc5c6453968817d6e49f64f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2480a48670646d13f55b405d2594c5937d1b61ba
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuais do Azure que você pode usar para executar seus aplicativos Linux e cargas de trabalho. Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -27,7 +27,7 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 | type                     | Tamanhos           |    DESCRIÇÃO       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Propósito geral](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7,  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
+| [Propósito geral](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
 | [Computação otimizada](sizes-compute.md)        | Fsv2, Fs, F             | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo.        |
 | [Memória otimizada](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 | [Armazenamento otimizado](sizes-storage.md)        | Ls                | Alta taxa de transferência de disco e de E/S. Ideal para Big Data, SQL e bancos de dados NoSQL.                                                         |
@@ -42,7 +42,7 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 - Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
 
 
-## <a name="rest-api"></a>API Rest
+## <a name="rest-api"></a>API REST
 
 Para obter informações sobre como usar a API REST para consulta de tamanhos de VM, confira o seguinte:
 
@@ -54,6 +54,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 ## <a name="acu"></a>ACU
 
 Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
+
+## <a name="benchmark-scores"></a>Pontuações de parâmetro de comparação
+
+Saiba mais sobre desempenho de computação para VMs do Linux usando as [pontuações de parâmetro de comparação CoreMark](compute-benchmark-scores.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

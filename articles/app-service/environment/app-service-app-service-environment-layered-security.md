@@ -1,11 +1,11 @@
 ---
-title: "Arquitetura de segurança em camadas com os Ambientes do Serviço de Aplicativo"
-description: "Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo."
+title: Arquitetura de segurança em camadas com os Ambientes do Serviço de Aplicativo
+description: Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
-ms.openlocfilehash: 6c1f62b5e10a625911feea17ae6835e027709790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29c928c7d81eb3a2532f735be9132b49db5da373
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356198"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -32,14 +33,14 @@ O diagrama abaixo mostra uma arquitetura de exemplo com um aplicativo baseado em
 
 O sinal de adição verde indica que o grupo de segurança de rede na sub-rede contendo “apiase” permite chamadas recebidas de aplicativos Web upstream, bem como chamadas de si mesmo.  No entanto, o mesmo grupo de segurança de rede nega explicitamente o acesso ao tráfego de entrada geral da Internet. 
 
-O restante deste tópico explica as etapas necessárias para configurar o grupo de segurança de rede na sub-rede contendo “apiase”.
+O restante deste artigo explica as etapas necessárias para configurar o grupo de segurança de rede na sub-rede contendo “apiase”.
 
 ## <a name="determining-the-network-behavior"></a>Determinando o comportamento de rede
 Para saber quais regras de segurança de rede são necessárias, você precisa determinar quais clientes de rede terão permissão para acessar o Ambiente do Serviço de Aplicativo que contém o aplicativo de API e quais clientes serão bloqueados.
 
 Como os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] são aplicados às sub-redes e os Ambientes do Serviço de Aplicativo são implantados em sub-redes, as regras contidas em um NSG se aplicam a **todos** os aplicativos em execução em um Ambiente do Serviço de Aplicativo.  Usando a arquitetura de exemplo deste artigo, depois que um grupo de segurança de rede for aplicado à sub-rede contendo “apiase”, todos os aplicativos em execução no Ambiente do Serviço de Aplicativo “apiase” estarão protegidos pelo mesmo conjunto de regras de segurança. 
 
-* **Determine o endereço IP de saída dos autores da chamada upstream:** Qual é o endereço IP ou endereços dos autores da chamada upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, isso significa que o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais detalhes sobre como determinar o endereço IP de saída para aplicativos executados em um Ambiente do Serviço de Aplicativo, confira o artigo de Visão geral da [Arquitetura de rede][NetworkArchitecture].
+* **Determine o endereço IP de saída dos autores da chamada upstream:** Qual é o endereço IP ou endereços dos autores da chamada upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais informações sobre como determinar o endereço IP de saída para aplicativos executados em um Ambiente do Serviço de Aplicativo, confira o artigo de Visão geral da [Arquitetura de rede][NetworkArchitecture].
 * **O aplicativo de API de back-end precisará chamar a si mesmo?**  Um ponto sutil e às vezes negligenciado é o cenário em que o aplicativo de back-end precisa chamar a si mesmo.  Se um aplicativo de API de back-end em um Ambiente do Serviço de Aplicativo precisar chamar a si mesmo, isso também será tratado como uma chamada da “Internet”.  Na arquitetura de exemplo, isso também requer a permissão de acesso do endereço IP de saída do Ambiente do Serviço de Aplicativo “apiase”.
 
 ## <a name="setting-up-the-network-security-group"></a>Configurando o Grupo de Segurança de Rede
@@ -76,13 +77,13 @@ Por fim, conceda acesso ao endereço IP de saída do Ambiente do Serviço de Apl
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Nenhuma outra regra de segurança de rede precisa ser configurada, pois cada NSG tem um conjunto de regras padrão que bloqueia o acesso de entrada da Internet por padrão.
+Nenhuma outra regra de segurança de rede é necessária, pois cada NSG tem um conjunto de regras padrão que bloqueia o acesso de entrada da Internet por padrão.
 
-A lista completa das regras no grupo de segurança de rede é mostrada abaixo.  Observe como a última regra, que é realçada, bloqueia o acesso de entrada de todos os autores da chamada diferentes daqueles que receberam o acesso explicitamente.
+A lista completa das regras no grupo de segurança de rede é mostrada abaixo.  Observe como a última regra, que é realçada, bloqueia o acesso de entrada de todos os autores da chamada diferentes dos chamadores que receberam o acesso explicitamente.
 
 ![Configuração do NSG][NSGConfiguration] 
 
-A etapa final é aplicar o NSG à sub-rede que contém o Ambiente do Serviço de Aplicativo “apiase”.  
+A etapa final é aplicar o NSG à sub-rede que contém o Ambiente do Serviço de Aplicativo “apiase”.
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
@@ -90,7 +91,7 @@ A etapa final é aplicar o NSG à sub-rede que contém o Ambiente do Serviço de
 Com o NSG aplicado à sub-rede, somente três Ambientes do Serviço de Aplicativo upstream e o Ambiente do Serviço de Aplicativo contendo o back-end da API têm permissão para realizar chamadas no ambiente de “apiase”.
 
 ## <a name="additional-links-and-information"></a>Informações e links adicionais
-Informações sobre [grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md). 
+Informações sobre [grupos de segurança de rede](../../virtual-network/security-overview.md).
 
 Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambientes do Serviço de Aplicativo.
 

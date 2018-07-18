@@ -1,24 +1,21 @@
 ---
-title: "Configurando credenciais de autenticação nomeadas | Microsoft Docs"
-description: "Saiba como fornecer credenciais que o Visual Studio possa usar para autenticar solicitações no Azure, de modo que você possa publicar um aplicativo no Azure do Visual Studio ou monitorar um serviço de nuvem existente."
+title: Configurando credenciais de autenticação nomeadas | Microsoft Docs
+description: Saiba como fornecer credenciais que o Visual Studio possa usar para autenticar solicitações no Azure, de modo que você possa publicar um aplicativo no Azure do Visual Studio ou monitorar um serviço de nuvem existente.
 services: visual-studio-online
-documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
-ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+author: ghogen
+manager: douge
+assetId: 61570907-42a1-40e8-bcd6-952b21a55786
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: 3dce80f5c6611cb2a22293d1a574980db5ea8378
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurar credenciais de autenticação nomeadas
 

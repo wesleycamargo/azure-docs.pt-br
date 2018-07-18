@@ -1,24 +1,23 @@
 ---
-title: "Introdução ao WAF (Firewall do aplicativo Web) para o Gateway de Aplicativo do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral do WAF (Firewall do aplicativo Web) do Gateway de Aplicativo"
+title: Introdução ao WAF (Firewall do aplicativo Web) para o Gateway de Aplicativo do Azure | Microsoft Docs
+description: Esta página fornece uma visão geral do WAF (Firewall do aplicativo Web) do Gateway de Aplicativo
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
@@ -44,7 +43,7 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 
 * Monitore seu aplicativo Web contra ataques usando um log de WAF em tempo real. Esse log é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) a fim de acompanhar os logs e alertas de WAF e monitorar facilmente as tendências.
 
-* O WAF será integrado com a Central de Segurança do Azure em breve. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
+* O WAF se integra à Central de Segurança do Azure. A Central de Segurança do Azure permite uma exibição central do estado da segurança de todos os seus recursos do Azure.
 
 ### <a name="customization"></a>Personalização
 
@@ -60,7 +59,7 @@ O firewall de aplicativo Web vem pré-configurado por padrão com o CRS 3.0, ou 
 * Proteção contra violações de protocolo HTTP
 * Proteção contra anomalias de protocolo HTTP, como ausência de host de agente do usuário e de cabeçalhos de aceitação
 * Prevenção contra bots, rastreadores e scanners
-* Detecção de problemas de configuração de aplicativo comuns (por exemplo, Apache, IIS etc.)
+* Detecção de problemas de configuração de aplicativo comuns (por exemplo, Apache, IIS, ente outros.)
 
 Para obter uma lista mais detalhada das regras e suas proteções, confira os seguintes [Conjuntos de regras principais](#core-rule-sets).
 
@@ -72,11 +71,9 @@ O Gateway de Aplicativo dá suporte a dois conjuntos de regras, CRS 3.0 e CRS 2.
 
 O conjunto de regras principais 3.0 fornecido tem 13 grupos de regras, conforme mostra a tabela a seguir. Cada um desses grupos de regra contém várias regras, que podem ser desabilitadas.
 
-|RuleGroup|Descrição|
+|RuleGroup|DESCRIÇÃO|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contém as regras para proteção contra spam conhecidos ou atividade mal-intencionada.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contém as regras para bloquear métodos (PUT, PATCH< .)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Contém as regras para proteção contra ataques de DoS (Negação de serviço).|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contém as regras para proteção contra os scanners de porta e ambiente.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contém as regras para proteção contra problemas de protocolo e codificação.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contém as regras para proteger contra injeção de cabeçalho, solicitações indesejadas e divisão de resposta|
@@ -92,7 +89,7 @@ O conjunto de regras principais 3.0 fornecido tem 13 grupos de regras, conforme 
 
 O conjunto de regras principais 2.2.9 fornecido tem 10 grupos de regras, conforme mostra a tabela a seguir. Cada um desses grupos de regra contém várias regras, que podem ser desabilitadas.
 
-|RuleGroup|Descrição|
+|RuleGroup|DESCRIÇÃO|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Contém as regras para proteção contra violações de protocolo (caracteres inválidos, GET com um corpo de solicitação etc.)|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Contém as regras para proteção contra informações de cabeçalho incorretas.|
@@ -114,7 +111,7 @@ O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes do
 
 ### <a name="application-gateway-waf-reports"></a>Monitoramento de WAF
 
-É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall de aplicativo Web, e dos aplicativos que ele protege, é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure (em breve) e o Log Analytics.
+É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall do aplicativo Web e dos aplicativos que ele protege é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure e o Log Analytics.
 
 ![diagnóstico](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -124,7 +121,7 @@ Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Agora, o gateway de aplicativo [integra a Central de Segurança do Azure](application-gateway-integration-security-center.md). A Central de Segurança do Azure verifica seu ambiente para detectar aplicativos Web desprotegidos. Agora, ele pode recomendar o WAF de gateway de aplicativo para proteger esses recursos vulneráveis. Você pode criar o WAF de gateway de aplicativo na Central de Segurança do Azure.  Essas instâncias WAF são integradas à Central de Segurança do Azure e enviarão alertas e informações de integridade para a Central de Segurança do Azure para a geração de relatórios.
+A [Central de Segurança do Azure](../security-center/security-center-intro.md) ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. O gateway de aplicativo [integra a Central de Segurança do Azure](application-gateway-integration-security-center.md). A Central de Segurança do Azure verifica seu ambiente para detectar aplicativos Web desprotegidos. Agora, ele pode recomendar o WAF de gateway de aplicativo para proteger esses recursos vulneráveis. Você pode criar o WAF de gateway de aplicativo na Central de Segurança do Azure.  Essas instâncias WAF são integradas à Central de Segurança do Azure e enviarão alertas e informações de integridade para a Central de Segurança do Azure para a geração de relatórios.
 
 ![figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 
@@ -166,7 +163,6 @@ O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça
 
 O firewall de aplicativo Web está disponível em um novo um SKU do WAF. Esse SKU está disponível apenas no modelo de provisionamento do Azure Resource Manager e não no modelo de implantação clássico. Além disso, o SKU do WAF vem apenas em instâncias de gateway de aplicativo médias e grandes. Todos os limites do gateway de aplicativo também se aplicam ao SKU do WAF. Preço tem base nos encargos por hora da instância do gateway e nos encargos de processamento de dados. O preços do gateway por hora para o SKU do WAF é diferente dos encargos pelo SKU Standard e podem ser encontrados em [Detalhes de preços do Gateway de Aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/). Os encargos de processamento de dados permanecem os mesmos. Não há cobrança por regra ou grupo de regras. Você pode proteger vários aplicativos Web atrás do mesmo firewall de aplicativo Web, e não há encargos adicionais para dar suporte a vários aplicativos. 
 
-A cobrança pelo WAF começa efetivamente no dia 05/05/2017. Até lá, a cobrança pelos gateways do SKU do WAF ocorrerá de acordo com as taxas padrão.
 
 ## <a name="next-steps"></a>Próximas etapas
 

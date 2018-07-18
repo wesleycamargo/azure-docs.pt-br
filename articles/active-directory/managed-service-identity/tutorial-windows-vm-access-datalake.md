@@ -1,25 +1,27 @@
 ---
-title: "Como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store"
-description: "Um tutorial que mostra como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store."
+title: Como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store
+description: Um tutorial que mostra como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f2904f3d070a818985fa291fb9083b5ec57529dd
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301644"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: como usar uma MSI (Identidade do Serviço Gerenciada) de VM Windows para acessar o Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -38,7 +40,7 @@ Este tutorial mostra como usar uma MSI (Identidade do Serviço Gerenciado) para 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
@@ -55,7 +57,7 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM 
 
-Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar o MSI informa ao Azure para criar uma identidade gerenciada para sua VM. Nos bastidores, habilitar o MSI faz duas coisas: instala a extensão de VM do MSI em sua VM, e isso permite MSI no Azure Resource Manager.
+Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar o MSI informa ao Azure para criar uma identidade gerenciada para sua VM. Nos bastidores, habilitar MSI em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
 1. Selecione a **Máquina Virtual** na qual você deseja habilitar MSI.  
 2. Na barra de navegação à esquerda, clique em **Configuração**. 
@@ -99,10 +101,10 @@ Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data
 1. No portal, navegue até **Máquinas Virtuais**, acesse a VM Windows e, em **Visão geral**, clique em **Conectar**.
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade de MSI local para obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos do Data Lake Store é “https://datalake.azure.net/”.  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
+4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade de MSI local para obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos para Data Lake Store é "https://datalake.azure.net/".  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
    Converta a resposta de um objeto JSON para um objeto do PowerShell. 

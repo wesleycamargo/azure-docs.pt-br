@@ -3,18 +3,17 @@ title: Meu primeiro runbook Python na Automação do Azure
 description: Este tutorial guia o usuário pela criação, pelos testes e pela publicação de um runbook Python simples.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: cf63f49ae4457628d250faeed6316ce12afa7a93
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cfeef05df63cd08db48d555d7ca6f12969b533cb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 

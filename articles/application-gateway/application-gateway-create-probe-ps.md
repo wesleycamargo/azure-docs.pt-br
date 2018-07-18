@@ -1,11 +1,11 @@
 ---
-title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no Gerenciador de Recursos"
+title: Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs
+description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no Gerenciador de Recursos
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 5180e659851a0ef5dbe92c451a9e2ba545821d07
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
@@ -39,10 +39,10 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
 
 ### <a name="sign-in-and-create-resource-group"></a>Entrar e criar grupo de recursos
 
-1. Use `Login-AzureRmAccount` para autenticar.
+1. Use `Connect-AzureRmAccount` para autenticar.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Obter as assinaturas da conta.
@@ -63,7 +63,7 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
   New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
   ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Gateway de Aplicativo usam o mesmo grupo de recursos.
 
 No exemplo anterior, criamos um grupo de recursos denominado **appgw-RG** no local **Oeste dos EUA**.
 
@@ -172,7 +172,7 @@ $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $g
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de gateway de aplicativo
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
 Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
 

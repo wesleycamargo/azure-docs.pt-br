@@ -1,19 +1,19 @@
 ---
-title: "CI/CD com o Mecanismo do Serviço de Contêiner do Azure e o modo Swarm"
-description: "Usar o Mecanismo do Serviço de Contêiner do Azure com o modo Swarm, um Registro de Contêiner do Azure e o Visual Studio Team Services para fornecer continuamente um aplicativo .NET Core com vários contêineres"
+title: CI/CD com o Mecanismo do Serviço de Contêiner do Azure e o modo Swarm
+description: Usar o Mecanismo do Serviço de Contêiner do Azure com o modo Swarm, um Registro de Contêiner do Azure e o Visual Studio Team Services para fornecer continuamente um aplicativo .NET Core com vários contêineres
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e modo Docker Swarm usando o Visual Studio Team Services
 
@@ -43,7 +43,7 @@ Uma breve explicação das etapas:
 7. O modo Docker Swarm no cluster obtém a versão mais recente das imagens 
 8. A nova versão do aplicativo é implantada usando o Docker Stack 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de iniciar este tutorial, você precisa concluir as seguintes tarefas:
 

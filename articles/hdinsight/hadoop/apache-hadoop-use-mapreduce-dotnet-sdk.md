@@ -1,26 +1,24 @@
 ---
-title: "Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight – Azure | Microsoft Docs"
+title: Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight – Azure | Microsoft Docs
 description: Saiba como enviar trabalhos MapReduce para o Hadoop do Azure HDInsight usando o SDK do .NET do HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: e967c6df89722492554998dc21e09388b7b7cdf2
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 068d63b7c96dd6729ebc46fb92a136be43b84385
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

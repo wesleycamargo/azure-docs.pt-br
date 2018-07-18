@@ -1,24 +1,23 @@
 ---
-title: "Fazer test drive de um aplicativo de área de trabalho habilitado para o Azure AD B2C"
-description: "Guia de início rápido para testar um aplicativo de área de trabalho ASP.NET de exemplo que usa o Azure Active Directory B2C para fornecer o logon do usuário."
+title: Início Rápido - Configurar a entrada para um aplicativo de área de trabalho usando o Azure Active Directory B2C | Microsoft Docs
+description: Execute um aplicativo de área de trabalho ASP.NET de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: d0e50d0a81a3230558da42ab6678c3c354ce0e01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Início Rápido: testar um aplicativo de área de trabalho habilitado para o Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de área de trabalho usando o Azure Active Directory B2C 
 
 O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de nuvem para manter seu aplicativo, negócios e clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão.
 
@@ -91,7 +90,7 @@ O Azure Active Directory B2C fornece funcionalidade para permitir que usuários 
 
 ## <a name="access-a-protected-web-api-resource"></a>Acessar um recurso protegido da API Web
 
-Clique em **Chamar API** para fazer uma solicitação para o recurso protegido do Azure AD B2C https://fabrikamb2chello.azurewebsites.net/hello. 
+Clique em **Chamar API** para fazer uma solicitação para o recurso protegido do B2C do Azure Active Directory. 
 
 ![Chamar API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 

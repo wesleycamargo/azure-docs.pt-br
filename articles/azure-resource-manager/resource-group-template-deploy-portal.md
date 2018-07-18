@@ -2,7 +2,7 @@
 title: Usar o Portal do Azure para implantar recursos do Azure | Microsoft Docs
 description: Use o portal do Azure e o Azure Resource Manager para implantar seus recursos.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implantar recursos com modelos do Resource Manager e o portal do Azure
 
@@ -83,7 +83,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
    ![Pesquisar implantação de modelo](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Selecione **Criar**.
+1. Clique em **Criar**.
 
    ![Selecione criar](./media/resource-group-template-deploy-portal/show-template-option.png)
 
@@ -103,7 +103,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 
    ![Escolher conta de armazenamento](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
-1. O editor adiciona automaticamente o JSON para o tipo de recurso. Observe que ele inclui um parâmetro para a definição do tipo de conta de armazenamento. Selecione **Salvar**.
+1. O editor adiciona automaticamente o JSON para o tipo de recurso. Observe que ele inclui um parâmetro para a definição do tipo de conta de armazenamento. Clique em **Salvar**.
 
    ![Mostrar modelo](./media/resource-group-template-deploy-portal/show-json.png)
 

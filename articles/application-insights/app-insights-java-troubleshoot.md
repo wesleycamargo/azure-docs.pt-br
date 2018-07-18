@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas do Application Insights em um projeto Web Java
-description: "Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights."
+description: 'Guia de solução de problemas: monitoramento em tempo real aplicativos Java com o Application Insights.'
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -11,40 +11,53 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
 
 ## <a name="build-errors"></a>Erros de compilação
-**No Eclipse, ao adicionar o SDK do Application Insights por meio de Maven ou Gradle, recebo erros de validação de soma de verificação ou de compilação.**
+**No Eclipse ou Intellij Idea, ao adicionar o Application Insights SDK via Maven ou Gradle, eu recebo erros de validação de soma ou compilação.**
 
-* Se o elemento <version> de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[1.0,)</version>` ou Gradle `version:'1.0.+'`), tente definir uma versão específica, como `1.0.2`. Veja as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) da versão mais recente.
+* Se o elemento <version> de dependência estiver usando um padrão com caracteres curinga (ex.: Maven `<version>[2.0,)</version>` ou Gradle `version:'2.0.+'`), tente definir uma versão específica, como `2.0.1`. Veja as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java/releases) da versão mais recente.
 
 ## <a name="no-data"></a>Sem dados
 **Adicionei o Application Insights com êxito e executei meu aplicativo, mas nunca vi dados no portal.**
 
 * Espere um minuto e clique em Atualizar. Os gráficos são atualizados periodicamente, mas você também pode atualizá-los manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
-* Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto)
+* Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto) ou configurada como variável Ambiente.
 * Verifique se não há um nó `<DisableTelemetry>true</DisableTelemetry>` no arquivo xml.
 * Em seu firewall, talvez você precise abrir as portas TCP 80 e 443 para o tráfego de saída de dc.services.visualstudio.com. Consulte a [lista completa de exceções do firewall](app-insights-ip-addresses.md)
 * No painel inicial do Microsoft Azure, veja o mapa de status de serviço. Se houver indicações de alerta, espere até que elas tenham voltado a OK; então, feche e abra novamente a folha do Application Insights de seu aplicativo.
-* Ative o log para a janela de console do IDE adicionando um elemento `<SDKLogger />` sob o nó raiz no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto) e verifique se há entradas precedidas com [Erro].
+* Ative o log para a janela de console do IDE adicionando um elemento `<SDKLogger />` sob o nó raiz no arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto) e verifique se há entradas precedidas com AI: INFO/AVISO/ERRO para quaisquer logs suspeitos.
 * Certifique-se de que o arquivo ApplicationInsights.xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "Arquivo de configuração foi descoberto com êxito".
-* Se não for encontrado no arquivo de configuração, verifique as mensagens de saída para ver onde o arquivo de configuração está sendo procurado e certifique-se de que o ApplicationInsights.xml seja localizado em um desses locais de pesquisa. Como regra geral, você pode colocar o arquivo de configuração perto dos JARs do SDK do Application Insights. Por exemplo: no Tomcat, isso poderia significar que a pasta WEB-INF/lib.
+* Se não for encontrado no arquivo de configuração, verifique as mensagens de saída para ver onde o arquivo de configuração está sendo procurado e certifique-se de que o ApplicationInsights.xml seja localizado em um desses locais de pesquisa. Como regra geral, você pode colocar o arquivo de configuração perto dos JARs do SDK do Application Insights. Por exemplo: no Tomcat, isso poderia significar que a pasta WEB-INF/classes. Durante o desenvolvimento, você pode colocar ApplicationInsights.xml na pasta de recursos do seu projeto da web.
+* Também consulte a [página de problemas no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
+* Certifique-se de usar a mesma versão do Application Insights principal, web, agente e log appenders para evitar quaisquer problemas de conflito de versão.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Eu costumava ver os dados, mas eles foram interrompidos
 * Verifique o [blog de status](http://blogs.msdn.com/b/applicationinsights-status/).
 * Você atingiu sua cota mensal de pontos de dados? Abra Configurações/Cota e Preços para descobrir. Nesse caso, você pode atualizar seu plano ou então pagar por capacidade adicional. Consulte o [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
+* Você atualizou recentemente o SDK? Certifique-se de que apenas os jars SDK exclusivo estão presentes no diretório do projeto. Não deve haver duas versões diferentes do SDK presente.
+* Você está analisando o recurso AI correto? Corresponda a iKey do seu aplicativo para o recurso em que você está esperando telemetria. Eles devem ser iguais.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu esperava
-* Abra a folha Cotas e Preço e verifique se a [amostragem](app-insights-sampling.md) está funcionando. (Transmissão de 100% significa que a amostragem não está funcionando.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega de seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria. 
+* Abra a página Uso e custos estimados e verifique se a [amostragem](app-insights-sampling.md) está funcionando. (Transmissão de 100% significa que a amostragem não está funcionando.) O serviço do Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega de seu aplicativo. Isso o ajuda a se manter dentro de sua cota mensal de telemetria. 
+* Você está com a amostragem do SDK ativada? Se sim, os dados seriam amostrados na taxa especificada para todos os tipos aplicáveis.
+* Você está executando uma versão mais antiga do SDK do Java? Começando com a versão 2.0.1, apresentamos mecanismo de tolerância para tratar intermitentes de rede e falhas de back-end, bem como a persistência de dados em unidades locais.
+* Está tendo limitação devido à excessiva Telemetria? Se você ativar o log de informações, você verá um log de mensagem "O aplicativo está limitado". Nosso limite atual é a telemetria de 32 k itens/segundo.
+
+### <a name="java-agent-cannot-capture-dependency-data"></a>Agente de Java não é possível capturar dados de dependência
+* Você configurou o agente de Java seguindo [Configurar Agente de Java](app-insights-java-agent.md) ?
+* Verifique se o jar do agente java e o arquivo AI-Agent.xml são colocados na mesma pasta.
+* Certifique-se de que a dependência que você está tentando coletar automaticamente tem suporte para coleta automática. No momento só há suporte para MySQL, MsSQL, banco de dados Oracle e coleção de dependência de Redis Cache.
+* Você está usando o JDK 1.7 ou 1.8? No momento não oferecemos suporte à coleção de dependência no JDK 9.
 
 ## <a name="no-usage-data"></a>Sem dados de uso
 **Vejo dados sobre solicitações e tempos de resposta, mas não há dados de exibição de página, de navegador ou de usuário.**
@@ -83,6 +96,7 @@ Usando o método XML, você precisa reiniciar o aplicativo ao alterar o valor.
 
 * [Obtenha a chave de instrumentação do novo recurso.][java]
 * Se você tiver adicionado o Application Insights a seu projeto usando o Kit de Ferramentas do Azure para Eclipse, clique com o botão direito do mouse em seu projeto Web, selecione **Azure**, **Configurar Application Insights** e altere a chave.
+* Se você configurou a chave de instrumentação como variável de ambiente atualize o valor da variável de ambiente com iKey novo.
 * Caso contrário, atualize a chave em ApplicationInsights.xml na pasta de recursos em seu projeto.
 
 ## <a name="debug-data-from-the-sdk"></a>Depurar dados do SDK
@@ -143,6 +157,7 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Relatar Problema no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

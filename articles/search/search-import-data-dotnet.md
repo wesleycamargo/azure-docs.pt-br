@@ -1,25 +1,19 @@
 ---
 title: Carregar dados (.NET - Azure Search) | Microsoft Docs
-description: "Aprenda a carregar dados em um índice no Azure Search usando o SDK do .NET."
-services: search
-documentationcenter: 
+description: Aprenda a carregar dados em um índice no Azure Search usando o SDK do .NET.
 author: brjohnstmsft
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 01/13/2017
-ms.author: brjohnst
-ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carregar dados para o Azure Search usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -59,7 +53,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
 Para importar os dados usando o SDK do .NET, você precisará empacotar seus dados em um objeto `IndexBatch` . Um `IndexBatch` encapsula uma coleção de objetos `IndexAction`, que contém, cada um deles, um documento e uma propriedade que informam ao Azure Search qual ação executar nesse documento (carregar, mesclar, excluir etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
 
-| Ação | Descrição | Campos necessários para cada documento | Observações |
+| Ação | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | --- | --- | --- | --- |
 | `Upload` |Uma ação `Upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
 | `Merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `DataType.Collection(DataType.String)`. Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |

@@ -1,10 +1,10 @@
 ---
-title: "Usar a Análise de Armazenamento do Azure para coletar dados de logs e métricas | Microsoft Docs"
-description: "A Análise de Armazenamento permite que você para acompanhe dados de métricas de todos os serviços de armazenamento e para coletar logs para o armazenamento de Tabelas, Blobs e Filas."
+title: Usar a Análise de Armazenamento do Azure para coletar dados de logs e métricas | Microsoft Docs
+description: A Análise de Armazenamento permite que você para acompanhe dados de métricas de todos os serviços de armazenamento e para coletar logs para o armazenamento de Tabelas, Blobs e Filas.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -77,7 +77,7 @@ Cada log será gravado no formato a seguir.
 
 A tabela a seguir descreve cada atributo no nome do log.
 
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 | --- | --- |
 | <service-name> |O nome do serviço de armazenamento. Por exemplo: blob, tabela ou fila. |
 | AAAA |O ano de quatro dígitos para o log. Por exemplo: 2011. |
@@ -100,7 +100,7 @@ Quando uma solicitação de armazenamento estiver conectada, o nome do log resul
 ### <a name="log-metadata"></a>Metadados de log
 Todos os blobs de log são armazenados com metadados que podem ser usados para identificar os dados de log que contém o blob. A tabela a seguir descreve cada atributo de metadados.
 
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 | --- | --- |
 | LogType |Descreve se o log contém informações referentes a operações de ler, gravar ou de exclusão. Esse valor pode incluir um tipo ou uma combinação dos três, separados por vírgulas. Exemplo 1: gravar. Exemplo 2: ler, gravar. Exemplo 3: ler, gravar e excluir. |
 | StartTime |A hora mais antiga de uma entrada de log, no formato AAAA-MM-DDThh:mm:ssZ. Por exemplo: 2011-07-31T18:21:46Z. |

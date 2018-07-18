@@ -1,24 +1,22 @@
 ---
-title: Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária com o Azure Site Recovery (versão prévia)
+title: Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária com o Azure Site Recovery
 description: Saiba como configurar a recuperação de desastre para VMs do Azure em uma região do Azure diferente usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 47d9a1e8aecde8ba0f01034f1d172c3fbd87ccfe
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211660"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
@@ -30,6 +28,7 @@ Este tutorial mostra como configurar a recuperação de desastre em uma região 
 > * Configurar o acesso de saída para VMs
 > * Habilitar a replicação para uma VM
 
+A replicação de Azure para Azure está atualmente em versão prévia.
 ## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
@@ -77,7 +76,7 @@ Se você está usando um proxy de firewall baseado em URL para controlar a conec
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Ao usar quaisquer regras de firewall, de proxy ou de NSG baseadas em IP para controlar a conectividade de saída, os intervalos de endereços IP a seguir precisam estar na lista de permissões. Baixe uma lista de intervalos nos links a seguir:
+Se você deseja controlar a conectividade de saída usando endereços IP em vez de URLs, coloque na lista de permissões os intervalos de data center apropriados; endereços do Office 365; e os endereços de ponto de extremidade de serviço, para regras NSG, proxy ou firewalls baseados em IP.
 
   - [Intervalos de IP do datacenter do Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Intervalos de IP do datacenter do Microsoft Azure na Alemanha](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +84,7 @@ Ao usar quaisquer regras de firewall, de proxy ou de NSG baseadas em IP para con
   - [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Endereços IP de ponto de extremidade de serviço do Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Use essas listas para configurar os controles de acesso de rede em sua rede. Você pode usar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para criar as regras de NSG necessárias.
+Você pode usar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para criar as regras de NSG necessárias.
 
 ## <a name="verify-azure-vm-certificates"></a>Verifique os certificados de VM do Azure
 
@@ -105,14 +104,14 @@ O Azure Site Recovery fornece três funções internas para controlar as operaç
 
 - **Leitor do Site Recovery**: essa função tem permissões para exibir todas as operações de gerenciamento do Site Recovery. Essa função é ideal para um executivo de monitoramento de TI que possa monitorar o estado atual de proteção e gerar tíquetes de suporte.
 
-Saiba mais sobre as [funções internas do RBAC do Azure](../active-directory/role-based-access-built-in-roles.md)
+Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
 ### <a name="select-the-source"></a>Selecione a origem
 
 1. Em cofres dos Serviços de Recuperação, clique no nome do cofre > **+Replicar**.
-2. Em **fonte**, selecione **Azure - VISUALIZAÇÃO**.
+2. Em **Fonte**, selecione **Azure**.
 3. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
 4. Selecione o **modelo de implantação de máquina virtual do Azure** para VMs: **Gerenciador de Recursos** ou **Clássico**.
 5. Selecione o **Grupo de recursos de origem** para VMs do Gerenciador de Recursos ou **serviço de nuvem** para VMs clássicas.
@@ -137,14 +136,16 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
 
-- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr".
+- **Grupo de recursos de destino**: o grupo de recursos na região de destino que contém as VMs do Azure após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". local do grupo de recurso do grupo de recurso de destino pode ser de qualquer região exceto a região onde as suas máquinas virtuais de origem estão hospedadas. 
 
 - **Rede virtual de destino**: a rede na região de destino na qual as VMs estarão localizadas após o failover.
   Por padrão, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr".
 
 - **Contas de armazenamento de cache**: o Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino.
 
-- **Contas de armazenamento de destino**: por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
+- **Contas de armazenamento de destino (se a VM de fonte não usar discos gerenciados)**: por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
+
+- **Discos gerenciados de réplica (se a VM de origem usar discos gerenciados)**: por padrão, o Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) do disco gerenciado da VM de origem.
 
 - **Conjuntos de disponibilidade de destino**: por padrão, o Site Recovery cria um novo conjunto de disponibilidade na região de destino, com o sufixo "asr". Somente será possível adicionar conjuntos de disponibilidade se as VMs forem parte de um conjunto na região de origem.
 

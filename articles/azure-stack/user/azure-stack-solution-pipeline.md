@@ -1,215 +1,454 @@
 ---
 title: Implantar seu aplicativo no Azure e o Azure pilha | Microsoft Docs
-description: "Saiba como implantar aplicativos do Azure e a pilha do Azure com um pipeline de CI/CD híbrida."
+description: Saiba como implantar aplicativos do Azure e a pilha do Azure com um pipeline de CI/CD híbrida.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
-ms.author: jeffgilb
-ms.reviewer: unknown
-ms.custom: mvc
-ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 05/15/2018
+ms.author: mabrigg
+ms.reviewer: Anjay.Ajodha
+ms.openlocfilehash: 41e6f64ada7c95674cc2573048eef8afc83e4385
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604345"
 ---
-# <a name="deploy-apps-to-azure-and-azure-stack"></a>Implantar aplicativos do Azure e o Azure pilha
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implantar aplicativos do Azure e a pilha do Azure
+
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Um híbrido [integração contínua](https://www.visualstudio.com/learn/what-is-continuous-integration/)/[fornecimento contínuo](https://www.visualstudio.com/learn/what-is-continuous-delivery/)pipeline CI/CD () permite que você criar, testar e implantar seu aplicativo em várias nuvens.  Neste tutorial, você deve criar um ambiente de exemplo para saber como um pipeline de CI/CD híbrida pode ajudá-lo:
- 
+Saiba como implantar um aplicativo do Azure e a pilha do Azure usando um pipeline de entrega (CI/CD) integração contínua/contínua híbrida.
+
+Neste tutorial, você criará um ambiente de exemplo para:
+
 > [!div class="checklist"]
 > * Inicie uma nova compilação com base em confirmações de código ao seu repositório do Visual Studio Team Services (VSTS).
-> * Implante automaticamente o código recém-criado para o Azure para testes de aceitação do usuário.
-> * Quando o seu código de teste, implante automaticamente com a pilha do Azure. 
+> * Implante automaticamente o seu aplicativo para o Azure global para testes de aceitação do usuário.
+> * Quando seu código passa no teste, implante automaticamente o aplicativo com a pilha do Azure.
 
+## <a name="benefits-of-the-hybrid-delivery-build-pipe"></a>Benefícios da entrega híbrida criar pipe
+
+Continuidade, segurança e confiabilidade são os principais elementos da implantação do aplicativo. Esses elementos são essenciais para sua organização e é fundamental para sua equipe de desenvolvimento. Um pipeline de CI/CD híbrido permite consolidar sua pipes de compilação em seu ambiente local e nuvem pública. Um modelo de entrega híbrido permite alterar os locais de implantação sem alterar seu aplicativo.
+
+Outros benefícios de usar a abordagem híbrida são:
+
+* Você pode manter um conjunto de ferramentas de desenvolvimento consistente em seu ambiente de pilha do Azure no local e nuvem pública do Azure.  Um conjunto comum de ferramentas torna mais fácil de implementar as práticas recomendadas e padrões de CI/CD.
+* Aplicativos e serviços implantados no Azure ou Azure pilha são intercambiáveis, e o mesmo código pode ser executado em qualquer local. Você pode tirar proveito de recursos e recursos de nuvem pública e local.
+
+Para saber mais sobre CI e CD:
+
+* [O que é integração contínua?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+* [O que é o fornecimento contínuo?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Alguns componentes são necessários para criar um pipeline de CI/CD híbrida e podem levar algum tempo para se preparar.  Se você já tiver alguns desses componentes, verifique se que eles atenderem aos requisitos antes de começar.
 
-Este tópico também pressupõe que você tenha algum conhecimento do Azure e a pilha do Azure. Se você quiser saber antes de prosseguir, certifique-se de que comece por estes tópicos:
+Você precisa ter componentes para criar um pipeline de CI/CD híbrida. Os seguintes componentes levará tempo para preparar:
 
-- [Introdução ao Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-- [Principais conceitos de pilha do Azure](../azure-stack-key-features.md)
+* Um parceiro OEM/hardware do Azure pode implantar uma pilha do Azure de produção. Todos os usuários podem implantar o Kit de desenvolvimento de pilha do Azure (ASDK).
+* Também deve ter um operador de pilha do Azure: implantar o serviço de aplicativo, criar planos e ofertas, criar uma assinatura de locatário e adicionar a imagem do Windows Server 2016.
 
-### <a name="azure"></a>As tabelas
- - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
- - Criar um [aplicativo Web](../../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)e configurá-la para [de publicação FTP](../../app-service/app-service-deploy-ftp.md).  Anote o novo URL do aplicativo Web, como ele é usado mais tarde.
+>[!NOTE]
+>Se você já tiver alguns desses componentes implantados, certifique-se de atender a todos os requisitos antes de iniciar este tutorial.
 
+Este tutorial presume que você tenha conhecimentos básicos do Azure e a pilha do Azure. Para saber mais, antes de iniciar o tutorial, leia os seguintes artigos:
 
-### <a name="azure-stack"></a>Azure Stack
- - [Implantar o Azure pilha](../azure-stack-run-powershell-script.md).  A instalação levará algumas horas para ser concluída, por isso, planeje adequadamente.
- - Implantar [do serviço de aplicativo](../azure-stack-app-service-deploy.md) serviços de PaaS a pilha do Azure.
- - Criar um aplicativo Web e configurá-la para [de publicação FTP](../azure-stack-app-service-enable-ftp.md).  Anote o novo URL do aplicativo Web, como ele é usado mais tarde.  
+* [Introdução ao Azure](https://azure.microsoft.com/overview/what-is-azure/)
+* [Principais conceitos de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
-### <a name="developer-tools"></a>Ferramentas de desenvolvedor
- - Criar um [espaço de trabalho do VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  O processo de inscrição cria um projeto chamado "MyFirstProject".  
- - [Instalar o Visual Studio de 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [entrar no VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
- - Conecte-se ao projeto e [clonar localmente](https://www.visualstudio.com/docs/git/gitquickstart).
- - Criar um [pool de agente](https://www.visualstudio.com/docs/build/concepts/agents/pools-queues#creating-agent-pools-and-queues) no VSTS.
- - Instalar o Visual Studio e implantar um [agente de compilação do VSTS](https://www.visualstudio.com/docs/build/actions/agents/v2-windows) a uma máquina virtual na pilha do Azure. 
- 
+### <a name="azure-requirements"></a>Requisitos do Azure
 
-## <a name="create-app--push-to-vsts"></a>Criar aplicativo e enviar por push para VSTS
+* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Criar um [aplicativo da Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) no Azure. Observe da URL do aplicativo Web, você precisará usá-la no tutorial.
 
-### <a name="create-application"></a>Criar aplicativo
-Nesta seção, você cria um aplicativo simples ASP.NET e enviar por push para VSTS.  Essas etapas representam o fluxo de trabalho do desenvolvedor normais e podem ser adaptadas para linguagens e ferramentas de desenvolvedor. 
+### <a name="azure-stack-requirements"></a>Requisitos de pilha do Azure
 
-1.  Abra o Visual Studio.
-2.  Espaço do Team Explorer do e **soluções...**  área, clique em **novo**.
-3.  Selecione **Visual C#** > **Web** > **aplicativo Web do ASP.NET (.NET Framework)**.
-4.  Forneça um nome para o aplicativo e clique em **Okey**.
-5.  Na próxima tela, mantenha os padrões (formulários da Web) e clique em **Okey**.
+* Usar um sistema de pilha do Azure integradas ou implantar o Kit de desenvolvimento de pilha do Azure (ASDK). Para implantar o ASDK:
+    * O [Tutorial: implantar o ASDK usando o instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) fornece instruções detalhadas de implantação.
+    * Use o [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script do PowerShell para automatizar as etapas de pós-implantação ASDK.
 
-### <a name="commit-and-push-changes-to-vsts"></a>Confirmar e enviar alterações por push para VSTS
-1.  Usando o Team Explorer no Visual Studio, selecione o menu suspenso e clique em **alterações**.
-2.  Forneça uma mensagem de confirmação e selecione **confirmar todos os**. Você pode ser solicitado a salvar o arquivo de solução, clique em Sim para salvar todos os.
-3.  Uma vez confirmado, o Visual Studio oferece para sincronizar alterações ao seu projeto. Selecione **Sincronizar**.
+    > [!Note]
+    > A instalação ASDK leva aproximadamente sete horas para ser concluída, por isso, planeje adequadamente.
 
-    ![Imagem mostrando a tela de confirmação após a conclusão de confirmação](./media/azure-stack-solution-pipeline/image1.png)
+ * Implantar [do serviço de aplicativo](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) serviços de PaaS a pilha do Azure.
+ * Criar [ofertas plano](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) na pilha do Azure.
+ * Criar um [assinatura de locatário](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) na pilha do Azure.
+ * Crie um aplicativo Web na assinatura de locatário. Anote o novo URL do aplicativo Web para uso posterior.
+ * Implante Máquina Virtual de VSTS na assinatura de locatário.
+* Fornece uma imagem do Windows Server 2016 com o .NET 3.5 para uma máquina virtual (VM). Essa VM será criada na pilha do Azure como um agente de compilação particular.
 
-4.  Na guia sincronização, em *saída*, você verá sua confirmação de novo.  Selecione **Push** para sincronizar a alteração VSTS.
+### <a name="developer-tool-requirements"></a>Requisitos da ferramenta de desenvolvedor
 
-    ![etapas de sincronização de Mostrar imagem](./media/azure-stack-solution-pipeline/image2.png)
+* Criar um [espaço de trabalho do VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). O processo de inscrição cria um projeto chamado **MyFirstProject**.
+* [Instalar o Visual Studio de 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [entrar no VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Conecte-se ao seu projeto e [clone-a localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
-### <a name="review-code-in-vsts"></a>Examine o código no VSTS
-Depois de ter confirmado uma alteração e enviados por push para VSTS, verifique o seu código do portal do VSTS.  Selecione **código**e, em seguida, **arquivos** no menu suspenso.  Você pode ver a solução que você criou.
+ > [!Note]
+ > Seu ambiente de pilha do Azure precisa as imagens corretas agregadas para executar o Windows Server e SQL Server. Ela também deve ter o serviço de aplicativo implantado.
 
-## <a name="create-build-definition"></a>Criar definição de build
-O processo de compilação define como o aplicativo é criado e empacotado para implantação em cada confirmação das alterações de código. Em nosso exemplo, usamos o modelo incluído para configurar o processo de compilação para um aplicativo ASP.NET, embora essa configuração pode ser adaptada dependendo do seu aplicativo.
+## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparar a compilação particular e o agente de liberação para integração com o Visual Studio Team Services
 
-1.  Faça logon no seu espaço de trabalho do VSTS em um navegador da web.
-2.  Na faixa, selecione **Build e versão** e **cria**.
-3.  Clique em **+ nova definição**.
-4.  Na lista de modelos, selecione **ASP.NET (visualização)** e selecione **aplicar**.
-5.  Modificar o *argumentos de MSBuild* campo *compilar solução* etapa para:
+### <a name="prerequisites"></a>Pré-requisitos
 
-    `/p:DeployOnBuild=True /p:WebPublishMethod=FileSystem /p:DeployDefaultTarget=WebPublish /p:publishUrl="$(build.artifactstagingdirectory)\\"`
+Visual Studio Team Services (VSTS) autentica com o Azure Resource Manager usando uma entidade de serviço. VSTS deve ter o **Colaborador** função para provisionar recursos em uma assinatura de pilha do Azure.
 
-6.  Selecione o **opções** guia e selecione a fila do agente para o agente de compilação é implantado em uma máquina virtual na pilha do Azure. 
-7.  Selecione o **gatilhos** guia e habilitar **integração contínua**.
-7.  Clique em **Salvar & fila** e, em seguida, selecione **salvar** na lista suspensa. 
+As etapas a seguir descrevem o que é necessário para configurar a autenticação:
 
-## <a name="create-release-definition"></a>Criar definição de versão
-O processo de liberação define como as compilações da etapa anterior são implantadas em um ambiente.  Neste tutorial, publicamos nosso aplicativo ASP.NET com o FTP para um aplicativo Web do Azure. Para configurar uma versão do Azure, use as seguintes etapas:
+1. Crie uma entidade de serviço, ou use uma entidade de serviço existente.
+2. Crie chaves de autenticação para a entidade de serviço.
+3. Valide a assinatura de pilha do Azure por meio do controle de acesso baseado em função para permitir que o nome Principal de serviço (SPN) para fazer parte da função de Colaborador.
+4. Crie uma nova definição de serviço no VSTS usando os pontos de extremidade de pilha do Azure e as informações de SPN.
 
-1.  Na faixa VSTS, selecione **Build e versão** e **versões**.
-2.  Clique em verde **+ nova definição**.
-3.  Selecione **vazio** e clique em **próximo**.
-4.  Marque a caixa de *implantação contínua*e, em seguida, clique em **criar**.
+### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Agora que você criou uma definição de versão vazia e vinculada a ele para a compilação, adicionamos as etapas para o ambiente do Azure:
+Consulte o [criação da entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar uma entidade de serviço e, em seguida, escolha **API da Web doaplicativo/** para o tipo de aplicativo.
 
-1.  Clique em verde  **+**  para adicionar tarefas.
-2.  Selecione **todos os**e, em seguida, na lista, adicione **FTP carregar** e selecione **fechar**.
-3.  Selecione o **FTP carregar** tarefa você acabou de adicionar e configurar os seguintes parâmetros:
-    
-    | Parâmetro | Valor |
-    | ----- | ----- |
-    |Método de autenticação| Insira as credenciais|
-    |URL do Servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure |
-    |Nome de Usuário | Nome de usuário configurado ao criar credenciais de FTP para o aplicativo Web |
-    |Senha | Senha criados durante o estabelecimento de credenciais de FTP para o aplicativo Web|
-    |Diretório de Origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot/ |
-    |Preservar os caminhos de arquivo | Ativado (marcado)|
+### <a name="create-an-access-key"></a>Criar uma chave de acesso
 
-4.  Clique em **Salvar**
+Uma entidade de serviço requer uma chave de autenticação. Use as etapas a seguir para gerar uma chave.
 
-Por fim, você pode configurar a definição de versão para usar o pool de agente que contém o agente implantado usando as seguintes etapas:
-1.  Selecione a definição de versão e clique em **editar**.
-2.  Selecione **executados em agente** da coluna do meio.  Na coluna à direita, selecione a fila de agente que contém o agente de compilação em execução na pilha do Azure.  
-    ![configuração de Mostrar imagem de definição de versão para usar a fila específica](./media/azure-stack-solution-pipeline/image3.png)
+1. Em **Registros do Aplicativo** no Azure Active Directory, selecione seu aplicativo.
 
+    ![Selecione o aplicativo](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-## <a name="deploy-your-app-to-azure"></a>Implantar seu aplicativo no Azure
-Esta etapa usa seu pipeline de CI/CD recém-criado para implantar o aplicativo ASP.NET em um aplicativo Web no Azure. 
+2. Anote o valor de **ID do aplicativo**. Ao configurar o ponto de extremidade de serviço no VSTS, você usará esse valor.
 
-1.  Na faixa no VSTS, selecione **Build e versão**e, em seguida, selecione **cria**.
-2.  Clique em **...**  na definição de compilação criada anteriormente e selecione **enfileirar nova compilação**.
-3.  Aceite os padrões e clique em **Okey**.  A compilação começa e exibe o progresso.
-4.  Quando a compilação for concluída, você pode acompanhar o status, selecionando **Build e versão** e selecionando **versões**.
-5.  Após a compilação for concluída, visite o site usando a URL observada ao criar o aplicativo Web.    
+    ![ID do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
+3. Para gerar uma chave de autenticação, selecione **Configurações**.
 
-## <a name="add-azure-stack-to-pipeline"></a>Adicionar a pilha do Azure para o pipeline
-Agora que você testou o pipeline de CI/CD implantando para o Azure, é hora de adicionar a pilha do Azure para o pipeline.  Nas etapas a seguir, você cria um novo ambiente e adiciona uma tarefa de carregamento de FTP para implantar seu aplicativo no Azure pilha.  Você também pode adicionar um aprovador de versão, que serve como uma maneira de simular "Aprovar" em uma versão de código para a pilha do Azure.  
+    ![Editar configurações do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_03.png)
 
-1.  Na definição de lançamento, selecione **+ adicionar ambiente** e **criar novo ambiente**.
-2.  Selecione **vazio**, clique em **próximo**.
-3.  Selecione **usuários específicos** e especificar sua conta.  Selecione **Criar**.
-4.  Renomear o ambiente, selecionando o nome existente e digitando *Azure pilha*.
-5.  Agora, a seleção do ambiente da pilha do Azure, em seguida, selecione **adicionar tarefas**.
-6.  Selecione o **FTP carregar** tarefas e selecione **adicionar**, em seguida, selecione **fechar**.
+4. Para gerar uma chave de autenticação, selecione **Chaves**.
 
+    ![Configurar as definições de chave](media\azure-stack-solution-hybrid-pipeline\000_04.png)
 
-### <a name="configure-ftp-task"></a>Configurar a tarefa de FTP
-Agora que você criou uma versão, você configurará as etapas necessárias para publicar o aplicativo Web na pilha do Azure.  Como você configurou a tarefa de Upload de FTP para o Azure, você configura a tarefa para a pilha do Azure:
+5. Forneça uma descrição para a chave e definir a duração da chave. Ao terminar, escolha **Salvar**.
 
-1.  Selecione o **FTP carregar** tarefa você acabou de adicionar e configurar os seguintes parâmetros:
-    
-    | Parâmetro | Valor |
-    | -----     | ----- |
-    |Método de autenticação| Insira as credenciais|
-    |URL do Servidor | A URL de FTP de aplicativo Web é recuperado do portal do Azure pilha |
-    |Nome de Usuário | Nome de usuário configurado ao criar credenciais de FTP para o aplicativo Web |
-    |Senha | Senha criados durante o estabelecimento de credenciais de FTP para o aplicativo Web|
-    |Diretório de Origem | $(System.DefaultWorkingDirectory)\**\ |
-    |Diretório remoto | /site/wwwroot/|
-    |Preservar os caminhos de arquivo | Ativado (marcado)|
+    ![Descrição da chave e duração](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-2.  Clique em **Salvar**
+    Depois de salvar a chave, a chave **valor** é exibido. Copie esse valor, porque você não pode obter esse valor posteriormente. Você fornece o **valor de chave** com a ID do aplicativo para fazer logon como o aplicativo. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
 
-Finalmente, configure a definição de versão para usar o pool de agente que contém o agente implantado usando as seguintes etapas:
-1.  Selecione a definição de versão e clique em **editar**
-2.  Selecione **executados em agente** da coluna do meio. Na coluna à direita, selecione a fila de agente que contém o agente de compilação em execução na pilha do Azure.  
-    ![configuração de Mostrar imagem de definição de versão para usar a fila específica](./media/azure-stack-solution-pipeline/image3.png)
+    ![VALOR de chave](media\azure-stack-solution-hybrid-pipeline\000_06.png)
 
-## <a name="deploy-new-code"></a>Implantar novo código
-Agora você pode testar o pipeline de CI/CD híbrido, com a etapa final de publicação para a pilha do Azure.  Nesta seção, você modificar o rodapé do site e iniciar a implantação por meio do pipeline.  Uma vez concluído, você verá as alterações implantadas no Azure para análise e, em seguida, quando você aprovar a versão, eles são publicados para a pilha do Azure.
+### <a name="get-the-tenant-id"></a>Obter a ID de locatário
 
-1. No Visual Studio, abra o *site.master* de arquivo e altere esta linha:
-    
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-    `
+Como parte da configuração de ponto de extremidade do serviço, VSTS requer o **ID de locatário** que corresponde ao diretório AAD implantado seu carimbo de pilha do Azure. Use as etapas a seguir para obter a ID de locatário.
 
-    para isto:
+1. Selecione **Azure Active Directory**.
 
-    `
-        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application delivered by VSTS, Azure, and Azure Stack</p>
-    `
-3.  Confirmar as alterações e sincronizar com VSTS.  
-4.  O espaço de trabalho do VSTS, verificar o status de compilação selecionando **Build e versão** > **de compilação**
-5.  Você verá uma compilação em andamento.  Clique duas vezes o status, e você pode assistir o progresso da compilação.  Depois que você vê "Compilação concluída" no console do, vá para verificar a versão do **Build e versão** > **versão**.  Clique duas vezes o lançamento.
-6.  Você receberá uma versão requer a revisão de notificação. Verifique a URL do aplicativo Web e verifique se que as novas alterações estão presentes.  Aprove a versão no VSTS.
-    ![configuração de Mostrar imagem de definição de versão para usar a fila específica](./media/azure-stack-solution-pipeline/image4.png)
-    
-7.  Verifique se a publicação com a pilha do Azure estiver concluída, visitando o site usando a URL observada ao criar o aplicativo Web.
-    ![Imagem mostrando o ASP. Aplicativo nEt com rodapé alterado](./media/azure-stack-solution-pipeline/image5.png)
+    ![Active Directory do Azure para locatário](media\azure-stack-solution-hybrid-pipeline\000_07.png)
 
+2. Para obter a ID de locatário, selecione **Propriedades** do seu locatário do Azure AD.
 
-Agora você pode usar o novo pipeline de CI/CD híbrida como um bloco de construção para outros padrões de nuvem híbrida.
+    ![Exibir propriedades do inquilino](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+
+3. Copie a **ID de diretório**. Esse valor é a ID do locatário.
+
+    ![ID do Diretório](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+
+### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de serviço principal para implantar recursos na assinatura do Azure pilha
+
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões recomendadas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+
+Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adição de um aplicativo para a função de leitor de um grupo de recursos significa que ela pode ler o grupo de recursos e qualquer de seus recursos.
+
+1. Navegue até o nível do escopo ao qual quer atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, escolha **Assinaturas**.
+
+    ![Selecione as assinaturas](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+
+2. Em **assinatura**, selecione Visual Studio Enterprise.
+
+    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+
+3. No Visual Studio Enterprise, selecione **controle de acesso (IAM)**.
+
+    ![Controle de acesso (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+
+4. Selecione **Adicionar**.
+
+    ![Adicionar](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+
+5. Em **adicionar permissões**, selecione a função que você deseja atribuir ao aplicativo. Neste exemplo, o **proprietário** função.
+
+    ![Função de proprietário](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+
+6. Por padrão, os aplicativos do Azure Active Directory não são exibidos nas opções disponíveis. Para localizar seu aplicativo, você deve fornecer seu nome no **selecione** campo para procurá-lo. Selecione o aplicativo.
+
+    ![Resultados de pesquisa do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+
+7. Selecione **Salvar** para finalizar a atribuição da função. Agora você vê o aplicativo na lista de usuários atribuídos a uma função para esse escopo.
+
+### <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
+
+Controle de acesso do Azure baseado em função (RBAC) fornece gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode controlar o nível de acesso que os usuários precisam para realizar seus trabalhos. Para obter mais informações sobre o controle de acesso baseado em função, consulte [gerenciar o acesso aos recursos de assinatura do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+
+### <a name="vsts-agent-pools"></a>Pools de agente do VSTS
+
+Em vez de gerenciar cada agente separadamente, você pode organizar os agentes em pools de agente. Um pool de agente define o limite de compartilhamento para todos os agentes nesse pool. No VSTS, pools de agente limitam-se a conta do VSTS, o que significa que você pode compartilhar um pool de agente em projetos de equipe. Para saber mais sobre como criar pools de agente, consulte [criar Pools de agente e filas](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+
+### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Adicionar um Token de acesso pessoal (PAT) para a pilha do Azure
+
+Crie um Token de acesso pessoal para acessar VSTS.
+
+1. Entre sua conta do VSTS e selecione o nome do perfil de conta.
+2. Selecione **gerenciar segurança** a página de criação de token de acesso.
+
+    ![Entrada do usuário](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+
+    ![Selecione o projeto de equipe](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+
+    ![Adicionar o token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+
+    ![Criar um token](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+
+3. Copie o token.
+
+    > [!Note]
+    > Salve as informações do token. Essas informações não são armazenadas e não aparecerá novamente quando você deixar a página da web.
+
+    ![Token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+
+### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalação do que agente de compilação do VSTS na pilha do Azure hospedado servidor de compilação
+
+1. Conecte-se ao seu servidor de compilação implantado no host de pilha do Azure.
+2. Baixar e implantar o agente de compilação como um serviço usando sua conta pessoal do token (PAT) e executar como a conta de administrador da VM.
+
+    ![Baixar o agente de compilação](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+
+3. Navegue até a pasta para o agente de compilação extraídos. Execute o **run.cmd** arquivo em um prompt de comando com privilégios elevados.
+
+    ![Agente de compilação extraídos](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+
+    ![Registrar o agente de compilação](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+
+4. Quando o run.cmd for concluído, a pasta de agente de compilação é atualizada com arquivos adicionais. A pasta com o conteúdo extraído deve parecer com o seguinte:
+
+    ![Atualização de pasta do agente de compilação](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+
+    Você pode ver o agente na pasta do VSTS.
+
+## <a name="endpoint-creation-permissions"></a>Permissões de criação de ponto de extremidade
+
+Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) pode implantar aplicativos de serviço do Azure para a pilha do Azure. VSTS conecta-se para o agente de compilação, que se conecta a pilha do Azure.
+
+![Aplicativo de exemplo NorthwindCloud no VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+
+1. Entrar no VSTO e navegue até a página de configurações do aplicativo.
+2. Em **configurações**, selecione **segurança**.
+3. Em **VSTS grupos**, selecione **criadores de ponto de extremidade**.
+
+    ![Criadores de ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+
+4. Sobre o **membros** guia, selecione **adicionar**.
+
+    ![Adicionar um membro](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+
+5. Em **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
+6. Selecione **Salvar alterações**.
+7. No **VSTS grupos** lista, selecione **administradores de ponto de extremidade**.
+
+    ![Administradores de ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+
+8. Sobre o **membros** guia, selecione **adicionar**.
+9. Em **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
+10. Selecione **Salvar alterações**.
+
+Agora que as informações de ponto de extremidade existem, o VSTS para conexão de pilha do Azure está pronto para uso. O agente de compilação na pilha do Azure obtém as instruções do VSTS e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com a pilha do Azure.
+
+![Agente de compilação](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+## <a name="develop-your-application-build"></a>Desenvolver seu build do aplicativo
+
+Nesta parte do tutorial, você vai:
+
+* Adicione código a um projeto do VSTS.
+* Crie a implantação do aplicativo da web independentes.
+* Configurar o processo de implantação contínua
+
+> [!Note]
+ > Seu ambiente de pilha do Azure precisa as imagens corretas agregadas para executar o Windows Server e SQL Server. Ela também deve ter o serviço de aplicativo implantado. Leia a documentação do serviço de aplicativo seção "Pré-requisitos" para obter os requisitos de operador de pilha do Azure.
+
+Híbrido CI/CD pode aplicar o código do aplicativo e o código de infraestrutura. Use [modelos do Gerenciador de recursos do Azure como web ](https://azure.microsoft.com/resources/templates/) VSTS para implantar ambas as nuvens de código do aplicativo.
+
+### <a name="add-code-to-a-vsts-project"></a>Adicionar código a um projeto do VSTS
+
+1. Entrar no VSTS com uma conta que tenha direitos de criação de projeto na pilha do Azure. A próxima captura de tela mostra como conectar-se ao projeto HybridCICD.
+
+    ![Conectar a um projeto](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+
+2. **Clone o repositório** criando e abrindo o aplicativo web padrão.
+
+    ![Repositório de clone](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+
+### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar a implantação do aplicativo da web autocontidos para serviços de aplicativos em ambas as nuvens
+
+1. Editar o **WebApplication.csproj** arquivo: selecione **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implantação autossuficiente](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
+
+    ![Configurar Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+
+2. Use o Team Explorer para incluir o código no VSTS.
+
+3. Confirme se o código do aplicativo foi marcado no Visual Studio Team Services.
+
+### <a name="create-the-build-definition"></a>Criar a definição de compilação
+
+1. Entrar no VSTS com uma conta que pode criar uma definição de compilação.
+2. Navegue até o **criar aplicativo de Web** página para o projeto.
+
+3. Em **argumentos**, adicionar **win10-x64 - r** código. Isso é necessário para disparar uma implantação independente com o .net Core.
+
+    ![Adicionar definição de compilação do argumento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+
+4. Execute a compilação. O [implantação autossuficiente compilação](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará artefatos que podem ser executados no Azure e a pilha do Azure.
+
+### <a name="use-an-azure-hosted-build-agent"></a>Uso do Azure hospedado agente de compilação
+
+Usando um agente de compilação hospedado no VSTS é uma opção conveniente para criar e implantar aplicativos web. Atualizações e manutenção do agente são executadas automaticamente pelo Microsoft Azure, que permite que um ciclo de desenvolvimento contínuo e ininterrupta.
+
+### <a name="configure-the-continuous-deployment-cd-process"></a>Configurar o processo de implantação contínua (CD)
+
+O Visual Studio Team Services (VSTS) e o Team Foundation Server (TFS) fornecem um pipeline altamente configurável e gerenciável para versões em vários ambientes, como desenvolvimento, preparação, qualidade (QA) e produção. Esse processo pode incluir a necessidade de aprovações em estágios específicos do ciclo de vida do aplicativo.
+
+### <a name="create-release-definition"></a>Criar definição de versão
+
+Criando uma definição de versão é o processo de compilação a etapa final do seu aplicativo. Essa definição de versão é usada para criar uma versão e implantar uma compilação.
+
+1. Entrar no VSTS e navegue até **Build e versão** para seu projeto.
+2. Sobre o **versões** guia, selecione  **\[ +]** e, em seguida, selecione **criar definição de versão**.
+
+   ![Criar definição de versão](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+
+3. Em **selecionar um modelo de**, escolha **implantação de serviço de aplicativo do Azure**e, em seguida, selecione **aplicar**.
+
+    ![Aplicar modelo](media\azure-stack-solution-hybrid-pipeline\102.png)
+
+4. Em **adicionar artefato**, do **fonte (definição de compilação)** menu suspenso, selecione o aplicativo de compilação de nuvem do Azure.
+
+    ![Adicionar artefato](media\azure-stack-solution-hybrid-pipeline\103.png)
+
+5. No **Pipeline** guia, selecione o **1 fase**, **1 tarefa** vincular a **exibir tarefas do ambiente**.
+
+    ![Exibir tarefas de pipeline](media\azure-stack-solution-hybrid-pipeline\104.png)
+
+6. No **tarefas** , insira o Azure como o **nome do ambiente** e selecione AzureCloud Traders Web EP do **assinatura do Azure** lista suspensa.
+
+    ![Configurar variáveis de ambiente](media\azure-stack-solution-hybrid-pipeline\105.png)
+
+7. Insira o **nome do serviço de aplicativo do Azure**, que é "northwindtraders" na próxima captura de tela.
+
+    ![Nome do serviço de aplicativo](media\azure-stack-solution-hybrid-pipeline\106.png)
+
+8. Para a fase de agente, selecione **hospedado VS2017** do **fila do agente** lista suspensa.
+
+    ![Agente hospedado](media\azure-stack-solution-hybrid-pipeline\107.png)
+
+9. Em **implantar o serviço de aplicativo do Azure**, selecione o válido **pacote ou pasta** para o ambiente.
+
+    ![Selecione o pacote ou pasta](media\azure-stack-solution-hybrid-pipeline\108.png)
+
+10. Em **Selecionar arquivo ou pasta**, selecione **Okey** para **local**.
+
+    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\109.png)
+
+11. Salvar todas as alterações e voltar a **Pipeline**.
+
+    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\110.png)
+
+12. No **Pipeline** guia, selecione **adicionar artefato**e escolha o **NorthwindCloud Traders-recipiente** do **fonte (definição de compilação)** lista suspensa.
+
+    ![Adicionar novo artefato](media\azure-stack-solution-hybrid-pipeline\111.png)
+
+13. Em **selecionar um modelo de**, adicione outro ambiente. Escolher **implantação de serviço de aplicativo do Azure** e, em seguida, selecione **aplicar**.
+
+    ![Selecionar modelo](media\azure-stack-solution-hybrid-pipeline\112.png)
+
+14. Digite "Azure pilha" como o **nome do ambiente**.
+
+    ![Nome do ambiente](media\azure-stack-solution-hybrid-pipeline\113.png)
+
+15. Sobre o **tarefas** , localize e selecione a pilha do Azure.
+
+    ![Ambiente de pilha do Azure](media\azure-stack-solution-hybrid-pipeline\114.png)
+
+16. Do **assinatura do Azure** lista suspensa, selecione "AzureStack Traders recipiente EP" para o ponto de extremidade de pilha do Azure.
+
+    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\115.png)
+
+17. Insira o nome do aplicativo web do Azure pilha como o **nome do serviço de aplicativo**.
+
+    ![Nome do serviço de aplicativo](media\azure-stack-solution-hybrid-pipeline\116.png)
+
+18. Em **seleção agente**, escolher "AzureStack - bDouglas Fir" o **fila do agente** lista suspensa.
+
+    ![Selecione o agente](media\azure-stack-solution-hybrid-pipeline\117.png)
+
+19. Para **implantar o serviço de aplicativo do Azure**, selecione o válido **pacote ou pasta** para o ambiente. Em **Selecionar arquivo ou pasta**, selecione **Okey** para a pasta **local**.
+
+    ![Selecione o pacote ou pasta](media\azure-stack-solution-hybrid-pipeline\118.png)
+
+    ![Aprovar local](media\azure-stack-solution-hybrid-pipeline\119.png)
+
+20. Sobre o **variável** guia, localize a variável chamada **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Defina o valor da variável como **true**e definir o escopo para **Azure pilha**.
+
+    ![Configurar a variável](media\azure-stack-solution-hybrid-pipeline\120.png)
+
+21. No **Pipeline** guia, selecione o **gatilho de implantação contínua** ícone para o artefato NorthwindCloud Traders-Web e defina o **gatilho de implantação contínua** para **Habilitado**.  Fazer o mesmo para o artefato "NorthwindCloud Traders-recipiente".
+
+    ![Gatilho de implantação contínua de conjunto](media\azure-stack-solution-hybrid-pipeline\121.png)
+
+22. Para o ambiente de pilha do Azure, selecione o **condições de pré-implantação** ícone definir o gatilho para **após o lançamento**.
+
+    ![Conjunto de condições de pré-implantação gatilho](media\azure-stack-solution-hybrid-pipeline\122.png)
+
+23. Salve todas as alterações.
+
+> [!Note]
+> Algumas configurações para tarefas de versão podem ter sido automaticamente definidas como [variáveis de ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) quando criou a definição de uma versão de um modelo. Essas configurações não podem ser modificadas nas configurações de tarefas. No entanto, você pode editar essas configurações nos itens do ambiente do pai.
+
+## <a name="create-a-release"></a>Criar uma versão
+
+Agora que você concluiu as modificações na definição de versão, é hora de começar a implantação. Para fazer isso, você deve criar uma versão da definição de versão. Uma versão pode ser criada automaticamente. Por exemplo, o gatilho de implantação contínua é definido na definição de versão. Isso significa que modificar o código-fonte iniciará uma nova compilação e de que uma nova versão. No entanto, nesta seção você criará uma nova versão manualmente.
+
+1. No **Pipeline** guia, abra o **versão** suspensa lista e escolha **criar versão**.
+
+    ![Criar uma versão](media\azure-stack-solution-hybrid-pipeline\200.png)
+
+2. Insira uma descrição para a versão, verifique se os artefatos corretos estão selecionados e, em seguida, escolha **criar**. Após alguns momentos, uma faixa é exibida indicando que a nova versão foi criada e o nome de versão é exibido como um link. Escolha o link para ver a página de resumo da versão.
+
+    ![Faixa de criação de versão](media\azure-stack-solution-hybrid-pipeline\201.png)
+
+3. A página de resumo versão mostra detalhes sobre a versão. Na seguinte captura de tela de "Versão 2", o **ambientes** seção mostra o **status da implantação** para o Azure como "Em andamento" e o status de pilha do Azure é "êxito". Quando o status da implantação para o ambiente do Azure é alterado para "Êxito", uma faixa será exibida, indicando que a versão está pronta para aprovação. Quando uma implantação está pendente ou falhou, um azul **(i)** ícone de informações é mostrado. Passe o mouse sobre o ícone para ver um pop-up que contém o motivo de atraso ou falha.
+
+    ![Página de resumo de versão](media\azure-stack-solution-hybrid-pipeline\202.png)
+
+Outros modos de exibição, como a lista de versões, também será exibido um ícone que indica a aprovação está pendente. O pop-up para esse ícone mostra o nome do ambiente e obter mais detalhes relacionados à implantação. É fácil para um administrador, consulte o progresso geral de versões e ver quais versões estão aguardando aprovação.
+
+### <a name="monitor-and-track-deployments"></a>Monitorar e acompanhar implantações
+
+Esta seção mostra como você pode monitorar e controlar todas as suas implantações. A versão para a implantação de dois sites de serviços de aplicativo do Azure fornece um bom exemplo.
+
+1. Na página de resumo de "Versão 2", selecione **Logs**. Durante a implantação, essa página mostra o log em tempo real do agente. Painel da esquerda mostra o status de cada operação na implantação para cada ambiente.
+
+    Você pode escolher um ícone de pessoa no **ação** coluna para uma aprovação de pré-implantação ou pós-implantação que aprovou (ou rejeitados) a implantação, e a mensagem fornecidas por elas.
+
+2. Após a conclusão da implantação, todo o arquivo de log é exibido no painel direito. Você pode selecionar qualquer **etapa** no painel esquerdo para ver o arquivo de log para uma única etapa, como "Inicializar o trabalho". A capacidade de ver logs individuais torna mais fácil rastrear e depurar partes da implantação geral. Você também pode **salvar** o arquivo de log para uma etapa ou **baixar todos os logs como zip**.
+
+    ![Logs de versão](media\azure-stack-solution-hybrid-pipeline\203.png)
+
+3. Abra o **resumo** guia para obter informações gerais sobre a versão. Essa exibição mostra detalhes sobre a compilação, os ambientes que ele foi implantado, status da implantação e outras informações sobre a versão.
+
+4. Selecione um link de ambiente (**Azure** ou **Azure pilha**) para ver informações sobre existente e pendentes implantações em um ambiente específico. Você pode usar esses modos de exibição como uma maneira rápida de verificar se a mesma compilação foi implantada para ambos os ambientes.
+
+5. Abra o **implantado o aplicativo de produção** em seu navegador. Por exemplo, para o site de serviços de aplicativo do Azure, abra a URL `http://[your-app-name].azurewebsites.net`.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a criar um híbrido CI/CD pipeline que:
 
-> [!div class="checklist"]
-> * Inicia uma nova compilação com base no código confirma a seu repositório do Visual Studio Team Services (VSTS).
-> * Implanta automaticamente o seu código recém-criado para o Azure para testes de aceitação do usuário.
-> * Quando o seu código de teste implanta automaticamente a pilha do Azure. 
-
-Agora que você tem um pipeline de CI/CD híbrida, continue para aprender a desenvolver aplicativos para a pilha do Azure.
-
-> [!div class="nextstepaction"]
-> [Desenvolver para o Azure Stack](azure-stack-developer.md)
-
-
+* Para saber mais sobre os padrões de nuvem do Azure, consulte [padrões de Design de nuvem](https://docs.microsoft.com/azure/architecture/patterns).

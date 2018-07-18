@@ -1,24 +1,24 @@
 ---
 title: Configurar o cluster do Linux do Azure Service Fabric no Windows | Microsoft Docs
-description: "Este artigo aborda como configurar clusters do Service Fabric Linux executando em máquinas de desenvolvimento do Windows. Isto é particularmente útil para o desenvolvimento de plataformas cruzadas."
+description: Este artigo aborda como configurar clusters do Service Fabric Linux executando em máquinas de desenvolvimento do Windows. Isto é particularmente útil para o desenvolvimento de plataformas cruzadas.
 services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ad0d383888c173ece5a7fbd3b0de690ed13074f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurar um cluster do Linux do Service Fabric no seu computador de desenvolvedor do Windows
 
@@ -36,7 +36,7 @@ Os clusters do Service Fabric baseados no Linux não são executados nativamente
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Criar um contêiner local e configuração do Service Fabric
-Para configurar um contêiner de Docker local e ter um cluster do Service Fabric em execução, execute as seguintes etapas:
+Para configurar um contêiner local do Docker e ter um cluster do Service Fabric em execução, execute as seguintes etapas no PowerShell:
 
 1. Faça um pull da imagem do repositório de hub do Docker:
 

@@ -1,18 +1,19 @@
 ---
-title: "Visão geral da Grade de Eventos do Azure"
+title: Visão geral da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: overview
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303970"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -24,43 +25,55 @@ No momento, a Grade de Eventos oferece suporte às seguintes regiões:
 
 * Sudeste da Ásia
 * Leste da Ásia
+* Leste da Austrália
+* Sudeste da Austrália
 * Centro dos EUA
 *   Leste dos EUA
 *   Leste dos EUA 2
 * Europa Ocidental
 * Norte da Europa
+* Leste do Japão
+* Oeste do Japão
 *   Centro-Oeste dos EUA
 *   Oeste dos EUA
 *   Oeste dos EUA 2
 
-Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). A imagem a seguir mostra como a Grade de Eventos conecta editores e manipuladores, mas ele não fornece uma lista abrangente das opções com suporte.
+Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). A imagem a seguir mostra como a Grade de Eventos conecta fontes e manipuladores, mas não fornece uma lista abrangente de opções com suporte.
 
 ![Modelo funcional da Grade de Eventos](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Editores de eventos
+## <a name="event-sources"></a>Origens de eventos
 
-No momento, os seguintes serviços do Azure têm suporte interno ao publicador para a grade de eventos:
+Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
 
 * Assinaturas do Azure (operações de gerenciamento)
 * Tópicos personalizados
-* Hubs de evento
+* Hubs de Eventos
 * Hub IoT
+* Serviços de mídia
 * Grupos de recursos (operações de gerenciamento)
+* Barramento de Serviço
 * Blob de Armazenamento
 * Uso geral v2 (GPv2) do Armazenamento
 
+Para obter links para artigos que mostram como usar cada origem de evento, consulte [Origens de evento na Grade de Eventos do Azure](event-sources.md).
+
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-No momento, os seguintes serviços do Azure têm suporte interno ao manipulador para a grade de eventos: 
+Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
 
 * Automação do Azure
 * Funções do Azure
-* Hubs de evento
+* Hubs de Eventos
+* Conexões Híbridas
 * Aplicativos Lógicos
 * Microsoft Flow
+* Armazenamento de Filas
 * WebHooks
 
 Ao usar o Azure Functions como o manipulador, use o gatilho Grade de Eventos em vez de gatilhos HTTP genéricos. A Grade de Eventos valida automaticamente os gatilhos de Função da Grade de Eventos. Com os gatilhos HTTP genéricos, você deve implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
+
+Para obter links para artigos que mostram como usar cada manipulador de evento, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
 ## <a name="concepts"></a>Conceitos
 

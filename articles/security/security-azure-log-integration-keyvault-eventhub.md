@@ -1,21 +1,21 @@
 ---
 title: Integrar logs do Azure Key Vault usando os Hubs de Eventos | Microsoft Docs
-description: "Tutorial que fornece as etapas necessárias para disponibilizar os logs do Key Vault para um SIEM usando a integração de log do Azure"
+description: Tutorial que fornece as etapas necessárias para disponibilizar os logs do Key Vault para um SIEM usando a integração de log do Azure
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de log do Azure: processar eventos do Azure Key Vault usando Hubs de Eventos
 
@@ -81,7 +81,7 @@ Antes de concluir as etapas neste artigo, você precisará do seguinte:
 
    ![Lista de módulos carregados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Insira o comando `Login-AzureRmAccount`. Na janela de logon, insira as informações de credenciais da assinatura que você usará para este tutorial.
+3. Insira o comando `Connect-AzureRmAccount`. Na janela de logon, insira as informações de credenciais da assinatura que você usará para este tutorial.
 
    >[!NOTE]
    >Se esta for a primeira vez que você está fazendo logon no Azure neste computador, você verá uma mensagem sobre permitir que a Microsoft colete dados de uso do PowerShell. É recomendável que você habilite essa coleta de dados porque ela será usada para melhorar o Azure PowerShell.

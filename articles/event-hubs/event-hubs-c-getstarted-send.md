@@ -2,11 +2,11 @@
 title: Enviar eventos para Hubs de Eventos do Azure usando C | Microsoft Docs
 description: Enviar eventos para Hubs de Eventos do Azure usando C
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Enviar eventos para Hubs de Eventos do Azure usando C
 
 ## <a name="introduction"></a>Introdução
 Os Hubs de Eventos são um sistema de ingestão altamente escalonável que pode ingerir milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em um hub de eventos, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para saber mais, confira a [Visão geral dos Hubs de Eventos][Visão geral dos Hubs de Eventos].
+Para mais informações, consulte [Visão geral de Hubs de Eventos](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Este tutorial descreve como enviar eventos para um hub de eventos usando um aplicativo de console em C. Para saber mais sobre o recebimento de eventos, clique na linguagem de recebimento apropriada no sumário à esquerda.
 
@@ -33,7 +33,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Um ambiente de desenvolvimento C. Este tutorial considera a pilha gcc em uma VM Linux do Azure com o Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Enviar mensagens ao Hub de Eventos
 Esta seção mostra como gravar um aplicativo em C para enviar eventos ao hub de eventos. O código usa a biblioteca Proton AMQP do [projeto Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar tópicos e filas do Barramento de Serviço com AMQP do C, como é mostrado [neste exemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [Documentação do Qpid Proton](http://qpid.apache.org/proton/index.html).
@@ -153,7 +153,7 @@ Esta seção mostra como gravar um aplicativo em C para enviar eventos ao hub de
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Images. -->

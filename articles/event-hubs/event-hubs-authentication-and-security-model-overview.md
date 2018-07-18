@@ -1,24 +1,24 @@
 ---
-title: "Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Visão geral do modelo de autenticação e segurança dos Hubs de Eventos"
+title: Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos do Azure | Microsoft Docs
+description: Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
-ms.author: sethm;clemensv
-ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/30/2018
+ms.author: sethm
+ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 
@@ -36,7 +36,7 @@ Normalmente, um hub de eventos emprega um editor por cliente. Todas as mensagens
 
 Cada cliente dos hubs de eventos recebe um token exclusivo que é carregado no cliente. Os tokens são produzidos de modo que cada token exclusivo concede acesso a um editor exclusivo diferente. Um cliente que possui um token só pode enviar para um editor específico, e para nenhum outro. Se vários clientes compartilharem o mesmo token, cada um desses deles compartilhará um editor.
 
-Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um hub de eventos. Qualquer dispositivo que contenha esse token pode enviar mensagens diretamente para esse hub de eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse hub de eventos.
+Embora não seja recomendado, é possível equipar os dispositivos com tokens que concedem acesso direto a um hub de eventos. Qualquer dispositivo que contenha esse token pode enviar mensagens diretamente para esse hub de eventos. Esse dispositivo não estará sujeito à limitação. Além disso, o dispositivo não pode ser incluído na lista de bloqueios para ser impedido de enviar para esse hub de eventos.
 
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave; isso impede que outros clientes criem tokens.
 

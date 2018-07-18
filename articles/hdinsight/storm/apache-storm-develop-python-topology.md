@@ -1,26 +1,24 @@
 ---
-title: "Apache Storm com componentes Python – Azure HDInsight | Microsoft Docs"
+title: Apache Storm com componentes Python – Azure HDInsight | Microsoft Docs
 description: Saiba como criar uma topologia Apache Storm que usa componentes de Python.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 keywords: apache storm python
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -140,7 +138,7 @@ Para interromper a topologia, use __Ctrl+C__.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Você pode usar a interface do usuário do Storm para exibir a topologia no cluster. Essa interface do usuário do Storm está localizada em https://mycluster.azurehdinsight.net/stormui. Substitua `mycluster` pelo nome do cluster.
+3. Você pode usar a interface do usuário do Storm para exibir a topologia no cluster. A interface do usuário do Storm está localizada em https://mycluster.azurehdinsight.net/stormui. Substitua `mycluster` pelo nome do cluster.
 
 > [!NOTE]
 > Após ser iniciada, uma topologia do Storm é executada até ser interrompida. Para interromper a topologia, é possível usar um dos métodos a seguir:

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configurar a Sincronização de Dados SQL (Versão prévia)
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
@@ -38,6 +38,8 @@ Para obter exemplos completos do PowerShell que mostrem como configurar a Sincro
     ![Lista de bancos de dados SQL do Azure](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  Na página **Bancos de dados SQL**, selecione o banco de dados SQL existente que você deseja usar como o banco de dados hub para a Sincronização de Dados. A página do banco de dados SQL é aberta.
+
+    O banco de dados hub é o ponto de extremidade central da topologia de sincronização, no qual um grupo de sincronização tem vários pontos de extremidade do banco de dados. Todos os outros pontos de extremidade do banco de dados em que o grupo de sincronização, ou seja, todos os bancos de dados membros, sincronizam com mesmo o banco de dados hub.
 
 4.  Na página do banco de dados SQL do banco de dados selecionado, selecione **Sincronizar para outros bancos de dados**. A página da Sincronização de Dados é aberta.
 
@@ -67,6 +69,8 @@ Para obter exemplos completos do PowerShell que mostrem como configurar a Sincro
         ![Especificar frequência de sincronização](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  Na seção **Resolução de Conflitos**, selecione "Hub ganha" ou "Membro ganha".
+
+        "Hub ganha" significa que, quando ocorre um conflito, os dados no banco de dados hub substituem os dados conflitantes no banco de dados de membro. "Membro ganha" significa que, quando ocorre um conflito, os dados no banco de dados de membro substituem os dados conflitantes no banco de dados hub. 
 
         ![Especificar como os conflitos são resolvidos](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -147,7 +151,7 @@ Na página **Configurar Local**, faça o seguinte:
         ![Insira as credenciais de chave e servidor do agente](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Se você receber um erro de firewall nesta hora, precisará criar uma regra de firewall no Azure para permitir o tráfego de entrada do computador do SQL Server. Você pode criar a regra manualmente no portal, mas pode achar mais fácil criá-la no SSMS (SQL Server Management Studio). No SSMS, tente se conectar ao banco de dados hub no Azure. Digite o nome como \<hub_database_name\>.database.windows.net. Para configurar a regra de firewall do Azure, siga as etapas da caixa de diálogo. Em seguida, retorne ao aplicativo Agente de Sincronização do Cliente.
+        >   Se você receber um erro de firewall nesta hora, precisará criar uma regra de firewall no Azure para permitir o tráfego de entrada do computador do SQL Server. Você pode criar a regra manualmente no portal, mas pode achar mais fácil criá-la no SSMS (SQL Server Management Studio). No SSMS, tente se conectar ao banco de dados hub no Azure. Insira o nome como <hub_database_name>.database.windows.net. Para configurar a regra de firewall do Azure, siga as etapas da caixa de diálogo. Em seguida, retorne ao aplicativo Agente de Sincronização do Cliente.
 
     9.  No aplicativo Agente de Sincronização do Cliente, clique em **Registrar** para registrar um banco de dados do SQL Server no agente. A caixa de diálogo **Configuração do SQL Server** é aberta.
 
@@ -221,7 +225,16 @@ Não necessariamente. Em um grupo de sincronização com um hub e três spokes (
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Como fazer para inserir alterações de esquema em um grupo de sincronização?
 
-Você precisa executar alterações de esquema manualmente.
+Você precisa fazer e propagar todas as alterações de esquema manualmente.
+1. Replique as alterações de esquema manualmente para o hub e para todos os membros de sincronização.
+2. Atualize o esquema de sincronização.
+
+**Adicionar novas tabelas e colunas**. Novas tabelas e colunas não impactam a sincronização atual. A Sincronização de Dados ignorará as novas tabelas e colunas até que você adicione-as ao esquema de sincronização. Ao adicionar novos objetos de banco de dados, esta é a melhor sequência a ser seguida:
+1. Adicione as novas tabelas ou colunas ao hub e a todos os membros de sincronização.
+2. Adicione as novas tabelas ou colunas ao esquema de sincronização.
+3. Comece a inserir valores nas novas tabelas e colunas.
+
+**Alterar o tipo de dados de uma coluna**. Ao alterar o tipo de dados de uma coluna existente, a Sincronização de Dados continuará funcionando, desde que os novos valores ajustem-se ao tipo de dados original definido no esquema de sincronização. Por exemplo, se você alterar o tipo no banco de dados de origem de **int** para **bigint**, a Sincronização de Dados continuará funcionando até que você insira um valor muito grande para **int**. Para concluir a alteração, replique a alteração do esquema manualmente para o hub e para todos os membros de sincronização e, em seguida, atualize o esquema de sincronização.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Como exportar e importar um banco de dados com a Sincronização de Dados?
 Depois de exportar um banco de dados como um arquivo `.bacpac` e importar o arquivo para criar um novo banco de dados, você precisa realizar as duas seguintes ações para usar a Sincronização de Dados no novo banco de dados:
@@ -271,7 +284,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
--   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics do OMS](sql-database-sync-monitor-oms.md)
+-   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

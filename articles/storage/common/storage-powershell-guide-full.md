@@ -3,8 +3,8 @@ title: Usando o Azure PowerShell com o Armazenamento do Azure | Microsoft Docs
 description: Saiba como usar os cmdlets do Azure PowerShell para o Armazenamento do Azure.
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: roygara
+manager: jeconnoc
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
 ms.workload: storage
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
-ms.author: robinsh
-ms.openlocfilehash: 7bd8d17d5a2c918f2bef770c224398e7332785f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: rogarana
+ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -38,7 +38,7 @@ Este artigo fornece links para vários outros artigos do PowerShell sobre Armaze
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este exercício exige o módulo do Azure PowerShell da versão 4.4 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Este exercício exige o módulo do Azure PowerShell da versão 4.4 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 Neste exercício, é possível digitar os comandos em uma janela normal do PowerShell ou usar o [ISE (Ambiente de Script Integrado) do Windows PowerShell](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) e digitar os comandos em um editor e, em seguida, testar um ou mais comandos de cada vez conforme os exemplos são analisados. É possível realçar as linhas a serem executadas e clicar em Executar Selecionado para executar apenas esses comandos.
 
@@ -46,10 +46,10 @@ Para saber mais sobre as contas de armazenamento, consulte [Introdução ao Arma
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Listar as contas de armazenamento na assinatura

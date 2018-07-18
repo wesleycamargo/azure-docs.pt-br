@@ -1,11 +1,11 @@
 ---
-title: "Conectar um computador a uma rede virtual do Azure usando autenticação Ponto a site e a autenticação de certificado nativa do Azure: PowerShell | Microsoft Docs"
-description: "Conecte clientes Windows e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o PowerShell."
+title: 'Conectar um computador a uma rede virtual do Azure usando autenticação Ponto a site e a autenticação de certificado nativa do Azure: PowerShell | Microsoft Docs'
+description: Conecte clientes Windows e Mac OS X com segurança a uma rede virtual do Azure usando P2S e certificados autoassinados ou emitidos por autoridade de certificação. Este artigo usa o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: ab171a97855090302148651e8e9c3d0d8b91a33a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 42afdee5ac58db005a7ecfb6388c88a974704a03
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
@@ -70,7 +70,7 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 1. Abra o console do PowerShell com privilégios elevados e entre na sua conta do Azure. Esse cmdlet solicita as credenciais de logon. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 2. Obtenha uma lista das assinaturas do Azure.
 

@@ -1,9 +1,9 @@
 ---
 title: Explorar dados em um cluster Hadoop e criar modelos no Azure Machine Learning | Microsoft Docs
-description: "Usando o Processo de Ciência de Dados de Equipe para um cenário completo, que emprega um cluster HDInsight Hadoop para criar e implantar um modelo."
+description: Usando o Processo de Ciência de Dados de Equipe para um cenário completo, que emprega um cluster HDInsight Hadoop para criar e implantar um modelo.
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -723,7 +723,7 @@ Para emitir consultas do Hive no módulo [Importar Dados][import-data] do Machin
 
 Estes são alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros a serem inseridos:
 
-**URI do servidor HCatalog**: se o nome do cluster é **abc123**, isso é apenas https://abc123.azurehdinsight.net.
+**URI do servidor HCatalog**: se o nome do cluster é **abc123**, isso é apenas: https://abc123.azurehdinsight.net.
 
 **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido para o cluster (não o nome de usuário de acesso remoto).
 

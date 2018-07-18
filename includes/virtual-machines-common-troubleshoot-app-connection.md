@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371262"
+---
 Há vários motivos pelos quais não é possível iniciar ou conectar-se a um aplicativo em execução em uma VM (máquina virtual) do Azure. Entre eles estão o aplicativo não estar em execução ou não estar escutando nas portas esperadas, a porta de escuta estar bloqueada ou as regras de rede não passarem corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
 
 Se você estiver tendo problemas para se conectar à sua VM usando RDP ou SSH, veja um dos seguintes artigos primeiro:
@@ -99,7 +116,7 @@ Se não conseguir acessar o aplicativo, verifique as seguintes configurações:
   
   * Verifique se a configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
   * Verifique se os Grupos de Segurança de Rede permitem o tráfego de saída de respostar e de entrada de solicitações.
-  * Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Para obter mais informações, confira [O que é um grupo de segurança de rede?](../articles/virtual-network/security-overview.md)
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 

@@ -1,29 +1,91 @@
 ---
-title: "Gerenciar clusters do HDInsight ingressados no domínio – Azure | Microsoft Docs"
-description: "Saiba como gerenciar clusters do HDInsight Ingressado no Domínio"
+title: Gerenciar clusters HDInsight ingressados no domínio - Azure
+description: Saiba como gerenciar clusters do HDInsight Ingressado no Domínio
 services: hdinsight
-documentationcenter: 
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: 
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/11/2018
-ms.author: bhanupr
-ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gerenciar clusters HDInsight ingressados no domínio
 Conheça os usuários e as funções do HDInsight Ingressado no Domínio e como gerenciar seus clusters.
+
+## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Use o VSCode para vincular ao cluster ingressado no domínio
+
+É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
+1. Abra a paleta de comandos selecionando **CTRL+SHIFT+P** e, em seguida, insira **HDInsight: Vincular um cluster**.
+
+   ![comando para vincular cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. Insira a URL do Cluster HDInsight -> Nome de usuário de entrada -> Senha de entrada -> selecione o tipo de cluster -> informações de êxito serão exibidas se a verificação for aprovada.
+   
+   ![caixa de diálogo para vincular cluster](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > O nome de usuário e a senha vinculados serão usados se o cluster foi registrado na assinatura do Azure e vinculou um cluster. 
+   
+3. É possível ver um cluster vinculado, usando o comando**Listar cluster**. Agora, você pode enviar um script para esse cluster vinculado.
+
+   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. Você também pode desvincular um cluster inserindo **HDInsight: Desvincular um cluster** da paleta de comandos.
+
+## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Use o IntelliJ para vincular ao cluster ingressado no domínio
+
+É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com). 
+1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
+
+   ![menu de contexto para vincular cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Insira o **Nome do Cluster**, o **Nome do Usuário** e a **Senha**. É necessário verificar o nome de usuário e senha, se obter a falha de autenticação. Como opção, adicione a Conta de Armazenamento, Chave de Armazenamento, e selecione um contêiner do Contêiner de Armazenamento. As informações de armazenamento são para o gerenciador de armazenamento na árvore à esquerda
+   
+   ![caixa de diálogo para vincular cluster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster.
+   > ![gerenciador de armazenamento no IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. Se as informações de entrada estiverem corretas, será possível ver um cluster vinculado no nó **HDInsight**. Agora, você pode enviar um aplicativo para esse cluster vinculado.
+
+   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. Também é possível desvincular um cluster a partir do **Azure Explorer**.
+   
+   ![cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
+
+## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Use o Eclipse para vincular ao cluster ingressado no domínio
+
+É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
+1. Clique em **Vincular um cluster** a partir do **Azure Explorer**.
+
+   ![menu de contexto para vincular cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Digite **Nome do Cluster**, **Nome de usuário** e **Senha**, clique no botão OK para vincular o cluster. Opcionalmente, insira a Conta de Armazenamento, Chave de Armazenamento e, em seguida, selecione o Contêiner de Armazenamento para o Gerenciador de armazenamento trabalhar no modo de exibição de árvore à esquerda
+   
+   ![caixa de diálogo para vincular cluster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Usamos a chave de armazenamento vinculada, nome de usuário e senha, se o cluster registrou na assinatura do Azure e vinculou um cluster.
+   > ![gerenciador de armazenamento no Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. Se as informações estiverem corretas, será possível ver um cluster vinculado no nó **HDInsight**, após clicar no botão OK. Agora, você pode enviar um aplicativo para esse cluster vinculado.
+
+   ![cluster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. Também é possível desvincular um cluster a partir do **Azure Explorer**.
+   
+   ![cluster desvinculado](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Acesse os clusters com o Pacote de Segurança Enterprise.
 
@@ -39,6 +101,8 @@ Segurança e isolamento de usuários são importantes para um cluster de HDInsig
 |Consulta Interativa (LLAP)|Interativo|<ul><li>[Beeline](#beeline)</li><li>[Exibição de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Qualquer|Instalar Aplicativo Personalizado|<ul><li>[Ações de Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
+   > [!NOTE]
+   > Jupyter não está instalado/com suporte no  Enterprise Security Package.
 
 Usar as APIs padrão ajuda da perspectiva de segurança. Além disso, você obtém os benefícios a seguir:
 
@@ -51,7 +115,7 @@ Usar as APIs padrão ajuda da perspectiva de segurança. Além disso, você obt�
 Instale o Beeline no seu computador e conecte-se pela internet pública, use os seguintes parâmetros: 
 
 ```
-- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
 - Cluster login name: -n admin
 - Cluster login password -p 'password'
 ```

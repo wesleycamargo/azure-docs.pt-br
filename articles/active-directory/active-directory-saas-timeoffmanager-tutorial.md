@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory ao TimeOffManager | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o TimeOffManager."
+title: 'Tutorial: integração do Azure Active Directory ao TimeOffManager | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o TimeOffManager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 462a77e56f2dc28a3a3258ab44a1486a4dd257e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Active Directory do Azure ao TimeOffManager
 
@@ -30,9 +30,9 @@ Integrar o TimeOffManager ao Azure AD fornece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no TimeOffManager (logon único) com as respectivas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao TimeOffManager, você precisa dos seguintes itens:
 
@@ -64,11 +64,11 @@ Para configurar a integração do TimeOffManager ao Azure AD, você precisará a
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **TimeOffManager**, selecione **TimeOffManager** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -97,7 +97,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração do aplicativo **TimeOffManager**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
@@ -142,7 +142,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_general_400.png)
 
 7. Na seção **Configuração do TimeOffManager**, clique em **Configurar TimeOffManager** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
@@ -261,7 +261,7 @@ Ao clicar no bloco de TimeOffManager no Painel de Acesso, você deverá ser cone
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

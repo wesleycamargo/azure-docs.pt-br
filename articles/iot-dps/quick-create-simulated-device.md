@@ -1,22 +1,22 @@
 ---
 title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando C | Microsoft Docs
-description: "Guia de Início Rápido do Azure – Criar e provisionar um dispositivo simulado TPM usando o SDK do dispositivo C para o Serviço de Provisionamento do Dispositivo Hub IoT do Azure"
+description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo simulado TPM usando o SDK do dispositivo C para o Serviço de Provisionamento do Dispositivo Hub IoT do Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 12/20/2017
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d4abd68aa559540da3b735d7a583fc86107531f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d642bec50d8de2f1f9a44c33c99ba8edda040e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo TPM simulado usando o SDK do dispositivo C para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 03/05/2018
 
 Estas etapas mostram como criar um dispositivo simulado em seu computador de desenvolvimento executando o sistema operacional Windows, executar o simulador do TPM do Windows como [HSM (Módulo de Segurança de Hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) do dispositivo e usar o código de exemplo para se conectar a esse dispositivo simulado com o Serviço de Provisionamento de Dispositivos e o Hub IoT. 
 
-Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar.
+Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 
@@ -50,7 +52,7 @@ Não deixe de concluir as etapas em [Configurar o Serviço de Provisionamento de
     cd cmake
     ```
 
-6. O exemplo de código usa um simulador do TPM do Windows. Execute o comando a seguir para habilitar a autenticação de token SAS. Ele também gera uma solução do Visual Studio para o dispositivo simulado.
+6. O exemplo de código usa um simulador de TPM do Windows para fornecer atestado por meio de autenticação de Token SAS. Execute o comando a seguir para criar uma versão do SDK específica para a plataforma de desenvolvimento do cliente e o [mecanismo de atestado](concepts-security.md#attestation-mechanism) (Simulador de TPM). Ele também gera uma solução do Visual Studio para o dispositivo simulado.
 
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..

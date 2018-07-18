@@ -1,11 +1,11 @@
 ---
-title: "Como trabalhar com o SDK de servidor back-end do Node.js para Aplicativos Móveis | Microsoft Docs"
-description: "Aprenda a trabalhar com o SDK do Servidor back-end do Node.js para Aplicativos Móveis do Serviço de Aplicativo do Azure."
+title: Como trabalhar com o SDK de servidor back-end do Node.js para Aplicativos Móveis | Microsoft Docs
+description: Aprenda a trabalhar com o SDK do Servidor back-end do Node.js para Aplicativos Móveis do Serviço de Aplicativo do Azure.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
         app.use(mobile);
 
    Salve o arquivo.
-10. Execute o aplicativo localmente (a API é fornecida em http://localhost:3000) ou publique no Azure.
+10. Execute o aplicativo localmente (a API é fornecida em http://localhost:3000)) ou publique no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end do Node.js usando o Portal do Azure
 É possível criar um back-end de Aplicativos Móveis diretamente no [Portal do Azure]. Você pode concluir as etapas a seguir ou criar um cliente e um servidor juntos, acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md). O tutorial contém uma versão simplificada dessas instruções e funciona melhor para projetos de prova de conceito.
@@ -135,7 +135,7 @@ Ao criar um back-end de Aplicativos Móveis do Node.js usando o painel **Início
 O procedimento a seguir usa um repositório Git para baixar o código do projeto de início rápido:
 
 1. Instale o Git, caso ainda não tenha feito isso. As etapas necessárias para instalar o Git variam de acordo com o sistema operacional. Para distribuições específicas de sistema operacional e diretrizes sobre a instalação, consulte [Instalar Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Siga as etapas em [Habilitar o repositório de aplicativos do Serviço de Aplicativo](../app-service/app-service-deploy-local-git.md#Step3) para habilitar o repositório Git para seu site de back-end. Anote o nome de usuário e a senha da implantação.
+2. Consulte [Preparar o repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para habilitar o repositório Git para seu site de back-end. Anote o nome de usuário e a senha da implantação.
 3. No painel do back-end de Aplicativos Móveis, anote a configuração da **URL de clone de Git**.
 4. Execute o comando `git clone`, usando a URL de clone de Git. Insira sua senha, quando necessário, como no exemplo a seguir:
 
@@ -874,7 +874,7 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [Início rápido do Cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Início rápido do Cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do Cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
-[Início rápido do Cliente Microsoft Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
+[Início rápido do cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
 [sincronização de dados offline]: app-service-mobile-offline-data-sync.md
 [Configurar a autenticação do Microsoft Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Configurar a autenticação do Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md

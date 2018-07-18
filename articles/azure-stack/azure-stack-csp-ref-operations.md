@@ -1,11 +1,11 @@
 ---
-title: "Registrar locatários pelo uso de rastreamento de pilha do Azure | Microsoft Docs"
-description: "Detalhes sobre operações usadas para gerenciar registros de Inquilino e como o uso de locatário é rastreado na pilha do Azure."
+title: Registrar locatários pelo uso de rastreamento de pilha do Azure | Microsoft Docs
+description: Detalhes sobre operações usadas para gerenciar registros de Inquilino e como o uso de locatário é rastreado na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro do inquilino na pilha do Azure
 
@@ -47,7 +47,7 @@ Observe que apenas uma assinatura do Azure pode ser associada um locatário. Se 
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Faça logon no Azure (`Login-AzureRMAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet New-AzureRmResource para atualizar o recurso de registro. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Obter uma lista de todos os locatários que foram adicionados a um registro.
 
 ### <a name="powershell"></a>PowerShell
 
-Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Faça logon no Azure (`Login-AzureRMAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
+Use o cmdlet Get-AzureRmResovurce para listar todos os locatários. Faça logon no Azure (`Add-AzureRmAccount`) usando a conta usada para o registro inicial. Aqui está um exemplo de como adicionar um locatário:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

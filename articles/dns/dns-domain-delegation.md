@@ -1,6 +1,6 @@
 ---
-title: "Visão geral da delegação do DNS do Azure | Microsoft Docs"
-description: "Entenda como alterar a delegação de domínio e usar os servidores de nomes do Azure DNS para fornecer hospedagem do domínio."
+title: Visão geral da delegação do DNS do Azure | Microsoft Docs
+description: Entenda como alterar a delegação de domínio e usar os servidores de nomes do Azure DNS para fornecer hospedagem do domínio.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 4ba615a1fc607392fa1a2a910b4674cfbcf51da1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: fc79999d240baf18ccf5923908c98791c4e7e7bb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
 
@@ -42,7 +42,7 @@ Existem dois tipos de servidores DNS:
 * Um servidor DNS *autoritativo* hospeda zonas DNS. Ele responde a consultas DNS apenas para registros nessas zonas.
 * Um servidor DNS *recursivo* não hospeda zonas DNS. Ele responde a todas as consultas DNS chamando os servidores DNS autoritativos para coletar os dados de que precisa.
 
-O Azure DNS fornece um serviço DNS autoritativo.  Ele não fornece um serviço DNS recursivo. No Azure, os Serviços de Nuvem e as VMs são automaticamente configurados para usar o serviço DNS recursivo fornecido separadamente como parte da infraestrutura do Azure. Para saber mais sobre como alterar essas configurações de DNS, confira [Resolução de nomes no Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+O Azure DNS fornece um serviço DNS autoritativo.  Ele não fornece um serviço DNS recursivo. No Azure, os Serviços de Nuvem e as VMs são automaticamente configurados para usar o serviço DNS recursivo fornecido separadamente como parte da infraestrutura do Azure. Para saber mais sobre como alterar essas configurações de DNS, confira [Resolução de nomes no Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 Os clientes DNS em computadores ou em dispositivos móveis normalmente chamam um servidor DNS recursivo para executar consultas DNS das quais os aplicativos cliente precisam.
 

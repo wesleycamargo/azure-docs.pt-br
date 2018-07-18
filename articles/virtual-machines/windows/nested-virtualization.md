@@ -1,21 +1,21 @@
 ---
-title: "Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure | Microsoft Docs"
-description: "Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure"
+title: Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure | Microsoft Docs
+description: Como habilitar a virtualização aninhada em Máquinas Virtuais do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: philmea
-manager: timlt
-ms.author: philmea
+author: cynthn
+manager: jeconnoc
+ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 

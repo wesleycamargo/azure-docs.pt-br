@@ -1,23 +1,23 @@
 ---
-title: "Visão geral de back-ends com vários locatários com o Gateway de Aplicativo do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral do suporte a vários sites do Gateway de Aplicativo para back-ends com vários locatários."
+title: Visão geral de back-ends com vários locatários com o Gateway de Aplicativo do Azure | Microsoft Docs
+description: Esta página fornece uma visão geral do suporte a vários sites do Gateway de Aplicativo para back-ends com vários locatários.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: victorh
+ms.openlocfilehash: 7c00369737d05f414f9ac23d9d3e8918b908fc80
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>O Gateway de Aplicativo dá suporte a back-ends com vários locatários
 
@@ -32,7 +32,7 @@ A capacidade de especificar uma substituição de host é definida com as config
 2. A capacidade de derivar o nome do host do IP ou FQDN dos membros do pool de back-end. As configurações HTTP também fornecem uma opção para escolher o nome de host do FQDN de um membro do pool de back-end se configurado com a opção para derivar o nome de host de um membro do pool de back-end individual. Ao usar SSL de ponta a ponta, esse nome de host é derivado do FQDN e é usado na extensão de SNI. Esse recurso habilita cenários em que um pool de back-end pode ter dois ou mais serviços PaaS com vários locatários, como aplicativos Web do Azure, e o cabeçalho de host da solicitação para cada membro pode conter o nome de host derivado do seu FQDN.
 
 > [!NOTE]
-> Em ambos os casos anteriores, as configurações afetam somente o comportamento de tráfego ativo, não o comportamento de investigação de integridade. Os testes personalizados já dão suporte à capacidade de especificar um cabeçalho de host na configuração da investigação. Os testes personalizados agora também dão suporte à capacidade de derivar o comportamento do cabeçalho de host das configurações de HTTP configuradas no momento. Essa configuração pode ser especificada usando o parâmetro `PickHostNameFromback endAddress` na configuração da investigação. Para a funcionalidade de ponta a ponta funcionar, a investigação e as configurações de HTTP devem ser modificadas para refletir a configuração correta.
+> Em ambos os casos anteriores, as configurações afetam somente o comportamento de tráfego ativo, não o comportamento de investigação de integridade. Os testes personalizados já dão suporte à capacidade de especificar um cabeçalho de host na configuração da investigação. Os testes personalizados agora também dão suporte à capacidade de derivar o comportamento do cabeçalho de host das configurações de HTTP configuradas no momento. Essa configuração pode ser especificada usando o parâmetro `PickHostNameFromBackendHttpSettings` na configuração da investigação. Para a funcionalidade de ponta a ponta funcionar, a investigação e as configurações de HTTP devem ser modificadas para refletir a configuração correta.
 
 Com essa funcionalidade, os clientes especificam as opções de configuração apropriadas das investigações personalizadas e das configurações de HTTP. Essa configuração é, em seguida, vinculada a um ouvinte e a um pool de back-end por meio de uma regra.
 

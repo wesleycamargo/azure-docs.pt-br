@@ -8,24 +8,23 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261431"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa Azure PowerShell para assinar eventos de Armazenamento de Blobs, acionar um evento e exibir o resultado. 
 
-Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, os eventos são enviados para uma URL que apenas coleta as mensagens. Você cria essa URL usando ferramentas de terceiros do [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
+Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, os eventos são enviados para uma URL que apenas coleta as mensagens. Essa URL é criada usando a ferramenta de terceiros [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** e **Hookbin** não servem para um uso de alta taxa de transferência. O uso dessas ferramentas é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+> **Hookbin** não é destinado ao uso de alta taxa de transferência. O uso dessa ferramenta é meramente demonstrativo. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta. Além disso, tenha em mente que o **Hookbin** obtém [tratamento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos sem requerer uma resposta correta às solicitações de validação de assinatura (que aconteceria [caso contrário](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para um ponto de extremidade.
-
-![Dados de evento](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>Configuração
 
@@ -33,10 +32,10 @@ Este artigo requer que você esteja executando a versão mais recente do Azure P
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela para fazer a autenticação.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela para fazer a autenticação.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 > [!NOTE]
@@ -84,7 +83,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
-Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. RequestBin e Hookbin são ferramentas de terceiros que permitem criar um ponto de extremidade e exibir solicitações que são enviadas a ele. Acesse [RequestBin](https://requestb.in/) e clique em **Criar um RequestBin** ou acesse [Hookbin](https://hookbin.com/) e clique em **Cria novo ponto de extremidade**. Copie a URL do bin e substitua `<bin URL>` no script a seguir.
+Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem do evento. Em vez de escrever código para responder ao evento, vamos criar um ponto de extremidade que coleta as mensagens, para que você possa exibi-las. O Hookbin é uma ferramenta de terceiros que permite criar um ponto de extremidade e exibir as solicitações enviadas a ele. Vá até [Hookbin](https://hookbin.com/) e clique em **Criar Novo Ponto de Extremidade**. Copie a URL do bin e substitua `<bin URL>` no script a seguir.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +91,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>Assinar a sua conta de armazenamento
 
-Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento que você criou e transmite a URL do RequestBin ou Hookbin como o ponto de extremidade para notificação de eventos. 
+Assine um tópico para indicar à Grade de Eventos quais eventos você deseja acompanhar. O exemplo a seguir assina a conta de armazenamento que você criou e transmite a URL do Hookbin como o ponto de extremidade para notificação de eventos. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

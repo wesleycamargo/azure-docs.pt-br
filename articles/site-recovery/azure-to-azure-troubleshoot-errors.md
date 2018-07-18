@@ -1,19 +1,19 @@
 ---
-title: "Solução de problemas do Azure Site Recovery para erros e assuntos de replicação do Azure para Azure | Microsoft Docs"
-description: "Solucionando problemas de erros e problemas durante a replicação de máquinas virtuais do Azure para recuperação de desastres"
+title: Solução de problemas do Azure Site Recovery para erros e assuntos de replicação do Azure para Azure | Microsoft Docs
+description: Solucionando problemas de erros e problemas durante a replicação de máquinas virtuais do Azure para recuperação de desastres
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e6f694e601c506adae217e6348b4bf388cc24390
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -92,7 +92,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 10. Verifique se a entidade realiza hashes conforme symlinks são criados para os certificados.
 
-    - Get-Help
+    - Comando
 
       ``# ls -l | grep Baltimore``
 
@@ -101,7 +101,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
       ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
       -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
 
-    - Get-Help
+    - Comando
 
       ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
 
@@ -110,7 +110,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
       ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
       lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-    - Get-Help
+    - Comando
 
       ``# ls -l | grep DigiCert_Global_Root``
 
@@ -134,7 +134,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 14. Verifique se os arquivos estão presentes.  
 
-    - Get-Help
+    - Comando
 
       ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
 
@@ -199,6 +199,17 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 - Se **provisioningState** estiver com **Falha**, entre em contato com o suporte com detalhes para solucionar o problema.
 - Se **provisioningState** for **Atualizando**, outra extensão poderá estar sendo implantada. Verifique se há outras operações em andamento na VM, aguarde a conclusão e tente realizar novamente o trabalho **Habilitar replicação** do Site Recovery.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de Cópias de Sombra de Volume/COM+ (código de erro 151025)
+**Código de erro** | **Possíveis causas:** | **Recomendações**
+--- | --- | ---
+151025<br></br>**Mensagem**: falha ao instalar a extensão de recuperação de site | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+É possível abrir o console de 'Serviços' e assegurar que 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' não estejam definidos como 'Desabilitado' para 'Tipo de Inicialização'.
+  ![erro-com](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 [Replicar as máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

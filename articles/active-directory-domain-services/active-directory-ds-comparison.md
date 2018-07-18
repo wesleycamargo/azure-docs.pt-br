@@ -1,8 +1,8 @@
 ---
-title: "Serviços de Domínio do Azure AD: comparar os Serviços de Domínio do Azure AD com os controladores de domínio DIY | Microsoft Docs"
-description: "Comparação dos Azure Active Directory Domain Services com controladores de domínio DIY"
+title: 'Serviços de Domínio do Azure AD: comparar os Serviços de Domínio do Azure AD com os controladores de domínio DIY | Microsoft Docs'
+description: Comparação dos Azure Active Directory Domain Services com controladores de domínio DIY
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
 ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se os Azure AD Domain Services são adequados ao seu caso de uso
 Com o Azure AD Domain Services, você pode implantar suas cargas de trabalho nos Serviços de Infraestrutura do Azure sem precisar se preocupar em manter a infraestrutura de identidade no Azure. Esse serviço gerenciado é diferente de uma implantação típica do Windows Server Active Directory que você implanta e administra sozinho. O serviço é fácil de implantar e oferece monitoramento de integridade e correção automatizados. Estamos constantemente evoluindo o serviço a fim de adicionar suporte para cenários comuns de implantação.

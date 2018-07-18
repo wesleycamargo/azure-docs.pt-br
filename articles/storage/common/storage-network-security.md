@@ -1,8 +1,8 @@
 ---
 title: Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure | Microsoft Docs
-description: "Configure a segurança de rede em camadas para sua conta de armazenamento."
+description: Configure a segurança de rede em camadas para sua conta de armazenamento.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192869"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -37,11 +38,9 @@ Depois que as regras de rede são aplicadas, elas são impostas para todas as so
 
 O tráfego de disco da máquina virtual (incluindo as operações de montagem e desmontagem e E/S de disco) **não** é afetado pelas regras de rede.  O acesso REST a blobs de página é protegido pelas regras de rede.
 
-> [!NOTE]
-> Não há suporte atualmente para backup e restauração de máquinas virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas.  Para mais informações, consulte [Limitações ao fazer backup e restaurar uma VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 As contas de armazenamento clássicas **não** dão suporte a firewalls e redes virtuais.
+
+Backup e restauração de Máquinas Virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas é suportado por meio da criação de uma exceção conforme documentado na seção [Exceções](/storage/common/storage-network-security#exceptions) deste artigo.  Exceções de firewall não são aplicáveis com discos gerenciados, pois eles já são gerenciados pelo Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão
 Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede.  Para limitar o acesso a redes selecionadas, primeiro você deve alterar a ação padrão.
@@ -291,6 +290,7 @@ Quando a exceção "Serviços Microsoft Confiáveis" estiver habilitada, os segu
 
 |Serviço|Nome do provedor de recursos|Finalidade|
 |:------|:---------------------|:------|
+|Serviço de Backup do Azure|Microsoft.Backup|Execute backups e restaurações de discos não gerenciados em máquinas virtuais IAAS. (não é necessário para discos gerenciados). [Saiba mais](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Criação de imagem personalizada e instalação de artefato.  [Saiba mais](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Grade de Eventos do Azure|Microsoft.EventGrid|Habilitar a publicação de eventos do Armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

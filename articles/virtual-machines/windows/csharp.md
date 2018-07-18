@@ -1,10 +1,10 @@
 ---
-title: "Criar e gerenciar uma Máquina Virtual do Azure usando o C# | Microsoft Docs"
-description: "Use o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte."
+title: Criar e gerenciar uma Máquina Virtual do Azure usando o C# | Microsoft Docs
+description: Use o C# e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cynthn
+ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs Windows no Azure usando C# #
 
@@ -30,7 +30,7 @@ Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines
 > * Instalar o pacote
 > * Criar credenciais
 > * Criar recursos
-> * Executar tarefas de gerenciamento
+> * Executar outras tarefas de gerenciamento
 > * Excluir recursos
 > * Executar o aplicativo
 
@@ -128,7 +128,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 ### <a name="create-the-availability-set"></a>Criar o conjunto de disponibilidade
 
-Os [Conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
+Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
 
 Para criar o conjunto de disponibilidade, adicione este código ao método Main:
 
@@ -143,7 +143,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Criar um endereço IP público
 
-Um [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
 
 Para criar o endereço IP público para a máquina virtual, adicione este código ao método Main:
    
@@ -349,7 +349,7 @@ Console.ReadLine();
 
 ### <a name="resize-the-vm"></a>Redimensionar a VM
 
-Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte[Tamanhos de VM](sizes.md).  
+Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).  
 
 Para alterar o tamanho da máquina virtual, adicione este código ao método Main:
 

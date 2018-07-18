@@ -1,24 +1,24 @@
 ---
 title: Requisitos de roteamento para o Azure ExpressRoute | Microsoft Docs
-description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos do ExpressRoute."
+description: Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos do ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -107,7 +107,7 @@ Verifique se o endereço IP e o número de AS estão registrados em um dos regis
 
 Se seus prefixos e número AS não forem atribuídos a você nos registros anteriores, será necessário abrir um caso de suporte para validação manual dos prefixos e ASN. O suporte exigirá a documentação, como uma Carta de Autorização, que prove que você pode usar os recursos.
 
-Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas também exigirá a validação manual.
+Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas também exigirá a validação manual. Além disso, removemos números de AS privados no CAMINHO AS para os prefixos recebidos. Como resultado, não é possível anexar números de AS públicos no CAMINHO AS para [influenciar o roteamento para o Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Os endereços IP Públicos anunciados na Microsoft por meio do ExpressRoute não devem ser anunciados na Internet. Isso pode interromper a conectividade com outros serviços da Microsoft. No entanto, os endereços IP Públicos usados pelos servidores em sua rede que se comunicam com os pontos de extremidade do O365 da Microsoft podem ser divulgados no ExpressRoute. 
@@ -118,7 +118,7 @@ Um Número de AS Privado é permitido com o emparelhamento da Microsoft, mas tam
 O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](expressroute-howto-routing-classic.md) e [luxos de trabalho de provisionamento e estados do circuito](expressroute-workflows.md) para obter informações sobre como configurar as sessões BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autônomos
-A Microsoft usa AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft. Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits. Exigimos um ASN registrado publicamente apenas para o emparelhamento da Microsoft. Emparelhamento público e privado pode usar ASNs privadas.
+A Microsoft usa AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft. Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits.
 
 Não há requisitos de simetria de transferência de dados. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
 
@@ -185,6 +185,9 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | **Austrália** | |
 | Leste da Austrália | 12076:51015 |
 | Sudeste da Austrália | 12076:51016 |
+| **Governo da Austrália** | |
+| Austrália Central | 12076:51032 |
+| Austrália Central 2 | 12076:51033 |
 | **Índia** | |
 | Sul da Índia | 12076:51019 |
 | Oeste da Índia | 12076:51018 |
@@ -197,7 +200,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado. 
 
 > [!IMPORTANT]
-> Os prefixos globais são marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium do ExpressRoute estiver habilitado.
+> Os prefixos globais são marcados com um valor de comunidade apropriado.
 > 
 > 
 

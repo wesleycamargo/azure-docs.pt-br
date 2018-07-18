@@ -1,26 +1,19 @@
 ---
-title: "Configurar servidores para um estado desejado e gerenciar a dessincronização na automação do Azure | Microsoft Docs"
-description: "Tutorial – gerenciar configurações de servidor com a DSC de Automação do Azure"
+title: Configurar servidores para um estado desejado e gerenciar o descompasso com a Automação do Azure
+description: Tutorial – gerenciar configurações de servidor com a DSC de Automação do Azure
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.component: dsc
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: conceptual
+ms.date: 09/25/2017
+ms.openlocfilehash: 6203cc8679561fa342a2e15a3819dd5513774dde
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado desejado e gerenciar dessincronização
 
@@ -46,10 +39,10 @@ Para concluir este tutorial, você precisará de:
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Criar e carregar uma configuração na Automação do Azure

@@ -1,11 +1,11 @@
 ---
 title: Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL | Microsoft Docs
-description: "Saiba como obter um aplicativo ASP.NET funcionando no Azure com conexão a um Banco de Dados SQL."
+description: Saiba como obter um aplicativo ASP.NET funcionando no Azure com conexão a um Banco de Dados SQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: compilar um aplicativo ASP.NET no Azure com o Banco de Dados SQL
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como implantar um aplicativo Web ASP.NET controlado por dados no Azure e conectá-lo ao [Banco de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando terminar, você terá um aplicativo ASP.NET em execução no Azure e conectado ao Banco de Dados SQL.
 
@@ -48,6 +48,8 @@ Para concluir este tutorial:
   - **Desenvolvimento do Azure**
 
   ![ASP.NET, desenvolvimento Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Se você já instalou o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -143,6 +145,9 @@ Um nome do servidor único é gerado. Esse nome é usado como parte da URL padr�
 Adicione um nome de usuário administrador e a senha. Para requisitos de complexidade de senha, consulte [Política de Senha](/sql/relational-databases/security/password-policy).
 
 Lembre desse nome de usuário e senha. Você precisa deles para gerenciar a instância de servidor lógico mais tarde.
+
+> [!IMPORTANT]
+> Mesmo que a senha nas cadeias de conexão esteja mascarada (no Visual Studio e também no Serviço de Aplicativo), o fato de que ela foi mantida em algum lugar aumenta a superfície de ataque do seu aplicativo. O Serviço de Aplicativo pode usar [identidades de serviço gerenciadas](app-service-managed-service-identity.md) para eliminar esse risco removendo a necessidade de manter os segredos na configuração de aplicativo ou no código. Para saber mais, confira as [Próximas etapas](#next-steps).
 
 ![Criar instância do SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -411,8 +416,6 @@ Por padrão, o portal mostra a página **Visão geral**. Esta página fornece um
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
@@ -425,7 +428,7 @@ Neste tutorial, você aprendeu como:
 > * Transmitir logs do Azure para seu terminal
 > * Gerenciar o aplicativo no portal do Azure
 
-Vá para o próximo tutorial para aprender a mapear um nome DNS personalizado para o aplicativo Web.
+Avance para o próximo tutorial para aprender a aprimorar a segurança da sua conexão com o Banco de Dados SQL do Azure.
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
+> [Acessar o Banco de Dados SQL com segurança usando a identidade do serviço gerenciada](app-service-web-tutorial-connect-msi.md)

@@ -1,28 +1,28 @@
 ---
-title: Criar e gerenciar VMs do Linux com a CLI do Azure | Documentos do Microsoft
-description: Tutorial - criar e gerenciar VMs do Linux com a CLI do Azure
+title: Tutorial – Criar e gerenciar VMs Linux com a CLI do Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a usar a CLI 2.0 do Azure para criar e gerenciar VMs Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e gerenciar VMs do Linux com a CLI do Azure
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Tutorial: Criar e gerenciar VMs Linux com a CLI 2.0 do Azure
 
 Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda itens básicos de implantação de máquina virtual do Azure, como a seleção de um tamanho de VM, seleção de uma imagem de VM e implantação de uma VM. Você aprenderá como:
 
@@ -33,10 +33,9 @@ Máquinas virtuais do Azure fornecem um ambiente de computação totalmente conf
 > * Redimensionar uma VM
 > * Exibir e compreender o estado da VM
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -54,10 +53,15 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser v
 
 Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, criaremos uma máquina virtual chamada *myVM* no Ubuntu. 
+Há várias opções disponíveis ao criar uma máquina virtual, como a imagem do sistema operacional, as credenciais administrativas e o dimensionamento do disco. O exemplo a seguir cria uma VM chamada *myVM* que executa o Servidor Ubuntu. Uma conta de usuário chamada *azureuser* é criada na VM, e as chaves SSH são geradas, se ainda não existirem no local de chave padrão (*~/.ssh*):
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 A criação da VM pode levar alguns minutos. Depois que a VM tiver sido criada, a CLI do Azure envia informações sobre a VM. Anote o `publicIpAddress`, esse endereço pode ser usado para acessar a máquina virtual... 
@@ -80,7 +84,7 @@ A criação da VM pode levar alguns minutos. Depois que a VM tiver sido criada, 
 Agora você pode se conectar à VM com o SSH no Azure Cloud Shell ou do computador local. Substitua o endereço IP de exemplo com o `publicIpAddress` observado na etapa anterior.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 Depois de conectado à VM, você pode instalar e configurar aplicativos. Quando tiver terminado, você fechará a sessão SSH normalmente:
@@ -91,7 +95,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Entender as imagens de VM
 
-O Azure marketplace inclui muitas imagens que podem ser usadas para criar VMs. Nas etapas anteriores, uma máquina virtual foi criada usando uma imagem do Ubuntu. Nesta etapa, a CLI do Azure é usada para pesquisar no marketplace para uma imagem CentOS, que é usado para implantar uma segunda máquina virtual.  
+O Azure marketplace inclui muitas imagens que podem ser usadas para criar VMs. Nas etapas anteriores, uma máquina virtual foi criada usando uma imagem do Ubuntu. Nesta etapa, a CLI do Azure é usada para pesquisar no marketplace para uma imagem CentOS, que é usado para implantar uma segunda máquina virtual. 
 
 Para ver uma lista dos mais usados imagens, use o comando [lista de imagens de vm az](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +140,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Para implantar uma máquina virtual usando uma imagem específica, anote o valor de *Urn* coluna. Ao especificar a imagem, o número de versão da imagem pode ser substituído por "mais recente", que seleciona a versão mais recente da distribuição. Neste exemplo, o `--image` argumento é usado para especificar a versão mais recente de uma imagem do CentOS 6.5.  
+Para implantar uma VM usando uma imagem específica, anote o valor da coluna *Urn*, o qual consiste no publicador, oferta, SKU e, opcionalmente, um número de versão para [identificar](cli-ps-findimage.md#terminology) a imagem. Ao especificar a imagem, o número de versão da imagem pode ser substituído por "mais recente", que seleciona a versão mais recente da distribuição. Neste exemplo, o `--image` argumento é usado para especificar a versão mais recente de uma imagem do CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +263,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 
 ### <a name="find-power-state"></a>Localizar o estado de energia
 
-Para recuperar o estado de uma determinada VM, use o [az vm ver da instância](/cli/azure/vm#az_vm_get_instance_view) comando. Especifique um nome válido para uma máquina virtual e grupo de recursos. 
+Para recuperar o estado de uma VM específica, use o comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Especifique um nome válido para uma máquina virtual e grupo de recursos. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

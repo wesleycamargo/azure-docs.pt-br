@@ -1,6 +1,6 @@
 ---
-title: "Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs"
-description: "Este artigo discute medidas para melhorar a segurança do gerenciamento remoto durante a administração dos ambientes do Microsoft Azure, incluindo serviços de nuvem, Máquinas Virtuais e aplicativos personalizados."
+title: Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs
+description: Este artigo discute medidas para melhorar a segurança do gerenciamento remoto durante a administração dos ambientes do Microsoft Azure, incluindo serviços de nuvem, Máquinas Virtuais e aplicativos personalizados.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366640"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -64,7 +65,7 @@ Consolidar recursos de acesso e eliminar pontos de extremidade não gerenciados 
 ### <a name="providing-security-for-azure-remote-management"></a>Fornecer segurança para o gerenciamento remoto do Azure
 O Azure fornece mecanismos de segurança para ajudar os administradores que gerenciam serviços de nuvem e máquinas virtuais do Azure. Esses mecanismos incluem:
 
-* Autenticação e [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md).
+* Autenticação e [controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md).
 * Monitoramento, registro em log e auditoria.
 * Certificados e comunicações criptografadas.
 * Um portal de gerenciamento da Web.
@@ -99,7 +100,7 @@ A configuração de serviços de nuvem do Azure é executada por meio do portal 
 
 Os aplicativos implantados na Máquina Virtual fornecem suas próprias interfaces e ferramentas de clientes, conforme necessário, como o MMC (Console de Gerenciamento Microsoft), um console de gerenciamento empresarial (como o Microsoft System Center ou o Windows Intune) ou outro aplicativo de gerenciamento (o Microsoft SQL Server Management Studio, por exemplo). Essas ferramentas geralmente residem em uma rede de cliente ou ambiente empresarial. Elas podem depender de protocolos de rede específicos, como o protocolo RDP, que exigem conexões diretas com estado. Algumas delas podem ter interfaces habilitadas para a Web que não devem ser publicadas abertamente nem acessíveis pela Internet.
 
-Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](../multi-factor-authentication/multi-factor-authentication.md), os [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e as regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
+Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](../active-directory/authentication/multi-factor-authentication.md), os [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e as regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
 
 ### <a name="management-gateway"></a>Gateway de gerenciamento
 Para centralizar todo o acesso administrativo e simplificar o monitoramento e o registro em log, você pode implantar um servidor de [Gateway de Área de Trabalho Remota](https://technet.microsoft.com/library/dd560672) dedicado na rede local, conectado ao ambiente do Azure.
@@ -110,8 +111,8 @@ Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em p
 * Una o Gateway de Área de Trabalho Remota ao mesmo [domínio de gerenciamento](http://technet.microsoft.com/library/bb727085.aspx) que as estações de trabalho do administrador. Isso é necessário quando você usa uma VPN IPsec de site a site ou o ExpressRoute em um domínio que tem uma relação de confiança unidirecional para com o Azure AD ou se está associando credenciais entre a instância local do AD DS e o Azure AD.
 * Configure uma [política de autorização de conexão de cliente](http://technet.microsoft.com/library/cc753324.aspx) para permitir que o Gateway de Área de Trabalho Remota verifique se o nome do computador cliente é válido (ingressado no domínio) e tem permissão para acessar o portal do Azure.
 * Use IPsec para a [VPN do Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) para proteger ainda mais o tráfego de gerenciamento contra interceptação e roubo de tokens ou considere um link da Internet isolado por meio do [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
-* Configure [restrições de endereço IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origem ou [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) no Azure para minimizar o número de pontos de extremidade de gerenciamento permitidos.
+* Habilite a autenticação multifator (via [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)) ou a autenticação de cartão inteligente para administradores que fazem logon por meio do Gateway de Área de Trabalho Remota.
+* Configure [restrições de endereço IP](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) de origem ou [Grupos de Segurança de Rede](../virtual-network/security-overview.md) no Azure para minimizar o número de pontos de extremidade de gerenciamento permitidos.
 
 ## <a name="security-guidelines"></a>Diretrizes de segurança
 Em geral, a proteção das estações de trabalho de administrador para uso com a nuvem é semelhante às práticas usadas para qualquer estação de trabalho local (por exemplo, compilação minimizada e permissões restritivas). Alguns aspectos exclusivos do gerenciamento de nuvem são mais semelhantes ao gerenciamento corporativo remoto ou fora de banda. Eles incluem o uso e a auditoria de credenciais, o acesso remoto com segurança avançada e a detecção e a resposta a ameaças.

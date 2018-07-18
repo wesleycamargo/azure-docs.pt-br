@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store
 
@@ -211,7 +211,7 @@ Parabéns!  Você foi autenticado no sistema de arquivos do Data Lake Store usan
 ## <a name="related-content"></a>Conteúdo relacionado
 
 - Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](msi-overview.md).
-- Para operações de gerenciamento, o Data Lake Store usa o Azure Resource Manager.  Para obter mais informações sobre como usar uma MSI de VM para autenticar-se no Resource Manager, leia [Usar uma MSI (Identidade de Serviço Gerenciado) de VM do Linux para acessar o Resource Manager](msi-tutorial-linux-vm-access-arm.md).
+- Para operações de gerenciamento, o Data Lake Store usa o Azure Resource Manager.  Para obter mais informações sobre como usar uma MSI de VM para autenticar-se no Resource Manager, leia [Usar uma MSI (Identidade de Serviço Gerenciado) de VM do Linux para acessar o Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Saiba mais sobre a [Autenticação com o Data Lake Store usando o Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Saiba mais sobre [Operações do sistema de arquivos no Azure Data Lake Store usando a API REST](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou as [APIs do sistema de arquivos WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Saiba mais sobre o [Controle de acesso no Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

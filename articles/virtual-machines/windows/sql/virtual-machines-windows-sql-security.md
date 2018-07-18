@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365195"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -46,7 +47,7 @@ Quando você cria uma máquina virtual do SQL Server com uma imagem da galeria, 
 
 Para obter a melhor segurança, escolha a opção mais restritiva para seu cenário. Por exemplo, se você estiver executando um aplicativo que acessa o SQL Server na mesma VM, **Local** será a opção mais segura. Se você estiver executando um aplicativo do Azure que exige o acesso ao SQL Server, a opção **Privada** protegerá a comunicação com o SQL Server apenas na [Rede Virtual do Azure](../../../virtual-network/virtual-networks-overview.md) especificada. Se precisar de acesso **Público** (Internet) à VM do SQL Server, siga as outras melhores práticas deste tópico para reduzir a área da superfície de ataque.
 
-As opções selecionadas no portal usam regras de segurança de entrada no [NSG](../../../virtual-network/virtual-networks-nsg.md) (Grupo de Segurança de Rede) das VMs para permitir ou negar o tráfego de rede à máquina virtual. Modifique ou crie novas regras do NSG de entrada para permitir o tráfego para a porta do SQL Server (1433 padrão). Também especifique endereços IP específicos que têm permissão para se comunicar nessa porta.
+As opções selecionadas no portal usam regras de segurança de entrada no [NSG](../../../virtual-network/security-overview.md) (Grupo de Segurança de Rede) das VMs para permitir ou negar o tráfego de rede à máquina virtual. Modifique ou crie novas regras do NSG de entrada para permitir o tráfego para a porta do SQL Server (1433 padrão). Também especifique endereços IP específicos que têm permissão para se comunicar nessa porta.
 
 ![Regras de grupo de segurança de rede](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

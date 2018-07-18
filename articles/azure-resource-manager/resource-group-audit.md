@@ -1,8 +1,8 @@
 ---
 title: Exibir logs de atividades do Azure para monitorar recursos | Microsoft Docs
-description: "Use o log de atividade para examinar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST."
+description: Use o log de atividade para examinar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -11,16 +11,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/09/2017
+ms.topic: conceptual
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2dcf93a635a8eb0a01ec266d2478b6e5a336ec00
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
+
 Com os logs de atividade, você pode determinar:
 
 * quais operações foram executadas nos recursos em sua assinatura
@@ -29,7 +30,7 @@ Com os logs de atividade, você pode determinar:
 * o status da operação
 * os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
+O log de atividade contém todas as operações de gravação (PUT, POST, DELETE) executadas nos recursos. Ele não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [Operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). É possível usar os logs de auditoria para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso.
 
 Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 
@@ -38,6 +39,7 @@ Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer int
 Você pode recuperar informações dos logs de atividade por meio do Portal, do PowerShell, da CLI do Azure, da API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
+
 1. Para exibir os logs de atividade no portal, escolha **Monitorar**.
    
     ![selecionar logs de atividade](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
     ![exibir operação](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** . Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas da última hora retornarão. Por exemplo, para recuperar as operações de um grupo de recursos durante a execução na última hora:
 
   ```powershell
@@ -136,20 +139,23 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-* Para recuperar as entradas de log, execute o comando **azure group log show** .
+
+Para recuperar entradas de log, execute o comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>API REST
+
 As operações de REST para trabalhar com o log de atividade fazem parte da [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar os eventos de log de atividade, confira [Listar os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Os logs de atividade do Azure podem ser usados com o Power BI para obter mais informações sobre as ações em sua assinatura. Confira [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Exibir e analisar logs de atividade do Azure no Power BI e muito mais).
-* Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md).
+* Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md).
 * Para saber mais sobre os comandos para exibir as operações de implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para saber como impedir exclusões em um recurso para todos os usuários, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
-* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)
 

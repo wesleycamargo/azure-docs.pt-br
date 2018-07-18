@@ -1,25 +1,20 @@
 ---
-title: "Monitorar uso e estatísticas em um serviço do Azure Search | Microsoft Docs"
-description: "Acompanhe o consumo de recursos e o tamanho de índice do Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
-services: search
-documentationcenter: 
+title: Monitorar uso e estatísticas em um serviço do Azure Search | Microsoft Docs
+description: Acompanhe o consumo de recursos e o tamanho de índice do Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Criar um serviço do Azure Search
 
@@ -96,10 +91,10 @@ Os blobs de logs contêm seus logs de tráfego do serviço de pesquisa.
 Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
 Cada blob tem registros na operação que ocorrem durante a mesma hora.
 
-| Nome | Tipo | Exemplo | Observações |
+| NOME | type | Exemplo | Observações |
 | --- | --- | --- | --- |
-| tempo real |datetime |"2015-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
+| tempo real |Datetime |"2015-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
 | operationName |string |"Query.Search" |O nome da operação |
 | operationVersion |string |"2015-02-28" |A api-version usada |
 | categoria |string |"OperationLogs" |constante |
@@ -109,19 +104,19 @@ Cada blob tem registros na operação que ocorrem durante a mesma hora.
 | propriedades |objeto |confira a seguinte tabela |Objeto que contém os dados específicos da operação |
 
 **Esquema de propriedades**
-| Nome | Tipo | Exemplo | Observações |
+| NOME | type | Exemplo | Observações |
 | --- | --- | --- | --- |
-| Descrição |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
+| DESCRIÇÃO |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parâmetros da consulta |
 | Documentos |int |42 |Número de documentos processados |
 | IndexName |string |"testindex" |Nome do índice associado à operação |
 
 #### <a name="metrics-schema"></a>Esquema de métricas
-| Nome | Tipo | Exemplo | Observações |
+| NOME | type | Exemplo | Observações |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
 | metricName |string |"Latency" |o nome da métrica |
-| tempo real |datetime |"2015-12-07T00:00:43.6872559Z" |carimbo de data/hora da operação |
+| tempo real |Datetime |"2015-12-07T00:00:43.6872559Z" |carimbo de data/hora da operação |
 | média |int |64 |O valor médio das amostras brutas no intervalo de agregação da métrica |
 | mínimo |int |37 |O valor mínimo das amostras brutas no intervalo de agregação da métrica |
 | máximo |int |78 |O valor máximo das amostras brutas no intervalo de agregação da métrica |

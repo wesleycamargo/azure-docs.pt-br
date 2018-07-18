@@ -4,7 +4,7 @@ description: A Interface RESTful para obter informações sobre a de computaçã
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057971"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -217,13 +218,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Solicitação**
 
-Os metadados de instância podem ser recuperados no Windows por meio do utilitário do Powershell`curl`: 
+Os metadados de instância podem ser recuperados no Windows por meio do utilitário do `curl` programa: 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Ou por meio de `Invoke-RestMethod` cmdlet:
+Ou através do `Invoke-RestMethod` cmdlet do PowerShell:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
@@ -307,6 +308,7 @@ subnet/prefix | Prefixo de sub-rede, exemplo 24 | 2017-04-02
 ipv6/ipAddress | Endereço IPv6 local da máquina virtual | 2017-04-02 
 macAddress | Endereço mac da máquina virtual | 2017-04-02 
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
+identidade | Identidade de Serviço Gerenciada (versão prévia) Veja [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | {0}01-02-2018{0}
 
 ## <a name="example-scenarios-for-usage"></a>Cenários de exemplo para uso  
 
@@ -392,6 +394,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>Perguntas frequentes

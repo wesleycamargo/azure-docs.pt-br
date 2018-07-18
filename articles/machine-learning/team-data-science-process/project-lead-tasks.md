@@ -1,23 +1,23 @@
 ---
-title: "Tarefas do líder de projetos de Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs"
-description: "Uma estrutura de tópicos das tarefas para um líder de projetos em um projeto da equipe de ciência de dados."
-documentationcenter: 
-author: bradsev
+title: Tarefas do líder de projetos de Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+description: Uma estrutura de tópicos das tarefas para um líder de projetos em um projeto da equipe de ciência de dados.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: deguhath
+ms.openlocfilehash: 3cc938e7d573c146b688acabdcfcb8e674e185cf
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="project-lead-tasks"></a>Tarefas do líder de projetos
 
@@ -42,7 +42,7 @@ Este tutorial usa nomes abreviados para repositórios e diretórios. Esses nomes
 - **D5**: o diretório local clonado de R5.
 
 
-## <a name="0-prerequisites"></a>0. Pré-requisitos
+## <a name="0-prerequisites"></a>0. pré-requisitos
 
 Os pré-requisitos são atendidos ao concluir as tarefas atribuídas a seu gerente de grupo, descritas em [Tarefas do gerente de grupo para uma equipe de ciência de dados](group-manager-tasks.md) e, para seu líder de equipe, descritas em [Tarefas do líder de equipe para uma equipe de ciência de dados](team-lead-tasks.md). 
 

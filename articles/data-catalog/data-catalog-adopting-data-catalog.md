@@ -1,12 +1,12 @@
 ---
-title: "Abordagem e processo de adoção do Catálogo de Dados do Azure | Microsoft Docs"
-description: "Este artigo apresenta uma abordagem e o processo para as organizações que consideram a adoção do Catálogo de Dados do Azure, inclusive a definição de uma visão, a identificação dos casos de uso comerciais importantes e a escolha um projeto piloto."
+title: Abordagem e processo de adoção do Catálogo de Dados do Azure | Microsoft Docs
+description: Este artigo apresenta uma abordagem e o processo para as organizações que consideram a adoção do Catálogo de Dados do Azure, inclusive a definição de uma visão, a identificação dos casos de uso comerciais importantes e a escolha um projeto piloto.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 Este artigo o ajuda a começar a adotar o **Catálogo de Dados do Azure** em sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, convém concentrar-se em três itens principais: definir sua visão, identificar casos de uso de negócios em sua organização e escolher um projeto-piloto.
@@ -142,7 +142,7 @@ Aqui estão algumas dicas para começar:
 Antes que a equipe-piloto comece a usar o Catálogo de Dados, agende uma reunião inicial para discutir as expectativas para o projeto-piloto e fornecer treinamento inicial.
 
 ### <a name="set-expectations"></a>Defina as expectativas
-Definir exceções e metas ajuda os usuários de negócios a se concentrar em resultados finais específicos. Para manter o projeto nos trilhos, atribua tarefas regulares (por exemplo, diárias ou semanais, com base no escopo e na duração do piloto). Um dos recursos mais valiosos do Catálogo de Dados é o crowdsourcing de ativos de dados para que os usuários de negócios possam se beneficiar de conhecimentos dos dados corporativos. Uma ótima tarefa para todos os membros da equipe-piloto é registrar ou anotar pelo menos uma fonte de dados que eles usaram. Confira [Registrar uma fonte de dados](data-catalog-get-started.md) e [Como anotar fontes de dados](data-catalog-get-started.md).
+Definir expectativas e metas ajuda os usuários de negócios a se concentrar em resultados finais específicos. Para manter o projeto nos trilhos, atribua tarefas regulares (por exemplo, diárias ou semanais, com base no escopo e na duração do piloto). Um dos recursos mais valiosos do Catálogo de Dados é o crowdsourcing de ativos de dados para que os usuários de negócios possam se beneficiar de conhecimentos dos dados corporativos. Uma ótima tarefa para todos os membros da equipe-piloto é registrar ou anotar pelo menos uma fonte de dados que eles usaram. Confira [Registrar uma fonte de dados](data-catalog-get-started.md) e [Como anotar fontes de dados](data-catalog-get-started.md).
 
 Reúna-se com a equipe regularmente para examinar algumas das anotações. Boas anotações sobre fontes de dados são a essência de uma adoção bem-sucedida do Catálogo de Dados, pois fornecem percepções significativas de fontes de dados em um local central. Sem boas anotações, os conhecimentos sobre as fontes de dados permanecem espalhados por toda a empresa. Confira [Como anotar fontes de dados](data-catalog-get-started.md).
 

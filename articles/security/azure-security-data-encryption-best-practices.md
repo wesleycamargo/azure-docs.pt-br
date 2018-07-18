@@ -1,10 +1,10 @@
 ---
-title: "Práticas Recomendadas de Segurança de Dados e Criptografia | Microsoft Docs"
-description: "Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure."
+title: Práticas Recomendadas de Segurança de Dados e Criptografia | Microsoft Docs
+description: Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Práticas Recomendadas de Segurança de Dados e Criptografia do Azure
+
 Uma das chaves de proteção de dados na nuvem é responsável por possíveis estados em que os dados podem ocorrer e quais controles estão disponíveis para esse estado. Em relação às práticas recomendadas de segurança de dados e criptografia do Azure, as recomendações serão feitas para os seguintes estados de dados:
 
 * Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
@@ -50,26 +51,29 @@ As práticas recomendadas de segurança de dados e criptografia do Azure debatid
 * Impor criptografia de dados no nível do arquivo
 
 ## <a name="enforce-multi-factor-authentication"></a>Impor Autenticação Multifator
-A primeira etapa do acesso a dados e do controle no Microsoft Azure é autenticar o usuário. A [Azure MFA (Autenticação Multifator)](../multi-factor-authentication/multi-factor-authentication.md) é um método de verificação da identidade do usuário que utiliza outro método além do nome de usuário e senha. Esse método de autenticação ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de entrada simples.
+
+A primeira etapa do acesso a dados e do controle no Microsoft Azure é autenticar o usuário. A [Azure MFA (Autenticação Multifator)](../active-directory/authentication/multi-factor-authentication.md) é um método de verificação da identidade do usuário que utiliza outro método além do nome de usuário e senha. Esse método de autenticação ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda dos usuários para um processo de entrada simples.
 
 Ao habilitar o Azure MFA para seus usuários, você estará adicionando uma segunda camada de segurança nas entradas de usuário e transações. Nesse caso, uma transação pode ser o acesso a um documento localizado em um servidor de arquivos ou no SharePoint Online. O Azure MFA também ajuda o departamento de TI a reduzir a probabilidade de que uma credencial comprometida tenha acesso aos dados da organização.
 
 Por exemplo: ao impor o Azure MFA para seus usuários e configurá-lo para usar uma chamada telefônica ou mensagem de texto como verificação, se a credencial do usuário for comprometida, o invasor não poderá acessar os recursos, já que não terá acesso ao telefone do usuário. As organizações que não adicionam essa camada adicional de proteção de identidade são mais suscetíveis a ataques de roubo de credenciais, que podem levar ao comprometimento dos dados.
 
-Uma alternativa para as organizações que desejam manter o controle da autenticação localmente é usar o [Servidor de Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), também chamado de MFA local. Usando esse método você ainda poderá impor a autenticação multifator, mantendo o servidor MFA local.
+Uma alternativa para as organizações que desejam manter o controle da autenticação localmente é usar o [Servidor de Autenticação Multifator do Azure](../active-directory/authentication/howto-mfaserver-deploy.md), também chamado de MFA local. Usando esse método você ainda poderá impor a autenticação multifator, mantendo o servidor MFA local.
 
-Para saber mais sobre a MFA do Azure, leia o artigo [Introdução à Autenticação Multifator do Azure na nuvem](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Para saber mais sobre a MFA do Azure, leia o artigo [Introdução à Autenticação Multifator do Azure na nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Usar RBAC (Controle de Acesso Baseado em Função)
+
 Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso Baseado em Função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso.
 
-Você pode aproveitar funções [RBAC internas](../active-directory/role-based-access-built-in-roles.md) no Azure para atribuir privilégios aos usuários. Considere usar a função *Colaborador da Conta de Armazenamento* para operadores de nuvem que precisam gerenciar contas de armazenamento e a função *Colaborador da Conta de Armazenamento Clássica* para gerenciar contas de armazenamento clássico. Para operadores de nuvem que precisam gerenciar VMs e contas de armazenamento, considere adicioná-los à função *Colaborador da Máquina Virtual*.
+Você pode aproveitar funções [RBAC internas](../role-based-access-control/built-in-roles.md) no Azure para atribuir privilégios aos usuários. Considere usar a função *Colaborador da Conta de Armazenamento* para operadores de nuvem que precisam gerenciar contas de armazenamento e a função *Colaborador da Conta de Armazenamento Clássica* para gerenciar contas de armazenamento clássico. Para operadores de nuvem que precisam gerenciar VMs e contas de armazenamento, considere adicioná-los à função *Colaborador da Máquina Virtual*.
 
 As organizações que não impõem o controle de acesso de dados utilizando recursos como o RBAC podem estar dando mais privilégios do que o necessário para seus usuários. Isso pode levar ao comprometimento de dados, já que alguns usuários têm acesso a dados que não deveriam ter desde o início.
 
-Você pode aprender mais sobre o RBAC do Azure lendo o artigo [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md).
+Você pode aprender mais sobre o RBAC do Azure lendo o artigo [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Criptografar Máquinas Virtuais do Azure
+
 Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. A Azure Disk Encryption permite que os administradores de TI criptografem discos de VM (Máquina Virtual) Iaas Windows e Linux. A Azure Disk Encryption aproveita o recurso padrão da indústria BitLocker do Windows e o recurso DM-Crypt do Linux para fornecer criptografia de volume para o SO e os discos de dados.
 
 Você pode aproveitar a Azure Disk Encryption para ajudar a proteger seus dados e atender a requisitos de conformidade e segurança da organização. As organizações devem cogitar também usar a criptografia para ajudar a reduzir riscos relativos ao acesso a dados não autorizado. Também é recomendável que você criptografe as unidades antes de gravar dados confidenciais nelas.
@@ -125,6 +129,7 @@ As organizações que não estiverem usando criptografia no nível do banco de d
 Você pode aprender mais sobre a criptografia TDE SQL lendo o artigo [Transparent Data Encryption com o Banco de Dados SQL Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Proteger dados em trânsito
+
 A proteção dos dados em trânsito deve ser parte essencial de sua estratégia de proteção de dados. Já que os dados se moverão entre vários locais, a recomendação geral é que você sempre use protocolos SSL/TLS para trocar os dados entre diferentes locais. Em alguns casos, convém isolar todo o canal de comunicação entre suas infraestruturas locais e na nuvem usando uma VPN (rede virtual privada).
 
 Para dados que se movem entre sua infraestrutura local e o Azure, você deve considerar proteções adequadas, como HTTPS ou VPN.
@@ -142,6 +147,7 @@ As organizações que não protegem os dados em trânsito são mais suscetíveis
 Você pode aprender mais sobre a opção de VPN do Azure lendo o artigo [Planejamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Impor criptografia de dados no nível do arquivo
+
 Outra camada de proteção que pode aumentar o nível de segurança de seus dados é a criptografia do arquivo propriamente dito, independentemente do local do arquivo.
 
 O [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) usa políticas de criptografia, identidade e autorização para ajudar a proteger seus arquivos e emails. O Azure RMS funciona em vários dispositivos, como telefones, tablets e PCs, protegendo-os dentro e fora da sua organização. Esse recurso é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando eles saem dos limites da organização.

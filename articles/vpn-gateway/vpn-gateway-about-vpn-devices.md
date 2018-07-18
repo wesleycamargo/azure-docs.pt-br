@@ -1,25 +1,25 @@
 ---
-title: "Sobre dispositivos VPN para conexões do Azure entre locais | Microsoft Docs"
-description: "Este artigo discute dispositivos VPN e os parâmetros de IPsec para conexões de Gateway de VPN S2S entre locais. São fornecidos links para exemplos e instruções de configuração."
+title: Sobre dispositivos VPN para conexões do Azure entre locais | Microsoft Docs
+description: Este artigo discute dispositivos VPN e os parâmetros de IPsec para conexões de Gateway de VPN S2S entre locais. São fornecidos links para exemplos e instruções de configuração.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
@@ -72,6 +72,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | ShareTech | Próxima geração de UTM (série NU) | 9.0.1.3 | Não compatível | [Guia de Configuração](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |Série TZ, série NSA<br>Série SuperMassive<br>Série NSA E-Class |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Não compatível |[Guia de Configuração](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall XG de última geração | XG v17 | | [Guia de Configuração](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP em IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI em IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |Todos |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guia de Configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guia de Configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -79,6 +80,14 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 > (*) Adição de suporte a IKEv2 para do Cisco ASA versões 8.4+; pode se conectar ao gateway de VPN do Azure usando a política de IPsec/IKE personalizada com a opção "UsePolicyBasedTrafficSelectors". Consulte este [artigo de instruções](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
 > (\*\*) Os roteadores da Série ISR 7200 só oferecem suporte a VPNs PolicyBased.
+
+## <a name="configscripts"></a>Fazer o download de scripts de configuração do dispositivo VPN do Azure
+
+Para determinados dispositivos, você pode fazer o download de scripts de configuração diretamente do Azure. Para saber mais e fazer download de instruções, confira [Fazer o download dos scripts de configuração de dispositivo de VPN](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Dispositivos com scripts de configuração disponíveis
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Dispositivos VPN não validados
 

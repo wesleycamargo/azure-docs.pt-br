@@ -1,25 +1,25 @@
 ---
-title: "Exemplo de json do Azure Policy – Iniciativa de política de marcas de cobrança | Microsoft Docs"
-description: "Essa política de exemplo de json exige valores de marca especificados para o nome do produto e o centro de custo."
+title: Exemplo de json do Azure Policy – Iniciativa de política de marcas de cobrança | Microsoft Docs
+description: Essa política de exemplo de json exige valores de marca especificados para o nome do produto e o centro de custo.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49429dd4db4c33f16fce39a932f387e2145da250
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="billing-tags-policy-initiative"></a>Iniciativa de política de marcas de cobrança
 
@@ -47,7 +47,7 @@ $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/mas
 
 $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -DisplayName "Billing Tags Policy Initiative" -Description "Specify cost Center tag and product name tag" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
 
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
+New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>Limpar a implantação do PowerShell
@@ -63,9 +63,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Depois de atribuir as políticas, você pode disparar uma atualização para todos os recursos existentes para impor as políticas de marca que você adicionou. O script a seguir mantém outras marcas que existiam nos recursos:
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
 
 foreach($r in $resources)
 {
@@ -77,7 +76,6 @@ foreach($r in $resources)
     }
 }
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,23 +1,23 @@
 ---
-title: "Pacote autônomo do Azure Service Fabric para Windows Server | Microsoft Docs"
-description: "Descrição e o conteúdo do pacote Autônomo do Azure Service Fabric para Windows Server."
+title: Pacote autônomo do Azure Service Fabric para Windows Server | Microsoft Docs
+description: Descrição e o conteúdo do pacote Autônomo do Azure Service Fabric para Windows Server.
 services: service-fabric
 documentationcenter: .net
 author: maburlik
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik
-ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maburlik
+ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote Autônomo do Service Fabric para Windows Server
 No pacote Autônomo do Service Fabric [baixado](http://go.microsoft.com/fwlink/?LinkId=730690), você encontrará os seguintes arquivos:
@@ -47,7 +47,7 @@ No pacote Autônomo do Service Fabric [baixado](http://go.microsoft.com/fwlink/?
 | ClusterConfig.Windows.MultiMachine.json |Um arquivo de exemplo de configuração do cluster, que contém todas as configurações para um cluster de vários computadores (ou máquinas virtuais), protegido, que use a segurança do Windows, incluindo as informações para cada computador no cluster protegido. O cluster é protegido usando as [identidades do Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
 | ClusterConfig.x509.DevCluster.json |Um arquivo de exemplo de configuração do cluster, que contém todas as configurações para um cluster de desenvolvimento de um único computador (ou máquina virtual), com três nós, protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando certificados x509. |
 | ClusterConfig.x509.MultiMachine.json |Um arquivo de exemplo de configuração do cluster, que contém todas as configurações para um cluster de vários computadores (ou máquinas virtuais), protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando certificados x509. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Um arquivo de exemplo de configuração do cluster, que contém todas as configurações para um cluster de vários computadores (ou máquinas virtuais), protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando [Contas de Serviço Gerenciado por Grupo](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Um arquivo de exemplo de configuração do cluster, que contém todas as configurações para um cluster de vários computadores (ou máquinas virtuais), protegido, incluindo as informações para cada nó no cluster. O cluster é protegido usando [Contas de Serviço Gerenciado por Grupo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Exemplos da configuração do cluster
 As versões mais recentes dos modelos de configuração de cluster podem ser encontradas na página do GitHub: [Exemplos de configuração de cluster autônomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

@@ -1,23 +1,23 @@
 ---
 title: Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o Azure PowerShell | Microsoft Docs
-description: "Gerenciamento do armazenamento na nuvem da China, na nuvem do Governo e na nuvem alemã usando o Azure PowerShell"
+description: Gerenciamento do armazenamento na nuvem da China, na nuvem do Governo e na nuvem alemã usando o Azure PowerShell
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: 
+author: roygara
+manager: jeconnoc
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: robinsh
-ms.openlocfilehash: 08e1af929d7ddc30c7dc149f6305ca1ca0bc22ae
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.author: rogarana
+ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -48,7 +48,7 @@ Get-AzureRmEnvironment
 Entre em sua conta que tem acesso à nuvem com a qual você deseja se conectar e defina o ambiente. Este exemplo mostra como entrar em uma conta que usa a Nuvem do Azure Governamental.   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud**. Para acessar a Nuvem alemã, use **AzureGermanCloud**.
@@ -61,7 +61,7 @@ Get-AzureRmLocation | select Location, DisplayName
 
 A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
-|Local | DisplayName |
+|Local padrão | DisplayName |
 |----|----|
 | germanycentral | Alemanha Central|
 | germanynortheast | Nordeste da Alemanha | 
@@ -83,13 +83,12 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 Esse comando retorna os seguintes resultados.
 
-| Nome| StorageEndpointSuffix|
+| NOME| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | core.usgovcloudapi.net |
 
 Para recuperar todas as propriedades para o ambiente especificado, chame **Get-AzureRmEnvironment** e especifique o nome da nuvem. Este trecho de código retorna uma lista de propriedades. Procure por **StorageEndpointSuffix** na lista. O exemplo a seguir é para a nuvem alemã.
 
@@ -101,7 +100,7 @@ Os resultados são semelhantes ao seguinte:
 
 |Nome da Propriedade|Valor|
 |----|----|
-| Nome | AzureGermanCloud |
+| NOME | AzureGermanCloud |
 | EnableAdfsAuthentication | Falso |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

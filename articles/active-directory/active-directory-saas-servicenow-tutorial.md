@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cf955c15b1dfe3ef0c46ab5023035986da5c5c99
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Active Directory do Azure com o ServiceNow
 
@@ -30,7 +30,7 @@ A integração do Service Now ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no ServiceNow (Logon Único) com as contas do Azure AD deles.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -119,37 +119,21 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Você precisará atualizar esses valores com o Identificador e a URL de Entrada reais que são explicados mais adiante no tutorial.
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Na seção **Certificado de Autenticação SAML**, execute as seguintes etapas: 
 
-    ![O link de download do Certificado](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. Clique no botão copiar para copiar a **URL de Metadados de Federação de Aplicativos** e cole-a no bloco de notas, pois essa URL de metadados de federação de aplicativos será usada posteriormente no tutorial.
+
+    b. Clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
 
 5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. Para gerar a URL de **Metadados**, execute as seguintes etapas:
+6. Entre no seu aplicativo ServiceNow como administrador.
 
-    a. Clique em **Registros do aplicativo**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.
-    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. Agora, vá até as propriedades do **ServiceNow** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
-
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão a seguir: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Copie o valor gerado no bloco de notas pois essa URL de metadados será usada posteriormente no tutorial.
-
-7. Entre no seu aplicativo ServiceNow como administrador.
-
-8. Ative o plug-in **Integração - Instalador de Logon Único de Vários Provedores** ao seguir as próximas etapas:
+7. Ative o plug-in **Integração - Instalador de Logon Único de Vários Provedores** ao seguir as próximas etapas:
 
     a. No painel de navegação à esquerda, procure a seção **Definição do Sistema** na barra de pesquisa e, em seguida, clique em **Plug-ins**.
 
@@ -163,9 +147,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique no botão **Ativar**.
 
-9. Há duas maneiras em que **ServiceNow** pode ser configurado automático e manual.
+8. Há duas maneiras em que **ServiceNow** pode ser configurado automático e manual.
 
-10. Para configurar o **ServiceNow** automaticamente siga as etapas a seguir
+9. Para configurar o **ServiceNow** automaticamente siga as etapas a seguir
 
     a. Volte para a página de Logon único do **ServiceNow** no portal do Azure.
 
@@ -201,15 +185,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     * Clique em **Ativar** no canto superior direito da página.
 
-11. Para configurar o **ServiceNow** manualmente siga as etapas a seguir
+10. Para configurar o **ServiceNow** manualmente siga as etapas a seguir
 
-12. Entre no seu aplicativo ServiceNow como administrador.
+11. Entre no seu aplicativo ServiceNow como administrador.
 
-13. No painel de navegação à esquerda, procure a seção **SSO de Vários Provedores** na barra de pesquisa e, em seguida, clique em **Propriedades**.
+12. No painel de navegação à esquerda, procure a seção **SSO de Vários Provedores** na barra de pesquisa e, em seguida, clique em **Propriedades**.
 
     ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configurar URL do Aplicativo")
 
-14. No diálogo **Várias propriedades de SSO do provedor** , execute as seguintes etapas:
+13. No diálogo **Várias propriedades de SSO do provedor** , execute as seguintes etapas:
 
     ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "Configurar URL do Aplicativo")
 
@@ -265,7 +249,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Selecione a opção de **URL** na caixa de diálogo **Importar metadados de provedor de identidade**.
 
-    b. Insira a **URL de metadados** gerada a partir do portal do Azure.
+    b. Insira a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure.
 
     c. Clique em **Importar**.
 
@@ -358,7 +342,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. Clique no botão **Salvar** .
 
@@ -459,11 +443,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > Você pode configurar o Azure AD para emitir a ID de usuário (nome UPN) do Azure AD ou o endereço de email como o identificador exclusivo no token SAML acessando a seção **ServiceNow > Atributos > Logon Único** do portal do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, user_name)
 
     f. Clique em **Salvar**.
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo! Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -540,7 +520,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

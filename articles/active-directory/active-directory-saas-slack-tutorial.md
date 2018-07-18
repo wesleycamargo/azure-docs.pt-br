@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Slack | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Slack."
+title: 'Tutorial: Integração do Azure Active Directory ao Slack | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c3fb9eb3e8dd4b8c3add5dcf0436958500aa0189
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Active Directory do Azure com o Slack
 
@@ -29,7 +29,7 @@ A integração do Slack ao Azure AD oferece os seguintes benefícios:
 - Você pode permitir que seus usuários façam logon automaticamente no Slack (logon único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um única localização: o Portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -44,7 +44,7 @@ Para configurar a integração do Azure AD ao Slack, você precisará dos seguin
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -115,14 +115,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     b. Na caixa de texto **Identificador**, digite a URL: `https://slack.com`
 
     > [!NOTE] 
-    > O valor não é real. Você precisa atualizar o valor com a URL de Logon real. Contate a [equipe de suporte do Slack](https://slack.com/help/contact) para obter o valor
+    > O valor não é real. Você precisa atualizar o valor com a URL de Logon real. Contate a [equipe de suporte do Slack](https://slack.com/help/contact) para obter o valor.
      
 4. O aplicativo Slack espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar o logon único](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Se o usuário tiver **endereço de email** atribuído usando o Office365, somente ele será preenchido, caso contrário, a declaração de **endereço de email** não aparecerá no Token SAML.
+    > Se você tiver usuários com **endereços de email**  atribuídos que não estejam em uma licença do Office365, a declaração **User.Email** não será exibida no token SAML. Nesses casos, é recomendável usar **user.userprincipalname** como o valor do atributo **User.Email** para mapear como **Identificador Exclusivo**.
 
 5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, selecione **user.mail** como **Identificador de Usuário** e, para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
     
@@ -180,12 +180,6 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     d. Defina as três configurações acima conforme apropriado para sua equipe do Slack. Para saber mais sobre as configurações, encontre o **guia de configuração de SSO do Slack** aqui. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Clique em **Salvar Configuração**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -270,9 +264,7 @@ Ao clicar no bloco Slack no Painel de Acesso, você deverá ser conectado automa
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

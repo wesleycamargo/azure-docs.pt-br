@@ -1,11 +1,11 @@
 ---
-title: "Máquinas virtuais em um modelo do Azure Resource Manager | Microsoft Azure"
-description: "Saiba mais sobre como o recurso de máquina virtual é definido em um modelo do Azure Resource Manager."
+title: Máquinas virtuais em um modelo do Azure Resource Manager | Microsoft Azure
+description: Saiba mais sobre como o recurso de máquina virtual é definido em um modelo do Azure Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: davidmu
-ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: cynthn
+ms.openlocfilehash: 50fb5eeea5e3d6a2f991e92ae9c188822ddb40b0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 

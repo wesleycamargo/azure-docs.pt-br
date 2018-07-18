@@ -1,20 +1,20 @@
 ---
-title: "Saiba como integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma Máquina Virtual do Azure"
-description: "Saiba como integrar uma Máquina Virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário que fazem parte da Automação do Azure"
+title: Saiba como integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma Máquina Virtual do Azure
+description: Saiba como integrar uma Máquina Virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário que fazem parte da Automação do Azure
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
-ms.topic: article
+ms.date: 04/25/2018
+ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193087"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário a partir de uma Máquina Virtual do Azure
 
@@ -22,7 +22,7 @@ A Automação do Azure fornece soluções para gerenciar atualizações de segur
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no Azure em https://portal.azure.com
+Fazer logon no Azure em https://portal.azure.com
 
 ## <a name="enable-the-solutions"></a>Habilitar as soluções
 
@@ -43,7 +43,13 @@ Navegue para as outras soluções e clique em **habilitar**, as caixas suspensas
 
 Cada solução usa uma Configuração de Escopo dentro do espaço de trabalho para direcionar os computadores que recebem a solução. A Configuração de Escopo é um grupo de uma ou mais pesquisas salvas utilizada para limitar o escopo da solução em computadores específicos. Para acessar as Configurações de Escopo, em sua conta de Automação, em **RECURSOS RELACIONADOS**, selecione **Espaço de Trabalho**, em seguida, no espaço de trabalho em **FONTES DE DADOS DO ESPAÇO DE TRABALHO**, selecione **Configurações de Escopo**.
 
-As duas configurações de escopo criadas por padrão são **MicrosoftDefaultScopeConfig-ChangeTracking** e **MicrosoftDefaultScopeConfig-Updates**.
+Se o espaço de trabalho selecionado não tiver as soluções de Gerenciamento de Atualizações ou Controle de Alterações ainda, as seguintes configurações de escopo serão criadas:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Se o espaço de trabalho selecionado já tiver solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
 
 Clique nas reticências (...) em qualquer uma das configurações e selecione **Editar**. Na página **Editar configuração de escopo**, selecione **Selecionar Grupos de Computadores** para abrir a página **Grupos de Computadores**. Esta página mostra as pesquisas salvas que são utilizadas para criar a Configuração de Escopo.
 

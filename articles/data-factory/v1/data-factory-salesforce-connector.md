@@ -2,10 +2,9 @@
 title: Mover dados do Salesforce usando o Data Factory | Microsoft Docs
 description: Saiba mais sobre como mover os dados do Salesforce usando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +71,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | Tipo |A propriedade type deve ser definida para: **Salesforce**. |sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não  |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é “https://login.salesforce.com”. <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não  |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |sim |
 | Senha |Especifique um senha para a conta de usuário. |sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |sim |

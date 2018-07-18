@@ -1,12 +1,12 @@
 ---
-title: "Introdução ao Azure Advisor | Microsoft Docs"
-description: "Use o Azure Advisor para otimizar as implantações do Azure."
+title: Introdução ao Azure Advisor | Microsoft Docs
+description: Use o Azure Advisor para otimizar as implantações do Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -43,9 +43,6 @@ O painel do Assistente exibe recomendações personalizadas para todas as assina
 
   ![Tipos de recomendação do Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Para usar o Assistente do Azure com uma assinatura, é necessário que uma assinatura de *Proprietário* inicie o painel do Assistente.  Essa ação registra a assinatura com o Assistente.  Daí em diante, qualquer *Proprietário*, *Colaborador* ou *Leitor* de assinatura pode acessar as recomendações do Assistente para a assinatura. 
-
 Você pode clicar em uma categoria para exibir a lista de recomendações nessa categoria e selecionar uma recomendação para saber mais sobre ela.  Saiba mais sobre as ações que você pode realizar para aproveitar uma oportunidade ou resolver um problema.
 
 ![Categoria de recomendação do Assistente](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Você pode acessar o Advisor pelo [Portal do Azure](https://aka.ms/azureadvisord
 Você também pode exibir as recomendações do Assistente por meio interface de recursos da máquina virtual. Escolha uma máquina virtual e role até as recomendações do Advisor no menu. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>De quais permissões preciso para acessar o Advisor?
-
-Para obter as recomendações do Assistente para uma assinatura, você deve primeiro registrá-la no Assistente. Uma assinatura é registrada quando um *Proprietário* de assinatura inicia o painel do Assistente. Essa operação é realizada uma única vez. Depois que a assinatura for registrada, você poderá acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura.
+ 
+Você pode acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 
-O Assistente fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, SQL Servers, bancos de dados SQL e para o Cache Redis.
+O Assistente fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, SQL Servers e Cache Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Posso adiar ou ignorar uma recomendação?
 

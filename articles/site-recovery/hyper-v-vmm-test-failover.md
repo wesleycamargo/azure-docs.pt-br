@@ -1,6 +1,6 @@
 ---
-title: "Executar uma simulação de recuperação de desastres do Hyper-V para um site secundário usando o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como executar uma simulação de recuperação de desastres para máquinas virtuais do Hyper-V nas nuvens do VMM em um datacenter secundário usando o Azure Site Recovery."
+title: Executar uma simulação de recuperação de desastres do Hyper-V para um site secundário usando o Azure Site Recovery | Microsoft Docs
+description: Saiba como executar uma simulação de recuperação de desastres para máquinas virtuais do Hyper-V nas nuvens do VMM em um datacenter secundário usando o Azure Site Recovery.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
 
@@ -52,10 +52,17 @@ Ao executar um failover de teste, você deverá selecionar as configurações de
 ### <a name="best-practices"></a>Práticas recomendadas
 
 - O teste de uma rede de produção resulta em tempo de inatividade para as cargas de trabalho de produção. Peça aos usuários que não usem aplicativos relacionados quando a análise detalhada da recuperação de desastre estiver em andamento.
-- A rede de teste não precisa ser compatível com o tipo de rede lógica do VMM usado para o failover de teste. Mas, algumas combinações não funcionam: - Quando a réplica usa isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisa de um pool de endereços IP estáticos. Portanto, o uso da Virtualização de Rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. 
-        - O failover de teste não funcionará se a rede de réplica não usar nenhum isolamento e a rede de teste usar a Virtualização de Rede do Windows. Isso ocorre porque a rede sem isolamento não tem as sub-redes necessárias para criar uma rede da Virtualização de Rede do Windows.
+
+- A rede de teste não precisa ser compatível com o tipo de rede lógica do VMM usado para o failover de teste. Porém, algumas combinações não funcionam:
+
+     - Quando a réplica usa isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisa de um pool de endereços IP estáticos. Portanto, o uso da Virtualização de Rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. 
+        
+     - O failover de teste não funcionará se a rede de réplica não usar nenhum isolamento e a rede de teste usar a Virtualização de Rede do Windows. Isso ocorre porque a rede sem isolamento não tem as sub-redes necessárias para criar uma rede da Virtualização de Rede do Windows.
+        
 - É recomendável que você não use a rede que selecionou para o mapeamento de rede e para o failover de teste.
+
 - O modo como as máquinas virtuais de réplica são conectadas às redes VM mapeadas após o failover depende de como a rede VM é configurada no console do VMM.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Rede VM configurada sem isolamento ou com isolamento de VLAN
 

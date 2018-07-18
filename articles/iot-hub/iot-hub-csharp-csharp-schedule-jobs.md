@@ -1,11 +1,11 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (.NET/.NET) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar o SDK do dispositivo IoT do Azure para .NET para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho."
+description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar o SDK do dispositivo IoT do Azure para .NET para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
-ms.author: v-masebo
-ms.openlocfilehash: 0cdc23683489e103b061044856d68a8b014d3535
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;dobett
+ms.openlocfilehash: 76c8d3739b2af3c010cd80585c93c097fc9eb466
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir trabalhos (.NET/.NET)
 
@@ -36,6 +36,8 @@ Para saber mais sobre cada uma dessas capacidades, consulte:
 
 * Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: Usar métodos diretos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostra como:
 
@@ -302,4 +304,4 @@ Para saber mais sobre como implantar IA em dispositivos de borda com o Azure IoT
 [lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-query]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language
+[lnk-query]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language

@@ -1,26 +1,24 @@
 ---
 title: Usar um Shell Interativo do Spark no Azure HDInsight | Microsoft Docs
-description: "Um Shell interativo do Spark fornece um processo de leitura/execução/impressão para executar um comando do Spark de cada vez e ver os resultados."
+description: Um Shell interativo do Spark fornece um processo de leitura/execução/impressão para executar um comando do Spark de cada vez e ver os resultados.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: maxluk
-ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d2b65980516a7ae1857711f2e58d9cd0a8e8ec9a
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Execute o Spark no Shell do Spark
 

@@ -1,23 +1,23 @@
 ---
-title: "Def. dos Serviços de Nuvem do Azure Esquema NetworkTrafficRules | Microsoft Docs"
-ms.custom: 
+title: Def. dos Serviços de Nuvem do Azure Esquema NetworkTrafficRules | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: "17"
+caps.latest.revision: 17
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 37ec6c771ad83be680d95e9b5597d8da3cace9ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 779d3b42aeab04bb93756439a0482f32ade6557e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição dos Serviços de Nuvem do Azure
 O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções comunicam-se entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
@@ -75,7 +75,7 @@ O elemento `Destinations` descreve uma coleção de RoleEndpoints com a qual é 
 ##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
 O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função com a qual ele permite comunicações. Será possível especificar vários elementos `RoleEndpoint` se houver mais de um ponto de extremidade na função.
 
-| Atributo      | Tipo     | Descrição |
+| Atributo      | type     | DESCRIÇÃO |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obrigatório. O nome do ponto de extremidade com o qual permitir o tráfego.|
 | `roleName`     | `string` | Obrigatório. O nome da função web com a qual permitir a comunicação.|
@@ -86,16 +86,16 @@ O elemento `AllowAllTraffic` é uma regra que permite que todas as funções se 
 ##  <a name="WhenSource"></a> Elemento WhenSource
 O elemento `WhenSource` descreve uma coleção de funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`.
 
-| Atributo | Tipo     | Descrição |
+| Atributo | type     | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obrigatório. Especifica a regra a ser aplicada ao permitir comunicações. No momento, o único valor válido é `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 O elemento `FromRole` especifica as funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`. Será possível especificar vários elementos `FromRole` se houver mais de uma função que pode se comunicar com os pontos de extremidade.
 
-| Atributo  | Tipo     | Descrição |
+| Atributo  | type     | DESCRIÇÃO |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatório. O nome da função da qual permitir a comunicação.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)

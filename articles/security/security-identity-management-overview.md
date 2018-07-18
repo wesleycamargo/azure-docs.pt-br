@@ -1,6 +1,6 @@
 ---
-title: "Recursos de segurança do Azure que ajudam com o gerenciamento de identidade | Microsoft Docs"
-description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. "
+title: Recursos de segurança do Azure que ajudam com o gerenciamento de identidade | Microsoft Docs
+description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Autenticação Multifator e políticas de acesso condicional. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece logon único para milhares de aplicativos (SaaS) de nuvem e acesso a aplicativos Web executados de forma local.
@@ -56,7 +56,7 @@ Os usuários não precisam gerenciar vários conjuntos de nomes de usuário e se
 Saiba mais:
 
 * [Visão geral do logon único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrar o logon único do Azure AD com aplicativos de SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy reverso
@@ -64,10 +64,10 @@ O Proxy de Aplicativo do Azure AD permite que você publique aplicativos locais,
 
 Saiba mais:
 
-* [Habilitando o Proxy de Aplicativo do AD do Azure.](../active-directory/active-directory-application-proxy-enable.md)
+* [Habilitando o Proxy de Aplicativo do AD do Azure.](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](../active-directory/active-directory-application-proxy-publish.md)
-* [Logon único com Proxy de Aplicativo](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Trabalhando com acesso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Logon único com Proxy de Aplicativo](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Trabalhando com acesso condicional](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Autenticação multifator
 O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
@@ -75,8 +75,8 @@ O MFA (Multi-Factor Authentication) é um método de autenticação que exige o 
 Saiba mais:
 
 * [Autenticação multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Como funciona a Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [O que é a Autenticação Multifator do Azure?](../active-directory/authentication/multi-factor-authentication.md)
+* [Como funciona a Autenticação Multifator do Azure](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 Monitoramento e alertas de segurança e relatórios baseados no aprendizado de máquina que identificam padrões de acesso inconsistentes podem ajudá-lo a proteger seus negócios. Você pode usar os relatórios de uso e de acesso do Active Directory do Azure para obter visibilidade quanto à integridade e a segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
@@ -133,7 +133,7 @@ O Gerenciamento de identidades com privilégios do AD do Azure:
 
 Saiba mais:
 
-* [Gerenciamento de identidades com privilégios do AD do Azure](../active-directory/active-directory-privileged-identity-management-configure.md)
+* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
 * [Funções no Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-roles.md)
 * [Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
 

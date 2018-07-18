@@ -3,9 +3,8 @@ title: Introdução ao armazenamento de Tabelas do Azure usando o .NET | Microso
 description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360182"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao armazenamento de Tabelas do Azure usando o .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +49,8 @@ Você precisará do seguinte para concluir este tutorial com sucesso:
 ### <a name="more-samples"></a>Mais exemplos
 Para obter exemplos adicionais usando o Armazenamento de Tabelas, confira [Introdução ao Armazenamento de Tabelas do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Você pode baixar o aplicativo de exemplo e executá-lo ou procurar o código no GitHub.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
-
-Você pode trabalhar com tabelas usando o Armazenamento de Tabelas do Azure ou o Azure Cosmos DB. Você pode aprender mais sobre as diferenças entre os serviços lendo [Ofertas de tabela](table-introduction.md#table-offerings). Você precisará criar uma conta para o serviço que pretende usar. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 A maneira mais fácil de criar sua primeira conta de armazenamento do Azure é usando o [portal do Azure](https://portal.azure.com). Para saber mais, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -63,8 +60,7 @@ Você também pode criar uma conta de armazenamento do Azure usando o [Azure Pow
 Se você preferir não criar uma conta de armazenamento no momento, também poderá usar o emulador de armazenamento do Azure para executar e testar seu código em um ambiente local. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de Tabele do Azure Cosmos DB
-
-Para obter instruções sobre como criar uma conta da API de Tabela do Azure Cosmos DB, consulte [Criar uma conta de API de Tabela](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
 Em seguida, configure seu ambiente de desenvolvimento no Visual Studio para poder ficar pronto para experimentar os exemplos de código neste guia.
@@ -107,7 +103,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 >
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
-Você tem duas opções de ambiente para executar os exemplos neste guia:
+Você tem três opções de ambiente para executar os exemplos neste guia:
 
 * Você pode executar o código em uma conta de Armazenamento do Azure na nuvem. 
 * Você pode executar o código em uma conta do Azure Cosmos DB.

@@ -1,29 +1,23 @@
 ---
-title: "Complexidade da senha em políticas personalizadas – Azure AD B2C | Microsoft Docs"
-description: "Como configurar os requisitos de complexidade para senhas na Política Personalizada"
+title: Complexidade da senha em políticas personalizadas – Azure AD B2C | Microsoft Docs
+description: Como configurar os requisitos de complexidade para senhas na Política Personalizada
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 9f8d576cbc5c2bb2fe4109086b04711422911390
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurar a complexidade de senha em políticas personalizada
-
-> [!NOTE]
-> **Esse recurso está em visualização.**  Entre em contato com [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) para habilitar seu locatário de teste com esse recurso.  Não o teste em locatários de produção.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +27,7 @@ Este artigo é uma descrição avançada de como funciona a complexidade da senh
 
 O Azure Active Directory B2C (Azure AD B2C) oferece suporte à alteração de requisitos de complexidade para senhas fornecidas por um usuário final ao criar uma conta.  Por padrão, o Azure AD B2C usa senhas **Fortes**.  O Azure AD B2C também oferece suporte a opções de configuração para controlar a complexidade de senhas que os clientes podem usar.  Este artigo aborda como configurar a complexidade de senha em políticas personalizadas.  Também é possível usar [configurar a complexidade de senha em políticas internas](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](active-directory-b2c-get-started-custom.md).
 
@@ -105,15 +99,9 @@ Os tipos de declaração `newPassword` e `reenterPassword` são considerados esp
 ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
@@ -150,37 +138,31 @@ Este exemplo contém uma validação para senhas de pin e outra para senhas fort
   <BuildingBlocks>
     <ClaimsSchema>
       <ClaimType Id="newPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
       <ClaimType Id="reenterPassword">
-        <Restriction>
-          <Pattern RegularExpression="^.*$" HelpText="" />
-        </Restriction>
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[a-z]+$</Parameter>
+          <Parameter Id="RegularExpression">[a-z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
         <Parameters>
-          <Parameter Id="RegularExpression">^[A-Z]+$</Parameter>
+          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="RegularExpression">[0-9]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
         <Parameters>
-          <Parameter Id="RegularExpression">^[!@#$%^*()]+$</Parameter>
+          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">

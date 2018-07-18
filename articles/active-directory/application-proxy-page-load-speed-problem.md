@@ -1,11 +1,11 @@
 ---
 title: Um aplicativo de Proxy de Aplicativo demora muito para carregar | Microsoft Docs
-description: "Solucionar problemas de desempenho de carregamento de página com o Proxy de Aplicativo do Azure AD"
+description: Solucionar problemas de desempenho de carregamento de página com o Proxy de Aplicativo do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158499"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Um aplicativo de Proxy de Aplicativo demora muito para carregar
 
-Este artigo ajuda-o a entender porque um aplicativo de Proxy de Aplicativo do Azure AD pode demorar muito tempo para carregar e o que pode ser feito para resolver esse problema.
+Este artigo ajuda-o a entender porque um aplicativo de Proxy de Aplicativo do Azure AD pode demorar muito tempo para carregar. Ele também explica o que você pode fazer para resolver esse problema.
 
 ## <a name="overview"></a>Visão geral
-Se seus aplicativos estão funcionando, mas você percebe uma longa latência, pode haver alguns pequenos ajustes na sua topologia de rede que podem ser considerados para melhorar a velocidade. Para uma avaliação de diferentes topologias, consulte o [documento de considerações de rede](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
+Embora os aplicativos estejam funcionando, eles podem experimentar uma longa latência. Pode haver alterações de topologia de rede que você pode fazer para melhorar a velocidade. Para uma avaliação de diferentes topologias, consulte o [documento de considerações de rede](manage-apps/application-proxy-network-topology.md).
 
-Se essas considerações não ajudarem, infelizmente nós não temos atualmente outras recomendações para ajuste de desempenho. À medida que o serviço de Proxy de Aplicativo se expande para mais data centers que podem estar mais próximos a você, será possível começar a perceber a latência melhorada diretamente. Para ver a lista completa de data centers do Azure, você pode consultar a [página de teste de latência](http://www.azurespeed.com/Azure/Latency). 
+Além da topologia de rede, não há atualmente nenhuma recomendação adicional para ajuste de desempenho. Conforme o serviço Proxy de Aplicativo é expandido, ela pode ir para um data center que esteja fisicamente mais próximo. A proximidade maior pode ajudar na latência. Para uma lista de data centers do Azure, consulte a [página de teste de latência](http://www.azurespeed.com/Azure/Latency). 
 
 Os data centers com o serviço de Proxy de Aplicativo podem ser localizados com a [Ferramenta de Teste de Portas do Conector](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Comentários sobre locais de data centers do Proxy de Aplicativo 
-Pode existir data centers do Azure que ainda não incluem Proxy de Aplicativo, mas poderiam conduzi-lo a uma grande melhoria de latência. O local de data center em <aadapfeedback@microsoft.com>, para que possamos usar seu comentário para planejar conforme expandimos.
+Podem existir data centers do Azure que ainda não incluem Proxy de Aplicativo, mas poderiam conduzi-lo a uma grande melhoria de latência. Envie o local do data center para aadapfeedback@microsoft.com. A Microsoft usa seus comentários para planos de expansão.
 
-Nós estamos trabalhando em alguns recursos adicionais que ajudam a melhorar a latência para locatários que atualmente percebem latências longas e, assegure-se de compartilhar a documentação disponível.
+A Microsoft está trabalhando em recursos adicionais para melhorar a latência. Assim que essas melhorias estiverem disponíveis, a documentação será atualizada.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Trabalhar com servidores proxy locais existentes](application-proxy-working-with-proxy-servers.md)
+[Trabalhar com servidores proxy locais existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)

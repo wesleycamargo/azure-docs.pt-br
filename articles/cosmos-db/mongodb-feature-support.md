@@ -3,8 +3,7 @@ title: Suporte de recurso do Azure Cosmos DB para MongoDB | Microsoft Docs
 description: Saiba mais sobre o suporte de recurso que a API MongoDB do Azure Cosmos DB oferece para o MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte da API MongoDB para recursos e sintaxe do MongoDB
 
@@ -92,6 +91,7 @@ O Azure Cosmos DB oferece suporte ao pipeline de agregação em visualização p
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Expressões de agregação
 

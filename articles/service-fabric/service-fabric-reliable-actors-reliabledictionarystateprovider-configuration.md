@@ -1,24 +1,24 @@
 ---
-title: "Alterar as configurações de ReliableDictionaryActorStateProvider nos microsserviços do Azure | Microsoft Docs"
-description: "Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo ReliableDictionaryActorStateProvider."
+title: Alterar as configurações de ReliableDictionaryActorStateProvider nos microsserviços do Azure | Microsoft Docs
+description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo ReliableDictionaryActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurando Reliable Actors--ReliableDictionaryActorStateProvider
 A configuração padrão do ReliableDictionaryActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Visual Studio dentro da pasta Config para o ator especificado.
@@ -38,7 +38,7 @@ A configuração global é especificada no manifesto do cluster para o cluster n
 O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e os serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
@@ -79,7 +79,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes da configuração
-| Nome | Unidade | Valor padrão | Comentários |
+| NOME | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Veja [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto de extremidade no manifesto do serviço. |
@@ -88,7 +88,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |200 |Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação. |
 | MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
-| OptimizeLogForLowerDiskUsage |Booliano |verdadeiro |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
+| OptimizeLogForLowerDiskUsage |BOOLEAN |verdadeiro |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
 | SharedLogId |GUID |"" |Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 

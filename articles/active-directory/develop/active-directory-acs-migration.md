@@ -1,28 +1,30 @@
 ---
-title: "Migrar do Serviço de Controle de Acesso do Azure | Microsoft Docs"
-description: "Opções para mover aplicativos e serviços do Serviço de Controle de Acesso do Azure"
+title: Migrar do Serviço de Controle de Acesso do Azure | Microsoft Docs
+description: Opções para mover aplicativos e serviços do Serviço de Controle de Acesso do Azure
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar do Serviço de Controle de Acesso do Azure
 
-O Controle de Acesso do Azure, um serviço do Azure Active Directory (Azure AD), será desativado em novembro de 2018. Os aplicativos e serviços que atualmente utilizam o Controle de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até esta data. Este artigo descreve recomendações para os clientes atuais, uma vez que você pretende substituir o uso do Controle de Acesso. Se você não estiver usando o Controle de Acesso, não precisa realizar nenhuma ação.
+O Controle de Acesso do Azure, um serviço do Azure Active Directory (Azure AD), será desativado em 7 de novembro de 2018. Os aplicativos e serviços que atualmente utilizam o Controle de Acesso devem ser totalmente migrados para um mecanismo de autenticação diferente até esta data. Este artigo descreve recomendações para os clientes atuais, uma vez que você pretende substituir o uso do Controle de Acesso. Se você não estiver usando o Controle de Acesso, não precisa realizar nenhuma ação.
 
 
 ## <a name="overview"></a>Visão geral
@@ -54,11 +56,9 @@ Para usar esses componentes, você deve criar um ou mais namespaces do Controle 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Toda a comunicação com o STS e as operações de gerenciamento são feitas nesta URL. Você pode usar diferentes caminhos para finalidades diferentes. Para determinar se os aplicativos ou serviços usam o Controle de Acesso, monitore todo o tráfego para https://\<namespace\>. accesscontrol.windows.net. Qualquer tráfego para essa URL é gerenciado pelo Controle de Acesso e precisa ser interrompido. 
+Toda a comunicação com o STS e as operações de gerenciamento são feitas nesta URL. Você pode usar diferentes caminhos para finalidades diferentes. Para determinar se os aplicativos ou serviços usam o Controle de Acesso, monitore todo o tráfego para https://<namespace>.accesscontrol.windows.net. Qualquer tráfego para essa URL é gerenciado pelo Controle de Acesso e precisa ser interrompido. 
 
-A exceção é qualquer tráfego para https://accounts.accesscontrol.windows.net. O tráfego para esta URL já é gerenciado por um serviço diferente e não é afetado pela substituição do Controle de Acesso. 
-
-Você também deve fazer logon no portal clássico do Azure e verificar todos os namespaces do Controle de Acesso nas assinaturas que você possui. Os namespaces do Controle de Acesso estão listados na guia **Namespaces do Controle de Acesso**, no serviço do **Active Directory**.
+A exceção a isso é qualquer tráfego para `https://accounts.accesscontrol.windows.net`. O tráfego para essa URL já é gerenciado por um serviço diferente e **não** é afetado pela substituição do Controle de Acesso. 
 
 Para mais informações sobre o Controle de Acesso, consulte [Serviço de Controle de Acesso 2.0 (arquivado)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -68,9 +68,9 @@ A partir de novembro de 2017, todos os componentes do Controle de Acesso são to
 
 Aqui está a agenda para a substituição de componentes de Controle de Acesso:
 
-- **Novembro de 2017**: a experiência de administração do Azure AD no portal clássico do Azure [é desativada](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste ponto, o gerenciamento de namespace para o Controle de Acesso está disponível em uma nova URL dedicada: http://manage.windowsazure.com?restoreClassic=true. Use esta URL para exibir seus namespaces existentes, habilitar e desabilitar namespaces e excluir namespaces, se você desejar.
-- **Abril de 2018**: o gerenciamento de namespace do Controle de Acesso não está mais disponível na URL dedicada http://manage.windowsazure.com?restoreClassic=true. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso será totalmente funcional e está localizado no https://\<namespace\>. accesscontrol.windows.net. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
-- **Novembro de 2018**: todos os componentes do Controle de Acesso são encerrados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, quaisquer solicitações enviadas para o Controle de Acesso (localizado em \<namespace\>.accesscontrol.windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
+- **Novembro de 2017**: a experiência de administração do Azure AD no portal clássico do Azure [é desativada](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste ponto, o gerenciamento de namespace para o Controle de Acesso está disponível em uma URL nova e dedicada: `http://manage.windowsazure.com?restoreClassic=true`. Use esta URL para exibir seus namespaces existentes, habilitar e desabilitar namespaces e excluir namespaces, se você desejar.
+- **2 de abril de 2018**: o Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
+- **7 de novembro de 2018**: todos os componentes do Controle de Acesso serão desligados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, quaisquer solicitações enviadas para o Controle de Acesso (localizado em \<namespace\>.accesscontrol.windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
 
 
 ## <a name="migration-strategies"></a>Estratégias de migração
@@ -98,6 +98,17 @@ Cada um dos serviços em nuvem da Microsoft que aceitam tokens emitidos pelo Con
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>Clientes do SharePoint
+
+Os clientes do SharePoint 2013, 2016 e do SharePoint Online há muito tempo usam o ACS para fins de autenticação em cenários de nuvem, locais e híbridos. Alguns recursos do SharePoint e casos de uso serão afetados pela desativação do ACS, enquanto outros não. A tabela abaixo resume as orientações de migração para alguns dos recursos mais populares do SharePoint que utilizam o ACS:
+
+| Recurso | Diretrizes |
+| ------- | -------- |
+| Autenticar usuários do Microsoft Azure AD | Anteriormente, o Microsoft Azure AD não fornecia suporte a tokens SAML 1.1 exigidos pelo SharePoint para autenticação e o ACS era usado como um intermediário que tornava o SharePoint compatível com os formatos de token do Microsoft Azure AD. Agora, é possível [conectar o SharePoint diretamente ao Microsoft Azure AD usando as políticas de emissão de token](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [Autenticação do aplicativo e autenticação de servidor para servidor no SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não afetado pela desativação do ACS; nenhuma mudança necessária. | 
+| [Baixa autorização de confiança para suplementos do SharePoint (provedor hospedado e SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
+| [Pesquisa híbrida de nuvem do SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não afetado pela desativação do ACS; nenhuma mudança necessária. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Aplicativos Web que usam autenticação passiva
 
@@ -243,7 +254,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientação de migração de alto nível para os clientes de Controle de Acesso](https://auth0.com/acs)e oferece suporte a quase todos os recursos oferecidos pelo ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 
@@ -268,7 +279,7 @@ Para serviços web que são protegidos com tokens emitidos pelo Controle de Aces
 - Suporte para os seguintes formatos de token: JWT, SAML 1.1, SAML 2.0 e SWT.
 - Regras simples de transformação do token.
 
-As identidades de serviço no Controle de Acesso são geralmente usadas para implementar uma autenticação de servidor para servidor.  
+As identidades de serviço no Controle de Acesso são geralmente usadas para implementar uma autenticação de servidor para servidor. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
@@ -305,7 +316,7 @@ Nesses casos, convém migrar seu aplicativo web para outro serviço de autentica
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientação de migração de alto nível para os clientes de Controle de Acesso](https://auth0.com/acs)e oferece suporte a quase todos os recursos oferecidos pelo ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes ao ACS. PingOne é um serviço de identidade de nuvem que oferece suporte a muitos dos mesmos recursos que o ACS e o PingFederate é um produto de identidade local semelhante que oferece mais flexibilidade. Consulte [Orientação de desativação do Ping ACS](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo ao trabalhar com a identidade de Ping e Auth0 é garantir que todos os clientes de Controle de Acesso tem um caminho de migração para seus aplicativos e serviços que minimiza a quantidade de trabalho necessária para mover de Controle de Acesso.
 

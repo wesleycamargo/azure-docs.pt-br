@@ -4,7 +4,7 @@ description: Crie uma imagem gerenciada de uma VM ou um VHD generalizado no Azur
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: f18defbec79638cf2c3363e6429ddcac01b1502e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -66,12 +66,11 @@ Verifique se as funções de servidor em execução no computador são suportada
 Criar uma imagem diretamente da VM garante que a imagem inclui todos os discos associados à VM, incluindo o disco do sistema operacional e os discos de dados. Este exemplo mostra como criar uma imagem gerenciada de uma VM que usa discos gerenciados.
 
 
-Antes de iniciar, confira se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo. (Use `Get-Module` para verificar qual versão você tem.)
+Antes de iniciar, confira se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Este artigo requer o módulo do AzureRM versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
-```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para saber mais, confira [Azure PowerShell Versioning](/powershell/azure/overview) (Controle de versão do Azure PowerShell).
+
+> [!NOTE]
+> Se você quiser armazenar a imagem no armazenamento com resiliência de zona, será necessário criá-la em uma região compatível com as [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o parâmetro `-ZoneResilient` na configuração da imagem.
 
 
 1. Defina algumas variáveis.

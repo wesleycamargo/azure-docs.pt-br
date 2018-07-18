@@ -1,10 +1,10 @@
 ---
-title: "Criar uma VM clássica do Azure executando o MySQL | Microsoft Docs"
-description: "Crie uma máquina virtual do Azure que executa o Windows Server 2012 R2 e o banco de dados MySQL usando o modelo de implantação clássica."
+title: Criar uma VM clássica do Azure executando o MySQL | Microsoft Docs
+description: Crie uma máquina virtual do Azure que executa o Windows Server 2012 R2 e o banco de dados MySQL usando o modelo de implantação clássica.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 98fa06d2-9b92-4d05-ac16-3f8e9fd4feaa
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be2a4232fdb59deb87d6d9340fd22909707294b8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2016
 [MySQL](https://www.mysql.com) é um banco de dados SQL fonte aberto popular. Este tutorial mostra como instalar e executar a **versão de comunidade do MySQL 5.7.18** como um Servidor MySQL em uma máquina virtual que executa o **Windows Server 2016**. Sua experiência pode ser um pouco diferente em outras versões do MySQL ou do Windows Server.
@@ -109,7 +109,7 @@ Para adicionar uma regra do Firewall do Windows que permita o tráfego MySQL da 
 Para testar sua conexão remota com a VM do Azure que está executando o serviço do Servidor MySQL, você deve fornecer o nome DNS do serviço de nuvem que contenha o VN.
 
 1. No Portal do Azure, clique em **Máquinas Virtuais (clássicas)**, clique no nome de sua máquina virtual do servidor MySQL e clique em **Visão Geral**.
-2. No painel da máquina virtual, observe o valor **Nome DNS**. Aqui está um exemplo:
+2. No painel da máquina virtual, observe o valor **Nome DNS**. Veja um exemplo:
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. De um computador local executando o MySQL ou o cliente MySQL, execute o comando a seguir para fazer logon como um usuário do MySQL:

@@ -1,12 +1,12 @@
 ---
 title: Compilar um aplicativo Web Java e MySQL no Azure
-description: "Saiba como fazer com que um aplicativo Java que se conecta ao serviço de banco de dados MySQL do Azure funcione no serviço de aplicativo do Azure."
+description: Saiba como fazer com que um aplicativo Java que se conecta ao serviço de banco de dados MySQL do Azure funcione no serviço de aplicativo do Azure.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 46e222ffe40db186343250efc71e20d41adbc285
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilar um aplicativo Web Java e MySQL no Azure
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Java e MySQL no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Implantar um aplicativo Spring Boot em contêineres no Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -137,42 +137,55 @@ Para ver quais possíveis valores você pode usar para `--location`, use o coman
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL (versão prévia) com o comando [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Substitua pelo nome do servidor MySQL exclusivo onde vir o espaço reservado `<mysql_server_name>`. Esse nome é parte do nome de host do servidor MySQL, `<mysql_server_name>.mysql.database.azure.com`, portanto, ele precisa ser globalmente exclusivo. Substitua também `<admin_user>` e `<admin_password>` por seus próprios valores.
+No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+
+No comando a seguir, substitua o espaço reservado  *\<mysql_server_name >* por um nome de servidor exclusivo,*\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name>--location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
+
+> [!NOTE]
+> Como há várias credenciais para considerar neste tutorial, para evitar confusão, `--admin-user` e `--admin-password` são definidos como valores fictícios. Em um ambiente de produção, siga as práticas recomendadas de segurança ao escolher um bom nome de usuário e uma senha para o servidor MySQL no Azure.
+>
+>
 
 Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
 
 ```json
 {
-  "administratorLogin": "admin_user",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
-  "location": "northeurope",
-  "name": "mysql_server_name",
-  "resourceGroup": "mysqlJavaResourceGroup",
-  ...
-  < Output has been truncated for readability >
+  "location": "westeurope",
+  "name": "<mysql_server_name>",
+  "resourceGroup": "myResourceGroup",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  ...   +  
+  -  < Output has been truncated for readability >
 }
 ```
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor MySQL a fim de permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
+No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!NOTE]
-> Atualmente, o Banco de Dados do Azure para MySQL (Visualização) não habilita automaticamente conexões de serviços do Azure. Como os endereços IP no Azure são atribuídos dinamicamente, é melhor habilitar todos os endereços IP por enquanto. Como o serviço continua na fase de visualização, melhores métodos para proteger seu banco de dados serão habilitados.
+> [!TIP] 
+> Você pode ser ainda mais restritivo na regra de firewall ao [usar somente os endereços de IP de saída que seu aplicativo usa](app-service-ip-addresses.md#find-outbound-ips).
+>
 
 ## <a name="configure-the-azure-mysql-database"></a>Configurar o banco de dados MySQL do Azure
 
-Na janela do terminal local, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para `<admin_user>` e `<mysql_server_name>`.
+Na janela do terminal local, conecte-se ao servidor MySQL no Azure. Use o valor especificado anteriormente para _&lt;mysql_server_name>_. Quando for solicitada uma senha, use a que você especificou quando criou o banco de dados no Azure.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p

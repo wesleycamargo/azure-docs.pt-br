@@ -1,18 +1,19 @@
 ---
-title: "Migrar VMs do Azure entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs"
-description: "Use o Azure Site Recovery para migrar VMs IaaS do Azure de uma região do Azure para outra."
+title: Migrar VMs do Azure entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs
+description: Use o Azure Site Recovery para migrar VMs IaaS do Azure de uma região do Azure para outra.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209701"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -35,7 +36,15 @@ Este tutorial pressupõe que você já tem uma assinatura do Azure. Caso não te
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Para finalizar este tutorial, você precisa de VMs do Azure em uma região do Azure para a qual você deseja migrar. Além disso, há uma série de configurações que devem ser verificadas antes de iniciar.
+- Verifique se que você tem VMs do Azure na região do Azure a partir da qual você deseja migrar.
+- Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
+- Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Antes de começar
+
+Antes de configurar a replicação, conclua estas etapas.
 
 
 ### <a name="verify-target-resources"></a>Verifique os recursos de destino
@@ -94,7 +103,7 @@ O novo cofre é adicionado ao **Painel** em **Todos os recursos** e na página p
 ## <a name="select-the-source"></a>Selecione a origem
 
 1. Em cofres dos Serviços de Recuperação, clique em **ConsotoVMVault** > **+Replicate**.
-2. Em **fonte**, selecione **Azure - VISUALIZAÇÃO**.
+2. Em **Fonte**, selecione **Azure**.
 3. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
 4. Selecione o modelo de implantação do Gerenciador de Recursos. Depois selecione o **Grupo de recursos de origem**.
 5. Clique em **OK** para salvar as configurações.
@@ -107,16 +116,14 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
 1. No portal do Azure, clique em **Máquinas virtuais**.
 2. Selecione a VM que deseja migrar. Em seguida, clique em **OK**.
-3. Em **Configurações**, clique em **Recuperação de desastre (versão prévia)**.
+3. Em **Configurações**, clique em **Recuperação de desastre**.
 4. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará.
 5. Para este tutorial, aceite as outras configurações padrão.
 6. Clique em **Habilitar a replicação**. Isso inicia um trabalho para habilitar a replicação para a VM.
 
     ![habilitar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > No momento, não há suporte para replicação de VMs do Azure usando discos gerenciados. 
+ 
 
 ## <a name="run-a-failover"></a>Executar um failover
 

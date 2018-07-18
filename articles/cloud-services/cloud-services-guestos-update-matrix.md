@@ -1,24 +1,25 @@
 ---
-title: "Saiba mais sobre as versões mais recentes de SO convidado do Azure | Microsoft Docs"
-description: "As últimas notícias de versão e a compatibilidade do SDK para o SO convidado dos serviços de nuvem do Azure."
+title: Saiba mais sobre as versões mais recentes de SO convidado do Azure | Microsoft Docs
+description: As últimas notícias de versão e a compatibilidade do SDK para o SO convidado dos serviços de nuvem do Azure.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765766"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -30,7 +31,7 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 
 
 > [!TIP]
->  Assine o [RSS feed de atualização do SO convidado] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
+>  Assine o [Feed RSS de atualização do SO convidado] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
 >
 >
 
@@ -42,6 +43,15 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="may-4-2018"></a>**4 de maio de 2018**
+O SO convidado de abril foi lançado.
+
+###### <a name="april-6-2018"></a>**6 de abril de 2018**
+O SO convidado de março foi lançado.
+
+###### <a name="march-19-2018"></a>**19 de março de 2018**
+O SO convidado de fevereiro foi lançado.
+
 ###### <a name="january-29-2018"></a>**29 de janeiro de 2018**
 O SO convidado de janeiro foi lançado para Famílias de sistema operacional 2(WA-GUEST-OS-2.70_201801-01) e 3 (WA-GUEST-OS-3.57_201801-01)
 
@@ -63,20 +73,6 @@ O SO convidado de setembro foi lançado. Para a versão do Windows Server de set
 ###### <a name="september-14-2017"></a>**14 de setembro de 2017**
 A distribuição do SO convidado de setembro começará no dia 14 de setembro de e tem lançamento previsto para 9 de outubro.
 
-###### <a name="august-24-2017"></a>**24 de agosto de 2017**
-O SO convidado de agosto foi lançado.
-
-###### <a name="august-3-2017"></a>**3 de agosto de 2017**
-O SO convidado de julho foi lançado.
-
-###### <a name="july-19-2017"></a>**19 de julho de 2017**
-A distribuição do SO convidado de julho começa em 19 de julho e está projetada para ser lançada em 8 de agosto.
-
-###### <a name="july-7-2017"></a>**7 de julho de 2017**
-O SO convidado de junho foi lançado.
-
-###### <a name="june-16-2017"></a>**16 de junho de 2017**
-A distribuição do SO convidado de junho começa dia 16 de junho e está projetada para ser lançada em 11 de julho.
 
 
 ## <a name="releases"></a>Lançamentos
@@ -93,8 +89,11 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.15_201801-01 |4 de janeiro de 2018 |Post 5.17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 de janeiro de 2018 |Post 5.16 |TBD |
+| WA-GUEST-OS-5.18_201804-01WA-GUEST-OS-5.18_201804-01 |4 de maio de 2018 |Posta 5.20 |TBD |
+| WA-GUEST-OS-5.17_201803-01 |6 de abril de 2018 |Post 5.19 |TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
@@ -103,8 +102,7 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017|TBD |
+
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -118,8 +116,11 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.50_201801-01 |4 de janeiro de 2018 |Post 4.52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 de janeiro de 2018 |Post 4.51 |TBD |
+| WA-GUEST-OS-4.53_201804-01 |4 de maio de 2018 |Postar 4.55 |TBD |
+| WA-GUEST-OS-4.52_201803-01 |6 de abril de 2018 |Post 4.54 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |4 de janeiro de 2018 |6 de abril de 2018 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de dezembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
@@ -128,8 +129,7 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
+
 
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
@@ -143,8 +143,11 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_201801-01 |29 de janeiro de 2018 |Pós 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 de janeiro de 2018 |Post 3.58 |TBD |
+| WA-GUEST-OS-3.60_201804-01 |4 de maio de 2018 |Postar 3.62 |TBD |
+| WA-GUEST-OS-3.59_201803-01 |6 de abril de 2018 |Post 3.61 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |19 de março de 2018 |4 de maio de 2018 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 de janeiro de 2018 |19 de março de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
@@ -153,8 +156,7 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 de julho de 2017 |6 de outubro de 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
+
 
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
@@ -168,8 +170,11 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.70_201801-01 |29 de janeiro de 2018 |Pós 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 de janeiro de 2018 |Post 2.71 |TBD |
+| WA-GUEST-OS-2.73_201804-01 |4 de maio de 2018 |Postar 2.75 |TBD |
+| WA-GUEST-OS-2.72_201803-01 |6 de abril de 2018 |Post 2.74 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |12 de março de 2018 |4 de maio de 2018 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |29 de janeiro de 2018 |6 de abril de 2018 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 de janeiro de 2018 |12 de março de 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 de dezembro de 2017 |29 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de novembro de 2017 |4 de janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 de outubro de 2017 |14 de dezembro de 2017 |TBD |
@@ -179,8 +184,6 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 de junho de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 de maio de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 de abril de 2017 |7 de julho de 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |10 de janeiro de 2017 |5 de junho de 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |10 de janeiro de 2017 |9 de maio de 2017|TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
@@ -238,8 +241,8 @@ Se você atualizar manualmente o SO convidado, veja [Política de desativação 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
 
-[RSS feed de atualização do SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Feed RSS de atualização do SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -257,4 +260,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx

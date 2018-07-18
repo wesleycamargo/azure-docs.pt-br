@@ -1,11 +1,10 @@
 ---
 title: 'Azure Cosmos DB: Exemplos do .NET para a API do SQL | Microsoft Docs'
-description: "Encontre exemplos do C# .NET no GitHub para tarefas comuns na Azure Cosmos DB SQL API, incluindo operações CRUD."
+description: Encontre exemplos do C# .NET no GitHub para tarefas comuns na Azure Cosmos DB SQL API, incluindo operações CRUD.
 keywords: Exemplo de NoSQL
 services: cosmos-db
 author: rnagpal
-manager: jhubbard
-editor: monicar
+manager: kfile
 documentationcenter: .net
 ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
@@ -15,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 42cdb21276886c9b728a2bf23ece946fa025a87d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b826c41f0f7e452d1be29a5c525fad7deac61b9b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos do .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -29,8 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 As últimas soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Esse artigo fornece:
 

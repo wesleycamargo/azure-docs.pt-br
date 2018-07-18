@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4c81baec0c047b551e1bdac2152b330f010baa18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207199"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Início Rápido: Criar um aplicativo .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
@@ -29,14 +30,14 @@ Este guia de início rápido mostra como implantar seu primeiro aplicativo .NET 
 ![Captura de tela do aplicativo](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Com esse aplicativo, você aprenderá a:
-> [!div class="checklist"]
-> * Criar um aplicativo usando o .NET e o Service Fabric
-> * Usar o ASP.NET Core como um front-end da Web
-> * Armazenar dados de aplicativo em um serviço com estado
-> * Depurar o aplicativo localmente
-> * Implantar o aplicativo em um cluster no Azure
-> * Expandir o aplicativo para vários nós
-> * Executar um upgrade sem interrupção do aplicativo
+
+* Criar um aplicativo usando o .NET e o Service Fabric
+* Usar o ASP.NET Core como um front-end da Web
+* Armazenar dados de aplicativo em um serviço com estado
+* Depurar o aplicativo localmente
+* Implantar o aplicativo em um cluster no Azure
+* Expandir o aplicativo para vários nós
+* Executar um upgrade sem interrupção do aplicativo
 
 ## <a name="prerequisites"></a>pré-requisitos
 Para concluir este guia de início rápido:
@@ -91,7 +92,8 @@ Quando você vota no aplicativo, os seguintes eventos ocorrem:
 3. O serviço de back-end recebe a solicitação de entrada e armazena o resultado atualizado em um dicionário confiável, que é replicado em vários nós no cluster e persistido em disco. Todos os dados do aplicativo são armazenados no cluster e, portanto, nenhum banco de dados é necessário.
 
 ## <a name="debug-in-visual-studio"></a>Depuração no Visual Studio
-Ao depurar o aplicativo no Visual Studio, você usa um cluster de desenvolvimento local do Service Fabric. Você tem a opção de ajustar sua experiência de depuração para seu cenário. Neste aplicativo, os dados são armazenados no serviço de back-end usando um dicionário confiável. O Visual Studio remove o aplicativo por padrão quando você interrompe o depurador. A remoção do aplicativo faz com que os dados no serviço de back-end também sejam removidos. Para persistir os dados entre as sessões de depuração, altere o **Modo de Depuração de Aplicativo** como uma propriedade no projeto **Votação** do Visual Studio.
+
+O aplicativo deve executar sem problemas, mas você pode usar o depurador para ver como as principais partes dele funcionam. Ao depurar o aplicativo no Visual Studio, você está usando um cluster de desenvolvimento local do Service Fabric. Você tem a opção de ajustar sua experiência de depuração para seu cenário. Neste aplicativo, os dados são armazenados no serviço de back-end usando um dicionário confiável. O Visual Studio remove o aplicativo por padrão quando você interrompe o depurador. A remoção do aplicativo faz com que os dados no serviço de back-end também sejam removidos. Para persistir os dados entre as sessões de depuração, altere o **Modo de Depuração de Aplicativo** como uma propriedade no projeto **Votação** do Visual Studio.
 
 Para ver o que acontece no código, conclua as seguintes etapas:
 1. Abra o arquivo **/VotingWeb/Controllers/VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 69) – É possível pesquisar o arquivo no Gerenciador de Soluções no Visual Studio.
@@ -108,6 +110,7 @@ Para ver o que acontece no código, conclua as seguintes etapas:
     - Por fim, retorne a resposta do serviço de back-end para o cliente **(3)**.
 
 4. Pressione **F5** para continuar
+    - Se solicitado pelo navegador, conceda ao grupo ServiceFabricAllowedUsers permissões de leitura e execução para o modo de depuração.
     - Agora você está no ponto de interrupção no serviço de back-end.
     
     ![Adicionar Serviço de Back-End de Voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -122,15 +125,15 @@ Para interromper a sessão de depuração, pressione **Shift + F5**.
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
 Para implantar o aplicativo no Azure, você precisa de um cluster do Service Fabric que execute o aplicativo. 
 
-### <a name="join-a-party-cluster"></a>Ingressar em um cluster Party
-Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. O cluster usa um único certificado autoassinado para nó-a-nó, bem como segurança de cliente para nó. 
+### <a name="join-a-party-cluster"></a>Ingressar em um Party cluster
+Os Party clusters são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. O cluster usa um único certificado autoassinado para nó-a-nó, bem como segurança de cliente para nó. 
 
-Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Como se conectar a um cluster de equipe seguro?** e copie a senha do certificado. O certificado, senha do certificado e os valores de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
+Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Como se conectar a um party cluster seguro?** e copie a senha do certificado. O certificado, senha do certificado e os valores de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
 
 ![PFX e ponto de extremidade de conexão](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
-> Há um número limitado de clusters de equipe disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de equipe, você poderá aguardar um período e tentar novamente, ou você pode seguir estas etapas no tutorial [Implantar um aplicativo .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster do Service Fabric em sua assinatura do Azure e implantar o aplicativo nele. Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de implantar e verificar o aplicativo em seu cluster, pule para [Dimensionar aplicativos e serviços em um cluster](#scale-applications-and-services-in-a-cluster) deste guia de início rápido.
+> Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de equipe, você poderá aguardar um período e tentar novamente, ou você pode seguir estas etapas no tutorial [Implantar um aplicativo .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster do Service Fabric em sua assinatura do Azure e implantar o aplicativo nele. Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de implantar e verificar o aplicativo em seu cluster, pule para [Dimensionar aplicativos e serviços em um cluster](#scale-applications-and-services-in-a-cluster) deste guia de início rápido.
 >
 
 
@@ -174,14 +177,16 @@ Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diret
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
 Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Você tem vários modos de dimensionar seus serviços usando scripts ou comandos do PowerShell ou a CLI do Service Fabric (sfctl). Neste exemplo, use o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Você pode receber um aviso do navegador de que o local não é confiável. Isso porque o certificado é autoassinado. Você pode optar por ignorar o aviso e continuar. Quando receber a solicitação do navegador, selecione o certificado instalado para se conectar. 
+Você pode receber um aviso do navegador de que o local não é confiável. Isso porque o certificado é autoassinado. Você pode optar por ignorar o aviso e continuar.
+1. Quando receber a solicitação do navegador, selecione o certificado instalado para se conectar. O certificado de party cluster selecionado na lista deve corresponder ao party cluster que você está tentando acessar. Por exemplo, win243uja6w62r.westus.cloudapp.azure.com.
+2. Se solicitado pelo navegador, conceda acesso a sua chave privada de CryptoAPI para a sessão.
 
 Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
-1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. Na exibição de árvore, expanda **Aplicativos**->**VotingType**->**fabric:/Voting**. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -212,25 +217,26 @@ Para fazer upgrade do aplicativo, faça o seguinte:
 7. Na caixa de diálogo **Publicar Aplicativo do Service Fabric**, marque a caixa de seleção Fazer Upgrade do Aplicativo e clique em **Publicar**.
 
     ![Configuração de Upgrade da caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    Enquanto o upgrade está em execução, você ainda poderá usar o aplicativo. Como você tem duas instâncias do serviço em execução no cluster, algumas das solicitações poderão obter uma versão atualizada do aplicativo, enquanto outras ainda poderão obter a versão antiga.
+
 8. Abra o navegador e navegue para o endereço do cluster na porta 19080 – por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 9. Clique no nó **Aplicativos** do modo de exibição de árvore e, em seguida, em **Upgrades em Andamento** no painel à direita. Você verá como o upgrade é distribuído pelos domínios de upgrade no cluster, garantindo que cada domínio está íntegro antes de continuar com o próximo. Um domínio de atualização na barra de progresso aparecerá verde quando a integridade do domínio tiver sido verificada.
     ![Modo de Exibição de Upgrade no Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     O Service Fabric faz upgrades com segurança, aguardando dois minutos após o upgrade do serviço em cada nó no cluster. Espere que toda a atualização leve aproximadamente oito minutos.
 
-10. Enquanto o upgrade está em execução, você ainda poderá usar o aplicativo. Como você tem duas instâncias do serviço em execução no cluster, algumas das solicitações poderão obter uma versão atualizada do aplicativo, enquanto outras ainda poderão obter a versão antiga.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você aprendeu a:
 
-> [!div class="checklist"]
-> * Criar um aplicativo usando o .NET e o Service Fabric
-> * Usar o ASP.NET Core como um front-end da Web
-> * Armazenar dados de aplicativo em um serviço com estado
-> * Depurar o aplicativo localmente
-> * Implantar o aplicativo em um cluster no Azure
-> * Expandir o aplicativo para vários nós
-> * Executar um upgrade sem interrupção do aplicativo
+* Criar um aplicativo usando o .NET e o Service Fabric
+* Usar o ASP.NET Core como um front-end da Web
+* Armazenar dados de aplicativo em um serviço com estado
+* Depurar o aplicativo localmente
+* Implantar o aplicativo em um cluster no Azure
+* Expandir o aplicativo para vários nós
+* Executar um upgrade sem interrupção do aplicativo
 
 Para saber mais sobre o Service Fabric e o .NET, confira este tutorial:
 > [!div class="nextstepaction"]

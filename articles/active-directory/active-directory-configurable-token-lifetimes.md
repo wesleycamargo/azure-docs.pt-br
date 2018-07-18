@@ -3,7 +3,7 @@ title: Tempos de vida de token configuráveis no Azure Active Directory | Micros
 description: Saiba como definir tempos de vida dos tokens emitidos pelo Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: hpsin
 manager: mtillman
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: billmath
+ms.date: 04/19/2018
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140075"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (Visualização Pública)
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
-> [!NOTE]
-> Esse recurso está atualmente em Visualização Pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure Active Directory durante a Visualização Pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do [Azure Active Directory Premium](active-directory-get-started-premium.md).
+> [!IMPORTANT]
+> Depois de ouvir de clientes durante a visualização, estamos planejando substituir essa funcionalidade por um novo recurso no acesso condicional do Azure Active Directory.  Depois que o novo recurso for concluído, essa funcionalidade, eventualmente, será substituída após um período de notificação.  Se você usa a política de vida útil do Token configurável, esteja preparado para alternar para o novo recurso de acesso condicional quando ele estiver disponível. 
 >
 >
 
@@ -45,19 +46,19 @@ Designe uma política como a padrão para sua organização. Essa política é a
 Configure as políticas de tempo de vida de token para tokens de atualização, tokens de acesso, tokens de sessão e tokens de ID.
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Os clientes usam tokens de acesso para acessar um recurso protegido. Um token de acesso só pode ser usado para uma combinação específica de usuário, cliente e recurso. Tokens de acesso não podem ser revogados e são válidos até sua expiração. Um ator mal-intencionado que tenha obtido um token de acesso pode usá-lo pela extensão do tempo de vida. Ajustar o tempo de vida do token de acesso é uma compensação entre a melhorar o desempenho do sistema e aumentar o tempo pelo qual o cliente retém acesso depois que a conta do usuário é desabilitada. Um melhor desempenho do sistema é obtido, reduzindo o número de vezes que um cliente precisa adquirir um novo token de acesso.
+Os clientes usam tokens de acesso para acessar um recurso protegido. Um token de acesso só pode ser usado para uma combinação específica de usuário, cliente e recurso. Tokens de acesso não podem ser revogados e são válidos até sua expiração. Um ator mal-intencionado que tenha obtido um token de acesso pode usá-lo pela extensão do tempo de vida. Ajustar o tempo de vida do token de acesso é uma compensação entre a melhorar o desempenho do sistema e aumentar o tempo pelo qual o cliente retém acesso depois que a conta do usuário é desabilitada. Um melhor desempenho do sistema é obtido, reduzindo o número de vezes que um cliente precisa adquirir um novo token de acesso.  O padrão é 1 hora; após 1 hora, o cliente deve usar o token de atualização para (normalmente de forma silenciosa) adquirir um novo token de atualização e outro de acesso. 
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
-Quando um cliente adquire um token de acesso para acessar um recurso protegido, ele recebe um token de atualização e um token de acesso. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Um token de atualização é associado a uma combinação de cliente e usuário. Um token de atualização pode ser revogado, e validade do token é verificada sempre que ele é usado.
+Quando um cliente adquire um token de acesso para acessar um recurso protegido, ele recebe também um token de atualização. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Um token de atualização é associado a uma combinação de cliente e usuário. Um token de atualização pode ser [revogado a qualquer momento](develop/active-directory-token-and-claims.md#token-revocation), e a validade do token é verificada sempre que for usado.  
 
-É importante fazer uma distinção entre clientes públicos e clientes confidenciais. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+É importante fazer uma distinção entre clientes públicos e clientes confidenciais, pois isso afeta o tempo durante o qual os tokens de atualização podem ser usados. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidencial
-Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes do aplicativo cliente, e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois pode armazenar um segredo do cliente no servidor Web. Ele não fica exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando uma política e não serão revogados em redefinições de senha voluntárias.
+Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha (segredo) do cliente. Eles podem provar que as solicitações são provenientes do aplicativo cliente protegido, e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois pode armazenar um segredo do cliente no servidor Web. Ele não fica exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando uma política e não serão revogados em redefinições de senha voluntárias.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
 
-Clientes públicos não são capazes de armazenar com segurança a senha (segredo) de um cliente. Por exemplo, um aplicativo iOS/Android não pode ocultar um segredo do proprietário do recurso e, portanto, é considerado um cliente público. Defina políticas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade Tempo Máximo Inativo do Token de Atualização.) Use também políticas para definir um período além do qual os tokens de atualização não serão mais aceitos. (Para fazer isso, use a propriedade Idade Máxima do Token de Atualização.) Ajuste o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
+Clientes públicos não são capazes de armazenar com segurança a senha (segredo) de um cliente. Por exemplo, um aplicativo iOS/Android não pode ocultar um segredo do proprietário do recurso e, portanto, é considerado um cliente público. Defina políticas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade Tempo Máximo Inativo do Token de Atualização (`MaxInactiveTime`)) Use também políticas para definir um período além do qual os tokens de atualização não serão mais aceitos. (Para fazer isso, use a propriedade Idade Máxima do Token de Atualização.) Ajuste o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Os tokens de ID são considerados válidos até a expiração. Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário. Ajuste o tempo de vida de um token de ID para controlar com que frequência o aplicativo Web expira a sessão do aplicativo, com que frequência exige que o usuário seja autenticado novamente no Azure AD (de forma silenciosa ou interativa).
@@ -108,6 +109,8 @@ Crie e atribua uma política de tempo de vida de token para um aplicativo espec�
 Para saber mais sobre a relação entre objetos de aplicativo e de entidade de serviço, confira [Objetos de aplicativos e entidade de serviço no Azure Active Directory](active-directory-application-objects.md).
 
 A validade do token é avaliada no momento em que ele é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
+
+Todos os períodos de tempo usados aqui são formatados de acordo com o objeto C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) - D.HH:MM:SS.  Assim, 80 dias e 30 minutos seria `80.00:30:00`.  Os D principal pode ser descartado se for zero, então 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Veja um exemplo de cenários.

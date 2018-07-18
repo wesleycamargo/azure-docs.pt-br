@@ -1,21 +1,21 @@
 ---
 title: Executar uma carga de trabalho paralela - .NET do Lote do Azure
-description: "Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote"
+description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -38,13 +38,13 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 * [IDE do Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 ou versão mais recente). 
 
-* Uma conta do Lote e uma conta de armazenamento de uso geral vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
+* Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
 * [Versão de 64 bits do Windows do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (. zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente. 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="add-an-application-package"></a>Adicionar um pacote de aplicativos
@@ -306,7 +306,7 @@ batchClient.JobOperations.TerminateJob(jobId, successMessage);
 
 Depois que ele executa as tarefas, o aplicativo exclui automaticamente o contêiner de armazenamento de entrada criado e oferece a opção de excluir o pool do Lote e o trabalho. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de exclusão correspondentes, chamados se você confirmar a exclusão. Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de entrada e saída permanecerão na conta de armazenamento.
 
-Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
+Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote e a conta de armazenamento. Para fazer isso no Portal do Azure, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

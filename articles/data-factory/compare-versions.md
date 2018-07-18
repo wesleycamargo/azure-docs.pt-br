@@ -1,23 +1,22 @@
 ---
-title: "Comparar versões 1 e 2 do Azure Data Factory | Microsoft Docs"
+title: Comparar versões 1 e 2 do Azure Data Factory | Microsoft Docs
 description: Este artigo compara o Azure Data Factory V1 com o Azure Data Factory V2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparar as versões 1 e 2 do Azure Data Factory
 Este artigo compara a versão 2 (V2) com a versão 1 (V1) do Azure Data Factory. Para obter uma introdução à versão 1, confira [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). Para obter uma introdução à versão 2, confira [Introdução ao Azure Data Factory (V2 - versão prévia)](introduction.md).
@@ -112,7 +111,7 @@ Na versão 1, o código da atividade DotNet (personalizada) é implementado por 
 
 Para uma atividade personalizada da versão 2, não é necessário implementar uma interface .NET. É possível executar diretamente comandos, scripts e seu próprio código personalizado compilado como um executável. 
 
-Para saber mais, consulte [Diferença entre a atividade personalizada na V1 e na V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Para saber mais, consulte [Diferença entre a atividade personalizada na V1 e na V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>SDKs
  O Data Factory V2 fornece um conjunto mais completo de SDKs que podem ser usados para criar, gerenciar e monitorar pipelines.
@@ -138,6 +137,9 @@ Os SDKs que foram atualizados para a versão 2 não são retrocompatíveis com c
 | SDK do Python | [Sim](quickstart-create-data-factory-python.md) | Não  |
 | Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Funções e permissões
+
+A função de Colaborador de Data Factory versão 1 pode ser usada para criar e gerenciar recursos v2 do Data Factory.
 
 ## <a name="monitoring-experience"></a>Experiência de monitoramento
 Na V2, você também pode monitorar os data factories usando o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell dão suporte ao monitoramento de [tempos de execução de integração](monitor-integration-runtime.md). A versão 1 e a versão 2 oferecem suporte ao monitoramento visual por meio do aplicativo de monitoramento, que pode ser iniciado no Portal do Azure.

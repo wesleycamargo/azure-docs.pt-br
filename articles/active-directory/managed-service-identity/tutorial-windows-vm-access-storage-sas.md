@@ -1,25 +1,27 @@
 ---
 title: Usar um MSI de VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS
-description: "Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento."
+description: Um tutorial que mostra como usar uma MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o armazenamento do Azure usando uma credencial SAS, em vez de uma chave de acesso da conta de armazenamento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c12cf5e5c8f103434b973ccd7e50ea96b405d541
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ac807bf12e0d6a465b1741d34e6d3d02885c8ea1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303766"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Azure por meio de uma credencial SAS
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Microsoft Azure por meio de uma credencial SAS
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -41,7 +43,7 @@ Uma SAS de Serviço permite conceder acesso limitado a objetos em uma conta de a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
@@ -58,7 +60,7 @@ Para este tutorial, vamos criar uma nova VM do Windows. Você também pode habil
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM
 
-Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Nos bastidores, habilitar o MSI faz duas coisas: instala a extensão de VM do MSI em sua VM, e isso habilita o MSI para a máquina virtual.  
+Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Nos bastidores, habilitar MSI em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
 1. Navegue até o grupo de recursos de sua nova máquina virtual e selecione a máquina virtual que você criou na etapa anterior.
 2. Em “Configurações” da VM no painel esquerdo, clique em **Configuração**.
@@ -66,10 +68,6 @@ Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a nece
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.
 
     ![Texto Alt da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Se você deseja verificar quais extensões estão nesta VM, clique em **Extensões**. Se o MSI estiver habilitado, **ManagedIdentityExtensionforWindows** será exibido na lista.
-
-    ![Texto Alt da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -121,7 +119,7 @@ Você precisará usar os cmdlets do PowerShell do Azure Resource Manager nesta p
 4. Usando Invoke-WebRequest do Powershell, faça uma solicitação ao ponto de extremidade do MSI local para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

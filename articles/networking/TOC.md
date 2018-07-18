@@ -10,7 +10,6 @@
 ### [Combinar métodos de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Planejar e projetar
 ### [Redes virtuais](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Filtragem de tráfego](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectividade entre locais - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectividade entre locais - privada dedicada](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -44,13 +43,11 @@
 ### [Criar uma conexão privada dedicada (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Gerenciamento
+### [Visão geral do monitoramento da rede](network-monitoring-overview.md)
+### [Verificar o uso de recursos em relação aos limites do Azure](check-usage-against-limits.md)
 ### [Exibir topologia de rede](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Gerenciar captura de pacotes](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Determinar o roteamento de próximo salto](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Verificar os fluxos IP para uma VM](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Visão Geral do Monitoramento de Rede](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-## Exemplos de scripts
+## Scripts de exemplo
 ### [CLI do Azure](cli-samples.md)
 ### [PowerShell do Azure](powershell-samples.md)
 

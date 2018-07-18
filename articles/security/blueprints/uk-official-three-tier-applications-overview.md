@@ -1,6 +1,6 @@
 ---
-title: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL"
-description: "Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL"
+title: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL
+description: Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança e Conformidade do Azure Blueprint – Automação de Aplicativos Web de Três Camadas UK-OFFICIAL
 
@@ -211,7 +211,7 @@ Os clientes podem optar por usar um [modelo administrativo de segurança aprimor
 
 **Gerenciamento de Recursos**: recursos do Azure, como VMs, VNets e balanceadores de carga, são gerenciados agrupados em [Grupos de Recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). As funções Controle de Acesso Baseado em Recursos podem ser atribuídas a cada grupo de recursos para restringir o acesso somente a usuários autorizados.
 
-**Restrições de controle de acesso**: Use RBAC [(Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para gerenciar os recursos em seu aplicativo usando [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). O RBAC pode ser usado para restringir as operações que o DevOps pode executar em cada camada. Ao conceder permissões, use o [princípio de privilégios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre em log todas as operações administrativas e execute auditorias regularmente para confirmar que as alterações de configuração foram planejadas.
+**Restrições de controle de acesso**: Use RBAC [(Controle de Acesso Baseado em Função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para gerenciar os recursos em seu aplicativo usando [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). O RBAC pode ser usado para restringir as operações que o DevOps pode executar em cada camada. Ao conceder permissões, use o [princípio de privilégios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre em log todas as operações administrativas e execute auditorias regularmente para confirmar que as alterações de configuração foram planejadas.
 
 **Acesso à Internet**: esta arquitetura de referência usa o [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como balanceador de carga e gateway da internet. Alguns clientes também podem pensar em usar soluções de virtualização de rede de terceiros para camadas adicionais de segurança como uma alternativa ao [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

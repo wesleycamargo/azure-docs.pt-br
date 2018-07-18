@@ -2,24 +2,26 @@
 title: Integrar aplicativos com Azure Active Directory
 description: Como adicionar, atualizar ou remover um aplicativo no Azure AD (Azure Active Directory).
 services: active-directory
-documentationcenter: 
-author: PatAltimore
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: mbaldwin
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 76c6ef7d4cf53872dda308628790994b35d8431c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157989"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrando aplicativos com o Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +58,7 @@ Para que você possa usar os recursos do AD do Azure em qualquer aplicativo dese
 5. Ao terminar, clique em **Criar**. O Azure AD atribui uma ID exclusiva do aplicativo para seu aplicativo e você é levado à página de registro principal de seu aplicativo. Dependendo de se o seu aplicativo é Web ou nativo, diferentes opções serão fornecidas para adicionar mais recursos ao aplicativo. Consulte a próxima seção para obter uma visão geral de consentimento e detalhes sobre como habilitar recursos adicionais de configuração em seu registro de aplicativo (credenciais, permissões, habilitar entrada para usuários de outros locatários).
 
   > [!NOTE]
-  > Por padrão, o aplicativo recém-registrado é configurado para permitir que **somente** usuários do mesmo locatário entrem no seu aplicativo.
+  > Por padrão, um aplicativo da Web recém-registrado é configurado para permitir que **apenas** usuários do mesmo locatário acessem seu aplicativo.
   > 
   > 
 
@@ -65,7 +67,7 @@ Depois que o aplicativo tiver sido registrado no AD do Azure, talvez ele tenha q
 
 ### <a name="overview-of-the-consent-framework"></a>Visão geral da estrutura de consentimento
 
-A estrutura de consentimento do Azure AD facilita desenvolver aplicativos cliente nativos e Web multilocatário, incluindo aplicativos de várias camadas. Esses aplicativos permitem a entrada de contas de usuário de um locatário do Azure AD diferente daquele no qual o aplicativo está registrado. Também poderão precisar acessar APIs da Web, como a API do Microsoft Graph (para acessar o Azure Active Directory, o Intune e serviços no Office 365) e outras APIs de serviços da Microsoft, além das suas próprias APIs da Web. A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório.
+A estrutura de consentimento do Azure AD facilita o desenvolvimento de aplicativos da Web multilocatários e clientes nativos. Esses aplicativos permitem a entrada de contas de usuário de um locatário do Azure AD diferente daquele no qual o aplicativo está registrado. Também poderão precisar acessar APIs da Web, como a API do Microsoft Graph (para acessar o Azure Active Directory, o Intune e serviços no Office 365) e outras APIs de serviços da Microsoft, além das suas próprias APIs da Web. A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório.
 
 Por exemplo, se um aplicativo cliente da Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Depois que o autorização for dado, o aplicativo cliente poderá chamar a API do Microsoft Graph em nome do usuário e usar as informações de calendário conforme a necessidade. A [API do Graph da Microsoft](https://graph.microsoft.io) fornece acesso aos dados do Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, blocos de anotações do OneNote, tarefas do Planner, pastas de trabalho do Excel etc.), bem como usuários e grupos do Azure AD e outros objetos de dados de outros serviços do Microsoft Cloud. 
 
@@ -93,15 +95,15 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 5. Depois que o usuário dá consentimento, um código de autorização é retornado ao aplicativo, que é resgatado para aquisição de um token de acesso e de um token de atualização. Para obter mais informações sobre esse fluxo, consulte a seção [aplicativo Web para API Web em Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento apareça para cada usuário no locatário e é feito na página do aplicativo no [portal do Azure](https://portal.azure.com). Na página **Configurações** para seu aplicativo, clique em **Permissões Necessárias** e clique no botão **Conceder Permissões**. 
+6. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento seja exibida para todos os usuários do locatário e pode ser feita no [ Portal do Azure ](https://portal.azure.com) por usuários com a função de administrador. Na página **Configurações** para seu aplicativo, clique em **Permissões Necessárias** e clique no botão **Conceder Permissões**. 
 
   ![Conceda permissões para consentimento explícito de admin](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > A concessão explícita de consentimento usando o botão **Conceder Permissões** é necessária no momento para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.   
+  > A concessão explícita de consentimento usando o botão **Conceder Permissões** é necessária no momento para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configure um aplicativo cliente para acessar APIs Web
-Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e possa obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta. Esta seção aborda as etapas de configuração necessárias para fornecer a chave secreta das credenciais do seu cliente.
+Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e possa obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta. Esta seção aborda as etapas de configuração necessárias para fornecer a chave secreta com as credenciais do seu cliente.
 
 Além disso, antes que um cliente possa acessar uma API Web exposta por um aplicativo de recurso (como a API do Microsoft Graph), a estrutura de autorização garante que o cliente obtenha a concessão de permissão necessária, com base nas permissões solicitadas. Por padrão, todos os aplicativos podem escolher permissões em "Microsoft Azure Active Directory" (API do Graph) e "API de Gerenciamento de Serviços do Microsoft Azure". A [permissão de "Entrar e ler perfil do usuário" da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também é selecionada por padrão. Se o cliente estiver sendo registrado em um locatário que tenha contas inscritas no Office 365, APIs Web e permissões para o SharePoint e Exchange Online estarão disponíveis para seleção. Você pode selecionar entre [dois tipos de permissões](active-directory-dev-glossary.md#permissions) para cada API Web desejada:
 
@@ -120,7 +122,7 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
    ![Atualizar o registro de um aplicativo](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. Você será direcionado à página de registro principal do aplicativo, que abre a página **Configurações** para o aplicativo. Para adicionar uma chave secreta para credenciais do seu aplicativo Web:
-  - Clique na seção **Chaves** na página **Configurações**.  
+  - Clique na seção **Chaves** na página **Configurações**. 
   - Adicione uma descrição para a sua chave.
   - Selecione uma duração de um ou dois anos.
   - Clique em **Salvar**. A coluna mais à direita conterá o valor da chave, depois que você salvar as alterações de configuração. **Copie a chave** para uso no código do aplicativo cliente, já que ela não estará acessível depois que sair desta página.
@@ -141,7 +143,7 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
 6. Quando terminar, clique no botão **Selecionar** na página **Habilitar Acesso**, então no botão **Feito** na página **Adicionar acesso à API**. Você é levado de volta à página **Permissões Necessárias**, em que o novo recurso é adicionado à lista de APIs.
 
   > [!NOTE]
-  > Clicar no botão **Concluído** também define automaticamente as permissões para o aplicativo no seu diretório com base nas permissões para outros aplicativos que você configurou.  É possível exibir essas permissões de aplicativo consultando a página **Configurações** do aplicativo.
+  > Clicar no botão **Concluído** também define automaticamente as permissões para o aplicativo no seu diretório com base nas permissões para outros aplicativos que você configurou. É possível exibir essas permissões de aplicativo consultando a página **Configurações** do aplicativo.
   > 
   > 
 
@@ -182,7 +184,7 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
   > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em tempo de execução, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
   > 
 
-6. Ao terminar, clique em **Salvar**. Agora sua API Web está configurada para ser usada por outros aplicativos do seu diretório.  
+6. Ao terminar, clique em **Salvar**. Agora sua API Web está configurada para ser usada por outros aplicativos do seu diretório. 
 
   ![Atualizar o registro de um aplicativo](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +212,7 @@ Para obter mais informações sobre os conceitos do manifesto do aplicativo em g
 
 Conforme mencionado anteriormente, além de expor/acessar APIs para seus próprios aplicativos, você também pode registrar seu aplicativo cliente para acessar APIs expostas pelos recursos da Microsoft. A API do Microsoft Graph, conhecida como "Microsoft Graph" na lista de recursos/APIs do portal, está disponível a todos os aplicativos registrados com o Azure AD. Se você estiver registrando seu aplicativo cliente em um locatário que contenha contas que se inscreveram para uma assinatura do Office 365, você também poderá acessar os escopos expostos pelos vários recursos do Office 365.
 
-Para uma discussão completa sobre os escopos expostos pela API do Microsoft Graph, consulte o artigo [Escopos de permissão | Conceitos da API do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
+Para obter uma discussão completa sobre os escopos expostos pela API do Microsoft Graph, consulte o artigo [ referência de permissões do Microsoft Graph ](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
 
 > [!NOTE]
 > Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a API do Graph do AD do Azure se eles usarem a permissão "Acessar diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
@@ -233,7 +235,7 @@ Tornar um aplicativo multilocatário requer tanto alterações de registro de ap
 Se você estiver escrevendo um aplicativo que queira disponibilizar aos seus clientes ou parceiros fora da sua organização, você precisará atualizar a definição de aplicativo no portal do Azure.
 
 > [!IMPORTANT]
-> O Azure AD exige que o URI de ID do aplicativo de aplicativos multilocatário seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo. Para um aplicativo de locatário único, é suficiente que o URI da ID do Aplicativo seja exclusivo nesse locatário. Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários. A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD. Por exemplo, se o nome do seu locatário for contoso.onmicrosoft.com, um URI da ID do Aplicativo válido seria https://contoso.onmicrosoft.com/myapp. Se seu locatário tiver um domínio verificado de contoso.com, um URI de ID do aplicativo válido também seria https://contoso.com/myapp. A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
+> O Azure AD exige que o URI de ID do aplicativo de aplicativos multilocatário seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo. Para um aplicativo de locatário único, é suficiente que o URI da ID do Aplicativo seja exclusivo nesse locatário. Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários. A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD. Por exemplo, se o nome do locatário fosse contoso.onmicrosoft.com, então, o URI da ID do aplicativo válido seria https://contoso.onmicrosoft.com/myapp. Se o locatário tivesse um domínio verificado de contoso.com, então, um URI da ID do aplicativo válido também seria https://contoso.com/myapp. A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
 > 
 
 Para dar a usuários externos a capacidade de acessar seu aplicativo: 
@@ -289,7 +291,7 @@ Por padrão, a Concessão Implícita do OAuth 2.0 está desabilitada para aplica
 Esta seção descreve como remover um registro do aplicativo do seu locatário do Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Removendo um aplicativo autorizado pela sua organização
-Aplicativos que a sua organização tiver registrado aparecem no filtro "Meus aplicativos" na página "Registros de aplicativo" principal do locatário. Esses aplicativos são aqueles que você registrou manualmente pelo portal do Azure ou programaticamente pelo PowerShell ou pela API do Graph. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](active-directory-application-objects.md).
+Aplicativos que sua organização tiver registrado aparecem sob o filtro "Meus aplicativos" na página do principal "registros do aplicativo" do locatário. Esses aplicativos são aqueles que você registrou manualmente pelo portal do Azure ou programaticamente pelo PowerShell ou pela API do Graph. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para remover um aplicativo de locatário único do diretório
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -309,13 +311,13 @@ Aplicativos que a sua organização tiver registrado aparecem no filtro "Meus ap
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Removendo um aplicativo multilocatário autorizado por outra organização
 Um subconjunto dos aplicativos que aparecem sob o filtro "Todos os aplicativos" (excluindo os registros de "Meus aplicativos") na página principal de "Registros do aplicativo" do seu locatário, é composto por aplicativos multilocatário. Em termos de técnicos, esses aplicativos multilocatários são de outro locatário e foram registrados no seu locatário durante o processo de consentimento. Mais especificamente, eles são representados apenas por um objeto de entidade de serviço em seu locatário, sem objeto de aplicativo correspondente. Para saber mais sobre as diferenças entre os objetos de aplicativo e entidade de serviço, confira [Objetos de aplicativo e entidade de serviço no Azure AD](active-directory-application-objects.md).
 
-Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado autorização), o administrador da empresa deve remover sua entidade de serviço. O administrador deve ter acesso de administrador global e pode remover por meio do portal do Azure ou usar os [Cmdlets do PowerShell do Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
+Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado autorização), o administrador da empresa deve remover sua entidade de serviço. O administrador deve ter acesso de administrador global e pode removê-lo por meio do portal do Azure ou usar os Cmdlets [ do Azure AD PowerShell ](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como a autenticação funciona no Azure AD, consulte [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md).
 - Veja [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md) para obter dicas sobre a orientação visual para seu aplicativo.
 - Para obter mais informações sobre a relação entre os objetos de Aplicativo e de Entidade de Serviço do aplicativo, consulte [Objetos de Aplicativo e objetos de Entidade de Serviço](active-directory-application-objects.md).
 - Para saber mais sobre a função do manifesto do aplicativo, veja [Noções básicas sobre o manifesto do aplicativo do Azure Active Directory](active-directory-application-manifest.md)
-- Veja as definições do [Glossário de desenvolvedor do Azure AD](active-directory-dev-glossary.md) de alguns dos conceitos de desenvolvedor do Azure Active Directory (AD).
+- Consulte o [ glossário do desenvolvedor do Azure AD ](active-directory-dev-glossary.md) para obter as definições de alguns dos principais conceitos do desenvolvedor do Azure AD.
 - Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md) para obter uma visão geral de todo o conteúdo relacionado a desenvolvedor.
 

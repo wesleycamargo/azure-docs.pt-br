@@ -1,24 +1,25 @@
 ---
-title: "Crie seu primeiro aplicativo de microsserviços do Azure no Linux usando C# | Microsoft Docs"
+title: Crie seu primeiro aplicativo de microsserviços do Azure no Linux usando C# | Microsoft Docs
 description: Criar e implantar um aplicativo do Service Fabric usando C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9530b07b68ca1fafe605fa69a4d692cb382acac2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365552"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -42,8 +43,8 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
 
    Ubuntu
    ```bash
-   sudo apt-get install npm
-   sudo apt install nodejs-legacy
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+   sudo apt-get install -y nodejs 
    ```
 
    Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
@@ -57,7 +58,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
   ```bash
   sudo npm install -g yo
   ```
-3. Instalar o gerador de aplicativos Java Yeo do Service Fabric a partir do NPM
+3. Instalar o gerador de aplicativos Yeoman C# do Service Fabric no NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp

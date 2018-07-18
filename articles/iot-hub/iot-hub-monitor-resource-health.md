@@ -2,11 +2,11 @@
 title: Monitorar a integridade de seu Hub IoT do Azure | Microsoft Docs
 description: Use o Azure Monitor e o Azure Resource Health para monitorar seu Hub IoT Hub e diagnosticar problemas rapidamente
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: 3051af03d0c1433db98bcc674a072188e7ce80e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202213"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
 As empresas que implementam o Hub IoT do Azure esperam um desempenho confiável de seus recursos. Para ajudá-lo a manter um monitoramento em suas operações, o Hub IoT é totalmente integrado ao [Azure Monitor][lnk-AM] e o [Azure Resource Health] [ lnk-ARH]. Esses dois serviços funcionam em conjunto para fornecer os dados de que você precisa manter suas soluções IoT em execução em um estado íntegro. 
 
-O Azure Monitor é uma fonte única de monitoramento e registro em log para todos os serviços do Azure. Você pode enviar os logs gerados pelo Azure Monitor para o OMS Log Analytics, Hubs de eventos ou Armazenamento do Microsoft Azure para processamento personalizado. As configurações de diagnóstico e métricas do Azure Monitor oferecem a visibilidade em tempo real sobre o desempenho de seus recursos. Continue lendo este artigo para saber como [Usar o Azure Monitor](#use-azure-monitor) com o Hub IoT. 
+O Azure Monitor é uma fonte única de monitoramento e registro em log para todos os serviços do Azure. Você pode enviar os logs gerados pelo Azure Monitor para o Log Analytics, Hubs de Eventos ou Armazenamento do Microsoft Azure para processamento personalizado. As configurações de diagnóstico e métricas do Azure Monitor oferecem a visibilidade em tempo real sobre o desempenho de seus recursos. Continue lendo este artigo para saber como [Usar o Azure Monitor](#use-azure-monitor) com o Hub IoT. 
 
 O Azure Resource Health ajuda você a diagnosticar e a obter suporte quando um problema com o Azure afeta seus recursos. Um painel personalizado fornece o status de integridade atual e anterior de seus Hubs IoT. Continue lendo este artigo para saber como [Usar o Azure Resource Health](#use-azure-resource-health) com o Hub IoT. 
 
@@ -44,7 +45,7 @@ Para saber mais sobre as métricas e os eventos que o Azure Monitor inspeciona, 
 
 O Azure Monitor controla diferentes operações que ocorrem no Hub IoT. Cada categoria tem um esquema que define como os eventos nessa categoria são relatados. 
 
-#### <a name="connections"></a>Conexões
+#### <a name="connections"></a>conexões
 
 A categoria de conexões rastreia erros que ocorrem quando os dispositivos se conectam a um Hub IoT ou se desconectam dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 
@@ -155,7 +156,7 @@ Essa categoria não pode capturar erros que ocorrem diretamente enquanto o dispo
 }
 ```
 
-#### <a name="cloud-to-device-twin-operations"></a>Operações de gêmeos de nuvem para dispositivo
+#### <a name="cloud-to-device-twin-operations"></a>Operações de dispositivo gêmeo para nuvem
 
 A categoria de operações de gêmeos de nuvem para dispositivo rastreia eventos iniciados pelo serviço em dispositivos gêmeos. Essas operações podem incluir obter gêmeo, atualizar propriedades relatadas e inscrever em propriedades desejadas
 
@@ -172,7 +173,7 @@ A categoria de operações de gêmeos de nuvem para dispositivo rastreia eventos
 }
 ```
 
-#### <a name="device-to-cloud-twin-operations"></a>Operações de gêmeos de dispositivo para nuvem
+#### <a name="device-to-cloud-twin-operations"></a>Operações de nuvem gêmea para dispositivo
 
 A categoria de operações de gêmeos de dispositivo para nuvem rastreia eventos iniciados pelo dispositivo em dispositivos gêmeos. Essas operações podem incluir obter gêmeo, atualizar ou substituir marcas e atualizar ou substituir propriedades desejadas. 
 
@@ -244,7 +245,7 @@ A categoria de métodos diretos rastreia as interações de resposta de solicita
 
 Depois de configurar o log de eventos por meio das configurações de diagnóstico, é possível criar aplicativos que leem logs de forma que você possa tomar uma ação com base nas informações neles. Esse código de exemplo recupera os logs de um hub de eventos:
 
-```
+```csharp
 class Program 
 { 
     static string connectionString = "{your AMS eventhub endpoint connection string}"; 

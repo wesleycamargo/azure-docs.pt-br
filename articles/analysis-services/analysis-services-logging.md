@@ -1,31 +1,24 @@
 ---
-title: "Log de diagnósticos para o Azure Analysis Services | Microsoft Docs"
-description: "Saiba mais sobre como configurar o log de diagnósticos do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Log de diagnósticos para o Azure Analysis Services | Microsoft Docs
+description: Saiba mais sobre como configurar o log de diagnósticos do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: 
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
-Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [logs de diagnósticos de recurso do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), você pode monitorar e enviar logs para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), que faz parte do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [ logs de diagnóstico de recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para o [Log Analytics](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Log de diagnósticos para o Armazenamento, Hubs de Eventos ou Operations Management Suite por meio do Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Log de diagnósticos para Armazenamento, Hubs de Eventos ou Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>O que é registrado em log?
@@ -171,7 +164,7 @@ Em **Tipo**, clique em **AzureDiagnostics** e, em seguida, clique em **Aplicar**
 
 Clique em **EventClass\_s** ou em um dos nomes de eventos e o Log Analytics continuará a criar uma consulta. Certifique-se de salvar as consultas para reutilizar posteriormente.
 
-Não se esqueça de consultar o Operations Management Suite, que oferece um site com recursos de consulta, criação de painéis e de alertas aprimorados nos dados do Log Analytics.
+Assegure-se de consultar o Log Analytics, que fornece um site com recursos aprimorados de consulta, painel e alertas sobre os dados coletados.
 
 ### <a name="queries"></a>Consultas
 
@@ -210,7 +203,7 @@ Para concluir este tutorial, você deve ter os seguintes recursos:
 Inicie uma sessão do PowerShell do Azure e entre em sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na janela pop-up do navegador, insira o nome de usuário e a senha da sua conta do Azure. O Azure PowerShell obtém todas as assinaturas que estão associadas a essa conta e, por padrão, usa a primeira.

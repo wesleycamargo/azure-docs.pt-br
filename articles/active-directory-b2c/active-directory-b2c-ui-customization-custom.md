@@ -3,22 +3,20 @@ title: Personalizar uma interface do usuário usando políticas personalizadas �
 description: Saiba mais sobre como personalizar uma interface do usuário (UI) ao usar políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200851"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Configurar a personalização da interface do usuário em uma política personalizada
 
@@ -131,6 +129,7 @@ Na marca de nível superior *\<TrustFrameworkPolicy\>*, você deve encontrar a m
     <ContentDefinitions>
       <ContentDefinition Id="api.idpselections">
         <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
       </ContentDefinition>
     </ContentDefinitions>
   </BuildingBlocks>
@@ -145,7 +144,7 @@ Na marca de nível superior *\<TrustFrameworkPolicy\>*, você deve encontrar a m
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Teste a política personalizada usando a opção **Executar Agora**
 
-1. Abra a folha **Azure AD B2C**, acesse **Todas as políticas**.
+1. Na folha **Azure AD B2C**, acesse **Todas as políticas**.
 2. Selecione a política personalizada carregada e clique no botão **Executar agora**.
 3. Você deverá conseguir se inscrever usando um endereço de email.
 

@@ -1,17 +1,17 @@
 ---
-title: "Configurar a recuperação de desastre em VMs do Azure após migração para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como preparar computadores para configurar a recuperação de desastre entre regiões do Azure após a migração para o Azure usando o Azure Site Recovery."
+title: Configurar a recuperação de desastre em VMs do Azure após migração para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como preparar computadores para configurar a recuperação de desastre entre regiões do Azure após a migração para o Azure usando o Azure Site Recovery.
 services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 05/16/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação de desastres para VMs do Azure após a migração para o Azure 
 
@@ -30,11 +30,11 @@ Antes de configurar a recuperação de desastres, certifique-se de que a migraç
 
 ## <a name="install-the-azure-vm-agent"></a>Instalar o Agente de VM do Azure
 
-O [agente de VM](../virtual-machines/windows/agent-user-guide.md) do Azure deve ser instalado na VM para que o Site Recovery possa replicá-lo.
+O [agente de VM](../virtual-machines/extensions/agent-windows.md) do Azure deve ser instalado na VM para que o Site Recovery possa replicá-lo.
 
 
 1. Para instalar o agente de VM em VMs executando o Windows, baixe e execute o [instalador do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de administrador na VM para concluir a instalação.
-2. Para instalar o agente de VM em VMs executando o Linux, instale a versão mais recente do [agente do Linux](../virtual-machines/linux/agent-user-guide.md). Você precisa de privilégios de administrador para concluir a instalação. É recomendável instalar do seu repositório de distribuição. Não é recomendável instalar o agente de VM Linux diretamente do GitHub. 
+2. Para instalar o agente de VM em VMs executando o Linux, instale a versão mais recente do [agente do Linux](../virtual-machines/extensions/agent-linux.md). Você precisa de privilégios de administrador para concluir a instalação. É recomendável instalar do seu repositório de distribuição. Não é recomendável instalar o agente de VM Linux diretamente do GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Validar a instalação em VMs do Windows

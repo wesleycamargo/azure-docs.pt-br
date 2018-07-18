@@ -1,25 +1,26 @@
 ---
-title: "Diagnósticos de inicialização para máquinas virtuais Linux no Azure | Microsoft Docs"
-description: "Visão geral dos dois recursos de depuração para máquinas virtuais Linux no Azure"
+title: Diagnósticos de inicialização para máquinas virtuais Linux no Azure | Microsoft Docs
+description: Visão geral dos dois recursos de depuração para máquinas virtuais Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941846"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas de máquinas virtuais Linux no Azure
 
@@ -39,18 +40,23 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
 
 ## <a name="common-boot-errors"></a>Erros comuns de inicialização
 
-- [Problemas com o sistema de arquivos](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [Problemas de kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [Erros de FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [Problemas com o sistema de arquivos](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [Problemas de kernel](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [Erros de FSTAB](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitar o diagnóstico em uma nova máquina virtual
-1. Ao criar uma nova máquina virtual no Portal de Versão Prévia, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
+1. Ao criar uma nova máquina virtual no Portal do Azure, selecione **Azure Resource Manager** no menu suspenso do modelo de implantação:
  
     ![Gerenciador de Recursos](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configure a opção de monitoramento para selecionar a conta de armazenamento em que você deseja colocar esses arquivos de diagnóstico.
+2. Em **Configurações**, habilite os **Diagnósticos de inicialização**e, em seguida, selecione uma conta de armazenamento que deseja colocar esses arquivos de diagnósticos.
  
-    ![Criar VM](./media/boot-diagnostics/screenshot4.jpg)
+    ![Criar VM](./media/boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > O recurso de diagnóstico de inicialização não oferece suporte à conta de armazenamento premium. Se você usar a conta de armazenamento premium para o diagnóstico de inicialização, você poderá receber o erro StorageAccountTypeNotSupported quando você iniciar a VM. 
+    >
+    > 
 
 3. Se você estiver implantando um modelo do Azure Resource Manager, navegue até seu recurso de máquina virtual e acrescente a seção de diagnóstico do perfil. Lembre-se de usar o cabeçalho de versão de API "2015-06-15".
 
@@ -74,8 +80,20 @@ Esses dois recursos têm suporte em máquinas virtuais do Azure em todas as regi
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Atualizar uma máquina virtual existente
+Para implantar um exemplo de máquina virtual com o diagnóstico de inicialização habilitado, confira nosso repositório aqui.
 
-Para habilitar o diagnóstico de inicialização no portal, você também pode atualizar uma máquina virtual existente pelo portal. Selecione a opção Diagnóstico de inicialização e salve. Reinicie a VM para que entre em vigor.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitar o diagnóstico de inicialização na máquina virtual existente 
 
-![Atualizar VM existente](./media/boot-diagnostics/screenshot5.png)
+Para habilitar o diagnóstico de inicialização em uma máquina virtual existente, siga estas etapas:
+
+1. Faça logon no [portal do Azure](https://portal.azure.com) e selecione a máquina virtual.
+2. Em **Suporte + solução de problemas**, selecione **Diagnósticos de inicialização** > **Configurações**, altere o status para **Ligado**e, em seguida, selecione uma conta de armazenamento. 
+4. Verifique se a opção diagnóstico de inicialização está selecionada e, em seguida, salve as alterações.
+
+    ![Atualizar VM existente](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Reinicie a VM para que entre em vigor.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Se você vir um erro "Falha ao obter o conteúdo do log" ao usar o diagnóstico de inicialização de VM, consulte [Falha ao obter o conteúdo do erro de log no diagnóstico de inicialização da VM](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur).

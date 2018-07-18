@@ -1,23 +1,19 @@
 ---
-title: "Atualizando para o SDK do .NET do Azure Search versão 3 | Microsoft Docs"
-description: "Atualizando para o SDK do .NET do Azure Search versão 3"
-services: search
-documentationcenter: 
+title: Atualizando para o SDK do .NET do Azure Search versão 3 | Microsoft Docs
+description: Atualizando para o SDK do .NET do Azure Search versão 3
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Atualizando para o SDK do .NET do Azure Search versão 3
 Se você estiver usando a visualização da versão 2.0 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 3, mais recente.
@@ -142,6 +138,6 @@ Se seu aplicativo tiver uma dependência rígida desses recursos, você não pod
 ## <a name="conclusion"></a>Conclusão
 Se precisar de mais detalhes sobre como usar o SDK do .NET do Azure Search, confira o [Tutorial .NET](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade para solicitar ajuda no [Fórum do MSDN sobre o Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo [Azure Search]" no título do problema.
+Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade para solicitar ajuda no [Fórum do MSDN sobre o Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
 
 Obrigado por usar o Azure Search!

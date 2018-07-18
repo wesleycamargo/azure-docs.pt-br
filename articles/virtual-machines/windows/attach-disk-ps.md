@@ -1,13 +1,13 @@
 ---
 title: Anexar um disco de dados a uma VM do Windows no Azure usando o PowerShell | Microsoft Docs
-description: "Como anexar novos discos de dados, ou existente, a uma VM do Windows usando o PowerShell com o modelo de implantação do Resource Manager."
+description: Como anexar novos discos de dados, ou existente, a uma VM do Windows usando o PowerShell com o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 6bc52262105fd9b162ad8ada9ae5cc3dbf623df2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943942"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Anexar um disco de dados a uma VM do Windows usando o PowerShell
 
@@ -31,7 +32,7 @@ Antes de fazer isso, revise estas dicas:
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+Se você escolher instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 6.0.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicionar um disco de dados vazio a uma máquina virtual
@@ -44,10 +45,10 @@ Este exemplo mostra como adicionar um disco de dados vazio a uma máquina virtua
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'East US' 
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -59,16 +60,15 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Usando discos gerenciados em uma zona de disponibilidade
 Para criar um disco em uma zona de disponibilidade, use [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) com o parâmetro `-Zone`. O exemplo a seguir cria um disco na zona *1*.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'East US 2' 
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 

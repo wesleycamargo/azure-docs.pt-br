@@ -1,25 +1,25 @@
 ---
-title: "Auditoria de relatórios de atividade no portal do Azure Active Directory | Microsoft Docs"
-description: "Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory"
+title: Auditoria de relatórios de atividade no portal do Azure Active Directory | Microsoft Docs
+description: Introdução à auditoria de relatórios de atividade no portal do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33dc234d4d0ca3ec58e069a928a30bcd8ec41e6d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 5950b8bac89a8a6c0ed7979228b8296f34e43364
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -29,7 +29,7 @@ A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
 
 - **Atividade** 
     - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
-    - **Logs de auditoria** – informações de atividade do sistema sobre o gerenciamento de usuários e de grupos, sobre os aplicativos gerenciados e sobre as atividades de diretório.
+    - **Logs de auditoria** – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. Os exemplos de logs de auditoria incluem alterações feitas a recursos dentro do Azure AD, como usuários, aplicativos, grupos, funções, políticas, autenticações, etc.
 - **Segurança** 
     - **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja Entradas de risco.
     - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, consulte Usuários sinalizados para risco.
@@ -182,7 +182,10 @@ Você pode filtrar essa exibição para apenas **grupos** ou apenas **usuários*
 ![Logs de auditoria](./media/active-directory-reporting-activity-audit-logs/25.png "Logs de auditoria")
 
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ter uma visão geral dos relatórios, consulte [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).
+- Para ter uma visão geral dos relatórios, consulte [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).
+
+- Para obter uma lista completa de todas as atividades de auditoria, confira a [referência de atividades de auditoria do Azure AD](active-directory-reporting-activity-audit-reference.md)
 

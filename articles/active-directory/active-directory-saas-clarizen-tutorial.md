@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory ao Clarizen | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Clarizen."
+title: 'Tutorial: Integração do Azure Active Directory ao Clarizen | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Active Directory do Azure e o Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integração do Active Directory do Azure ao Clarizen
 
@@ -32,9 +32,9 @@ O cenário deste tutorial consiste em duas tarefas principais:
 1. Adicione o Clarizen da galeria.
 2. Configurar e testar logon único do Azure AD.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para configurar a integração do Azure AD ao Clarizen, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
@@ -103,7 +103,7 @@ Habilite o logon único do Azure AD no portal do Azure e configura o logon únic
     > [!NOTE]
     > Esses não são os valores reais. Você precisa usar o identificador real e a URL de resposta. Aqui, sugerimos que você use o valor exclusivo de uma cadeia de caracteres como o identificador. Para obter os valores reais, entre em contato com a [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
 
     ![Clicar em "Criar novo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
@@ -243,7 +243,7 @@ Ao clicar no bloco do Clarizen no Painel de Acesso, você deve ser conectado aut
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,11 +1,11 @@
 ---
-title: "Aplicativo Node.js usando Socket.io – Azure"
+title: Aplicativo Node.js usando Socket.io – Azure
 description: Saiba como usar socket.io em um aplicativo node.js hospedado no Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011308"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
 
@@ -28,7 +29,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 ![Uma janela do navegador exibindo o serviço hospedado no Azure][completed-app]  
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo deste artigo:
 
 * Instalar o [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -57,11 +58,11 @@ As etapas a seguir criam o projeto de serviço de nuvem que hospedará o aplicat
     ![Saída de new-azureservice e add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
 ## <a name="download-the-chat-example"></a>Baixar o exemplo de chat
-Para este projeto, usaremos o exemplo de chat do repositório [Socket.IO GitHub]. Execute as seguintes etapas para baixar o exemplo e adicioná-lo ao projeto que você criou anteriormente.
+Para este projeto, usaremos o exemplo de chat do repositório [repositório Socket.IOGitHub]. Execute as seguintes etapas para baixar o exemplo e adicioná-lo ao projeto que você criou anteriormente.
 
 1. Crie uma cópia local do repositório usando o botão **Clonar** . Você também pode usar o botão **ZIP** para baixar o projeto.
    
-   ![Uma janela do navegador exibindo https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de download ZIP realçado][chat-example-view]
+   ![Uma janela de navegação exibindo https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de download ZIP realçado][chat-example-view]
 2. Navegue pela estrutura de diretório do repositório local até chegar no diretório **examples\\chat**. Copie o conteúdo desse diretório para o diretório **C:\\node\\chatapp\\WorkerRole1** criado anteriormente.
    
    ![Explorer, exibindo o conteúdo do diretório examples\\chat extraído do armazenamento][chat-contents]
@@ -123,7 +124,7 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
 4. Depois de testar o aplicativo, pare o emulador, emitindo o comando a seguir:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Para implantar o aplicativo no Azure, use o cmdlet **Publish-AzureServiceProject** . Por exemplo:
+5. Para implantar o aplicativo no Azure, use o cmdlet **Publish-AzureServiceProject** . Por exemplo: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -160,7 +161,7 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+[repositório Socket.IOGitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
 [Azure Considerations]: #windowsazureconsiderations
 [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
 [Summary and Next Steps]: #summary

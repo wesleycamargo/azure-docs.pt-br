@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o ADP | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o ADP."
+title: 'Tutorial: integração do Azure Active Directory com o ADP | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o ADP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 64ae39e630897c69155ee85347c90421aca394a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Active Directory do Azure ao ADP
 
@@ -30,7 +30,7 @@ A integração de ADP ao Microsoft Azure Active Directory oferece os seguintes b
 - Você pode permitir que seus usuários façam logon automaticamente em ADP (logon único) com suas contas do Microsoft Azure Active Directory.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -122,7 +122,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure Active Directory
 
     ![Informações de logon único de Domínio e URLs do ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
-    Na caixa de texto **Identificador**, digite uma URL: `https://fed.adp.com/` 
+    Na caixa de texto **Identificador**, digite uma URL: `https://fed.adp.com` 
     
 5. O ADP espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. O nome de declaração sempre será **"PersonImmutableID"** e o valor que mapeamos para **employeeid**. 
 
@@ -210,23 +210,23 @@ Após o recebimento da confirmação de seu representante da ADP, configure os s
     
     * **ADP Workforce Now**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
     * **ADP Workforce Now Enhanced Time**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
     * **ADP Vantage HCM**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
     * **ADP Enterprise HR**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
     * **MyADP**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 9. **Salve** suas alterações.
 
@@ -237,10 +237,6 @@ Após o recebimento da confirmação de seu representante da ADP, configure os s
     b. O teste é bem-sucedido quando os usuários acessam o aplicativo de serviço do ADP na galeria e podem acessar seus serviços do ADP.
  
 11. Após a confirmação de um teste bem-sucedido, atribua o serviço ADP federado a usuários individuais ou grupos de usuários, que é explicado mais adiante no tutorial, e distribua-o a seus funcionários. 
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -318,7 +314,9 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+
+
 
 <!--Image references-->
 

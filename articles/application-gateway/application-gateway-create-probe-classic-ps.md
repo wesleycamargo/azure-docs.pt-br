@@ -1,11 +1,11 @@
 ---
-title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no modelo de implantação clássico"
+title: Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs
+description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no modelo de implantação clássico
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201939"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
@@ -35,7 +36,7 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>Criar um Application Gateway
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Para criar um Application Gateway:
 
@@ -147,7 +148,7 @@ Um novo item de configuração \<Probe\> é adicionado para configurar investiga
 
 Os parâmetros de configuração são:
 
-|Parâmetro|Descrição|
+|Parâmetro|DESCRIÇÃO|
 |---|---|
 |**Nome** |Nome de referência da investigação personalizada. |
 * **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|

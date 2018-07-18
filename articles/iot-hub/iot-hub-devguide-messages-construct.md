@@ -1,28 +1,32 @@
 ---
 title: Entender o formato de mensagem do Hub IoT do Azure| Microsoft Docs
-description: "Guia do desenvolvedor - descreve o formato e o conteúdo esperado de mensagens do Hub IoT."
+description: Guia do desenvolvedor - descreve o formato e o conteúdo esperado de mensagens do Hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
-Para suportar a interoperabilidade contínua entre protocolos, o Hub IoT define um formato de mensagem comum para todos os protocolos voltados para o dispositivo. Este formato de mensagem é utilizado para as mensagens [do dispositivo para a nuvem][lnk-d2c] e [nuvem para o dispositivo][lnk-c2d]. Uma [mensagem do Hub IoT][lnk-messaging] consiste de:
+Para suportar a interoperabilidade contínua entre protocolos, o Hub IoT define um formato de mensagem comum para todos os protocolos voltados para o dispositivo. Este formato de mensagem é utilizado para as mensagens [do dispositivo para a nuvem][lnk-d2c] e [nuvem para o dispositivo][lnk-c2d]. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Uma [mensagem do Hub IoT][lnk-messaging] consiste de:
 
 * Um conjunto de *propriedades do sistema*. Propriedades que o Hub IoT interpreta ou define. Esse conjunto é predeterminado.
 * Um conjunto de *propriedades do aplicativo*. Um dicionário de propriedades de cadeia de caracteres que o aplicativo pode definir e acessar sem precisar desserializar o corpo da mensagem. O Hub IoT nunca modifica essas propriedades.
@@ -50,6 +54,7 @@ A tabela a seguir lista o conjunto de propriedades do sistema em mensagens do Hu
 | ConnectionDeviceId |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **deviceId** do dispositivo que enviou a mensagem. |
 | ConnectionDeviceGenerationId |Uma ID definida pelo Hub IoT em mensagens do dispositivo para a nuvem. Contém a **generationId** (de acordo com as [Propriedades de identidade de dispositivo][lnk-device-properties]) do dispositivo que enviou a mensagem. |
 | ConnectionAuthMethod |Um método de autenticação definido pelo Hub IoT em mensagens do dispositivo para a nuvem. Essa propriedade contém informações sobre o método de autenticação usado para autenticar o dispositivo que envia a mensagem. Para saber mais, veja [Antifalsificação do dispositivo para a nuvem][lnk-antispoofing]. |
+| CreationTimeUtc | Data e hora em que a mensagem foi criada em um dispositivo. Um dispositivo deve definir esse valor explicitamente. |
 
 ## <a name="message-size"></a>Tamanho da mensagem
 

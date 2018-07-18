@@ -1,24 +1,22 @@
 ---
-title: "Exibindo logs de diagnóstico do Azure Data Lake Store| Microsoft Docs"
-description: "Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Store  "
+title: Exibindo logs de diagnóstico do Azure Data Lake Store| Microsoft Docs
+description: 'Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Store  '
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/21/2018
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: b58a4b215b13d2e57a69a94a60e3e37471c926c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acessando os logs de diagnóstico do Azure Data Lake Store
 Saiba como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.
@@ -31,7 +29,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar o log de diagnóstico em sua conta do Data Lake Store
 1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
-2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Configurações**, em seguida, clique em **Logs de diagnóstico**.
+2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Diagnostic logs**.
 3. No **os logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
 
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "habilitar logs de diagnóstico")
@@ -47,7 +45,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
         
         * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, você deve fornecer os detalhes para o espaço de trabalho do Operations Management Suite que você usaria a análise de log de executar. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
+        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, deverá fornecer os detalhes para o espaço de trabalho do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
@@ -150,6 +148,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -167,6 +166,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, getfilestatus. |
 | resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
+| resultSignature |Cadeia de caracteres |Detalhes adicionais sobre a operação. |
 | correlationId |Cadeia de caracteres |A ID do log que pode ser usada para agrupar um conjunto de entradas de log relacionada |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Confira abaixo para obter os detalhes |
@@ -186,7 +186,7 @@ search *
 ```
 
 
-O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar a política de exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)

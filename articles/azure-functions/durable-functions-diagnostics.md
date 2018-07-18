@@ -1,24 +1,24 @@
 ---
-title: "Diagnóstico nas Funções Duráveis – Azure"
-description: "Saiba como diagnosticar problemas com a extensão de Funções Duráveis do Azure Functions."
+title: Diagnóstico nas Funções Duráveis – Azure
+description: Saiba como diagnosticar problemas com a extensão de Funções Duráveis do Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico nas Funções Duráveis (Azure Functions)
 
@@ -50,6 +50,7 @@ Cada evento de ciclo de vida de uma instância de orquestração faz com que um 
 * **reason**: dados adicionais associados ao evento de acompanhamento. Por exemplo, se uma instância estiver aguardando uma notificação de evento externo, esse campo indica o nome do evento que ela está aguardando. Se uma função tiver falhado, ele conterá detalhes do erro.
 * **isReplay**: valor booliano que indica se o evento de acompanhamento deve ter a execução reproduzida.
 * **extensionVersion**: a versão da extensão da Tarefa Durável. Esse dado é especialmente importante ao relatar possíveis bugs na extensão. Instâncias de execução longa podem relatar várias versões se uma atualização ocorrer durante sua execução. 
+* **sequenceNumber**: número de sequência de execução para um evento. Combinado com o carimbo de data/hora ajuda a ordenar os eventos por tempo de execução. *Observe que esse número será redefinido para zero se o host for reiniciado enquanto a instância estiver em execução, portanto, primeiro é importante sempre classificar pelo carimbo de data/hora e, depois, sequenceNumber.*
 
 O detalhamento dos dados de acompanhamento emitidos para o Application Insights pode ser configurado na seção `logger` do arquivo `host.json`.
 
@@ -67,16 +68,16 @@ O detalhamento dos dados de acompanhamento emitidos para o Application Insights 
 
 Por padrão, todos os eventos de acompanhamento são emitidos. O volume dos dados pode ser reduzido definindo `Host.Triggers.DurableTask` como `"Warning"` ou `"Error"`. Nesse caso, os eventos de acompanhamento serão emitidos somente para situações excepcionais.
 
-> [!WARNING]
+> [!NOTE]
 > Por padrão, a amostragem da telemetria do Application Insights é feita segundo o tempo de execução do Azure Functions, para evitar a emissão de dados com frequência excessiva. Isso pode fazer com que informações de acompanhamento sejam perdidas quando muitos eventos de ciclo de vida ocorrerem em um curto período. O [artigo sobre Monitoramento no Azure Functions](functions-monitoring.md#configure-sampling) explica como configurar esse comportamento.
 
 ### <a name="single-instance-query"></a>Consulta de instância única
 
-A consulta a seguir mostra dados de acompanhamento históricos de uma única instância de orquestração da função [Sequência Hello](durable-functions-sequence.md). Ela é escrita usando a [AIQL (Linguagem de Consulta do Application Insights)](https://docs.loganalytics.io/docs/Language-Reference). Ela filtra a execução de reproduções para que somente o caminho de execução *lógico* seja mostrado.
+A consulta a seguir mostra dados de acompanhamento históricos de uma única instância de orquestração da função [Sequência Hello](durable-functions-sequence.md). Ela é escrita usando a [AIQL (Linguagem de Consulta do Application Insights)](https://docs.loganalytics.io/docs/Language-Reference). Ela filtra a execução de reproduções para que somente o caminho de execução *lógico* seja mostrado. Os eventos podem ser ordenados classificando por `timestamp` e `sequenceNumber`, conforme mostrado na consulta abaixo: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-O resultado é uma lista de eventos de acompanhamento que mostram o caminho de execução da orquestração, incluindo funções de atividade.
 
-![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+O resultado é uma lista de eventos de rastreamento que mostra o caminho de execução da orquestração, incluindo quaisquer funções de atividade ordenadas pelo tempo de execução em ordem crescente.
 
-> [!NOTE]
-> Alguns desses eventos de acompanhamento podem estar fora de ordem devido à falta de precisão na coluna `timestamp`. Isso está sendo acompanhado no GitHub como o [problema #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Consulta do Application Insights](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Consulta de resumo da instância
 
@@ -122,6 +124,8 @@ O resultado é uma lista de IDs de instância e seu status de tempo de execuçã
 
 É importante ter em mente o comportamento de reprodução do orquestrador ao gravar logs diretamente de uma função de orquestrador. Por exemplo, considere a seguinte função de orquestrador:
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -135,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 Os dados de log resultantes serão semelhantes ao seguinte:
@@ -179,6 +199,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> A propriedade `IsReplaying` ainda não está disponível em JavaScript.
+
+## <a name="custom-status"></a>Status personalizados
+
+O status de orquestração personalizado permite que você defina um valor de status personalizado para a função do orquestrador. Esse status é fornecido por meio da API de consulta de status HTTP ou da API `DurableOrchestrationClient.GetStatusAsync`. O status de orquestração personalizado possibilita um monitoramento mais rico para funções do orquestrador. Por exemplo, o código de função do orquestrador pode incluir `DurableOrchestrationContext.SetCustomStatus` chamadas para atualizar o progresso de uma operação demorada. Um cliente, como uma página da web ou outro sistema externo pode, em seguida, consultar periodicamente as APIs de consulta de status HTTP para informações de andamento mais ricas. Um exemplo usando `DurableOrchestrationContext.SetCustomStatus` é fornecido abaixo:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Durante a execução da orquestração, clientes externos podem buscar este status personalizado:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+O clientes terão a seguinte resposta: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  O conteúdo do status personalizado é limitado a 16 KB de textoUTF-16 JSON porque ele precisa ser capaz de caber em uma coluna de Armazenamento de Tabelas do Azure. Você pode usar o armazenamento externo se precisar de conteúdo maior.
 
 ## <a name="debugging"></a>Depurando
 

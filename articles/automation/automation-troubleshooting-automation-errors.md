@@ -1,33 +1,28 @@
 ---
-title: "Solução de problemas comuns de Automação do Azure | Microsoft Docs"
-description: "Este artigo fornece informações para ajudar a solucionar problemas e corrigir erros comuns da Automação do Azure."
+title: Solução de problemas comuns de Automação do Azure | Microsoft Docs
+description: Este artigo fornece informações para ajudar a solucionar problemas e corrigir erros comuns da Automação do Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-tags: top-support-issue
-keywords: "erro de automação, solução de problemas, problema"
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
+tags: top-support-issue
+keywords: erro de automação, solução de problemas, problema
+ms.openlocfilehash: 990422cb686c84501127c3fcf233f96aec5bc065
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erros de autenticação ao trabalhar com runbooks da Automação do Azure
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Cenário: falha ao entrar na Conta do Azure
-**Erro:** você recebe o erro "Unknown_user_type: tipo de usuário desconhecido" ao trabalhar com os cmdlets Add-AzureAccount ou Login-AzureRmAccount.
+**Erro:** você recebe o erro "Unknown_user_type: Tipo de Usuário Desconhecido" ao trabalhar com os cmdlets Add-AzureAccount ou Login-AzureRmAccount.
 
 **Motivo do erro:** esse erro ocorrerá se o nome do ativo de credencial não for válido ou se o nome de usuário e a senha que você usou para configurar o ativo de credencial de automação não forem válidos.
 
@@ -40,7 +35,7 @@ Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Se a autenticação falhar localmente, isso indicará que você não configurou corretamente as credenciais do Active Directory do Azure. Confira a postagem de blog [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Autenticação no Azure usando o Azure Active Directory) para configurar corretamente a conta do Azure Active Directory.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Cenário: não é possível localizar a assinatura do Azure

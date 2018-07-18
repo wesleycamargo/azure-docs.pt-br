@@ -1,14 +1,14 @@
 ---
-title: "Empacotar e implantar um aplicativo de contêineres do Service Fabric | Microsoft Docs"
-description: "Neste tutorial, você aprende a gerar uma definição de aplicativo do Azure Service Fabric usando o Yeoman e a empacotar o aplicativo."
+title: Empacotar e implantar um aplicativo de contêineres do Service Fabric | Microsoft Docs
+description: Neste tutorial, você aprende a gerar uma definição de aplicativo do Azure Service Fabric usando o Yeoman e a empacotar o aplicativo.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Contêineres, Microservices, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365351"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric
 
@@ -45,7 +46,8 @@ O Service Fabric fornece ferramentas de scaffolding para ajudar a criar aplicati
 1. Instale nodejs e o NPM em seu computador. Observe que os usuários do Mac OSX precisarão usar o gerenciador de pacotes Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Instalar o gerador de modelos Yeoman em seu computador com base no NPM 
 

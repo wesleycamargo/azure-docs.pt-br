@@ -1,24 +1,25 @@
 ---
-title: "Atualização da pilha do Azure 1712 | Microsoft Docs"
-description: "Saiba mais sobre o que é a atualização 1712 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização."
+title: Atualização da pilha do Azure 1712 | Microsoft Docs
+description: Saiba mais sobre o que é a atualização 1712 pilha do Azure integradas de sistemas, os problemas conhecidos e onde baixar a atualização.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604141"
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de 1712 de pilha do Azure
 
@@ -43,11 +44,14 @@ Este artigo descreve as melhorias e correções neste pacote de atualização, p
 Você deve primeiro instalar a pilha do Azure [1711 atualizar](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) antes de aplicar essa atualização.
 
 ### <a name="post-update-steps"></a>Etapas de pós-atualização
+- Após a instalação do 1712, instale os Hotfixes aplicáveis. Para mais informações, consulte os seguintes artigos da base de dados de Conhecimento, bem como nosso [política manutenção](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - serviço de API do controlador de rede falha quando você tentar instalar uma atualização da pilha do Azure](https://support.microsoft.com/help/4103348)
 
-Essa atualização também requer que você instale as atualizações de firmware do parceiro OEM depois de concluir a instalação da atualização 1712 pilha do Azure.
 
-> [!NOTE]
-> Consulte o site de parceiros do OEM para baixar as atualizações.
+- Atualização 1712 também requer que você instale as atualizações de firmware do parceiro OEM depois de concluir a instalação da atualização 1712 pilha do Azure.
+
+  > [!NOTE]
+  > Consulte o site de parceiros do OEM para baixar as atualizações.
 
 ### <a name="new-features-and-fixes"></a>Novos recursos e correções
 
@@ -109,10 +113,29 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 
 - Excluir resultados de assinaturas do usuário em recursos órfãos. Como alternativa, primeiro exclua os recursos do usuário ou o grupo de recursos inteiro e exclua assinaturas de usuário.
 - Não é possível exibir as permissões para sua assinatura usando os portais de pilha do Azure. Como alternativa, você pode verificar permissões usando o PowerShell.
+- O **a integridade do serviço** folha Falha ao carregar. Quando você abre a folha de integridade do serviço no portal do administrador ou o usuário, Azure pilha exibirá um erro e não carregar as informações. Este comportamento é esperado. Embora você possa selecionar e abrir o serviço de integridade, esse recurso não está disponível, mas será implementado em uma versão futura da pilha do Azure.
 
 #### <a name="health-and-monitoring"></a>Monitoramento e integridade
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Alerta #1:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+
+  Alerta #2:
+   - NOME: Função de infraestrutura não íntegro
+   - SEVERIDADE: aviso
+   - COMPONENTE: Controlador de integridade
+   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+
+  Ambos os alertas podem ser ignorados. Ele será fechado automaticamente ao longo do tempo.  
+
 - Se você reinicializar uma instância de função de infraestrutura, você receberá uma mensagem indicando que a reinicialização falhou. No entanto, a reinicialização teve êxito realmente.
+
+
 
 #### <a name="marketplace"></a>Marketplace
 - Alguns itens do marketplace estão sendo removidos nesta versão devido a questões de compatibilidade. Esses serão habilitados novamente após a validação adicional.

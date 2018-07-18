@@ -2,8 +2,8 @@
 title: Mover dados de e para o Armazenamento de Blobs do Azure usando AzCopy | Microsoft Docs
 description: Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 928d579da0cb469fd714b8a456a64917158d8ebc
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 936f0a25b101e82f3c0e3ae7e1e3183b9ee38393
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy
 O AzCopy é um utilitário de linha de comando projetado para carregar, baixar e copiar dados do/para o armazenamento de blobs, arquivos e tabelas do Microsoft Azure.
@@ -35,7 +35,7 @@ Para obter instruções sobre como instalar o AzCopy e informações adicionais 
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 * Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).

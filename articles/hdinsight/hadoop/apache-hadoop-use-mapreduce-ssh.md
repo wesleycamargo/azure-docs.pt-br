@@ -1,26 +1,26 @@
 ---
-title: "MapReduce e conexão SSH com o Hadoop no HDInsight – Azure | Microsoft Docs"
+title: MapReduce e conexão SSH com o Hadoop no HDInsight – Azure | Microsoft Docs
 description: Aprenda a usar o SSH para executar trabalhos MapReduce usando o Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 08c67168cde60c1b7551806da8542c98dcb82f55
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Usar o MapReduce com Hadoop no HDInsight com SSH
 
@@ -42,16 +42,16 @@ Saiba como enviar trabalhos MapReduce de uma conexão SSH (Secure Shell) para o 
 
 ## <a id="ssh"></a>Conexão com o SSH
 
-Conecte-se ao cluster usando o SSH. Por exemplo, o comando exibido a seguir realiza a conexão a um cluster chamado **myhdinsight**:
+Conecte-se ao cluster usando o SSH. Por exemplo, o comando a seguir conecta um cluster nomeado **myhdinsight** como a conta **sshuser**:
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se você usa uma chave de certificado para autenticação de SSH**, talvez seja necessário especificar o local da chave privada no sistema cliente, por exemplo:
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se você usa uma senha para autenticação SSH**, você precisa fornecer a senha quando solicitado.

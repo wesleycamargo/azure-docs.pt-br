@@ -1,24 +1,22 @@
 ---
-title: "Configurar a replicação de cluster HBase nas redes virtuais do Azure | Microsoft Docs"
-description: "Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre."
+title: Configurar a replicação de cluster HBase nas redes virtuais do Azure | Microsoft Docs
+description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -43,7 +41,7 @@ Casos de uso de replicação de HBase para duas redes virtuais:
 
 É possível replicar clusters usando os scripts [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) do [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurar os ambientes
@@ -54,51 +52,18 @@ Há três opções de configuração:
 - Dois clusters HBase em duas redes virtuais diferentes na mesma região.
 - Dois clusters HBase em duas redes virtuais diferentes em duas regiões diferentes (replicação geográfica).
 
+Este artigo aborda o cenário de replicação geográfica.
+
 Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) foram criados. Se você preferir configurar os ambientes usando outros métodos, consulte:
 
 - [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Criar clusters HBase na rede virtual do Azure](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>Configurar uma rede virtual
-
-Para criar dois clusters HBase na mesma rede virtual, selecione a imagem a seguir. O modelo está armazenado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>Configurar duas redes virtuais na mesma região
-
-Para criar duas redes virtuais com emparelhamento de rede virtual e dois clusters HBase na mesma região, selecione a imagem a seguir. O modelo está armazenado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-Esse cenário requer [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md). O modelo permite o emparelhamento de rede virtual.   
-
-A replicação de HBase usa endereços IP das VMs do ZooKeeper. É necessário configurar endereços IP estáticos para os nós de destino do HBase ZooKeeper.
-
-**Para configurar endereços IP estáticos**
-
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Grupos de Recursos** no menu esquerdo.
-3. Selecione o grupo de recursos que contém o cluster HBase de destino. Esse é o grupo de recursos que você especificou ao usar o modelo do Resource Manager para criar o ambiente. Use o filtro para restringir a lista. Uma lista de recursos que contém as duas redes virtuais será exibida.
-4. Selecione a rede virtual que contém o cluster HBase de destino. Por exemplo, selecione **xxxx-vnet2**. Três dispositivos com nomes que começam com **nic-zookeepermode-** serão mostrados. Esses dispositivos são as três VMs do ZooKeeper.
-5. Selecione uma das VMs do ZooKeeper.
-6. Selecione **Configurações de IP**.
-7. Na lista, selecione **ipConfig1**.
-8. Selecione **Estático** e copie ou anote o endereço IP real. Você precisa do endereço IP ao executar a ação de script para habilitar a replicação.
-
-  ![Endereço IP estático do ZooKeeper para replicação de HBase no HDInsight](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Repita a etapa 6 para definir o endereço IP estático para os outros dois nós ZooKeeper.
-
-Para o cenário entre redes virtuais, é necessário usar a opção **-ip** ao chamar a ação de script `hdi_enable_replication.sh`.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurar duas redes virtuais em duas regiões diferentes
 
-Para criar duas redes virtuais em duas regiões diferentes e a conexão VPN entre VNets, clique na imagem a seguir. O modelo está armazenado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+Para criar duas redes virtuais em duas regiões diferentes e a conexão VPN entre VNets, clique na imagem a seguir para criar o. O modelo está armazenado [armazenamento de blob público]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Alguns dos valores embutidos em código no modelo:
 
@@ -118,11 +83,6 @@ Alguns dos valores embutidos em código no modelo:
 | Tipo de VPN de gateway | RouteBased |
 | SKU de gateway | Basic |
 | IP do gateway | vnet1gwip |
-| Nome do cluster | &lt;ClusterNamePrefix>1 |
-| Versão do cluster | 3.6 |
-| Tipo de cluster | hbase |
-| Contagem de nós de trabalho do cluster | 2 |
-
 
 **VNet 2**
 
@@ -140,14 +100,176 @@ Alguns dos valores embutidos em código no modelo:
 | Tipo de VPN de gateway | RouteBased |
 | SKU de gateway | Basic |
 | IP do gateway | vnet1gwip |
-| Nome do cluster | &lt;ClusterNamePrefix>2 |
-| Versão do cluster | 3.6 |
-| Tipo de cluster | hbase |
-| Contagem de nós de trabalho do cluster | 2 |
 
-A replicação de HBase usa os endereços IP das VMs do ZooKeeper. É necessário configurar endereços IP estáticos para os nós de destino do HBase ZooKeeper. Para configurar o endereço IP estático, consulte [Configurar duas redes virtuais na mesma região](#set-up-two-virtual-networks-in-the-same-region), neste artigo.
+## <a name="setup-dns"></a>Instalação do DNS
 
-Para o cenário entre redes virtuais, é necessário usar a opção **-ip** ao chamar a ação de script `hdi_enable_replication.sh`.
+Na seção anterior, o modelo cria uma máquina virtual de Ubuntu em cada uma das duas redes virtuais.  Nesta seção, você instala o Bind nas duas máquinas virtuais DNS e, em seguida, configura o encaminhamento de DNS nas duas máquinas virtuais.
+
+Para instalar ao Bind, você precisa localizar o endereço IP público das duas máquinas virtuais DNS.
+
+1. Abra o [Portal do Azure](https://portal.azure.com).
+2. Abra a máquina virtual DNS selecionando **Grupos de recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que você criar no último procedimento. Os nomes de máquina virtual DNS padrão são *vnet1DNS* e *vnet2NDS*.
+3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
+4. Anote o **endereço IP público**e também verifique a **endereço IP privado**.  O endereço IP privado será **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  
+
+Para instalar o Bind, use o seguinte procedimento:
+
+1. Use SSH para conexão com o __endereço IP público__ da máquina virtual DNS. O exemplo a seguir se conecta a uma máquina virtual em 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Substitua `sshuser` pela conta de usuário SSH que você especificou ao criar o cluster na sua máquina virtual DNS.
+
+    > [!NOTE]
+    > Há uma variedade de maneiras para obter o utilitário `ssh`. No Linux, Unix e macOS, ele é fornecido como parte do sistema operacional. Se você estiver usando o Windows, considere uma das seguintes opções:
+    >
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
+    > * [Bash no Ubuntu no Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. Para instalar o Bind, use os seguintes comandos da sessão SSH:
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. Para configurar o Bind para encaminhar solicitações de resolução de nomes para o servidor DNS local, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.options`:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Substitua os valores na seção `goodclients` com o intervalo de endereços IP das duas redes virtuais. Esta seção define os endereços dos quais esse servidor DNS aceita solicitações.
+
+    Para editar esse arquivo, use o seguinte comando:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    Para salvar o arquivo, use __Ctrl+X__, __Y__ e, em seguida, __Enter__.
+
+4. Na sessão do SSH, use o comando a seguir:
+
+    ```bash
+    hostname -f
+    ```
+
+    Esse comando retorna um valor semelhante ao texto a seguir:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    O texto `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` é o __sufixo DNS__ para essa rede virtual. Salve esse valor, pois ele é usado mais tarde.
+
+    Você também deve descobrir o sufixo DNS do outro servidor DNS. Você precisará disso na próxima etapa.
+
+5. Para configurar o Bind para resolver nomes DNS para os recursos na rede virtual, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.local`:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > Substitua o `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` pelo sufixo DNS da outra rede virtual. E o IP de encaminhador é o endereço IP do servidor DNS na outra rede virtual.
+
+    Para editar esse arquivo, use o seguinte comando:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    Para salvar o arquivo, use __Ctrl+X__, __Y__ e, em seguida, __Enter__.
+
+6. Para iniciar o Bind, use o seguinte comando:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. Para verificar se o Bind pode resolver os nomes de recursos em sua rede virtual, use os seguintes comandos:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > Substituir `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` pelo nome de domínio totalmente qualificado (FQDN) da máquina virtual DNS na outra rede.
+    >
+    > Substitua `10.2.0.4` pelo __endereço IP interno__ do seu servidor DNS personalizado na rede virtual.
+
+    A resposta aparece semelhante ao seguinte texto:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Até agora, você não pode verificar o endereço IP da rede sem o endereço IP do servidor DNS especificado.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Configurar a rede virtual para usar o servidor DNS personalizado
+
+Para configure a rede virtual para usar o servidor DNS personalizado em vez do resolvedor recursivo do Azure, use as seguintes etapas:
+
+1. No [portal do Azure](https://portal.azure.com), selecione a rede virtual e, em seguida, selecione __Servidores DNS__.
+
+2. Selecione __Personalizado__e insira o __endereço IP interno__ do servidor DNS personalizado. Por fim, selecione __Salvar__.
+
+6. Abra a máquina virtual do servidor DNS em vnet1 e, em seguida, clique em **Reiniciar**.  Você deve reiniciar todas as máquinas virtuais na rede virtual para fazer com que configuração de DNS entre em vigor.
+7. Repita a configuração de etapas do servidor DNS personalizado para vnet2.
+
+Para testar a configuração do DNS, você pode conectar-se às duas máquinas virtuais DNS usando o SSH e executando o ping no servidor DNS de outra rede virtual usando seu nome de host. Se não funcionar, use o seguinte comando para verificar o status DNS:
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>Criar clusters do HBase
+
+Crie um cluster HBase em cada uma das duas redes virtuais com a seguinte configuração:
+
+- **Nome do grupo de recursos**: use o mesmo nome de grupo de recursos que você criou as redes virtuais.
+- **Tipo de cluster**: HBase
+- **Versão**: HBase 1.1.2 (HDI 3.6)
+- **Local**: use o mesmo local que a rede virtual.  Por padrão, vnet1 é *Oeste dos EUA*, e a vnet2 é *Leste dos EUA*.
+- **Armazenamento**: crie uma nova conta de armazenamento para o cluster.
+- **Rede virtual** (em Configurações Avançadas no portal): selecione vnet1 que você criou no último procedimento.
+- **Sub-rede**: O nome padrão usado no modelo é **subnet1**.
+
+Para garantir que o ambiente está configurado corretamente, você deve ser capaz de executar ping do FQDN do nó principal entre os dois clusters.
 
 ## <a name="load-test-data"></a>Carregar dados de teste
 
@@ -168,7 +290,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 5. Selecione ou insira as seguintes informações:
 
   1. **Nome**: insira **Habilitar a replicação**.
-  2. **URL do Script Bash**: insira **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  2. **URI do script Bash**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **Cabeçalho**: verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
   4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
@@ -178,7 +300,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
     >
     > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
 
-6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
+6. Clique em **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
 Argumentos necessários:
 
@@ -197,7 +319,6 @@ Argumentos opcionais:
 |-du, --dst-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
 |-t, --table-list | Especificas as tabelas a serem replicadas. Por exemplo: --table-list="table1;table2;table3". Se você não especificar tabelas, todas as tabelas HBase existentes serão replicadas.|
 |-m, --machine | Especifica o nó de cabeçalho em que a ação de script é executada. O valor é **hn1** ou **hn0**. Como o nó de cabeçalho **hn0** normalmente é mais ocupado, recomenda-se usar o **hn1**. Use essa opção quando estiver executando o script de $0 como uma ação de script do portal do HDInsight ou do Azure PowerShell.|
-|-ip | Necessário quando você estiver habilitando a replicação entre duas redes virtuais. Esse argumento atua como uma opção para usar os endereços IP estáticos dos nós ZooKeeper de clusters de réplica em vez de nomes FQDN. Antes de habilitar a replicação, é necessário pré-configurar os endereços IP estáticos. |
 |-cp, -copydata | Habilita a migração dos dados existentes nas tabelas em que a replicação está habilitada. |
 |-rpm, -replicate-phoenix-meta | Habilita a replicação nas tabelas do sistema Phoenix. <br><br>*Use esta opção com cuidado.* É recomendável que você recrie tabelas Phoenix em clusters de réplica antes de usar esse script. |
 |-h, --help | Exibe informações de uso. |

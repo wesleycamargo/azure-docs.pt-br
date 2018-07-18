@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure – Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP | Microsoft Docs
+title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o PHP | Microsoft Docs
 description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 services: storage
 author: roygara
@@ -8,13 +8,13 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 463b6051009ab79013f9bef958fcadec2ef3cd16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 ```
 
 Este comando clona o repositório para sua pasta do git local. Para abrir o aplicativo PHP de exemplo, procure a pasta storage-blobs-php-quickstart e abra o arquivo phpqs.php.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 No aplicativo, você deve fornecer o nome da conta de armazenamento e a chave de conta para criar a instância **BlobRestProxy** do seu aplicativo. É recomendável armazenar esses identificadores dentro de uma variável de ambiente no computador local que está executando o aplicativo. Use um dos exemplos a seguir, dependendo do seu sistema operacional, para criar a variável de ambiente. Substitua os valores **youraccountname** e **youraccountkey** pelo nome e chave da conta.
@@ -206,10 +208,10 @@ Consulte estes recursos adicionais para o desenvolvimento em PHP com armazenamen
 
 ## <a name="next-steps"></a>Próximas etapas
  
-Neste início rápido, você aprendeu a transferir arquivos entre o disco local e o armazenamento de blobs do Azure usando PHP. Para saber mais sobre como trabalhar com o armazenamento de blobs, prossiga para as instruções do armazenamento de blobs.
+Neste início rápido, você aprendeu a transferir arquivos entre o disco local e o armazenamento de blobs do Azure usando PHP. Para saber mais sobre como trabalhar com o PHP, vá até nossa Central de desenvolvedores do PHP.
 
 > [!div class="nextstepaction"]
-> [Instruções de operações do Armazenamento de Blobs](./storage-php-how-to-use-blobs.md)
+> [Central de Desenvolvedores do PHP](https://azure.microsoft.com/develop/php/)
 
 
 Para obter mais informações sobre o Gerenciador de Armazenamento e os Blobs, consulte [Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

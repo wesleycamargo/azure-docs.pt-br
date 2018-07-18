@@ -1,3 +1,19 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/16/2018
+---
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
    
@@ -5,7 +21,7 @@
 
 3. Na página **Nova conta**, insira as configurações da nova conta do Azure Cosmos DB. 
  
-    Configuração|Valor sugerido|DESCRIÇÃO
+    Configuração|Valor|DESCRIÇÃO
     ---|---|---
     ID|*Insira um nome exclusivo*|Insira um nome exclusivo para identificar essa conta do Azure Cosmos DB. Como *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, use uma ID exclusiva mas identificável.<br><br>A ID pode conter apenas letras minúsculas, números e hifens (-), e deve conter de três a 50 caracteres.
     API|SQL|A API determina o tipo de conta a ser criada. O Azure Cosmos DB fornece cinco APIs para atender às necessidades de seu aplicativo: SQL (banco de dados de documentos), Gremlin (banco de dados de gráfico), MongoDB (banco de dados de documentos), Tabela do Azure e Cassandra, cada um atualmente exigindo uma conta separada. <br><br>Selecione **SQL**, pois, neste guia de início rápido, você criará banco de dados de documentos consultável usando a sintaxe SQL e acessível com a API do SQL.<br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
@@ -17,11 +33,9 @@
 
     Em seguida, clique em **Criar**.
 
-    ![A página da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![A página da nova conta do Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
-4. A criação da conta leva alguns minutos. Durante a criação de conta, o portal exibe o bloco **Implantando o Azure Cosmos DB** do lado direito; talvez você precise rolar no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento. 
+4. A criação da conta leva alguns minutos. Aguarde até que o portal exiba a página **Parabéns! Sua conta do Azure Cosmos DB foi criada**.
 
-    ![O painel Notificações do portal do Azure](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
-
-    Depois que a conta é criada, a página **Parabéns. Sua conta do Azure Cosmos DB foi criada** é exibida. 
+    ![O painel Notificações do portal do Azure](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
 

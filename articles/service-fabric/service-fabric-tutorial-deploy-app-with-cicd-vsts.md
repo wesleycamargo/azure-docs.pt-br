@@ -1,12 +1,12 @@
 ---
-title: "Implantar um aplicativo do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs"
-description: "Neste tutorial, você aprende a configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.  Implantar um aplicativo em um cluster do Service Fabric no Azure."
+title: Implantar um aplicativo do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs
+description: Neste tutorial, você aprende a configurar a integração e a implantação contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services.  Implantar um aplicativo em um cluster do Service Fabric no Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b61b7f89c127b297f058082d86952f2a45d766a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
-Este tutorial é a terceira parte de uma série e descreve como configurar a integração e a implantação contínua para um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
+Este tutorial é a quarta parte de uma série e descreve como configurar a integração e a implantação contínua de um aplicativo do Service Fabric do Azure usando o Visual Studio Team Services.  É necessário um aplicativo existente do Service Fabric e o aplicativo criado em [Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md) é usado como exemplo.
 
 Na terceira parte da série, você aprenderá a:
 
@@ -36,6 +36,7 @@ Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
 > * [Criar um aplicativo .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implantar o aplicativo em um cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Adicionar um ponto de extremidade HTTPS a um serviço de front-end do ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Configurar CI/CD usando o Visual Studio Team Services
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 

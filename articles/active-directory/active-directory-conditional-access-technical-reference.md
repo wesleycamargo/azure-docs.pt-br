@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2018
+ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258100"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
 
@@ -123,13 +124,13 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 
 | SO                     | Navegadores                            | Suporte     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Verificação][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Verificação][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Verificação][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Verificação][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Verificação][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Verificação][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Verificação][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Verificação][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Verificação][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Verificação][1] |
 | Windows Server 2016    | Chrome                              | Em breve |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
@@ -140,6 +141,15 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 #### <a name="chrome-support"></a>Suporte ao Chrome
 
 Para obter suporte ao Chrome, na **Atualização do Windows 10 para Criadores (versão 1703)** ou posterior, instale [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
+
+|    |    |
+|--- | ---|
+|Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|NOME | 1 |
+|type | REG_SZ (String) |
+|Dados | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
@@ -164,24 +174,24 @@ Em sua política de acesso condicional, você pode selecionar **Aplicativos móv
 Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos seguintes aplicativos móveis e clientes de desktop: 
 
 
-| Aplicativos cliente| Serviço de Destino| Plataforma |
-| --- | --- | --- |
-| Aplicativo Remoto do Azure| Serviço de Aplicativo Remoto do Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
-| Aplicativo Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
-| Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online| Windows 10|
-| Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte.| Qualquer serviço de aplicativo de Meus Aplicativos| Android e iOS|
-| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web| Equipes da Microsoft| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
-| Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro| Office 365 SharePoint Online| Windows 10|
-| Office 2016 para macOS (somente Word, Excel, PowerPoint, OneNote). Suporte para OneDrive for Business planejado para o futuro| Office 365 SharePoint Online| Mac OS X|
-| Aplicativos móveis do Office| Office 365 SharePoint Online| Android, iOS|
-| Aplicativo Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016 (Office para macOS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Aplicativo móvel do Outlook| Office 365 Exchange Online| Android, iOS|
-| Aplicativo PowerBI| Serviço PowerBI| Windows 10, Windows 8.1, Windows 7, Android e iOS|
-| Skype for Business| Office 365 Exchange Online| Android, IOS|
-| Aplicativo Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+|Aplicativos cliente|Serviço de Destino|Plataforma|
+|---|---|---|
+|Aplicativo Remoto do Azure|Serviço de Aplicativo Remoto do Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
+|Aplicativo Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS e Android|
+|Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)|Office 365 Exchange Online|Windows 10|
+|Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte. |Qualquer serviço de aplicativo de Meus Aplicativos|Android e iOS|
+|Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web|Equipes da Microsoft|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
+|Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro|Office 365 SharePoint Online|Windows 10|
+|Office 2016 para macOS (somente Word, Excel, PowerPoint, OneNote). Suporte para OneDrive for Business planejado para o futuro|Office 365 SharePoint Online|Mac OS X|
+|Aplicativos móveis do Office|Office 365 SharePoint Online|Android, iOS|
+|Aplicativo Office Yammer|Office 365 Yammer|Windows 10, iOS, Android|
+|Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Aplicativo móvel do Outlook|Office 365 Exchange Online|Android, iOS|
+|Aplicativo PowerBI|Serviço PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
+|Skype for Business|Office 365 Exchange Online|Android, IOS |
+|Aplicativo Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 

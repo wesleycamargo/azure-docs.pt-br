@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel e apli
 * Implantar um aplicativo em um slot inicial e depois permutá-lo, enviando-o para produção, garante que todas as instâncias do slot estejam prontas antes dessa troca. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#Auto-Swap) quando a validação de pré-permuta não é necessária.
 * Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o "último site bom" de volta.
 
-Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual o tipo do seu aplicativo dá suporte, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
-
-* Quando seu aplicativo tem vários slots, você não pode alterar o tipo.
-* O dimensionamento não está disponível para slots de não produção.
-* O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um tipo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo tipo com o slot de produção antes que você possa alternar os dois slots.
+Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots que a sua camada de aplicativo dá suporte, consulte [Limites de Serviço de Aplicativo](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Para dimensionar seu aplicativo para uma outra camada, a camada de destino deve suportar o número de slots que seu aplicativo já usa. Por exemplo, se o seu aplicativo tiver mais de 5 slots, você não poderá reduzi-lo para a camada **Padrão**, pois a camada **Padrão** suporta apenas 5 slots de implantação.
 
 <a name="Add"></a>
 
@@ -67,8 +63,8 @@ Não há nenhum conteúdo após a criação do slot de implantação. É possív
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configuração de slots de implantação
-Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Além disso, alguns elementos de configuração seguirão o conteúdo em uma permuta (não específicos do slot) enquanto outros elementos de configuração permanecerão no mesmo slot após uma permuta (específicos do slot). A lista a seguir mostra a configuração que será alterada com a permuta de slots.
+## <a name="which-settings-are-swapped"></a>Quais configurações são trocadas?
+Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Além disso, alguns elementos de configuração seguirão o conteúdo em uma permuta (não específicos do slot) enquanto outros elementos de configuração permanecerão no mesmo slot após uma permuta (específicos do slot). A lista a seguir mostra as configurações que serão alterada com a troca de slots.
 
 **Configurações que são permutadas**:
 
@@ -87,7 +83,7 @@ Quando você clona a configuração de outro slot de implantação, a configura�
 * Configurações de escala
 * Agendadores de Trabalhos Web
 
-Para definir uma cadeia de conexão ou configuração de aplicativo a fim de fixar um slot (não trocado), acesse a folha **Configurações do aplicativo** de um slot específico e marque a caixa **Configuração do Slot** para os elementos de configuração que devem se fixar ao slot. Observe que marcar um elemento de configuração como específico do slot tem o efeito de estabelecer esse elemento como não passível de troca, em todos os slots de implantação associados ao aplicativo.
+Para definir uma cadeia de conexão ou configuração de aplicativo a fim de fixar um slot (não trocado), acesse a folha **Configurações do aplicativo** de um slot específico e marque a caixa **Configuração do Slot** para os elementos de configuração que devem se fixar ao slot. Marcar um elemento de configuração como específico do slot tem o efeito de estabelecer esse elemento como não passível de troca, em todos os slots de implantação associados ao aplicativo.
 
 ![Configurações de slot][SlotSettings]
 
@@ -123,13 +119,13 @@ Para cargas de trabalho críticas, convém validar se o aplicativo está se comp
 
 Quando você usa a opção **Troca com visualização** (consulte [Trocar slots de implantação](#Swap)), o Serviço de Aplicativo faz o seguinte:
 
-- Mantém o slot de destino inalterado para que a carga de trabalho existente nesse slot (por exemplo, produção) não seja afetada.
+- Mantém o slot de destino inalterado para que a carga de trabalho existente nesse slot (como produção) não seja afetada.
 - Aplica os elementos de configuração do slot de destino ao slot de origem, incluindo as configurações de aplicativo e as cadeias de conexão específicas ao slot.
 - Reinicia os processos de trabalho no slot de origem usando esses elementos de configuração mencionados anteriormente.
 - Quando você conclui a troca: move o slot de origem pré-preparado para o slot de destino. O slot de destino é movido para o slot de origem como em uma troca manual.
 - Quando você cancela a troca: reaplica os elementos de configuração do slot de origem ao slot de origem.
 
-Você pode visualizar exatamente como o aplicativo se comportará com a configuração do slot de destino. Após a conclusão da validação, você poderá completar a troca em outra etapa. Essa etapa tem a vantagem adicional de que o slot de origem já está preparado com a configuração desejada, e os clientes não enfrentarão qualquer tempo de inatividade.  
+Você pode visualizar exatamente como o aplicativo se comportará com a configuração do slot de destino. Após a conclusão da validação, você poderá completar a troca em outra etapa. Essa etapa tem a vantagem adicional de que o slot de origem já está preparado com a configuração desejada, e os clientes não enfrentarão nenhum tempo de inatividade.  
 
 Exemplos de cmdlets do Azure PowerShell disponíveis para permuta multifase são incluídos nos cmdlets do Azure PowerShell para a seção de slots de implantação.
 
@@ -144,9 +140,9 @@ A Troca Automática simplifica cenários DevOps em q você deseja implantar cont
 > 
 
 > [!NOTE]
-> Não há suporte para a troca automática em aplicativos Web no Linux.
+> Não há suporte para a Troca Automática em aplicativos Web no Linux.
 
-Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
+Configurar a Permuta Automática para um slot é fácil. Siga estas etapas:
 
 1. Em **Slots de Implantação**, selecione um slot que não esteja em produção e escolha **Configurações do Aplicativo** na folha de recursos do slot.  
    
@@ -161,26 +157,36 @@ Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
    > Para testar a Troca Automática para seu aplicativo, primeiro você poderá selecionar um slot de destino que não seja de produção em **Slot de Troca Automática** para se familiarizar com o recurso.  
    > 
    > 
-3. Execute um envio de código por push para esse slot de implantação. A Permuta Automática ocorrerá após um curto período de tempo e a atualização será refletida na URL do seu slot de destino.
+3. Execute um envio de código por push para esse slot de implantação. A Troca Automática ocorrerá após um curto período de tempo, e a atualização será refletida na URL do seu slot de destino.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Para reverter um aplicativo de produção após a permuta
+## <a name="roll-back-a-production-app-after-swap"></a>Reverter um aplicativo de produção após a troca
 Se algum erro for identificado na produção após uma permuta de slot, reverta os slots para os estados pré-permuta permutando ambos os slots imediatamente.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Aquecimento personalizado antes da permuta
-Alguns aplicativos podem exigir ações personalizadas de aquecimento. O elemento de configuração `applicationInitialization` no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de permuta aguardará esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
+Alguns aplicativos podem exigir ações personalizadas de aquecimento. O elemento de configuração `applicationInitialization` no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de troca aguarda esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Monitorar o progresso da troca
+
+Às vezes, a operação de troca leva algum tempo para ser concluída, por exemplo, quando o aplicativo que é trocado tem um tempo de aquecimento longo. Você pode obter mais informações sobre as operações de troca no [Log de Atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) no [portal do Azure](https://portal.azure.com).
+
+Em sua página de aplicativo do portal, no painel de navegação esquerdo, selecione **Log de atividades**.
+
+Uma operação de troca é exibida na consulta de log como `Slotsswap`. Você pode expandi-lo e selecionar uma das suboperações ou um dos erros para ver os detalhes.
+
+![Log de atividades de troca de slot](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Para excluir um slot de implantação
+## <a name="delete-a-deployment-slot"></a>Excluir um slot de implantação
 Na folha de um slot de implantação, abra a folha do slot de implantação, clique em **Visão geral** (a página padrão) e clique em **Excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação][DeleteStagingSiteButton]
@@ -189,41 +195,47 @@ Na folha de um slot de implantação, abra a folha do slot de implantação, cli
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets do PowerShell do Azure para slots de implantação
+## <a name="automate-with-azure-powershell"></a>Automatizar com o Azure PowerShell
+
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação no Serviço de Aplicativo do Azure.
 
 * Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Criar um aplicativo Web
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Criar um slot de implantação
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Iniciar uma troca com versão prévia (troca de várias fases) e aplicar a configuração do slot de destino ao slot de origem
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelar uma troca pendente (troca com revisão) e restaurar a configuração do slot de origem
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Permute slots de implantação
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Monitorar eventos de troca Log de Atividades
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,52 +249,13 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandos da interface de linha de comando do Azure (CLI do Azure) para slots de implantação
-A CLI do Azure fornece comandos entre plataformas para trabalhar com o Azure, incluindo suporte ao gerenciamento de slots de implantação do Serviço de Aplicativo.
+## <a name="automate-with-azure-cli"></a>Automatizar com a CLI do Azure
 
-* Para obter instruções sobre como instalar e configurar a CLI do Azure, incluindo informações sobre como conectar a CLI do Azure com sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
-* Para listar os comandos disponíveis para o Serviço de Aplicativo do Azure na CLI do Azure, chame `azure site -h`.
-
-> [!NOTE] 
-> Para obter os comandos da [CLI do Azure 2.0](https://github.com/Azure/azure-cli) para slots de implantação, confira [Slot de implantação do az webapp](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>azure site list
-Para obter informações sobre aplicativos na assinatura atual, chame **azure site list**, como no exemplo a seguir.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>azure site create
-Para criar um slot de implantação, chame **azure site create** e especifique o nome de um aplicativo existente e o nome do slot para criar, como no exemplo a seguir.
-
-`azure site create webappslotstest --slot staging`
-
-Para habilitar o controle do código-fonte para o novo slot, use a opção **--git** , como no exemplo a seguir.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>azure site swap
-Para fazer com que o slot de implantação atualizado se torne o aplicativo de produção, use o comando **azure site swap** para executar uma operação de permuta, como no exemplo a seguir. O aplicativo de produção não passará por nenhuma experiência de tempo de inatividade, nem passará por uma inicialização a frio.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>azure site delete
-Para excluir um slot de implantação que não seja mais necessário, use o comando **excluir de site azure** , como no exemplo a seguir.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Veja um aplicativo Web em ação. [Experimente o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) imediatamente e crie um aplicativo inicializador de curta duração, sem necessidade de cartão de crédito e sem compromisso.
-> 
-> 
+Para obter os comandos da [CLI do Azure](https://github.com/Azure/azure-cli) para slots de implantação, confira [Slot de implantação do az webapp](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introdução ao Serviço de Aplicativo no Linux](../app-service/containers/app-service-linux-intro.md)
+[Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso Web a slots de implantação não sejam de produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introdução ao Serviço de Aplicativo no Linux](../app-service/containers/app-service-linux-intro.md)  
 [Avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

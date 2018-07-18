@@ -1,11 +1,11 @@
 ---
-title: "Entender o preço do Hub IoT do Azure| Microsoft Docs"
-description: "Guia do desenvolvedor ‑ informações sobre como a medição e preço funcionam no Hub IoT, incluindo exemplos funcionais."
+title: Entender o preço do Hub IoT do Azure| Microsoft Docs
+description: Guia do desenvolvedor ‑ informações sobre como a medição e preço funcionam no Hub IoT, incluindo exemplos funcionais.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dbceca3daed53da2a383fd8a6b7a0bd1f225cf77
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informações sobre preços do Hub IoT do Azure
 
 O [Preço do Hub IoT do Azure][lnk-pricing] fornece as informações gerais sobre SKUs e preços diferentes para o Hub IoT. Este artigo contém detalhes adicionais sobre como as diversas funcionalidades do Hub IoT são medidas como mensagens pelo Hub IoT.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="charges-per-operation"></a>Encargos por operação
 
@@ -33,11 +35,11 @@ O [Preço do Hub IoT do Azure][lnk-pricing] fornece as informações gerais sobr
 | Mensagens da nuvem para o dispositivo | As mensagens enviadas com êxito são cobradas em partes de 4 KB, por exemplo, uma mensagem de 6 KB é cobrada em 2 mensagens. |
 | Carregamentos de arquivos | A transferência de arquivos para o Armazenamento do Azure não é limitada pelo Hub IoT. Mensagens de conclusão e inicialização de transferência de arquivo são cobradas como mensagens limitadas com incrementos de 4 KB. Por exemplo, transferir um arquivo de 10 MB são cobradas duas mensagens além do custo de Armazenamento do Azure. |
 | Métodos diretos | As solicitações de métodos bem-sucedidas são cobradas em partes de 4 KB, as respostas com corpos não vazios são cobradas em partes de 4 KB como mensagens adicionais. As solicitações para dispositivos desconectados são cobradas como mensagens em partes de 4 KB. Por exemplo, um método com um corpo de 6 KB que resulta em uma resposta sem corpo do dispositivo, é cobrada como duas mensagens. Um método com um corpo de 6 KB que resulta em uma resposta de 1 KB do dispositivo é cobrado como duas mensagens para a solicitação mais outra mensagem para a resposta. |
-| Leituras de dispositivo gêmeo | Leituras de dispositivo gêmeo do dispositivo e back-end de solução são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
-| Atualizações do dispositivo gêmeo (marcas e propriedades) | As atualizações de dispositivo gêmeo do dispositivo e do back-end da solução são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um dispositivo gêmeo de 6 KB é cobrada como 12 mensagens. |
-| Consultas de dispositivo gêmeo | As consultas são cobradas como mensagens, dependendo do tamanho do resultado em partes de 512 bytes. |
+| Leituras de dispositivos e módulos gêmeos | Leituras de dispositivos ou módulos gêmeos e de back-end de solução são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um gêmeo de 6 KB é cobrada como 12 mensagens. |
+| Atualizações do dispositivo e módulo gêmeo (marcas e propriedades) | Atualizações de dispositivos ou módulos gêmeos e de back-end de solução são cobradas como mensagens em partes de 512 bytes. Por exemplo, a leitura de um gêmeo de 6 KB é cobrada como 12 mensagens. |
+| Consultas de dispositivos e módulos gêmeos | As consultas são cobradas como mensagens, dependendo do tamanho do resultado em partes de 512 bytes. |
 | Operações de trabalhos <br/> (criar, atualizar, listar, excluir) | Não será cobrado. |
-| Operações de trabalhos por dispositivo | As operações de trabalhos (como atualizações de dispositivos gêmeos e métodos) são cobradas de forma normal. Por exemplo, um trabalho que resulta em 1000 chamadas de método com solicitações de 1 KB e respostas de corpo vazio é cobrado em 1000 mensagens. |
+| Operações de trabalhos por dispositivo | As operações de trabalhos (como atualizações de gêmeos e métodos) são cobradas de forma normal. Por exemplo, um trabalho que resulta em 1000 chamadas de método com solicitações de 1 KB e respostas de corpo vazio é cobrado em 1000 mensagens. |
 
 > [!NOTE]
 > Todos os tamanhos são computados considerando-se o tamanho da carga em bytes (o enquadramento de protocolo é ignorado). Para mensagens que têm propriedades e o corpo, o tamanho é calculado de maneira independente de protocolo. Para obter mais informações, consulte [Guia do desenvolvedor do sistema de mensagens do Hub IoT][lnk-message-size].

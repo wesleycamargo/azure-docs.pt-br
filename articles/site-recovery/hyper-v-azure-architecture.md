@@ -1,16 +1,16 @@
 ---
-title: "Arquitetura de replicação do Hyper-V para o Azure no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs Hyper-V locais (sem VMM) para o Azure com o serviço Azure Site Recovery."
+title: Arquitetura de replicação do Hyper-V para o Azure no Azure Site Recovery | Microsoft Docs
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs Hyper-V locais (sem VMM) para o Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 11ecc341977efb5c815581a77383d1c8cae51ed6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Arquitetura de replicação do Hyper-V para o Azure
 
@@ -28,7 +28,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
 **As tabelas** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VMs locais são colocados na conta de armazenamento. As VMs do Azure são criadas com os dados de carga de trabalho replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Hyper-V** | Durante a implantação do Site Recovery, você reúne hosts Hyper-V e clusters em sites do Hyper-V. Você instala o Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação em cada computador do Hyper-V. | O Provedor coordena a replicação com o Site Recovery pela internet. O agente dos Serviços de Recuperação trata da replicação de dados.<br/><br/> As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
+**Hyper-V** | Durante a implantação do Site Recovery, você reúne hosts Hyper-V e clusters em sites do Hyper-V. Você instala o Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação em cada host autônomo do Hyper-V em cada nó de cluster do Hyper-V. | O Provedor coordena a replicação com o Site Recovery pela internet. O agente dos Serviços de Recuperação trata da replicação de dados.<br/><br/> As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
 **VMs Hyper-V** | Uma ou mais VMs em execução no Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
 
 
@@ -46,7 +46,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 --- | --- | ---
 **As tabelas** | Uma assinatura do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados de cargas de trabalho de VMs locais são colocados na conta de armazenamento. As VMs do Azure são criadas com os dados replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
 **Servidor VMM** | O servidor VMM tem uma ou mais nuvens que contém hosts Hyper-V. | Você instala o Provedor do Site Recovery no servidor VMM para orquestrar a replicação com o Site Recovery e registre o servidor no cofre dos Serviços de Recuperação.
-**Host Hyper-V** | Um ou mais hosts/clusters Hyper-V gerenciados pelo VMM. |  Você pode instalar o agente dos Serviços de Recuperação em cada membro do cluster ou host.
+**Host Hyper-V** | Um ou mais hosts/clusters Hyper-V gerenciados pelo VMM. |  Você pode instalar o agente dos Serviços de Recuperação em cada host ou nó do cluster do Hyper-V.
 **VMs Hyper-V** | Uma ou mais VMs em execução em um servidor host do Hyper-V. | Nada precisa ser explicitamente instalado em VMs.
 **Rede** | Redes lógicas e de VM configuradas no servidor VMM. A rede de VMs deve ser vinculada a uma rede lógica associada à nuvem. | Redes de VMs são mapeadas para redes virtuais do Azure. Quando as VMs do Azure são criadas após o failover, elas são adicionadas à rede do Azure que é mapeada para a rede de VMs.
 

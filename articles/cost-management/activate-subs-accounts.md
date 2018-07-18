@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar assinaturas e contas do Azure com o Gerenciamento de Custos do Azure
 
@@ -29,7 +29,7 @@ Permissões específicas são necessárias para concluir os procedimentos neste 
 - Permissão para registrar o aplicativo CloudynCollector com seu locatário do Azure AD.
 - A capacidade de atribuir o aplicativo em uma função em suas assinaturas do Azure.
 
-Em suas assinaturas do Azure, as contas devem ter `Microsoft.Authorization/*/Write` acesso para atribuir o aplicativo CloudynCollector. Esta ação deve ser concedida pela função [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+Em suas assinaturas do Azure, as contas devem ter `Microsoft.Authorization/*/Write` acesso para atribuir o aplicativo CloudynCollector. Esta ação deve ser concedida pela função [Proprietário](../role-based-access-control/built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 Se sua conta tiver a função **Colaborador**, você não tem a permissão adequada para atribuir o aplicativo. Você recebe um erro durante ao tentar atribuir o aplicativo CloudynCollector à sua assinatura do Azure.
 
@@ -93,7 +93,7 @@ As mensagens anteriores indicam que você adquiriu um Contrato Enterprise do Azu
 Veja como corrigir os problemas:
 
 1. Seu revendedor precisa habilitar _marcação_ para sua conta. Para obter instruções, consulte o [Guia de integração de cliente indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Você gera a chave de Contrato Enterprise do Azure para usar com o Gerenciamento de Custos do Azure. Para obter instruções, consulte [Registrar um Contrato Enterprise do Azure e exibir dados de custo](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+2. Você gera a chave de Contrato Enterprise do Azure para usar com o Gerenciamento de Custos do Azure. Para obter instruções, consulte [Registrar um Contrato Enterprise do Azure e exibir dados de custo](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Somente um administrador do serviço Azure pode habilitar o Gerenciamento de Custos. As permissões de coadministrador são insuficientes.
 

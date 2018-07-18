@@ -1,13 +1,13 @@
 ---
-title: "Início Rápido do Azure – Fazer backup de uma VM com o PowerShell | Microsoft Docs"
-description: "Saiba como fazer backup de máquinas virtuais com o Azure PowerShell"
+title: Início Rápido do Azure – Fazer backup de uma VM com o PowerShell | Microsoft Docs
+description: Saiba como fazer backup de máquinas virtuais com o Azure PowerShell
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,25 +16,25 @@ ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 55de58770bd91e000c12b42c8eeac92fb8c0a710
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91303368f96b477f0756e4d3b9d19601797f0ba8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do ou em scripts. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma VM (máquina virtual) com o módulo do Azure PowerShell. Você também pode executar essas etapas com a [CLI do Azure ](quick-backup-vm-cli.md) ou o [portal do Azure](quick-backup-vm-portal.md).
 
 Este início rápido habilita o backup em uma VM do Azure existente. Se você precisar criar uma máquina virtual, poderá [criar uma máquina virtual com o Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Este início rápido requer o módulo Azure PowerShell versão 4.4 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este início rápido requer o módulo Azure PowerShell versão 4.4 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na primeira vez que você usar o Backup do Azure, deverá registrar o provedor de serviços de recuperação do Azure em sua assinatura com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
@@ -122,7 +122,7 @@ myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9
 Quando o *Status* do trabalho de backup relatar *Concluído*, sua VM será protegida com os Serviços de Recuperação e terá um ponto de recuperação completo armazenado.
 
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 Quando não for mais necessária, você poderá desabilitar a proteção na máquina virtual, remover os pontos de restauração e o cofre dos Serviços de Recuperação, então excluir o grupo de recursos e recursos associados de VM. Se você tiver usado uma VM existente, poderá ignorar o último cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para deixar o grupo de recursos e a VM no local.
 
 Se você pretende examinar um tutorial de Backup que explique como restaurar dados para sua VM, ignore as etapas desta seção e vá para [Próximas etapas](#next-steps). 

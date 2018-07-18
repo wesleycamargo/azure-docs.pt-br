@@ -1,11 +1,11 @@
 ---
-title: "Provisionamento de usuário automatizado em aplicativo SaaS no Azure AD | Microsoft Docs"
-description: "Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros."
+title: Provisionamento de usuário automatizado em aplicativo SaaS no Azure AD | Microsoft Docs
+description: Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069882"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuários para aplicativos SaaS?
@@ -80,7 +81,7 @@ Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o supo
 
 A configuração do serviço de provisionamento do Azure AD em um aplicativo selecionado começa no **[Portal do Azure](https://portal.azure.com)**. Na seção **Azure Active Directory > Aplicativos Corporativos**, selecione **Adicionar**, **Tudo** e, depois, adicione o seguinte, dependendo do cenário:
 
-* Todos os aplicativos na seção **Aplicativos em destaque** oferecem suporte ao provisionamento automático. Consulte a [lista de tutoriais de aplicativo para provisionamento do usuário] active-directory-saas-tutorial-list.md) para obter adicionais.
+* Todos os aplicativos na seção **Aplicativos em destaque** oferecem suporte ao provisionamento automático. Veja a lista [de tutoriais de aplicativos para provisionamento de usuários](active-directory-saas-tutorial-list.md) para os adicionais.
 
 * Use a opção "aplicativo que não é da galeria" para integrações de SCIM personalizados
 
@@ -176,7 +177,7 @@ O trabalho de provisionamento será removido da quarentena depois de todos os er
 
 O desempenho será diferente dependendo do trabalho de provisionamento estar realizando uma sincronização inicial ou uma sincronização incremental.
 
-Para sincronizações inicias, o tempo necessário para conclusão dependerá diretamente de quantos usuários, grupos e membros do grupo estão presentes no sistema de origem. Sistemas de origem muito pequenos, com centenas de objetos, podem concluir sincronizações inicias em questão de minutos. No entanto, os sistemas de origem com centenas de milhares ou milhões de objetos combinados podem demorar muito.
+Para sincronizações inicias, o tempo necessário para conclusão dependerá diretamente de quantos usuários, grupos e membros do grupo estão presentes no sistema de origem. Sistemas de origem muito pequenos, com centenas de objetos, podem concluir sincronizações inicias em questão de minutos. No entanto, os sistemas de origem com centenas de milhares ou milhões de objetos combinados levarão mais tempo.
 
 Para sincronizações incrementais, o tempo necessário depende do número de alterações detectadas nesse ciclo de sincronização. Se houver menos de 5.000 alterações de usuário ou associação ao grupo detectadas, elas normalmente poderão ser sincronizadas dentro de um ciclo de 40 minutos. 
 
@@ -220,4 +221,5 @@ Entre em contato conosco através do [Fórum de comentários do Active Directory
 * [Filtros de escopo para provisionamento de usuários](active-directory-saas-scoping-filters.md)
 * [Usando o SCIM para habilitar o provisionamento automático de usuários e grupos do Active Directory do Azure para aplicativos](active-directory-scim-provisioning.md)
 * [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Plano de implantação passo a passo para provisionamento de usuário de saída de um aplicativo](https://aka.ms/userprovisioningdeploymentplan)
 

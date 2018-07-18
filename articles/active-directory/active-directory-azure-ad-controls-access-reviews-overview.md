@@ -1,27 +1,28 @@
 ---
-title: "Revisões de acesso do Azure AD | Microsoft Docs"
-description: "Você pode controlar a associação de grupos e o acesso a aplicativos para atender às iniciativas de governança, gerenciamento de riscos e conformidade da sua organização usando as revisões de acesso do Azure Active Directory."
+title: Revisões de acesso do Azure AD | Microsoft Docs
+description: Você pode controlar a associação de grupos e o acesso a aplicativos para atender às iniciativas de governança, gerenciamento de riscos e conformidade da sua organização usando as revisões de acesso do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02711f4fd54051f726a3823112230247df4776d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193689"
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Revisões de acesso do Azure AD (versão prévia)
+# <a name="azure-ad-access-reviews"></a>Revisões de acesso do Azure AD
 
-As revisões de acesso do Azure AD (Azure Active Directory) permitem que as organizações gerenciem com eficiência as associações de grupo e o acesso a aplicativos empresariais. 
+As revisões de acesso do Azure AD (Azure Active Directory) permitem que as organizações gerenciem com eficiência as associações de grupo e o acesso a aplicativos empresariais e atribuições de função com privilégios. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>O que você pode fazer com as revisões de acesso?
    
@@ -30,6 +31,8 @@ As revisões de acesso do Azure AD (Azure Active Directory) permitem que as orga
 - Você pode reconfirmar o acesso de funcionários a aplicativos e associações de grupo com as revisões de acesso.
    
 - Você pode coletar os controles de revisão de acesso em programas relevantes para que sua organização rastreie as análises de conformidade ou aplicativos suscetíveis a riscos.
+
+- Você pode renovar a atribuição de função de usuários administrativos designados a funções do Azure AD, como Administrador Global, ou funções de assinatura do Azure.  Esse recurso está incluído no Azure Active Directory Privileged Identity Management.
     
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,18 +1,18 @@
 ---
-title: "Referência de esquema de webhook do Registro de Contêiner do Azure"
-description: "O webhook solicita a referência da carga JSON para o Registro de Contêiner do Azure."
+title: Referência de esquema de webhook do Registro de Contêiner do Azure
+description: O webhook solicita a referência da carga JSON para o Registro de Contêiner do Azure.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
 
@@ -40,7 +40,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="push-event-payload"></a>Enviar carga do evento por push
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
 |`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
@@ -50,7 +50,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="target"></a>destino
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de Comprimento.|
@@ -61,7 +61,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="request"></a>solicitação
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
@@ -104,7 +104,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete-event-payload"></a>Excluir carga do evento
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |-------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID do evento do webhook.|
 |`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
@@ -114,7 +114,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete_target"></a> destino
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`mediaType`|Cadeia de caracteres|O tipo MIME do objeto referenciado.|
 |`digest`|Cadeia de caracteres|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
@@ -122,7 +122,7 @@ Webhook é disparado quando um repositório ou manifesto é excluído. Não é d
 
 ### <a name="delete_request"></a> solicitação
 
-|Elemento|Tipo|Descrição|
+|Elemento|type|DESCRIÇÃO|
 |------------------|----------|-----------|
 |`id`|Cadeia de caracteres|A ID da solicitação que iniciou o evento.|
 |`host`|Cadeia de caracteres|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|

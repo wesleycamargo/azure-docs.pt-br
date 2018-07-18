@@ -1,11 +1,11 @@
 ---
-title: "Como usar o serviço de email SendGrid (Node.js) | Microsoft Docs"
-description: "Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js."
-services: 
+title: Como usar o serviço de email SendGrid (Node.js) | Microsoft Docs
+description: Saiba como enviar email com o serviço de email SendGrid no Azure. Exemplos de código escritos usando a API do Node. js.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar emails usando o SendGrid do Node.js
-Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Microsoft Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps) .
+Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o serviço de email SendGrid?
 SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid incluem:
@@ -60,7 +60,7 @@ Criar uma mensagem de e-mail usando o módulo SendGrid envolve criar primeiro um
         text: 'This is a sample email message.'
     });
 
-Você também pode especificar uma mensagem de HTML a clientes que dão suporte a ela, definindo a propriedade de html. Por exemplo:
+Você também pode especificar uma mensagem de HTML a clientes que dão suporte a ela, definindo a propriedade de html. Por exemplo: 
 
     html: This is a sample <b>HTML<b> email message.
 
@@ -78,7 +78,7 @@ Depois de criar uma mensagem de email usando a função Email, você pode enviá
     });
 
 > [!NOTE]
-> Enquanto os exemplos acima mostram a passagem em uma função de retorno de chamada e de objeto de email, você pode invocar diretamente as funções de envio especificando diretamente as propriedades do email. Por exemplo:  
+> Enquanto os exemplos acima mostram a passagem em uma função de retorno de chamada e de objeto de email, você pode invocar diretamente as funções de envio especificando diretamente as propriedades do email. Por exemplo:   
 > 
 > `````
 > sendgrid.send({
@@ -161,7 +161,7 @@ Os exemplos a seguir demonstram os filtros de rodapé e de acompanhamento de cli
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Como atualizar as propriedades do e-mail
-Algumas propriedades de email podem ser substituídas usando **definir*Propriedade*** ou anexadas usando **adicionar*Propriedade***. Por exemplo, você pode adicionar destinatários adicionais ao usar
+Algumas propriedades de email podem ser substituídas usando **set*Property*** ou acrescentado usando **add*Property***. Por exemplo, você pode adicionar destinatários adicionais ao usar
 
     email.addTo('jeff@contoso.com');
 
@@ -180,7 +180,7 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 
 * Repositório do módulo SendGrid Node.js: [sendgrid-nodejs][sendgrid-nodejs]
 * Documentação da API do SendGrid: <https://sendgrid.com/docs>
-* Oferta especial de SendGrid para clientes Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Oferta especial do SendGrid para clientes do Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

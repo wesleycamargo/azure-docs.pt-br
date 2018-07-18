@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Principais recursos e conceitos do Azure Stack
 Se ainda não estiver familiarizado com o Microsoft Azure Stack, esses termos e descrições de recursos poderão ser úteis.
@@ -86,14 +86,15 @@ Uma assinatura é a forma como os locatários compram suas ofertas. Uma assinatu
 
 As assinaturas ajudam os provedores de organizar e acessar serviços e recursos de nuvem.
 
-Para o administrador, uma assinatura de provedor padrão é criada durante a implantação. Esta assinatura pode ser usada para gerenciar a pilha do Azure, implantar mais provedores de recursos e criar planos e ofertas para locatários. Ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente. 
+Para o administrador, uma assinatura de provedor padrão é criada durante a implantação. Esta assinatura pode ser usada para gerenciar a pilha do Azure, implantar mais provedores de recursos e criar planos e ofertas para locatários. Ele não deve ser usado para executar aplicativos e cargas de trabalho do cliente. A partir da versão 1804, duas assinaturas adicionais complementam a assinatura do provedor padrão; uma assinatura de medição e uma assinatura de consumo. Essas adições facilitam a separação do gerenciamento de infraestrutura básica, provedores de recursos adicionais e cargas de trabalho.  
 
-
-## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 Usando o Gerenciador de recursos do Azure, você pode trabalhar com seus recursos de infraestrutura em um modelo declarativo baseado em modelo.   Ele fornece uma interface única que você pode usar para implantar e gerenciar os componentes da solução. Para obter mais informações e diretrizes, consulte o [visão geral do Gerenciador de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Grupos de recursos
 Grupos de recursos são coleções de recursos, serviços e aplicativos – e cada recurso tem um tipo, como máquinas virtuais, redes virtuais, IPs públicos, contas de armazenamento e sites. Cada recurso deve estar em um grupo de recursos e para que grupos de recursos logicamente ajudam a organizar os recursos, como por carga de trabalho ou local.  No Microsoft Azure Stack, recursos como planos e ofertas também são gerenciados em grupos de recursos.
+
+Ao contrário de [Azure](../azure-resource-manager/resource-group-move-resources.md), você não pode mover recursos entre grupos de recursos. Quando você exibir as propriedades de um recurso ou grupo de recursos no portal de administração de pilha do Azure, o *mover* botão é esmaecida e indisponível. 
  
 ### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 No Gerenciador de recursos do Azure, você pode criar um modelo (no formato JSON) que define a implantação e a configuração do seu aplicativo. Esse modelo é conhecido como um modelo do Gerenciador de Recursos do Azure e fornece uma maneira declarativa de definir a implantação. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos são implantados em um estado consistente.
@@ -101,7 +102,7 @@ No Gerenciador de recursos do Azure, você pode criar um modelo (no formato JSON
 ## <a name="resource-providers-rps"></a>Provedores de recursos (RPs)
 Os provedores de recursos são serviços Web que formam a base de todos os serviços de IaaS e PaaS baseados no Azure. Gerenciador de recursos do Azure depende de RPs diferente para fornecer acesso a serviços.
 
-Há quatro RPs fundamentais:, rede, computação e armazenamento KeyVault. Cada um desses RPs o ajuda a configurar e controlar seus respectivos recursos. Os administradores de serviço também podem adicionar novos provedores de recursos personalizados.
+Há quatro RPs fundamentais: rede, armazenamento, computação e KeyVault. Cada um desses RPs o ajuda a configurar e controlar seus respectivos recursos. Os administradores de serviço também podem adicionar novos provedores de recursos personalizados.
 
 ### <a name="compute-rp"></a>RP de Computação
 O CRP (Provedor de Recursos de Computação) permite que os locatários do Azure Stack criem suas próprias máquinas virtuais. O CRP inclui a capacidade de criar máquinas virtuais, bem como extensões de Máquina Virtual. O serviço de extensão de Máquina Virtual ajuda a fornecer recursos de IaaS para máquinas virtuais Windows e Linux.  Por exemplo, você pode usar o CRP para provisionar uma máquina virtual Linux e executar scripts de Bash durante a implantação para configurar a VM.
@@ -129,21 +130,21 @@ O KeyVault RP fornece gerenciamento e a auditoria de segredos, como senhas e cer
 ## <a name="high-availability-for-azure-stack"></a>Alta disponibilidade para a pilha do Azure
 *Aplica-se a: Azure 1802 de pilha ou versões posteriores*
 
-Para obter alta disponibilidade de um sistemas de produção de várias VMs no Azure, as VMs são colocadas em um conjunto de disponibilidade que abrange vários domínios de falha e domínios de atualização. Dessa forma, [VMs implantadas em conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) são fisicamente isoladas uma da outra em racks de servidores separados para permitir para resiliência de falha, conforme mostrado no diagrama a seguir:
+Para obter alta disponibilidade de um sistema de produção de várias VMs no Azure, as VMs são colocadas em um conjunto de disponibilidade que abrange vários domínios de falha e domínios de atualização. Dessa forma, [VMs implantadas em conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) são fisicamente isoladas uma da outra em racks de servidores separados para permitir para resiliência de falha, conforme mostrado no diagrama a seguir:
 
   ![Alta disponibilidade de pilha do Azure](media/azure-stack-key-features/high-availability.png)
 
-### <a name="availablity-sets-in-azure-stack"></a>Disponibilidade define na pilha do Azure
-Enquanto a infraestrutura da pilha do Azure já é resistente a falhas, a tecnologia subjacente (clustering de failover) ainda incorrerá em algum tempo de inatividade para máquinas virtuais em um servidor físico afetado em caso de falha de hardware. A pilha do Azure dá suporte a uma conjunto de disponibilidade com um máximo de três domínios de falha para ser consistente com o Azure.
+### <a name="availability-sets-in-azure-stack"></a>Conjuntos de disponibilidade na pilha do Azure
+Enquanto a infraestrutura da pilha do Azure já é resistente a falhas, a tecnologia subjacente (clustering de failover) ainda incorrerá em algum tempo de inatividade para máquinas virtuais em um servidor físico afetado se houver uma falha de hardware. A pilha do Azure dá suporte a uma conjunto de disponibilidade com um máximo de três domínios de falha para ser consistente com o Azure.
 
-- **Domínios de falha**. VMs colocadas em um conjunto de disponibilidade será fisicamente isoladas uma da outra distribuindo-los a maneira mais uniforme possível em vários domínios de falha (nós da pilha do Azure). Em caso de falha de hardware, das VMs a partir do domínio de falha com falha serão reiniciadas em outros domínios de falha, mas, se possível, mantidas em domínios de falha de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware de volta a ficar online, as VMs serão balanceadas para manter a alta disponibilidade. 
+- **Domínios de falha**. VMs colocadas em um conjunto de disponibilidade será fisicamente isoladas uma da outra distribuindo-los a maneira mais uniforme possível em vários domínios de falha (nós da pilha do Azure). Se houver uma falha de hardware, das VMs a partir do domínio de falha com falha serão ser reiniciadas em outros domínios de falha, mas, se possível, mantidas em domínios de falha de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware de volta a ficar online, as VMs serão balanceadas para manter a alta disponibilidade. 
  
 - **Atualizar domínios**. Domínios de atualização são outro conceito do Azure que fornece alta disponibilidade em conjuntos de disponibilidade. Um domínio de atualização é um grupo lógico do hardware subjacente que pode passar por manutenção ao mesmo tempo. Máquinas virtuais localizadas no mesmo domínio de atualização serão reiniciados juntas durante a manutenção planejada. Como os locatários criarem máquinas virtuais dentro de um conjunto de disponibilidade, a plataforma do Azure distribui automaticamente VMs entre esses domínios de atualização. Na pilha do Azure, as VMs são ao vivo migrada em outros hosts online no cluster antes de atualizar seu host subjacente. Como não há nenhum tempo de inatividade do locatário durante uma atualização do host, o recurso de domínio de atualização na pilha do Azure existe somente para compatibilidade de modelo com o Azure. 
 
 ### <a name="upgrade-scenarios"></a>Cenários de atualização 
-As VMs em conjuntos de disponibilidade criados antes que a versão de pilha do Azure 1802 recebem um número padrão de domínios de falha e atualização (1 e 1 respectivamente). Para alcançar alta disponibilidade para VMs nesses conjuntos de disponibilidade já existente, você deve primeiro excluir VMs existentes e, em seguida, reimplantá-los em uma novo conjunto de disponibilidade com as contagens de domínio falha e atualização corretas conforme descrito em [alterar o conjunto de disponibilidade para uma VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+As VMs em conjuntos de disponibilidade que foram criados antes da versão do Azure pilha 1802 recebem um número padrão de domínios de falha e atualização (1 e 1 respectivamente). Para alcançar alta disponibilidade para VMs nesses conjuntos de disponibilidade já existente, você deve primeiro excluir VMs existentes e, em seguida, reimplantá-los em uma novo conjunto de disponibilidade com as contagens de domínio falha e atualização corretas conforme descrito em [alterar o conjunto de disponibilidade para uma VM do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
-Para conjuntos de escala de VM, um conjunto de disponibilidade é criado internamente com contagem de domínio um padrão falhas domínio e atualização (3 e 5 respectivamente). Qualquer VM dimensionar conjuntos criados antes da atualização 1802 será colocada em uma conjunto de disponibilidade com as contagens de domínio de falha e atualização padrão (1 e 1 respectivamente). Para atualizar essas instâncias de conjunto de escala VM para obter a visualização mais recente, expandir os conjuntos de escala VM pelo número de instâncias que existiam antes da atualização 1802 e exclua as ocorrências mais antigas dos conjuntos de escala de VM. 
+Para conjuntos de escala de máquina virtual, um conjunto de disponibilidade é criado internamente com contagem de domínio um padrão falhas domínio e atualização (3 e 5 respectivamente). Qualquer conjunto de escala de máquina virtual criado antes da atualização 1802 será colocada em uma conjunto de disponibilidade com o domínio de falha e atualização padrão contagens (1 e 1 respectivamente). Para atualizar essas instâncias de conjunto de escala de máquina virtual para obter a visualização mais recente, expandir os conjuntos de escala de máquina virtual pelo número de instâncias que existiam antes da atualização 1802 e exclua as ocorrências mais antigas dos conjuntos de escala de máquina virtual. 
 
 ## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
 É possível usar o RBAC para conceder acesso ao sistema para usuários, grupos e serviços autorizados, atribuindo-lhes funções no nível de uma assinatura, grupo de recursos ou recurso individual. Cada função define o nível de acesso que um usuário, grupo ou serviço tem em relação aos recursos do Microsoft Azure Stack.

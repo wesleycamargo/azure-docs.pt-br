@@ -1,34 +1,33 @@
 ---
 title: Transformar dados usando o Spark no Azure Data Factory | Microsoft Docs
-description: "Este tutorial fornece instruções passo a passo para transformar dados usando uma atividade Spark no Azure Data Factory."
+description: Este tutorial fornece instruções passo a passo para transformar dados usando uma atividade Spark no Azure Data Factory.
 services: data-factory
-documentationcenter: 
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+documentationcenter: ''
+author: douglaslMS
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
-ms.author: shengc
-ms.openlocfilehash: 1a6e58b775270fd23331748edae64e73d6e7f9da
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: e32fa771595fdc4bf5fe54ec14630961d467d40f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando uma atividade Spark no Azure Data Factory
 Neste tutorial, você pode usar o Portal do Azure para criar um pipeline do Azure Data Factory. Este pipeline transforma os dados usando uma atividade Spark e um serviço vinculado do Azure HDInsight sob demanda. 
 
-Neste tutorial, você executa as seguintes etapas:
+Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Crie um pipeline que usa uma atividade Spark.
 > * Dispare uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Monitorar a execução de pipeline.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -80,7 +79,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
@@ -171,7 +170,7 @@ Você cria dois serviços vinculados nesta seção:
 > [!NOTE]
 > O Azure HDInsight limita o número total de núcleos que você pode usar em cada região do Azure a qual ele dá suporte. Para o serviço vinculado do HDInsight sob demanda, o cluster HDInsight é criado na mesma localização do Armazenamento do Azure usada como o armazenamento primário. Verifique se você tem cotas de núcleo suficientes para que o cluster seja criado com êxito. Para obter mais informações, consulte [Configurar clusters no HDInsight com Hadoop, Spark, Kafka e mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). 
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 
 1. Selecione o botão **+** (adição) e, em seguida, selecione **Pipeline** no menu.
 
@@ -244,10 +243,10 @@ O arquivo deve ter cada palavra do texto do arquivo de entrada e o número de ve
 Neste exemplo, o pipeline transforma dados usando a atividade Spark e um serviço vinculado do HDInsight sob demanda. Você aprendeu como: 
 
 > [!div class="checklist"]
-> * Criar uma fábrica de dados. 
+> * Criar um data factory. 
 > * Crie um pipeline que usa uma atividade Spark.
 > * Dispare uma execução de pipeline.
-> * Monitore a execução de pipeline.
+> * Monitorar a execução de pipeline.
 
 Avance para o próximo tutorial para aprender como transformar dados executando o script Hive em um cluster do Azure HDInsight que está em uma rede virtual: 
 

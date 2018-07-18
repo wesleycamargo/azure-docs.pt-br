@@ -1,11 +1,11 @@
 ---
-title: "Configuração de endereços IP privados para VMs – CLI do Azure | Microsoft Docs"
-description: "Aprenda a configurar endereços IP privados para máquinas virtuais usando a interface de linha de comando (CLI) do Azure."
+title: Configuração de endereços IP privados para VMs – CLI do Azure | Microsoft Docs
+description: Aprenda a configurar endereços IP privados para máquinas virtuais usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual usando a CLI do Azure
 
@@ -158,6 +158,7 @@ Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada 
 
    * `--nics`: nome da NIC à qual a VM está conectada.
    
+É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário, como quando [atribuímos vários endereços IP para uma VM do Windows](virtual-network-multiple-ip-addresses-cli.md). Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperar informações do endereço IP privado estático de uma VM
 
@@ -267,9 +268,7 @@ Para alterar a NIC da VM usada em comandos anteriores, conclua as seguintes etap
 
     > [!NOTE]
     > Se a VM for grande o suficiente para ter mais de uma NIC, execute o comando **azure network nic delete** para excluir a NIC antiga.
-   
-## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
-* Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
-* Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre como gerenciar [configurações de endereço IP](virtual-network-network-interface-addresses.md).

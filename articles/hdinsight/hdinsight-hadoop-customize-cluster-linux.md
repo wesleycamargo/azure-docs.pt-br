@@ -1,37 +1,35 @@
 ---
-title: "Personalizar os clusters HDInsight usando ações de script – Azure | Microsoft Docs"
-description: "Adicione componentes personalizados a clusters HDInsight baseados em Linux usando ações de script. As ações de script são scripts Bash que podem ser usados para personalizar a configuração do cluster ou adicionar mais serviços e utilitários, como Hue, Solr ou R."
+title: Personalizar os clusters HDInsight usando ações de script – Azure | Microsoft Docs
+description: Adicione componentes personalizados a clusters HDInsight baseados em Linux usando ações de script. As ações de script são scripts Bash que podem ser usados para personalizar a configuração do cluster ou adicionar mais serviços e utilitários, como Hue, Solr ou R.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/29/2018
+ms.topic: conceptual
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
-O HDInsight fornece uma opção de configuração chamada **Ação de Script** que chama os scripts personalizados que personalizam o cluster. Esses scripts são usados para instalar componentes adicionais e alterar definições de configuração. Ações de script podem ser usadas durante ou após a criação do cluster.
+O HDInsight fornece um método de configuração chamado **ações de script** que chama os scripts personalizados para personalizar o cluster. Esses scripts são usados para instalar componentes adicionais e alterar definições de configuração. Ações de script podem ser usadas durante ou após a criação do cluster.
 
 > [!IMPORTANT]
 > A capacidade de usar as ações de script em um cluster já em execução só está disponível para os clusters HDInsight baseados em Linux.
 >
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Ações de script também podem ser publicadas no Azure Marketplace como um aplicativo do HDInsight. Alguns dos exemplos neste documento mostram como você pode instalar um aplicativo do HDInsight usando comandos de ação de script do PowerShell e o SDK do .NET. Para obter mais informações sobre aplicativos do HDInsight, consulte [Publicar aplicativos do HDInsight no Azure Marketplace](hdinsight-apps-publish-applications.md).
+Ações de script também podem ser publicadas no Azure Marketplace como um aplicativo do HDInsight. Para obter mais informações sobre aplicativos do HDInsight, consulte [Publicar aplicativos do HDInsight no Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -50,8 +48,8 @@ Além disso, se você está criando um cluster HDInsight, alguém com no mínimo
 
 Para saber mais sobre como trabalhar com o gerenciamento de acesso, confira os seguintes documentos:
 
-* [Introdução ao gerenciamento de acesso no portal do Azure](../active-directory/role-based-access-control-what-is.md)
-* [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md)
+* [Introdução ao gerenciamento de acesso no portal do Azure](../role-based-access-control/overview.md)
+* [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understanding-script-actions"></a>Noções básicas sobre ações de Script
 
@@ -210,17 +208,19 @@ Esta seção fornece exemplos sobre as diferentes maneiras em que você pode usa
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Usar uma ação de script em modelos do Azure Resource Manager
 
-Ações de script podem ser usadas com modelos do Azure Resource Manager. Para obter um exemplo, consulte [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Ações de script podem ser usadas com modelos do Azure Resource Manager. Para obter um exemplo, consulte [ https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/ ](https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/).
 
 Neste exemplo, a ação de script é adicionada usando o seguinte código:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Para obter informações sobre como implantar um modelo, consulte os seguintes documentos:
 
@@ -305,15 +305,21 @@ Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure
 
 1. Para alternar para o modo Azure Resource Manager, use o seguinte comando na linha de comando:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use o comando a seguir para fazer logon em sua assinatura do Azure.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Use o comando a seguir para aplicar uma ação de script a um cluster em execução
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Se você omitir parâmetros para esse comando, você será solicitado a fornecê-los. Caso o script especificado com `-u` aceite parâmetros, você poderá especificá-los usando o parâmetro `-p`.
 
@@ -337,7 +343,7 @@ Consulte [Executar ações de script em um cluster em execução](https://msdn.m
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Aplicar uma ação de script a um cluster em execução no SDK do .NET do HDInsight
 
-Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um cluster, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um cluster, consulte [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Exibir o histórico, promover e rebaixar ações de script
 
@@ -429,7 +435,7 @@ Você pode usar a interface do usuário da Web Ambari para exibir as informaçõ
 
 ### <a name="using-the-ambari-web-ui"></a>Usando a interface do usuário da Web do Ambari
 
-1. No seu navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
+1. No navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 
     Quando solicitado, insira o nome de conta de administrador (admin) e a senha correspondente para o cluster. Você precisará reinserir as credenciais de administrador em um formulário da Web.
 
@@ -493,7 +499,7 @@ __Causa__: esse erro ocorre se você atualizar o cliente de Armazenamento do Azu
 
 __Resolução__: para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`, e use o comando a seguir para reinstalar a versão do cliente de armazenamento correta:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

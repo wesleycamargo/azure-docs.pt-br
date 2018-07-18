@@ -39,7 +39,7 @@
       href: monitor-alerts-unified-log.md
     - name: Alertas do log de atividades (Versão Prévia)
       href: monitoring-activity-log-alerts-new-experience.md
-    - name: Estender alertas do OMS para o Azure
+    - name: Estender alertas do Log Analytics para o Azure
       href: monitoring-alerts-extend.md
     - name: Grupos de ação
       href: monitoring-action-groups.md
@@ -53,45 +53,55 @@
   items:
     - name: Instruções passo a passo do Azure Monitor
       href: monitoring-get-started.md
+    - name: Criar gráficos de métricas no Metrics Explorer
+      href: monitoring-metric-charts.md
     - name: Usar alertas
       items:
-        - name: Configurar novos alertas no portal do Azure
-          href: monitoring-near-real-time-metric-alerts.md
+        - name: Configurar novos alertas de métrica ou de log no portal do Azure
+          href: monitor-alerts-unified-usage.md
         - name: Configurar alertas clássicos no portal do Azure
           href: insights-alerts-portal.md
-        - name: Configurar métrica ou alertas de log no portal do Azure
-          href: monitor-alerts-unified-usage.md
-        - name: Configurar alertas com a CLI
+        - name: Configurar alertas clássicos com a CLI
           href: insights-alerts-command-line-interface.md
-        - name: Configurar alertas com o Azure PowerShell
+        - name: Configurar alertas clássicos com o Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Fazer com que o alerta de métrica clássico chame um webhook
+          href: insights-webhooks-alerts.md
         - name: Ações de Webhook para alertas do log
           href: monitor-alerts-unified-log-webhook.md
-        - name: Criar um alerta de métrica com um modelo do Resource Manager
+        - name: Criar um alerta de log com um modelo do Resource Manager
+          href: monitor-alerts-unified-log-template.md
+        - name: Criar um alerta de métrica mais recente com um modelo do Resource Manager
+          href: monitoring-create-metric-alerts-with-templates.md
+        - name: Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
           href: monitoring-enable-alerts-using-template.md
-        - name: Iniciar alertas de extensão do OMS para o Azure
+        - name: Copiar alertas do portal do OMS para o portal do Azure
           href: monitoring-alerts-extend-tool.md
-    - name: Usar autoescala
+        - name: Alertas com limites dinâmicos
+          href: monitoring-alerts-dynamic-thresholds.md
+    - name: Use grupos de ação com alertas
       items:
-        - name: Instruções passo a passo de dimensionamento automático
-          href: monitoring-autoscale-get-started.md
-        - name: Compreender configurações de Autoescala
-          href: monitoring-understanding-autoscale-settings.md
-        - name: Práticas recomendadas
-          href: insights-autoscale-best-practices.md
-        - name: Métricas comuns
-          href: insights-autoscale-common-metrics.md
-        - name: Padrões comuns
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Dimensionamento automático usando uma métrica personalizada
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: Dimensionar automaticamente conjuntos de Dimensionamento de VMs usando modelos do Resource Manager
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Dimensionar automaticamente computadores em um conjunto de Dimensionamento de VM
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Configurar webhooks e notificações por email em dimensionamento automático
-          href: insights-autoscale-to-webhook-email.md
-    - name: Usar o log de atividades
+        - name: Saiba mais sobre o esquema de webhook
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Comportamento de alerta do SMS
+          href: monitoring-sms-alert-behavior.md
+        - name: Limitação de taxa de alerta
+          href: monitoring-alerts-rate-limiting.md
+        - name: Criar grupos de ação com o Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Implementar uma ação de aplicativo lógico
+          href: monitoring-action-groups-logic-app.md
+    - name: Usar logs de diagnóstico
+      items:
+        - name: Arquivo
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Enviar para o Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
+        - name: Transmitir para Hubs de Eventos
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Habilitar configurações de diagnóstico com modelos do Gerenciador de Recursos
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Usar log de atividades
       items:
         - name: Exibir eventos no log de atividades
           href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
@@ -113,40 +123,48 @@
           href: monitoring-service-notifications.md
         - name: Configurar alertas em notificações de serviço
           href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Usar grupos de ação
+    - name: Acesso Programático
       items:
-        - name: Saiba mais sobre o esquema de webhook
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: Comportamento de alerta do SMS
-          href: monitoring-sms-alert-behavior.md
-        - name: Limitação de taxa de alerta
-          href: monitoring-alerts-rate-limiting.md
-        - name: Criar grupos de ação com o Resource Manager
-          href: monitoring-create-action-group-with-resource-manager-template.md
-    - name: Usar logs de diagnóstico
+        - name: Passo a passo usando a API REST
+          href: monitoring-rest-api-walkthrough.md
+        - name: Exemplos do Azure PowerShell
+          href: insights-powershell-samples.md
+    - name: Use a extensão de Diagnóstico do Azure
       items:
-        - name: Arquivo
-          href: monitoring-archive-diagnostic-logs.md
-        - name: Enviar para o Log Analytics
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Transmitir para Hubs de Eventos
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Habilitar configurações de Diagnóstico usando modelos do Resource Manager
-          href: monitoring-enable-diagnostic-logs-using-template.md
-    - name: Usar a API REST
-      items:
+        - name: Enviar ao Armazenamento do Azure
+          href: azure-diagnostics-storage.md
         - name: Enviar para o Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Enviar para Hubs de Eventos
           href: azure-diagnostics-streaming-event-hubs.md
         - name: solução de problemas
           href: azure-diagnostics-troubleshooting.md
-    - name: Criar gráficos de métricas no Metrics Explorer
-      href: monitoring-metric-charts.md
-    - name: Enviar métricas para o Grafana
-      href: monitor-send-to-grafana.md
-    - name: Enviar dados de monitoramento para um hub de eventos
-      href: monitor-stream-monitoring-data-event-hubs.md
+    - name: Usar autoescala
+      items:
+        - name: Instruções passo a passo de dimensionamento automático
+          href: monitoring-autoscale-get-started.md
+        - name: Compreender configurações de Autoescala
+          href: monitoring-understanding-autoscale-settings.md
+        - name: Práticas recomendadas
+          href: insights-autoscale-best-practices.md
+        - name: Métricas comuns
+          href: insights-autoscale-common-metrics.md
+        - name: Padrões comuns
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Dimensionamento automático usando uma métrica personalizada
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Dimensionar automaticamente conjuntos de Dimensionamento de VMs usando modelos do Resource Manager
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Dimensionar automaticamente computadores em um conjunto de Dimensionamento de VM
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Configurar webhooks e notificações por email em dimensionamento automático
+          href: insights-autoscale-to-webhook-email.md
+    - name: Rotear para outros locais
+      items:
+        - name: Enviar métricas para o Grafana
+          href: monitor-send-to-grafana.md
+        - name: Enviar dados de monitoramento para um hub de eventos
+          href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -157,12 +175,21 @@
       href: /rest/api/monitor/
     - name: Métricas com suporte
       href: monitoring-supported-metrics.md
+    - name: Métricas com suporte para alertas mais recentes
+      href: monitoring-near-real-time-metric-alerts.md
     - name: 'Serviços para logs de diagnóstico, categorias e esquemas'
       href: monitoring-diagnostic-logs-schema.md
     - name: Esquema de evento do log de atividades
       href: monitoring-activity-log-schema.md
     - name: Esquema de extensão do Diagnóstico do Azure
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 e posterior
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Recursos
   items:
     - name: Roteiro do Azure
@@ -179,3 +206,5 @@
       href: 'https://stackoverflow.com/search?q=monitoring'
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=monitor'
+    - name: Uso e custos estimados
+      href: monitoring-usage-and-estimated-costs.md

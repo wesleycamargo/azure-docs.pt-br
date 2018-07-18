@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 456a0c63881f6eb15e8166bee0105e25c951b536
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 785a75d3d9a748e3ddf01099fc844b5c1099d0b9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira-52"></a>Tutorial: Integração do Azure Active Directory com logon único do Microsoft Azure Active Directory para JIRA 5.2
 
@@ -30,7 +30,7 @@ A integração do logon único do Microsoft Azure Active Directory para JIRA 5.2
 - Você pode permitir que seus usuários entrem automaticamente no logon único do Microsoft Azure Active Directory para JIRA 5.2 (Logon Único) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="description"></a>DESCRIÇÃO
 
@@ -63,7 +63,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 *   O JIRA também fornece suporte para 6.0 e 7.2.0. Para obter mais detalhes, clique em [Logon único do Microsoft Azure Active Directory para JIRA](./active-directory-saas-jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o logon único do Microsoft Azure Active Directory para JIRA 5.2 a partir da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -114,7 +115,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_singlesign-onforjira5.2_samlbase.png)
 
 3. Na seção **Domínio e URLs de logon único do Microsoft Azure Active Directory para JIRA 5.2**, realize as etapas a seguir:
@@ -127,29 +128,13 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Jira, que é explicada adiante no tutorial.
- 
-4. Para gerar a URL de **Metadados**, execute as seguintes etapas:
 
-    a. Clique em **Registros do aplicativo**.
+4. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
     
-    ![Configurar o logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\appregistrations.png)
-   
-    b. Clique em **Pontos de extremidade** para abrir a caixa de diálogo **Pontos de extremidade**.  
-    
-    ![Configurar o logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpointicon.png)
-
-    c. Clique no botão copiar para copiar a URL **DOCUMENTO DE METADADOS DE FEDERAÇÃO** e cole-a no bloco de notas.
-    
-    ![Configurar o logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\endpoint.png)
+    ![Configurar o logon único](./media/active-directory-saas-msaadssojira5.2-tutorial/tutorial_metadataurl.png)
      
-    d. Agora acesse a página de propriedades do **Logon único do Microsoft Azure Active Directory para JIRA 5.2** e copie a **ID do Aplicativo** usando o botão **Copiar** e cole-a no bloco de notas.
- 
-    ![Configurar o logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\appid.png)
-
-    e. Gere a **URL de Metadados** usando o padrão `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` e copie esse valor no bloco de notas, pois ele será usado posteriormente para a configuração do plug-in.
-
 5. Clique no botão **Salvar** .
 
     ![Configurar o logon único](.\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_400.png)
@@ -178,8 +163,8 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
- 
-    a. Em **URL de Metadados**, cole a **URL de Metadados** gerada no Azure AD e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
+
+    a. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
 
     b. Copie os valores de **Identificador, URL de Resposta e URL de Logon** e cole-os nas caixas de texto **Identificador, URL de Resposta e URL de Logon**, respectivamente, na seção **Domínio e URLs logon único do Microsoft Azure Active Directory para JIRA 5.2** do Portal do Azure.
 
@@ -201,11 +186,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     i. Clique no botão **Salvar** para salvar as alterações.
 
     > [!NOTE]
-    > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para JIRA MS](ms-confluence-jira-plugin-adminguide.md) e há também as [perguntas frequentes](ms-confluence-jira-plugin-faq.md) para auxiliá-lo
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    > Para obter mais informações sobre instalação e solução de problemas, visite o [Guia do Administrador do Conector de SSO para MS JIRA](ms-confluence-jira-plugin-adminguide.md), e há também as [perguntas frequentes](ms-confluence-jira-plugin-faq.md) para auxiliá-lo
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -313,7 +294,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -328,4 +309,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_201.png
 [202]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_202.png
 [203]: .\media\active-directory-saas-msaadssojira5.2-tutorial\tutorial_general_203.png
-

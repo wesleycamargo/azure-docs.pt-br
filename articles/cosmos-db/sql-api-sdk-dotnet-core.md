@@ -4,7 +4,7 @@ description: Saiba tudo sobre o SDK e a API do .NET Core do SQL, incluindo as da
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
 ms.service: cosmos-db
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 27e7d5e26cf1705383faf38c4837f6dec0ecd2fb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -30,13 +30,11 @@ ms.lasthandoff: 03/16/2018
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -57,8 +55,11 @@ ms.lasthandoff: 03/16/2018
 
 O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais recente do [SDK do .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md).
 
-> [!NOTE] 
-> O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
+
+* Propriedade ConsistencyLevel adicionada a FeedOptions.
+* JsonSerializerSettings adicionado a RequestOptions e FeedOptions.
+* EnableReadRequestsFallback adicionado a ConnectionPolicy.
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 

@@ -1,25 +1,25 @@
 ---
-title: "Conectar-se ao Kafka usando redes virtuais – Azure HDInsight | Microsoft Docs"
-description: "Saiba como conectar-se diretamente ao Kafka no HDInsight por meio de uma Rede Virtual do Azure. Saiba como se conectar ao Kafka de clientes de desenvolvimento usando um gateway de VPN ou então de clientes em sua rede local usando um dispositivo de gateway de VPN."
+title: Conectar-se ao Kafka usando redes virtuais – Azure HDInsight | Microsoft Docs
+description: Saiba como conectar-se diretamente ao Kafka no HDInsight por meio de uma Rede Virtual do Azure. Saiba como se conectar ao Kafka de clientes de desenvolvimento usando um gateway de VPN ou então de clientes em sua rede local usando um dispositivo de gateway de VPN.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
+ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/05/2018
+ms.date: 05/02/2018
 ms.author: larryfr
-ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2740b5cf483fe3fbc2644510461863b939ffaae3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight por meio de uma Rede Virtual do Azure
 
@@ -92,7 +92,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
 2. Abra um prompt do PowerShell e use o seguinte código para fazer logon em sua assinatura do Azure:
 
     ```powershell
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
     # If you have multiple subscriptions, uncomment to set the subscription
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```
@@ -244,7 +244,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
 
 Por padrão, o Zookeeper retorna o nome de domínio dos agentes do Kafka aos clientes. Essa configuração não funciona com o cliente de software VPN, pois não é possível usar a resolução de nomes para entidades na rede virtual. Para essa configuração, use as seguintes etapas para configurar o Kafka a fim de anunciar endereços IP no lugar de nomes de domínio:
 
-1. Usando um navegador da Web, acesse https://NOMEDOCLUSTER.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
+1. Usando um navegador da Web, acesse https://CLUSTERNAME.azurehdinsight.net. Substitua __NOMEDOCLUSTER__ pelo nome do Kafka no cluster HDInsight.
 
     Quando solicitado, use o nome de usuário e a senha HTTPS para o cluster. A Interface de Usuário Ambari Web para o cluster é exibida.
 

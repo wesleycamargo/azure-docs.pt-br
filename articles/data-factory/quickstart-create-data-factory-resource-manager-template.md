@@ -1,11 +1,11 @@
 ---
 title: Criar um data factory do Azure usando modelo do Resource Manager | Microsoft Docs
-description: "Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager."
+description: Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 50f6bebffbf9eb88ec2c725184793d1ea9291312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2769be7097ebc65bc7c022ebd2e3f2de6e57e9b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um data factory do Azure usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -460,7 +460,7 @@ O gatilho implantado está no estado interrompido. Uma das maneiras de iniciar o
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-## <a name="json-definitions-for-entities"></a>Definições de JSON para entidades
+## <a name="data-factory-entities-in-the-template"></a> Definições JSON para entidades
 As seguintes entidades de Data Factory são definidas no modelo JSON: 
 
 - [Serviço vinculado de armazenamento do Azure](#azure-storage-linked-service)

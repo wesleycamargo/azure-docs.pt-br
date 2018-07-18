@@ -3,8 +3,8 @@ title: Criar zonas DNS e conjuntos de registros no DNS do Azure usando o SDK do 
 description: Como criar zonas DNS e conjuntos de registros no DNS do Azure usando o SDK do .NET.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 645bf755cc3cb4036104145765196fc97039c551
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 
@@ -29,7 +29,7 @@ Normalmente, o acesso programático aos recursos do Azure é concedido por meio 
 
 1. Siga [estas instruções](../azure-resource-manager/resource-group-authenticate-service-principal.md) para criar uma conta da entidade de serviço (o projeto de exemplo SDK do DNS do Azure pressupõe uma autenticação baseada em senhas.)
 2. Crie um grupo de recursos ([aqui](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Use o RBAC do Azure para conceder à conta da entidade de serviço permissões do 'Colaborador da Zona DNS' para o grupo de recursos ([aqui](../active-directory/role-based-access-control-configure.md).)
+3. Use o RBAC do Azure para conceder à conta da entidade de serviço permissões do 'Colaborador da Zona DNS' para o grupo de recursos ([aqui](../role-based-access-control/role-assignments-portal.md).)
 4. Se você usar o projeto de exemplo SDK do DNS do Azure, edite o arquivo 'program.cs' como a seguir:
 
    * Insira os valores corretos para tenantId, clientId (também conhecida como ID da conta), secret (senha da conta da entidade de serviço) e subscriptionId, como usados na etapa 1.

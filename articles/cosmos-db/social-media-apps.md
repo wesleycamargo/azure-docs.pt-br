@@ -1,12 +1,11 @@
 ---
-title: "Padrão de design do Azure Cosmos DB: Aplicativos de mídia social | Microsoft Docs"
-description: "Saiba mais sobre um padrão de design para Redes Sociais, aproveitando a flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure."
-keywords: "aplicativos de mídia social"
+title: 'Padrão de design do Azure Cosmos DB: Aplicativos de mídia social | Microsoft Docs'
+description: Saiba mais sobre um padrão de design para Redes Sociais, aproveitando a flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure.
+keywords: aplicativos de mídia social
 services: cosmos-db
 author: ealsur
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
-ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: maquaran
+ms.openlocfilehash: 53abefd4f3dd1f8da60b8b8efed1e7070b471383
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 Viver em uma sociedade amplamente interconectada significa que, em determinado momento da vida, você acaba se tornando parte de uma **rede social**. Usamos redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar nosso entusiasmo com pessoas que têm os mesmos interesses.
@@ -229,7 +228,7 @@ O Cosmos DB dá suporte ao [particionamento dinâmico](https://azure.microsoft.c
 
 Um ponto interessante que vale a pena mencionar é que o Cosmos DB executará as consultas (incluindo [agregações](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) em todas as partições de forma transparente; você não precisa adicionar nenhuma lógica conforme os dados aumentam.
 
-Com o tempo, em última análise, você terá um aumento no tráfego e no consumo de recursos (medido em [RUs](request-units.md), ou Unidades de Solicitação). Você fará leituras e gravações com mais frequência conforme a base de usuário aumenta e eles começarão a criar e ler mais conteúdo; a capacidade de **dimensionar a produtividade** é fundamental. Aumentar nossas RUs é muito fácil; podemos fazer isso com alguns cliques no Portal do Azure ou [emitindo comandos por meio da API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Com o tempo, em última análise, você terá um aumento no tráfego e no consumo de recursos (medido em [RUs](request-units.md), ou Unidades de Solicitação). Você fará leituras e gravações com mais frequência conforme a base de usuário aumenta e eles começarão a criar e ler mais conteúdo; a capacidade de **dimensionar a produtividade** é fundamental. Aumentar nossas RUs é muito fácil; podemos fazer isso com alguns cliques no Portal do Azure ou [emitindo comandos por meio da API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Aumentando e definindo uma chave de partição](./media/social-media-apps/social-media-apps-scaling.png)
 

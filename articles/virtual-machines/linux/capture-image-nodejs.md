@@ -1,11 +1,11 @@
 ---
 title: Capturar uma VM do Linux do Azure para usar como modelo | Microsoft Docs
-description: "Saiba como capturar e generalizar uma imagem de uma VM (máquina virtual) do Azure baseada no Linux criada com o modelo de implantação do Azure Resource Manager."
+description: Saiba como capturar e generalizar uma imagem de uma VM (máquina virtual) do Azure baseada no Linux criada com o modelo de implantação do Azure Resource Manager.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 3b45f46197467dd7b83bd986604338e14daa8107
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturar uma máquina virtual do Linux em execução no Azure
-Siga as etapas neste artigo para generalizar e capturar sua VM (máquina virtual) do Linux do Azure no modelo de implantação do Gerenciador de Recursos. Ao generalizar a VM, você remove informações de conta pessoal e prepara a VM a ser usada como uma imagem. Em seguida, você captura a imagem de um VHD (disco rígido virtual) generalizado para o sistema operacional, VHDs para discos de dados anexados e um [modelo do Resource Manager](../../azure-resource-manager/resource-group-overview.md) para novas implantações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM usando discos não gerenciados. Você também pode [capturar uma VM usando o Azure Managed Disks com a CLI 2.0 do Azure](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Siga as etapas neste artigo para generalizar e capturar sua VM (máquina virtual) do Linux do Azure no modelo de implantação do Gerenciador de Recursos. Ao generalizar a VM, você remove informações de conta pessoal e prepara a VM a ser usada como uma imagem. Em seguida, você captura a imagem de um VHD (disco rígido virtual) generalizado para o sistema operacional, VHDs para discos de dados anexados e um [modelo do Resource Manager](../../azure-resource-manager/resource-group-overview.md) para novas implantações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM usando discos não gerenciados. Você também pode [capturar uma VM usando o Azure Managed Disks com a CLI 2.0 do Azure](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Para criar VMs usando a imagem, configure recursos de rede para cada nova VM e use o modelo (um arquivo JavaScript Object Notation ou JSON) para implantá-lo por meio de imagens VHD capturadas. Dessa forma, você pode replicar uma VM com sua configuração atual de software, da mesma forma como usa imagens no Azure Marketplace.
 
@@ -44,7 +44,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 * **CLI do Azure** - instalar a [CLI do Azure](../../cli-install-nodejs.md) em um computador local.
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>Etapa 1: remover o agente Linux do Azure
-Primeiro, execute o comando **waagent** com o parâmetro **deprovision** na VM Linux. Esse comando exclui arquivos e dados para preparar a VM para generalização. Para obter detalhes, confira o [Guia do usuário do Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Primeiro, execute o comando **waagent** com o parâmetro **deprovision** na VM Linux. Esse comando exclui arquivos e dados para preparar a VM para generalização. Para obter detalhes, confira o [Guia do usuário do Azure Linux Agent](../extensions/agent-windows.md).
 
 1. Conecte-se à VM do Linux usando um cliente SSH.
 2. Na janela SSH, digite o seguinte comando:

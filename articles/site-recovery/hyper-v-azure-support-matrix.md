@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 9078b56ae9c5582aa21201c168974eb6cc7a4ed6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011366"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V no Azure
 
@@ -23,9 +24,9 @@ Este artigo resume os componentes compatíveis e as configurações de recupera�
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
 **Cenário** | **Detalhes**
---- | --- 
+--- | ---
 Hyper-V com Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que são gerenciados na malha do System Center Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell.<br/><br/> Quando hosts Hyper-V são gerenciadas pelo Virtual Machine Manager, você também pode executar a recuperação de desastres em um site local secundário. Para saber mais sobre este cenário, leia [este tutorial](tutorial-vmm-to-vmm.md).
-Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que não são gerenciados pelo Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell. 
+Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que não são gerenciados pelo Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell.
 
 
 ## <a name="on-premises-servers"></a>Servidores locais
@@ -39,7 +40,7 @@ Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2016,
 ## <a name="replicated-vms"></a>VMs replicadas
 
 
-A tabela a seguir resume o suporte de VMs. O Site Recovery é compatível com qualquer carga de trabalho em execução em um sistema operacional compatível. 
+A tabela a seguir resume o suporte de VMs. O Site Recovery é compatível com qualquer carga de trabalho em execução em um sistema operacional compatível.
 
  **Componente** | **Detalhes**
 --- | ---
@@ -78,7 +79,8 @@ NIC múltipla | sim | sim
 IP Reservado | sim | sim
 IPv4 | sim | sim
 Manter endereço IP de origem | sim | sim
-Pontos de extremidade de serviço de Rede Virtual do Azure<br/><br/> (Redes virtuais e firewalls do Armazenamento do Microsoft Azure) | Não  | Não 
+Pontos de extremidade de serviço de Rede Virtual do Azure<br/> (sem Firewalls de Armazenamento do Azure) | sim | sim
+Rede Acelerada | Não  | Não 
 
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
@@ -125,7 +127,7 @@ Blobs de bloco | Não  | Não
 Criptografia em repouso (SSE)| sim | sim
 Armazenamento Premium | sim | sim
 Serviço de importação/exportação | Não  | Não 
-Pontos de extremidade da Rede Virtual do Azure (redes virtuais e firewalls do armazenamento do Azure) na conta de armazenamento de cache de destino usada para dados de replicação | Não  | Não 
+Firewalls de armazenamento do Azure para redes virtuais configurados na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação) | Não  | Não 
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure
@@ -159,9 +161,9 @@ Tipo de VM | Geração 1<br/><br/> Geração 2--Windows | VMs da Geração 2 com
 ## <a name="recovery-services-vault-actions"></a>Ações de cofre dos Serviços de Recuperação
 
 **Ação** |  **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
---- | --- | --- 
-Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não  
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não  
+--- | --- | ---
+Mover cofre entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não 
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre as assinaturas | Não  | Não 
 
 
 ## <a name="provider-and-agent"></a>Provedor e agente
@@ -170,7 +172,7 @@ Para certificar-se de que a implantação seja compatível com as configuraçõe
 
 **Nome** | **Descrição** | **Detalhes**
 --- | --- | --- | --- | ---
-Provedor do Azure Site Recovery | Coordena as comunicações entre servidores locais e o Azure <br/><br/> Hyper-V com o Virtual Machine Manager: instalados nos servidores do Virtual Machine Manager<br/><br/> Hyper-V sem o Virtual Machine Manager: instalado nos hosts Hyper-V| Versão mais recente: 5.1.2700.1 (disponível no portal do Azure)<br/><br/> [Recursos e correções mais recentes](https://aka.ms/latest_asr_updates)
+Provedor do Azure Site Recovery | Coordena as comunicações entre servidores locais e o Azure <br/><br/> Hyper-V com o Virtual Machine Manager: instalados nos servidores do Virtual Machine Manager<br/><br/> Hyper-V sem o Virtual Machine Manager: instalado nos hosts Hyper-V| Versão mais recente: 5.1.2700.1 (disponível no portal do Azure)<br/><br/> [Recursos e correções mais recentes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicação entre VMs Hyper-V e o Azure<br/><br/> Instalado em servidores Hyper-V locais (com ou sem Virtual Machine Manager) | Agente mais recente disponível no portal
 
 
@@ -179,4 +181,4 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastre de VMs locais do Hyper-V. 
+Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastre de VMs locais do Hyper-V.

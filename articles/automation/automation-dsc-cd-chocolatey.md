@@ -3,18 +3,17 @@ title: Implantação Contínua de DSC de Automação do Azure com Chocolatey
 description: Implantação contínua de DevOps usando DSC de Automação do Azure e o gerenciador de pacotes Chocolatey.  Exemplo com modelo ARM JSON completo e fonte do PowerShell.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f695eaadc0aa2d01473262c478a3b184d89d882c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando a DSC de Automação e o Chocolatey
 Em um mundo de DevOps, há várias ferramentas para ajudá-lo em vários pontos no pipeline de Integração Contínua.  A DSC (Configuração do Estado Desejado) da Automação do Azure é uma nova adição bem-vinda para as opções que podem ser utilizadas por equipes de DevOps.  Este artigo demonstra a configuração da CD (Implantação Contínua) para um computador com Windows.  Você pode facilmente ampliar a técnica para incluir tantos computadores com Windows quantos forem necessários na função (um site, por exemplo) e também para funções adicionais.
@@ -52,7 +51,7 @@ Provavelmente, você já está realizando a ação na parte superior, ou a maior
 Se você não estiver começando com um modelo do ARM, isso também está OK.  Há cmdlets do PowerShell projetados para ajudá-lo a registrar suas VMs no servidor de recepção e todo o restante. Para obter mais detalhes, confira este artigo: [Integrando máquinas para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Etapa 1: configurar o servidor de recepção e a conta de automação
-Em uma linha de comando do PowerShell (Add-AzureRmAccount) autenticada: (pode demorar alguns minutos enquanto o servidor pull é configurado)
+Em uma linha de comando do PowerShell (Connect-AzureRmAccount) autenticada: (pode demorar alguns minutos enquanto o servidor de pull é configurado)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

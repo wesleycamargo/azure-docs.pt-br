@@ -1,11 +1,11 @@
 ---
-title: "Recursos de detecção da Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda você a entender como funcionam os recursos de detecção da Central de Segurança do Azure."
+title: Recursos de detecção da Central de Segurança do Azure | Microsoft Docs
+description: Este documento ajuda você a entender como funcionam os recursos de detecção da Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: 
+author: terrylan
+manager: mbaldwin
+editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: edef9bc1ba2420a4b7d95f891fd8b0b7e144c2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Recursos de detecção da Central de Segurança do Azure
 Este documento aborda os recursos de detecção avançada da Central de Segurança do Azure, que ajuda a identificar ameaças ativas aos recursos do Microsoft Azure e fornece as informações necessárias para uma resposta rápida.
@@ -85,7 +85,7 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Alertas de Segurança por Tipo na Central de Segurança do Azure](security-center-alerts-type.md)
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

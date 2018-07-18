@@ -1,13 +1,13 @@
 ---
-title: "Upgrades automáticos de sistema operacional com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
-description: "Sabia como atualizar automaticamente o sistema operacional em instâncias de VM em um conjunto de dimensionamento"
+title: Upgrades automáticos de sistema operacional com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+description: Sabia como atualizar automaticamente o sistema operacional em instâncias de VM em um conjunto de dimensionamento
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Upgrades automáticos de sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -93,9 +93,9 @@ No momento, há suporte para os seguintes SKUs (serão adicionados mais):
 > [!NOTE]
 > Esta seção aplica-se somente para conjuntos de dimensionamento sem o Service Fabric. O Service Fabric tem sua própria noção da integridade do aplicativo. Ao usar as atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é implementada ao domínio de atualização pelo domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Durante a atualização do sistema operacional, as instâncias de VM em um conjunto de dimensionamento são atualizadas em um lote por vez. A atualização deverá continuar apenas se o aplicativo do cliente for íntegro nas instâncias de VM atualizadas. Recomendamos que o aplicativo ofereça sinais de integridade ao mecanismo de atualização do sistema operacional do conjunto de dimensionamento. Por padrão, durante os upgrades do sistema operacional, a plataforma considera o estado de energia da VM e o estado de provisionamento da extensão para determinar se uma instância VM é íntegra após uma atualização. Durante a atualização do sistema operacional de uma instância VM, o disco do sistema operacional em uma instância VM é substituído por um novo com base na versão mais recente da imagem. Após a conclusão de atualização do sistema operacional, as extensões configuradas são executadas nessas VMs. Apenas quando todas as extensões em uma VM forem provisionadas com êxito é que o aplicativo será considerado íntegro. 
+Durante a atualização do sistema operacional, as instâncias de VM em um conjunto de dimensionamento são atualizadas em um lote por vez. A atualização deverá continuar apenas se o aplicativo do cliente for íntegro nas instâncias de VM atualizadas. Por esse motivo, exigimos que o aplicativo forneça sinais de integridade ao mecanismo de atualização do sistema operacional de conjunto de dimensionamento. Durante os upgrades do SO, a plataforma considera o estado de energia da VM e o estado de provisionamento de extensão para determinar se uma instância de VM está íntegra após um upgrade. Durante a atualização do sistema operacional de uma instância VM, o disco do sistema operacional em uma instância VM é substituído por um novo com base na versão mais recente da imagem. Após a conclusão de atualização do sistema operacional, as extensões configuradas são executadas nessas VMs. Apenas quando todas as extensões em uma VM forem provisionadas com êxito é que o aplicativo será considerado íntegro. 
 
-Um conjunto de dimensionamento pode opcionalmente ser configurado com Investigações de integridade do aplicativo para oferecer à plataforma informações precisas sobre o estado em andamento do aplicativo. As Investigações de integridade do aplicativo são Investigações personalizadas do Load Balancer usadas como um sinal de integridade. O aplicativo em execução em uma instância VM do conjunto de dimensionamento pode responder a solicitações HTTP ou TCP externas que indicam se ele é íntegro. Para obter mias informações sobre como as Investigações personalizadas do Load Balancer funcionam, consulte [Noções básicas de investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Não é necessária uma Investigação de integridade do aplicativo para upgrades automáticos do sistema operacional, mas é recomendável.
+Adicionalmente, o conjunto de dimensionamento *deve* ser configurado com as Investigações de Integridade do Aplicativo para fornecer à plataforma informações precisas sobre o estado atual do aplicativo. As Investigações de integridade do aplicativo são Investigações personalizadas do Load Balancer usadas como um sinal de integridade. O aplicativo em execução em uma instância VM do conjunto de dimensionamento pode responder a solicitações HTTP ou TCP externas que indicam se ele é íntegro. Para obter mias informações sobre como as Investigações personalizadas do Load Balancer funcionam, consulte [Noções básicas de investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Se o conjunto de dimensionamento estiver configurado para usar vários grupos de posicionamento, as investigações que usarem o [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) precisarão ser usadas.
 
@@ -110,7 +110,7 @@ As etapas recomendadas para recuperar as VMs e habilitar novamente a atualizaç�
 * Implantar o conjunto de escala atualizado, que atualizará todas as instâncias de VM, incluindo aquelas com falha. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurando uma Investigação personalizada do Load Balancer como uma investigação de integridade do aplicativo em um conjunto de dimensionamento
-Como uma melhor prática, crie uma investigação do balanceador de carga explicitamente para a integridade do conjunto de dimensionamento. Poderá ser usado o mesmo ponto de extremidade para uma investigação HTTP ou TCP existente, mas uma investigação de integridade pode exigir um comportamento diferente de uma investigação tradicional do balanceador de carga. Por exemplo, uma investigação tradicional do balanceador de carga poderá ser retornada não íntegra se a carga na instância for alta demais, enquanto que isso pode não ser adequado para determinar a integridade da instância durante uma atualização automática do sistema operacional. Configure a investigação para que ela tenha uma alta taxa de sondagem de menos de 2 minutos.
+Você *deve* criar uma investigação do balanceador de carga explicitamente para a integridade do conjunto de dimensionamento. Poderá ser usado o mesmo ponto de extremidade para uma investigação HTTP ou TCP existente, mas uma investigação de integridade pode exigir um comportamento diferente de uma investigação tradicional do balanceador de carga. Por exemplo, uma investigação tradicional do balanceador de carga poderá ser retornada não íntegra se a carga na instância for alta demais, enquanto que isso pode não ser adequado para determinar a integridade da instância durante uma atualização automática do sistema operacional. Configure a investigação para que ela tenha uma alta taxa de sondagem de menos de 2 minutos.
 
 A investigação do balanceador de carga pode ser referenciada no *networkProfile* do conjunto de dimensionamento e associada a um balanceador de carga interno ou público da seguinte maneira:
 
@@ -227,7 +227,7 @@ Para expandir o uso de investigações de integridade do aplicativo, os atualiza
 2. Identifique o próximo lote de instâncias VM a serem atualizadas, com um lote tendo, no máximo, 20% da contagem total de instâncias.
 3. Atualize o sistema operacional do próximo lote de instâncias VM.
 4. Se mais de 20% das instâncias atualizadas forem Não íntegras, interrompa o atualização; caso contrário, continue.
-5. Se o cliente tiver configurado Investigações de integridade do aplicativo, o atualização aguardará até 5 minutos para que as investigações se tornem íntegras e ele passará imediatamente para o próximo lote; caso contrário, aguardará 30 minutos antes de passar para o próximo lote.
+5. Para conjuntos de dimensionamento que não fazem parte de um cluster do Service Fabric, o upgrade aguarda até 5 minutos para que as investigações tornem-se íntegras e, em seguida, continua imediatamente no próximo lote. Para conjuntos de dimensionamento que fazem parte de um cluster do Service Fabric, o conjunto de dimensionamento aguarda 30 minutos antes de passar para o próximo lote.
 6. Se houver instâncias remanescentes a serem atualizadas, passe para a etapa 1) para o próximo lote; caso contrário, o atualização será concluído.
 
 O Mecanismo do atualização do sistema operacional do conjunto de dimensionamento verifica a integridade geral da instância VM antes de atualizar cada lote. Ao atualizar um lote, pode haver outra manutenção planejada ou não planejada simultânea acontecendo nos Data centers do Azure que pode afetar a disponibilidade de suas VMs. Portanto, é possível que, temporariamente, mais de 20% das instâncias possam ficar inoperantes. Nesses casos, no final do lote atual, o atualização do conjunto de dimensionamento é interrompido.
@@ -237,7 +237,8 @@ O Mecanismo do atualização do sistema operacional do conjunto de dimensionamen
 
 É possível usar o seguinte modelo para implantar um conjunto de dimensionamento que usa atualizaçãos automáticos <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>Atualizações sem interrupção – Ubuntu 16.04-LTS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 

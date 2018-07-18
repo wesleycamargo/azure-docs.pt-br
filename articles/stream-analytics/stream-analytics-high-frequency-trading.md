@@ -1,25 +1,19 @@
 ---
-title: "Simulação de transação de alta frequência com o Stream Analytics | Microsoft Docs"
-description: "Como executar a pontuação e o treinamento do modelo de regressão linear no mesmo trabalho do Stream Analytics"
-keywords: "aprendizado de máquina, análise avançada, regressão linear, simulação, UDA, função definida pelo usuário"
-documentationcenter: 
+title: Simulação de negociação de alta frequência usando o Azure Stream Analytics
+description: Como fazer um treinamento e pontuação do modelo de regressão linear em um trabalho do Azure Stream Analytics.
 services: stream-analytics
 author: zhongc
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+ms.date: 11/05/2017
+ms.openlocfilehash: cf04cf92f204b89c0641a23ba38b05dbcad409b2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de transação de alta frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções UDFs (funções definidas pelo usuário) e UDAs (agregações definidas pelo usuário) de JavaScript no Azure Stream Analytics permite aos usuários a execução de análises avançadas. As análises avançadas podem incluir treinamento de aprendizado de máquina online e pontuação, bem como a simulação de processo com estado. Este artigo descreve como executar regressão linear em um trabalho do Azure Stream Analytics que faz classificação e pontuação contínuas em um cenário de transação de alta frequência.
@@ -74,13 +68,13 @@ Para fins de demonstração, usamos um modelo linear descrito por Darryl Shen [n
 
 Desequilíbrio de ordem de volume (VOI) é uma função do preço de compra e venda atual e do volume e preço de compra e venda do último tique. O papel identifica a correlação entre VOI e a movimentação de preços futura. Ele cria um modelo linear entre os últimos 5 valores de VOI, e a mudança de preço nos próximos 10 tiques. O modelo é treinado usado os dados do dia anterior com regressão linear. 
 
-O modelo treinado é então usado para fazer previsões de alteração do preço nas cotações no dia da negociação em tempo real. Quando uma alteração de preço grande o suficiente é prevista, uma transação é executada. Dependendo da configuração do limite, milhares de transações podem ser esperadas para uma única ação em um dia de negociação.
+Depois, o modelo treinado é usado para fazer previsões de alteração do preço nas cotações no dia da negociação em tempo real. Quando uma alteração de preço grande o suficiente é prevista, uma transação é executada. Dependendo da configuração do limite, milhares de transações podem ser esperadas para uma única ação em um dia de negociação.
 
 ![Definição de VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Agora, vamos expressar as operações de treinamento e previsão em um trabalho do Azure Stream Analytics.
 
-Primeiro, as entradas são apagadas. O tempo em época é convertido em datetime usando **DATEADD**. O **TRY_CAST** é usado para forçar os tipos de dados sem falhar a consulta. Sempre é uma boa prática converter os campos de entrada para os tipos de dados esperado, para que não haja nenhum comportamento inesperado na manipulação ou comparação dos campos.
+Primeiro, as entradas são apagadas. O tempo em época é convertido em datetime usando **DATEADD**. O **TRY_CAST** é usado para forçar os tipos de dados sem causar falhas na consulta. Sempre é uma boa prática converter os campos de entrada para os tipos de dados esperado, para que não haja nenhum comportamento inesperado na manipulação ou comparação dos campos.
 
     WITH
     typeconvertedquotes AS (

@@ -1,11 +1,11 @@
 ---
 title: Agendar trabalhos com o Hub IoT do Azure (.NET/Node) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Node.js para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para .NET para implementar um aplicativo de serviço que executa o trabalho."
+description: Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Node.js para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para .NET para implementar um aplicativo de serviço que executa o trabalho.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: 3efe4612c6d628e070ba6e99808f79f61ead426e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 360daf918051ce901a81f96d1873dc90af238e19
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Agendar e difundir trabalhos (.NET/Node.js)
 
@@ -36,6 +36,8 @@ Para saber mais sobre cada uma dessas capacidades, consulte:
 
 * Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: Usar métodos diretos][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostra como:
 

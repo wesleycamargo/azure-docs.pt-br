@@ -6,22 +6,22 @@ documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Como montar um compartilhamento de arquivos do Azure e acessar o compartilhamento no Windows
-[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows e no Windows Server. Este artigo mostra três maneiras diferentes de montagem de compartilhamento de arquivos do Azure no Windows: com a IU do explorador de arquivos, por meio do PowerShell e por meio do Prompt de comando. 
+[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados no Windows e no Windows Server. Este artigo mostra três maneiras diferentes de montagem de compartilhamento de arquivos do Azure no Windows: com a IU do explorador de arquivos, por meio do PowerShell e por meio do Prompt de comando. 
 
 Para montar um compartilhamento de Arquivos do Azure fora da região na qual o Azure está hospedado, como no local ou em uma região diferente do Azure, o sistema operacional deve dar suporte a SMB 3.0. 
 
@@ -29,14 +29,14 @@ Você pode montar compartilhamentos de arquivos do Azure em uma instalação do 
 
 | Versão do Windows        | Versão do SMB | Montável na VM do Azure | Montável no local |
 |------------------------|-------------|-----------------------|----------------------|
-| Canal semestral do Windows Server<sup>1</sup> | SMB 3.0 | Sim | Sim |
-| Windows 10<sup>2</sup>  | SMB 3.0 | Sim | Sim |
-| Windows Server 2016    | SMB 3.0     | Sim                   | Sim                  |
-| Windows 8.1            | SMB 3.0     | Sim                   | Sim                  |
-| Windows Server 2012 R2 | SMB 3.0     | Sim                   | Sim                  |
-| Windows Server 2012    | SMB 3.0     | Sim                   | Sim                  |
-| Windows 7              | SMB 2.1     | Sim                   | Não                   |
-| Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                   |
+| Canal semestral do Windows Server<sup>1</sup> | SMB 3.0 | sim | sim |
+| Windows 10<sup>2</sup>  | SMB 3.0 | sim | sim |
+| Windows Server 2016    | SMB 3.0     | sim                   | sim                  |
+| Windows 8.1            | SMB 3.0     | sim                   | sim                  |
+| Windows Server 2012 R2 | SMB 3.0     | sim                   | sim                  |
+| Windows Server 2012    | SMB 3.0     | sim                   | sim                  |
+| Windows 7              | SMB 2.1     | sim                   | Não                    |
+| Windows Server 2008 R2 | SMB 2.1     | sim                   | Não                    |
 
 <sup>1</sup>Windows Server versão 1709.  
 <sup>2</sup>Windows 10 versões 1507, 1607, 1703 e 1709.
@@ -49,7 +49,41 @@ Você pode montar compartilhamentos de arquivos do Azure em uma instalação do 
 
 * **Chave de conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, você precisará da chave de armazenamento primária (ou secundária). Atualmente, as chaves SAS não têm suporte para montagem.
 
-* **Certifique-se de que a porta 445 esteja aberta**: os Arquivos do Azure usam o protocolo SMB. O SMB se comunica pela porta TCP 445: confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.
+* **Certifique-se de que a porta 445 esteja aberta**: os Arquivos do Azure usam o protocolo SMB. O SMB se comunica pela porta TCP 445: confira se o firewall não está bloqueando as portas TCP 445 do computador cliente. Use o Portqry para verificar se a porta TCP 445 está aberta. Se a porta TCP 445 for exibida como filtrada, a porta TCP estará bloqueada. Veja um exemplo de consulta:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Se a porta TCP 445 está sendo bloqueado por uma regra ao longo do caminho de rede, você verá a seguinte saída:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Para saber mais sobre como usar Portqry, confira [Descrição do utilitário de linha de comando Portqry.exe](https://support.microsoft.com/help/310099).
+
+
+## <a name="persisting-connections-across-reboots"></a>Conexões persistentes entre reinicializações
+### <a name="cmdkey"></a>CmdKey
+A maneira mais fácil para estabelecer uma conexão persistente é salvando suas credenciais de conta de armazenamento em janelas usando o utilitário de linha de comando “CmdKey”. A seguir, há um exemplo de linha de comando para persistir suas credenciais de conta de armazenamento em sua VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Aqui o DomainName será “AZURE”
+
+O CmdKey também permitirá listar as credenciais armazenadas por ele:
+
+```
+C:\>cmdkey /list
+```
+A saída será o seguinte:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Depois que as credenciais tiverem sido persistidas, você não precisa mais fornecê-las ao se conectar a seu compartilhamento. Em vez disso, você pode se conectar sem especificar quaisquer credenciais.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Como montar o compartilhamento de arquivos do Azure com o explorador de arquivos
 > [!Note]  
@@ -61,7 +95,7 @@ Você pode montar compartilhamentos de arquivos do Azure em uma instalação do 
     
     ![Uma captura de tela do menu suspenso "Mapear unidade de rede"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copie o caminho UNC do painel "Conectar" no portal do Azure**: você encontrará uma descrição detalhada de como localizar essas informações [aqui](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copie o caminho UNC do painel "Conectar" no Portal do Azure.** 
 
     ![O caminho UNC do painel Conectar dos Arquivos do Azure](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

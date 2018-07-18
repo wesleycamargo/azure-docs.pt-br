@@ -1,11 +1,11 @@
 ---
-title: "Script automatizado para criar o aplicativo Web Service Manager para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs"
-description: "Crie um aplicativo Web Service Manager usando um script automatizado para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar de maneira centralizada os itens de trabalho ITSM."
+title: Script automatizado para criar o aplicativo Web Service Manager para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs
+description: Crie um aplicativo Web Service Manager usando um script automatizado para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar de maneira centralizada os itens de trabalho ITSM.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 34ec15781776fc8373cd6c9dafa75010e942e167
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web Service Manager usando o script automatizado
 
@@ -33,7 +33,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
 
-O script criará um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera o **URL do aplicativo Web**, a **ID do cliente** e o **segredo do cliente**.
+O script criará um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera a **URL do aplicativo Web**, a **ID do cliente** e o **segredo do cliente**.
 
 Salve os valores. Você precisará deles quando criar uma conexão com o Conector de Gerenciamento de Serviços de TI.
 
@@ -126,7 +126,7 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 
@@ -192,6 +192,8 @@ Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
 
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
+
 try
 {
 
@@ -206,7 +208,7 @@ catch
     # Delete the deployed web app if Azure AD application fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-    Write-Host "Faiure occured in Azure AD application....Try again!!"
+    Write-Host "Failure occured in Azure AD application....Try again!!"
 
     exit
 

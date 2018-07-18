@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre a migração do Armazenamento do Microsoft Azure | Microsoft Docs"
-description: "Respostas para perguntas comuns sobre a migração do Armazenamento do Azure"
+title: Perguntas frequentes sobre a migração do Armazenamento do Microsoft Azure | Microsoft Docs
+description: Respostas para perguntas comuns sobre a migração do Armazenamento do Azure
 services: storage
 documentationcenter: na
 author: genlin
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 11/16/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 12172c53e8e5077f9690a2459bf5ccf3c3a05507
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -76,7 +76,7 @@ Siga estas etapas:
 
 1.  Crie o contêiner (pasta) no blob de destino.
 
-2.  Use o [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) para copiar o conteúdo do contêiner do blob original para o contêiner de um blob diferente.
+2.  Use o [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) para copiar o conteúdo do contêiner do blob original para o contêiner de um blob diferente.
 
 **Como criar um script do PowerShell para mover dados de um compartilhamento de arquivos do Azure para outro no Armazenamento do Azure?**
 
@@ -129,7 +129,7 @@ Siga estas etapas:
 2.  Copie o VHD do disco gerenciado de uma área para outra executando o seguinte script do Azure PowerShell:
 
     ```
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionId <ID>
 
@@ -168,7 +168,7 @@ Use o AzCopy para baixar os dados. Para saber mais, confira [Transferir dados co
 
 **Como alterar o local secundário de uma conta de armazenamento para a região da Europa?**
 
-Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](storage-redundancy.md).
+Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A seleção da região secundária se baseia na região primária e não pode ser alterada. Para obter mais informações, consulte [GRS (armazenamento com redundância geográfica): replicação inter-regional para Armazenamento do Microsoft Azure](storage-redundancy.md).
 
 **Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
   

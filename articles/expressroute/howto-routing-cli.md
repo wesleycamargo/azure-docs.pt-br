@@ -1,13 +1,13 @@
 ---
 title: 'Como configurar o roteamento de um circuito da ExpressRoute do Azure: CLI | Microsoft Docs'
-description: "Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
+description: Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b54f7768e64e1689e5b25b94905beea6bd5471df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o roteamento de um circuito da ExpressRoute usando CLI
 
@@ -55,8 +55,6 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente do CLI do Azure (Interface de linha de comando).* Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
@@ -206,7 +204,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Criar um circuito da ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
+2. Criar um circuito do ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
 
 3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
 
@@ -389,7 +387,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   * Uma sub-rede /30 para o link secundário. Precisa ser um prefixo IPv4 público válido.
   * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
   * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-  * **Opcional -** Um hash MD5 se você optar por usar um.
+  * **Opcional –** Um hash MD5 se você optar por usar um.
 
   Executar o seguinte exemplo para configurar o emparelhamento público do Azure para seu circuito:
 

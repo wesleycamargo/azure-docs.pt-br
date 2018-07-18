@@ -3,8 +3,8 @@ title: Usar os Parâmetros de Serviço Web do Machine Learning do Azure | Micros
 description: Como usar Parâmetros de Serviço Web de Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço Web é acessado.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
-ms.author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 41b35b8160c777c8598a30e2d775d997e06438f0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Usar os parâmetros do serviço Web de Azure Machine Learning
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
@@ -52,7 +52,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
    * Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".
    * Em **Especifique o tipo de autenticação**, selecione "Conta".
    * Insira as informações de conta para o armazenamento de blobs do Azure. 
-     <p />
+
 3. Clique no ícone à direita de **Caminho para o blob que começa com o parâmetro contêiner**. Ele tem esta aparência:
    
    ![Ícone do Parâmetro de Serviço Web][icon]

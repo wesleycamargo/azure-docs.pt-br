@@ -71,7 +71,7 @@
 #### [PowerShell do Azure](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
+### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json )
 ### [Rastrear um Serviço de Nuvem com o Diagnóstico](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## Solucionar problemas
@@ -92,7 +92,7 @@
 #### [Perguntas frequentes sobre implantação](cloud-services-deployment-faq.md)
 
 # Referência
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [Esquema XML .csdef](schema-csdef-file.md)
 ### [Esquema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
 ### [Esquema WebRole](schema-csdef-webrole.md)

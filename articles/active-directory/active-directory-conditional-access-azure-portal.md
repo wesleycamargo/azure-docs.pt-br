@@ -2,11 +2,11 @@
 title: Acesso condicional ao Azure Active Directory | Microsoft Docs
 description: Saiba como o acesso condicional no Azure Active Directory pode ajudar a gerenciar o controle de acesso em um local central.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257726"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -49,7 +50,7 @@ A seguir, são apresentadas algumas preocupações de acesso comuns em que o ace
 
 - **[Local de rede](active-directory-conditional-access-locations.md)**: o Azure AD é acessível de qualquer lugar. E se uma tentativa de acesso for realizada em um local de rede que não esteja sob o controle do departamento de TI? O uso de uma combinação de nome de usuário e senha pode ser bom o suficiente como prova de identidade para tentativas de acesso aos recursos da rede corporativa. E se você exigir uma prova de identidade mais forte para tentativas de acesso iniciadas de outros países ou regiões do mundo inesperados? E se você ainda quiser bloquear tentativas de acesso de determinados locais?  
 
-- **[Gerenciamento de dispositivos](active-directory-conditional-access-conditions.md#device-platforms)**: no Azure AD, os usuários podem acessar aplicativos em nuvem em uma grande variedade de dispositivos, inclusive dispositivos para dispositivos móveis e também pessoais. E se você exigir que uma tentativa de acesso só deva ser realizada por um usuário com dispositivos gerenciados pelo departamento de TI? E se você ainda quiser bloquear determinados tipos de dispositivo de acessar aplicativos em nuvem no ambiente? 
+- **[Gerenciamento de dispositivos](active-directory-conditional-access-conditions.md#device-platforms)**: no Azure AD, os usuários podem acessar aplicativos em nuvem em uma grande variedade de dispositivos, inclusive dispositivos para dispositivos móveis e também pessoais. E se você exigir que as tentativas de acesso somente sejam realizadas utilizando dispositivos gerenciados pelo departamento de TI? E se você ainda quiser bloquear determinados tipos de dispositivo de acessar aplicativos na nuvem no ambiente? 
 
 - **[Aplicativo cliente](active-directory-conditional-access-conditions.md#client-apps)**: atualmente, você pode acessar muitos aplicativos na nuvem usando tipos de aplicativos diferentes, como aplicativos baseados na Web, aplicativos móveis ou aplicativos da área de trabalho. E se uma tentativa de acesso for realizada usando-se um tipo de aplicativo cliente que causa problemas conhecidos? E se você precisar de um dispositivo gerenciado pelo departamento de TI para determinados tipos de aplicativo? 
 
@@ -108,7 +109,7 @@ Para obter mais informações, consulte [Configurar o SharePoint Online e o Exch
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Requisitos de licença para usar o acesso condicional
 
-O uso do acesso condicional requer uma licença do Microsoft Azure AD Premium. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
+O uso do acesso condicional requer uma licença do Microsoft Azure AD Premium. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -121,3 +122,5 @@ O uso do acesso condicional requer uma licença do Microsoft Azure AD Premium. P
 - Se você quiser experimentar a configuração de políticas de acesso condicionais, consulte [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- Se você deseja um plano de implantação passo a passo com as políticas recomendadas, consulte o [plano de implantação de acesso condicional](http://aka.ms/conditionalaccessdeploymentplan)

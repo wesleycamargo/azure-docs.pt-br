@@ -1,24 +1,18 @@
 ---
 title: Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
-description: "Saiba mais sobre as diferentes maneiras de armazenar e acessar dados no Azure para ajudá-lo a decidir qual tecnologia será usada."
+description: Saiba mais sobre as diferentes maneiras de armazenar e acessar dados no Azure para ajudá-lo a decidir qual tecnologia será usada.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 
@@ -47,9 +41,9 @@ A tabela a seguir compara os Arquivos do Azure com os Blobs do Azure.
 |Pontos de extremidade|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Diretórios|Namespace simples|Objetos do diretório verdadeiros|  
 |Diferenciação entre maiúsculas e minúsculas de nomes|Diferencia maiúsculas de minúsculas|Sem diferenciação entre maiúsculas e minúsculas, mas com preservação de maiúsculas e minúsculas|  
-|Capacity|Contêineres de até 500 TB|Compartilhamentos de arquivos de 5 TB|  
-|Throughput|Até 60 MB/s por blob de blocos|Até 60 MB/s por compartilhamento|  
-|Tamanho do objeto|Até 200 GB/blob de blocos|Até 1 TB/arquivo|  
+|Capacity|Contêineres de até 500 TiB|Compartilhamentos de arquivos de 5 TiB|  
+|Throughput|Até 60 MiB/s por blob de blocos|Até 60 MiB/s por compartilhamento|  
+|Tamanho do objeto|Até aproximadamente 4,75 TiB por blob de blocos|Até 1 TiB por arquivo|  
 |Capacidade cobrada|Com base nos bytes gravados|Com base no tamanho do arquivo|  
 |Bibliotecas de cliente|Vários idiomas|Vários idiomas|  
   
@@ -68,9 +62,9 @@ A tabela a seguir compara os Arquivos do Azure com os Discos do Azure.
 |Autenticação|Interno|Configurar com net use|  
 |Limpeza|Automático|Manual|  
 |Acesso com a REST|Não é possível acessar os arquivos no VHD|É possível acessar os arquivos armazenados em um compartilhamento|  
-|Tamanho máx.|Disco de 4 TB|Compartilhamento de Arquivos de 5 TB e arquivo de 1 TB no compartilhamento|  
+|Tamanho máx.|Disco de 4 TiB|Compartilhamento de Arquivos de 5 TiB e arquivo de 1 TiB no compartilhamento|  
 |IOPS máximo de 8 KB|500 IOPS|1.000 IOPS|  
-|Throughput|Até 60 MB/s por Disco|Até 60 MB/s por Compartilhamento de Arquivos|  
+|Throughput|Até 60 MiB/s por disco|Até 60 MiB/s por Compartilhamento de Arquivos|  
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,24 @@
 ---
-title: "Solução Análise de DNS no Azure Log Analytics | Microsoft Docs"
-description: "Configure e use a solução Análise de DNS no Log Analytics para coletar informações relacionadas à segurança, ao desempenho e às operações na infraestrutura DNS."
+title: Solução Análise de DNS no Azure Log Analytics | Microsoft Docs
+description: Configure e use a solução Análise de DNS no Log Analytics para coletar informações relacionadas à segurança, ao desempenho e às operações na infraestrutura DNS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -145,7 +145,6 @@ As informações ajudam você a identificar:
 
 **Consultas de Análise de DDI de Exemplo**. Contém uma lista das consultas de pesquisa mais comuns que buscam dados analíticos brutos diretamente.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Consultas de exemplo](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Você pode usar essas consultas como um ponto de partida para criar suas própri
 
 Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar os resultados da pesquisa usando controles de faceta. Você também pode criar consultas avançadas para transformar, filtrar e relatar sobre seus resultados. Comece usando as seguintes consultas:
 
-1. Na **caixa de consulta de pesquisa**, digite `Type=DnsEvents` para exibir todos os eventos DNS gerados pelos servidores DNS gerenciados pela solução. Os resultados listam os dados de logs de todos os eventos relacionados às consultas de pesquisa, aos registros dinâmicos e às alterações de configuração.
+1. Na **caixa de consulta de pesquisa**, digite `DnsEvents` para exibir todos os eventos DNS gerados pelos servidores DNS gerenciados pela solução. Os resultados listam os dados de logs de todos os eventos relacionados às consultas de pesquisa, aos registros dinâmicos e às alterações de configuração.
 
     ![Pesquisa de logs de DnsEvents](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
     c. Para exibir os dados de logs das alterações de configuração, selecione **ConfigurationChange** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de alteração de configuração do período selecionado.
 
-2. Na **caixa de consulta de pesquisa**, digite `Type=DnsInventory` para exibir todos os dados relacionados ao inventário DNS dos servidores DNS gerenciados pela solução. Os resultados listam os dados de log dos servidores DNS, das zonas DNS e dos registros de recursos.
+2. Na **caixa de consulta de pesquisa**, digite `DnsInventory` para exibir todos os dados relacionados ao inventário DNS dos servidores DNS gerenciados pela solução. Os resultados listam os dados de log dos servidores DNS, das zonas DNS e dos registros de recursos.
 
     ![Pesquisa de logs de DnsInventory](./media/log-analytics-dns/log-search-dnsinventory.png)
 

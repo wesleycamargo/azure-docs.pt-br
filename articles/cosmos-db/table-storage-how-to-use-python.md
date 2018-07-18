@@ -3,22 +3,21 @@ title: Introdução ao Armazenamento de Tabelas do Azure usando Python | Microso
 description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
 services: cosmos-db
 documentationcenter: python
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/08/2018
-ms.author: mimig
-ms.openlocfilehash: 455479c9eb77093dd5611263fe5bdcf699b9d026
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>Introdução ao Armazenamento de Tabelas do Azure usando Python
 
@@ -43,24 +42,16 @@ Você precisará do seguinte para concluir este tutorial com sucesso:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 ou 3.6
 - [SDK de Tabela do Azure Cosmos DB para Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Esse SDK se conecta ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB.
-- [Conta de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#create-a-storage-account) ou [Conta do Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/)
-
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+- [Conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) ou [Conta do Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
-
-Você pode trabalhar com tabelas usando o Armazenamento de Tabelas do Azure ou o Azure Cosmos DB. Você pode aprender mais sobre as diferenças entre os serviços lendo [Ofertas de tabela](table-introduction.md#table-offerings). Você precisará criar uma conta para o serviço que pretende usar. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
-A maneira mais fácil de criar sua primeira conta de armazenamento do Azure é usando o [portal do Azure](https://portal.azure.com). Para saber mais, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-
-Você também pode criar uma conta de armazenamento do Azure usando o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) ou a [CLI do Azure](../storage/common/storage-azure-cli.md).
-
-Se você preferir não criar uma conta de armazenamento no momento, também poderá usar o emulador de armazenamento do Azure para executar e testar seu código em um ambiente local. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de Tabele do Azure Cosmos DB
-
-Para obter instruções sobre como criar uma conta da API de Tabela do Azure Cosmos DB, consulte [Criar uma conta de API de Tabela](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Instalar o SDK de Tabela do Azure Cosmos DB para Python
 
@@ -232,11 +223,11 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Perguntas Frequentes – Desenvolver com a API de Tabela](https://docs.microsoft.com/en-us/azure/cosmos-db/faq#develop-with-the-table-api)
+* [Perguntas Frequentes – Desenvolver com a API de Tabela](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
 * [Referência da API do SDK do Azure Cosmos DB para Python](https://azure.github.io/azure-cosmosdb-python/)
 * [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
 * [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md): um aplicativo gratuito de plataforma cruzada para trabalhar visualmente com os dados do Armazenamento do Azure no Windows, macOS e Linux.
-* [Trabalhando com Python no Visual Studio (Windows)](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio)
+* [Trabalhando com Python no Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 [py_commit_batch]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html
 [py_create_table]: https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html

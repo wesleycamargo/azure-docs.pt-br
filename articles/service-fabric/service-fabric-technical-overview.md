@@ -1,6 +1,6 @@
 ---
 title: Aprenda a terminologia do Azure Service Fabric | Microsoft Docs
-description: "Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação."
+description: Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,16 +9,16 @@ editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. Este artigo apresenta detalhes da terminologia usada pelo Service Fabric para compreensão dos termos usados na documentação.
@@ -89,12 +89,22 @@ Leia o artigo [Implantar um aplicativo](service-fabric-deploy-remove-application
    - Orquestra upgrades de aplicativo e de cluster.
    - Interage com outros componentes do sistema.
 
+**Reparar o serviço do Gerenciador**: este é um serviço de sistema opcional que permite que as ações de reparo sejam executadas em um cluster de maneira segura, automática e transparente. O Gerenciador de reparo é usado em:
+   - Realizar reparos de manutenção do Azure na [durabilidade Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) dos clusters do Azure Service Fabric.
+   - Realizar ações de reparo para [Aplicativo de Orquestração de Patch](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Modelos de programação internos
-Há dois modelos de programação do .NET Framework disponíveis para compilação de serviços do Service Fabric:
+Há dois modelos de programação do .NET Framework e Java disponíveis para compilação de serviços do Service Fabric:
 
 **Reliable Services**: uma API para criar serviços com e sem estado. O serviço com estado armazena seu estado em Reliable Collections, como um dicionário ou uma fila. Você também pode conectar várias pilhas de comunicação, como API Web e WCF (Windows Communication Foundation).
 
 **Reliable Actors**: uma API para criar objetos com e sem estado por meio do modelo de programação de ator virtual. Esse modelo é útil quando você tem muitas unidades independentes de computação ou estado. Esse modelo usa um modelo de threading baseado em turno, assim, é melhor evitar um código que chame outros atores ou serviços, já que um ator individual não pode processar outras solicitações de entrada até que todas as suas solicitações de saída estejam concluídas.
+
+Você também pode executar os aplicativos existentes no Service Fabric:
+
+**Contêineres**: o Service Fabric dá suporte à implantação de contêineres do Docker em contêineres do Linux e do Windows Server no Windows Server 2016, juntamente com o suporte para o modo de isolamento do Hyper-V. No [modelo de aplicativo](service-fabric-application-model.md)do Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. O Service Fabric pode executar qualquer contêiner, e o cenário é semelhante ao cenário executável de convidado, no qual você pode empacotar um aplicativo existente dentro de um contêiner. Além disso, também é possível executar os [serviços do Service Fabric dentro de contêineres](service-fabric-services-inside-containers.md).
+
+**Executáveis de convidado**: você pode executar qualquer tipo de código, como Node.js, Java ou C++ no Service Fabric como um serviço. O Service Fabric se refere a esses tipos de serviço como executáveis convidados, que são tratados como serviços sem estado. As vantagens para executar um executável de convidado no cluster do Service Fabric inclui uma disponibilidade alta, monitoramento de integridade, gerenciamento do ciclo de vida do aplicativo, densidade alta e descoberta.
 
 Leia o artigo [Escolher um modelo de programação para seu serviço](service-fabric-choose-framework.md) para saber mais.
 

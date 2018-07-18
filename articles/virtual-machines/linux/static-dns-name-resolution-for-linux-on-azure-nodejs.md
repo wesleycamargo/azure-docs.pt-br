@@ -4,7 +4,7 @@ description: Usando o DNS interno para a resolução de nomes da VM no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 73ecbb5bfcc99eb4507cac24b0539a04c3d8f521
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Usando o DNS interno para a resolução de nomes da VM no Azure
 
@@ -105,7 +105,7 @@ azure network vnet create myVNet \
 
 ## <a name="create-the-nsg"></a>Criar o NSG
 
-A Sub-rede é criada por trás de um Grupo de Segurança de Rede existente e, portanto, criamos o NSG antes da Sub-rede.  Os NSGs do Azure são equivalentes a um firewall na camada de rede.  Para obter mais informações sobre os NSGs do Azure, consulte [Como criar NSGs na CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+A Sub-rede é criada por trás de um Grupo de Segurança de Rede existente e, portanto, criamos o NSG antes da Sub-rede.  Os NSGs do Azure são equivalentes a um firewall na camada de rede.  Para obter mais informações sobre os NSGs do Azure, consulte [Como criar NSGs na CLI do Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network nsg create myNSG \

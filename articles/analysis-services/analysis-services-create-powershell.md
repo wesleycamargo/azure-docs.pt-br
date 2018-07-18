@@ -1,31 +1,24 @@
 ---
 title: Criar um servidor do Azure Analysis Services usando PowerShell | Microsoft Docs
 description: Saiba como criar a um servidor do Azure Analysis Services usando PowerShell
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.custom: mvc
-ms.openlocfilehash: 083c5a9bb5c57f3287c259900e6a23d6f0a886de
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3f0d3ae6786e9f63f0e4eb025118d0d217eced64
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>Criar a um servidor do Azure Analysis Services usando PowerShell
 
 Este guia de início rápido descreve como usar o PowerShell em uma linha de comando para criar um servidor do Azure Analysis Services em um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), em sua assinatura do Azure.
 
-Esta tarefa exige o módulo do Azure PowerShell, versão 4.0 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Esta tarefa exige o módulo do Azure PowerShell, versão 4.0 ou posterior. Para saber qual é a versão, execute ` Get-Module -ListAvailable AzureRM`. Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 > [!NOTE]
 > Criar um servidor pode resultar em um novo serviço faturável. Para saber mais, veja [Preços do Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
@@ -45,14 +38,14 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre em sua assinatura do Azure usando o comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount). Siga as instruções na tela.
+Entre na assinatura do Azure usando o comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Siga as instruções na tela.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
- 
+
 Um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Quando você cria o servidor, precisa especificar um grupo de recursos em sua assinatura. Se você ainda não tiver um grupo de recursos, crie um novo usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na região Oeste dos EUA.
 
 ```powershell
@@ -77,6 +70,6 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)   
-[Implantar um modelo a partir do SSDT](analysis-services-deploy.md)   
-[Criar um modelo no portal do Azure](analysis-services-create-model-portal.md)
+[Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)
+[Implantar um modelo do SSDT](analysis-services-deploy.md)
+[Criar um modelo no Portal do Azure](analysis-services-create-model-portal.md)

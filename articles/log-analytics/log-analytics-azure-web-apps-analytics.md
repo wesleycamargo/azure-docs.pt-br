@@ -1,28 +1,33 @@
 ---
-title: "Exibir dados analíticos de aplicativos Web do Azure | Microsoft Docs"
-description: "Você pode usar a solução Análise de Aplicativos Web do Azure para obter informações sobre seus aplicativos Web do Azure coletando diferentes métricas entre todos os recursos do aplicativo Web do Azure."
+title: Exibir dados analíticos de aplicativos Web do Azure | Microsoft Docs
+description: Você pode usar a solução Análise de Aplicativos Web do Azure para obter informações sobre seus aplicativos Web do Azure coletando diferentes métricas entre todos os recursos do aplicativo Web do Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261361"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos de métricas entre todos os recursos do aplicativo Web do Azure
 
-![Símbolo dos aplicativos Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+![Símbolo dos Aplicativos Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> A solução de Análise de Aplicativos Web do Azure foi preterida.  Os clientes que já têm instalada a solução podem continuar a usá-la, mas a Análise de Aplicativos Web do Azure não pode ser adicionada a nenhum novo espaço de trabalho.  Para monitorar seu aplicativo web, é recomendável que você use o [Application Insights](../application-insights/app-insights-overview.md). 
+
 A solução Análise de Aplicativos Web do Azure (Versão Prévia) fornece informações sobre seus [Aplicativos Web do Azure](../app-service/app-service-web-overview.md) coletando diferentes métricas entre todos os recursos do aplicativo Web do Azure. Com a solução, você pode analisar e pesquisar dados de métricas de recursos de aplicativos Web.
 
 Usando a solução, você pode exibir:
@@ -53,7 +58,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 Execute as seguintes etapas para configurar a solução Análise de Aplicativos Web do Azure para seus espaços de trabalho.
 
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).
-2. [Habilite o registro em log de métricas de recursos do Azure para o OMS usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Habilite o registro em log de métricas de recursos do Azure para o Log Analytics usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 A solução Análise de Aplicativos Web do Azure coleta dois conjuntos de métricas do Azure:
 
@@ -74,10 +79,6 @@ A solução Análise de Aplicativos Web do Azure coleta dois conjuntos de métri
 
 As métricas do Plano do Serviço de Aplicativo serão coletadas apenas se você estiver usando um plano de serviço dedicado. Isso não se aplica aos Planos do Serviço de Aplicativo gratuitos ou compartilhados.
 
-Se você adicionar a solução usando o portal do OMS, verá o seguinte bloco. Você precisa [habilitar o registro em log de métricas de recursos do Azure para o OMS usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Notificação Executando a Avaliação](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
-
 Depois de configurar a solução, os dados devem começar a fluir para o espaço de trabalho dentro de 15 minutos.
 
 ## <a name="using-the-solution"></a>Usando a solução
@@ -90,19 +91,18 @@ Quando você adiciona a solução Análise de Aplicativos Web do Azure ao espaç
 
 Clique no bloco **Análise de Aplicativos Web do Azure** para abrir o painel **Análise de Aplicativos Web do Azure**. O painel inclui as folhas na tabela a seguir. Cada folha lista até dez itens que correspondem aos critérios da folha para o intervalo de tempo e o escopo especificados. É possível executar uma pesquisa de logs que retorna todos os registros clicando em **Ver todos** na parte inferior da folha ou clicando no cabeçalho de folha.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Coluna | DESCRIÇÃO |
 | --- | --- |
 | Aplicativos Web do Azure |   |
-| Tendências de Solicitações de Aplicativos Web | Mostra um gráfico de linhas de tendência de solicitações de Aplicativos Web para o intervalo de datas selecionado e mostra uma lista das dez principais solicitações da Web. Clique no gráfico de linhas para executar uma pesquisa de logs para <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Clique em um item de solicitação da Web para executar uma pesquisa de logs para a tendência de métrica da solicitação da Web daquela solicitação. |
-| Tempo de Resposta de Aplicativos Web | Mostra um gráfico de linhas do tempo de resposta de aplicativos Web para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais tempos de resposta de aplicativos Web. Clique no gráfico para executar uma pesquisa de logs para <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Clique em um aplicativo Web para executar uma pesquisa de logs que retorna os tempos de resposta do aplicativo Web. |
-| Tráfego de aplicativos Web | Mostra um gráfico de linhas para o tráfego de aplicativos Web, em MB, e lista o principal tráfego de aplicativos Web. Clique no gráfico para executar uma pesquisa de logs para <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Ela mostra todos os aplicativos Web com o tráfego para o último minuto. Clique em um aplicativo Web para executar uma pesquisa de logs mostrando os bytes recebidos e enviados para o aplicativo Web. |
+| Tendências de Solicitações de Aplicativos Web | Mostra um gráfico de linhas de tendência de solicitações de Aplicativos Web para o intervalo de datas selecionado e mostra uma lista das dez principais solicitações da Web. Clique no gráfico de linhas para executar uma pesquisa de logs para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Clique em um item de solicitação da Web para executar uma pesquisa de logs para a tendência de métrica da solicitação da Web daquela solicitação. |
+| Tempo de Resposta de Aplicativos Web | Mostra um gráfico de linhas do tempo de resposta de aplicativos Web para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais tempos de resposta de aplicativos Web. Clique no gráfico para executar uma pesquisa de logs para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Clique em um aplicativo Web para executar uma pesquisa de logs que retorna os tempos de resposta do aplicativo Web. |
+| Tráfego de aplicativos Web | Mostra um gráfico de linhas para o tráfego de aplicativos Web, em MB, e lista o principal tráfego de aplicativos Web. Clique no gráfico para executar uma pesquisa de logs para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Ela mostra todos os aplicativos Web com o tráfego para o último minuto. Clique em um aplicativo Web para executar uma pesquisa de logs mostrando os bytes recebidos e enviados para o aplicativo Web. |
 | Planos do Serviço de Aplicativo do Azure |   |
-| Planos de Serviço de Aplicativo com utilização de CPU &gt; 80% | Mostra o número total de Planos do Serviço de Aplicativo que têm a utilização da CPU acima de 80% e lista os dez principais Planos do Serviço de Aplicativo por utilização da CPU. Clique na área total para executar uma pesquisa de logs para <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Ela mostra uma lista de seus Planos do Serviço de Aplicativo e sua utilização da CPU média. Clique em um Plano do Serviço de Aplicativo para executar uma pesquisa de logs mostrando a utilização média da CPU. |
-| Planos de Serviço de Aplicativo com utilização de memória &gt; 80% | Mostra o número total de Planos do Serviço de Aplicativo que têm a utilização da memória acima de 80% e lista os dez principais Planos do Serviço de Aplicativo por utilização da memória. Clique na área total para executar uma pesquisa de logs para <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Ela mostra uma lista de seus Planos do Serviço de Aplicativo e sua utilização da memória média. Clique em um Plano do Serviço de Aplicativo para executar uma pesquisa de logs mostrando a utilização média da memória. |
+| Planos de Serviço de Aplicativo com utilização de CPU &gt; 80% | Mostra o número total de Planos do Serviço de Aplicativo que têm a utilização da CPU acima de 80% e lista os dez principais Planos do Serviço de Aplicativo por utilização da CPU. Clique na área total para executar uma pesquisa de logs para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Ela mostra uma lista de seus Planos do Serviço de Aplicativo e sua utilização da CPU média. Clique em um Plano do Serviço de Aplicativo para executar uma pesquisa de logs mostrando a utilização média da CPU. |
+| Planos de Serviço de Aplicativo com utilização de memória &gt; 80% | Mostra o número total de Planos do Serviço de Aplicativo que têm a utilização da memória acima de 80% e lista os dez principais Planos do Serviço de Aplicativo por utilização da memória. Clique na área total para executar uma pesquisa de logs para <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Ela mostra uma lista de seus Planos do Serviço de Aplicativo e sua utilização da memória média. Clique em um Plano do Serviço de Aplicativo para executar uma pesquisa de logs mostrando a utilização média da memória. |
 | Logs de Atividades de Aplicativos Web do Azure |   |
-| Auditoria de Atividades de Aplicativos Web do Azure | Mostra o número total de aplicativos Web com [logs de atividade](log-analytics-activity.md) e lista as dez principais operações do log de atividades. Clique na área total para executar uma pesquisa de logs para <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Ela mostra uma lista das operações do log de atividades. Clique em uma operação do log de atividades para executar uma pesquisa de logs que lista os registros da operação. |
+| Auditoria de Atividades de Aplicativos Web do Azure | Mostra o número total de aplicativos Web com [logs de atividade](log-analytics-activity.md) e lista as dez principais operações do log de atividades. Clique na área total para executar uma pesquisa de logs para <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> Ela mostra uma lista das operações do log de atividades. Clique em uma operação do log de atividades para executar uma pesquisa de logs que lista os registros da operação. |
 
 
 

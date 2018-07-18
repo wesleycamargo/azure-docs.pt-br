@@ -1,24 +1,24 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – implantação | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação."
+title: Funções de modelo do Azure Resource Manager – implantação | Microsoft Docs
+description: Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
 
@@ -158,9 +158,9 @@ Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |string |O nome do parâmetro a retornar. |
+| parameterName |sim |string |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -245,7 +245,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | stringOutput | Cadeia de caracteres | opção 1 |
 | intOutput | int | 1 |
@@ -274,9 +274,9 @@ Retorna o valor da variável. O nome do parâmetro especificado deve ser definid
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Obrigatório | type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |Cadeia de caracteres |O nome da variável a retornar. |
+| variableName |sim |Cadeia de caracteres |O nome da variável a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -348,7 +348,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| NOME | type | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | Cadeia de caracteres | myVariable |
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |

@@ -1,30 +1,32 @@
 ---
-title: "Documentação do Azure Marketplace | Microsoft Docs"
+title: Documentação do Azure Marketplace | Microsoft Docs
 description: Saiba mais sobre o Azure Marketplace.
-services: marketplace
-author: czeumault
-manager: carolz
+services: Azure, marketplace
+author: jm-aditi-ms
+manager: pabutler
+editor: ''
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: marketplace
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/14/2017
-ms.author: carolz
-ms.openlocfilehash: ca7282e5bc9bac7677d382fd9c263f05be9ef196
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 06/04/2018
+ms.author: ellacroi
+ms.openlocfilehash: 338eb409ad04dd3d0da066f94acb0d418497c581
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823743"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentação do Azure Marketplace
 
-Saiba mais sobre o Azure Marketplace, um mercado de aplicativos e serviços online que permite que os ISVs, desde iniciantes até empresas, ofereçam suas soluções aos clientes em todo o mundo.
+Saiba mais sobre o Azure Marketplace, um mercado de aplicativos e serviços online que permite que os ISVs, desde startups até empresas, ofereçam soluções aos clientes em todo o mundo.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide">
+        <a href="/azure/marketplace/marketplace-publishers-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -34,7 +36,7 @@ Saiba mais sobre o Azure Marketplace, um mercado de aplicativos e serviços onli
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Guia de vendedor do Azure Marketplace</h3>
+                        <h3>Guia do AppSource e do Azure Marketplace Publisher</h3>
                     </div>
                 </div>
             </div>
@@ -60,5 +62,3 @@ Saiba mais sobre o Azure Marketplace, um mercado de aplicativos e serviços onli
         </a>
     </li>    
 </ul>
-
-

@@ -1,6 +1,6 @@
 ---
-title: "Executar um teste de validação na pilha do Azure | Microsoft Docs"
-description: "Como coletar arquivos de log de diagnóstico na pilha do Azure"
+title: Executar um teste de validação na pilha do Azure | Microsoft Docs
+description: Como coletar arquivos de log de diagnóstico na pilha do Azure
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para a pilha do Azure
 
@@ -33,7 +33,8 @@ Quando você tiver um problema, entre em contato com o serviços de atendimento 
 2. Suporte de serviços de Atendimento Microsoft.
 3. Executar **teste AzureStack** do ponto de extremidade com privilégios.
     1. O ponto de extremidade com privilégios de acesso. Para obter instruções, consulte [usando o ponto de extremidade com privilégios na pilha do Azure](azure-stack-privileged-endpoint.md). 
-    2. Faça logon como **AzureStack\CloudAdmin** no host de gerenciamento.
+    2. Em ASDK, faça logon no host de gerenciamento que **AzureStack\CloudAdmin**.  
+    Em um sistema integrado, você precisará usar o endereço IP para o ponto com privilégios de extremidade para o gerenciamento fornecido pelo seu fornecedor de hardware de OEM.
     3. Abra o PowerShell como administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
@@ -57,17 +58,17 @@ Valida o status da pilha do Azure. O cmdlet relata o status do hardware de pilha
   Test-AzureStack
 ````
 
-#### <a name="parameters"></a>parâmetros
+#### <a name="parameters"></a>Parâmetros
 
 | Parâmetro               | Valor           | Obrigatório | Padrão |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | Não        | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | Não        | FALSE   |
-| AdminCredential         | PSCredential    | Não        | ND      |
-<!-- | StorageConnectionString | Cadeia de caracteres          | Não        | ND      | não tem suporte no 1802-->
-| Listar                    | SwitchParameter | Não        | FALSE   |
-| Ignorar                  | Cadeia de caracteres          | Não        | ND      |
-| Incluir                 | Cadeia de caracteres          | Não        | ND      |
+| ServiceAdminCredentials | PSCredential    | Não       | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | Não       | FALSE   |
+| AdminCredential         | PSCredential    | Não       | N/A      |
+<!-- | StorageConnectionString | Cadeia de caracteres          | Não       | N/A      | não tem suporte no 1802-->
+| Listar                    | SwitchParameter | Não       | FALSE   |
+| Ignorar                  | Cadeia de caracteres          | Não       | N/A      |
+| Incluir                 | Cadeia de caracteres          | Não       | N/A      |
 
 O cmdlet Test-AzureStack oferece suporte a parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns de](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
@@ -148,7 +149,7 @@ Para excluir testes específicos:
 
 A tabela a seguir resume os testes de validação executados por AzureStack de teste.
 
-| NOME                                                                                                                              |
+| Novo                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Resumo de infraestrutura de hospedagem em nuvem do Azure de pilha                                                                                  |
 | Resumo de serviços de armazenamento do Azure de pilha                                                                                              |

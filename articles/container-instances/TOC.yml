@@ -21,6 +21,12 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 - Implantar aplicativo
       href: container-instances-tutorial-deploy-app.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+    - name: Modelos do Gerenciador de Recursos
+      href: container-instances-samples-rm.md
 - name: Conceitos
   items:
     - name: Cotas e limites regionais
@@ -31,16 +37,28 @@
       href: container-instances-container-groups.md
 - name: Guias de instruções
   items:
-    - name: Implantar grupos com vários contêineres
-      href: container-instances-multi-container-group.md
-    - name: Implantar a partir do Registro de Contêiner do Azure
-      href: container-instances-using-azure-container-registry.md
-    - name: Executar tarefas em contêineres
-      href: container-instances-restart-policy.md
-    - name: Configurar variáveis de ambiente
-      href: container-instances-environment-variables.md
-    - name: Solucionar problemas das implantações
-      href: container-instances-troubleshooting.md
+    - name: Implantar
+      items:
+        - name: Implantar grupos com vários contêineres
+          href: container-instances-multi-container-group.md
+        - name: Implantar a partir do Registro de Contêiner do Azure
+          href: container-instances-using-azure-container-registry.md
+        - name: Definir variáveis de ambiente (env)
+          href: container-instances-environment-variables.md
+    - name: Gerenciar
+      items:
+        - name: Executar um comando (exec)
+          href: container-instances-exec.md
+        - name: Monitorar CPU e uso de memória
+          href: container-instances-monitor.md
+        - name: Registrar em log com o Log Analytics do Azure
+          href: container-instances-log-analytics.md
+    - name: Executar cargas de trabalho
+      items:
+        - name: Executar tarefas em contêineres
+          href: container-instances-restart-policy.md
+        - name: Agentes de compilação Jenkins na ACI
+          href: container-instances-jenkins.md
     - name: Configurar volumes de dados
       items:
         - name: Arquivos do Azure
@@ -51,6 +69,12 @@
           href: container-instances-volume-gitrepo.md
         - name: segredo
           href: container-instances-volume-secret.md
+    - name: Solucionar problemas
+      items:
+        - name: Obter logs do contêiner e eventos
+          href: container-instances-get-logs.md
+        - name: Solução de problemas comuns
+          href: container-instances-troubleshooting.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -60,13 +84,13 @@
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
-      href: /dotnet/api/overview/azure/containerinstances
+      href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
     - name: Java
       href: /java/api/overview/azure/containerinstance
     - name: Node.js
-      href: /javascript/api/overview/azure/containerinstance
+      href: /javascript/api/overview/azure/containerinstances
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Recursos

@@ -1,6 +1,6 @@
 ---
-title: "Usar um ambiente do Serviço de Aplicativo do Azure"
-description: "Como criar, publicar e dimensionar aplicativos em um ambiente do Serviço de Aplicativo do Azure"
+title: Usar um ambiente do Serviço de Aplicativo do Azure
+description: Como criar, publicar e dimensionar aplicativos em um ambiente do Serviço de Aplicativo do Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do Serviço de Aplicativo #
 
@@ -58,13 +58,18 @@ Para criar um aplicativo Web em um ASE:
 
 4. Insira um nome para um novo grupo de recursos ou selecione **Usar existente** e escolha um na lista suspensa.
 
+5. Selecione seu SO. 
+
+    * A hospedagem de um aplicativo do Linux em uma ASE é um novo recurso de visualização; portanto, sugerimos que você não adicione aplicativos Linux em um ASE que esteja atualmente executando cargas de trabalho de produção. 
+    * A adição de um aplicativo do Linux em um ASE significa que o ASE também estará no modo de visualização. 
+
 5. Selecione um plano do Serviço de Aplicativo existente no ASE ou crie um novo com as seguintes etapas:
 
     a. Selecione **Criar Novo**.
 
     b. Insira o nome do plano do Serviço de Aplicativo.
 
-    c. Selecione o ASE na lista suspensa **Localização**.
+    c. Selecione o ASE na lista suspensa **Localização**. A hospedagem de um aplicativo do Linux em um ASE é habilitado somente em 6 regiões, no momento: **Oeste dos EUA, Leste dos EUA, Europa Ocidental, Norte da Europa, Leste da Austrália, Sudeste da Ásia.** 
 
     d. Selecione o tipo de preço **Isolado**. Selecione **Selecionar**.
 
@@ -72,7 +77,11 @@ Para criar um aplicativo Web em um ASE:
     
     ![Tipos de preço Isolados][2]
 
-6. Selecione **Criar**.
+    > [!NOTE]
+    > Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
+    >
+
+6. Clique em **Criar**.
 
 ## <a name="how-scale-works"></a>Como funciona a escala ##
 
@@ -168,7 +177,7 @@ Para excluir um ASE:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml

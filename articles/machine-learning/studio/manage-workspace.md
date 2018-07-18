@@ -1,10 +1,11 @@
 ---
-title: "Gerenciar um espaço de trabalho do Machine Learning | Microsoft Docs"
-description: "Gerencie o acesso aos espaços de trabalho de Azure Machine Learning e implante e gerencie serviços Web da API ML"
+title: Gerenciar um espaço de trabalho do Machine Learning | Microsoft Docs
+description: Gerencie o acesso aos espaços de trabalho de Azure Machine Learning e implante e gerencie serviços Web da API ML
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.author: garye
-ms.openlocfilehash: 2e4b2869b6eac9670853832d58bc37f1cb0ed001
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f5561ac0089225ae2d06e51a90fa2081e409ce41
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerenciar um espaço de trabalho do Azure Machine Learning
 
@@ -49,7 +49,7 @@ Para gerenciar os serviços Web associados a esse espaço de trabalho, use o Por
 > [!NOTE]
 > Para implantar ou gerenciar Novos serviços Web, você deverá ser atribuído a uma função de colaborador ou de administrador na assinatura na qual o serviço Web é implantado. Se você convidar outro usuário para um espaço de trabalho do Machine Learning, deverá atribuí-lo a uma função de colaborador ou de administrador na assinatura antes de implantar ou gerenciar os serviços Web. 
 > 
->Para saber mais sobre como configurar permissões de acesso, consulte [Exibir atribuições de acesso para usuários e grupos no Portal do Azure](../../active-directory/role-based-access-control-manage-assignments.md).
+>Para saber mais sobre como configurar permissões de acesso, consulte [Exibir atribuições de acesso para usuários e grupos no Portal do Azure](../../role-based-access-control/role-assignments-users.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [implantar o Machine Learning com modelos do Azure Resource Manager](deploy-with-resource-manager-template.md). 

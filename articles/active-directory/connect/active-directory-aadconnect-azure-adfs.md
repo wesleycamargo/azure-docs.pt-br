@@ -1,12 +1,12 @@
 ---
-title: "Serviços de Federação do Active Directory no Azure | Microsoft Docs"
-description: "Neste documento, você aprenderá a implantar o AD FS no Azure para obter alta disponibilidade."
-keywords: "implantar o AD FS no azure, implantar adfs do azure, adfs do azure, ad fs do azure, implantar o AD FS, implantar o ad fs, adfs no azure, implantar adfs no azure, implantar o AD FS no azure, adfs do azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure"
+title: Serviços de Federação do Active Directory no Azure | Microsoft Docs
+description: Neste documento, você aprenderá a implantar o AD FS no Azure para obter alta disponibilidade.
+keywords: implantar o AD FS no azure, implantar adfs do azure, adfs do azure, ad fs do azure, implantar o AD FS, implantar o ad fs, adfs no azure, implantar adfs no azure, implantar o AD FS no azure, adfs do azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.
@@ -214,7 +214,7 @@ Para garantir que os servidores de Proxy de Aplicativo Web possam acessar os ser
 
 **7.2. Instalar a função de Proxy de Aplicativo Web**
 
-Depois de garantir que os servidores de Proxy de Aplicativo da Web possam acessar os servidores do AD FS por trás do ILB, você pode instalar os servidores de Proxy de Aplicativo Web. Os servidores de Proxy de Aplicativo Web não serão associados ao domínio. Instale as funções de Proxy de Aplicativo Web em dois servidores de Proxy de Aplicativo Web selecionando a função de Acesso Remoto. O gerenciador de servidores o guirá para concluir a instalação do WAP.
+Depois de garantir que os servidores de Proxy de Aplicativo da Web possam acessar os servidores do AD FS por trás do ILB, você pode instalar os servidores de Proxy de Aplicativo Web. Os servidores de Proxy de Aplicativo Web não precisam ser associados ao domínio. Instale as funções de Proxy de Aplicativo Web em dois servidores de Proxy de Aplicativo Web selecionando a função de Acesso Remoto. O gerenciador de servidores o guirá para concluir a instalação do WAP.
 Para obter mais informações sobre como implantar o WAP, leia [Instalar e configurar o servidor de Proxy de Aplicativo Web](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Implantar o Balanceador de Carga para a Internet (Público)
@@ -303,7 +303,7 @@ A maneira mais fácil é testar o AD FS usando a página IdpInitiatedSignon.aspx
 
 1. Execute o cmdlet abaixo no servidor do AD FS, usando o PowerShell, para defini-lo como habilitado.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. De qualquer máquina externa, acesse https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. De qualquer acesso externo https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. Você deve ver a página do AD FS como indicado abaixo:
 
 ![Testar página de logon](./media/active-directory-aadconnect-azure-adfs/test1.png)

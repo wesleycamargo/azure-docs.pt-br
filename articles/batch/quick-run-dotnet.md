@@ -1,5 +1,5 @@
 ---
-title: "Início rápido do Azure - Executar trabalho do Lote - .NET"
+title: Início rápido do Azure - Executar trabalho do Lote - .NET
 description: Execute rapidamente um trabalho do Lote e tarefas com a biblioteca de clientes .NET do Lote.
 services: batch
 author: dlepow
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início rápido: executar o primeiro trabalho do Lote do Azure com a API do .NET
 
@@ -28,11 +28,11 @@ Este guia de início rápido executa um trabalho do Lote do Azure de um aplicati
 
 * [IDE do Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 ou versão mais recente). 
 
-* Uma conta do Lote e uma conta de armazenamento de uso geral vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
+* Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -233,7 +233,7 @@ foreach (CloudTask task in completedtasks)
 
 O aplicativo exclui automaticamente o contêiner de armazenamento que cria e oferece a opção para excluir o pool e o trabalho do Lote. Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas.
 
-Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
+Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote e a conta de armazenamento. Para fazer isso no Portal do Azure, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,22 +1,22 @@
 ---
 title: Evento inicial de redimensionamento de pool de lote do Azure | Documentos do Microsoft
-description: "Referência de redimensionamento do pool de lote evento inicial."
+description: Referência de redimensionamento do pool de lote evento inicial.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 7072293d98526812cb42ce9c2f8e33bfcafaa149
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: e91ba664a69d28cae1f82710d427bd2a391305a2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="pool-resize-complete-event"></a>Evento de conclusão de redimensionamento de pool
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
 |targetDedicated|Int32|O número de nós de computação solicitados para o pool.|
 |enableAutoScale|Bool|Especifica se o tamanho do pool é ajustado automaticamente com o tempo.|
 |isAutoPool|Bool|Especifica se o pool foi criado por meio de um mecanismo de AutoPool do trabalho.|
-|startTime|DateTime|O tempo de redimensionamento do pool foi iniciado.|
-|endTime|DateTime|O tempo de redimensionamento do pool foi concluído.|
+|startTime|Datetime|O tempo de redimensionamento do pool foi iniciado.|
+|endTime|Datetime|O tempo de redimensionamento do pool foi concluído.|
 |resultCode|Cadeia de caracteres|O resultado do redimensionamento.|
 |resultMessage|Cadeia de caracteres|O erro de redimensionamento inclui os detalhes do resultado.<br /><br /> Se o redimensionamento foi concluído com êxito, informará que a operação foi bem-sucedida.|

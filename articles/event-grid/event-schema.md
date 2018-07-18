@@ -1,24 +1,26 @@
 ---
 title: Esquema de eventos da Grade de Eventos do Azure
-description: "Descreve as propriedades que são fornecidas para eventos com a Grade de Eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos com a Grade de Eventos do Azure
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
+ms.topic: reference
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
 Este artigo descreve as propriedades e esquema que estão presentes para todos os eventos. Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto data contém propriedades que são específicas a cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento do Azure ou Hub de Eventos do Azure.
 
-Os eventos são enviados à Grade de Eventos do Azure em uma matriz, que pode conter vários objetos de evento. Se houver apenas um único evento, o comprimento da matriz será 1. A matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB.
+As fontes de eventos enviam eventos para o Grade de Eventos do Azure em uma matriz, a qual pode conter vários objetos de evento. Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB. Se um evento ou a matriz exceder os limites de tamanho, você receberá a resposta **O conteúdo 413 é muito grande**.
+
+A Grade de Eventos envia os eventos aos assinantes em uma matriz que contém um único evento. Esse comportamento poderá alterar no futuro.
 
 Você pode encontrar o esquema JSON para o evento de Grade de Eventos e a carga de dados de cada publicador Azure no [armazenamento do Esquema de Evento](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
@@ -97,7 +99,11 @@ Para saber mais sobre as propriedades no objeto de dados, consulte a origem do e
 * [Hub IoT](event-schema-iot-hub.md)
 * [Grupos de recursos (operações de gerenciamento)](event-schema-resource-groups.md)
 
-Para tópicos personalizados, o publicador do evento determina o objeto de dados. Os dados de nível superior devem conter os mesmos campos do que os eventos definidos pelo recurso padrão. Ao publicar eventos em tópicos personalizados, você deve considerar a modelagem do assunto dos eventos para auxiliar no roteamento e na filtragem.
+Para tópicos personalizados, o publicador do evento determina o objeto de dados. Os dados de nível superior devem conter os mesmos campos do que os eventos definidos pelo recurso padrão.
+
+Ao publicar eventos em tópicos personalizados, crie assuntos para os eventos que tornem mais fácil aos assinantes reconhecer se estão interessados no evento. Os assinantes usam o assunto para filtrar e rotear eventos. Forneça o caminho do acontecimento do evento para que os assinante possam filtrar por segmentos desse caminho. O caminho permite que os assinantes filtrem eventos de maneira restrita ou ampla. Por exemplo, se você fornecer um caminho de três segmentos como `/A/B/C` no assunto, os assinantes poderão filtrar pelo primeiro segmento `/A` para obter um conjunto amplo de eventos. Esses assinantes recebem eventos com assuntos como `/A/B/C` ou `/A/D/E`. Outros assinantes podem filtrar por `/A/B` para obter um conjunto de eventos mais restrito.
+
+Às vezes, o assunto precisa apresentar mais detalhes sobre o acontecimento. Por exemplo, o publicador da **Conta de Armazenamento** fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um arquivo é adicionado a um contêiner. Um assinante pode filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contêiner, mas não para outros contêineres na conta de armazenamento. Um assinante também pode filtrar ou rotear pelo sufixo `.txt` para trabalhar apenas com arquivos de texto.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,11 +1,12 @@
 ---
-title: "Infográfico: conceitos básicos do Machine Learning - exemplos do algoritmo | Microsoft Docs"
-description: "Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina."
-keywords: "conceitos básicos de aprendizado de máquina, exemplos de algoritmo, aprendizado de máquina para iniciantes, perguntas sobre aprendizado de máquina, algoritmos populares, infográfico de algoritmo"
+title: 'Infográfico: conceitos básicos do Machine Learning - exemplos do algoritmo | Microsoft Docs'
+description: Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina.
+keywords: conceitos básicos de aprendizado de máquina, exemplos de algoritmo, aprendizado de máquina para iniciantes, perguntas sobre aprendizado de máquina, algoritmos populares, infográfico de algoritmo
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.

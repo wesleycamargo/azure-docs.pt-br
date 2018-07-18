@@ -6,13 +6,13 @@ manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -29,7 +29,7 @@ Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Arm
 2.  Dependendo do tamanho total dos dados, adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 3.  Anexe os discos rígidos diretamente usando SATA ou com adaptadores USB externos para um computador Windows.
 1.  Crie um único volume NTFS em cada disco rígido e atribua uma letra de unidade ao volume. Não há pontos de montagem.
-2.  Para habilitar a criptografia no computador com Windows, habilite a criptografia BitLocker no volume NTFS. Use as instruções em https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Para habilitar a criptografia no computador com Windows, habilite a criptografia BitLocker no volume NTFS. Use as instruções em https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Copie completamente os dados para estes volumes NTFS criptografados únicos em discos usando copiar e colar ou arrastar e colar ou Robocopy ou qualquer uma dessas ferramentas.
 7.  Baixar WAImportExport V1 a partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Descompacte para a pasta padrão waimportexportv1. Por exemplo, C:\WaImportExportV1  
@@ -151,7 +151,7 @@ Para os trabalhos de exportação, depois que seus dados forem copiados para as 
 ### <a name="operating-system"></a>Sistema operacional
 Você pode usar um dos seguintes Sistemas Operacionais de 64 bits para preparar o disco rígido usando a Ferramenta WAImportExport antes de enviar a unidade para o Azure:
 
-Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos esses sistemas operacionais dão suporte à Criptografia de Unidade de Disco BitLocker.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos esses sistemas operacionais dão suporte à Criptografia de Unidade de Disco BitLocker.
 
 ### <a name="locations"></a>Locais
 O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados para e a partir de todas as contas de armazenamento do Azure Públicas. Você pode enviar discos rígidos para um dos locais listados. Se sua conta de armazenamento estiver em um local público do Azure não especificado aqui, um local alternativo de envio será fornecido quando você estiver criando o trabalho no Portal do Azure ou por meio da API REST de Importação/Exportação.
@@ -560,7 +560,7 @@ O tamanho máximo de Blob de Páginas é de 1 TB.
 
 Por padrão, o serviço de Importação/Exportação do Azure criptografa com a criptografia BitLocker AES 128, mas pode ser aumentado para AES 256 com a criptografia manual com o BitLocker antes da cópia dos dados. 
 
-Se estiver usando o [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), veja abaixo um comando de exemplo
+Se estiver usando [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), abaixo está um comando de exemplo
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```
@@ -569,6 +569,9 @@ Se estiver usando a [Ferramenta WAImportExport](http://download.microsoft.com/do
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)

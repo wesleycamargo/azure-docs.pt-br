@@ -1,11 +1,12 @@
 ---
 title: FAQs (Perguntas frequentes) sobre o Azure Machine Learning | Microsoft Docs
-description: "Introdução ao Azure Machine Learning: perguntas frequentes sobre cobrança, recursos e limitações de um serviço de nuvem para modelagem preditiva simplificada."
-keywords: "introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina"
+description: 'Introdução ao Azure Machine Learning: perguntas frequentes sobre cobrança, recursos e limitações de um serviço de nuvem para modelagem preditiva simplificada.'
+keywords: introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -173,7 +173,7 @@ Não, atualmente há suporte apenas para treinamento programático.
 
 **Posso visualizar as camadas de um Modelo de Rede Neural usando o módulo interno?**
 
-Não.
+Nº
 
 **Posso criar meus próprio módulos em C# ou em outra linguagem?**
 
@@ -207,10 +207,10 @@ Você pode usar os blocos de notas Jupyter no Machine Learning Studio. Para sabe
 
 Use as APIs de novos treinamentos. Para obter mais informações, consulte [Treinar novamente os modelos de Machine Learning de forma programática](retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação com o Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
 
-### <a name="create"></a>Criação
+### <a name="create"></a>Criar
 **Posso implantar o modelo localmente ou em um aplicativo que não tem uma conexão com a Internet?**
 
-Não.
+Nº
 
 **Há uma latência de linha de base que é esperada para todos os serviços Web?**
 
@@ -280,7 +280,7 @@ Linhas e colunas são têm a limitação do .NET de Int Máximo: 2.147.483.647.
 
 **Posso ajustar o tamanho da máquina virtual que executa o serviço Web?**
 
-Não.  
+Nº  
 
 ## <a name="security-and-availability"></a>Segurança e disponibilidade
 **Quem pode acessar o ponto de extremidade http para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
@@ -372,7 +372,7 @@ A camada Gratuita do Machine Learning não exige nem permite armazenamento separ
 
 **O Machine Learning dá suporte a alta disponibilidade?**
 
-Sim. Para obter detalhes, confira [Preços do Machine Learning](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) para obter uma descrição do SLA (contrato de nível de serviço).
+Sim. Para obter detalhes, confira [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obter uma descrição do SLA (contrato de nível de serviço).
 
 **Em quais tipos específicos de recursos de computação minhas chamadas à API de produção serão executadas?**
 
@@ -548,7 +548,7 @@ O Machine Learning é um serviço multilocatário. Os recursos de computação r
 ### <a name="guest-access"></a>Acesso de Convidado
 **O que é o acesso de convidado para o Machine Learning Studio Azure?**
 
-O Acesso de Convidado é uma experiência de avaliação restrita. Você pode criar e executar experimentos no Azure Machine Learning Studio sem custo adicional e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito anteriormente, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Para escolher sua experiência do Machine Learning gratuita, clique em **Introdução** em [https://studio.azureml.net](https://studio.azureml.net)e selecione **Acesso de convidado** ou entre com uma conta da Microsoft.
+O Acesso de Convidado é uma experiência de avaliação restrita. Você pode criar e executar experimentos no Azure Machine Learning Studio sem custo adicional e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito anteriormente, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Para escolher sua experiência do Machine Learning gratuita, clique em **Introdução** em [https://studio.azureml.net](https://studio.azureml.net), depois selecione **Acesso de convidado** ou entre com uma conta da Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

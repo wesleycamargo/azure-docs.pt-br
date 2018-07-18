@@ -1,23 +1,23 @@
 ---
-title: "Implantar modelos em produção – Azure Machine Learning | Microsoft Docs"
-description: "Como implantar modelos em produção, possibilitando que desempenham um papel ativo na tomada de decisões de negócios."
-documentationcenter: 
-author: bradsev
+title: Implantar modelos em produção – Azure Machine Learning | Microsoft Docs
+description: Como implantar modelos em produção, possibilitando que desempenham um papel ativo na tomada de decisões de negócios.
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: bradsev;
-ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: deguhath
+ms.openlocfilehash: ce12247f9b3e4ad3ffff307ee8848662ed7f5046
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="deploy-models-in-production"></a>Implantar modelos em produção
 
@@ -27,7 +27,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
 
-- [Implantação de modelo no Azure Machine Learning](../preview/model-management-overview.md)
+- [Implantação de modelo no Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

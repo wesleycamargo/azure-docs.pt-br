@@ -1,6 +1,6 @@
 ---
-title: Criar alertas do log de atividades e gerenciá-los usando a nova experiência de Alertas (versão prévia) no Monitor Azure| Microsoft Docs
-description: Este artigo fornece informações sobre como criar alertas do log de atividades a partir da guia Alertas (versão prévia) no Azure Monitor. Este artigo detalha a nova experiência do usuário para esse recurso.
+title: Criar alertas do log de atividades e gerenciá-los usando a nova experiência de Alertas no Azure Monitor | Microsoft Docs
+description: Este artigo fornece informações sobre como criar alertas do log de atividades a partir da guia alertas no Azure Monitor
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202813"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Crie alertas do log de atividades usando a nova experiência de Alertas (versão prévia)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Crie alertas do log de atividades usando a nova experiência de alertas
 
 Alertas do log de atividades são os alertas ativados quando ocorre um novo evento de log de atividades que corresponde às condições especificadas no alerta.
 
-Esses alertas são para recursos do Azure e podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Em seguida, mostra como usar o Portal do Azure para configurar um alerta nos eventos de log de atividades usando a nova experiência em [Alertas do Azure (versão prévia)](monitoring-overview-unified-alerts.md).
+Esses alertas são para recursos do Azure e podem ser criados usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Em seguida, mostra como usar o Portal do Azure para configurar um alerta nos eventos de log de atividades usando a nova experiência em [Alertas do Azure](monitoring-overview-unified-alerts.md).
 
 Normalmente, você cria alertas do log de atividades para receber notificações quando ocorrem alterações específicas nos recursos da sua assinatura do Azure, muitas vezes com escopo para recursos de recursos específicos. Por exemplo, talvez você queira ser notificado quando qualquer máquina virtual em (grupo de recursos de exemplo) **myProductionResourceGroup** for excluída, ou ser notificado se quaisquer novas funções forem atribuídas a um usuário em sua assinatura.
 
@@ -46,11 +47,11 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 Para saber mais sobre as notificações de integridade do serviço, veja [Receber alertas do log de atividades sobre as notificações de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>O que há de novo na versão prévia de Alertas para logs de atividades?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>O que há de novo na versão prévia de alertas para logs de atividades?
 
-[Alertas do Azure (versão prévia)](monitoring-overview-unified-alerts.md) agora fornece experiência do usuário avançada para alertas do log de atividades. Com a [experiência do usuário avançada para Alertas](monitoring-overview-unified-alerts.md), agora você pode:
+[Alertas do Azure](monitoring-overview-unified-alerts.md) agora fornece experiência do usuário avançada para alertas do log de atividades. Com a [experiência do usuário avançada para Alertas](monitoring-overview-unified-alerts.md), agora você pode:
 
-- [Criar](#create-an-alert-rule-for-an-activity-log) e [gerenciar](#view-and-manage-activity-log-alert-rules) as regras de alerta do log de atividades a partir da folha **Monitor** > **Alertas (versão prévia)**. Saiba mais sobre [Logs de Atividades](monitoring-overview-activity-logs.md).
+- [Criar](#create-an-alert-rule-for-an-activity-log) e [gerenciar](#view-and-manage-activity-log-alert-rules) as regras de alerta do log de atividades a partir da folha **Monitor** > **Alertas**. Saiba mais sobre [Logs de Atividades](monitoring-overview-activity-logs.md).
 
 - **Novas opções para o Destino de Alertas**:  ao criar uma nova regra de alerta do log de atividades, agora é possível selecionar um recurso de destino, um grupo de recursos ou uma assinatura.
 
@@ -68,8 +69,8 @@ Para saber mais sobre as notificações de integridade do serviço, veja [Recebe
 
 Use este procedimento:
 
-1. No Portal do Azure, selecione **Monitor** > **Alertas (versão prévia).**
-2. Clique em **Nova Regra de Alerta**na parte superior da janela **Alertas (versão prévia)**.
+1. No Portal do Azure, selecione **Monitor** > **Alertas**
+2. Clique em **Nova Regra de Alerta**na parte superior da janela **Alertas**.
 
      ![nova regra de alerta](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -103,13 +104,13 @@ Use este procedimento:
 
     **Lógica de Alerta**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Nível do evento** – o nível de gravidade do evento **Detalhado, Informativo, Aviso, Erro** ou **Crítico**.
+     - **Status**: o status do evento. **Iniciado, Falha** ou **Êxito**.
+     - **Evento iniciado por**: o endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
 
-        **Sample signal graph with alert logic applied** :
+        **Exemplo de gráfico de sinal com aplicativo lógico de alerta** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ critérios selecionados](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. Em **definir detalhes de regras de alerta,** forneça os detalhes a seguir:
 
@@ -130,7 +131,7 @@ Use este procedimento:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Exibir e gerenciar as regras de alerta do log de atividades
 
-1. Do Portal do Azure, clique em **Monitor** > **Alertas (versão prévia)** e clique em **Gerenciar regras** na parte superior esquerda da janela.
+1. Do Portal do Azure, clique em **Monitor** > **Alertas** e clique em **Gerenciar regras** na parte superior esquerda da janela.
 
     ![ gerenciar regras de alerta](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

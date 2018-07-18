@@ -1,16 +1,16 @@
 ---
-title: "Visualização de dependência em Migrações para Azure | Microsoft Docs"
-description: "Fornece uma visão geral dos cálculos de avaliação no serviço Migrações para Azure."
+title: Visualização de dependência em Migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral dos cálculos de avaliação no serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 2/21/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2b6b3e78436a215e64894b1102c4e109f72c896d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -24,7 +24,7 @@ A visualização de dependência em Migrações para Azure permite criar grupos 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
 As Migrações para Azure usam a solução [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) no [Log Analytics](../log-analytics/log-analytics-overview.md) para visualização de dependência.
-- Quando você cria um projeto de Migrações para Azure, um espaço de trabalho do Log Analytics do OMS é criado na sua assinatura.
+- Ao criar um projeto de Migrações do Azure, um espaço de trabalho do Log Analytics é criado na sua assinatura.
 - O nome do espaço de trabalho é o nome que você especificar para o projeto de migração, prefixado com **migrate-** e, opcionalmente, o sufixo com um número. 
 - Navegue até o espaço de trabalho do Log Analytics da seção **Essentials** da página **Visão geral** do projeto.
 - O espaço de trabalho criado é marcado com a chave **MigrateProject** e o valor **nome do projeto**. Você pode usá-los para pesquisar no portal do Azure.  

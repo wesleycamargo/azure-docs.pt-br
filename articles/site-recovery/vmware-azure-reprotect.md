@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072616"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteger novamente computadores do Azure para um site local
 
@@ -40,7 +41,9 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 
     ![Portas para failover e failback](./media/vmware-azure-reprotect/failover-failback.png)
 
-## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor de processo no Azure
+- Você pode ler todos os pré-requisitos em portas e lista branca de URL [aqui](vmware-azure-deploy-configuration-server.md#prerequisites)
+
+## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
 
 Talvez seja necessário um servidor de processo no Azure antes de failback para o site local:
 - O servidor de processo] recebe dados da máquina virtual protegida no Azure e envia dados para o site local.
@@ -77,9 +80,10 @@ Após criar um servidor de destino mestre, faça o seguinte:
     - O volume de retenção padrão para o Windows é o volume R.
     - O volume de retenção padrão para o Linux é /mnt/retention.
 - Você precisará adicionar uma nova unidade se estiver usando um servidor de processo/computador de servidor de configuração existente ou uma escala ou um servidor de processo/computador de servidor de destino mestre. A nova unidade deve atender aos requisitos anteriores. Se a unidade de retenção não estiver presente, ela não aparecerá na lista suspensa de seleção no portal. Depois de adicionar uma unidade ao destino mestre local, levará até 15 minutos para que a unidade apareça na seleção no portal. Você também poderá atualizar o servidor de configuração se a unidade não aparecer depois de 15 minutos.
-- Instalar ferramentas do VMware no servidor de destino mestre. Sem as ferramentas do VMware, os armazenamentos de dados no host de ESXi do destino mestre não podem ser detectados.
+- Instale as ferramentas do VMware ou o open-vm-tools no servidor de destino principal. Sem as ferramentas, os datastores no host ESXi do destino mestre não podem ser detectados.
+
 - Defina a configuração `disk.EnableUUID=true` nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK (disco de máquina virtual) para que ele monte corretamente.
-- O destino mestre deve ter pelo menos um repositório de dados VMFS anexado. Se não houver nenhum, a entrada do **Repositório de Dados** na página de nova proteção estará vazia e você não poderá continuar.
+- O host ESX em que o destino mestre é criado deve ter pelo menos um datastore VMFS anexado a ele. Se não houver nenhum, a entrada do **Repositório de Dados** na página de nova proteção estará vazia e você não poderá continuar.
 - O servidor de destino mestre não pode ter instantâneos nos discos. Se houver instantâneos, a nova proteção e o failback falharão.
 - O destino mestre não pode ter um controlador Paravirtual SCSI. O controlador só pode ser um controlador LSI Logic. Sem um controlador de Lógica LSI, a nova proteção falha.
 - Em qualquer instância em particular, o destino mestre pode ter no máximo 60 discos conectados a ele. Se o número de máquinas virtuais que estiverem sendo reprotegidas para o destino mestre no local for maior do que a soma total de 60 discos, as novas proteções para o destino mestre começarão a falhar. Certifique-se de que você tenha slots de disco suficientes no destino mestre ou implante servidores de destino mestre adicionais.
@@ -92,7 +96,7 @@ Depois que uma máquina virtual é reinicializada no Azure, leva algum tempo par
 
 1. Em **Vault** > **Itens replicados**, clique com o botão direito do mouse na máquina virtual em que foi executado o failover e, em seguida, selecione **Proteger Novamente**. Também é possível clicar no computador e selecionar **Proteger Novamente** nos botões de comando.
 2. Verifique se a direção da proteção, **Azure para Local**, já está selecionada.
-3. Em **Servidor de Destino Mestre** e **Servidor de Processo**, selecione o servidor de destino mestre local e o servidor de processo.
+3. Em **Servidor de Destino Mestre** e **Servidor de Processo**, selecione o servidor de destino mestre local e o servidor de processo.  
 4. Para **Repositório de Dados**, selecione o repositório de dados no qual você deseja recuperar os discos localmente. Essa opção é usada quando a máquina virtual no local é excluída e você precisa criar novos discos. Essa opção será ignorada se os discos já existirem, mas você ainda precisará especificar um valor.
 5. Selecione a unidade de retenção.
 6. A politica de failback é selecionada automaticamente.

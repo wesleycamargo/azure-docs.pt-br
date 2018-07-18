@@ -1,6 +1,6 @@
 ---
-title: "Entender como criar a definição da interface do usuário para aplicativos gerenciados do Azure | Microsoft Docs"
-description: "Descreve como criar definições de interface do usuário para aplicativos gerenciados do Azure"
+title: Entender como criar a definição da interface do usuário para aplicativos gerenciados do Azure | Microsoft Docs
+description: Descreve como criar definições de interface do usuário para aplicativos gerenciados do Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305218"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado
 Este documento apresenta os conceitos básicos do arquivo createUiDefinition.json. O portal do Azure usa este arquivo para gerar a interface do usuário para a criação de um aplicativo gerenciado.

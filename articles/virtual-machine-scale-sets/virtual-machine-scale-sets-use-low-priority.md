@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894887"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (versão prévia)
 
@@ -27,28 +28,32 @@ O uso de VMs de baixa prioridade em conjuntos de dimensionamento permite tirar p
 
 A quantidade de capacidade disponível pode variar com base no tamanho, região, hora do dia e etc. Ao implantar VMs de baixa prioridade em conjuntos de dimensionamento, o Azure alocará as VMs se houver capacidade disponível, mas não há SLA para essas VMs. Um conjunto de dimensionamento de baixa prioridade é implantado em um domínio de falha único e não oferece garantias de alta disponibilidade.
 
-> [!NOTE]
-> Os conjuntos de dimensionamento de baixa prioridade estão em versão prévia e prontos para seus cenários de desenvolvimento e teste. 
-
 ## <a name="eviction-policy"></a>Política de remoção
 
-Quando suas VMs de conjunto de dimensionamento de baixa prioridade são removidas, elas serão movidas para o estado Interrompido (desalocado) por padrão. Com essa política de remoção, você pode reimplantar instâncias removidas, mas não há nenhuma garantia de que a alocação terá êxito. As VMs paradas afetarão sua cota de instância do conjunto de dimensionamento e você será cobrado pelos discos subjacentes. 
+Durante a criação de conjuntos de escala de baixa prioridade, é possível definir a política de remoção para *Deslocar* (padrão) ou *Excluir*. 
 
-Se você quiser que suas VMs em seu conjunto de dimensionamento de baixa prioridade sejam excluídas quando forem removidas, você pode definir a política de remoção para excluir no [Modelo do Azure Resource Manager](#use-azure-resource-manager-templates). Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. É recomendável que você só use o recurso de dimensionamento automático em conjuntos de dimensionamento de baixa prioridade quando você definir a política de remoção para excluir para evitar que o custo de seus discos atinjam os limites de cota. 
+A política *Deslocar* move suas VMs removidas para o estado de parado desalocada permitindo que você reimplante instâncias removidas. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs deslocadas afetarão sua cota de instância do conjunto de dimensionamento e você será cobrado pelos discos subjacentes. 
+
+Se você quiser que suas VMs em seu conjunto de dimensionamento de baixa prioridade sejam excluídas quando forem removidas, você pode definir a política de remoção para*excluir*. Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. É recomendável que você só use o recurso de dimensionamento automático em conjuntos de dimensionamento de baixa prioridade quando você definir a política de remoção para excluir para evitar que o custo de seus discos atinjam os limites de cota. 
 
 > [!NOTE]
-> Durante a versão prévia, você poderá definir sua política de remoção usando [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates). 
+> Durante a versão prévia, você poderá definir sua política de remoção usando [portal do Azure](#use-the-azure-portal) e [os modelos do Azure Resource Manager](#use-azure-resource-manager-templates). 
 
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>Implantação de VMs de baixa prioridade em conjuntos de dimensionamento
 
 Para implantar VMs de baixa prioridade em conjuntos de dimensionamento, você poderá definir o novo sinalizador *Prioridade* como *Baixa*. Todas as VMs no conjunto de dimensionamento serão definidas como baixa prioridade. Para criar um conjunto de dimensionamento com VMs de baixa prioridade, use um dos seguintes métodos:
+- [Portal do Azure](#use-the-azure-portal)
 - [CLI 2.0 do Azure](#use-the-azure-cli-20)
 - [PowerShell do Azure](#use-azure-powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
 
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+
+O processo para criar um conjunto de dimensionamento que usa VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Quando você estiver implantando um conjunto de escala, você pode optar por definir o sinalizador de baixa prioridade e a política de remoção: ![criar uma escala com baixa prioridade de VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+
 ## <a name="use-the-azure-cli-20"></a>Usar a CLI 2.0 do Azure
 
-O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](virtual-machine-scale-sets-create-cli.md). Basta adicionar o parâmetro '--Priority' à chamada da CLI e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
+O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o parâmetro '--Priority' à chamada da CLI e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az vmss create \
@@ -63,7 +68,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](virtual-machine-scale-sets-create-powershell.md).
+O processo para criar um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo detalhado no [artigo de introdução](quick-create-powershell.md).
 Basta adicionar o parâmetro '-Priority' a [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e defini-lo como *Baixa* conforme mostrado no exemplo a seguir:
 
 ```powershell
@@ -77,7 +82,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usar Modelos do Azure Resource Manager
 
-O processo para criar um conjunto de dimensionamento que use VMs de baixa prioridade é o mesmo detalhado no artigo de introdução para [Linux](virtual-machine-scale-sets-create-template-linux.md) ou [Windows](virtual-machine-scale-sets-create-template-windows.md). Adicione a propriedade ‘priority’ ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* em seu modelo e especifique *Baixa* como valor. Certifique-se de usar a versão *2017-10-30-preview* da API ou superior. 
+O processo para criar um conjunto de dimensionamento que use VMs de baixa prioridade é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Adicione a propriedade ‘priority’ ao tipo de recurso *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* em seu modelo e especifique *Baixa* como valor. Certifique-se de usar a versão *2018-03-01* da API ou superior. 
 
 Para definir a política de remoção para excluir, adicione o parâmetro 'evictionPolicy' e defina-o como *excluir*.
 
@@ -88,7 +93,7 @@ O exemplo a seguir cria uma conjunto de dimensionamento de baixa prioridade do L
   "type": "Microsoft.Compute/virtualMachineScaleSets",
   "name": "myScaleSet",
   "location": "East US 2",
-  "apiVersion": "2017-12-01",
+  "apiVersion": "2018-03-01",
   "sku": {
     "name": "Standard_DS2_v2",
     "capacity": "2"
@@ -121,6 +126,23 @@ O exemplo a seguir cria uma conjunto de dimensionamento de baixa prioridade do L
   }
 }
 ```
+## <a name="faq"></a>Perguntas frequentes
+
+### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>É possível converter os conjuntos existentes de escala para conjuntos de escala de baixa prioridade?
+Não, a definição do sinalizador de baixa prioridade só tem suporte no momento da criação.
+
+### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>É possível criar uma escala com VMs regulares e VMs de baixa prioridade?
+Não, um conjunto de escala não oferece suporte a mais de um tipo de prioridade.
+
+### <a name="how-is-quota-managed-for-low-priority-vms"></a>Como a cota é gerenciada para VMs de baixa prioridade?
+VMs de baixa prioridade e VMs regulares compartilham o mesmo pool de cota. 
+
+### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>É possível usar o dimensionamento automático com conjuntos de escala de baixa prioridade?
+Sim, é possível definir regras de dimensionamento automático em seu conjunto de dimensionamento de baixa prioridade. Se suas VMs forem  removidas, o dimensionamento automático pode tentar criar novas VMs de baixa prioridade. Lembre-se de que essa capacidade não é garantida. 
+
+### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>O dimensionamento automático funciona com as políticas de remoção (deslocar e excluir)?
+Recomenda-se definir sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. 
+
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você criou um conjunto de dimensionamento com VMs de baixa prioridade, tente implantar nosso [modelo de dimensionamento automático com baixa prioridade](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 

@@ -1,9 +1,9 @@
 ---
-title: "Plano gráfico de processamento de pagamento do Azure - Requisitos de Identidade"
+title: Plano gráfico de processamento de pagamento do Azure - Requisitos de Identidade
 description: Requisito 8 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Requisitos de identidade para ambientes em conformidade com PCI DSS 
 ## <a name="pci-dss-requirement-8"></a>Requisito 8 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Identificar e autenticar o acesso aos componentes do sistema**
 
 > [!NOTE]
-> Esses requisitos são definidos pelo [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [Padrão de Segurança de Dados PCI (PCI DSS), Versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte o PCI DSS para obter informações sobre procedimentos de teste e diretrizes para cada requisito.
+> Esses requisitos são definidos pelo [PCI (Payment Card Industry) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) como parte do [PCI DSS (Padrão de Segurança de Dados PCI), versão 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Confira o PCI DSS para obter informações sobre os procedimentos de teste e diretrizes para cada requisito.
 
 A atribuição de uma identificação exclusiva (ID) para cada pessoa com acesso garante que cada indivíduo seja exclusivamente responsável por suas ações. Quando está em vigor tal responsabilidade, as ações realizadas nos sistemas e dados críticos são executadas por, e podem ser atribuídas a, usuários e processos autorizados e conhecidos.
 A eficácia de uma senha é determinada principalmente pelo design e pela implementação do sistema de autenticação — particularmente, com que frequência as tentativas de senhas podem ser feitas por um invasor e os métodos de segurança para proteger as senhas de usuário no ponto de entrada, durante a transmissão e no armazenamento.
@@ -43,7 +43,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore fornece um caso de uso e uma descrição para o uso correto de administradores para o exemplo de implantação.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore fornece um caso de uso e uma descrição para o uso correto de administradores para o exemplo de implantação.|
 
 
 
@@ -56,7 +56,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore implementa o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para garantir que todos os usuários tenham uma ID exclusiva. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore implementa o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para garantir que todos os usuários tenham uma ID exclusiva. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -69,7 +69,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore implementa o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para garantir que todos os usuários tenham uma ID exclusiva. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore implementa o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para garantir que todos os usuários tenham uma ID exclusiva. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -82,7 +82,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A revogação de usuários pode ser feita no Active Directory.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A revogação de usuários pode ser feita no Active Directory.|
 
 
 
@@ -95,7 +95,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A opção `-enableADDomainPasswordPolicy` pode ser definida para garantir que as senhas expirem em 90 dias.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A opção `-enableADDomainPasswordPolicy` pode ser definida para garantir que as senhas expirem em 90 dias.|
 
 
 
@@ -110,7 +110,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure adotou políticas de segurança corporativa e organizacional aplicáveis, inclusive uma Política de Segurança de Informações. As políticas foram aprovadas, publicadas e comunicadas ao Microsoft Azure. A Política de Segurança de Informações exige que o acesso aos ativos do Microsoft Azure seja concedido sob justificativa de negócios, com a autorização do proprietário do ativo e limitado com base nos princípios de "necessidade de conhecimento" e "privilégios mínimos". Além disso, a política também cumpre requisitos para o ciclo de vida de gerenciamento de acesso, inclusive provisionamento de acesso, autenticação, autorização de acesso, remoção de direitos de acesso e revisões periódicas de acesso. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A demonstração da Contoso Webstore implementou o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para gerenciar o acesso de usuário para a instalação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A demonstração da Contoso Webstore implementou o Active Directory do Azure e o RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory para gerenciar o acesso de usuário para a instalação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -123,7 +123,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore implementou a separação clara das responsabilidades (SOD) para todos os usuários da demonstração. Para obter mais informações, consulte ""Azure Active Directory Identity Protection" em [Diretriz de PCI - Gerenciamento de identidades](payment-processing-blueprint.md#identity-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore implementou a separação clara das responsabilidades (SOD) para todos os usuários da demonstração. Para obter mais informações, consulte ""Azure Active Directory Identity Protection" em [Diretriz de PCI - Gerenciamento de identidades](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -136,7 +136,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis pela criação, imposição e monitoramento de uma política de senha compatível com os requisitos de PCI DSS.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis pela criação, imposição e monitoramento de uma política de senha compatível com os requisitos de PCI DSS.|
 
 
 
@@ -149,7 +149,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis pela criação, imposição e monitoramento de uma política de senha compatível com os requisitos de PCI DSS.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis pela criação, imposição e monitoramento de uma política de senha compatível com os requisitos de PCI DSS.|
 
 
 
@@ -165,7 +165,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A implementação da Contoso Webstore para a autenticação multifator foi desabilitada para fornecer a facilidade de uso para a demonstração. A autenticação multifator pode ser implementada usando-se a [Autenticação multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A implementação da Contoso Webstore para a autenticação multifator foi desabilitada para fornecer a facilidade de uso para a demonstração. A autenticação multifator pode ser implementada usando-se a [Autenticação multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -178,7 +178,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure estabeleceu os principais procedimentos de gerenciamento para gerenciar as chaves de criptografia em todo o ciclo de vida (por exemplo, geração, distribuição, revogação). O Microsoft Azure usa a infraestrutura de PKI corporativa da Microsoft. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -192,7 +192,7 @@ A eficácia de uma senha é determinada principalmente pelo design e pela implem
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | O Microsoft Azure estabeleceu os principais procedimentos de gerenciamento para gerenciar as chaves de criptografia em todo o ciclo de vida (por exemplo, geração, distribuição, revogação). O Microsoft Azure usa a infraestrutura de PKI corporativa da Microsoft. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -208,7 +208,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação.|
 
 
 
@@ -221,7 +221,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A opção `-enableADDomainPasswordPolicy` pode ser definida para garantir que as senhas expirem pelo menos uma vez a cada 90 dias.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore utiliza o Microsoft Azure Active Directory para o gerenciamento de usuários. A opção `-enableADDomainPasswordPolicy` pode ser definida para garantir que as senhas expirem pelo menos uma vez a cada 90 dias.|
 
 
 
@@ -234,7 +234,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -247,7 +247,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore impõe senhas fortes, documentadas no guia de implantação. Para saber mais, consulte [Diretriz de PCI - Gerenciamento de Identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Exige-se que os administradores do Azure usem a autenticação multifator para o acesso ao executar a manutenção e a administração dos servidores e sistemas do Azure. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -280,7 +280,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Exige-se que os administradores do Azure usem a autenticação multifator para o acesso ao executar a manutenção e a administração dos servidores e sistemas do Azure. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -294,7 +294,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Exige-se que os administradores do Azure usem a autenticação multifator para o acesso ao executar a manutenção e a administração dos servidores e sistemas do Azure. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -311,7 +311,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes têm a responsabilidade de seguir as diretrizes e a documentação e de documentar os procedimentos e as políticas de autenticação a todos os usuários.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes têm a responsabilidade de seguir as diretrizes e a documentação e de documentar os procedimentos e as políticas de autenticação a todos os usuários.|
 
 
 
@@ -327,7 +327,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -343,7 +343,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável a clientes do Microsoft Azure. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Não aplicável a clientes do Microsoft Azure.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Não aplicável a clientes do Microsoft Azure.|
 
 
 
@@ -358,7 +358,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração. Todo o acesso é gerenciado pelo [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que ajuda a proteger segredos e chaves criptográficas usados por aplicativos e serviços na nuvem. |
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore cria três contas durante a implantação: admin, sqladmin e edna (o usuário padrão conectado ao aplicativo Web durante a execução de demonstração). A autenticação multifator não está implementada para a demonstração. Todo o acesso é gerenciado pelo [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que ajuda a proteger segredos e chaves criptográficas usados por aplicativos e serviços na nuvem. |
 
 
 
@@ -374,7 +374,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | A Contoso Webstore protege todos os dados do titular do cartão com o Azure Key Vault, e a criptografia dos registros é descrita na documentação da implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | A Contoso Webstore protege todos os dados do titular do cartão com o Azure Key Vault, e a criptografia dos registros é descrita na documentação da implantação. Para saber mais, confira [Diretriz de PCI - Criptografia](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -387,7 +387,7 @@ Como alternativa, as senhas/frases secretas devem ter complexidade e força pelo
 |||
 |---|---|
 | **Provedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI&#8209;DSS&nbsp;Diagrama)** | Os clientes são responsáveis por garantir que as políticas de segurança e os procedimentos operacionais para identificação e autenticação estejam documentados, em uso e sejam do conhecimento de todas as partes afetadas.|
+| **Cliente<br />(Plano gráfico do&nbsp;PCI&#8209;DSS)** | Os clientes são responsáveis por garantir que as políticas de segurança e os procedimentos operacionais para identificação e autenticação estejam documentados, em uso e sejam do conhecimento de todas as partes afetadas.|
 
 
 

@@ -1,26 +1,26 @@
 ---
-title: "Azure Active Directory B2C: personalizar a interface do usuário do Azure AD B2C dinamicamente usando políticas personalizadas"
-description: "Dar suporte a várias experiências de identidade visual com conteúdo HTML5/CSS que muda dinamicamente no tempo de execução."
+title: 'Azure Active Directory B2C: personalizar a interface do usuário do Azure AD B2C dinamicamente usando políticas personalizadas'
+description: Dar suporte a várias experiências de identidade visual com conteúdo HTML5/CSS que muda dinamicamente no tempo de execução.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Usando as políticas personalizadas do Azure AD B2C (Azure Active Directory B2C), é possível enviar um parâmetro em uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. 
 
 ## <a name="prerequisites"></a>pré-requisitos
@@ -121,7 +121,7 @@ O modelo HTML5 personalizado baseia-se no modelo HTML5 interno do Azure AD B2C. 
 
 ### <a name="step-23-change-the-background-image"></a>Etapa 2.3: Alterar a imagem de tela de fundo
 
-Localize o elemento `<img>` que contém o valor `ID` *background_background_image* e substitua o valor `src` por **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou por qualquer outra imagem de tela de fundo que você desejar usar.
+Localize o `<img>` elemento que contém o `ID` valor *background_background_image* e, em seguida, substitua o valor `src` por **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou qualquer outra imagem de plano de fundo que você queira utilizar.
 
 ![Alterar a tela de fundo da página](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -196,7 +196,7 @@ Seu modelo HTML5 está pronto para uso. No entanto, ele não está disponível n
     >Para verificar se o site em que você está hospedando seu conteúdo habilitou o CORS e pode testar solicitações CORS, acesse o site [test-cors.org](http://test-cors.org/). 
 
 * O conteúdo veiculado é protegido em **HTTPS**.
-* Você está usando *URLS absolutas* como *https://seudomínio/conteúdo* para todos os links, conteúdo CSS e imagens.
+* Você está usando *URLS absolutas* como *https://yourdomain/content* para todos os links, conteúdo CSS e imagens.
 
 ## <a name="step-5-configure-your-content-definition"></a>Etapa 5: Configurar sua definição de conteúdo
 Para configurar `ContentDefinition`, faça o seguinte:

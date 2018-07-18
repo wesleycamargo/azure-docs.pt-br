@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure
 
@@ -62,7 +62,7 @@ Você pode usar qualquer método para enviar uma mensagem para o tópico do Barr
 
 Antes de trabalhar com todo o cenário, configure pelo menos uma função de teste pequena, que pode ser usada para depurar e observar quais eventos estão fluindo.
 
-1. No portal do Azure, crie um novo aplicativo do Azure Functions. Para aprender os conceitos básicos do Azure Functions, confira a [documentação do Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. No portal do Azure, crie um novo aplicativo do Azure Functions. Para aprender os conceitos básicos do Azure Functions, confira a [documentação do Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
 2. Em sua função recém-criada, selecione o sinal de adição (+) para adicionar uma função de gatilho de HTTP:
 

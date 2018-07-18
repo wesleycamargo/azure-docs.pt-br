@@ -1,26 +1,25 @@
 ---
-title: "Introdução à API de Tabela do Azure Cosmos DB | Microsoft Docs"
-description: "Saiba como você pode usar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chave-valor com baixa latência, usando as APIs do MongoDB de OSS populares."
+title: Introdução à API de Tabela do Azure Cosmos DB | Microsoft Docs
+description: Saiba como você pode usar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chave-valor com baixa latência, usando as APIs do MongoDB de OSS populares.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
-ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.author: sngun
+ms.openlocfilehash: 791529dc054c8007647ba64c4bceb3e3fdb1a194
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução à API de Tabela do Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao BD Cosmos do Azure: API de Tabela
 
 O [Azure Cosmos DB](introduction.md) fornece a API de Tabela para aplicativos que são escritos para o Armazenamento de Tabelas do Azure e que precisam de recursos premium como:
 
@@ -32,7 +31,7 @@ O [Azure Cosmos DB](introduction.md) fornece a API de Tabela para aplicativos qu
 
 Esses aplicativos escritos para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos DB usando a API de Tabelas, sem alterações de código, e tirar proveito dos recursos premium. A API de Tabela tem SDKs de cliente disponíveis para .NET, Java, Python e Node.js.
 
-Recomendamos que você assista ao vídeo a seguir, em que Aravind Ramachandran apresenta a API de Tabelas para o Azure Cosmos DB:
+Recomendamos que você assista ao vídeo a seguir, em que Aravind Krishna apresenta a API de Tabelas para o Azure Cosmos DB:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

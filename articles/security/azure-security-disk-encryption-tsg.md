@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas do Azure Disk Encryption | Microsoft Docs"
-description: "Este artigo fornece dicas de solução de problemas para o Microsoft Azure Disk Encryption para VMs de IaaS do Windows e Linux."
+title: Solução de problemas do Azure Disk Encryption | Microsoft Docs
+description: Este artigo fornece dicas de solução de problemas para o Microsoft Azure Disk Encryption para VMs de IaaS do Windows e Linux.
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: ce0e23bd-07eb-43af-a56c-aa1a73bdb747
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: devtiw
-ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: DevTiw
+ms.openlocfilehash: 4bc1f7cf64a2a08215cd82d8e72e40eba8db3093
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 

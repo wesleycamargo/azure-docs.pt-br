@@ -1,8 +1,8 @@
 ---
-title: "Usar o Sqoop do Hadoop com Curl no HDInsight – Azure | Microsoft Docs"
+title: Usar o Sqoop do Hadoop com Curl no HDInsight – Azure | Microsoft Docs
 description: Saiba como enviar remotamente trabalhos do Sqoop para o HDInsight usando o Curl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a83b87f1ed052c6d21d337eb37bc560efbf118ba
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Executar trabalhos do Sqoop com Hadoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -63,7 +61,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
    * **-u** - o nome de usuário e a senha usada para autenticar a solicitação.
    * **-G** - indica que se trata de uma solicitação GET.
      
-     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. 
+     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. 
 2. Use o seguinte para enviar um trabalho do sqoop:
 
     ```bash

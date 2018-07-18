@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1b46eac189f4b06ad134b7a4e6d8f5a281a66b94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34222923"
 ---
 Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equilibrada. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -20,9 +21,12 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
 
 - As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por vCPU e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- Série Dv2, série Dv3, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+- A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5-2673 v4 2.3 GHz (Broadwell) e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
-- Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória. Para obter informações sobre os tamanhos da VM mais adequados para os aplicativos de produção, consulte (Tamanhos das máquinas virtuais) [virtual-machines-size-specs.md] e para obter informações sobre os preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+- A série Dv3 inclui os mesmos processadores da série Dv2, mas em uma configuração hyper-threading, fornecendo uma melhor proposta de valor para cargas de trabalho de uso mais geral e levando a Dv3 para o alinhamento com as VMs de uso geral da maioria das outras nuvens.  A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de rede e disco em uma base por núcleo foram ajustados para alinhar com a mudança para o hyperthreading.  O Dv3 não tem mais os tamanhos de VM de alta memória das famílias D/Dv2, aqueles que foram movidos para a nova família de Ev3.
+
+
+- Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
 
 ## <a name="b-series"></a>Série B
 
@@ -77,6 +81,7 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Dv3
 
+
 ## <a name="dsv2-series"></a>Série DSv2
 
 ACU: 210-250
@@ -95,16 +100,15 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Tamanho              | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000  |
+| Tamanho           | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos | Taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8 x 500            | 2 / 1500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16 x 500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32 x 500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
 
-<br>
 
 ## <a name="ds-series"></a>Série DS
 
@@ -136,6 +140,8 @@ ACU: 160
 ## <a name="av2-series"></a>Série Av2
 
 ACU: 100
+
+
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -178,10 +184,13 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ## <a name="basic-a"></a>A Básico
 
-|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx.)|Tamanho máximo do disco temporário |Máx. discos de dados (1.023 GB cada)|Máx. IOPS (300 por disco)|
+|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx.)|Tamanho máximo do disco temporário |Máx. de discos de dados (1023 GB cada)|Máx. IOPS (300 por disco)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1 x 300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 x 300|
 |A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4 x 300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8 x 300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16 x 300|
+
+
+Observe que o número de Discos de Dados para VMs Clássicas pode ser menor do que o número de Discos de Dados para VMs do Azure Resource Manager.

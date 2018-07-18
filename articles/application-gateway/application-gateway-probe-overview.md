@@ -1,25 +1,23 @@
 ---
-title: "Visão geral do monitoramento de integridade do Gateway de Aplicativo do Azure | Microsoft Docs"
+title: Visão geral do monitoramento de integridade do Gateway de Aplicativo do Azure
 description: Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
@@ -40,9 +38,28 @@ Por exemplo: configure seu Application Gateway para usar os servidores de back-e
 
 Se a verificação de investigação padrão falhar para o servidor A, o Application Gateway o remove do seu pool de back-end e o tráfego de rede para de fluir para este servidor. A investigação padrão ainda continua a verificar o servidor A a cada 30 segundos. Quando o Servidor A responde com êxito a uma solicitação de uma investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para esse servidor novamente.
 
+### <a name="probe-matching"></a>Correspondência de investigação
+
+Por padrão, uma resposta HTTP(S) com código de status 200 é considerada íntegra. As investigações de integridade personalizadas também fornecem suporte a dois critérios correspondentes. Critérios de correspondência podem ser utilizados para, opcionalmente, modificar a interpretação padrão do que constitui uma resposta íntegra.
+
+A seguir estão os critérios de correspondência: 
+
+- **Correspondência de código de status de resposta HTTP** - Critério de correspondência de teste para aceitar o código de resposta HTTP ou intervalos de códigos de resposta especificados pelo usuário. Códigos de status de resposta separados por vírgulas individuais ou um intervalo de código de status têm suporte.
+- **Correspondência do corpo da resposta HTTP** - Critério de correspondência da análise que examina o corpo da resposta HTTP e corresponde a uma cadeia de caracteres especificada pelo usuário. Observe que a correspondência procura apenas a presença de uma cadeia de caracteres especificada pelo usuário no corpo da resposta e não é uma correspondência de expressão regular completa.
+
+Os critérios de correspondência podem ser especificados usando o cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
+
+Por exemplo: 
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Depois que os critérios de correspondência forem especificados, ele poderá ser anexado à configuração da investigação usando um parâmetro `-Match` no PowerShell.
+
 ### <a name="default-health-probe-settings"></a>Configurações da investigação de integridade padrão
 
-| Propriedades da investigação | Valor | Descrição |
+| Propriedades da investigação | Valor | DESCRIÇÃO |
 | --- | --- | --- |
 | URL de investigação |http://127.0.0.1:\<porta\>/ |Caminho da URL |
 | Intervalo |30 |Intervalo da investigação em segundos |
@@ -52,7 +69,7 @@ Se a verificação de investigação padrão falhar para o servidor A, o Applica
 > [!NOTE]
 > A porta é a mesma das configurações de HTTP de back-end.
 
-A investigação padrão examina apenas http://127.0.0.1:\<port\> para determinar o status de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deverá usar investigações personalizadas, conforme descrito nas etapas a seguir:
+A investigação padrão procura apenas na http://127.0.0.1:\<porta\> para determinar o estado de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deverá usar investigações personalizadas, conforme descrito nas etapas a seguir:
 
 ## <a name="custom-health-probe"></a>Investigação de integridade personalizada
 
@@ -62,11 +79,11 @@ Investigações personalizadas permitem que você tenha um controle mais granula
 
 A tabela a seguir fornece definições para as propriedades de uma investigação de integridade personalizada.
 
-| Propriedades da investigação | Descrição |
+| Propriedades da investigação | DESCRIÇÃO |
 | --- | --- |
-| Name |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
+| NOME |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
 | Protocolo |O protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP do back-end |
-| Host |O nome do host para enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM. |
+| Host |O nome do host para enviar a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM. |
 | Caminho |O caminho relativo da investigação. Um caminho válido começa com '/'. |
 | Intervalo |Intervalo de investigação em segundos. Este valor é o intervalo de tempo entre duas investigações consecutivas. |
 | Tempo limite |Tempo limite da investigação em segundos. Se uma resposta válida não for recebida dentro desse período de tempo limite, a investigação será marcada como com falha.  |

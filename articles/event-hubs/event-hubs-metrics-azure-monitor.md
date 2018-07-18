@@ -1,24 +1,24 @@
 ---
-title: "Métricas do Hub de Eventos do Azure no Azure Monitor (versão prévia) | Microsoft Docs"
+title: Métricas do Hub de Eventos do Azure no Azure Monitor (versão prévia) | Microsoft Docs
 description: Use o Monitoramento do Azure para monitorar Hubs de Eventos
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 04/12/2018
 ms.author: sethm
-ms.openlocfilehash: c3ee6a87592145801167b35ff281c04062e525da
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 445b439ff77a88a4b7783427f5fab0e40a485542
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas do Hub de Eventos do Azure no Azure Monitor (versão prévia)
 
@@ -34,7 +34,7 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 ## <a name="access-metrics-in-the-portal"></a>Acessar as métricas no portal
 
-É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem sucedidas e solicitações de entrada no nível da conta:
+É possível monitorar as métricas ao longo do tempo no [Portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como exibir solicitações bem-sucedidas e solicitações de entrada no nível da conta:
 
 ![][1]
 
@@ -46,7 +46,7 @@ Para métricas com suporte a dimensões, será necessário filtrar o valor da di
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor é gratuito no momento durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo OMS (Operation Management Suite) se você transmitir dados de métricas para o OMS para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Azure, se você transmitir dados de métricas para o Log Analytics para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 
@@ -57,9 +57,9 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="request-metrics"></a>Métricas de solicitação
 
-Conta o número de solicitações de operações de gerenciamento e de dados.
+Conta o número de solicitações de gerenciamento de dados e de operações.
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 | Solicitações de entrada (versão prévia) | O número de solicitações feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 | Solicitações bem sucedidas (versão prévia)   | O número de solicitações bem sucedidas feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
@@ -70,13 +70,13 @@ Conta o número de solicitações de operações de gerenciamento e de dados.
 
 ## <a name="throughput-metrics"></a>Métricas de taxa de transferência
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |Solicitações restritas (versão prévia)|O número de solicitações que foram restringidas porque o uso de unidades da taxa de transferência foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensagens
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |Mensagens de entrada (versão prévia)|O número de eventos ou mensagens enviadas para os Hubs de Eventos durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens de saída (versão prévia)|O número de eventos ou mensagens recuperadas dos Hubs de Eventos durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -85,7 +85,7 @@ Conta o número de solicitações de operações de gerenciamento e de dados.
 
 ## <a name="connection-metrics"></a>Métricas de conexão
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |ActiveConnections (versão prévia)|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Conexões abertas (versão prévia)|O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -95,7 +95,7 @@ Conta o número de solicitações de operações de gerenciamento e de dados.
 
 Monitore as métricas de captura de Hubs de Eventos habilitando o recurso de Captura para seus Hubs de Eventos. As métricas a seguir descrevem o que você pode monitorar com a Captura habilitada.
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |Capturar lista de pendências (versão prévia)|O número de bytes que ainda estão pendentes de captura para o destino escolhido.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens capturadas (versão prévia)|O número de mensagens ou eventos que são capturados para o destino escolhido durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -105,7 +105,7 @@ Monitore as métricas de captura de Hubs de Eventos habilitando o recurso de Cap
 
 Os Hubs de Evento do Azure dão suporte às seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às métricas é opcional. Se você não adicionar dimensões, as métricas serão especificadas no nível de namespace. 
 
-| Nome da métrica | Descrição |
+| Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |EntityName| Os Hubs de Eventos dão suporte às entidades de hub de evento sob o namespace.|
 

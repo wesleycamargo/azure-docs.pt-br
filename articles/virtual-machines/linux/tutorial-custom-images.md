@@ -1,13 +1,13 @@
 ---
-title: Criar imagens personalizadas da VM com a CLI do Azure | Microsoft Docs
-description: Tutorial - Criar uma imagem personalizada da VM usando a CLI do Azure.
+title: Tutorial - Criar imagens personalizadas da VM com a CLI do Azure | Microsoft Docs
+description: Neste tutorial, você aprende a usar a CL1 2.0 do Azure para criar uma imagem de máquina virtual personalizada no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766e247775e61d7427b658b66948aa6699a7241a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Criar uma imagem personalizada de uma VM do Azure usando a CLI
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>Tutorial: criar uma imagem personalizada de uma VM do Azure com a CLI 2.0 do Microsoft Azure
 
 Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. Neste tutorial, você criará sua própria imagem personalizada de uma máquina virtual do Azure. Você aprenderá como:
 
@@ -33,10 +33,9 @@ Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria
 > * Listar todas as imagens na sua assinatura
 > * Excluir uma imagem
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -52,7 +51,7 @@ Para criar uma imagem de uma máquina virtual, você precisará preparar a VM de
 
 Desprovisionar generaliza a VM removendo informações específicas da máquina. Essa generalização permite implantar várias VMs de uma única imagem. Durante o desprovisionamento, o nome do host é redefinido como *localhost.localdomain*. As chaves de host de SSH, as configurações de nameserver, a senha raiz e as concessões de DHCP em cache também são excluídas.
 
-Para desprovisionar a máquina virtual, use o agente de VM do Azure (waagent). O agente de VM do Azure está instalado na VM e gerencia o provisionamento e a interação com o Azure Fabric Controller. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](agent-user-guide.md).
+Para desprovisionar a máquina virtual, use o agente de VM do Azure (waagent). O agente de VM do Azure está instalado na VM e gerencia o provisionamento e a interação com o Azure Fabric Controller. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md).
 
 Conectar-se à sua VM usando o SSH e executar o comando para desprovisionar a VM. Com o argumento `+user`, a última conta de usuário provisionada e os dados associados também são excluídos. Substitua o endereço IP de exemplo pelo endereço IP público de sua VM.
 

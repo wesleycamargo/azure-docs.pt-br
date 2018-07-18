@@ -1,24 +1,24 @@
 ---
 title: Monitoramento de desempenho do Azure Service Fabric | Microsoft Docs
-description: "Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric."
+description: Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.date: 04/16/2018
+ms.author: srrengar
+ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -83,4 +83,4 @@ Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [geração de eventos no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
-* Coletar métricas de desempenho por meio dos [Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md)
+* Coletar métricas de desempenho por meio do [Agente do OMS](service-fabric-diagnostics-oms-agent.md)

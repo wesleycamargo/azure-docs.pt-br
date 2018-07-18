@@ -1,24 +1,24 @@
 ---
 title: APIs do Cliente Java do Azure Service Fabric | Microsoft Docs
-description: "Gerar e usar as API do cliente Java do Service Fabric utilizando a especificação API REST do cliente Service Fabric"
+description: Gerar e usar as API do cliente Java do Service Fabric utilizando a especificação API REST do cliente Service Fabric
 services: service-fabric
 documentationcenter: java
 author: rapatchi
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 6f9b9d46be36b292fe2c3be92d90d4cf87155210
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: bc5302b9af023b04fb6b1654ac13e9fc02e0a465
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>APIs do Cliente Java do Microsoft Azure Service Fabric
 
@@ -133,5 +133,5 @@ Para cada API, você encontrará quatro sobrecargas de implementação. Se houve
     * Essa variante da chamada à API poderá ser utilizada, se você quiser usar a programação assíncrona reativa e lidar com resposta de REST bruta
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as [APIS REST do Service Fabric REST](https://docs.microsoft.com/en-us/rest/api/servicefabric/)
+* Saiba mais sobre as [APIS REST do Service Fabric REST](https://docs.microsoft.com/rest/api/servicefabric/)
 

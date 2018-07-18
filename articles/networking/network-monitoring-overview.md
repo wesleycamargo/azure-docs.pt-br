@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -60,9 +60,11 @@ NPM para o ExpressRoute oferece monitoramento abrangente de ExpressRoute para co
 
 * Detecção automática de circuitos ER associados à sua assinatura
 * Detecção da topologia de rede do local para seus aplicativos de nuvem
-* Planejamento de capacidade, análise de utilização
+* Planejamento de capacidade, análise de utilização e utilização de largura de banda por Rede Virtual
 * Monitoramento e alertas em caminhos primários e secundários
 * Detectar degradação de conectividade para VNets
+
+![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -116,7 +118,6 @@ Compilada para Administradores de DNS, essa solução coleta, analisa e correlac
 Links relacionados:
 * [Postagem no blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="miscellaneous"></a>Diversos
 
-* [Configurar o Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)
+* [Novos preços](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

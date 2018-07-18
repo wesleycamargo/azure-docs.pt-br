@@ -1,4 +1,26 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>Configuração do servidor Web ou do projeto
 
 > Prefere baixar este projeto de exemplo? 
@@ -7,7 +29,7 @@
 > ou o
 > - [Baixar os arquivos do projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) para um servidor Web local, como Python
 >
-> Em seguida, pule para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+> Em seguida, pule para a [Etapa de configuração](#register-your-application) para configurar o exemplo de código antes de executá-lo.
 
 ## <a name="prerequisites"></a>pré-requisitos
 Um servidor Web local como [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core) ou a integração do IIS Express ao [Visual Studio 2017](https://www.visualstudio.com/downloads/) é necessário para executar a instalação guiada. 

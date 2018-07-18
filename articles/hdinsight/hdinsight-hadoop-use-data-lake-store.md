@@ -1,9 +1,9 @@
 ---
 title: Usar o rData Lake Store com Hadoop no HDInsight do Azure | Microsoft Docs
-description: "Aprenda a consultar dados do Azure Data Lake Store e a armazenar os resultados da sua análise."
-keywords: "armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store"
+description: Aprenda a consultar dados do Azure Data Lake Store e a armazenar os resultados da sua análise.
+keywords: armazenamento de blobs, hdfs, dados estruturados, dados não estruturados, data lake store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201750"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Usar o Data Lake Store com clusters Azure HDInsight
 
@@ -138,7 +139,7 @@ Use os links a seguir para obter instruções detalhadas sobre como criar cluste
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar o Azure Data Lake Store, compatível com HDFS, com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Introdução ao Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)

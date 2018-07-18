@@ -1,129 +1,228 @@
 ---
 title: Guia de início rápido – criar um registro particular do Docker no Azure com o PowerShell
-description: Aprenda rapidamente a criar um registro de contêiner particular do Docker com o PowerShell.
+description: Aprenda rapidamente a criar um registro de contêiner particular do Docker no Azure com o PowerShell.
 services: container-registry
-author: neilpeterson
-manager: timlt
+author: marsma
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
-ms.author: nepeters
+ms.date: 05/08/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Criar um Registro de Contêiner do Azure usando o PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Início Rápido: criar um Registro de Contêiner do Azure usando o PowerShell
 
-O Registro de Contêiner do Azure é um serviço de registro de contêiner Docker gerenciado usado para armazenar imagens de contêiner de Docker particulares. Este guia detalha a criação de uma instância do Registro de Contêiner do Azure usando o PowerShell, o envio por push de uma imagem de contêiner para o registro e, por fim, a implantação do contêiner a partir do registro nas ACI (Instâncias de Contêiner do Azure).
+O Registro de Contêiner do Azure é um serviço de registro de contêiner do Docker privado e gerenciado para gerar, armazenar e fornecer imagens de contêiner de Docker. Neste início rápido, você aprende a criar um registro de contêiner do Azure usando o PowerShell. Depois de criar o registro, você efetua push de uma imagem de contêiner para ele e implanta o contêiner do registro em Instâncias de Contêiner do Azure (ACI).
 
-Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+## <a name="prerequisites"></a>pré-requisitos
 
-Você também deve ter o Docker instalado localmente. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
+Este início rápido requer o módulo Azure PowerShell versão 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para determinar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+Você também deve ter o Docker instalado localmente. O docker fornece pacotes para sistemas [macOS][docker-mac], [Windows][docker-windows] e [Linux][docker-linux].
 
-Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e siga as instruções na tela.
+Como o Azure Cloud Shell não inclui todos os componentes de Docker necessários (o daemon `dockerd`), você não pode usar o Cloud Shell para este guia de início rápido.
+
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+
+Faça logon em sua assinatura do Azure com o comando [Connect-AzureRmAccount][Connect-AzureRmAccount] e siga as instruções na tela.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Depois que você estiver autenticado com o Azure, crie um grupo de recursos com [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Um grupo de recursos é um contêiner lógico no qual você implanta e gerenciar os recursos do Azure.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-container-registry"></a>Criar um registro de contêiner
+## <a name="create-container-registry"></a>Criar um registro de contêiner
 
-Crie uma instância do ACR usando o comando [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
+Em seguida, crie um registro de contêiner em seu novo grupo de recursos com o comando [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry].
 
-O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No exemplo a seguir o nome *myContainerRegistry007* é usado. Atualize-o para um valor exclusivo.
+O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. O exemplo a seguir cria um registro chamado "myContainerRegistry007". Substitua *myContainerRegistry007* no comando a seguir e execute-o para criar o registro:
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-## <a name="log-in-to-acr"></a>Fazer logon no ACR
+## <a name="log-in-to-registry"></a>Fazer logon no registro
 
-Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Primeiro, use o comando [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) para obter as credenciais de administrador da instância do ACR.
+Antes de efetuar push e pull nas imagens de contêiner, você deverá fazer logon no seu registro. Use o comando [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] para primeiro obter as credenciais de administrador para o registro:
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Depois, use o comando [logon do docker][docker-login] para fazer logon na instância do ACR.
+Em seguida, execute [docker login][docker-login] para fazer logon:
 
 ```powershell
-docker login $registry.LoginServer -u $creds.Username -p $creds.Password
+$creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
 ```
 
-O comando retorna `Login Succeeded` na conclusão. Você também poderá ver um aviso de segurança recomendando usar o parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Consulte a referência do comando [docker login][docker-login] para ver mais informações.
+Um logon bem-sucedido retorna `Login Succeeded`:
 
-## <a name="push-image-to-acr"></a>Enviar imagem por push para o ACR
+```console
+PS Azure:\> $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
+Login Succeeded
+```
 
-Para enviar por push uma imagem para um Registro de Contêiner do Azure, primeiro você deve ter uma imagem. Se necessário, execute o seguinte comando para efetuar pull de uma imagem pré-criada do Hub do Docker.
+## <a name="push-image-to-registry"></a>Efetuar push de imagem para registro
+
+Agora que está conectado ao registro, você pode efetuar push de imagens de contêiner para ele. Para obter uma imagem, você pode efetuar push para o registro, efetuar pull da imagem [aci-helloworld][aci-helloworld-image] pública do Hub do Docker. A imagem [aci-helloworld][aci-helloworld-github] é um pequeno aplicativo Node.js que serve a uma página HTML estática que mostra o logotipo das Instâncias de Contêiner do Azure.
 
 ```powershell
 docker pull microsoft/aci-helloworld
 ```
 
-A imagem precisa ser marcada com o nome do servidor de logon do ACR. Use o comando [docker tag] [ docker-tag] para fazer isso. 
+Conforme o pull da imagem é efetuado, a saída retornada é semelhante à seguinte:
+
+```console
+PS Azure:\> docker pull microsoft/aci-helloworld
+Using default tag: latest
+latest: Pulling from microsoft/aci-helloworld
+88286f41530e: Pull complete
+84f3a4bf8410: Pull complete
+d0d9b2214720: Pull complete
+3be0618266da: Pull complete
+9e232827e52f: Pull complete
+b53c152f538f: Pull complete
+Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
+Status: Downloaded newer image for microsoft/aci-helloworld:latest
+```
+
+Para que você possa efetuar o push de uma imagem para o registro de contêiner do Azure, você deverá marcá-la com o nome de domínio totalmente qualificado (FQDN) do seu registro. O FQDN dos registros de contêiner do Azure estão no formato *\<registry-name\>.azurecr.io*.
+
+Preencha uma variável com a marcação de imagem completa. Inclua o servidor de logon, o nome do repositório ("aci-helloworld") e a imagem de versão ("v1"):
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"
+```
+
+Agora, marque a imagem com [docker tag][docker-tag]:
+
+```powershell
 docker tag microsoft/aci-helloworld $image
 ```
 
-Por fim, use [docker push][docker-push] para enviar a imagem por push para o ACR.
+E, por fim, execute seu [docker push][docker-push] para o registro:
 
 ```powershell
 docker push $image
 ```
 
+Conforme o cliente do Docker efetua o push da imagem, a saída deverá ser semelhante a:
+
+```console
+PS Azure:\> docker push $image
+The push refers to repository [myContainerRegistry007.azurecr.io/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
+```
+
+Parabéns! Você efetuou o push da primeira imagem de contêiner no registro.
+
 ## <a name="deploy-image-to-aci"></a>Implantar imagem nas ACI
-Para implantar a imagem como uma instância de contêiner nas ACI (Instâncias de Contêiner do Azure), primeiro converta a credencial do registro em uma PSCredential.
+
+Com a imagem agora no registro, implante um contêiner diretamente nas Instâncias de Contêiner do Azure para vê-la em execução no Azure.
+
+Primeiro, converta a credencial de registro em um *PSCredential*. O comando `New-AzureRmContainerGroup`, que você usa para criar a instância de contêiner, exige-a nesse formato.
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
 
-Para implantar a imagem de contêiner do registro de contêiner com 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando:
+Além disso, o rótulo de nome DNS do contêiner deve ser exclusivo dentro da região do Azure onde você o cria. Execute o comando a seguir para preencher uma variável com um nome gerado:
 
 ```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+$dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
 ```
 
-Você deve obter uma resposta inicial do Azure Resource Manager com detalhes sobre o contêiner. Para monitorar o status do contêiner e verificar quando ele está em execução, repita o comando [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup]. Isso deve levar menos de um minuto.
+Por fim, execute [New-AzureRmContainerGroup][New-AzureRmContainerGroup] para implantar um contêiner a partir da imagem no registro com 1 núcleo de CPU e 1 GB de memória:
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
+```
+
+Você deve obter uma resposta inicial do Azure com detalhes sobre o contêiner, e seu estado é, inicialmente, "Pendente":
+
+```console
+PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
+ResourceGroupName        : myResourceGroup
+Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Name                     : mycontainer
+Type                     : Microsoft.ContainerInstance/containerGroups
+Location                 : eastus
+Tags                     :
+ProvisioningState        : Creating
+Containers               : {mycontainer}
+ImageRegistryCredentials : {myContainerRegistry007}
+RestartPolicy            : Always
+IpAddress                : 40.117.255.198
+DnsNameLabel             : aci-demo-8751
+Fqdn                     : aci-demo-8751.eastus.azurecontainer.io
+Ports                    : {80}
+OsType                   : Linux
+Volumes                  :
+State                    : Pending
+Events                   : {}
+```
+
+Para monitorar seu status e determinar quando ele está em execução, execute o comando [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] algumas vezes. O contêiner deve levar menos de um minuto para iniciar.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
 ```
 
-Saída de exemplo: `Succeeded`
+Aqui, você pode ver que o ProvisioningState do contêiner é inicialmente *Criando* e depois muda para o estado *Êxito* quando ele está em execução:
 
-## <a name="view-the-application"></a>Exibir o aplicativo
-Depois que a implantação nas ACI for bem-sucedida, recupere o endereço IP público do contêiner com o comando [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup]:
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```console
+PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+Creating
+PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+Succeeded
 ```
 
-Saída de exemplo: `"13.72.74.222"`
+## <a name="view-running-application"></a>Exibir aplicativo em execução
 
-Para ver o aplicativo em execução, navegue até o endereço IP público no seu navegador favorito. O resultado deve ser semelhante a esse:
+Depois que a implantação nas ACI tiver sido bem-sucedida e o contêiner estiver em execução, navegue até seu nome de domínio totalmente qualificado (FQDN) no navegador para ver o aplicativo em execução no Azure.
 
-![Aplicativo Olá, Mundo no navegador][qs-portal-15]
+Obtenha o FQDN para o contêiner com [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
+```
+
+A saída do comando é o FQDN da sua instância de contêiner:
+
+```console
+PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
+aci-demo-8571.eastus.azurecontainer.io
+```
+
+Com o FQDN em mãos, navegue até ele em seu navegador:
+
+![Aplicativo Olá, Mundo no navegador][qs-psh-01-running-app]
+
+Parabéns! Você tem um contêiner executando um aplicativo no Azure, implantado diretamente a partir de uma imagem de contêiner no registro de contêiner do Azure privado.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] para remover o grupo de recursos, o Registro de Contêiner do Azure e todas as Instâncias de Contêiner do Azure.
+Quando terminar de trabalhar com os recursos criados neste guia de início rápido, use o comando [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] para remover o grupo de recursos, o registro de contêiner e a instância de contêiner:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -137,6 +236,8 @@ Neste início rápido, você criou um Registro de Contêiner do Azure com a CLI 
 > [Tutorial sobre Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS - external -->
+[aci-helloworld-github]: https://github.com/Azure-Samples/aci-helloworld
+[aci-helloworld-image]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -145,8 +246,14 @@ Neste início rápido, você criou um Registro de Contêiner do Azure com a CLI 
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
+[Connect-AzureRmAccount]: /powershell/module/azurerm.profile/connect-azurermaccount
 [Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
+[Get-Module]: /powershell/module/microsoft.powershell.core/get-module
+[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 
 <!-- IMAGES> -->
-[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
+[qs-psh-01-running-app]: ./media/container-registry-get-started-powershell/qs-psh-01-running-app.png

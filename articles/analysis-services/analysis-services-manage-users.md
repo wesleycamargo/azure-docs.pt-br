@@ -1,25 +1,18 @@
 ---
-title: "Permissões de usuário e autenticação no Azure Analysis Services | Microsoft Docs"
-description: "Saiba mais sobre as permissões de usuário e autenticação no Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
+title: Permissões de usuário e autenticação no Azure Analysis Services | Microsoft Docs
+description: Saiba mais sobre as permissões de usuário e autenticação no Azure Analysis Services.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/active-directory-administer.md) na mesma assinatura.
@@ -69,7 +62,7 @@ Os **usuários de banco de dados** se conectam a modelos de bancos de dados usan
 
 ![Controle de acesso no Portal do Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-As funções nesse nível se aplicam a usuários ou contas que precisam executar tarefas que podem ser realizadas no Portal ou usando modelos do Azure Resource Manager. Para saber mais, consulte [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md). 
+As funções nesse nível se aplicam a usuários ou contas que precisam executar tarefas que podem ser realizadas no Portal ou usando modelos do Azure Resource Manager. Para saber mais, consulte [Controle de acesso baseado em função](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Funções de banco de dados
@@ -85,4 +78,4 @@ As funções nesse nível se aplicam a usuários ou contas que precisam executar
 [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
 [Gerenciar administradores de servidor](analysis-services-server-admins.md)  
-[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md)  
+[Controle de acesso baseado em função](../role-based-access-control/overview.md)  

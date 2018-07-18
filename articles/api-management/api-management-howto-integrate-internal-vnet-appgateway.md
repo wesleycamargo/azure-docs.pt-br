@@ -2,7 +2,7 @@
 title: Como usar o Gerenciamento de API do Azure na rede virtual com Gateway de Aplicativo | Microsoft Docs
 description: Saiba como instalar e configurar o gerenciamento de API do Azure na rede virtual interna com o Gateway de Aplicativo (WAF) como front-end
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936098"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Como integrar o gerenciamento de API em uma VNET interna com o gateway de aplicativo 
 
@@ -32,7 +33,7 @@ Combinar o Gerenciamento de API provisionado em uma rede virtual interna com o f
 * Usar um único recurso de Gerenciamento de API e ter uma sub-rede de APIs definida no Gerenciamento de API disponível para consumidores externos.
 * Fornecer uma maneira rápida de ativar e desativar o acesso ao Gerenciamento de API da Internet pública. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -84,7 +85,7 @@ Use a versão mais recente do Azure PowerShell. Há mais informações disponív
 Fazer logon no Azure
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Como autenticar com suas credenciais.<BR>
@@ -104,7 +105,7 @@ Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de
 ```powershell
 New-AzureRmResourceGroup -Name "apim-appGw-RG" -Location "West US"
 ```
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Application Gateway usam o mesmo grupo de recursos.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um Gateway de Aplicativo usam o mesmo grupo de recursos.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Crie uma rede virtual e uma sub-rede para o gateway de aplicativo
 
@@ -185,7 +186,7 @@ Crie um recurso de IP público **publicIP01** no grupo de recursos **apim-appGw-
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -name "publicIP01" -location "West US" -AllocationMethod Dynamic
 ```
 
-Um endereço IP é atribuído ao application gateway quando o serviço é iniciado.
+Um endereço IP é atribuído ao gateway de aplicativo quando o serviço é iniciado.
 
 ## <a name="create-application-gateway-configuration"></a>Criar uma configuração do gateway de aplicativo
 
@@ -298,7 +299,7 @@ O exemplo a seguir cria uma regra simples para o tráfego de roteamento do camin
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Se o caminho não corresponder às regras de caminho que você deseja habilitar do gerenciamento de API, a configuração de mapa de caminho de regra também configurará um pool de endereços de back-end padrão chamado **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/* vai para **dummyBackendPool** conforme ele é definido como o pool padrão para tráfego não correspondente.
+Se o caminho não corresponder às regras de caminho que você deseja habilitar do gerenciamento de API, a configuração de mapa de caminho de regra também configurará um pool de endereços de back-end padrão chamado **dummyBackendPool**. Por exemplo, http://api.contoso.net/calc/sum vai para **dummyBackendPool** pois é definido como o pool padrão para o tráfego não correspondido.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -329,7 +330,7 @@ Configure WAF para ativar o modo de "Prevenção".
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
-## <a name="create-application-gateway"></a>Criar um Application Gateway
+## <a name="create-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Crie um Gateway de Aplicativo com todos os objetos de configuração das etapas anteriores.
 

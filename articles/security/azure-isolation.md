@@ -1,12 +1,12 @@
 ---
-title: "Isolamento na nuvem pública do Azure | Microsoft Docs"
-description: "Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa."
+title: Isolamento na nuvem pública do Azure | Microsoft Docs
+description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010873"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -52,7 +53,7 @@ No local de trabalho habilitado pela nuvem, um locatário pode ser definido como
 Cada diretório do Azure AD é distinto e separado de outros diretórios do Azure AD. Assim como um prédio de escritórios corporativos é um ativo seguro específico somente a sua organização, um diretório do Azure AD também foi projetado para ser um ativo seguro para ser usado somente por sua organização. A arquitetura do Azure AD isola os dados as informações de identidade do cliente, evitando que sejam misturados a outros. Isso significa que os usuários e administradores de um diretório do Azure AD não podem acessar acidentalmente ou maliciosamente dados em outro diretório.
 
 ### <a name="azure-tenancy"></a>Locação do Azure
-A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
+A locação do Azure (Assinatura do Azure) refere-se a uma relação de "cliente/cobrança" e um único [locatário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) no [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). O isolamento no nível do locatário no Microsoft Azure é obtido usando o Azure Active Directory e [controles com base em função](https://docs.microsoft.com/azure/role-based-access-control/overview) oferecidos por ele. Cada assinatura do Azure está associada com um diretório do Azure Active Directory (AD).
 
 Usuários, grupos e aplicativos do diretório podem gerenciar recursos na assinatura do Azure. Você pode atribuir esses direitos de acesso usando o Portal do Azure, ferramentas de linha de comando do Azure e APIs de Gerenciamento do Azure. Um locatário do Azure AD é logicamente isolado usando limites de segurança, para que nenhum cliente possa acessar ou comprometer colocatários, de forma maliciosa ou acidental. O Azure AD é executado em servidores "bare metal" isolados em um segmento de rede segregado, onde a filtragem de pacotes no nível do host e o Firewall do Windows bloqueiam o tráfego e conexões indesejadas.
 
@@ -80,7 +81,7 @@ O conceito de contêineres de locatário está profundamente arraigado no servi�
 Mesmo quando os metadados de vários locatários do Azure Active Directory são armazenados no mesmo disco físico, não há nenhuma relação entre os contêineres além do que é definido pelo serviço de diretório, que por sua vez é determinado pelo administrador do locatário.
 
 ### <a name="azure-role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função) do Azure
-[O RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ajuda você a compartilhar vários componentes disponíveis dentro de uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
+[O RBAC (Controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda você a compartilhar vários componentes disponíveis dentro de uma assinatura do Azure fornecendo gerenciamento de acesso refinado para o Azure. O RBAC do Azure permite a separação de tarefas dentro de sua organização e a concessão de acesso com base no que os usuários precisam para realizar seus trabalhos. Em vez de dar a todos permissões irrestritas na assinatura ou recursos do Azure, você pode permitir apenas certas ações.
 
 O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recurso:
 
@@ -94,7 +95,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não concede acesso à Rede Virtual ou à sub-rede do Azure com a qual a máquina virtual se conecta.
 
-[Funções internas de RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[Funções internas de RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários. Se você pretende definir suas próprias funções para ter ainda mais controle, confira como criar [Funções personalizadas no RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Entre os outros recursos para o Azure Active Directory estão:
 - O Azure AD habilita o SSO para aplicativos SaaS, independentemente de onde estejam hospedados. Alguns aplicativos são federados com o AD do Azure e outros usam SSO com senha. Os aplicativos federados também podem dar suporte ao provisionamento do usuário e ao [armazenamento de senha no cofre](https://www.techopedia.com/definition/31415/password-vault).
@@ -124,6 +125,20 @@ Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, e
 
 ## <a name="compute-isolation"></a>Isolamento de computação
 O Microsoft Azure fornece vários serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa. Essas instâncias e serviços de computação oferecem isolamento em vários níveis a fim de proteger os dados sem sacrificar a flexibilidade de configuração exigida pelos clientes.
+
+### <a name="isolated-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais isoladas
+A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente.  Esses tamanhos de máquina virtual são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de outros clientes, para cargas de trabalho que envolvem elementos como requisitos normativos e de conformidade.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais Isoladas usando [o Suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+
+Utilizar um tamanho isolado garante que sua máquina virtual será apenas sendo executada na instância de servidor específico.  As ofertas atuais da máquina virtual isolada incluem:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+
+Você pode aprender mais sobre cada tamanho isolado disponível [aqui](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento de sistema operacional raiz e Hyper-V entre a VM raiz e as VMs convidadas
 A plataforma de computação do Azure tem base na virtualização da máquina — ou seja, todo o código do cliente é executado em uma máquina virtual Hyper-V. Em cada nó do Azure (ou ponto de extremidade de rede), há um Hipervisor executado diretamente sobre o hardware e divide um nó em um número variável de VMs (máquinas virtuais) convidadas.
@@ -210,7 +225,7 @@ Você pode habilitar o firewall e definir um intervalo de endereços IP para seu
 Os dados de armazenamento IP podem ser protegidos contra usuários não autorizados por meio de um mecanismo de rede usado para alocar um túnel dedicado de tráfego para o armazenamento IP.
 
 ### <a name="encryption"></a>Criptografia
-O Azure oferece os seguintes tipos de Criptografia para proteção dos dados:
+O Azure oferece os seguintes tipos de criptografia para proteger os dados:
 -   Criptografia em trânsito
 
 -   Criptografia em repouso

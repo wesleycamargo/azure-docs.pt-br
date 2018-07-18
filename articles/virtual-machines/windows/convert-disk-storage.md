@@ -1,13 +1,13 @@
 ---
-title: "Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa | Microsoft Docs"
-description: "Como converter os Managed Disks do Azure de padrão em premium, e vice-versa, usando o Azure PowerShell."
+title: Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa | Microsoft Docs
+description: Como converter os Managed Disks do Azure de padrão em premium, e vice-versa, usando o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 407cfe7d9eee4e226938f383c04bb359a17290fc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 19979240e13ac822921b7f43a158d171aeea0123
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365229"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa
 
@@ -31,6 +32,7 @@ Este artigo mostra como converter Managed Disks de padrão em premium, e vice-ve
 
 * Como a conversão requer uma reinicialização da VM, programe a migração do armazenamento de discos durante uma janela de manutenção preexistente. 
 * Se você estiver usando discos não gerenciados, primeiramente [converta-os em Managed Disks](convert-unmanaged-to-managed-disks.md) a fim de usar este artigo para alternar entre as duas opções de armazenamento. 
+* Este artigo requer o módulo Azure PowerShell versão 6.0.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Você também precisa executar `Connect-AzureRmAccount` para criar uma conexão com o Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Converter todos os Managed Disks de uma VM de padrão em premium, e vice-versa

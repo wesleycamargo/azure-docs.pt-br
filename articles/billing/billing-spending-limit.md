@@ -1,24 +1,24 @@
 ---
 title: Entender o limite de gastos do Azure | Microsoft Docs
-description: "Descreve como funciona o limite de gastos do Azure e como removê-lo"
-services: 
-documentationcenter: 
+description: Descreve como funciona o limite de gastos do Azure e como removê-lo
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 12/22/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
 

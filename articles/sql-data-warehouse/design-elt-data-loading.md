@@ -1,29 +1,24 @@
 ---
-title: Projeto ELT para o SQL Data Warehouse do Azure | Microsoft Docs
-description: Combine tecnologias para mover dados para o Azure e carregue os dados no SQL Data Warehouse para criar um processo de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse.
+title: Em vez de ETL, projetar ELT para SQL Data Warehouse do Azure | Microsoft Docs
+description: Em vez de ETL, projete um processo de ELT (Extração, Carregamento e Transformação) para carregamento de dados ou SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Criação de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse
 
-Combine as tecnologias para descarregar dados no Armazenamento do Azure e carregue os dados no SQL Data Warehouse para criar um processo de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse. Este artigo apresenta as tecnologias que dão suporte ao carregamento com o Polybase e, em seguida, se concentra na criação de um processo ELT que usa o PolyBase com o T-SQL para carregar dados no SQL Data Warehouse a partir do Armazenamento do Microsoft Azure.
+Em vez de ETL (Extração, Transformação e Carregamento ), projete um processo de ELT (Extração, Carregamento e Transformação) para carregar dados no SQL Data Warehouse do Azure. Este artigo apresenta maneiras de projetar um processo de ELT que move dados para um data warehouse do Azure.
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
@@ -52,15 +47,16 @@ O PolyBase é uma tecnologia que acessa dados fora do banco de dados por meio da
 Para carregar dados com o PolyBase, você pode usar qualquer uma dessas opções de carregamento.
 
 - O [PolyBase com o T-SQL](load-data-from-azure-blob-storage-using-polybase.md) funciona bem quando os seus dados estiverem no armazenamento de Blobs do Azure ou no Azure Data Lake Store. Ele oferece mais controle sobre o processo de carregamento, mas também exige que você defina objetos de dados externos. Os outros métodos definem esses objetos em segundo plano, como mapear as tabelas de origem para as tabelas de destino.  Para coordenar as cargas de T-SQL, você pode usar o Azure Data Factory, SSIS ou as funções do Azure. 
-- O [PolyBase com o SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) funciona bem quando os seus dados de origem estiverem no SQL Server, no SQL Server local ou na nuvem. O SSIS define a origem para mapeamentos de tabela de destino e também coordena a carga. Se você já tiver pacotes SSIS, você pode modificar os pacotes para trabalhar com o novo destino do data warehouse. 
+- O [PolyBase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) funciona bem quando os seus dados de origem estiverem no SQL Server, no SQL Server local ou na nuvem. O SSIS define a origem para mapeamentos de tabela de destino e também coordena a carga. Se você já tiver pacotes SSIS, você pode modificar os pacotes para trabalhar com o novo destino do data warehouse. 
 - O [PolyBase com o Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) é outra ferramenta de orquestração.  Ele define um pipeline e agenda de trabalhos. 
+- O [PolyBase com o Azure Databricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfere os dados de uma tabela do SQL Data Warehouse para um dataframe Databricks e/ou grava dados de um dataframe Databricks em uma tabela do SQL Data Warehouse.
 
 ### <a name="polybase-external-file-formats"></a>Formatos de arquivos externos do PolyBase
 
 O PolyBase carrega dados de arquivos de texto delimitados e codificados de UTF-8 e UTF-16. Além dos arquivos de texto delimitados, ele carrega os formatos de arquivo do Hadoop, o arquivo RC, ORC e Parquet. O PolyBase pode carregar dados de arquivos compactados Gzip e Snappy. Atualmente, o PolyBase não suporta ASCII estendido, formato de largura fixa, e formatos aninhados, como XML, JSON e WinZip.
 
 ### <a name="non-polybase-loading-options"></a>Opções de carregamento que não sejam PolyBase
-Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](sql-data-warehouse-load-with-bcp.md) ou a [API do SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). O bcp carrega diretamente para o SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e é destinado somente para pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase. 
+Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](/sql/tools/bcp-utility) ou a [API do SQLBulkCopy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). O bcp carrega diretamente para o SQL Data Warehouse sem passar pelo armazenamento de Blobs do Azure e é destinado somente para pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase. 
 
 
 ## <a name="extract-source-data"></a>Extrair dados de origem
@@ -74,11 +70,8 @@ Para descarregar dados para o armazenamento do Azure, você pode movê-los para 
 Essas são as ferramentas e serviços que você pode usar para mover dados para o Armazenamento do Microsoft Azure.
 
 - O serviço [Azure ExpressRoute](../expressroute/expressroute-introduction.md) melhora a taxa de transferência de rede, o desempenho e a previsibilidade. O ExpressRoute é um serviço que encaminha os dados por uma conexão privada dedicada para o Azure. As conexões do ExpressRoute não encaminham dados pela Internet pública. As conexões oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
-- O [Utilitário AZCopy](../storage/common/storage-use-azcopy.md) move os dados para o Armazenamento do Microsoft Azure pela internet pública. Isso funciona se os tamanhos dos seus dados forem inferiores a 10 TB. Para executar cargas regularmente com AZCopy, teste a velocidade da rede para ver se ela é aceitável. 
-- O [Azure Data Factory (ADF)](../data-factory/introduction.md) tem um gateway que você pode instalar no seu servidor local. Em seguida, você pode criar um pipeline para mover os dados do seu servidor local para o Armazenamento do Microsoft Azure.
-
-Para saber mais, consulte [Mover dados de e para o Armazenamento do Microsoft Azure](../storage/common/storage-moving-data.md)
-
+- O [Utilitário AZCopy](../storage/common/storage-moving-data.md) move os dados para o Armazenamento do Microsoft Azure pela internet pública. Isso funciona se os tamanhos dos seus dados forem inferiores a 10 TB. Para executar cargas regularmente com AZCopy, teste a velocidade da rede para ver se ela é aceitável. 
+- O [Azure Data Factory (ADF)](../data-factory/introduction.md) tem um gateway que você pode instalar no seu servidor local. Em seguida, você pode criar um pipeline para mover os dados do seu servidor local para o Armazenamento do Microsoft Azure. Para usar o Data Factory com o SQL Data Warehouse, consulte [Carregar dados no SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## <a name="prepare-data"></a>Preparar dados
 

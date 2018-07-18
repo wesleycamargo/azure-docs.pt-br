@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ed5d1740f1d68db5ad42266c3fc2dcc983682774
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar um IR (Microsoft Integration Runtime) do Az
 
 ## <a name="properties-to-configure"></a>Propriedades para configurar
 
-A seguinte parte de um script de configuração mostra as propriedades que você pode configurar ao criar um Integration Runtime do Azure-SSIS. Para obter o script e a descrição completos do PowerShell, consulte [Implantar pacotes do SQL Server Integration Services no Azure](tutorial-deploy-ssis-packages-azure.md).
+A seguinte parte de um script de configuração mostra as propriedades que você pode configurar ao criar um Integration Runtime do Azure-SSIS. Para obter o script e a descrição completos do PowerShell, consulte [Implantar pacotes do SQL Server Integration Services no Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -49,7 +49,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```

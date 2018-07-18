@@ -1,22 +1,22 @@
 ---
 title: Gerenciar registros de dispositivo com o Portal do Azure | Microsoft Docs
-description: "Como gerenciar registros de dispositivo para seu serviço DPS no Portal do Azure"
+description: Como gerenciar registros de dispositivo para seu serviço DPS no Portal do Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 55486d9a37968351f5313c708e9ef26e5b89063c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
@@ -31,28 +31,30 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
 
     Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 
-    1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
-    2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
-    3. No seu serviço de provisionamento, clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registro**.
-    4. Clique no botão **Adicionar** na parte superior e, em seguida, insira as informações necessárias para a entrada da lista de registro. Carregue o certificado raiz para o grupo de dispositivos. 
-    5. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**. 
+    1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.  
+    2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
+    3. No serviço de provisionamento:  
+       a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
+       b. Clique no botão **Adicionar** na parte superior.  
+       c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
+       d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o nome do grupo aparecer sob a guia **Grupos de Registro**.  
 
-        ![Grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)
-
+       [![Grupo de registro no portal](./media/how-to-manage-enrollments/group-enrollment.png)]  (./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
-* Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Registros individuais podem usar tokens de certificados x509 ou tokens SAS (em um TPM real ou virtual) como mecanismos de atestado. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
+
+* Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Os registros individuais podem usar certificados x509 ou tokens de SAS (de um TPM virtual ou físico) como mecanismos de certificação. É recomendável usar registros individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual como o mecanismo de Atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.
 
     Você pode criar um registro individual no portal usando as etapas a seguir:
 
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
     2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
-    3. No seu serviço de provisionamento, clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.
-    4. Clique no botão **Adicionar** na parte superior. 
-    5. Selecione o mecanismo de segurança para o dispositivo e insira as informações necessárias para a entrada da lista de registro. Carregue um certificado assinado se seu dispositivo implementa X.509. 
-    6. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**. 
+    3. No serviço de provisionamento:  
+       a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
+       b. Clique no botão **Adicionar** na parte superior.   
+       c. Quando o painel "Adicionar Registro" for exibido, insira as informações da entrada da lista de registro. Primeiro, selecione o **Mecanismo** de certificação para o dispositivo (X.509 ou TPM). A certificação X.509 exige upload do **Certificado principal** para o dispositivo. O TPM exige que você insira a **Chave de Atestado** e a **ID do Registro** para o dispositivo.  
+       d. Clique em **Salvar**. Após a criação bem-sucedida de seu grupo de registro, você deverá ver o dispositivo aparecer sob a guia **Registros Individuais**.  
 
-        ![Registro individual no portal](./media/how-to-manage-enrollments/individual-enrollment.png)
-
+       [![Registro individual no portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
 ## <a name="update-an-enrollment-entry"></a>Atualizar uma entrada de registro
 Você pode atualizar uma entrada de registro existente no portal usando as etapas a seguir:
@@ -64,7 +66,6 @@ Você pode atualizar uma entrada de registro existente no portal usando as etapa
 
     ![Atualizar registro no portal](./media/how-to-manage-enrollments/update-enrollment.png)
 
-
 ## <a name="remove-a-device-enrollment"></a>Remover um registro do dispositivo
 Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub IoT, você poderá remover a entrada de registro relacionado no portal usando as etapas a seguir:
 
@@ -74,6 +75,5 @@ Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub 
 5. Depois que a ação for concluída, você verá sua entrada removida da lista de registros do dispositivo. 
  
     ![Remover registro no portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 

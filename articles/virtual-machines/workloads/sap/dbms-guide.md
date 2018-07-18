@@ -1,13 +1,13 @@
 ---
-title: "Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver | Microsoft Docs"
-description: "Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver"
+title: Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver | Microsoft Docs
+description: Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5654dac7-4204-4387-b312-3d8b2898eb3a
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855fc155bbdef9a3a0ab8415067102e607fab0f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366351"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -237,7 +238,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -290,12 +291,12 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -810,18 +811,18 @@ Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade s�
 
 [comment]: <> (Blog antigo TODO)
 [comment]: <> (As necessidades e etapas detalhadas de instalação de uma configuração AlwaysOn no Azure são mais bem entendidas com o passo a passo do tutorial disponível [aqui][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comment]: <> (Instalação pré-configurada do AlwaysOn por meio da galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (Instalação AlwaysOn pré-configurada por meio da Galeria do Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (A criação de um Ouvinte do Grupo de Disponibilidade é mais bem descrita [neste][virtual-machines-windows-classic-ps-sql-int-listener] tutorial)
 [comment]: <> (A proteção dos pontos de extremidade da rede com ACLs é explicada aqui:)
 [comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
+[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx>)
 [comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
 [comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
 É possível implantar um grupo de disponibilidade Always On do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveita a conectividade Vnet a Vnet do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (Blog antigo TODO)
-[comment]: <> (A configuração dos Grupos de Disponibilidade AlwaysOn do SQL Server em tal cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (A configuração de grupos de disponibilidade do AlwaysOn do SQL Server nesse cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Resumo da alta disponibilidade do SQL Server no Azure
 Devido ao fato de que o armazenamento do Azure está protegendo o conteúdo, há um motivo a menos para insistir em uma imagem de espera ativa. Isso significa que seu cenário de alta disponibilidade precisa proteger apenas contra os seguintes casos:

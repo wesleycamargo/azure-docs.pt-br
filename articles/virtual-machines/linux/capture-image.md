@@ -1,11 +1,11 @@
 ---
 title: Capturar uma imagem de uma VM Linux no Azure usando a CLI 2.0 | Microsoft Docs
-description: "Capture uma imagem de uma VM do Azure a ser usada para implantações em massa usando a CLI do Azure 2.0."
+description: Capture uma imagem de uma VM do Azure a ser usada para implantações em massa usando a CLI do Azure 2.0.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou de um VHD
 
@@ -45,7 +45,7 @@ Para uma versão simplificada deste tópico, para testar, avaliando ou aprender 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Etapa 1: desprovisionar a VM
-Você desprovisiona a VM usando o agente de VM do Azure para excluir arquivos e dados específicos do computador. Use o comando `waagent` com o parâmetro *-deprovision+user* na VM Linux de origem. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](../windows/agent-user-guide.md).
+Você desprovisiona a VM usando o agente de VM do Azure para excluir arquivos e dados específicos do computador. Use o comando `waagent` com o parâmetro *-deprovision+user* na VM Linux de origem. Para saber mais, confira o [Guia do usuário do agente Linux para o Azure](../extensions/agent-linux.md).
 
 1. Conecte-se à VM do Linux usando um cliente SSH.
 2. Na janela SSH, digite o seguinte comando:
@@ -89,6 +89,8 @@ Use a CLI do Azure 2.0 para marcar a VM como generalizada e capturar a imagem. N
    
    > [!NOTE]
    > A imagem é criada no mesmo grupo de recursos da VM de origem. Você pode criar VMs em qualquer grupo de recursos em sua assinatura desde esta imagem. De uma perspectiva de gerenciamento, você poderá criar um grupo de recursos específicos para seus recursos de máquina virtual e imagens.
+   >
+   > Se você quiser armazenar a imagem no armazenamento com resiliência de zona, será necessário criá-la em uma região que dê suporte para [zonas de disponibilidade](../../availability-zones/az-overview.md) e inclua o parâmetro `--zone-resilient true`.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Etapa 3: criar uma VM com base na imagem capturada
 Criar uma máquina virtual usando a imagem criada com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVMDeployed* por meio da imagem chamada *myImage*:

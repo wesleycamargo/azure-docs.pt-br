@@ -1,26 +1,26 @@
 ---
-title: "Condições de localização no acesso condicional do Azure Active Directory | Microsoft Docs"
-description: "Saiba como usar a condição de localização para controlar o acesso aos seus aplicativos na nuvem com base no local de rede de um usuário."
+title: Condições de localização no acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como usar a condição de localização para controlar o acesso aos seus aplicativos na nuvem com base no local de rede de um usuário.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condições de localização no acesso condicional do Azure Active Directory 
 
@@ -43,7 +43,14 @@ Um local é um rótulo para uma rede local que representa uma localização nome
 
 Com localizações nomeadas, você pode criar agrupamentos lógicos de intervalos de endereços IP, países e regiões. 
 
- A localização nomeada tem os seguintes componentes:
+Você pode acessar suas localizações nomeadas na seção **Gerenciar** da página de acesso condicional.
+
+![Locais](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+A localização nomeada tem os seguintes componentes:
 
 ![Locais](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ O número de localizações que você pode configurar é restrito pelo tamanho d
 
 ## <a name="trusted-ips"></a>IPs confiáveis
 
-Você também pode configurar intervalos de endereços IP que representam a Intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, confira [IPs confiáveis](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+Você também pode configurar intervalos de endereços IP que representam a Intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, confira [IPs confiáveis](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Se você tem IPs confiáveis configurados, eles aparecem como **IPS confiáveis MFA** na lista de locais para a condição de localização.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorando a autenticação multifator
 
-Na página de configurações do serviço de autenticação multifator, você pode identificar os usuários da Intranet corporativa selecionando **Ignorar autenticação multifator para solicitações de usuários federados na minha Intranet**. Essa configuração indica que a declaração de rede corporativa interna, que é emitida pelo AD FS, deve ser confiável e usada para identificar o usuário como estando na rede corporativa. Para obter mais informações, consulte [Habilitar o recurso de IPs confiáveis por meio do acesso condicional](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Na página de configurações do serviço de autenticação multifator, você pode identificar os usuários da Intranet corporativa selecionando **Ignorar autenticação multifator para solicitações de usuários federados na minha Intranet**. Essa configuração indica que a declaração de rede corporativa interna, que é emitida pelo AD FS, deve ser confiável e usada para identificar o usuário como estando na rede corporativa. Para obter mais informações, consulte [Habilitar o recurso de IPs confiáveis por meio do acesso condicional](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Depois de marcar essa opção, incluir a localização nomeada **IPS confiáveis de MFA** aplicará a todas as políticas com essa opção selecionada.
 
@@ -112,7 +119,7 @@ Esta opção se aplica a:
 
 ### <a name="selected-locations"></a>Locais selecionados
 
-Com essa opção, você pode selecionar uma ou mais localizações nomeadas. Para uma política com essa configuração a ser aplicada, um usuário precisa se conectar de qualquer um dos locais selecionados. Quando você clicar em **Selecionar** é aberto o controle de seleção da rede nomeada que mostra a lista de redes nomeadas. A lista também mostra se o local de rede foi marcado como confiável. A localização nomeada chamada **IPs confiáveis de MFA** é usada para incluir as configurações de IP podem ser configuradas na página de configuração do serviço de autenticação multifator.
+Com essa opção, você pode selecionar uma ou mais localizações nomeadas. Para uma política com essa configuração a ser aplicada, um usuário precisa se conectar de qualquer um dos locais selecionados. Quando você clica em **Selecionar**, é aberto o controle de seleção da rede nomeada que mostra a lista de redes nomeadas. A lista também mostra se o local de rede foi marcado como confiável. A localização nomeada chamada **IPs confiáveis de MFA** é usada para incluir as configurações de IP podem ser configuradas na página de configuração do serviço de autenticação multifator.
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 

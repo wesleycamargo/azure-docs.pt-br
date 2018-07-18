@@ -19,7 +19,8 @@
 #### [Configurar a integração do Cofre de Chaves do Azure](virtual-machines-windows-ps-sql-keyvault.md)
 ## Backup e restauração
 ### [Backup e restauração](virtual-machines-windows-sql-backup-recovery.md)
-### [Backup automatizado](virtual-machines-windows-sql-automated-backup.md)
+### [Backup automatizado para SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Backup automatizado para SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Usar o Armazenamento do Azure para backup e restauração](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Guias de instruções
@@ -51,7 +52,7 @@
 ## [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md)
 ## [Preços](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PaaS ou IaaS?](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
-## [SSDT - Ferramentas de Dados do SQL Server](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+## [SSDT (Ferramentas de Dados do SQL Server)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [Ferramentas do SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=compute)

@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes sobre tecnologias de código aberto para aplicativos web do Azure | Microsoft Docs"
-description: "Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto na funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure."
+title: Perguntas frequentes sobre tecnologias de código aberto para aplicativos web do Azure | Microsoft Docs
+description: Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto na funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -49,11 +49,11 @@ Para ativar o registro em log de PHP:
 2. No menu superior, selecione **Console de Depuração** > **CMD**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
-5. Selecione o  **+**  ícone e, em seguida, selecione **Novo arquivo**.
+5. Selecione o **+** ícone e, em seguida, selecione **Novo arquivo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 10. Selecione o ícone de lápis ao lado de **wp-config.php**.
 11. Adicione o texto para o código a seguir:
    ```

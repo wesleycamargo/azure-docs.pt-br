@@ -2,7 +2,7 @@
 title: Solucionar problemas do Analytics no Azure Application Insights | Microsoft Docs
 description: 'Problemas com a Application Insights Analytics? Comece por aqui. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -54,7 +54,7 @@ Ocorreu um erro de autenticação (durante a autenticação ou durante a geraç�
 2. Você usou um favorito, indicador ou link salvo para abrir o portal do Analytics? Você entrou com credenciais diferentes daquelas usadas ao salvar o link?
 3. Tente usar uma janela do navegador privada/anônima (depois de fechar todas as janelas desse tipo). Você precisará fornecer suas credenciais. 
 4. Abra outra janela do navegador (comum) e vá para [Azure](https://portal.azure.com). Saia. Em seguida, abra o link e entre com as credenciais corretas.
-5. Os usuários do Edge e do Internet Explorer também podem receber esse erro quando não há suporte para as configurações de zona confiável.
+5. Os usuários do Microsoft Edge e do Internet Explorer também podem receber esse erro quando não há suporte para as configurações de zona confiável.
    
     Verifique se o [portal Analytics](https://analytics.applicationinsights.io) e o [portal do Azure Active Directory](https://portal.azure.com) estão na mesma zona de segurança:
    

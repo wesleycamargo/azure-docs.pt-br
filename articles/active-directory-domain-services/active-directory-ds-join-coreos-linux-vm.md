@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Domain Services: ingressar uma VM CoreOS Linux em um domínio gerenciado | Microsoft Docs"
-description: "Ingressar uma máquina virtual CoreOS Linux aos Azure AD Domain Services"
+title: 'Azure Active Directory Domain Services: ingressar uma VM CoreOS Linux em um domínio gerenciado | Microsoft Docs'
+description: Ingressar uma máquina virtual CoreOS Linux aos Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CoreOS Linux em um domínio gerenciado
 Este artigo mostra como ingressar uma máquina virtual CoreOS Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -140,7 +140,7 @@ Verifique se o computador ingressou com êxito no domínio gerenciado. Conecte-s
 
 
 ## <a name="troubleshooting-domain-join"></a>Solucionando problemas de ingresso no domínio
-Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) (Solucionando problemas de ingresso no domínio).
+Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) (Solucionando problemas de ingresso no domínio).
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de Domínio do Azure AD - Guia de Introdução](active-directory-ds-getting-started.md)

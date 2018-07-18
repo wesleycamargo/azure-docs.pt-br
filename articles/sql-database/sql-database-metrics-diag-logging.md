@@ -10,18 +10,19 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365756"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
 
 * **Armazenamento do Azure**: para o arquivamento de grandes quantidades de telemetria por um pequeno preço.
 * **Hubs de Eventos do Azure**: para a integração de telemetria do Banco de Dados SQL com a sua solução de monitoramento personalizada ou pipelines ativos.
-* **Azure Log Analytics**: para uma solução de monitoramento pronta para uso com relatórios, alertas e recursos de mitigação.
+* **Azure Log Analytics**: para uma solução de monitoramento pronta para uso com relatórios, alertas e recursos de mitigação. Este é um recurso do [OMS (Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -38,7 +39,7 @@ Métricas e log de diagnóstico não está habilitado por padrão. É possível 
 Quando você habilitar o log de diagnóstico e métricas, você precisa especificar os recursos do Azure, onde os dados selecionados são coletados. As opções disponíveis incluem:
 
 - Log Analytics
-- Hubs de evento
+- Hubs de Eventos
 - Armazenamento 
 
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de selecionar o recurso de armazenamento, você precisa especificar quais dados coletar. As opções disponíveis incluem:
@@ -51,6 +52,7 @@ Você pode provisionar um novo recurso do Azure ou selecionar um recurso existen
 - [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contêm informações sobre os tempos limite ocorridos em um banco de dados.
 - [Bloqueios](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre eventos de bloqueio ocorridos em um banco de dados.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém o recurso Insights Inteligentes. [Saiba mais sobre Insights Inteligentes](sql-database-intelligent-insights.md).
+- **Audit** / **SQLSecurityAuditEvents**: indisponível no momento.
 
 Ao selecionar os Hubs de Eventos ou uma conta de armazenamento, é possível especificar uma política de retenção. Essa política exclui dados mais antigos que um período de tempo selecionado. Se você especificar a análise de Log, a política de retenção depende do tipo de preço selecionado. Para saber mais, consulte [Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -154,7 +156,7 @@ Você pode combinar esses parâmetros para permitir várias opções de saída.
 
 ### <a name="rest-api"></a>API REST
 
-Saiba como [alterar as configurações de diagnóstico usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Saiba como [alterar as configurações de diagnóstico usando a API REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Modelo do Resource Manager
 
@@ -191,11 +193,11 @@ A maneira mais fácil de configurar onde os bancos de dados registram suas métr
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Instalar a solução de Análise de SQL da galeria
 
-1. Depois que o recurso do Log Analytics é criado e seus dados estão fluindo nele, instale a solução de Análise de SQL do Azure. Na página inicial do Operations Management Suite, no menu lateral, selecione **Galeria de Soluções**. Na galeria, selecione a solução de **Análise de SQL do Azure** e clique em **Adicionar**.
+1. Depois que o recurso do Log Analytics é criado e seus dados estão fluindo nele, instale a solução de Análise de SQL do Azure. Na home page, no menu lateral, selecione **	Galeria de Soluções**. Na galeria, selecione a solução de **Análise de SQL do Azure** e clique em **Adicionar**.
 
    ![Solução de monitoramento](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Na página inicial do Operations Management Suite, o bloco **Análise de SQL do Azure** é exibido. Selecione esse bloco para abrir o painel da Análise de SQL.
+2. Na página inicial, o bloco **Análise de SQL do Azure** é exibido. Selecione esse bloco para abrir o painel da Análise de SQL.
 
 ### <a name="use-the-sql-analytics-solution"></a>Use a solução Análise de SQL
 

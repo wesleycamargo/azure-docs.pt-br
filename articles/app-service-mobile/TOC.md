@@ -4,15 +4,14 @@
 ## [O que são Aplicativos Móveis?](app-service-mobile-value-prop.md)
 ## [Planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Introdução
-## Criar aplicativos móveis
-### [Android](app-service-mobile-android-get-started.md)
-### [Cordova](app-service-mobile-cordova-get-started.md)
-### [iOS](app-service-mobile-ios-get-started.md)
-### [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
-### [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
-### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
-### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
+# Guia de início rápido
+## [Android](app-service-mobile-android-get-started.md)
+## [Cordova](app-service-mobile-cordova-get-started.md)
+## [iOS](app-service-mobile-ios-get-started.md)
+## [Windows](app-service-mobile-windows-store-dotnet-get-started.md)
+## [Xamarin.Android](app-service-mobile-xamarin-android-get-started.md)
+## [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
+## [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
 # Como
 
@@ -119,7 +118,6 @@
 #### [Back-end do Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Segurança
-### [Autenticação e autorização](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Autenticar com provedores de identidade
 #### [Autenticação do Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Autenticação do Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -172,7 +170,7 @@
 ## [Práticas recomendadas do Serviço de Aplicativo](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [Preços](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Preços](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)

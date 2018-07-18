@@ -1,16 +1,17 @@
 ---
-title: "Personalizar as configurações de avaliação de Migrações para Azure | Microsoft Docs"
-description: "Descreve como configurar e executar uma avaliação de migração de VMs VMware para o Azure usando o Planejador de Migrações para Azure"
+title: Personalizar as configurações de avaliação de Migrações para Azure | Microsoft Docs
+description: Descreve como configurar e executar uma avaliação de migração de VMs VMware para o Azure usando o Planejador de Migrações para Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/03/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5054da16a6a02dddb8539011d3baa18f2bb9914a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777038"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -24,11 +25,12 @@ As [Migrações para Azure](migrate-overview.md) criam avaliações com configur
 
     **Configuração** | **Detalhes** | **Padrão**
     --- | --- | ---
-    **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/> O Migrações para Azure atualmente dá suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, Centro dos EUA, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia do Sul, Centro Sul, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, Centro-Oeste dos EUA, Europa Ocidental, Oeste da Índia, Oeste dos EUA e Oeste dos EUA 2. |  Oeste dos EUA 2 é o local padrão.
-    **Redundância de armazenamento** | O tipo de redundância de armazenamento que as VMs do Azure usarão após a migração. | O [armazenamento com redundância local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) é o valor padrão. As Migrações para Azure só oferecem suporte a avaliações com base em discos gerenciados, e discos gerenciados só oferecem suporte ao LRS, portanto a propriedade atualmente só tem a opção de LRS. 
+    **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/> Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. |  Oeste dos EUA 2 é o local padrão.
+    **Redundância de armazenamento** | O tipo de redundância de armazenamento que as VMs do Azure usarão após a migração. | O [armazenamento com redundância local (LRS)](../storage/common/storage-redundancy-lrs.md) é o valor padrão. As Migrações para Azure só oferecem suporte a avaliações com base em discos gerenciados, e discos gerenciados só oferecem suporte ao LRS, portanto a propriedade atualmente só tem a opção de LRS.
     **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para redimensionar VMs para o Azure. Você pode fazer dimensionamento *com base no desempenho* ou dimensionar as VMs *como locais*, sem considerar o histórico de desempenho. | O dimensionamento com base no desempenho é a opção padrão.
     **Histórico de desempenho** | A duração a considerar para avaliar o desempenho das VMs. Essa propriedade só é aplicável quando o critério de dimensionamento é *dimensionamento com base no desempenho*. | O padrão é um dia.
     **Utilização de percentual** | O valor percentual da amostra de desempenho definido para ser considerado para o redimensionamento. Essa propriedade só é aplicável quando o critério de dimensionamento é *dimensionamento com base no desempenho*.  | O padrão é 95 por cento.
+    **Série de VM** | Você pode especificar a série de VM que deseja considerar para o dimensionamento correto. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série e o dimensionamento correto será feito apenas na série selecionada. | Por padrão, todos as séries VM são selecionadas.
     **Tipo de preços** | É possível especificar o [tipo de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) das VMs de destino do Azure. Por exemplo, se você estiver planejando migrar um ambiente de produção, deve considerar a camada Standard, que fornece VMs com baixa latência, mas pode custar mais. Por outro lado, caso tenha um ambiente de desenvolvimento de teste, talvez você deva considerar a camada Básica, que tem VMs com latência maior e custos mais baixos. | Por padrão, o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
     **Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. | A configuração padrão é 1.3 x.
     **Oferta** | A [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que você está inscrito. | [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) é o padrão.

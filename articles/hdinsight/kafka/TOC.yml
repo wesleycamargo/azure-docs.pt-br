@@ -1,19 +1,34 @@
 - name: Documentação do Azure HDInsight
   href: /azure/hdinsight
-- name: Kafka no HDInsight
+- name: Visão geral
   items:
-    - name: Visão geral
+    - name: Sobre o Kafka no HDInsight
       href: apache-kafka-introduction.md
     - name: Controle de versão do componente
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introdução
+- name: Guia de início rápido
   items:
-    - name: Criar um cluster Kafka
+    - name: Criar um cluster Kafka - Portal
       href: apache-kafka-get-started.md
-    - name: Instalar aplicativos HDInsight
-      href: ../hdinsight-apps-install-applications.md
+    - name: Criar um cluster Kafka - PowerShell
+      href: apache-kafka-quickstart-powershell.md
+    - name: Criar um cluster Kafka - Modelo
+      href: apache-kafka-quickstart-resource-manager-template.md
+- name: Tutoriais
+  items:
+    - name: Kafka e Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
+    - name: Kafka e Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
+      maintainContext: true
+    - name: API de Produtor e Consumidor do Kafka
+      href: apache-kafka-producer-consumer-api.md
+    - name: API do Kafka Streams
+      href: apache-kafka-streams-api.md
+- name: Conceitos
+  items:
     - name: planejamento de capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -23,6 +38,13 @@
       href: apache-kafka-high-availability.md
 - name: Como
   items:
+    - name: Habilitar a criação de tópico automática
+      href: apache-kafka-auto-create-topics.md
+    - name: Usar Kafka com o Hub IoT
+      href: apache-kafka-connector-iot-hub.md
+    - name: Instalar aplicativos HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Usar Kafka em uma rede virtual
       href: apache-kafka-connect-vpn-gateway.md
     - name: Replicar dados do Kafka
@@ -31,17 +53,11 @@
       href: apache-kafka-log-analytics-operations-management.md
     - name: Criar pipelines de transmissão
       items:
-        - name: Kafka e Spark (Fluxo Estruturado)
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
-        - name: Streaming estruturado do Kafka para Azure Cosmos DB
+        - name: 'Spark, Kafka e Azure Cosmos DB'
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka e Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Kafka e Storm
-          href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
         - name: Usar o Kafka com o Serviço de Contêiner do Azure
           href: apache-kafka-azure-container-services.md
@@ -49,10 +65,6 @@
           href: apache-kafka-azure-functions.md
     - name: Desenvolver
       items:
-        - name: Usando a API Kafka do Produtor e Consumidor
-          href: apache-kafka-producer-consumer-api.md
-        - name: Usando a API do Kafka Streams
-          href: apache-kafka-streams-api.md
         - name: Usar nós de borda vazios
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

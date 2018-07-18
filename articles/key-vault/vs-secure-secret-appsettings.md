@@ -1,24 +1,24 @@
 ---
-title: "Como salvar com segurança as configurações de aplicativo secretas para um aplicativo Web | Microsoft Docs"
-description: "Como salvar com segurança salvar as configurações de aplicativo secretas, como credenciais do Azure ou chaves de API de terceiros usando o Provedor do Key Vault do ASP.NET Core, o segredo do usuário ou os construtores de configuração do .NET 4.7.1"
+title: Como salvar com segurança as configurações de aplicativo secretas para um aplicativo Web | Microsoft Docs
+description: Como salvar com segurança salvar as configurações de aplicativo secretas, como credenciais do Azure ou chaves de API de terceiros usando o Provedor do Key Vault do ASP.NET Core, o segredo do usuário ou os construtores de configuração do .NET 4.7.1
 services: visualstudio
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
-ms.service: 
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eee882dc52ffc37067916dac29324efe0bc95b03
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 
@@ -145,7 +145,7 @@ Siga as instruções da seção do ASP.NET Core para configurar um Key Vault par
 
 1. Instale o pacote NuGet a seguir no seu projeto.
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. Defina o construtor de configuração do Key Vault em Web.config. Coloque esta seção antes da seção *appSettings*. Substitua *vaultName* para ser o nome do Key Vault se o Key Vault no Azure público ou URI completo se você estiver usando a nuvem soberana.

@@ -1,24 +1,24 @@
 ---
-title: "Criar uma assinatura de tópicos do namespace do Barramento de Serviço do Azure usando o modelo do Azure Resource Manager | Microsoft Docs"
-description: "Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager"
+title: Criar uma assinatura de tópicos do namespace do Barramento de Serviço do Azure usando o modelo do Azure Resource Manager | Microsoft Docs
+description: Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: sethm;shvija
-ms.openlocfilehash: 7f854b4f1331cf1272371e1cc7574d40b6b39efd
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 04/11/2018
+ms.author: sethm
+ms.openlocfilehash: ee9990cb9a112dffe1a7c2980315146c2a1d7ca5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager
 
@@ -50,7 +50,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
@@ -105,8 +105,7 @@ Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com t
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",

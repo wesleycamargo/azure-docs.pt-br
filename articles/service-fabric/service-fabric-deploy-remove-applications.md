@@ -1,24 +1,24 @@
 ---
-title: "Implantação de aplicativos do Azure Service Fabric | Microsoft Docs"
+title: Implantação de aplicativos do Azure Service Fabric | Microsoft Docs
 description: Como implantar e remover aplicativos no Service Fabric usando o PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cd3c97bc95fb7ccfaa0dbf2d7ca76ae598a4b320
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implantar e remover aplicativos usando o PowerShell
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ Execute o cmdlet [Register-ServiceFabricApplicationType](/powershell/module/serv
 Quando um pacote foi copiado anteriormente para o repositório de imagens, a operação de registro especifica o caminho relativo no repositório de imagens.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 

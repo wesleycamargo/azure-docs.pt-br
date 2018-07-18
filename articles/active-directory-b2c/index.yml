@@ -1,0 +1,72 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Active Directory B2C
+metadata:
+  title: Documentação do Azure Active Directory B2C
+  meta.description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
+  services: active-directory-b2c
+  author: davidmu1
+  manager: mtillman
+  ms.service: active-directory-b2c
+  ms.topic: landing-page
+  ms.date: 03/29/2018
+  ms.author: davidmu
+  ms.openlocfilehash: 000874bd089583cfc75dfa0a4d28769b91808a11
+  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 04/30/2018
+abstract:
+  description: O Azure Active Directory (Azure AD) B2C é um serviço de gerenciamento de identidade que permite personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar seus aplicativos. Isso inclui aplicativos desenvolvidos para iOS, Android e .NET, entre outros. O Azure AD B2C habilita essas ações enquanto protege as identidades dos seus clientes ao mesmo tempo. Saiba como usar o Azure AD B2C com nossos inícios rápidos, tutoriais e exemplos.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      width: 250
+    title: Gerenciamento de identidades B2C com o Azure Active Directory B2C (12:56)
+    href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    width: 250
+sections:
+- title: Guia de início rápido de 5 minutos
+  items:
+  - type: paragraph
+    text: 'Saiba como configurar o gerenciamento de identidades para os clientes que usam seu aplicativo:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+      text: Desktop
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
+      text: Página única
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Saiba como gerenciar a inscrição, a entrada e perfis de clientes no ASP.NET, área de trabalho ou aplicativos Node.js de página única.
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: ASP.NET
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registrar aplicativo</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Autenticar usuários</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Conceder acesso à API</a></p>
+    - title: Desktop
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registrar aplicativo</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Autenticar usuários</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Conceder acesso à API</a></p>
+    - title: Página única
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registrar aplicativo</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Autenticar usuários</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Conceder acesso à API</a></p>
+- title: Exemplos
+  items:
+  - type: paragraph
+    text: Encontre exemplos que mostram como gerenciar identidades de clientes em seu aplicativo.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/active-directory-b2c/code-samples">Dispositivo móvel, área de trabalho, Web e aplicativos de página única</a>

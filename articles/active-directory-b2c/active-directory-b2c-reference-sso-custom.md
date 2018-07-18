@@ -1,24 +1,21 @@
 ---
-title: "Gerenciamento de sessão de SSO usando políticas personalizadas – Azure AD B2C | Microsoft Docs"
-description: "Saiba como gerenciar sessões de SSO usando políticas personalizadas no Azure AD B2C."
+title: Gerenciamento de sessão de SSO usando políticas personalizadas – Azure AD B2C | Microsoft Docs
+description: Saiba como gerenciar sessões de SSO usando políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: parja
-ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: gerenciamento de sessão de SSO (Logon Único)
 
@@ -50,6 +47,9 @@ Como o nome indica, este provedor não faz nada. Esse provedor pode ser usado pa
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Esse provedor pode ser usado para armazenar as declarações em uma sessão. Normalmente, esse provedor é referenciado em um perfil técnico usado para gerenciar contas locais. 
+
+> [!NOTE]
+> Ao usar o DefaultSSOSessionProvider para armazenar declarações em uma sessão, é necessário garantir que quaisquer declarações que precisam ser retornadas ao aplicativo ou usadas por pré-condições nas etapas subsequentes sejam armazenadas na sessão ou aumentadas por uma leitura do perfil dos usuários no diretório. Isso garantirá que o percurso de autenticação não falhe em reivindicações ausentes.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -96,7 +96,7 @@ Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre 
 
 Há dois itens de metadados no perfil técnico:
 
-| Item | Valor Padrão | Valores possíveis | Descrição
+| item | Valor Padrão | Valores possíveis | DESCRIÇÃO
 | --- | --- | --- | --- |
 | IncludeSessionIndex | verdadeiro | true/false | Indica ao provedor que o índice de sessão deve ser armazenado. |
 | RegisterServiceProviders | verdadeiro | true/false | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. |

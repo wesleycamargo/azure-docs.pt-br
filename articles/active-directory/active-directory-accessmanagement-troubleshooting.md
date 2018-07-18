@@ -1,26 +1,24 @@
 ---
-title: "Solução de problemas de associação dinâmica para grupos| Microsoft Docs"
-description: "Solução de problemas para a associação dinâmica para grupos no Azure AD."
+title: Solução de problemas de associação dinâmica para grupos| Microsoft Docs
+description: Solução de problemas para a associação dinâmica para grupos no Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4c294cc6a4e1c9c2f1ad405c539854b6bcf5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8d04273e9f29b2634c8b77b0268f3c7b77b1e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solucionando problemas de associações dinâmicas a grupos
 **Configurei uma regra em um grupo, mas nenhuma associação foi atualizada no grupo**<br/>Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra? Se tudo estiver correto, aguarde alguns instantes para que o grupo seja populado. Dependendo do tamanho do seu locatário, o grupo pode levar até 24 horas para ser populado pela primeira vez ou depois de uma alteração de regra.

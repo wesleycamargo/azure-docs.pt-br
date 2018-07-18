@@ -1,11 +1,10 @@
 ---
 title: Azure Data Factory - Exemplos
-description: "Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory."
+description: Fornece detalhes sobre os exemplos fornecidos com o serviço Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
 ms.workload: data-services
@@ -15,15 +14,15 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b0b8f56266f77724a60253991556b15a923e537f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemplos
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, veja [Exemplos do PowerShell no Data Factory versão 2](../samples-powershell.md) e [exemplos de código na galeria Exemplos de Código do Azure](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, veja [Exemplos do PowerShell no Data Factory versão 2](../samples-powershell.md) e [exemplos de código na galeria Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
 ## <a name="samples-on-github"></a>Exemplos no GitHub

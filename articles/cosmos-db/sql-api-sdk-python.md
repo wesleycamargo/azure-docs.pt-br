@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: SQL Python API, SDK e recursos | Microsoft Docs'
-description: "Saiba tudo sobre o SDK e a API do SQL Python, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Python para o Azure Cosmos DB."
+description: Saiba tudo sobre o SDK e a API do SQL Python, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Python para o Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
 ms.service: cosmos-db
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1eeb93ad066d3c5e8f33a945c24c4bd9db3a05
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: aa5ac4d95d11a2dfec1b2c6394b7e2e9cf747f5a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -30,23 +30,21 @@ ms.lasthandoff: 03/02/2018
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
 <tr><td>**Baixar o SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
 
 <tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do SDK do Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
 
-<tr><td>**Contribuir para o SDK**</td><td>[Github](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
 <tr><td>**Introdução**</td><td>[Introdução ao SDK do Python](sql-api-python-application.md)</td></tr>
 
@@ -54,6 +52,9 @@ ms.lasthandoff: 03/02/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
+* Adicionado suporte para repetições padrão em problemas de conexão.
+
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
 
@@ -140,6 +141,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |08 de maio de 2018 |--- |
 | [2.3.1](#2.3.1) |21 de dezembro de 2017 |--- |
 | [2.3.0](#2.3.0) |10 de novembro, 2017 |--- |
 | [2.2.1](#2.2.1) |29 de setembro de 2017 |--- |

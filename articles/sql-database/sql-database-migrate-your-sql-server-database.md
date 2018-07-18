@@ -1,23 +1,28 @@
 ---
-title: Migrar o banco de dados SQL Server para o Banco de Dados SQL do Azure | Microsoft Docs
-description: Saiba como migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure.
+title: Migrar o Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA | Microsoft Docs
+description: Saiba como migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c333fd4f87f30d9aa1ace755c7414423ab348e03
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrar seu banco de dados do SQL Server para o banco de dados SQL do Azure
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar seu Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando DMA
 
-Mover seu banco de dados do SQL Server para o Banco de dados SQL do Azure é tão simples quanto criar um banco de dados SQL vazio no Azure e usar o [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados) para importar o banco de dados para o Azure. Neste tutorial, você aprenderá a:
+Mover seu banco de dados SQL Server para um banco de dados individual do Banco de Dados SQL do Azure é tão simples quanto criar um banco de dados SQL vazio no Azure e usar o [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados) para importar o banco de dados para o Azure. Para obter mais opções de migração, consulte [Migrar seu banco de dados para o banco de dados SQL do Azure](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Para migrar para uma Instância Gerenciada do Banco de Dados SQL do Azure, consulte [Migrar do SQL Server para uma Instância Gerenciada](sql-database-managed-instance-migrate.md)
+
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um banco de dados SQL do Azure vazio no Portal do Azure (usando um servidor novo ou existente do Banco de Dados SQL do Azure)
@@ -41,7 +46,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](sql-database-service-tiers-dtu.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](sql-database-features.md). 
 
 Siga estas etapas para criar um banco de dados SQL em branco. 
 
@@ -82,9 +87,9 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 8. Aceite os termos da versão prévia para usar a opção **Armazenamento Complementar**. 
 
    > [!IMPORTANT]
-   > \* Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Tamanhos de armazenamento maiores que a quantidade de armazenamento incluída estão em versão prévia e aplicam-se custos extras. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Na camada Premium, mais de 1 TB de armazenamento está disponível atualmente nas seguintes regiões: Sul do Brasil, Central do Canadá, Leste do Canadá, Centro dos EUA, França Central, Centro da Alemanha, Leste do Japão, Oeste do Japão, Coreia Central, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia e Europa Ocidental. Consulte [Limitações atuais de P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
@@ -107,7 +112,7 @@ O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedind
 
 1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais. 
 
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e a seus bancos de dados nos próximos guias de início rápido. 
+2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e aos bancos de dados nos próximos inícios rápidos. 
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png) 
 

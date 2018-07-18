@@ -1,12 +1,12 @@
 ---
-title: "Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio | Microsoft Docs"
-description: "Solucione problemas em possíveis soluções para problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio."
+title: Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio | Microsoft Docs
+description: Solucione problemas em possíveis soluções para problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio
 
@@ -49,13 +49,13 @@ Em vez de usar apenas _Estado_ como uma chave de partição, você pode usar mai
 
 ### <a name="option-4-use-round-robin-distribution"></a>Opção 4: usar a distribuição round robin
 
-Se você não encontrar uma chave adequada para a partição e distribuição, poderá tentar usar a distribuição round robin. A distribuição round robin trata cada linha igualmente e as coloca aleatoriamente nos buckets correspondentes. Os dados são distribuídos uniformemente mas perdem as informações de localidade, um inconveniente que também pode reduzir o desempenho do trabalho para algumas operações. Além disso, se você estiver agregando para a chave distorcida mesmo assim, o problema de distorção de dados ainda permanecerá. Para saber mais sobre a distribuição round robin, consulte a seção Distribuições de Tabela U-SQL em [CREATE TABLE (U-SQL): criando uma tabela com esquema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Se você não encontrar uma chave adequada para a partição e distribuição, poderá tentar usar a distribuição round robin. A distribuição round robin trata cada linha igualmente e as coloca aleatoriamente nos buckets correspondentes. Os dados são distribuídos uniformemente mas perdem as informações de localidade, um inconveniente que também pode reduzir o desempenho do trabalho para algumas operações. Além disso, se você estiver agregando para a chave distorcida mesmo assim, o problema de distorção de dados ainda permanecerá. Para saber mais sobre a distribuição round robin, consulte a seção Distribuições de Tabela U-SQL em [CREATE TABLE (U-SQL): criando uma tabela com esquema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solução 2: melhorar o plano de consulta
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: usar a instrução CREATE STATISTICS
 
-O U-SQL fornece a instrução CREATE STATISTICS em tabelas. Essa instrução fornece mais informações sobre as características dos dados, assim como distribuição de valor, ao otimizador de consulta; essas informações são então armazenadas em uma tabela. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, talvez seja necessário melhorar o desempenho de consulta, criando estatísticas adicionais com CREATE STATISTICS ou modificando o design da consulta. Para obter mais informações, consulte a página [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx).
+O U-SQL fornece a instrução CREATE STATISTICS em tabelas. Essa instrução fornece mais informações sobre as características dos dados, assim como distribuição de valor, ao otimizador de consulta; essas informações são então armazenadas em uma tabela. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, talvez seja necessário melhorar o desempenho de consulta, criando estatísticas adicionais com CREATE STATISTICS ou modificando o design da consulta. Para obter mais informações, consulte a página [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx).
 
 Exemplo de código:
 

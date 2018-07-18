@@ -1,9 +1,9 @@
 ---
-title: "Análise de aplicativo Web Java com o Azure Application Insights | Microsoft Docs"
+title: Análise de aplicativo Web Java com o Azure Application Insights | Microsoft Docs
 description: 'Monitoramento de desempenho de aplicativos usando o Application Insights para aplicativos Web Java. '
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: a1212befd1cc6aaf74bc596459aa5be1ef689813
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -30,7 +30,7 @@ O Application Insights oferece suporte a aplicativos Java em execução no Windo
 
 Você precisa de:
 
-* Oracle JRE 1.6 ou posterior, ou então JRE Zulu 1.6 ou posterior
+* JRE versão 1.7 ou 1.8
 * Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/).
 
 *Se você tiver um aplicativo Web já em uso, siga o procedimento alternativo para [adicionar o SDK em tempo de execução ao servidor Web](app-insights-java-live.md). Essa alternativa evita a recompilação do código, mas você não obtém a opção de escrever código para rastrear a atividade do usuário.*
@@ -47,10 +47,7 @@ Você precisa de:
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Adicionar o SDK do Application Insights para Java a seu projeto
 *Escolha o modo apropriado para seu projeto.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Se você está usando o Eclipse para criar um projeto Web dinâmico ou do Maven...
-Use o [plug-in SDK do Application Insights para Java][eclipse].
-
-#### <a name="if-youre-using-maven"></a>Se você estiver usando o Maven...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Se você estiver usando o Maven... <a name="maven-setup" />
 Se o seu projeto já estiver configurado para usar o Maven para compilação, realize a mesclagem do código a seguir ao seu arquivo pom.xml.
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
@@ -75,15 +72,15 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     </dependencies>
 ```
 
-* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>2.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>2.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Precisa atualizar para um novo SDK?* Atualize as dependências do seu projeto.
 
-#### <a name="if-youre-using-gradle"></a>Se você estiver usando o Gradle...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Se você estiver usando o Gradle... <a name="gradle-setup" />
 Se o seu projeto já estiver configurado para usar o Gradle para compilação, realize a mesclagem do trecho de código a seguir ao seu arquivo build.gradle.
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +92,27 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     }
 ```
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: ** `version:'2.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *Para atualizar para um novo SDK*
-  * Atualize as dependências do seu projeto.
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Se você está usando o Eclipse para criar um projeto Web dinâmico...
+Use o [plug-in SDK do Application Insights para Java][eclipse]. Observação: embora o uso desse plug-in deixe o Application Insights pronto mais rapidamente (supondo que você não esteja usando Maven/Gradle), ele não é um sistema de gerenciamento de dependência. Como tal, o plug-in de atualização não atualizará automaticamente as bibliotecas do Application Insights no seu projeto.
 
-#### <a name="otherwise-"></a>Caso contrário...
-Adicione manualmente o SDK:
+* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `version:'2.0.n'`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Para atualizar para um novo SDK* Atualize as dependências do seu projeto.
 
-1. Baixe o [SDK do Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Extraia os binários do arquivo de zip e adicione-os ao projeto.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Caso contrário, se você estiver gerenciando as dependências manualmente...
+Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e copie os arquivos necessários para o projeto substituindo as versões anteriores.
 
 ### <a name="questions"></a>Perguntas...
-* *Qual é a relação entre `-core` e os componentes `-web` no zip?*
-
+* *Qual é a relação entre os componentes `-core` e `-web`?*
   * `applicationinsights-core` fornece a API básica. Você sempre precisa desse componente.
   * `applicationinsights-web` fornece métricas que rastreiam as contagens de solicitação de HTTP e tempos de resposta. Você poderá omitir esse componente se não quiser que a telemetria seja coletada automaticamente. Por exemplo, se quiser escrevê-la você mesmo.
-* *Para atualizar o SDK ao publicar alterações*
+  
+* *Como fazer para atualizar o SDK para a versão mais recente?*
+  * Se você estiver usando Gradle ou Maven...
+    * Atualize seu arquivo de build para especificar a versão mais recente ou use a sintaxe de curinga do Gradle/Maven para incluir a versão mais recente automaticamente. Em seguida, atualize as dependências do projeto. A sintaxe de curinga pode ser vista nos exemplos anteriores para [Gradle](#gradle-setup) ou [Maven](#maven-setup).
+  * Se você estiver gerenciando as dependências manualmente...
+    * Baixe o [SDK do Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) mais recente e substitua os antigos. As alterações descritas nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Baixe o [SDK do Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) mais recente e substitua os antigos.
-  * As alterações descritas nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Adicione um arquivo xml do Application Insights
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. Adicionar um arquivo Application Insights.xml
 Adicione o ApplicationInsights.xml à pasta de recursos em seu projeto; caso contrário, verifique se ele é adicionado ao caminho de classe de implantação do projeto. Copie o XML a seguir nele.
 
 Substitua a chave de instrumentação que você obteve no Portal do Azure.
@@ -127,12 +124,10 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
     </ApplicationInsights>
 ```
 
+Opcionalmente, o arquivo de configuração pode residir em qualquer local que possa ser acessado pelo aplicativo.  A propriedade do sistema `-Dapplicationinsights.configurationDirectory` especifica o diretório que contém ApplicationInsights.xml. Por exemplo, um arquivo de configuração localizado em `E:\myconfigs\appinsights\ApplicationInsights.xml` seria configurado com a propriedade `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
 * A correlação de eventos é uma adição ao componente de solicitação HTTP. Ele atribui um identificador a cada solicitação recebida pelo servidor e adiciona esse identificador como uma propriedade para cada item de telemetria, como a propriedade “Operation.Id”. Ele permite que você correlacione a telemetria associada com cada solicitação, definindo um filtro na [pesquisa de diagnóstico][diagnostic].
-* A chave do Application Insights pode ser passada dinamicamente do portal do Azure como uma propriedade do sistema (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Se não houver uma propriedade definida, ele verificará a variável de ambiente (APPLICATION_INSIGHTS_IKEY) nas Configurações do Aplicativo do Azure. Se ambas as propriedades estiverem indefinidas, o padrão InstrumentationKey será usado de ApplicationInsights.xml. Essa sequência ajuda a gerenciar diferentes InstrumentationKeys para diferentes ambientes de forma dinâmica.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Maneiras alternativas para definir a chave de instrumentação
 O SDK do Application Insights procura a chave nesta ordem:
@@ -169,13 +164,72 @@ O SDK do Application Insights procura a chave nesta ordem:
 Você também pode [defini-lo no código](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP
 A última etapa de configuração permite que o componente de solicitação HTTP registre cada solicitação da Web. (Não obrigatório se você quiser apenas a API vazia.)
 
+### <a name="spring-boot-applications"></a>Aplicativos do Spring Boot
+Registre o `WebRequestTrackingFilter` do Application Insights na sua classe de Configuração:
+
+```Java
+package devCamp.WebApp.configurations;
+
+    import javax.servlet.Filter;
+
+    import org.springframework.boot.web.servlet.FilterRegistrationBean;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.core.Ordered;
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.context.annotation.Configuration;
+    import com.microsoft.applicationinsights.TelemetryConfiguration;
+    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+
+
+    @Configuration
+    public class AppInsightsConfig {
+
+    //Initialize AI TelemetryConfiguration via Spring Beans
+        @Bean
+        public String telemetryConfig() {
+            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
+            if (telemetryKey != null) {
+                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
+            }
+            return telemetryKey;
+        }
+    
+    //Set AI Web Request Tracking Filter
+        @Bean
+        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
+           FilterRegistrationBean registration = new FilterRegistrationBean();
+           registration.setFilter(new WebRequestTrackingFilter(applicationName));
+           registration.setName("webRequestTrackingFilter");
+           registration.addUrlPatterns("/*");
+           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+           return registration;
+       } 
+
+    //Set up AI Web Request Tracking Filter
+        @Bean(name = "WebRequestTrackingFilter")
+        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+            return new WebRequestTrackingFilter(applicationName);
+        }   
+    }
+```
+
+[!NOTE] Se estiver usando o Spring Boot 1.3.8 ou mais antigo, substitua o FilterRegistrationBean pela linha abaixo
+```Java
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+```
+
+Essa classe configurará o `WebRequestTrackingFilter` para ser o primeiro filtro na cadeia de filtro de http. Ela também obterá a chave de instrumentação da variável de ambiente do sistema operacional caso esteja disponível.
+
+> Estamos usando a configuração de filtro http da Web em vez da configuração de Spring MVC porque este é um aplicativo Spring Boot e tem sua própria configuração Spring MVC. Consulte as seções abaixo para configuração específica de Spring MVC.
+
+
+### <a name="applications-using-webxml"></a>Aplicativos que usam o web.xml
 Localize e abra o arquivo web.xml em seu projeto. Em seguida, mescle o código a seguir com o nó do aplicativo Web no qual seus filtros de aplicativo estão configurados.
 
 Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos os outros filtros.
@@ -220,7 +274,7 @@ Adicione este item ao arquivo de configuração do Struts (geralmente chamado de
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Se você tiver interceptores definidos em uma pilha padrão, o interceptador pode simplesmente ser adicionado àquela pilha.)
+Se você tem interceptores definidos em uma pilha padrão, o interceptor pode ser adicionado a essa pilha.
 
 ## <a name="5-run-your-application"></a>5. Execute seu aplicativo.
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.

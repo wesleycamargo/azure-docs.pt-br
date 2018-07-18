@@ -1,13 +1,13 @@
 ---
 title: Rede do Azure | Microsoft Docs
-description: "Saiba sobre os recursos e serviços de rede do Azure."
+description: Saiba sobre os recursos e serviços de rede do Azure.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Rede do Azure
 
@@ -106,8 +106,7 @@ Outros recursos de roteamento de camada 7 incluem distribuição round robin do 
 
 A figura abaixo mostra o roteamento baseado em caminho do URL com o Gateway de Aplicativo:
 
-![Gateway de Aplicativo
-](./media/networking-overview/application-gateway.png)
+![Gateway de Aplicativo](./media/networking-overview/application-gateway.png)
 
 **Balanceamento de carga de rede**
 
@@ -121,7 +120,7 @@ A imagem a seguir mostra um aplicativo de várias camadas voltado para a Interne
 
 É possível filtrar o tráfego de e para recursos do Azure usando as seguintes opções:
 
-- **Rede:** é possível implementar NSGs (grupos de segurança de rede) do Azure para filtrar o tráfego de entrada e de saída para recursos do Azure. Cada NSG contém uma ou mais regras de entrada e saída. Cada regra especifica os endereços IP de origem, os endereços IP de destino, a porta e o protocolo com que o tráfego é filtrado. Os NSGs podem ser aplicados a sub-redes e a VMs individuais. Para saber mais sobre os NSGs, leia o artigo [Visão geral dos grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Rede:** é possível implementar NSGs (grupos de segurança de rede) do Azure para filtrar o tráfego de entrada e de saída para recursos do Azure. Cada NSG contém uma ou mais regras de entrada e saída. Cada regra especifica os endereços IP de origem, os endereços IP de destino, a porta e o protocolo com que o tráfego é filtrado. Os NSGs podem ser aplicados a sub-redes e a VMs individuais. Para saber mais sobre os NSGs, leia o artigo [Visão geral dos grupos de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Aplicativo:** usando um Gateway de Aplicativo com o firewall do aplicativo Web, você pode proteger seus aplicativos Web contra vulnerabilidades e explorações. Exemplos comuns são ataques de injeção SQL, scripts entre sites e cabeçalhos mal formados. O gateway de aplicativo filtra esse tráfego e o impede de chegar a seus servidores Web. É possível configurar quais regras você deseja que sejam habilitadas. A capacidade de configurar políticas de negociação SSL é fornecida para permitir que determinadas políticas sejam desabilitadas. Para saber mais sobre o firewall do aplicativo Web, leia o artigo [Firewall do aplicativo Web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 Se precisar de uma funcionalidade de rede que o Azure não fornece ou se quiser usar aplicativos de rede que você usa localmente, você pode implementar os produtos em VMs e conectá-las à sua VNet. O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) contém várias VMs diferentes pré-configuradas com aplicativos de rede que você pode usar atualmente. Essas VMs pré-configuradas normalmente são conhecidas como NVAs (soluções de virtualização de rede). As NVAs estão disponíveis com aplicativos como otimização de WAN e firewall.
@@ -139,7 +138,7 @@ O Azure fornece as seguintes ferramentas para monitorar e gerenciar a rede:
 - **Logs de diagnóstico:** eventos periódicos e espontâneos são criados pelos recursos da rede e registrados nas contas de armazenamento do Azure, enviados para um Hub de Eventos do Azure ou para o Log Analytics do Azure. Os logs de diagnóstico fornecem informações sobre a integridade de um recurso. Os logs de diagnóstico são fornecidos para o Balanceador de Carga (voltado para a Internet), Grupos de Segurança de Rede, rotas e o Gateway de Aplicativo. Para saber mais sobre os logs de diagnóstico, leia o artigo [Visão geral dos logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métricas:** as métricas são contadores e medidas de desempenho coletados durante um período. Elas podem ser usadas para disparar alertas com base em limites. Atualmente, as métricas estão disponíveis para o Gateway de Aplicativo. Para saber mais sobre as métricas, leia o artigo [Visão geral das métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solução de problemas:** informações sobre solução de problemas podem ser acessadas diretamente no portal do Azure. As informações ajudam a diagnosticar problemas comuns com o ExpressRoute, o Gateway de VPN, o Gateway de Aplicativo, os Logs de Segurança da Rede, as Rotas, o DNS, o Balanceador de Carga e o Gerenciador de Tráfego.
-- **RBAC (controle de acesso baseado em função):** controle quem pode criar e gerenciar recursos de rede com o RBAC (controle de acesso baseado em função). Saiba mais sobre o RBAC lendo o artigo [Introdução ao RBAC](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json). 
+- **RBAC (controle de acesso baseado em função):** controle quem pode criar e gerenciar recursos de rede com o RBAC (controle de acesso baseado em função). Saiba mais sobre o RBAC lendo o artigo [Introdução ao RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
 - **Captura de pacote:** o serviço de Observador de Rede do Azure possibilita executar uma captura de pacote em uma VM por meio de uma extensão na VM. Essa funcionalidade está disponível para VMs Linux e Windows. Para saber mais sobre a captura de pacote, leia o artigo [Visão geral da captura de pacotes](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Verificar fluxos de IP:** o Observador de Rede permite verificar os fluxos de IP entre uma VM do Azure e um recurso remoto para determinar se os pacotes são permitidos ou negados. Essa funcionalidade possibilita que os administradores diagnostiquem rapidamente problemas de conectividade. Para saber mais sobre como verificar fluxos de IP, leia o artigo [Visão geral da verificação de fluxo de IP](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solucionar problemas de conectividade de VPN:** a capacidade de solução de problemas de VPN do Observador de Rede possibilita consultar uma conexão ou gateway e verificar a integridade dos recursos. Para saber mais sobre como solucionar problemas de conexões VPN, leia o artigo [Visão geral da solução de problemas de conectividade de VPN](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
@@ -156,7 +155,7 @@ O Azure fornece as seguintes ferramentas para monitorar e gerenciar a rede:
 
 ## <a name="pricing"></a>Preços
 
-Alguns dos serviços de rede do Azure têm um encargo, enquanto outros são gratuitos. Exiba as páginas com o preços da [Rede virtual](https://azure.microsoft.com/pricing/details/virtual-network), do [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), do [Gateway de Aplicativo](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), do [Balanceador de Carga](https://azure.microsoft.com/pricing/details/load-balancer), do [Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher), do [DNS](https://azure.microsoft.com/pricing/details/dns), do [Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) e do [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Alguns dos serviços de rede do Azure têm um encargo, enquanto outros são gratuitos. Exiba as páginas com o preços da [Rede virtual](https://azure.microsoft.com/pricing/details/virtual-network), do [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), do [Gateway de Aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/), do [Balanceador de Carga](https://azure.microsoft.com/pricing/details/load-balancer), do [Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher), do [DNS](https://azure.microsoft.com/pricing/details/dns), do [Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) e do [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="next-steps"></a>Próximas etapas
 

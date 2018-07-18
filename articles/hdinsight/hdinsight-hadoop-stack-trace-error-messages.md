@@ -1,6 +1,6 @@
 ---
-title: "Mensagens de erro de rastreamento de pilha do Hadoop – Azure HDInsight | Microsoft Docs"
-description: "Índice das mensagens de erro de rastreamento de pilha do Hadoop no Azure HDInsight. Localize o erro na lista para ver as informações de solução de problemas."
+title: Mensagens de erro de rastreamento de pilha do Hadoop – Azure HDInsight | Microsoft Docs
+description: Índice das mensagens de erro de rastreamento de pilha do Hadoop no Azure HDInsight. Localize o erro na lista para ver as informações de solução de problemas.
 keywords: rastreamento de pilha, mensagens de erro
 services: hdinsight
 documentationcenter: NA
@@ -11,16 +11,14 @@ ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 49a7629987df77da0844a65b265cde87473b4d0c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 7b0bb58dcf255ee14dd18de3a3ac7489ae0ed1de
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice do Hadoop em artigos de solução de problemas do HDInsight
 Os artigos são organizados por tipos de erro.

@@ -1,9 +1,9 @@
 ---
-title: "Ciência de dados usando o Scala e Spark no Azure | Microsoft Docs"
-description: "Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark."
+title: Ciência de dados usando o Scala e Spark no Azure | Microsoft Docs
+description: Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: deguhath
+ms.openlocfilehash: 8f8b252d8771dff23d0a8c89e057fc17ba321a65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
 Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](http://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
@@ -30,7 +30,7 @@ O processo de modelagem requer treinamento e avaliação em um conjunto de dados
 
 [Scala](http://www.scala-lang.org/), uma linguagem baseada na máquina virtual Java, integra conceitos de linguagem funcional e orientada a objetos. Trata-se de uma linguagem escalonável que é bastante adequada ao processamento distribuído na nuvem e executada em clusters Azure Spark.
 
-[Spark](http://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de gráfico e aprendizado de máquina. O pacote [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) fornece um conjunto uniforme de APIs de alto nível criadas com base em quadros de dados, que podem ajudar você a criar e ajustar pipelines práticos de aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark, que oferece recursos de modelagem para esse ambiente distribuído.
+[Spark](http://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de grafo e aprendizado de máquina. O pacote [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) fornece um conjunto uniforme de APIs de alto nível criadas com base em quadros de dados, que podem ajudar você a criar e ajustar pipelines práticos de aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark, que oferece recursos de modelagem para esse ambiente distribuído.
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta do Spark de software livre hospedada no Azure. Ele também inclui suporte para notebooks Scala do Jupyter no cluster Spark, e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar dados armazenados no armazenamento de Blobs do Azure. Os trechos de código Scala neste artigo que fornecem as soluções e mostram as gráficos relevantes para visualizar os dados executados em notebooks Jupyter instalados nos clusters Spark. As etapas de modelagem nestes tópicos contêm código que mostra como treinar, avaliar, salvar e consumir cada tipo de modelo.
 
@@ -41,7 +41,7 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
 

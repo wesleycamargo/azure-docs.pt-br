@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 04/09/2018
+ms.openlocfilehash: 2621b7fd7a72c4ac3c8cbe7b166a6504f316e3d5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envie eventos para um ambiente de Análise de Séries Temporais usando o hub de eventos
 Este artigo explica como criar e configurar o hub de eventos e executar um aplicativo de exemplo para eventos por push. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [Análise de Séries Temporais](https://insights.timeseries.azure.com).
@@ -48,6 +48,18 @@ Este artigo explica como criar e configurar o hub de eventos e executar um aplic
   ![Selecione Políticas de acesso compartilhado e clique no botão Adicionar](media/send-events/shared-access-policy.png)  
 
   ![Adicione uma política de acesso compartilhado](media/send-events/shared-access-policy-2.png)  
+
+## <a name="add-time-series-insights-reference-data-set"></a>Adicionar conjunto de dados de referência do Azure Time Series Insights 
+O uso de dados de referência no TSI contextualiza os dados de telemetria.  Esse contexto adiciona significado aos dados e torna mais fácil filtrar e agregar.  O TSI une dados de referência no tempo de ingresso e não pode unir retroativamente esses dados.  Portanto, é essencial adicionar dados de referência antes de adicionar uma origem do evento com dados.  Dados como localização ou tipo de sensor são dimensões úteis que você pode querer unir a uma ID de dispositivo/marca/sensor para tornar mais fácil fatiar e filtrar.  
+
+> [!IMPORTANT]
+> Ter um conjunto de dados de referência configurado é crítico ao fazer upload de dados históricos.
+
+Assegure-se de que você tenha dados de referência no local ao fazer upload em massa de dados históricos para o TSI.  Tenha em mente que o TSI iniciará imediatamente a leitura a partir de uma origem do evento ingressada, se essa origem do evento tiver dados.  É útil aguardar para ingressar em uma origem do evento para o TSI até que você tenha os dados de referência no local, especialmente se essa origem do evento contiver dados. Como alternativa, é possível aguardar para efetuar push de dados para essa origem do evento até que o conjunto de dados de referência esteja no local.
+
+Para gerenciar dados de referência, há a interface do usuário baseada na Web no Gerenciador do TSI e há uma API C# programática. O Gerenciador do TSI tem uma experiência visual do usuário para upload de arquivos ou colar conjuntos de dados de referência existentes como formato JSON ou CSV. Com a API, é possível criar um aplicativo personalizado quando necessário.
+
+Para obter mais informações sobre gerenciamento de dados de referência no Time Series Insights, consulte o [artigo de dados de referência](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Criar origem de evento de Análise de Séries Temporais
 1. Se você ainda não criou a origem do evento, siga [estas instruções](time-series-insights-how-to-add-an-event-source-eventhub.md) para criar uma origem de evento.
@@ -143,7 +155,7 @@ Um objeto JSON simples.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---1-event"></a>Saída - 1 evento
+#### <a name="output---one-event"></a>Saída - um evento
 
 |ID|timestamp|
 |--------|---------------|
@@ -165,7 +177,7 @@ Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido em um e
     }
 ]
 ```
-#### <a name="output---2-events"></a>Saída - 2 eventos
+#### <a name="output---two-events"></a>Saída - dois eventos
 
 |ID|timestamp|
 |--------|---------------|
@@ -176,7 +188,7 @@ Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido em um e
 
 #### <a name="input"></a>Entrada
 
-Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON.
+Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON:
 ```json
 {
     "location":"WestUs",
@@ -193,8 +205,8 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON.
 }
 
 ```
-#### <a name="output---2-events"></a>Saída - 2 eventos
-Observe que a propriedade "location" é copiada para cada evento.
+#### <a name="output---two-events"></a>Saída - dois eventos
+Observe que a propriedade "location" é copiada para cada um dos eventos.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -236,12 +248,14 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
     ]
 }
 ```
-#### <a name="output---2-events"></a>Saída - 2 eventos
+#### <a name="output---two-events"></a>Saída - dois eventos
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

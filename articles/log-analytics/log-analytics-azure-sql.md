@@ -1,24 +1,24 @@
 ---
-title: "Solução de Análise do Azure SQL no Log Analytics | Microsoft Docs"
-description: "A solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados do Azure SQL."
+title: Solução de Análise do Azure SQL no Log Analytics | Microsoft Docs
+description: A solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados do Azure SQL.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
@@ -87,10 +87,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Usando a solução
 
->[!NOTE]
-> Atualize seu espaço de trabalho do Log Analytics para obter a última versão da Análise de SQL do Azure.
->
-
 Quando você adiciona a solução ao espaço de trabalho, o bloco de Análise do Azure SQL é adicionado ao espaço de trabalho e aparece na Visão geral. O bloco mostra o número de bancos de dados do Azure SQL e pools elásticos do Azure SQL aos quais a solução está conectada.
 
 ![Bloco de Análise do SQL Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -140,9 +136,8 @@ Por meio das perspectivas de Duração da consulta e Espera da consulta, é poss
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Estas são algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
+Você pode [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) facilmente com os dados provenientes de recursos de Banco de Dados SQL do Azure. Estas são algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar com um alerta do log:
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *DTU alta no Banco de Dados SQL do Azure*
@@ -163,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Você pode usar essas consultas com base no alerta para alertar sobre limites específicos para o Banco de Dados SQL do Azure e pools elásticos. Para configurar um alerta para seu espaço de trabalho do Log Analytics:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Para configurar um alerta para seu espaço de trabalho
-
-1. Acesse o [portal do OMS](http://mms.microsoft.com/) e entre.
-2. Abra o espaço de trabalho que você configurou para a solução.
-3. Na página Visão geral, clique no bloco **Análise do Azure SQL (Visualização)**.
-4. Execute uma das consultas de exemplo.
-5. Na Pesquisa de Log, clique em **Alerta**.  
-![criar alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
-6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**. 
-![adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,26 +1,26 @@
 ---
-title: "Criar uma função executada segundo um agendamento no Azure | Microsoft Docs"
-description: "Saiba como criar uma função no Azure que é executada com base em uma agendamento definido por você."
+title: Criar uma função executada segundo um agendamento no Azure | Microsoft Docs
+description: Saiba como criar uma função no Azure que é executada com base em uma agendamento definido por você.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 9c961c06a01bba0b645088a19cd55e72a54396c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
 
@@ -33,8 +33,6 @@ Saiba como usar o Azure Functions para criar uma função [sem servidor](https:/
 Para concluir este tutorial:
 
 + Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Criar um Aplicativo de funções do Azure
 

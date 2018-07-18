@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -526,15 +526,15 @@ Informações de chave:
 
      Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-     Este URL aponta para o nome de host do Verizon CDN a seguir: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder**/index.htm
+     Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
 
     Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
-    - URL de CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    - URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
     - URL de CNAME de borda: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     Informações adicionais:
     - Domínio personalizado: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Informações de chave:
     Os valores a seguir estão disponíveis para a opção **Relativo a**:
      - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
 
-       Por exemplo: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
        Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Este URL aponta para o nome de host do Verizon CDN a seguir: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes de uma comparação de URL.
 
-   Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
-    - URL de CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
+    - URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     - URL de CNAME de borda: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Informações adicionais:
+    
+    Informações adicionais:
     
     - Caminho de URL path (relativo à raiz): /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Informações de chave:
 
 - Cadeias de caracteres de consulta na URL são ignoradas.
 - Use a opção **Ignorar maiúsculas** para controlar se uma comparação que diferencia maiúsculas de minúsculas será feita.
-- O valor especificado para essa condição de correspondência será comparado ao caminho relativo da solicitação exata feita pelo cliente.
+- O valor especificado para essa condição de correspondência é comparado ao caminho relativo da solicitação exata feita pelo cliente.
 
 - Para combinar todas as solicitações feitas a um diretório específico, use a condição de correspondência do [Diretório de caminho de URL](#url-path-directory) ou do [Curinga de caminho de URL](#url-path-wildcard).
 
@@ -681,13 +681,13 @@ A opção **Corresponde**/**Não corresponde** determina as condições sob as q
 Informações de chave:
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL. 
  
-   Por exemplo, ambas as URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
+    Por exemplo, ambas as URLs apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL.
 
-     - URL de CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
      - URL de CNAME de borda: http:\//my.domain.com/path/asset.htm
-
-   Informações adicionais:
+    
+    Informações adicionais:
     
      - Caminho de URL: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Informações de chave:
    Essa opção pode ter os seguintes valores:
      - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
 
-       Por exemplo: http:\//wpc.0001.&lt;Domain&gt;/**800001/myorigin/myfolder/index.htm**
+       Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
        Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Este URL aponta para o nome de host do Verizon CDN a seguir: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/**myfolder/index.htm**
+     Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
 
-   Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
-     - URL de CDN: http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
+     - URL da CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - URL de CNAME de borda: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Informações adicionais:
+    
+    Informações adicionais:
     
      - Caminho de URL path (relativo à raiz): /800001/CustomerOrigin/path/asset.htm
     
@@ -737,7 +737,7 @@ Informações de chave:
     
 - Especifique vários caminhos de URL delimitando cada um deles com um único espaço.
 
-   Por exemplo: /marketing/asset.\* /sales/\*.htm
+   Por exemplo: /marketing/asset.* /sales/*.htm
 
 - Cadeias de caracteres de consulta na URL são ignoradas.
     
@@ -757,7 +757,7 @@ Valor                   | Relativo a    | Result
 /80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
 */css/* */js/*          | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda que contenham uma pasta css ou js.
 *.jpg *.gif *.png       | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda terminando com .jpg, .gif, ou .png. Uma maneira alternativa de especificar esse padrão é com a [condição de correspondência de Extensão de Caminho de URL](#url-path-extension).
-/images/\* /media/\*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL CDN: http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Informações de chave:
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 O exemplo a seguir demonstra como essa opção funciona em situações específicas:
 
-NOME      | Valor |  Result
-----------|-------|--------
-Usuário      | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
-Usuário      | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
-E-mail Joe | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de E-mail que começa com “Joe”.
+NOME  | Valor |  Result
+------|-------|--------
+Usuário  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
+Usuário  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
+Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de E-mail que começa com “Joe”.
 
 [Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Informações de chave:
    Valor | Interpretado como 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Devido à maneira como as configurações de cache são acompanhadas, essa condição de correspondência é incompatível com os recursos a seguir:
    - Concluir o Preenchimento do Cache

@@ -1,11 +1,12 @@
 ---
-title: "Códigos de erro da API REST do Azure Machine Learning | Microsoft Docs"
-description: "Esses códigos de erro podem ser retornados por uma operação em um serviço Web do Machine Learning do Azure."
-keywords: 
+title: Códigos de erro da API REST do Azure Machine Learning | Microsoft Docs
+description: Esses códigos de erro podem ser retornados por uma operação em um serviço Web do Machine Learning do Azure.
+keywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.author: garye
-ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Códigos de Erro da API REST do Machine Learning
  
@@ -117,8 +117,8 @@ Pacote de serviço Web inválido. Verifique se o pacote do serviço Web fornecid
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|
 | FormatError | O pacote do serviço Web está malformado. Detalhes: {0} |
-| RuntimesError | O gráfico do pacote do serviço Web é inválido. Detalhes: {0} |
-| ValidationError | O gráfico do pacote do serviço Web é inválido. Detalhes: {0} |
+| RuntimesError | O grafo do pacote do serviço Web é inválido. Detalhes: {0} |
+| ValidationError | O grafo do pacote do serviço Web é inválido. Detalhes: {0} |
  
 ## <a name="unauthorized-http-status-code-401"></a>Não autorizado (código de status HTTP 401)
  
@@ -225,7 +225,7 @@ Pacote de serviço Web inválido. Verifique se o pacote Web fornecido está corr
  
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|
-| ModuleError | O gráfico do pacote do serviço Web é inválido. Detalhes: {0} |
+| ModuleError | O grafo do pacote do serviço Web é inválido. Detalhes: {0} |
  
 ## <a name="initializingcontainers-http-status-code-503"></a>InitializingContainers (código de status HTTP 503)
  

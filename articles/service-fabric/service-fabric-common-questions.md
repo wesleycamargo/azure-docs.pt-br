@@ -5,26 +5,32 @@ services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a40432aa1d9a466706b4a3ebbcbd56cd8e5b768e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
 Há muitas perguntas frequentes sobre o que o Service Fabric pode fazer e como ele deve ser usado. Este documento aborda muitas dessas perguntas comuns e suas respostas.
 
 ## <a name="cluster-setup-and-management"></a>Gerenciamento e instalação de cluster
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Como eu reverto meu certificado do cluster do Service Fabric?
+
+Reverter qualquer atualização para o seu aplicativo requer detecção de falha de integridade antes da confirmação de alteração do quórum do cluster do Service Fabric; as alterações confirmadas somente podem passar por roll forward. Engenheiros de escalação nos Serviços de Atendimento ao Cliente podem ser solicitados a recuperar seu cluster, se uma alteração de certificado interrompido não monitorado tiver sido introduzido.  A [Atualização do aplicativo do Service Fabric](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parâmetros de atualização de aplicativo](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e não oferece promessa de atualização de tempo de inatividade.  Seguindo o nosso modo monitorado de atualização de aplicativo recomendado, o andamento automática através de domínios de atualização se baseia nas verificações de integridade sem interrupção, revertendo automaticamente se a atualização de um serviço padrão falhar.
+ 
+Se o cluster ainda está utilizando a propriedade clássica de impressão digital do certificado em seu modelo do Gerenciador de Recursos, é recomendado que você [Altere o cluster de impressão digital do certificado para o nome comum](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para aproveitar os modernos recursos de gerenciamento de segredos.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>É possível criar um cluster que abranja várias regiões do Azure ou meus próprios data centers?
 
@@ -89,17 +95,29 @@ Embora estejamos trabalhando em uma experiência aprimorada, no momento você é
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso criptografar discos de dados anexados em um tipo de nó de cluster (conjunto de dimensionamento de máquinas virtuais)?
 Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Criptografar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [Criptografar discos (CLI) ](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## <a name="container-support"></a>Suporte a contêiner
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso excluir ao executar um programa antivírus no meu cluster?
 
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Por que meus contêineres que estão implantados no SF não podem resolver endereços DNS?
+| **Diretórios de Antivírus excluídos** |
+| --- |
+| Program Files\Microsoft Service Fabric |
+| FabricDataRoot (da configuração de cluster) |
+| FabricLogRoot (da configuração de cluster) |
 
-Esse problema foi relatado em clusters que estão na versão 5.6.204.9494 
-
-**Mitigação**: siga [este documento](service-fabric-dnsservice.md) para habilitar o serviço Service Fabric de DNS no cluster.
-
-**Correção**: atualize para uma versão de cluster com suporte que seja superior à 5.6.204.9494, quando ela estiver disponível. Se o cluster estiver configurado para atualizações automáticas, o cluster atualizará automaticamente para a versão que tem esse problema corrigido.
-
-  
+| **Processos do antivírus excluídos** |
+| --- |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
+ 
 ## <a name="application-design"></a>Design do aplicativo
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Qual a melhor maneira de consultar dados ao longo das partições de uma Coleção Confiável?
@@ -146,9 +164,11 @@ Os contêineres oferecem uma maneira simples de empacotar serviços e suas depen
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Vocês pretendem abrir o código do Service Fabric?
 
-Pretendemos abrir o código das estruturas dos Reliable Services e dos Reliable Actors no GitHub, e aceitamos contribuições da comunidade para esses projetos. Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes à medida que eles forem anunciados.
+Temos partes de código aberto do Service Fabric ([estrutura de serviços confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [estrutura de atores confiáveis](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [bibliotecas de integração do ASP.NET Core](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer) e [CLI do Service Fabric](https://github.com/Azure/service-fabric-cli)) no GitHub e aceitamos contribuições da comunidade para esses projetos. 
 
-Atualmente, não há planos para abrir o código do tempo de execução do Service Fabric.
+Nós [anunciamos recentemente](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) que estamos planejando tornar o código-fonte aberto do tempo de execução do Service Fabric. No momento, estamos com o [repositório do Service Fabric](https://github.com/Microsoft/service-fabric/) no GitHub com build do Linux e ferramentas de teste, o que significa que você pode clonar o repositório, criar o Service Fabric para Linux, executar testes básicos, indicar problemas e enviar solicitações de pull. Estamos trabalhando duro para migrar o ambiente de build do Windows junto com um ambiente completo de CI.
+
+Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes à medida que eles forem anunciados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

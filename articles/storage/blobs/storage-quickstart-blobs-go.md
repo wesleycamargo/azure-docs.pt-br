@@ -1,19 +1,19 @@
 ---
-title: "Início rápido do Azure - Carregar, baixar e listar blobs no Armazenamento do Azure usando Go | Microsoft Docs"
-description: "Neste guia de início rápido, você criará uma conta de armazenamento e um contêiner. Em seguida, você deve usar a biblioteca de clientes de armazenamento para Go a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner."
+title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o Go | Microsoft Docs
+description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Go a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: seguler
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar blobs usando Go
 
@@ -39,6 +39,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ```
 
 Este comando clona o repositório para sua pasta do git local. Para abrir o exemplo do Go para armazenamento de Blob, procure o arquivo storage-quickstart.go.  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 Essa solução requer que o nome e a chave da conta de armazenamento sejam armazenados com segurança em variáveis de ambiente locais no computador que está executando o exemplo. Siga um dos exemplos abaixo, dependendo do seu sistema operacional para criar as variáveis de ambiente.
@@ -150,7 +152,7 @@ file, err := os.Open(fileName)
 handleErrors(err)
 
 // You can use the low-level PutBlob API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
-// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
+// Note that PutBlob can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/rest/api/storageservices/put-blob
 // Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
 // _, err = blobURL.PutBlob(ctx, file, azblob.BlobHTTPHeaders{}, azblob.Metadata{}, azblob.BlobAccessConditions{})
 // handleErrors(err)
@@ -211,6 +213,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## <a name="resources-for-developing-go-applications-with-blobs"></a>Recursos para desenvolvimento de aplicativos Go com blobs
+
+Consulte estes recursos adicionais para o desenvolvimento de Go com armazenamento de Blobs:
+
+- Exiba e instale o [código-fonte da biblioteca de clientes Go](https://github.com/Azure/azure-storage-blob-go) para o Armazenamento do Azure no GitHub.
+- Explore [exemplos de armazenamento de Blobs](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) gravados usando a biblioteca de clientes Go.
 
 ## <a name="next-steps"></a>Próximas etapas
  

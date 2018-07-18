@@ -1,13 +1,13 @@
 ---
-title: "Automatizar a implantação de recursos para um aplicativo de funções do Azure Functions | Microsoft Docs"
-description: "Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo de funções."
+title: Automatizar a implantação de recursos para um aplicativo de funções do Azure Functions | Microsoft Docs
+description: Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo de funções.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funções, arquitetura sem servidores, infraestrutura como código, azure resource manager"
+editor: ''
+tags: ''
+keywords: azure functions, funções, arquitetura sem servidores, infraestrutura como código, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -56,7 +56,9 @@ Uma conta de armazenamento do Azure é necessária para um aplicativo de funçõ
 }
 ```
 
-Além disso, as propriedades `AzureWebJobsStorage` e `AzureWebJobsDashboard` devem ser especificadas como configurações de aplicativo na configuração do site. O tempo de execução do Azure Functions usa a cadeia de conexão `AzureWebJobsStorage` para criar filas internas. A cadeia de conexão `AzureWebJobsDashboard` é usada para fazer logon no armazenamento de Tabelas do Azure e alimentar a guia **Monitorar** no portal.
+Além disso, a propriedade `AzureWebJobsStorage` deve ser especificada como uma configuração de aplicativo na configuração do site. Se o aplicativo de função não usar o Application Insights para monitoramento, também deverá especificar `AzureWebJobsDashboard` como uma configuração de aplicativo.
+
+O tempo de execução do Azure Functions usa a cadeia de conexão `AzureWebJobsStorage` para criar filas internas.  Quando o Application Insights não estiver habilitado, o tempo de execução usará a cadeia de conexão `AzureWebJobsDashboard` para fazer logon no armazenamento de Tabela do Azure e capacitar a guia **Monitor** no portal.
 
 Essas propriedades são especificadas na coleção `appSettings` no objeto `siteConfig`:
 
@@ -260,7 +262,7 @@ Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure

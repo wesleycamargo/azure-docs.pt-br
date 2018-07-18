@@ -2,22 +2,23 @@
 title: Copiar dados de/para um sistema de arquivos usando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados do sistema de arquivos para armazenamentos de dados de coletor (ou) de armazenamentos de dados de origem com suporte para o sistema de arquivos usando o Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2484ed3f1a03fe0cc20fe5b818ff8a9d73804c69
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011162"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +66,11 @@ As propriedades a seguir têm suporte no serviço vinculado do sistema de arquiv
 
 | Cenário | "host" em definição de serviço vinculado | "folderPath" em definição de conjunto de dados |
 |:--- |:--- |:--- |
-| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\* |D:\\\\ |.\\\\ ou pasta\\\\subpasta |
-| Pasta compartilhada remota:  <br/><br/>Exemplos: \\\\meuservidor\\compartilhar\\\* ou \\\\meuservidor\\compartilhar\\pasta\\subpasta\\* |\\\\\\\\meuservidor\\\\compartilhar |.\\\\ ou pasta\\\\subpasta |
+| Pasta local no computador do Integration Runtime: <br/><br/>Exemplos: D:\\\* ou D:\pasta\subpasta\\\* |Em JSON: `D:\\`<br/>Na interface do usuário: `D:\` |Em JSON: `.\\` ou `folder\\subfolder`<br>Na interface do usuário: `.\` ou `folder\subfolder` |
+| Pasta compartilhada remota:  <br/><br/>Exemplos: \\\\meuservidor\\compartilhar\\\* ou \\\\meuservidor\\compartilhar\\pasta\\subpasta\\\* |Em JSON: `\\\\myserver\\share`<br/>Na interface do usuário: `\\myserver\share` |Em JSON: `.\\` ou `folder\\subfolder`<br/>Na interface do usuário: `.\` ou `folder\subfolder` |
+
+>[!NOTE]
+>Durante a criação via interface do usuário, não é necessário inserir barras invertidas duplas (`\\`) para escape, como é feito via JSON, especifique a barra invertida simples.
 
 **Exemplo:**
 
@@ -100,12 +104,16 @@ Para copiar dados do/para o sistema de arquivos, defina a propriedade type do co
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |sim |
-| folderPath | Caminho para a pasta. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos. |sim |
-| fileName | Especifique o nome do arquivo no **folderPath** se você quiser copiar de/para um arquivo específico. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta como fontes e gerará automaticamente o nome de arquivo.<br/><br/>**Geração automática de fileName para o coletor:** quando o fileName não for especificado para um conjunto de dados de saída e a **preserveHierarchy** não for especificada no coletor de atividade, a atividade de cópia gerará o nome do arquivo com o seguinte padrão: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. Por exemplo: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- ou `[Table name].[format].[compression if configured]` para fonte relacional quando a consulta não for especificada. Por exemplo: MySourceTable.orc. |Não  |
-| fileFilter | Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. Aplica-se somente quando o fileName não é especificado. <br/><br/>Os curingas permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/>– Exemplo 1: `"fileFilter": "*.log"`<br/>– Exemplo 2: `"fileFilter": 2017-09-??.txt"` |Não  |
+| folderPath | Caminho para a pasta. O filtro curinga não é suportado. Confira [Definições de conjunto de dados e serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) para obter exemplos. |sim |
+| fileName | **Filtro de nome ou curinga** para os arquivos em "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Os curingas permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não é especificado para um dataset de saída e **preserveHierarchy** ão é especificado no coletor de atividade, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte formato: "*Data. [Activity run id GUID]. [GUID se FlattenHierarchy]. [Formato se configurado]. [Compressão se configurado]*". Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar ou gerar arquivos com um formato específico, haverá suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
 
+>[!TIP]
+>Para copiar todos os arquivos em uma pasta, especifique **folderPath** somente.<br>Para copiar um único arquivo com um determinado nome, especifique **folderPath** com parte da pasta e **fileName** com nome de arquivo.<br>Para copiar um subconjunto de arquivos em uma pasta, especifique **folderPath** com parte da pasta e **fileName** com filtro curinga.
+
+>[!NOTE]
+>Se você estivesse usando a propriedade "fileFilter" para o filtro de arquivo, ele ainda tem suporte como-é, enquanto são sugeridos para usar o novo recurso de filtro adicionado ao "fileName" no futuro.
 
 **Exemplo:**
 

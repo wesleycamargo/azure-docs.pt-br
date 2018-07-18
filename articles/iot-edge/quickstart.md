@@ -1,19 +1,20 @@
 ---
-title: "Início rápido ao Azure IoT Edge + Windows | Microsoft Docs"
-description: "Experimente o Azure IoT Edge executando a análise em um dispositivo de borda simulado"
+title: Início rápido ao Azure IoT Edge + Windows | Microsoft Docs
+description: Experimente o Azure IoT Edge executando a análise em um dispositivo de borda simulado
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166209"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge do Portal do Azure para um dispositivo Windows – versão prévia
 
@@ -29,7 +30,7 @@ Este tutorial pressupõe que você esteja usando um computador ou uma máquina v
    * Windows 10 
    * Windows Server
 2. Instale o [Docker para Windows][lnk-docker] e verifique se ele está em execução.
-3. Instale o [Python 2.7 no Windows][lnk-python] e verifique se você pode usar o comando Pip.
+3. Instale o [Python no Windows][lnk-python] e verifique se você pode usar o comando pip. Este início rápido foi testado com o Python versões >=2.7.9 e >=3.5.4.  
 4. Execute o comando a seguir para baixar o script de controle do IoT Edge.
 
    ```cmd
@@ -79,7 +80,7 @@ O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edg
 Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Inicie o tempo de execução.

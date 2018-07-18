@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerenciar instâncias nas Funções Duráveis (Azure Functions)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Para as linguagens diferentes de .NET, a associação de saída da função também pode ser usada para iniciar novas instâncias. Nesse caso, qualquer objeto serializável em JSON que tem os três parâmetros acima como campos pode ser usado. Por exemplo, considere a seguinte função Node.js:
+Para as linguagens diferentes de .NET, a associação de saída da função também pode ser usada para iniciar novas instâncias. Nesse caso, qualquer objeto serializável em JSON que tem os três parâmetros acima como campos pode ser usado. Por exemplo, considere a seguinte função JavaScript:
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ O método [GetStatusAsync](https://azure.github.io/azure-functions-durable-exten
 * **CreatedTime**: a hora em que a função de orquestrador começou a ser executada.
 * **LastUpdatedTime**: a hora em que a orquestração passou por uma verificação pontual pela última vez.
 * **Input**: a entrada da função como um valor JSON.
+* **CustomStatus**: status de orquestração personalizado no formato JSON. 
 * **Output**: a saída da função como um valor JSON (se a função tiver sido concluída). Se a função de orquestrador tiver falhado, essa propriedade incluirá os detalhes da falha. Se a função de orquestrador tiver sido encerrada, essa propriedade incluirá o motivo fornecido para o encerramento (se houver).
 * **RuntimeStatus**: um dos seguintes valores:
     * **Running**: a instância começou a ser executada.
@@ -99,12 +100,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Atualmente, a consulta de instância só tem suporte para funções de orquestrador em C#.
-
 ## <a name="terminating-instances"></a>Encerrar instâncias
 
-Uma instância em execução pode ser encerrada usando o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Os dois parâmetros são um `instanceId` e uma cadeia de caracteres `reason`, que serão gravados em logs no status da instância. Uma instância encerrada deixará de ser executada assim que atingir o próximo ponto `await` ou será encerrada imediatamente se já estiver em um `await`.
+Uma instância de orquestração em execução pode ser encerrada usando o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) da classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Os dois parâmetros são um `instanceId` e uma cadeia de caracteres `reason`, que serão gravados em logs no status da instância. Uma instância encerrada deixará de ser executada assim que atingir o próximo ponto `await` ou será encerrada imediatamente se já estiver em um `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -118,7 +116,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Atualmente, o encerramento de instância só tem suporte para funções de orquestrador em C#.
+> O encerramento de instância não propaga no momento. As funções de atividade e as suborquestrações serão executadas por completo, independentemente de a instância de orquestração que as chamou ter sido encerrada.
 
 ## <a name="sending-events-to-instances"></a>Enviar eventos para instâncias
 
@@ -142,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Atualmente, a criação de eventos só tem suporte para funções de orquestrador em C#.
 
 > [!WARNING]
 > Se não houver nenhuma instância de orquestração com a *ID de instância* especificada ou se a instância não estiver aguardando o *nome do evento* especificado, a mensagem de evento será descartada. Para obter mais informações sobre esse comportamento, consulte o [Problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

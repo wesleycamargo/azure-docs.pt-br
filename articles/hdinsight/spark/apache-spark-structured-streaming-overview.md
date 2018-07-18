@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: aa56c1e2f1f506be51f449a1cf10b4f0bc57a152
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f3eccfb63b127f3cbb8f9d95ec2fa802861d8c9d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Visão geral do Spark Structured Streaming
 
@@ -146,6 +144,6 @@ O status de todos os aplicativos também pode ser verificado com uma solicitaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um cluster do Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
+* [Criar um cluster Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de Programação do Spark Structured Streaming](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Iniciar trabalhos do Spark remotamente com LIVY](apache-spark-livy-rest-interface.md)

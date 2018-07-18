@@ -1,26 +1,24 @@
 ---
 title: Gerenciar logs para um cluster HDInsight - HDInsight do Azure | Microsoft Docs
-description: "Determine os tipos, tamanhos e as políticas de retenção para arquivos de log de atividade de HDInsight."
+description: Determine os tipos, tamanhos e as políticas de retenção para arquivos de log de atividade de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -107,17 +105,6 @@ A próxima etapa é examinar os arquivos de log de execução do trabalho para o
 O HDInsight armazena seus arquivos de log no sistema de arquivos de cluster e no armazenamento do Azure. Você pode examinar os arquivos de log no cluster abrindo uma conexão SSH para o cluster ou navegando no sistema de arquivos, ou usando o portal de Status YARN do Hadoop no servidor remoto de nó principal. Você pode examinar os arquivos de log no armazenamento do Azure usando as ferramentas que podem acessar e fazer o download dos dados do armazenamento do Azure. Os exemplos são AZCopy, CloudXplorer e o Visual Studio Server Explorer. Você também pode usar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs do .NET do Azure, para acessar dados no Armazenamento de Blobs do Azure.
 
 O Hadoop executa o trabalho das tarefas como *tentativas de tarefas* em vários nós no cluster. O HDInsight pode iniciar as tentativas de tarefas especulativas, encerrando outras tentativas de tarefa que não são concluídas primeiro. Isso gera atividade significativa que é registrada para o controlador, stderr e arquivos syslog log em interrupções. Além disso, várias tentativas de tarefa estão em execução simultaneamente, mas um arquivo de log só pode exibir os resultados linearmente.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Logs do HDInsight gravados em tabelas do Azure
-
-Os logs gravados em tabelas do Azure fornecem informações sobre o que está acontecendo com um cluster HDInsight. Quando você cria um cluster HDInsight baseado em Linux, seis tabelas são criadas automaticamente no armazenamento de tabelas padrão:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Os logs do HDInsight gravados no Armazenamento de Blobs do Azure
 

@@ -3,22 +3,19 @@ title: 'Microsoft Azure Active Directory B2C: migrar usuários com identidades s
 description: Descreve os principais conceitos sobre a migração de usuários com identidades sociais para o Microsoft Azure Active Directory B2C utilizando uma API do Graph
 services: active-directory-b2c
 documentationcenter: ''
-author: yoelhor
-manager: joroja
+author: davidmu
+manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
-ms.date: 14/03/2018
-ms.author: yoelh
-ms.openlocfilehash: b82805f1c5d83c4d4a11c4b88fd6771c0b85f0f4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/03/2018
+ms.author: davidmu
+ms.openlocfilehash: a150d8255171c83334ac4c1f81cbcee39c1df70a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Microsoft Azure Active Directory B2C: migrar usuários com identidades sociais
 Quando você planeja migrar seu provedor de identidade para o Microsoft Azure AD B2C, talvez seja necessário migrar usuários com identidades sociais. Este artigo explica como migrar contas de identidades sociais existentes, como: Facebook, LinkedIn, Microsoft e Contas do Google para o Microsoft Azure AD B2C. Este artigo também aplica-se a identidades federadas, no entanto, essas migrações são menos comuns.
@@ -46,10 +43,10 @@ Este artigo é uma continuação do artigo de migração de usuário e concentra
     ]
     ```
 
-* Dependendo do provedor de identidade, a **ID do usuário social** é um valor exclusivo para um determinado usuário `per application` ou uma conta de desenvolvimento. Configure a política do Microsoft Azure Active Directory B2C com a mesma ID de aplicativo anteriormente atribuída pelo provedor social. Ou outro aplicativo `within the same development account`.
+* Dependendo do provedor de identidade, a **ID do usuário social** é um valor exclusivo para um determinado usuário por aplicativo ou uma conta de desenvolvimento. Configure a política do Microsoft Azure Active Directory B2C com a mesma ID de aplicativo anteriormente atribuída pelo provedor social. Ou outro aplicativo dentro da mesma conta de desenvolvimento.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Utilizar API do Graph para migrar usuários
-Você cria a conta de usuário do Microsoft Azure Active Directory B2C por meio da [API do Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para se comunicar com a API do Graph, primeiro, você precisa ter uma conta de serviço com privilégios administrativos. No Azure AD, você registra um aplicativo e a autenticação para o Azure AD. As credenciais do aplicativo são ID do Aplicativo e Segredo do Aplicativo. O aplicativo atua em nome próprio e não como usuário, para chamar a API do Graph. Siga as instruções na etapa 1 do artigo [Migração de usuário](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users).
+Você cria a conta de usuário do Microsoft Azure Active Directory B2C por meio da [API do Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para se comunicar com a API do Graph, primeiro, você precisa ter uma conta de serviço com privilégios administrativos. No Azure AD, você registra um aplicativo e a autenticação para o Azure AD. As credenciais do aplicativo são ID do Aplicativo e Segredo do Aplicativo. O aplicativo atua em nome próprio e não como usuário, para chamar a API do Graph. Siga as instruções na etapa 1 do artigo [Migração de usuário](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users).
 
 ## <a name="required-properties"></a>Propriedades obrigatórias
 A lista a seguir mostra as propriedades que são obrigatórias ao criar um usuário.

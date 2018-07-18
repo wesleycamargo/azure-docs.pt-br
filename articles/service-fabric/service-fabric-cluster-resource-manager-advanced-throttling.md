@@ -1,24 +1,24 @@
 ---
-title: "Limitação no Resource Manager de Cluster do Service Fabric | Microsoft Docs"
+title: Limitação no Resource Manager de Cluster do Service Fabric | Microsoft Docs
 description: Aprenda a configurar os limitadores fornecidos pelo Resource Manager de Cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Restringindo o Gerenciador de Recursos de Cluster do Service Fabric
 Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver falhas simultâneas no domínio de falha e no nó – o que aconteceria se isso ocorresse durante um upgrade? O Gerenciador de Recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster ao tentar reorganizar e corrigir o cluster. As restrições ajudam a construir uma barreira para que o cluster possa usar recursos para se estabilizar — os nós voltam, as partições de rede são corrigidas, os bits corrigidos são implantados.

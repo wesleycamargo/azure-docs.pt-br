@@ -1,25 +1,25 @@
 ---
-title: "Personalizar a página de entrada do locatário do Azure Active Directory | Microsoft Docs"
-description: "Saiba como adicionar uma identidade visual à página de entrada do Azure"
+title: Personalizar a página de entrada do locatário do Azure Active Directory | Microsoft Docs
+description: Saiba como adicionar uma identidade visual à página de entrada do Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764437"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Início rápido: adicionar identidade visual da empresa à sua página de entrada no Azure AD
 Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure AD (Azure Active Directory) fornece esse recurso permitindo que você personalize a aparência da página de entrada com esquemas de cores personalizados e o logotipo da empresa. A página de entrada é exibida quando você se conecta a aplicativos baseados na Web, como o Office 365, que usam o Azure AD como o provedor de identidade. Você interage com essa página para inserir suas credenciais.

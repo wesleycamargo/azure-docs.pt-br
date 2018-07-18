@@ -3,7 +3,7 @@ title: Criar um Hub IoT usando a CLI do Azure (azure.js) | Microsoft Docs
 description: Como criar um Hub IoT do Azure usando a CLI do Azure de plataforma cruzada (azure.js).
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um Hub IoT usando a CLI do Azure
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**. O nome do grupo de recursos. O formato é alfanumérico, não diferencia maiúsculas de minúsculas, é sublinhado, com hífen e um comprimento de 1 a 64.
 * **name**. O nome do Hub IoT a ser criado. O formato é alfanumérico, não diferencia maiúsculas de minúsculas, com hífen e um comprimento de 3 a 50.
 * **location**. O local (região/datacenter do Azure) para provisionar o hub IoT.
-* **sku-name**. O nome do sku, sendo um destes: [F1, S1, S2, S3]. Para obter a lista completa mais recente, consulte a página de preços do Hub IoT.
-* **units**. O número de unidades provisionadas. Intervalo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Unidades do Hub IoT têm base na contagem total de mensagens e no número de dispositivos que você deseja conectar.
+* **sku-name**. O nome do sku, sendo um destes: [F1, S1, S2, S3]. Para obter detalhes sobre cada SKU, consulte [Preços do Hub IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). Atualmente, as camadas Básicas estão disponíveis somente pelo portal. 
+* **units**. O número de unidades provisionadas. Para detalhes sobre os limites da unidade, consulte [Preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

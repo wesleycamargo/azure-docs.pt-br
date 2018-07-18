@@ -24,7 +24,7 @@
 ###[Implantar modelos usando a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Segurança (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Use as atribuições de função para gerenciar recursos](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Use as atribuições de função para gerenciar recursos](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Máquinas virtuais](azure-operations-guide.md#azure-virtual-machines)
 ### [Tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -91,7 +91,7 @@
 ### [Criar uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Criar uma rede virtual usando o Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriais de rede virtual
 #### [VMs de balanceamento de carga](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Conectar computador a uma rede virtual](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

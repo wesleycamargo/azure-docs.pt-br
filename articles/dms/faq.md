@@ -1,21 +1,21 @@
 ---
-title: "Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure | Microsoft Docs"
-description: "Saiba mais sobre as perguntas frequentes sobre o uso do Serviço de Migração de Banco de Dados do Azure para executar migrações de banco de dados."
+title: Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure | Microsoft Docs
+description: Saiba mais sobre as perguntas frequentes sobre o uso do Serviço de Migração de Banco de Dados do Azure para executar migrações de banco de dados.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Perguntas Frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure
 Este artigo lista as perguntas frequentes sobre como usar o Serviço de Migração de Banco de Dados do Azure junto com as respostas relacionadas.
@@ -48,11 +48,11 @@ Durante uma migração de banco de dados típica e simples, você:
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>P. Quais são os pré-requisitos para usar o Serviço de Migração de Banco de Dados do Azure?
 Existem vários pré-requisitos necessários para garantir que o Serviço de Migração de Banco de Dados do Azure funcione sem problemas ao executar migrações de bancos de dados. Alguns dos pré-requisitos se aplicam em todos os cenários (pares de origem e destino) com suporte do serviço, enquanto outros pré-requisitos são exclusivos para um cenário específico.
 Os pré-requisitos do Serviço de Migração de Banco de Dados do Azure que são comuns a todos os cenários de migração compatíveis incluem a necessidade de:
-- Criar um VNET para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Verifique se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Criar um VNET para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Verifique se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
  
-Para obter uma lista de todos os pré-requisitos necessários para competir com cenários de migração específicos usando o Serviço de Migração de Banco de Dados do Azure, consulte os tutoriais relacionados na [documentação](https://docs.microsoft.com/en-us/azure/dms/dms-overview) do Serviço de Migração de Banco de Dados do Azure em docs.microsoft.com.
+Para obter uma lista de todos os pré-requisitos necessários para competir com cenários de migração específicos usando o Serviço de Migração de Banco de Dados do Azure, consulte os tutoriais relacionados na [documentação](https://docs.microsoft.com/azure/dms/dms-overview) do Serviço de Migração de Banco de Dados do Azure em docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>P. Como localizar o endereço IP para o Serviço de Migração de Banco de Dados do Azure para que seja possível criar uma lista de permissões para as regras de firewall usadas para acessar meu banco de dados de origem para migração?
 Talvez seja necessário adicionar regras de firewall permitindo que o Serviço de Migração de Banco de Dados do Azure acesse o banco de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se você estiver usando Rota Expressa, esse endereço em particular é atribuído pela sua rede corporativa. A maneira mais fácil de identificar o endereço IP apropriado é pesquisar no mesmo grupo de recursos fornecido para o recurso de Serviço de Migração de Banco de Dados do Azure para localizar a Interface de Rede associada. Nornalmente, o nome do recurso de Interface de Rede começa com o prefixo NIC e é seguido por um caractere exclusivo e uma sequência numérica, por exemplo NIC-jj6tnztnmarpsskr82rbndyp. Ao selecionar esse recurso de interface de rede, você pode ver o endereço IP que deve ser incluído na lista de permissões na página do portal do Azure para visão de geral de recursos.
@@ -80,7 +80,7 @@ Você pode fazer algumas coisas para acelerar a sua migração de banco de dados
 - Temporariamente, escale verticalmente a sua instância de destino de banco de dados SQL do Azure para o SKU da camada Premium durante a operação de migração de dados para minimizar a limitação do banco de dados SQL do Azure que pode afetar as atividades de transferência de dados ao usar SKUs de nível inferior.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>P. Como configurar uma Rede Virtual do Azure?
-Embora existam vários tutoriais da Microsoft que podem orientar você durante o processo de configuração de uma VNET do Azure, a documentação oficial aparece no artigo [Rede Virtual do Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Embora existam vários tutoriais da Microsoft que podem orientar você durante o processo de configuração de uma VNET do Azure, a documentação oficial aparece no artigo [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>P. Por que meu Serviço de Migração de Banco de Dados do Azure está indisponível ou parado?
 Se o usuário explicitamente parar o Serviço de Migração de Banco de Dados do Azure (DMS) ou se o serviço ficar inativo por um período de 24 horas, o serviço será interrompido ou estará em estada de pausa automático. Em cada caso, o serviço estará indisponível e em status parado.  Para retomar as migrações ativas, reinicie o serviço.

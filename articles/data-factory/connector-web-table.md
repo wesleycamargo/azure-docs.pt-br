@@ -1,23 +1,24 @@
 ---
 title: Copiar dados da tabela da Web usando o Azure Data Factory | Microsoft Docs
-description: "Saiba mais sobre o conector de tabela da Web do Azure Data Factory permite que você copie dados de uma tabela da Web para os armazenamentos de dados com suporte pelo Data Factory como coletores."
+description: Saiba mais sobre o conector de tabela da Web do Azure Data Factory permite que você copie dados de uma tabela da Web para os armazenamentos de dados com suporte pelo Data Factory como coletores.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2bc47c8963630351d3097938bc7f3d65116d9e4b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205407"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +80,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre conjuntos de dados. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados da tabela da Web.
 
-Para copiar dados da tabela da Web, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
+Para copiar dados da tabela web, defina a propriedade type do conjunto de dados como **WebTable**. Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
@@ -94,7 +95,10 @@ Para copiar dados da tabela da Web, defina a propriedade type do conjunto de dad
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
@@ -144,11 +148,13 @@ Para copiar dados da tabela da Web, defina o tipo de origem na atividade de cóp
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Obter índice de uma tabela em uma página HTML
 
+Para obter o índice de uma tabela que você precisa configurar em [propriedades do conjunto de dados](#dataset-properties) é possível usar, por exemplo, Excel 2016 como a ferramenta conforme a seguir:
+
 1. Inicie o **Excel 2016** e alterne para a guia **Dados**.
 2. Clique em **Nova Consulta** na barra de ferramentas, aponte para **De Outras Fontes** e clique em **Da Web**.
 
     ![Menu do Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
+3. Na caixa de diálogo **Da Web**, insira a **URL** que você usaria no JSON de serviço vinculado (por exemplo: https://en.wikipedia.org/wiki/)) juntamente com o caminho que você especificaria para o conjunto de dados (por exemplo: AFI 27s_100_Years de %... 100_Movies) e clique em **OK**.
 
     ![Do diálogo da Web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 

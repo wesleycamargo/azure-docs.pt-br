@@ -1,24 +1,20 @@
 ---
-title: Perguntas frequentes sobre o Gateway de Aplicativo do Azure | Microsoft Docs
-description: "Esta página fornece respostas às perguntas frequentes sobre o Gateway de Aplicativo do Azure"
-documentationcenter: na
+title: Perguntas frequentes sobre o Gateway de Aplicativo do Azure
+description: Esta página fornece respostas às perguntas frequentes sobre o Gateway de Aplicativo do Azure
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355830"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -38,7 +34,19 @@ O Gateway de Aplicativo é um balanceador de carga de camada 7, o que significa 
 
 **P. Quais protocolos recebem suporte do Gateway de Aplicativo?**
 
-O Gateway de Aplicativo oferece suporte a WebSocket, HTTP e HTTPS.
+O Gateway de Aplicativo fornece suporte HTTP, HTTPS, HTTP/2 e WebSocket.
+
+**P. Como o Gateway de Aplicativo fornece suporte para HTTP/2?**
+
+O suporte ao protocolo HTTP/2 está disponível para os clientes que conectam apenas os ouvintes do Gateway de Aplicativo. A comunicação para pools de servidores back-end é sobre HTTP/1.1. 
+
+Por padrão, o suporte HTTP/2 está desabilitado. O trecho de código do Azure PowerShell a seguir mostra como é possível habilitá-lo:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **P. Quais recursos têm suporte atualmente como parte do pool de back-end?**
 
@@ -46,7 +54,7 @@ Pools de back-end podem ser formados por NICs, conjuntos de dimensionamento de m
 
 **P. Em quais regiões o serviço está disponível?**
 
-O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/en-us/overview/clouds/government/)
+O Gateway de Aplicativo está disponível em todas as regiões do Azure global. Ele também está disponível no [Azure China](https://www.azure.cn/) e no [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)
 
 **P. Ele é uma implantação dedicada à minha assinatura ou é compartilhado entre os clientes?**
 
@@ -136,10 +144,6 @@ As investigações personalizadas não têm suporte para curingas/regex nos dado
 
 As regras são processadas na ordem em que elas são configuradas. É recomendável que as regras multissites sejam configuradas antes de regras básicas para reduzir a chance de que o tráfego seja roteado para o back-end inadequado, já que a regra básica corresponderia o tráfego com base na porta antes da regra multissite que está sendo avaliada.
 
-**P. Como as regras são processadas?**
-
-As regras são processadas na ordem em que são criadas. É recomendável que as regras multissite sejam configuradas antes das regras básicas. Ao configurar primeiro os ouvintes multissite, essa configuração reduz a chance de o tráfego ser roteado para o back-end inadequado. Esse problema de roteamento pode ocorrer, pois a regra básica corresponderia ao tráfego com base na porta antes da regra multissite ser avaliada.
-
 **P. O que significa o campo Host para investigações personalizadas?**
 
 O campo Host especifica o nome ao qual enviar a investigação. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Esse valor é diferente do nome de host da VM e está no formato \<protocolo\>://\<host\>:\<porta\>\<caminho\>.
@@ -152,7 +156,7 @@ Esse cenário pode ser feito usando os NSGs na sub-rede de Gateway de Aplicativo
 
 * Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md).
 
-* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/virtual-networks-nsg.md).
+* Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todo o outro tráfego de entrada com um Negar todas as regras.
 
@@ -175,6 +179,11 @@ Não, mas o Gateway de Aplicativo tem uma métrica de taxa de transferência que
 **P. A escala/redução vertical causa tempo de inatividade?**
 
 Não há tempo de inatividade, as instâncias são distribuídas entre domínios de atualização e domínios de falha.
+
+**P. O Gateway de Aplicativo oferece suporte para descarregamento de conexão?**
+
+Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permitirá conexões existentes para continuar a ser enviado ao seu destino anterior até que essa conexão é fechada ou expira um tempo limite configurável. Observe que esse descarregamento de conexão somente espera para concluir as conexões atuais em curso. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
+
 
 **P. Posso alterar o tamanho da instância de média para grande sem interrupções?**
 
@@ -318,7 +327,7 @@ Os logs de auditoria estão disponíveis para o Gateway de Aplicativo. No portal
 
 **P. Posso configurar alertas com o Gateway de Aplicativo?**
 
-Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas.  No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sim, o Gateway de Aplicativo oferece suporte a alertas, e os alertas são configurados com base em métricas. No momento, o Gateway de Aplicativo tem uma métrica de "taxa de transferência", que pode ser configurada para o alerta. Para saber mais sobre alertas, visite [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **P. A integridade do back-end retorna um status desconhecido, o que pode estar causando esse status?**
 
@@ -326,4 +335,4 @@ O motivo mais comum é o bloqueio ao acesso do back-end por um NSG ou DNS person
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Gateway de Aplicativo, visite [Introdução ao Gateway de Aplicativo](application-gateway-introduction.md).
+Para saber mais sobre o Gateway de Aplicativo, visite [O que é o Gateway de Aplicativo do Azure?](overview.md)

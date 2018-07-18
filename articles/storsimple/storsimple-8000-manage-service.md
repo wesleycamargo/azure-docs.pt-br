@@ -1,24 +1,25 @@
 ---
-title: "Implantar o serviço do Gerenciador de Dispositivos do StorSimple no Azure | Microsoft Docs"
-description: "Explica como criar e excluir o serviço Gerenciador de Dispositivo do StorSimple no Portal do Azure, além de descrever como gerenciar a chave de registro do serviço."
+title: Implantar o serviço do Gerenciador de Dispositivos do StorSimple no Azure | Microsoft Docs
+description: Explica como criar e excluir o serviço Gerenciador de Dispositivo do StorSimple no Portal do Azure, além de descrever como gerenciar a chave de registro do serviço.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012736"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -29,7 +30,9 @@ O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Az
 Este tutorial descreve as etapas necessárias para a criação, exclusão e migração do serviço e o gerenciamento da chave de Registro do serviço. As informações contidas neste artigo aplicam-se apenas a dispositivos StorSimple da série 8000. Para obter mais informações sobre Matrizes Virtual do StorSimple, acesse [Implantar um serviço do Gerenciador de Dispositivos do StorSimple para sua Matriz Virtual do StorSimple](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Todos os gerenciadores de dispositivo clássicos do StorSimple foram movidos automaticamente para o novo Portal do Azure. Se você tiver dúvidas, consulte [Perguntas Frequentes: migrar para o Portal do Azure](storsimple-8000-move-azure-portal-faq.md). Não há suporte para os cmdlets do PowerShell do Azure Service Management (ASM) após a mudança para o novo Portal do Azure. Atualize os scripts para gerenciar seus dispositivos e, em seguida, vá para o [Use scripts do Azure Resource Manager com base no SDK para gerenciar dispositivos do StorSimple](storsimple-8000-automation-azurerm-scripts.md) para obter mais informações. O novo Portal do Azure dá suporte a dispositivos que executam a Atualização 5.0 ou posterior. Se seu dispositivo não for atualizado, instale a Atualização 5 imediatamente. Para saber mais, vá para [Instalar a Atualização 5](storsimple-8000-install-update-5.md). Se você estiver usando um Dispositivo de Nuvem StorSimple (8010/8020), você não poderá atualizar um dispositivo de nuvem. Use a versão mais recente do software para criar um novo dispositivo de nuvem com Atualização 5.0 e, em seguida, faça failover para o novo dispositivo de nuvem criado. Todos os dispositivos que executam a atualização 4.0 ou anterior terão [funcionalidade de gerenciamento reduzida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  O Portal do Azure dá suporte a dispositivos que executam a Atualização 5.0 ou posterior. Se seu dispositivo não for atualizado, instale a Atualização 5 imediatamente. Para saber mais, vá para [Instalar a Atualização 5](storsimple-8000-install-update-5.md). 
+> - Se você estiver usando um Dispositivo de Nuvem StorSimple (8010/8020), você não poderá atualizar um dispositivo de nuvem. Use a versão mais recente do software para criar um novo dispositivo de nuvem com Atualização 5.0 e, em seguida, faça failover para o novo dispositivo de nuvem criado. 
+> - Todos os dispositivos que executam a atualização 4.0 ou anterior terão [funcionalidade de gerenciamento reduzida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Criar um serviço
 Para criar um serviço do Gerenciador de Dispositivos do StorSimple, você precisa ter:
@@ -38,11 +41,7 @@ Para criar um serviço do Gerenciador de Dispositivos do StorSimple, você preci
 * Uma conta de armazenamento ativa do Microsoft Azure
 * As informações de cobrança que são usadas para gerenciamento de acesso
 
-Somente as assinaturas com um Contrato Enterprise são permitidas. Não há suporte para assinaturas do Microsoft Sponsorship no Portal do Azure, as que eram permitidas no Portal Clássico do Azure. Você verá a seguinte mensagem ao usar uma assinatura sem suporte:
-
-![Assinatura inválida](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
+Somente as assinaturas com um Contrato Enterprise são permitidas. Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
 
 Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação. 
 
@@ -149,8 +148,7 @@ Essa etapa é executada na interface do Windows PowerShell para StorSimple no di
 
 > [!NOTE]
 > Nenhuma operação poderá ser executada no Portal do Azure do serviço do StorSimple Manager até que a substituição de chave esteja concluída.
-> 
-> 
+
 
 Se você estiver usando o console serial do dispositivo para se conectar à interface do Windows PowerShell, execute as etapas a seguir.
 
@@ -191,24 +189,24 @@ No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam
 
 | Operação                                                                                                                       | Com suporte      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrar um dispositivo                                                                                                               | Sim            |
-| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Sim            |
-| Examinar, baixar e instalar atualizações                                                                                             | Sim            |
-| Desativar um dispositivo                                                                                                               | Sim            |
-| Excluir um dispositivo                                                                                                                   | Sim            |
+| Registrar um dispositivo                                                                                                               | sim            |
+| Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | sim            |
+| Examinar, baixar e instalar atualizações                                                                                             | sim            |
+| Desativar um dispositivo                                                                                                               | sim            |
+| Excluir um dispositivo                                                                                                                   | sim            |
 | Criar, modificar e excluir um contêiner de volume                                                                                   | Não              |
 | Criar, modificar e excluir um volume                                                                                             | Não              |
 | Criar, modificar e excluir uma política de backup                                                                                      | Não              |
 | Fazer um backup manual                                                                                                            | Não              |
 | Realizar um backup agendado                                                                                                         | Não aplicável |
 | Restaurar de um conjunto de backup                                                                                                        | Não              |
-| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | Sim            |
+| Clonar para um dispositivo que executa a Atualização 3.0 e posterior <br> O dispositivo de origem executa uma versão anterior à Atualização 3.0.                                | sim            |
 | Clonar para um dispositivo que executa uma versão anterior à Atualização 3.0                                                                          | Não              |
-| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | Sim            |
+| Failover como dispositivo de origem <br> (de um dispositivo que executa uma versão anterior à Atualização 3.0 para um dispositivo que executa a Atualização 3.0 e posterior)                                                               | sim            |
 | Failover como dispositivo de destino <br> (para um dispositivo que executa uma versão de software anterior à Atualização 3.0)                                                                                   | Não              |
-| Limpar um alerta                                                                                                                  | Sim            |
-| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | Sim            |
-| Ativar e desativar controladores de dispositivo                                                                                              | Sim            |
+| Limpar um alerta                                                                                                                  | sim            |
+| Exibir políticas de backup, catálogo de backup, volumes, contêineres de volume, gráficos de monitoramento, trabalhos e alertas criados no portal clássico | sim            |
+| Ativar e desativar controladores de dispositivo                                                                                              | sim            |
 
 
 ## <a name="next-steps"></a>Próximas etapas

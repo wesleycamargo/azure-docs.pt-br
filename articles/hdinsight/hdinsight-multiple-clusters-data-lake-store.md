@@ -1,31 +1,29 @@
 ---
-title: "Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store – Azure | Microsoft Docs"
-description: "Saiba como usar mais de um cluster HDInsight com uma única conta do Data Lake Store"
-keywords: "armazenamento hdinsight, hdfs, dados estruturados, dados não estruturados, data lake store"
+title: Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store – Azure | Microsoft Docs
+description: Saiba como usar mais de um cluster HDInsight com uma única conta do Data Lake Store
+keywords: armazenamento hdinsight, hdfs, dados estruturados, dados não estruturados, data lake store
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Store
 
 Começando com o HDInsight versão 3.5, você pode criar clusters HDInsight com contas de armazenamento do Azure Data Lake Store como o sistema de arquivos padrão.
-O Data Lake Store dá suporte a armazenamento ilimitado, o que o torna ideal não apenas para hospedagem de grandes quantidades de dados, mas também para hospedar vários clusters HDInsight que compartilham uma única conta do Data Lake Store. Para obter instruções sobre como criar um cluster HDInsight com o Data Lake Store como o armazenamento, veja [Criar clusters HDInsight com o Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+O Data Lake Store dá suporte a armazenamento ilimitado, o que o torna ideal não apenas para hospedagem de grandes quantidades de dados, mas também para hospedar vários clusters HDInsight que compartilham uma única conta do Data Lake Store. Para obter instruções sobre como criar um cluster HDInsight com o Data Lake Store como o armazenamento, consulte [Criar clusters HDInsight com o Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Este artigo fornece recomendações para o administrador do Data Lake Store configurar uma única conta compartilhada do Data Lake Store que pode ser usada em vários clusters HDInsight **ativos**. Essas recomendações se aplicam à hospedagem de vários clusters do Hadoop seguros e também não seguros em uma conta compartilhada do Data Lake Store.
 

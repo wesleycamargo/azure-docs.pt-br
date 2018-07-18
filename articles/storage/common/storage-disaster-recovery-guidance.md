@@ -1,6 +1,6 @@
 ---
-title: "O que fazer caso ocorra uma interrupção de Armazenamento do Azure | Microsoft Docs"
-description: "O que fazer caso ocorra uma interrupção de Armazenamento do Azure"
+title: O que fazer caso ocorra uma interrupção de Armazenamento do Azure | Microsoft Docs
+description: O que fazer caso ocorra uma interrupção de Armazenamento do Azure
 services: storage
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
@@ -42,10 +42,10 @@ Se um ou mais serviços de Armazenamento estão indisponíveis no momento em uma
 Nesse caso, nenhuma ação sua é necessária. Estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço do Azure. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço do Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opção 2: copiar os dados do secundário
-Se você escolheu [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado) para suas contas de armazenamento, você terá acesso de leitura aos dados da região secundária. Você pode usar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e [biblioteca de Movimentação de Dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da região secundária para outra conta de armazenamento em uma região não afetada e, em seguida, apontar os aplicativos para essa conta de armazenamento para disponibilidade de leitura e gravação.
+Se você escolheu [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado) para suas contas de armazenamento, você terá acesso de leitura aos dados da região secundária. Você pode usar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e [biblioteca de Movimentação de Dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da região secundária para outra conta de armazenamento em uma região não afetada e, em seguida, apontar os aplicativos para essa conta de armazenamento para disponibilidade de leitura e gravação.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorrer um failover de Armazenamento
-Se você tiver escolhido [GRS (armazenamento com redundância geográfica)](storage-redundancy.md#geo-redundant-storage) ou [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado), o Armazenamento do Azure mantém seus dados duráveis em duas regiões (primária e secundária). Em ambas as regiões, o Armazenamento do Azure mantém constantemente várias réplicas de seus dados.
+Se você tiver escolhido [GRS (armazenamento com redundância geográfica)](storage-redundancy-grs.md) ou [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), o Armazenamento do Azure mantém seus dados duráveis em duas regiões (primária e secundária). Em ambas as regiões, o Armazenamento do Azure mantém constantemente várias réplicas de seus dados.
 
 Quando um desastre regional afeta sua região primária, primeiro tentaremos restaurar o serviço nessa região. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que pode envolver um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas. Você pode consultar o ["Horário da última sincronização" da sua conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obter detalhes sobre o status da replicação.
 

@@ -1,11 +1,11 @@
 ---
 title: Selecionar imagens de VM do Windows no Azure | Microsoft Docs
-description: "Saiba como usar o Azure PowerShell para determinar editor, oferta, SKU e versão de imagens de VM do Marketplace."
+description: Saiba como usar o Azure PowerShell para determinar editor, oferta, SKU e versão de imagens de VM do Marketplace.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 885ee10bc63b65d936f5b433a18c4435b2503720
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Como localizar imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -40,7 +40,6 @@ Verifique se você tem a versão mais recente do [módulo do Azure PowerShell](/
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
@@ -80,7 +79,7 @@ Preencha o nome da SKU escolhida e execute os seguintes comandos:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Na saída do comando `Get-AzureRMVMImage`, você pode selecionar uma imagem de versão para implantar uma nova máquina virtual.

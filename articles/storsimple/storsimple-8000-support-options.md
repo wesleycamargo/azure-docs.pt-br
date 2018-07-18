@@ -1,12 +1,12 @@
 ---
 title: Termos do Suporte StorSimple | Microsoft Azure
-description: "Descreve as opções de suporte para os clientes de armazenamento corporativo StorSimple 8000 series."
+description: Descreve as opções de suporte para os clientes de armazenamento corporativo StorSimple 8000 series.
 services: storsimple
 documentationcenter: NA
 author: GabiSocoteanu
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="storsimple-solution-support"></a>Suporte da solução StorSimple
 
@@ -83,7 +83,7 @@ Se seu contrato de suporte expirou, lembre-se de que, dependendo do tempo expira
 Além do inglês, o suporte de idioma local é fornecido nos seguintes idiomas durante o horário comercial: japonês, coreano, e chinês tradicional.
 
 ## <a name="support-scope"></a>Escopo do suporte 
-O suporte para questões de faturamento e gerenciamento de assinatura está disponível em todos os níveis de suporte. Para receber suporte da StorSimple, o cliente deve estar registrado ativamente para planos de suporte do StorSimple Standard ou Premium. A equipe de suporte StorSimple será responsável por resolver todos os problemas que afetam a solução StorSimple. Para receber suporte para problemas relacionados ao Azure que não estão diretamente relacionadas ao StorSimple, o cliente precisará ser registrado em um plano de suporte apropriado do Azure. Consulte [aqui](https://azure.microsoft.com/en-us/support/plans/) para obter detalhes. A equipe de suporte envia casos de suporte que não são StorSimple para a equipe do Azure acompanhar com base nos direitos do cliente para o suporte do Azure. 
+O suporte para questões de faturamento e gerenciamento de assinatura está disponível em todos os níveis de suporte. Para receber suporte da StorSimple, o cliente deve estar registrado ativamente para planos de suporte do StorSimple Standard ou Premium. A equipe de suporte StorSimple será responsável por resolver todos os problemas que afetam a solução StorSimple. Para receber suporte para problemas relacionados ao Azure que não estão diretamente relacionadas ao StorSimple, o cliente precisará ser registrado em um plano de suporte apropriado do Azure. Consulte [aqui](https://azure.microsoft.com/support/plans/) para obter detalhes. A equipe de suporte envia casos de suporte que não são StorSimple para a equipe do Azure acompanhar com base nos direitos do cliente para o suporte do Azure. 
 
 
 | **GRAVIDADE** |**SITUAÇÃO DO CLIENTE**                                                                                                                                | RESPOSTA ESPERADA DA MICROSOFT<sup>2                                                                                       | RESPOSTA ESPERADA DO CLIENTE                                                                                                                                                       |

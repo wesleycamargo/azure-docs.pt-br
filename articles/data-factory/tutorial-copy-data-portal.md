@@ -1,11 +1,11 @@
 ---
 title: Usar o portal do Azure para criar um pipeline do Data Factory | Microsoft Docs
-description: "Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de blobs do Azure para um banco de dados SQL do Azure."
+description: Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de blobs do Azure para um banco de dados SQL do Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de Blobs do Azure para um banco de dados SQL usando o Azure Data Factory
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. O pipeline neste data factory copia dados do Armazenamento de Blobs do Azure para um banco de dados SQL. O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados com suporte como origens e coletores, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -150,7 +150,7 @@ Neste tutorial, inicie com a criação do pipeline. Em seguida, crie conjuntos d
     ![Nome do conjunto de dados](./media/tutorial-copy-data-portal/dataset-name.png)
 9. Alterne para a guia **Conexão** na janela **Propriedades**. Selecione **+ Novo** ao lado da caixa de texto **Serviço vinculado**. 
 
-    Um serviço vinculado vincula um armazenamento de dados ou uma computação a um data factory. Nesse caso, crie um Serviço de armazenamento vinculado para vincular sua conta de armazenamento para o armazenamento de dados. O serviço vinculado tem as informações de conexão que o Data Factory usa para se conectar ao seu Armazenamento de blobs em tempo de execução. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) que contém os dados de origem. 
+    Um serviço vinculado vincula um armazenamento de dados ou uma computação a um data factory. Nesse caso, crie um Serviço de armazenamento vinculado para vincular sua conta de armazenamento para o armazenamento de dados. O serviço vinculado tem as informações de conexão que o Data Factory usa para se conectar ao Armazenamento de blobs no tempo de execução. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) que contém os dados de origem. 
 
     ![Botão Novo serviço vinculado](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 10. Na janela **Novo Serviço Vinculado**, siga as etapas a seguir: 
@@ -303,7 +303,7 @@ Você pode fazer a execução de teste de um pipeline antes de publicar os artef
     ![Mostrar notificações](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Configurar repositório de código
-Você pode publicar o código associado com seus artefatos do data factory a um repositório de código do Visual Studio Team Services. Nesta etapa, você criará o repositório de código. 
+Você pode publicar o código associado com seus artefatos do data factory a um repositório de código do Visual Studio Team Services. Nesta etapa, você criará o repositório de código.  Para saber mais sobre a criação visual com a integração do VSTS, consulte [Autor com integração do Git do VSTS](author-visually.md#author-with-vsts-git-integration).
 
 Se você não quiser trabalhar com o repositório de código do Visual Studio Team Services, ignore esta etapa. Você pode continuar publicando no Data Factory como fez na etapa anterior. 
 

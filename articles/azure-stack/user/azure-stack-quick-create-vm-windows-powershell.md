@@ -12,30 +12,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: f73f6599f24c0748862ba3a2f1384246841e7e8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Criar uma máquina virtual do Windows usando o PowerShell na pilha do Azure
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual Windows Server usando o PowerShell na pilha do Azure
 
-*Aplica-se a: sistemas integrados de pilha do Azure*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Esses detalhes de guia usando o PowerShell para criar uma máquina de virtual do Windows Server 2016 na pilha do Azure. Você pode executar as etapas descritas neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se você estiver conectado por meio de VPN. 
+Você pode criar uma máquina de virtual do Windows Server 2016 usando o Azure PowerShell de pilha. Siga as etapas neste artigo para criar e usar uma máquina virtual. Este artigo fornece as etapas para:
 
-## <a name="prerequisites"></a>Pré-requisitos 
+* Conecte-se à máquina virtual com um cliente remoto.
+* Instale o servidor web do IIS e exibir a página inicial padrão.
+* Limpe seus recursos.
 
-* Certifique-se de que seu operador de pilha do Azure adicionou a imagem de "Windows Server 2016" para o marketplace de pilha do Azure.  
+>[!NOTE]
+ Você pode executar as etapas descritas neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se você estiver conectado através de uma VPN.
 
-* A pilha do Azure requer uma versão específica do Azure PowerShell para criar e gerenciar os recursos. Se você não tiver o PowerShell configurado para a pilha do Azure, siga as etapas para [instalar](azure-stack-powershell-install.md) e [configurar](azure-stack-powershell-configure-user.md) PowerShell.    
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Certifique-se de que seu operador de pilha do Azure adicionou a imagem de "Windows Server 2016" para o marketplace de pilha do Azure.
+
+* A pilha do Azure requer uma versão específica do Azure PowerShell para criar e gerenciar os recursos. Se você não tiver o PowerShell configurado para a pilha do Azure, siga as etapas para [instalar](azure-stack-powershell-install.md) e [configurar](azure-stack-powershell-configure-user.md) PowerShell.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico em qual pilha Azure recursos são implantados e gerenciados. O kit de desenvolvimento ou o sistema de pilha do Azure integrado, execute o seguinte bloco de código para criar um grupo de recursos. Atribuímos valores para todas as variáveis neste documento, você pode usá-los como estão ou atribuir um valor diferente.  
+Um grupo de recursos é um contêiner lógico em qual pilha Azure recursos são implantados e gerenciados. O kit de desenvolvimento ou o sistema de pilha do Azure integrado, execute o seguinte bloco de código para criar um grupo de recursos. Os valores são atribuídos para todas as variáveis neste documento, você pode usar esses valores ou atribuir novos valores.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -47,7 +54,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Criar recursos de armazenamento 
+## <a name="create-storage-resources"></a>Criar recursos de armazenamento
 
 Crie uma conta de armazenamento e um contêiner de armazenamento para armazenar a imagem do Windows Server 2016.
 
@@ -76,7 +83,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Criar recursos de rede
 
-Crie uma rede virtual, sub-rede e um endereço IP público. Esses recursos são usados para fornecer conectividade de rede para a máquina virtual.  
+Crie uma rede virtual, sub-rede e um endereço IP público. Esses recursos são usados para fornecer conectividade de rede para a máquina virtual.
 
 ```powershell
 # Create a subnet configuration
@@ -135,9 +142,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name myNetworkSecurityGroup `
-  -SecurityRules $nsgRuleRDP,$nsgRuleWeb 
+  -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
- 
+
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Crie uma placa de rede para a máquina virtual
 
 A placa de rede conecta a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
@@ -150,12 +157,12 @@ $nic = New-AzureRmNetworkInterface `
   -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id 
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma configuração de máquina virtual. A configuração inclui as configurações que são usadas ao implantar a máquina virtual como uma imagem de máquina virtual, o tamanho, as credenciais.
+Crie uma configuração de máquina virtual. Essa configuração inclui as configurações usadas ao implantar a máquina virtual. Por exemplo: as credenciais, tamanho e a imagem de máquina virtual.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -168,13 +175,13 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
   -VMName $VmName `
-  -VMSize $VmSize 
+  -VMSize $VmSize
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
-  -Credential $Credential 
+  -Credential $Credential
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
@@ -189,13 +196,13 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine. 
+# Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
   -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
-  Add-AzureRmVMNetworkInterface -Id $nic.Id 
+  Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Create the virtual machine.
 New-AzureRmVM `
@@ -206,13 +213,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 
-Para remota na máquina virtual que você criou na etapa anterior, você precisa ter seu endereço IP público. Execute o seguinte comando para obter o endereço IP público da máquina virtual: 
+Para remota na máquina virtual que você criou na etapa anterior, você precisa ter seu endereço IP público. Execute o seguinte comando para obter o endereço IP público da máquina virtual:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
- 
+
 Use o seguinte comando para criar uma sessão de área de trabalho remota com a máquina virtual. Substitua o endereço IP pelo publicIPAdress da sua máquina virtual. Quando solicitado, insira o nome de usuário e a senha que você usou ao criar a máquina virtual.
 
 ```powershell
@@ -229,10 +236,9 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Certifique-se de usar o *publicIPAdress* que você documentou acima para visitar a página padrão. 
+Com o IIS instalado e com a porta 80 aberta na sua VM, você pode usar um navegador da web de sua escolha para exibir a página de boas-vinda do IIS padrão. Use o *publicIpAddress* documentado na seção anterior para visitar a página padrão.
 
-![Site do IIS padrão](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png) 
-
+![Site do IIS padrão](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-virtual-machine"></a>Excluir a máquina virtual
 
@@ -246,4 +252,3 @@ Remove-AzureRmResourceGroup `
 ## <a name="next-steps"></a>Próximas etapas
 
 Este guia de início rápido, você implantou a máquina virtual do Windows simple. Para saber mais sobre as máquinas virtuais de pilha do Azure, continuar [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
-

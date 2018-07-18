@@ -1,26 +1,26 @@
 ---
 title: Reativar assinatura do Azure desabilitada | Microsoft Docs
-description: "Descreve quando você pode ter uma assinatura do Azure desabilitada e como reativá-la."
+description: Descreve quando você pode ter uma assinatura do Azure desabilitada e como reativá-la.
 keywords: assinatura do azure desabilitada
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 4529d685-3a87-49d9-8d7a-49baad552d76
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/22/2017
+ms.topic: conceptual
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 0b573a3745cbaa3deb583458159faaa0ac93f202
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure está desabilitada e como posso reativá-la?
 

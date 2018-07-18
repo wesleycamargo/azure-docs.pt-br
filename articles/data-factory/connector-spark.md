@@ -1,23 +1,23 @@
 ---
 title: Copiar dados do Spark usando o Azure Data Factory | Microsoft Docs
-description: "Saiba como copiar dados do Spark para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory."
+description: Saiba como copiar dados do Spark para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 2682b6d149fc9a8b1a1a70351ea90fbd701dd4ec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4089fe636ad25f97fe78f0bd10553b93d768321d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados do Spark usando o Azure Data Factory 
 
@@ -47,9 +47,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do Spark:
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **Spark** | sim |
 | host | Endereço IP ou nome do host do servidor Spark  | sim |
-| porta | A porta TCP usada pelo servidor Spark para ouvir conexões de cliente.  | sim |
+| porta | A porta TCP usada pelo servidor Spark para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | sim |
 | serverType | O tipo de servidor do Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não  |
-| thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, * * HTTP * * | Não  |
+| thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Os valores permitidos são: **Binário**, **SASL**, **HTTP** | Não  |
 | authenticationType | O método de autenticação usado para acessar o servidor do Spark. <br/>Valores permitidos são: **Anônimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | sim |
 | Nome de Usuário | O nome de usuário que você usa para acessar o servidor do Spark.  | Não  |
 | Senha | A senha correspondente ao usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
@@ -76,8 +76,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Spark:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

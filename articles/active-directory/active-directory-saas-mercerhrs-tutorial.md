@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com MBC (Mercer BenefitsCentral) | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o MBC (Mercer BenefitsCentral)."
+title: 'Tutorial: Integração do Azure Active Directory com MBC (Mercer BenefitsCentral) | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o MBC (Mercer BenefitsCentral).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: dfc963be9d087c6ad1c56dcdaf922ff5dbf5b284
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a9fc6c906af96bd613c02e8b4248fc2125d9e1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integração do Azure Active Directory com o MBC (Mercer BenefitsCentral)
 
@@ -30,9 +30,9 @@ A integração do MBC (Mercer BenefitsCentral) com o Azure AD fornece os seguint
 - Você pode habilitar seus usuários para obterem logon automaticamente no MBC (Mercer BenefitsCentral) (Logon Único) com as contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD com o MBC (Mercer BenefitsCentral), os seguintes itens serão necessários:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Mercer BenefitsCentral (MBC) da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mercer-benefitscentral-mbc-from-the-gallery"></a>Adicionar o Mercer BenefitsCentral (MBC) da galeria
 Para configurar a integração do Mercer BenefitsCentral (MBC) no Azure AD, será necessário adicionar o Mercer BenefitsCentral (MBC) da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -123,7 +123,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-mercerhrs-tutorial/tutorial_general_400.png)
 
-6. Na seção de  **Configuração do MBC (Mercer BenefitsCentral)** , clique em **Configurar Mercer BenefitsCentral (MBC)** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+6. Na seção de **Configuração do MBC (Mercer BenefitsCentral)**, clique em **Configurar Mercer BenefitsCentral (MBC)** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do MBC (Mercer BenefitsCentral)](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_configure.png) 
 
@@ -208,7 +208,7 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
