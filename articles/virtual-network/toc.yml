@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Conceitos
   items:
-    - name: Segurança
+    - name: Grupos de segurança
       href: security-overview.md
     - name: Roteamento
       href: virtual-networks-udr-overview.md
