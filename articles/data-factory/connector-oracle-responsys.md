@@ -1,5 +1,5 @@
 ---
-title: Copiar dados da Oracle Responsys utilizando o Azure Data Factory (Beta) | Microsoft Docs
+title: Copiar dados da Oracle Responsys utilizando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados de Oracle Responsys para armazenamentos de dados do coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,25 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 629c1e071f475ab1d3ae3bf25839d6832b416264
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1368a75fb8ae44949ef25def19589ab164e25d8b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206198"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055230"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-beta"></a>Copiar dados da Oracle Responsys utilizando o Azure Data Factory (Beta)
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Copiar dados da Oracle Responsys utilizando o Azure Data Factory
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados da Oracle Responsys. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Atividade de cópia na V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Esse conector está atualmente em versão beta. Você pode experimentá-lo e oferecer comentários. Não utilize-o em ambientes de produção.
+> Atualmente, esse conector está em versão prévia. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 

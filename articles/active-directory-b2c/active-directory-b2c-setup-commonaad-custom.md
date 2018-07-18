@@ -1,25 +1,21 @@
 ---
-title: Adicionar um provedor de identidade multilocatário do Azure AD usando políticas personalizadas - Azure Active Directory B2C | Microsoft Docs
-description: Adicionar um provedor de identidade multilocatário do Azure AD usando políticas personalizadas - Azure Active Directory B2C
+title: Adicionar um provedor de identidade multilocatário do Azure AD usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Adicionar um provedor de identidade multilocatário do Azure AD usando políticas personalizadas – Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: alexsi
-editor: parakhj
-ms.assetid: 33c64001-5261-4ed9-8f46-b09839165250
-ms.service: active-directory-b2c
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/14/2018
-ms.author: parakhj
-ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200511"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446039"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: permitir que os usuários entrem em um provedor de identidade multilocatário do Azure AD usando políticas personalizadas
 
@@ -80,7 +76,7 @@ Você precisa registrar a chave do aplicativo nas configurações do Azure AD B2
    * Para o **Nome**, escolha um nome que corresponda ao nome do locatário do Azure AD (por exemplo, `AADAppSecret`).  O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
    * Cole a chave do aplicativo na caixa de texto **Segredo**.
    * Selecione **Assinatura**.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 1. Confirme que você criou a chave `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Etapa 3. Adicionar um provedor de declarações à política base

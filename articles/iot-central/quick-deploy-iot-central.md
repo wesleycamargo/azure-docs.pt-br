@@ -1,20 +1,20 @@
 ---
-title: Implantar um aplicativo Azure IoT Central | Microsoft Docs
+title: Criar um aplicativo Azure IoT Central | Microsoft Docs
 description: Crie um novo aplicativo Azure IoT Central para gerenciar dispositivos refrigerados de venda automática. Exiba os dados de telemetria gerados a partir de seus dispositivos simulados.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/15/2018
-ms.topic: hero-article
-ms.prod: microsoft-iot-central
+ms.topic: quickstart
+ms.service: iot-central
+services: iot-central
 ms.custom: mvc
-manager: timlt
-ms.openlocfilehash: 54219246f073f48c2a7e1b04dce7653bd2da0b40
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+manager: peterpr
+ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202366"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318306"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 

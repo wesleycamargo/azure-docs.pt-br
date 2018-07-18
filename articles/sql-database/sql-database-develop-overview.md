@@ -7,15 +7,15 @@ manager: craigg
 ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187667"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308859"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
@@ -33,9 +33,12 @@ Há exemplos de código disponíveis para uma variedade de plataformas e linguag
 Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/downloads/) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Você também pode usar o Portal de Gerenciamento do Azure, o PowerShell e a API REST lhe ajudará a ganhar produtividade adicional.
 
 ## <a name="resource-limitations"></a>Limitações de recursos
-O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de Recursos e Imposição de Limites.
+O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de recursos e imposição de limites. Para obter mais informações, consulte:
 
-* Mais informações: [Limites de modelo de recurso baseado em DTU do Banco de Dados SQL do Azure](sql-database-dtu-resource-limits.md) e [limites de modelo de recurso baseado em vCore do Banco de Dados SQL do Azure (versão prévia)](sql-database-vcore-resource-limits.md).
+- [Limites de modelo de recursos baseado em DTU – Banco de dados individual](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de modelo de recursos baseado em DTU – Banco de dados individual](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de modelo de recursos baseado em vCore – Banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
+- [Limites de recurso baseados em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Segurança
 O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorar atividades em um Banco de Dados SQL.

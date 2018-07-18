@@ -1,22 +1,20 @@
 ---
-title: Que tipo de backup o Servidor de Backup do Azure pode fazer | Microsoft Docs
-description: "Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, os tipos de dados e as instalações que o Servidor de Backup do Azure v2 protege."
+title: Que tipo de backup o Servidor de Backup do Azure pode fazer
+description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, os tipos de dados e as instalações que o Servidor de Backup do Azure v2 protege.
 services: backup
-documentation center: 
 author: markgalioto
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-keywords: 
+keywords: ''
 ms.date: 11/28/2017
-ms.topic: article
-ms.author: markgal,masaran
+ms.topic: conceptual
+ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: eae17160d0e412b347d89d83d635602d840db0f8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 2edf6b4076dfafd775e723d44ed4d93b7493828b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607235"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 

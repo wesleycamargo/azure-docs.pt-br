@@ -4,8 +4,6 @@ description: Extrai texto de arquivos de imagem em um pipeline de enriquecimento
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786705"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055278"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
@@ -38,7 +36,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
 | detectOrientation | Habilita a detecção automática da orientação da imagem. <br/> Valores válidos: verdadeiro / falso.|
-|defaultLanguageCode |  Código de idioma do texto de entrada. Os idiomas com suporte incluem: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Se o código de idioma for especificado ou nulo, o idioma é detectado automaticamente.|
+|defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens com suporte incluem: <br/> zh-Hans (Chinês Simplificado) <br/> zh-Hant (Chinês Tradicional) <br/>cs (tcheco) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (em inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (Grego) <br/> hu (húngaro) <br/> it (Italiano) <br/>  ja (Japonês) <br/> ko (Coreano) <br/> nb (Norueguês) <br/>   pl (Polonês) <br/> pt (Português) <br/>  ru (Russo) <br/>  es (Espanhol) <br/>  sv (Sueco) <br/>  tr (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> sr-Cyrl (Cirílico sérvio) <br/> SR-Latn (Latim sérvio) <br/>  SK (Eslovaco). <br/>  unk (desconhecido) <br/><br/> Se o código de idioma for especificado ou nulo, o idioma é detectado automaticamente. </p> |
 | textExtractionAlgorithm | "impresso" ou "manuscrito". O algoritmo de OCR de reconhecimento de texto "manuscrito" está atualmente em visualização e tem suporte apenas em inglês. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -61,7 +59,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -186,16 +184,14 @@ O conjunto de qualificações do exemplo a seguir cria um campo *merged_text* pa
 O exemplo de conjunto de qualificações acima presume que existe um campo de imagens normalizado. Para gerar esse campo, defina a configuração *imageAction* na definição do indexador para *generateNormalizedImages* conforme mostrado abaixo:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -203,3 +199,4 @@ O exemplo de conjunto de qualificações acima presume que existe um campo de im
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Habilidade de TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

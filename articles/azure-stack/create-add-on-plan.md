@@ -1,0 +1,56 @@
+---
+title: Neste artigo, você aprenderá a pilha do Azure oferece e planos de atualização | Microsoft Docs
+description: Este artigo descreve como exibir e modificar as ofertas de pilha do Azure e planos existentes.
+services: azure-stack
+documentationcenter: ''
+author: brenduns
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.custom: mvc
+ms.date: 06/07/2018
+ms.author: brenduns
+ms.reviewer: ''
+ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35238327"
+---
+# <a name="azure-stack-add-on-plans"></a>Planos de complemento de pilha do Azure
+Como um operador de pilha do Azure, você cria planos que contêm os serviços desejados e cotas aplicáveis aos seus usuários para se inscrever. Essas [ *base planos* ](azure-stack-create-plan.md) contêm os serviços de núcleo para ser oferecidos aos seus usuários e você só pode ter um plano de base por oferta. Se você precisar modificar sua oferta, você pode usar *planos de complemento* que permitem que você modifique o plano para estender o computador, armazenamento, ou cotas inicialmente oferecidas com o plano de base de rede. 
+
+Embora combinando tudo em um único plano pode ser o ideal em alguns casos, convém ter uma base de plano e oferecer serviços adicionais usando planos de complemento. Por exemplo, você pode decidir oferecer serviços de IaaS como parte de um plano de base, com todos os serviços de PaaS tratados como planos de complemento. Planos também podem ser usados para controlar o consumo de recursos em seu ambiente de pilha do Azure. Por exemplo, se desejar que seus usuários para estar atento ao seu uso de recursos, você pode ter um plano de base relativamente pequeno (dependendo dos serviços necessários) e como os usuários alcançar a capacidade, seria ser avisados que já que consumiram a alocação de recursos com base em seu plano atribuído. A partir daí, os usuários podem selecionar um plano de complementos disponíveis para obter recursos adicionais. 
+
+> [!NOTE]
+> Quando um usuário adiciona um complemento de plano para uma assinatura existente de oferta, os recursos adicionais podem levar uma hora exibida. 
+
+## <a name="create-an-add-on-plan"></a>Criar um plano de complemento
+Planos de complemento são criados por meio de modificação de uma oferta existente:
+
+1. Entre no portal de administrador a pilha do Azure como um administrador de nuvem.
+2. Siga as mesmas etapas usadas para [criar um novo plano base](azure-stack-create-plan.md) para criar um novo plano de oferta de serviços que não foram oferecidos anteriormente. Neste exemplo, serviços de Cofre de chaves (Microsoft.KeyVault) serão incluídos no novo plano.
+3. No portal do administrador, clique em **oferece** e, em seguida, selecione a oferta para ser atualizado com um plano de complemento.
+
+   ![](media/create-add-on-plan/1.PNG)
+
+4.  Role até a parte inferior das propriedades de oferta e selecione **planos de complemento**. Clique em **Adicionar**.
+   
+    ![](media/create-add-on-plan/2.PNG)
+
+5. Selecione o plano para adicionar. Neste exemplo, o plano é chamado **plano de Cofre de chave**e, em seguida, clique em **selecione** para adicionar o plano para a oferta. Você deve receber uma notificação de que o plano foi adicionado com êxito para a oferta.
+   
+    ![](media/create-add-on-plan/3.PNG)
+
+6. Examine a lista de complemento listados planos incluídos com a oferta para verificar se o complemento do novo plano.
+   
+    ![](media/create-add-on-plan/4.PNG)
+
+## <a name="next-steps"></a>Próximas etapas
+[Criar uma oferta](azure-stack-create-offer.md)

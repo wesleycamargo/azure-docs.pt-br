@@ -1,24 +1,26 @@
 ---
 title: Campos personalizados no Azure Log Analytics | Microsoft Docs
-description: "O recurso Campos Personalizados do Log Analytics permite que você crie seus próprios campos pesquisáveis por meio de registros do Log Analytics que são adicionados às propriedades de um registro coletado.  Este artigo descreve o processo para criar um campo personalizado e fornece um passo a passo detalhado com um evento de exemplo."
+description: O recurso Campos Personalizados do Log Analytics permite que você crie seus próprios campos pesquisáveis por meio de registros do Log Analytics que são adicionados às propriedades de um registro coletado.  Este artigo descreve o processo para criar um campo personalizado e fornece um passo a passo detalhado com um evento de exemplo.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.component: na
+ms.openlocfilehash: 164b071a47c13f7c5586bd287adc41bea54a1198
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129610"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados no Log Analytics
 O recurso **Campos Personalizados** do Log Analytics permite que você estenda os registros existentes no Log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.

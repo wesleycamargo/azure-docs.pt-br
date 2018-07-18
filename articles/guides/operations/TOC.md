@@ -93,7 +93,7 @@
 ### [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriais de rede virtual
-#### [VMs de balanceamento de carga](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [VMs de balanceamento de carga](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Conectar computador a uma rede virtual](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Próximas etapas](azure-operations-guide.md#next-steps)

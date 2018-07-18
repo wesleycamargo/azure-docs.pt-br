@@ -1,29 +1,25 @@
 ---
-title: "Tutorial para segurança do X.509 no Hub IoT do Azure | Microsoft Docs"
-description: "Introdução à segurança com base em X.509 em seu Hub IoT do Azure em um ambiente simulado."
-services: iot-hub
-documentationcenter: 
+title: Tutorial para segurança do X.509 no Hub IoT do Azure | Microsoft Docs
+description: Introdução à segurança com base em X.509 em seu Hub IoT do Azure em um ambiente simulado.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635569"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
 
 Este tutorial simula as etapas necessárias para proteger seu Hub IoT do Azure usando a *Autenticação de certificado X.509*. Para fins ilustrativos, mostraremos como usar a ferramenta de software livre OpenSSL para criar certificados localmente no seu computador Windows. É recomendável que você use este tutorial apenas para fins de teste. Para o ambiente de produção, você deve adquirir os certificados de uma *autoridade de certificado raiz (AC)*. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este tutorial exige que você tenha os seguintes recursos prontos:
 
 - Você criou um Hub IoT com sua assinatura do Azure. Consulte [Criar um Hub IoT por meio do portal](iot-hub-create-through-portal.md) para obter etapas detalhadas. 

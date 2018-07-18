@@ -2,24 +2,22 @@
 title: API de tabela do Azure Cosmos DB para Node.js | Microsoft Docs
 description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
 services: cosmos-db
-documentationcenter: nodejs
 author: yarong
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 8858d7145f1f4434b9e09ea017389339f30f67c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb784ea774127f3dab0240a52e551b2c8b6e34e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797950"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Node.js: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -33,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 |---|---|
 |**Baixe o SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Documentação da API**|[Documentação de referência da API do Node.js](http://azure.github.io/azure-storage-node/)|
-|**Contribuir para o SDK**|[Github](https://github.com/Azure/azure-storage-node#contribute)|
+|**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
 > Se você criou uma conta da API de Tabela durante a versão prévia, crie uma [nova conta da API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs da API de Tabela disponíveis para o público em geral.

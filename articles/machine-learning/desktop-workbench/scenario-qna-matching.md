@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835093"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondência de P e R usando o Azure Machine Learning Workbench
 Responder a perguntas abertas é difícil e geralmente requer esforço manual de SMEs (especialistas no assunto). Para ajudar a reduzir as demandas em SMEs internos, as empresas geralmente criam listas de Perguntas frequentes como uma forma de auxiliar os usuários. Este exemplo demonstra vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de pergunta/respostas de perguntas frequentes pré-existentes. Este exemplo demonstra um processo de desenvolvimento fácil para criar essa solução usando o Azure Machine Learning Workbench. 

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055079"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698808"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -48,6 +49,8 @@ Garantir que nenhuma senha é armazenada na nuvem.||x*|x|
 Habilitar soluções de autenticação multifator locais.|||x|
 
 *Por meio de um agente leve.
+
+Para obter informações detalhadas sobre como escolher um método de autenticação, confira [Escolher o método de autenticação adequado para sua solução de identidade híbrida do Azure Active Directory](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronização de hash de senha
 Com a sincronização de hash de senha, hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD. Quando as senhas são alteradas ou redefinidas localmente, os novos hashes de senha são sincronizados com o Azure AD imediatamente, para que os usuários sempre possam usar a mesma senha para recursos de nuvem e recursos locais. As senhas nunca são enviadas ao Azure AD nem armazenadas no Azure AD em texto não criptografado. É possível usar a sincronização de hash de senha em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD.

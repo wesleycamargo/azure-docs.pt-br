@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 04fae653c72c127b22f994e89b050477dac6495d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751295"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks da Automação do Azure tem alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
@@ -30,7 +31,7 @@ A tabela a seguir fornece uma breve descrição de cada um dos fluxos e de seu c
 | Depurar |As mensagens destinadas a um usuário interativo. Não deve ser usado em runbooks. |Não gravado no histórico do trabalho. |Não gravado no Painel Saída de Teste. |
 
 ## <a name="output-stream"></a>Fluxo de saída
-O fluxo de saída destina-se à saída de objetos criados por um script ou um fluxo de trabalho quando executado corretamente. Na Automação do Azure, esse fluxo é usado principalmente para objetos que se destinam a ser consumidos por [runbooks pais que chamam o runbook atual](automation-child-runbooks.md). Quando você [chamar um runbook embutido](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) de um runbook pai, ele retornará dados do fluxo de saída para o pai. Você só deverá usar o fluxo de saída para comunicar informações gerais para o usuário se souber que o runbook nunca é chamado por outro runbook. Como prática recomendada, no entanto, você normalmente deverá usar o [Fluxo Detalhado](#Verbose) para comunicar informações gerais para o usuário.
+O fluxo de saída destina-se à saída de objetos criados por um script ou um fluxo de trabalho quando executado corretamente. Na Automação do Azure, esse fluxo é usado principalmente para objetos que se destinam a ser consumidos por [runbooks pais que chamam o runbook atual](automation-child-runbooks.md). Quando você [chamar um runbook embutido](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) de um runbook pai, ele retornará dados do fluxo de saída para o pai. Você só deverá usar o fluxo de saída para comunicar informações gerais para o usuário se souber que o runbook nunca é chamado por outro runbook. Como prática recomendada, no entanto, você normalmente deverá usar o [Fluxo Detalhado](#verbose-stream) para comunicar informações gerais para o usuário.
 
 Você pode gravar dados no fluxo de saída usando [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou colocando o objeto em sua própria linha no runbook.
 
@@ -117,7 +118,7 @@ Uma observação sobre o comportamento do controle Tipo de Saída. Quando você 
 Ao contrário do fluxo de saída, os fluxos de mensagens destinam-se a comunicar informações ao usuário. Existem vários fluxos de mensagens para diferentes tipos de informação, e cada um deles é manipulado de forma diferente pela Automação do Azure.
 
 ### <a name="warning-and-error-streams"></a>Fluxos de aviso e de erro
-Os fluxos de Aviso e de Erro pretendem registrar problemas que ocorrem em um runbook. Eles são gravados no histórico do trabalho quando um runbook é executado e são incluídos no Painel de Saída de Teste no Portal do Azure quando um runbook é testado. Por padrão, o runbook continuará a ser executado após um aviso ou um erro. Você pode especificar que o runbook seja suspenso em um aviso ou um erro ao definir uma [variável de preferência](#PreferenceVariables) no runbook antes de criar a mensagem. Por exemplo, para fazer com que um runbook seja suspenso em um erro como o faria em uma exceção, defina **$ErrorActionPreference** como Stop.
+Os fluxos de Aviso e de Erro pretendem registrar problemas que ocorrem em um runbook. Eles são gravados no histórico do trabalho quando um runbook é executado e são incluídos no Painel de Saída de Teste no Portal do Azure quando um runbook é testado. Por padrão, o runbook continuará a ser executado após um aviso ou um erro. Você pode especificar que o runbook seja suspenso em um aviso ou um erro ao definir uma [variável de preferência](#preference-variables) no runbook antes de criar a mensagem. Por exemplo, para fazer com que um runbook seja suspenso em um erro como o faria em uma exceção, defina **$ErrorActionPreference** como Stop.
 
 Crie uma mensagem de aviso ou de erro usando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). As atividades também podem ser gravadas nesses fluxos.
 
@@ -171,7 +172,7 @@ A tabela a seguir lista o comportamento para os valores de variáveis de prefer�
 
 ## <a name="retrieving-runbook-output-and-messages"></a>Recuperando saída e mensagens do runbook
 ### <a name="azure-portal"></a>Portal do Azure
-Você pode exibir os detalhes de um trabalho de runbook no Portal do Azure na guia Trabalhos de um runbook. O Resumo do trabalho exibe os parâmetros de entrada e o [Fluxo de Saída](#Output), além de informações gerais sobre o trabalho e todas as exceções que tenham ocorrido. O Histórico inclui mensagens do [Fluxo de Saída](#Output) e dos [Fluxos de Erro e de Aviso](#WarningError), além do [Fluxo Detalhado](#Verbose) e dos [Registros de Andamento](#Progress), caso o runbook esteja configurado para o log de registros detalhados e de andamento.
+Você pode exibir os detalhes de um trabalho de runbook no Portal do Azure na guia Trabalhos de um runbook. O Resumo do trabalho exibe os parâmetros de entrada e o [Fluxo de Saída](#output-stream), além de informações gerais sobre o trabalho e todas as exceções que tenham ocorrido. O Histórico inclui mensagens do [Fluxo de Saída](#output-stream) e dos [Fluxos de Erro e de Aviso](#warning-and-error-streams), além do [Fluxo Detalhado](#verbose-stream) e dos [Registros de Andamento](#progress-records), caso o runbook esteja configurado para o log de registros detalhados e de andamento.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 No Windows PowerShell, você pode recuperar saída e mensagens de um runbook usando o cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Esse cmdlet exige a ID do trabalho e tem um parâmetro chamado Stream, onde você pode especificar qual fluxo será retornado. Você pode especificar **Any** para retornar todos os fluxos do trabalho.

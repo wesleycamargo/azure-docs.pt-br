@@ -1,12 +1,12 @@
 ---
-title: "Atualização 3 do Dispositivo de nuvem StorSimple | Microsoft Docs"
-description: "Aprenda a criar, implantar e gerenciar um Dispositivo de nuvem StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se à Atualização 3 do StorSimple e posteriores)."
+title: Atualização 3 do Dispositivo de nuvem StorSimple | Microsoft Docs
+description: Aprenda a criar, implantar e gerenciar um Dispositivo de nuvem StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se à Atualização 3 do StorSimple e posteriores).
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852329"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 

@@ -1,30 +1,24 @@
 ---
 title: Soluções e tecnologias de Internet das Coisas (IoT) do Azure
 description: Apresenta a coleção de tecnologias de SaaS/PaaS e soluções disponíveis para a criação de uma solução de IoT do Azure.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: ''
-ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886188"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631404"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Soluções e tecnologias de IoT do Azure: PaaS e SaaS
 
 A Microsoft criou um portfólio que atende às necessidades de todos os clientes, permitindo que qualquer pessoa tenha acesso aos benefícios de transformação digital. O portfólio de produtos de IoT do Azure é uma visão geral das tecnologias e soluções disponíveis de SaaS/PaaS. Apresenta os dois caminhos que estão disponíveis para criar sua própria solução:
-- PaaS (Plataforma como Serviço): crie seu aplicativo usando [aceleradores de solução do Azure IoT](https://www.azureiotsuite.com/), uma coleção de soluções pré-configuradas de nível empresarial que permitem que você acelere o desenvolvimento de soluções personalizadas de IoT.
+- PaaS (Plataforma como Serviço): crie seu aplicativo usando [aceleradores de solução do Azure IoT](https://www.azureiotsolutions.com/), uma coleção de soluções pré-configuradas de nível empresarial que permitem que você acelere o desenvolvimento de soluções personalizadas de IoT.
 - Software como Serviço (SaaS): inicie rápido com o [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), a nova solução de SaaS para desenvolver aplicativos de IoT sem ser exposto à complexidade da solução de IoT. Se a sua organização não tiver os recursos para criar sua própria solução de IoT, o Azure IoT Central será uma solução de IoT sem código que pode criar modelos de dispositivos, painéis e regras em minutos.
 
 ![Tecnologias e soluções do Azure IoT][img-paas-saas-technologies-solutions]

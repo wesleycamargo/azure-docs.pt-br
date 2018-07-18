@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937828"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Testar a oferta de modelo de solução em preparo
 Preparo significa implantar a sua oferta em uma "área restrita" privada, em que você poderá testar e verificar sua funcionalidade antes de publicá-la para produção. A oferta aparece em preparo como apareceria para um cliente que a tivesse implantado. Sua oferta deve estar certificada para ser enviada por push para preparação.

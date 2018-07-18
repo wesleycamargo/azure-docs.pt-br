@@ -4,17 +4,18 @@ description: Saiba mais sobre a migração de banco de dados do SQL Server para 
 keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-ms.date: 03/07/2018
+ms.topic: conceptual
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 32377b4a80fcafd1d997daa11a90699b581093a6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309374"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -33,7 +34,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 
  Use esse método para migrar para um banco de dados individual ou em pool se você puder ter algum tempo de inatividade ou se estiver executando uma migração de teste de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
 
-A lista a seguir contém o fluxo de trabalho geral para uma migração de banco de dados do SQL Server de um banco de dados individual ou em pool usando esse método. Para obter a migração para uma Instância Gerenciada, consulte [Migração para uma Instância Gerenciada](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+A lista a seguir contém o fluxo de trabalho geral para uma migração de banco de dados do SQL Server de um banco de dados individual ou em pool usando esse método. Para obter a migração para uma Instância Gerenciada, consulte [Migração para uma Instância Gerenciada](sql-database-managed-instance-migrate.md).
 
   ![Diagrama de migração do VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
@@ -44,7 +45,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
 
 > [!NOTE]
-> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivo BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
+> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivos BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 
@@ -63,7 +64,7 @@ A lista a seguir contém recomendações para melhorar o desempenho durante o pr
 
 ### <a name="method-2-use-transactional-replication"></a>Método 2: usar replicação transacional
 
-Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esse método, o banco de dados de origem deve atender a [requisitos para replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com o banco de dados SQL. Para obter informações sobre a replicação do SQL com o AlwaysOn, consulte [Configurar a replicação para Grupos de Disponibilidade AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esse método, o banco de dados de origem deve atender a [requisitos para replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) e ser compatível com o banco de dados SQL. Para saber mais sobre a replicação do SQL com o AlwaysOn, consulte [Configurar a replicação para Grupos de Disponibilidade AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Para usar esta solução, você pode configurar o Banco de Dados SQL do Azure como um assinante da instância do SQL Server que você deseja migrar. O distribuidor de replicação transacional sincroniza os dados do banco de dados a ser sincronizado (o editor), enquanto as novas transações continuam a ocorrer. 
 

@@ -16,10 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652738"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para dispositivos Windows Phone específicos usando Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -302,7 +303,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 Neste tutorial, você aprendeu como enviar notificações por push para dispositivos específicos que têm tags associadas seus registros. Para saber como enviar notificações por push para usuários específicos que podem estar usando vários dispositivos, vá para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
->[Notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[Enviar notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 
 <!-- Anchors. -->

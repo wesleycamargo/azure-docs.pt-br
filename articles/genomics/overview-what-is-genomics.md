@@ -1,7 +1,7 @@
 ---
-title: "O que é o Microsoft Genomics? | Microsoft Docs"
+title: O que é o Microsoft Genomics? | Microsoft Docs
 titleSuffix: Azure
-description: "Saiba como o Microsoft Genomics pode impulsionar a sequência de genomas, oferecendo a implementação na nuvem do BWA-GATK para análise secundária."
+description: Saiba como o Microsoft Genomics pode impulsionar a sequência de genomas, oferecendo a implementação na nuvem do BWA-GATK para análise secundária.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,11 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333250"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?
 O Microsoft Genomics oferece implementação na nuvem do Burrows-Wheeler Aligner (BWA) e do Genome Analysis Toolkit (GATK) para análise secundária. O serviço possui certificação ISO e está em conformidade com os regulamentos da HIPPA, e oferece previsibilidade de preço para suas necessidades de sequenciamento de genoma. Saiba como usar o serviço Microsoft Genomics e integrar com a nossa API lendo nossa documentação, tutoriais e guias de início rápido.
@@ -29,7 +30,7 @@ O Microsoft Genomics oferece 99,99% de disponibilidade de Contrato de Nível de 
 
 
 ## <a name="secure-your-data"></a>Proteja seus dados
-O serviço Microsoft Genomics é certificado pelo ISO 27001, ISO 27018 e ISO 9001, e está em conformidade com os regulamentos da HIPAA. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) para obter informações sobre a segurança da plataforma do Azure.
+O serviço Microsoft Genomics é certificado pelo ISO 27001, ISO 27018 e ISO 9001, e está em conformidade com os regulamentos da HIPAA. Visite a [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 
 ## <a name="next-steps"></a>Próximas etapas

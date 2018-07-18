@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906382"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -42,7 +43,7 @@ As seções a seguir descrevem os recursos de segurança do StorSimple que ajuda
 
 O serviço Gerenciador de Dispositivos StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure e usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço Gerenciador de Dispositivos StorSimple usando suas credenciais organizacionais para fazer logon no Portal do Azure por meio de um navegador da Web.
 
-O acesso ao serviço Gerenciador de Dispositivos StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/sign-up-organization.md).
+O acesso ao serviço Gerenciador de Dispositivos StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
 
 Uma vez que o serviço Gerenciador de Dispositivos StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -204,6 +205,18 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Gerenciando informações pessoais
+
+O StorSimple Device Manager para séries físicas e virtuais coleta informações pessoais nas seguintes instâncias principais:
+
+- Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser vistas e apagadas pelo administrador. Isso se aplica aos dispositivos da série StorSimple 8000 e Matrizes Virtual StorSimple.
+ * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser vista. Essa lista também será excluída quando os compartilhamentos são excluídos. Isso se aplica somente a matrizes de Virtual do StorSimple.
+ * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+
+Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
@@ -254,7 +267,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
-* [Certificado de importação de cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Certificado de importação de cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido?
 
@@ -268,19 +281,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente.
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
 
-O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE. 
-
-O Gerenciador de Dispositivos de StorSimple para séries virtuais e físicas é compatível com GDPR. Há duas instâncias de chave, onde as informações pessoais são coletadas e exibidas no serviço:
-
-- Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser vistas e apagadas pelo administrador. Isso se aplica aos dispositivos da série StorSimple 8000 e Matrizes Virtual StorSimple.
- * Para exibir e limpar as configurações de série 8000 StorSimple, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Para exibir e limpar as configurações de série StorSimple Virtual Array, siga as etapas em [exibir e gerenciar alertas de StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser vista. Essa lista também será excluída quando os compartilhamentos são excluídos. Isso se aplica somente a matrizes de Virtual do StorSimple.
- * Para exibir a lista de usuário que pode acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos no StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
-
-Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Próximas etapas
 

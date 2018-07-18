@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047070"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Versão 2 – Versão prévia](../connector-azure-sql-data-warehouse.md)
+> * [Versão 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Versão 2 (versão atual)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [Azure SQL Data Warehouse connector in V2](../connector-azure-sql-data-warehouse.md) (Conector do SQL Data Warehouse do Azure na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do SQL Data Warehouse do Azure na V2 ](../connector-azure-sql-data-warehouse.md).
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados bidirecionalmente no SQL Data Warehouse do Azure. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.  
 

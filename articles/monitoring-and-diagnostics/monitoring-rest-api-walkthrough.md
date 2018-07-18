@@ -1,28 +1,19 @@
 ---
-title: Passo a passo da API REST de Monitoramento do Azure | Microsoft Docs
+title: Passo a passo da API REST de Monitoramento do Azure
 description: Como autenticar solicitações e usar a API REST do Azure Monitor para recuperar as definições de métrica e os valores de métrica disponíveis.
 author: mcollier
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
-ms.service: monitoring-and-diagnostics
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.search.region: ''
-ms.search.scope: ''
-ms.search.validFrom: ''
-ms.dyn365.ops.version: ''
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: a2b33822a1208c2835b8eabfb6717edba08d1992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: ''
+ms.openlocfilehash: d916191ec6b475f9a19a48c62d69e4c8990a2d4c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264418"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 Este artigo mostra como executar autenticação para que o seu código possa usar a [referência de API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         

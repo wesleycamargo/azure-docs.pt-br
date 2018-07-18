@@ -1,11 +1,11 @@
 ---
-title: "Introdução de pilha Cofre de chaves do Azure | Microsoft Docs"
+title: Introdução de pilha Cofre de chaves do Azure | Microsoft Docs
 description: Saiba como o Cofre de chaves do Azure pilha gerencia chaves e segredos
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26636719"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Introdução ao Cofre de chaves na pilha do Azure
 

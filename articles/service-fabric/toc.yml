@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Manifestos do aplicativo e serviço
           href: service-fabric-application-and-service-manifests.md
+        - name: Exemplos de aplicativo e manifesto do serviço
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Exemplos de aplicativo de Reliable Services e manifesto do serviço
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Exemplos de aplicativo multicontêiner e manifesto do serviço
+              href: service-fabric-manifest-example-container-app.md
         - name: Modelo de hospedagem
           href: service-fabric-hosting-model.md
         - name: Segurança de aplicativo
@@ -208,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: Recursos do serviço
           href: service-fabric-service-manifest-resources.md
+        - name: Backup periódico e restauração
+          items:
+            - name: Noções básicas sobre a configuração de backup periódico
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: Clusters
       href: service-fabric-deploy-anywhere.md
       items:
@@ -399,6 +410,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Compilar um serviço do ASP.NET Core
           href: service-fabric-add-a-web-frontend.md
+        - name: Criar um contêiner de servidor Apache Tomcat no Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Configurar a segurança
           items:
             - name: Gerenciar segredos do aplicativo
@@ -419,6 +432,8 @@
               href: service-fabric-securing-containers.md
             - name: Configurar o gMSA para contêineres do Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+            - name: Configurar certificados no Linux
+              href: service-fabric-configure-certificates-linux.md
         - name: Configurar backups periódicos (Clusters no Azure)
           href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
         - name: Configurar backups periódicos (Clusters Independentes)
@@ -449,6 +464,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: Monitorar e diagnosticar localmente
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Trabalhar em um ambiente VS Code
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'Desenvolver aplicativos Service Fabric do C# com VS Code'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: Desenvolver aplicativos Service Fabric do Java com VS Code
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Migrar dos Serviços de Nuvem
       items:
         - name: Comparar os Serviços de Nuvem com o Service Fabric
@@ -523,17 +545,13 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster usando o nome comum do certificado
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Habilitar Criptografia de Disco para Windows
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Habilitar Criptografia de Disco para Linux
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: Escala
               items:
                 - name: Expansão manual
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Expansão por meio de programação
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Expandir VMs com tipo de nó primário
+                - name: Dimensionar ou atualizar VMs com tipo de nó primário
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Atualizar
               href: service-fabric-cluster-upgrade.md
@@ -551,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Conexão remota para a VM do nó de cluster
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: Atualização/migrar SKU do VMSS
-              href: service-fabric-update-vmss-sku.md
         - name: Clusters independentes
           items:
             - name: Criar
@@ -601,13 +617,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Diagnóstico do Linux Azure
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: Configurar o Log Analytics do OMS
+            - name: Configurar Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
-            - name: Monitorar com o OMS
+            - name: Monitorar com o Log Analytics
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: Monitorar infraestrutura
           items:
-            - name: Monitorar desempenho com Agente OMS
+            - name: Monitoramento de desempenho com o Agente Log Analytics
               href: service-fabric-diagnostics-oms-agent.md
             - name: Monitoramento do desempenho com WAD
               href: service-fabric-diagnostics-perf-wad.md
@@ -623,6 +639,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: Diagnosticar cenários comuns
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: Práticas recomendadas
+      items:
+        - name: Lista de verificação de preparação para produção
+          href: service-fabric-production-readiness-checklist.md
 - name: Referência
   items:
     - name: Azure PowerShell

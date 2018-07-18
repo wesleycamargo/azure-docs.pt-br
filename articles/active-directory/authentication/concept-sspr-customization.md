@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448726"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade de Autoatendimento de Redefinição de Senha do Azure AD
 
@@ -38,7 +39,7 @@ Esse contato é enviado para os seguintes destinatários na seguinte ordem:
 
 Em todos os casos, no máximo 100 destinatários serão notificados.
 
-Para obter mais informações sobre as diferentes funções de administrador e sobre como atribuí-las, consulte [Atribuindo funções de administrador no Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+Para obter mais informações sobre as diferentes funções de administrador e sobre como atribuí-las, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Desabilitar os emails "Contate o administrador"
 
@@ -68,7 +69,7 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
     * Passando o parâmetro *whr* para a página de redefinição de senha, como “https://login.microsoftonline.com/?whr=contoso.com”
     * Passando o parâmetro *username* para a página de redefinição de senha, como “https://login.microsoftonline.com/?username=admin@contoso.com”
 
-Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](../customize-branding.md).
+Encontre detalhes sobre como configurar a identidade visual da empresa no artigo [Adicionar uma identidade visual da empresa à página de entrada do Azure AD](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Nome do diretório
 

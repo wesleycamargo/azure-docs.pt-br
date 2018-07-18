@@ -10,11 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: b0eaa13baa3e787db14e7a6f915018c3a4f280a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435750"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passar um objeto JSON para um runbook de Automação do Azure
 
@@ -83,6 +84,10 @@ Execute os seguintes comandos do PowerShell:
    Connect-AzureRmAccount
    ```
     Você recebe uma solicitação para inserir suas credenciais do Azure.
+
+   > [!IMPORTANT]
+   > **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
+
 1. Obtenha o conteúdo do arquivo JSON e converta-o em uma cadeia de caracteres:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

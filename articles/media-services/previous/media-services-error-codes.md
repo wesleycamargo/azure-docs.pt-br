@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783565"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro dos Serviços de Mídia do Azure
 Ao usar os Serviços de Mídia do Microsoft Azure, você pode receber códigos de erro HTTP do serviço dependendo dos problemas, como tokens de autenticação expirando a ações que não são compatíveis nos Serviços de Mídia. Veja a seguir uma lista de **códigos de erros HTTP** que podem ser retornados pelos Serviços de Mídia e suas possíveis causas.  

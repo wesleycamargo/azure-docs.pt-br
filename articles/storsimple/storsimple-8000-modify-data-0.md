@@ -1,12 +1,12 @@
 ---
-title: "Modificar configurações da DATA 0 em dispositivo StorSimple 8000 series | Microsoft Docs"
+title: Modificar configurações da DATA 0 em dispositivo StorSimple 8000 series | Microsoft Docs
 description: Saiba como usar o Windows PowerShell para StorSimple para reconfigurar a interface de rede DATA 0 em seu dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108294"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificar as configurações do adaptador de rede DATA 0 no dispositivo StorSimple 8000 series
 

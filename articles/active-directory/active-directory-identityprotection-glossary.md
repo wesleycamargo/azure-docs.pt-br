@@ -1,13 +1,14 @@
 ---
-title: "Glossário do Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Glossário do Azure Active Directory Identity Protection"
+title: Glossário do Azure Active Directory Identity Protection | Microsoft Docs
+description: Glossário do Azure Active Directory Identity Protection
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança, glossário"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança, glossário
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713384"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>Em risco (Usuário)
@@ -130,7 +132,7 @@ O processo ou a ação de autenticar uma identidade no Azure Active Directory e 
 ### <a name="sign-in-from-anonymous-ip-address"></a>Entrada de um endereço IP anônimo
 Um evento de risco disparado após uma entrada bem-sucedida de um endereço IP que foi identificado como um endereço IP de proxy anônimo.
 
-### <a name="sign-in-from-infected-device"></a>Entradas de um dispositivo infectado
+### <a name="sign-in-from-infected-device"></a>Entrada de um dispositivo infectado
 Um evento de risco disparado em que uma entrada origina um endereço IP conhecido por ser usado por um ou mais dispositivos comprometidos, que estão tentando ativamente comunicar-se com um servidor de bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Entrada de um endereço IP com atividade suspeita
@@ -158,7 +160,7 @@ Uma política de acesso condicional que considera a entrada e aplica mitigaçõe
 Usuários que têm eventos de risco ativos ou corrigidos
 
 ### <a name="vulnerability"></a>Vulnerabilidade
-Uma configuração ou condição no Azure Active Directory que torna o diretório suscetível a vulnerabilidades e ameaças.
+Uma configuração ou condição no Azure Active Directory que torna o diretório suscetível a vulnerabilidades ou ameaças.
 
 ## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

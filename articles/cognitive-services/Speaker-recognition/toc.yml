@@ -1,0 +1,20 @@
+- name: Documentação do Reconhecimento do Locutor
+- name: Visão geral
+  items:
+    - name: Saiba sobre o Reconhecimento do Locutor
+      href: Home.md
+- name: Referência
+  items:
+    - name: Referência de API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
+      items:
+        - name: SDKs
+          items:
+            - name: Android
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
+            - name: Windows
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

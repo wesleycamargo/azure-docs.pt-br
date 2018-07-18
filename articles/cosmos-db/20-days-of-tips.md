@@ -4,20 +4,18 @@ description: Encontre todas as dicas da série 20 dias de dicas do Azure Cosmos 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: sngun
 ms.custom: cda
-ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 43fd8b23be029511933f3a238f42b440f81aa121
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610609"
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de dicas do Azure Cosmos DB
 
@@ -93,7 +91,7 @@ Dica 9: consulte o Azure #CosmosDB usando a API do MongoDB no Node.js. Saiba mai
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>Dica 10: copiar dados do MongoDB usando o Studio 3T
 
-Dica 10: saiba como copiar os dados do MongoDB para o Azure Cosmos DB usando o Studio 3T (MongoChef). Documentos em[https://aka.ms/apzhww](https://aka.ms/apzhww)
+Dica 10: saiba como copiar os dados do MongoDB para o Azure Cosmos DB usando o Studio 3T (MongoChef). Documentos em [https://aka.ms/apzhww](https://aka.ms/apzhww)
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 

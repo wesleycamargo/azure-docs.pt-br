@@ -1,30 +1,27 @@
 ---
-title: Gerenciar o Azure Data Lake Analytics usando o portal do Azure | Microsoft Docs
-description: Saiba como gerenciar contas, fontes de dados, usuários e trabalhos da Análise Data Lake.
+title: Gerenciar o Azure Data Lake Analytics usando o portal do Azure
+description: Este artigo descreve como usar o portal do Azure para gerenciar contas, fontes de dados, usuários e trabalhos do Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771374"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969503"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Saiba como gerenciar contas, fontes de dados da conta, usuários e trabalhos do Azure Data Lake Analytics usando o portal do Azure. Para ver os tópicos de gerenciamento sobre como usar outras ferramentas, clique na guia na parte superior da página.
+Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando o portal do Azure.
+
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -169,4 +166,4 @@ Para exibir uma lista de trabalhos de U-SQL que são recorrentes:
 
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gerenciar o Azure Data Lake Analytics usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Gerenciar o Azure Data Lake Analytics usando políticas](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [Gerenciar o Azure Data Lake Analytics usando políticas](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

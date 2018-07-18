@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195423"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309122"
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -24,9 +24,9 @@ A versão atual do banco de dados SQL é V12. Versão V11 foi desativado.
 ## <a name="what-is-the-sla-for-sql-database"></a>O que é o SLA para o banco de dados SQL?
 Garantimos que por pelo menos 99,99% do tempo você terá conectividade entre o Banco de Dados SQL do Microsoft Azure e o nosso gateway da Internet, independentemente da sua camada de serviço. Para saber mais, veja [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>O que é o novo modelo de compra baseado em vCore (versão prévia) para o Banco de Dados SQL do Azure?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>O que é o novo modelo de compra baseado em vCore (versão prévia) para o Banco de Dados SQL do Azure?
 
-O novo modelo de compra é um acréscimo ao modelo existente baseado em DTU. O modelo baseado em vCore foi projetado para oferecer aos clientes flexibilidade, controle, transparência e uma maneira simples de mover os requisitos de carga de trabalho local para a nuvem. Ele também permite aos clientes escalar armazenamento e computação com base nas necessidades da carga de trabalho. As opções de banco de dados individual e pool elástico usando o modelo vCore também são elegíveis para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) para obter mais informações. 
+O novo modelo de compra é um acréscimo ao modelo existente baseado em DTU. O modelo baseado em vCore foi projetado para oferecer aos clientes flexibilidade, controle, transparência e uma maneira simples de mover os requisitos de carga de trabalho local para a nuvem. Ele também permite aos clientes escalar recursos de armazenamento e computação com base nas necessidades da carga de trabalho. As opções de banco de dados individual e pool elástico usando o modelo vCore também são elegíveis para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) para obter mais informações. 
 
 ## <a name="what-is-a-vcore"></a>O que é um vCore? 
 Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
@@ -36,7 +36,7 @@ Não, a introdução do modelo baseado em vCore às opções de implantação de
 
 Em muitos casos, os aplicativos podem se beneficiar da simplicidade de um pacote de recursos pré-configurado. Portanto, continuamos a oferecer e apoiar essas escolhas baseadas em DTU para nossos clientes. Se você estiver utilizando-os e eles atendem aos requisitos de negócios, você deverá continuar fazendo isso.
 
-Os modelos baseados em DTU e vCore continuarão a existir paralelamente. Estamos lançando o modelo baseado em vCore em reposta às solicitações de clientes por maior transparência em relação aos recursos de banco de dados e à capacidade para escalar armazenamento e computação de maneira separada. O modelo baseado em vCore também possibilita economia adicional aos clientes com o Software Assurance ativo por meio do Benefício Híbrido do Azure para SQL Server.
+Os modelos baseados em DTU e vCore continuarão a existir paralelamente. Estamos lançando o modelo baseado em vCore em reposta às solicitações de clientes por maior transparência em relação aos recursos de banco de dados e à capacidade para escalar recursos de armazenamento e computação de maneira separada. O modelo baseado em vCore também possibilita economia adicional aos clientes com o Software Assurance ativo por meio do Benefício Híbrido do Azure para SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Como devo escolher entre o modelo de compra baseado em DTU em comparação ao modelo de compra baseado em vCore (versão prévia)? 
 A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os níveis de desempenho baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches. 
@@ -49,10 +49,10 @@ Você tem 180 dias de direitos de uso duplo da licença para garantir que as mig
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Como o Benefício Híbrido do Azure do SQL Server difere da mobilidade de licenças?
-Hoje, oferecemos aos clientes do SQL Server benefícios de mobilidade de licenças do Software Assurance que permitem a reatribuição de suas licenças a servidores compartilhados de terceiros. Esse benefício pode ser usado na IaaS do Azure e no AWS EC2.
+Atualmente, oferecemos os benefícios de mobilidade de licença para clientes do SQL Server com Software Assurance, o que permite a reatribuição de suas licenças a servidores de terceiros compartilhados. Esse benefício pode ser usado na IaaS do Azure e no AWS EC2.
 O Benefício Híbrido do Azure para SQL Server difere da mobilidade de licenças em duas áreas principais:
 - Ele fornece benefícios econômicos para mover cargas de trabalho altamente virtualizadas para o Azure. Os clientes do SQL EE podem obter 4 núcleos no Azure na SKU de Uso Geral para cada núcleo que possuem no local para aplicativos altamente virtualizados. A mobilidade de licenças não permite nenhum benefício de custo especial para mover cargas de trabalho virtualizadas para a nuvem.
-- Ele fornece um destino de PaaS no Azure que é altamente compatível com SQL Server local – Instância Gerenciada do Banco de Dados SQL.
+- Ele fornece para um destino de PaaS no Azure (Instância Gerenciada do Banco de Dados SQL) que é altamente compatível com o SQL Server local
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quais são os direitos específicos do Benefício Híbrido do Azure para SQL Server?
 Clientes do Banco de Dados SQL terão os direitos associados ao Benefício Híbrido do Azure para SQL Server a seguir:
@@ -90,18 +90,18 @@ Sim, você pode selecionar independentemente o nível de computação que o apli
 Você pode configurar a retenção de backup para PITR entre 7 e 35 dias. O armazenamento de backups será cobrado separadamente com base no consumo real de armazenamento, se exceder o valor de armazenamento igual ao tamanho máximo dos dados. Na versão prévia, por padrão, o período de retenção PITR é definido como 7 dias. Em muitos casos, o tamanho máximo dos dados é suficiente para armazenar 7 dias de backups.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Por que você permite a seleção da geração de hardware para computação?
-Nossa meta é permitir flexibilidade máxima para que você possa escolher uma configuração de desempenho que corresponda às necessidades do aplicativo. A tabela acima mostra as diferenças entre a Ger 4 e Ger 5. Em particular, o hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Ger 5 permite que você amplie a computação muito mais. Queremos tornar essas diferenças transparentes para que você possa atingir a relação preço/desempenho ideal para o aplicativo.
+Nossa meta é permitir flexibilidade máxima para que você possa escolher uma configuração de desempenho que corresponda às necessidades do aplicativo. A tabela acima mostra as diferenças entre a Ger 4 e Ger 5. Em particular, o hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Gen5 permite que você amplie recursos de computação muito maiores. Queremos tornar essas diferenças transparentes para que você possa atingir a relação preço/desempenho ideal para o aplicativo.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>É necessário colocar meu aplicativo offline para converter de um banco de dados baseado em DTU em uma camada de serviço baseada em vCore? 
-As novas camadas de serviço oferecem um método de conversão online simples, semelhante ao processo existente de atualização de bancos de dados da camada de serviço Standard para Premium e vice-versa. Essa conversão pode ser iniciada usando o Portal, ARM, PowerShell, CLI do Azure ou T-SQL. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-resources.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
+As novas camadas de serviço oferecem um método de conversão online simples, semelhante ao processo existente de atualização de bancos de dados da camada de serviço Standard para Premium e vice-versa. Esta conversão pode ser iniciada usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>É possível converter um banco de dados de uma camada de serviço baseada em vCore em uma baseada em DTU? 
-Sim, você pode converter facilmente o banco de dados em qualquer objetivo de desempenho compatível usando o Portal ou programaticamente usando o Portal, ARM, PowerShell, a CLI do Azure ou T-SQL. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-resources.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
+Sim, você pode converter facilmente o banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>É possível fazer upgrade ou downgrade entre as camadas de serviço de Uso Geral e Comercialmente Crítico? 
 Sim, com algumas restrições. A SKU de destino deve atender ao tamanho máximo do banco de dados ou do pool elástico que você configurou para a implantação existente. Se você estiver usando o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), a SKU de Comercialmente Crítico estará disponível apenas para clientes com licenças do Enterprise Edition. Somente os clientes que migraram de local para Uso Geral usando o Benefício Híbrido do Azure para SQL Server com licenças do Enterprise Edition poderão fazer upgrade para Comercialmente Crítico. Para detalhes, consulte [Quais são os direitos específicos do Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-Essa conversão não resulta em tempo de inatividade e pode ser iniciada usando o Portal, ARM, PowerShell, a CLI do Azure ou T-SQL. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-resources.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
+Essa conversão não resultará em tempo de inatividade e pode ser iniciada usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Estou usando um banco de dados Premium RS que não estará Geralmente Disponível - é possível atualizá-lo para uma nova camada e obter um benefício de desempenho/preço semelhante?
 Como o modelo vCore permite o controle independente da quantidade de computação e armazenamento provisionados, você pode gerenciar com mais eficiência os custos resultantes, tornando-se um destino atraente para os bancos de dados Premium RS. Além disso, o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) fornece um desconto substancial quando o modelo baseado em vCore é usado. 
@@ -193,3 +193,4 @@ No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL*
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Para mover um banco de dados entre assinaturas
 No [Portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que hospeda seu banco de dados da lista. Clique em **Mover**, então selecione os recursos a mover e a assinatura para a qual movê-los.
+

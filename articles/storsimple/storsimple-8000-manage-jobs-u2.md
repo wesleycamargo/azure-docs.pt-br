@@ -1,12 +1,12 @@
 ---
-title: "Exibir e gerenciar trabalhos para o StorSimple série 8000 | Microsoft Docs"
-description: "Descreve a folha Trabalhos do serviço do Gerenciador de Dispositivos do StorSimple e como usá-la para acompanhar os trabalhos de backup recentes, atuais e agendados."
+title: Exibir e gerenciar trabalhos para o StorSimple série 8000 | Microsoft Docs
+description: Descreve a folha Trabalhos do serviço do Gerenciador de Dispositivos do StorSimple e como usá-la para acompanhar os trabalhos de backup recentes, atuais e agendados.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108184"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Use o serviço do Gerenciador de Dispositivos do StorSimple para exibir e gerenciar trabalhos (Atualização 3 e posterior)
 

@@ -1,24 +1,19 @@
 ---
 title: Configurar o upload de arquivo para o Hub IoT usando a CLI do Azure (az.py) | Microsoft Docs
 description: Como configurar uploads de arquivo para o Hub IoT do Azure usando a CLI 2.0 do Azure (az.py) de plataforma cruzada.
-services: iot-hub
-documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633845"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
 

@@ -1,8 +1,8 @@
 ---
 title: Armazenamento standard para discos de VM Linux no Azure | Microsoft Docs
-description: "Discuta o Armazenamento Standard econômico e discos de VM Linux gerenciados e não gerenciados."
+description: Discuta o Armazenamento Standard econômico e discos de VM Linux gerenciados e não gerenciados.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666868"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652494"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -214,7 +215,7 @@ Agora que você sabe como gerenciar sua conta de armazenamento com o PowerShell,
 * [Como gerenciar blobs com o PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Como gerenciar arquivos com o PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Como gerenciar filas com o PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Executar operações de armazenamento de Tabelas do Azure com o PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Executar operações de armazenamento de Tabelas do Azure com o PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 A API de Tabela do Azure Cosmos DB fornece recursos premium para o armazenamento de tabelas, como distribuição global turnkey, leituras e gravações de baixa latência, indexação secundária automática e taxa de transferência dedicada. 
 

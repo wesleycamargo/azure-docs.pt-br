@@ -11,16 +11,17 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 321f84e0d56a2bda57e1fbfa2cc562b65c6e1d30
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097505"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster Spark no HDInsight usando o PowerShell
 Saiba como criar o cluster do Apache Spark no Azure HDInsight e como executar consultas Spark SQL nas tabelas do Hive. O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
-Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster.
+Neste início rápido, você usa o Azure PowerShell para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > A cobrança dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Exclua seu cluster depois de terminar de usá-lo. Para saber mais, confira a seção [Recursos de limpeza](#clean-up-resources) deste artigo.
@@ -33,14 +34,14 @@ A criação de um cluster HDInsight inclui a criação dos seguintes objetos e r
 
 - Um grupo de recursos do Azure. Um grupo de recursos do Azure é um contêiner para os recursos do Azure. 
 - Uma conta de armazenamento do Azure ou um repositório do Azure Data Lake Store.  Cada cluster HDInsight exige um armazenamento de dados dependente. Neste início rápido, você criará uma conta de armazenamento.
-- Um cluster HDInsight de tipos de cluster diferentes.  Neste início rápido, você criará um cluster Spark 2.2.
+- Um cluster HDInsight de tipos de cluster diferentes.  Neste início rápido, você criará um cluster Spark 2.3.
 
 Você pode usar um script do PowerShell para criar os recursos.  Ao executar o script, você precisará inserir os seguintes valores:
 
 |Parâmetro|Valor|
 |------|------|
 |Nome do grupo de recursos do Azure | Forneça um nome exclusivo para o grupo de recursos.|
-|Local padrão| Especifique a região do Azure, por exemplo "EUA Central". |
+|Localização| Especifique a região do Azure, por exemplo "EUA Central". |
 |Nome da conta de armazenamento padrão | Forneça um nome exclusivo para a conta de armazenamento. |
 |Nome do cluster | Forneça um nome exclusivo para o cluster Spark do HDInsight.|
 |Credenciais de logon de cluster | Use essa conta para se conectar ao painel de cluster posteriormente no início rápido.|
@@ -52,7 +53,7 @@ Você pode usar um script do PowerShell para criar os recursos.  Ao executar o s
 2. Copie e cole o seguinte script do PowerShell no Cloud Shell. 
 
     ```azurepowershell-interactive
-    ### Create a Spark 2.2 cluster in Azure HDInsight
+    ### Create a Spark 2.3 cluster in Azure HDInsight
         
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -74,7 +75,7 @@ Você pode usar um script do PowerShell para criar os recursos.  Ao executar o s
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
-    # Create a Spark 2.2 cluster
+    # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
@@ -95,7 +96,7 @@ Você pode usar um script do PowerShell para criar os recursos.  Ao executar o s
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-    $sparkConfig.Add("spark", "2.2")
+    $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
     New-AzureRmHDInsightCluster `

@@ -1,12 +1,12 @@
 ---
-title: "Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Gerencie namespaces e entidades de mensagens do Barramento de Serviço no .NET."
+title: Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs
+description: Gerencie namespaces e entidades de mensagens do Barramento de Serviço no .NET.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120889"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 

@@ -1,34 +1,42 @@
 ---
-title: Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs do Azure| Microsoft Docs
-description: Use o Portal do Azure para mapear seu próprio nome canônico (CNAME) para o ponto de extremidade do Armazenamento de Blobs em uma conta de Armazenamento do Azure.
+title: Configurar um nome de domínio personalizado para conta de Armazenamento do Azure| Microsoft Docs
+description: Use o Portal do Azure para mapear seu próprio nome canônico (CNAME) para o ponto de extremidade de Blobs ou web em uma conta de Armazenamento do Azure.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017913"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para conta de Armazenamento do Azure
 
-Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade para o Armazenamento de Blobs é `<storage-account-name>.blob.core.windows.net`. Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob para sua conta de armazenamento, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
+Você pode configurar um domínio personalizado para acessar os dados de blob em sua conta de armazenamento do Azure. O ponto de extremidade para o Armazenamento de Blobs é `<storage-account-name>.blob.core.windows.net`. Você também pode usar o ponto de extremidade da web gerado como parte do [recurso sites estáticos (visualização)](storage-blob-static-website.md). Se você mapear um domínio personalizado e um subdomínio como **www.contoso.com** para o ponto de extremidade do blob ou web para sua conta de armazenamento, os usuários também poderão acessar dados do blob em sua conta de armazenamento usando esse domínio.
 
 > [!IMPORTANT]
 > O Armazenamento do Azure ainda não dá suporte nativo a HTTPS com domínios personalizados. No momento, você pode [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Contas de armazenamento atualmente suportam a apenas um nome de domínio personalizado por conta. Isso significa que você não pode mapear um nome de domínio personalizado para pontos de extremidade de serviço da web e o blob.
+
 A tabela a seguir mostra exemplos de URLs para acessar os dados do blob em uma conta de armazenamento denominada **mystorageaccount**. O domínio personalizado registrado para a conta de armazenamento é **www.contoso.com**.
 
 | Tipo de recurso | URL padrão | URL de domínio personalizada |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Contêiner raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/$web ou http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web ou http://www.contoso.com/ ou http://www.contoso.com/$web/[indexdoc] ou  http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Todos os exemplos para o ponto de extremidade do serviço Blob abaixo também se aplicam ao ponto de extremidade de serviço web.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Mapeamento de domínio direto versus intermediário
 
@@ -157,3 +165,4 @@ Use o cmdlet do PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurer
 ## <a name="next-steps"></a>Próximas etapas
 * [Mapear o domínio personalizado para o ponto de extremidade de uma CDN (Rede de Distribuição de Conteúdo) do Azure](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
+* [Hospedagem de site estático no armazenamento de Blob do Azure (visualização)](storage-blob-static-website.md)

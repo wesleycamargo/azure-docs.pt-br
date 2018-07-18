@@ -1,24 +1,20 @@
 ---
 title: Receber um email quando a porta é aberta usando o serviço SendGrid e Azure Functions | Microsoft Docs
 description: Monitore o sensor magnético para detectar quando uma porta é aberta e use o Azure Functions para enviar uma notificação por email.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437708"
 ---
 # <a name="door-monitor"></a>Monitor de porta          
 
@@ -37,7 +33,7 @@ Neste projeto, você aprenderá a:
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Siga o [Guia de Introdução]({{"/docs/get-started/" | absolute_url }}) para:
+Siga o [Guia de Introdução](iot-hub-arduino-iot-devkit-az3166-get-started.md) para:
 
 * Ter seu DevKit conectado ao Wi-Fi
 * Preparar o ambiente de desenvolvimento
@@ -213,4 +209,4 @@ Se você encontrar problemas, consulte [Perguntas frequentes](https://microsoft.
 Você aprendeu como conectar um dispositivo de Kit de Desenvolvimento ao acelerador de solução de Monitoramento Remoto do Azure IoT e usar o serviço SendGrid para enviar um email. Aqui estão sugestões para as próximas etapas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

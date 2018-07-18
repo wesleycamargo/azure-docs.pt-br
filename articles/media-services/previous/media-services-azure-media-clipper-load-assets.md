@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782895"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Carregando ativos no Azure Media Clipper
 Os ativos podem ser carregados no Azure Media Clipper por dois métodos:

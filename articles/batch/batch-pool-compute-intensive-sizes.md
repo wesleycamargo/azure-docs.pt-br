@@ -1,12 +1,12 @@
 ---
-title: "Usar VMs do Azure de computação intensiva com o Lote | Microsoft Docs"
-description: "Como tirar proveito dos tamanhos de VM compatíveis com RDMA ou habilitadas para GPU em pools do Lote do Azure"
+title: Usar VMs do Azure de computação intensiva com o Lote | Microsoft Docs
+description: Como tirar proveito dos tamanhos de VM compatíveis com RDMA ou habilitadas para GPU em pools do Lote do Azure
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762434"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote
 

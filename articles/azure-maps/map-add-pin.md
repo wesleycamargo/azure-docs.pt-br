@@ -1,22 +1,20 @@
 ---
 title: Adicionar um pin com Mapas do Azure | Microsoft Docs
 description: Como adicionar um pin para um mapa de Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 189b30ff0b5c47d0a4bd3181c8eb2143213ad6cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 094abe08c0c88c7561185675ceb8529be2c87a0a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294641"
 ---
 # <a name="add-pins-to-the-map"></a>Adicionar pins ao mapa
 
@@ -36,3 +34,8 @@ No segundo bloco de código, um pin é criado e adicionado ao mapa. Um pin é um
 Saiba mais sobre as classes e métodos usados neste artigo: 
 * [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
+* [ Adicione um pop-up ](./map-add-popup.md)
+* [ Adicione uma forma ](./map-add-shape.md)
+

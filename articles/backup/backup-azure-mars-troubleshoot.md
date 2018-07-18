@@ -1,24 +1,19 @@
 ---
-title: Solucionar problemas do Azure Backup Agent | Microsoft Docs
+title: Solucionar problemas do Agente de Backup do Azure
 description: Solucionar problemas de instalação e registro do Azure Backup Agent
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: saurse
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228383"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Solucionar problemas de configuração e registro do Azure Backup Agent
 ## <a name="recommended-steps"></a>Etapas recomendadas
@@ -41,13 +36,19 @@ Consulte as ações recomendadas nas tabelas a seguir para resolver os erros que
 
 | Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |      
-| **Erro** </br>*Falha ao configurar a chave de criptografia para backups seguros. A operação atual falhou devido a um erro de serviço interno 'Erro de Entrada Inválida'. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft* . |O servidor já está registrado com outro cofre.| Remova o servidor do cofre e registre novamente.
+| **Erro** </br>*Falha ao definir a chave de criptografia para backups seguros A ativação não foi bem-sucedida, mas a frase secreta de criptografia foi salva no seguinte arquivo*. |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a frase secreta foi corrompida| Cancele o registro do servidor do cofre e registre-se novamente com uma nova frase secreta.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]
 
 | Detalhes do erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |          
-| **Erro** </br><ol><li>*A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft*  <li>*Erro 34506. A senha de criptografia armazenada neste computador não está configurada corretamente*. | <li> A pasta de Rascunho está localizada em um volume que não possui espaço suficiente. <li> A pasta de Rascunho é movida incorretamente para outro local. <li> O arquivo OnlineBackup.KEK está ausente. | <li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [Perguntas sobre o Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Erro** </br><ol><li>*A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft* | <li> A pasta de Rascunho está localizada em um volume que não possui espaço suficiente. <li> A pasta de Rascunho é movida incorretamente para outro local. <li> O arquivo OnlineBackup.KEK está ausente. | <li>Atualize para a [versão mais recente](http://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [Perguntas sobre o Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Error 34506. A senha de criptografia armazenada neste computador não está configurada corretamente
+
+| Detalhes do erro | Possíveis causas | Ações recomendadas |
+| ---     | ---     | ---    |          
+| **Erro** </br><ol><li>*Erro 34506. A senha de criptografia armazenada neste computador não está configurada corretamente*. | <li> A pasta de Rascunho está localizada em um volume que não possui espaço suficiente. <li> A pasta de Rascunho é movida incorretamente para outro local. <li> O arquivo OnlineBackup.KEK está ausente. | <li>Atualize para a [versão mais recente](http://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre equivalente a 5-10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [Perguntas sobre o Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do local do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

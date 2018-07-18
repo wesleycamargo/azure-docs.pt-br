@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234743"
 ---
-# <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar os bancos de dados SQL para os usuários de pilha do Azure
+# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: disponibilizar bancos de dados SQL para os usuários de pilha do Azure
+
 Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que permitem aos usuários (locatários) criarem bancos de dados SQL que podem ser usadas com seus aplicativos de nuvem nativo, sites e cargas de trabalho. Fornecendo esses bancos de dados personalizados, sob demanda, com base em nuvem para seus usuários, você pode salvá-los, tempo e recursos. Para configurar isso, você irá:
 
 > [!div class="checklist"]
@@ -32,11 +34,11 @@ Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que p
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Implantar o provedor de recursos do SQL Server
 
-O processo de implantação é descrito detalhadamente o [bancos de dados SQL de uso no artigo de pilha do Azure](azure-stack-sql-resource-provider-deploy.md)e é composta das seguintes etapas principais:
+O processo de implantação é descrito detalhadamente o [bancos de dados SQL de uso no artigo de pilha do Azure](azure-stack-sql-resource-provider-deploy.md)e consiste das seguintes etapas principais:
 
 1. [Implantar o provedor de recursos do SQL](azure-stack-sql-resource-provider-deploy.md).
 2. [Verifique se a implantação](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3. Fornecem a capacidade conectando-se ao servidor de hospedagem SQL.
+3. Fornecem a capacidade conectando-se ao servidor de hospedagem SQL. Para obter mais informações, consulte [adicionar servidores de hospedagem](azure-stack-sql-resource-provider-hosting-servers.md)
 
 ## <a name="create-an-offer"></a>Criar uma oferta
 
@@ -44,9 +46,7 @@ O processo de implantação é descrito detalhadamente o [bancos de dados SQL de
 2.  [Criar um plano de](azure-stack-create-plan.md). Nomeie- *TestSQLServerPlan*, selecione o **Microsoft.SQLAdapter** serviço, e **SQLServerQuota** cota.
 
     > [!NOTE]
-    > Para permitir que os usuários criem outros aplicativos, outros serviços podem ser necessárias no plano. Por exemplo, funções do Azure requer que o plano inclui o **Microsoft** de serviço, enquanto o Wordpress requer **Microsoft.MySQLAdapter**.
-    > 
-    >
+    > Para permitir que os usuários criem outros aplicativos, outros serviços podem ser necessárias no plano. Por exemplo, funções do Azure requer o **Microsoft** serviço no plano, enquanto o Wordpress requer **Microsoft.MySQLAdapter**.
 
 3.  [Criar uma oferta](azure-stack-create-offer.md), nomeie-o **TestSQLServerOffer** e selecione o **TestSQLServerPlan** plano.
 
@@ -55,22 +55,23 @@ O processo de implantação é descrito detalhadamente o [bancos de dados SQL de
 Agora que você implantou o provedor de recursos do SQL Server e criar uma oferta, você pode entrar como um usuário, assinar a oferta e criar um banco de dados.
 
 ### <a name="subscribe-to-the-offer"></a>Assinar a oferta
+
 1. Entre portal do Azure pilha (https://portal.local.azurestack.external) como um locatário.
-2. Clique em **obter uma assinatura** e, em seguida, digite **TestSQLServerSubscription** em **nome de exibição**.
-3. Clique em **selecione uma oferta** > **TestSQLServerOffer** > **criar**.
-4. Clique em **mais serviços** > **assinaturas** > **TestSQLServerSubscription** > **recursos provedores de**.
-5. Clique em **registrar** lado a **Microsoft.SQLAdapter** provedor.
+2. Selecione **obter uma assinatura** e, em seguida, digite **TestSQLServerSubscription** em **nome de exibição**.
+3. Selecione **selecione uma oferta** > **TestSQLServerOffer** > **criar**.
+4. Selecione **mais serviços** > **assinaturas** > **TestSQLServerSubscription** > **recursos provedores de**.
+5. Selecione **registrar** lado a **Microsoft.SQLAdapter** provedor.
 
 ### <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 
-1. Clique em **+**  >  **dados + armazenamento** > **banco de dados SQL**.
-2. Mantenha os padrões para os campos, ou você pode usar esses exemplos:
+1. Selecione **+**  >  **dados + armazenamento** > **banco de dados SQL**.
+2. Mantenha os valores padrão ou usar esses exemplos para os seguintes campos:
     - **Nome do banco de dados**: SQLdb
     - **Tamanho máximo em MB**: 100
     - **Assinatura**: TestSQLOffer
     - **Grupo de recursos**: RG do SQL
-3. Clique em **configurações de logon**, insira as credenciais para o banco de dados e, em seguida, clique em **Okey**.
-4. Clique em **SKU** > Selecionar a SKU de SQL que você criou para o servidor de hospedagem SQL > **Okey**.
+3. Selecione **configurações de logon**, insira as credenciais para o banco de dados e, em seguida, selecione **Okey**.
+4. Selecione **SKU** > Selecionar a SKU de SQL que você criou para o servidor de hospedagem SQL > e, em seguida, selecione **Okey**.
 5. Clique em **Criar**.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -86,4 +87,3 @@ Avançar para o próximo tutorial para aprender como:
 
 > [!div class="nextstepaction"]
 > [Tornar disponível para os usuários da web, móveis e aplicativos de API]( azure-stack-tutorial-app-service.md)
-

@@ -1,21 +1,21 @@
 ---
-title: "Desenvolver módulos para o Azure IoT Edge | Microsoft Docs"
-description: "Saiba como criar módulos personalizados para o Azure IoT Edge"
-services: iot-edge
-keywords: 
+title: Desenvolver módulos para o Azure IoT Edge | Microsoft Docs
+description: Saiba como criar módulos personalizados para o Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 95b1d5d4e5e11f96b6abb17f0aeba935cc65512d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030012"
 ---
-# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules---preview"></a>Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge - versão prévia
+# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge
 
 Este artigo explica quais funcionalidades estão disponíveis ao escrever aplicativos que são executados como módulo do IoT Edge e como aproveitar esses recursos.
 
@@ -52,7 +52,7 @@ Usar entradas e saídas explícitas, porém, torna as regras de roteamento mais 
 
 Por fim, as mensagens de dispositivo para nuvem tratadas pelo hub do Edge são marcadas com as seguintes propriedades de sistema:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | $connectionDeviceId | A ID do dispositivo do cliente que enviou a mensagem |
 | $connectionDeviceId | A ID do módulo que enviou a mensagem |

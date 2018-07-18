@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297508"
 ---
 # <a name="use-cost-management-reports"></a>Usar relatórios do Gerenciamento de Custos
 
@@ -23,6 +24,8 @@ Este artigo descreve como usar vários relatórios do Gerenciamento de Custos no
 ## <a name="cost-analysis-reports"></a>Relatórios de análise de custos
 
 Os relatórios de análise de custo exibem dados de cobrança de seus provedores de nuvem. Usando os relatórios, você pode agrupar e analisar vários segmentos de dados especificados no arquivo de cobrança. Os relatórios permitem a navegação detalhada nos custos por todos os dados brutos de cobrança dos provedores de nuvem.
+
+Quando visualizados como um grafo, os relatórios de análise têm um eixo y *custo* e um eixo x para um *categoria ou marcação* que você escolhe. Embora haja um intervalo no grafo, os últimos 30 dias, por exemplo, o intervalo é usado como um filtro. Relatórios de análise são ideais comparar categorias. Por exemplo, o custo de cada assinatura nos últimos 30 dias. Ou o custo de serviços, como armazenamento ou computação, em um período específico.
 
 Os relatórios de análise de custos não agrupam os custos por marcas. Os relatórios baseados em marca só estão disponíveis no conjunto de relatórios de alocação de custos depois que você cria um modelo de custo usando o Alocador de Custos 360.
 
@@ -50,6 +53,8 @@ Clique com botão direito do mouse nos resultados do relatório para analisá-lo
 ### <a name="actual-cost-over-time"></a>Custo real ao longo do tempo
 
 O relatório de custo real ao longo do tempo é um relatório de análise de custo padrão que distribui os custos por um tempo definido. O relatório exibe os gastos ao longo do tempo para que você possa observar as tendências e detectar problemas nos gastos. Esse relatório mostra suas principais causas de custo, incluindo custos contínuos e tarifas avulsas reservadas gastos durante o período de tempo definido.
+
+Quando exibidos como um grafo, os relatórios de custo em função do tempo têm um eixo y *custo* e um eixo x *período*. Esses relatórios mostram a evolução do custo em um período.
 
 Use o relatório de custo real ao longo do tempo para:
 

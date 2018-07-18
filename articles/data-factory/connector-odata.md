@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054663"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-odata-connector.md)
-> * [Versão 2 – Versão prévia](connector-odata.md)
+> * [Versão 1](v1/data-factory-odata-connector.md)
+> * [Versão Atual](connector-odata.md)
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de uma fonte OData. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponibilidade geral), consulte [Conector OData na V1](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -133,7 +131,7 @@ Para copiar dados do OData, defina a propriedade type do conjunto de dados como 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **ODataResource** | sim |
-| caminho | Caminho para o recurso OData. | Não  |
+| caminho | Caminho para o recurso OData. | sim |
 
 **Exemplo**
 

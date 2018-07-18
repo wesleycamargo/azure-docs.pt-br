@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1372dab2685d62a12d0d1fb186c803f8906156b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 41c568191ab47faba8f67e855f0a52d5d97ffc6b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020640"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas Hive usando o SDK .NET do HDInsight
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -144,7 +145,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * [Introdução ao Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](../hdinsight-administer-use-management-portal.md)
-* [Referência de SDK .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Referência de SDK .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Use o Sqoop com o HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Criar aplicativos .NET HDInsight de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

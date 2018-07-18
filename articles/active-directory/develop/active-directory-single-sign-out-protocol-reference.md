@@ -3,7 +3,7 @@ title: Protocolo SAML de Logout Único do Azure | Microsoft Docs
 description: Este artigo descreve o protocolo SAML de Logout Único no Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317670"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
-O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. O Azure AD usa o LogoutURL para redirecionar os usuários depois que eles são desconectados.
 
-Este diagrama mostra o fluxo de trabalho do processo de logout único do Azure AD.
+O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. O Microsoft Azure Active Directory usa o LogoutURL para redirecionar os usuários depois que eles são desconectados.
 
-![Fluxo de trabalho do Logout Único](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+O diagrama a seguir mostra o fluxo de trabalho do processo de logout único do Microsoft Azure Active Directory.
+
+![Fluxo de trabalho do Logout Único do Azure Active Directory](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 O serviço de nuvem envia uma mensagem `LogoutRequest` ao Azure AD para indicar que uma sessão foi encerrada. O trecho a seguir mostra um exemplo de elemento `LogoutRequest` .
@@ -42,9 +45,9 @@ O serviço de nuvem envia uma mensagem `LogoutRequest` ao Azure AD para indicar 
 ### <a name="logoutrequest"></a>LogoutRequest
 O elemento `LogoutRequest` enviado ao Azure AD requer os seguintes atributos:
 
-* `ID` : isso identifica a solicitação de saída. O valor de `ID` não deve começar com um número. A prática comum é acrescentar **id** à representação de cadeia de caracteres de um GUID.
-* `Version` : Defina o valor desse elemento como **2.0**. Esse valor é obrigatório.
-* `IssueInstant` : esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor desse tipo, mas não é obrigatório.
+* `ID` - isso identifica a solicitação de saída. O valor de `ID` não deve começar com um número. A prática comum é acrescentar **id** à representação de cadeia de caracteres de um GUID.
+* `Version` - Defina o valor desse elemento como **2.0**. Esse valor é obrigatório.
+* `IssueInstant` - esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Microsoft Azure Active Directory espera um valor desse tipo, mas não é obrigatório.
 
 ### <a name="issuer"></a>Emissor
 O elemento `Issuer` em uma `LogoutRequest` deve corresponder exatamente a um do **ServicePrincipalNames** no serviço de nuvem no Azure AD. Normalmente, isso é definido como o **URI da ID do aplicativo** que é especificado durante o registro do aplicativo.

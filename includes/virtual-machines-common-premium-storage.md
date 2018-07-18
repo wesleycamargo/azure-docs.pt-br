@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806376"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Os discos de VM que usam Armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Para tirar proveito da velocidade e do desempenho dos discos de armazenamento premium, você pode migrar os discos de VM existentes para o Armazenamento Premium.
 
@@ -61,7 +78,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 ## <a name="supported-vms"></a>VMs com suporte
 
-O Armazenamento Premium fornece suporte para as VMs das séries B, DS, DSv2, DSv3, GS, Ls, M e Fs. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
+O Armazenamento Premium fornece suporte para as VMs das séries B, DS, DSv2, DSv3, Esv3, GS, Ls, M e Fs. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
 
 
 Para obter informações sobre tipos de VM e tamanhos no Azure para Windows, confira [Tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para obter informações sobre tipos de VM e tamanhos no Azure para Linux, confira [Tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md).

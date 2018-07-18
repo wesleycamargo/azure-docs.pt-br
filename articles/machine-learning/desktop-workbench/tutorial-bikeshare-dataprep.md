@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723180"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: usar o Azure Machine Learning Workbench para preparação avançada de dados (Dados de compartilhamento de bicicleta)
 O Azure Machine Learning (versão prévia) é uma solução de análise avançada e integrada de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experimentos e implantarem modelos em escala de nuvem.
@@ -253,7 +255,7 @@ Você não precisa mais da coluna __REPORTTYPE__. Clique com botão direito do m
    ![Opção Remover Coluna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Alterar tipos de dados e remover erros
-1. Para selecionar várias colunas de uma vez, pressione Ctrl (Command ⌘ no Mac) enquanto seleciona os cabeçalhos de coluna. Use essa técnica para selecionar os seguintes cabeçalhos de coluna:
+1. Selecione Ctrl (comando ⌘ no Mac) enquanto seleciona os cabeçalhos de coluna para selecionar várias colunas ao mesmo tempo. Use essa técnica para selecionar os seguintes cabeçalhos de coluna:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Para a preparação de dados, visualizações úteis chamadas de inspetores est�
 1. Faça uma seleção múltipla das colunas **latitude da estação inicial** e **longitude da estação inicial**. Clique com o botão direito do mouse em uma das colunas e selecione **Mapa**.
 
     > [!TIP]
-    > Para habilitar a seleção múltipla, mantenha a tecla Ctrl (Command ⌘ no Mac) pressionada e selecione o cabeçalho de cada coluna.
+    > Para habilitar a seleção múltipla, mantenha pressionada a tecla Ctrl (comando ⌘ no Mac) e selecione o cabeçalho de cada coluna.
 
     ![Visualização do mapa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Para unir os dados de clima aos dados de viagem, use as seguintes etapas:
 
     ![Coluna de período](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para remover as colunas **Intervalo de Data e Hora** e **r_Date Hour Range**, pressione Ctrl (Command ⌘ no Mac) e selecione cada cabeçalho de coluna. Clique com botão direito do mouse e selecione **Remover Coluna**.
+3. Para remover as colunas **Intervalo de Data e Hora** e **r_intervalo de Data e Hora**, selecione Ctrl (comando ⌘ no Mac) e, em seguida, selecione cada cabeçalho de coluna. Clique com botão direito do mouse e selecione **Remover Coluna**.
 
 ## <a name="read-data-from-python"></a>Ler dados do Python
 

@@ -3,7 +3,7 @@ title: Copiar várias tabelas incrementalmente usando o Azure Data Factory | Mic
 description: Neste tutorial, você criará um pipeline do Azure Data Factory copiando de maneira incremental dados delta de várias tabelas de um banco de dados do SQL Server local em um banco de dados SQL do Azure.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052837"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -26,8 +27,8 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Preparará os armazenamentos de dados de origem e destino.
-> * Criar uma fábrica de dados.
-> * Crie um Integration Runtime auto-hospedado.
+> * Criar um data factory.
+> * Criar um tempo de execução de integração auto-hospedado.
 > * Instalar o Integration Runtime. 
 > * Criar serviços vinculados. 
 > * Criar os conjuntos de dados de origem, de coletor e de marca-d'água.
@@ -36,9 +37,6 @@ Neste tutorial, você realizará os seguintes procedimentos:
 > * Adicionar ou atualizar dados nas tabelas de origem.
 > * Executar novamente e monitorar o pipeline.
 > * Examinar os resultados finais.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que já está disponível, consulte a [documentação do Data Factory versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Visão geral
 Aqui estão as etapas importantes ao criar essa solução: 
@@ -228,7 +226,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -255,7 +253,7 @@ END
     ![implantando bloco data factory](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial da data factory](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
+   ![Página inicial do data factory](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 11. Na página de introdução da interface do usuário do Azure Data Factory, clique em **Criar pipeline** (ou) alterne para a guia **Editar**. 
 
@@ -369,16 +367,25 @@ Nesta etapa, você cria conjuntos de dados para representar a fonte de dados, o 
 3. Você vê uma nova guia aberta no navegador da Web para configurar o conjunto de dados. Você também vê um conjunto de dados no modo de exibição de árvore. Na guia **Geral** da janela Propriedades para o conjunto de dados, na parte inferior, insira **SinkDataset** como **Nome**.
 
    ![Conjunto de Dados do Coletor - geral](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Alterne para a guia **Conexão** na janela Propriedades e selecione **AzureSqlLinkedService** como **Serviço vinculado**. 
-
-   ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. Alterne para a guia **Parâmetros** na janela Propriedades e execute as seguintes etapas: 
+4. Alterne para a guia **Parâmetros** na janela Propriedades e execute as seguintes etapas: 
 
     1. Clique em **Novo** na seção **Criar/atualizar parâmetros**. 
     2. Digite **SinkTableName** como **nome** e **Cadeia de Caracteres** como **tipo**. Este conjunto de dados usa **SinkTableName** como um parâmetro. O parâmetro SinkTableName é definido pelo pipeline dinamicamente no tempo de execução. A atividade ForEach no pipeline itera por meio de uma lista de nomes de tabela e passa o nome da tabela para esse conjunto de dados em cada iteração.
-    3. Digite `@{dataset().SinkTableName}` para a propriedade **tableName** na seção **Propriedades parametrizadas**. Use o valor passado para parâmetro **SinkTableName**a fim de inicializar a propriedade **tableName** do conjunto de dados. 
-
+   
        ![Conjunto de Dados do Coletor - propriedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. Alterne para a guia **Conexão** na janela Propriedades e selecione **AzureSqlLinkedService** como **Serviço vinculado**. Para a propriedade **Tabela**, clique em **Adicionar conteúdo dinâmico**. 
+
+   ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. Selecione **SinkTableName** na seção **Parâmetros**
+   
+   ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. Depois de clicar em **Concluir**, você verá **@dataset().SinkTableName** como o nome da tabela.
+   
+   ![Conjunto de Dados do Coletor - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para uma marca-d'água
 Nesta etapa, você deve criar um conjunto de dados para armazenar um valor de marca d'água alta. 
@@ -397,7 +404,7 @@ Nesta etapa, você deve criar um conjunto de dados para armazenar um valor de ma
 
        ![Conjunto de Dados de Marca d'Água - conexão](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
-## <a name="create-a-pipeline"></a>Criar uma pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 O pipeline usa uma lista de nomes de tabela como um parâmetro. A atividade ForEach itera na lista de nomes de tabela e executa as seguintes operações: 
 
 1. Use a atividade de Pesquisa para recuperar o valor de marca d'água antigo (o valor inicial ou o que foi usado na última iteração).
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
+## <a name="monitor-the-pipeline-again"></a>Monitorar o pipeline novamente
 
 1. Alterne para a guia **Monitorar** à esquerda. Você pode ver a execução do pipeline disparado pelo **gatilho manual**. Clique no botão **Atualizar** para atualizar a lista. Os links na coluna **Ação** permitem a exibição de atividades em execução associadas ao pipeline de execução e executar novamente o pipeline. 
 
@@ -718,7 +725,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 > [!div class="checklist"]
 > * Preparará os armazenamentos de dados de origem e destino.
-> * Criar uma fábrica de dados.
+> * Criar um data factory.
 > * Criar um Integration Runtime (IR) auto-hospedado.
 > * Instalar o Integration Runtime.
 > * Criar serviços vinculados. 

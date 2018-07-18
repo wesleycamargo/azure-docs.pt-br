@@ -1,11 +1,11 @@
 ---
-title: "Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Docs"
-description: "Saiba como usar tópicos do Barramento de Serviço com PHP no Azure."
+title: Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Docs
+description: Saiba como usar tópicos do Barramento de Serviço com PHP no Azure.
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: sethm
 ms.openlocfilehash: 4763b172375668213372e6f4f8fc87431c430e53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561313"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
 

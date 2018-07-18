@@ -3,17 +3,18 @@ title: Guia de início rápido do Azure – Criar uma conta de armazenamento | M
 description: Aprenda rapidamente a criar uma nova conta de armazenamento usando o portal do Azure, o Azure PowerShell ou a CLI do Azure.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856521"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -96,7 +97,7 @@ Para criar um grupo de recursos no portal do Azure, siga estas etapas:
 3. Insira um nome para o novo grupo de recursos.
 4. Selecione a assinatura na qual criar o novo grupo de recursos.
 5. Escolha o local para o grupo de recursos.
-6. Selecione o botão **Criar** .  
+6. Selecione o botão **Criar**.  
 
 ![Captura de tela mostrando a criação do grupo de recursos no portal do Azure](./media/storage-quickstart-create-account/create-resource-group.png)
 
@@ -164,7 +165,7 @@ Para criar uma conta de armazenamento de uso geral v2 no portal do Azure, siga e
 1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Todos os serviços**. Em seguida, role para baixo até **Armazenamento** e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
 2. Insira um nome para a conta de armazenamento.
 3. Definir o campo **Tipo de conta** para **StorageV2 (uso geral v2)**.
-4. Deixe o campo **Replicação** definido como **Armazenamento com redundância local (LRS)**. Como alternativa, você pode escolher **Armazenamento com redundância de zona (ZRS Versão prévia)**, **Armazenamento com redundância geográfica (GRS)**, ou **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**.
+4. Deixe o campo **Replicação** definido como **Armazenamento com redundância local (LRS)**. Como alternativa, você pode escolher **Armazenamento com redundância de zona (ZRS)**, **Armazenamento com redundância geográfica (GRS)**, ou **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**.
 5. Deixe esses campos definidos com seus padrões: **Modelo de implantação**, **Desempenho**, **Transferência segura necessária**.
 6. Escolha a assinatura na qual você deseja criar a conta de armazenamento.
 7. Na seção **Grupo de recursos**, selecione **Usar existente**, depois escolha o grupo de recursos criado na seção anterior.
@@ -185,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redundância de zona (ZRS Versão prévia), armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS), substitua o valor desejado na tabela a seguir pelo parâmetro **SkuName**. 
+Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redundância de zona (ZRS) (versão prévia), armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS), substitua o valor desejado na tabela a seguir pelo parâmetro **SkuName**. 
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
@@ -196,7 +197,7 @@ Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redu
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para criar uma conta de armazenamento de uso geral a partir da CLI do Azure com armazenamento com redundância local, use o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Para criar uma conta de armazenamento de uso geral v2 a partir da CLI do Azure com armazenamento com redundância local, use o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -218,13 +219,7 @@ Para criar uma conta de armazenamento de uso geral v2 com armazenamento com redu
 
 ---
 
-> [!NOTE]
-> [Armazenamento com redundância de zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) está atualmente em versão prévia e está disponível apenas nos seguintes locais:
->    - Leste dos EUA 2
->    - Centro dos EUA
->    - França Central (Atualmente, essa região está em versão prévia. Consulte [A versão prévia do Microsoft Azure com zonas de disponibilidade do Azure agora está aberta na França](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) para solicitar o acesso.)
-    
-Para obter mais informações sobre os diferentes tipos de replicação disponíveis, consulte [Opções de replicação de armazenamento](storage-redundancy.md).
+Para saber mais sobre as opções de replicação disponíveis , veja [Opções de replicação de armazenamento](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

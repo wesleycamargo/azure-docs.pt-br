@@ -1,22 +1,21 @@
 ---
-title: "Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs"
-description: "Guia de Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java"
-services: iot-dps
-keywords: 
+title: Registrar o dispositivo TPM no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs
+description: Guia de Início Rápido do Azure – Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstatrt
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 79b12c276dae3cf1e480ec8d3f12d2d4b3d8fea7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5e40f8c72d3e95d13405190d8aec9fa52a9ed951
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630673"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrar dispositivo TPM no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 
@@ -33,7 +32,7 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 1. Certifique-se de ter o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado no computador. 
 
-2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se for a primeira instalação do Java do seu computador, crie uma nova variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo para o diretório *jdk1.8.x*. No computador Windows, geralmente este diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\* e é possível criar ou editar variáveis de ambiente pesquisando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
+2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação do Java do seu computador, crie uma variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo até o diretório *jdk1.8.x*. No computador Windows, geralmente, esse diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\*, e você pode criar ou editar variáveis de ambiente procurando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
 
   Verifique se o Java foi instalado com sucesso em seu computador executando o seguinte comando na janela de comando:
 
@@ -43,13 +42,13 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 3. Baixe e extraia [Maven 3](https://maven.apache.org/download.cgi) em seu computador. 
 
-4. Edite a variável de ambiente `PATH` para apontar para a pasta *apache-maven-3.x.x\\bin* dentro da pasta para a qual o Maven foi extraído. Você pode confirmar que o Maven foi instalado com sucesso executando este comando em sua janela de comando:
+4. Edite a variável de ambiente `PATH` para apontar para a pasta *apache-maven-3.x.x\\bin* dentro da pasta na qual o Maven foi extraído. Você pode confirmar que o Maven foi instalado com sucesso executando este comando em sua janela de comando:
 
     ```cmd\sh
     mvn --version
     ```
 
-5. Verifique se o [git](https://git-scm.com/download/) está instalado em seu computador e se foi adicionado à variável de ambiente `PATH`. 
+5. Verifique se o [git](https://git-scm.com/download/) está instalado em seu computador e foi adicionado à variável de ambiente `PATH`. 
 
 
 <a id="javasample"></a>
@@ -68,7 +67,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
     1. Adicione o `[Provisioning Connection String]` do serviço de provisionamento do portal desta forma:
         1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
-        2. Abra s **Políticas de acesso compartilhadas** e selecione uma política que tem a permissão *EnrollmentWrite*.
+        2. Abra as **Políticas de acesso compartilhadas** e selecione uma política que tenha a permissão *EnrollmentWrite*.
         3. Copie a **Cadeia de conexão da chave primária**. 
 
             ![Obter a cadeia de conexão de provisionamento do portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  

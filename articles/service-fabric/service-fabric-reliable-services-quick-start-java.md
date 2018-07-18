@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019688"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -115,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Neste tutorial, enfatizaremos o método de ponto de entrada `runAsync()` . É aqui que você pode começar imediatamente a executar seu código.
+Este tutorial foca no método de ponto de entrada `runAsync()`. É aqui que você pode começar imediatamente a executar seu código.
 
 ### <a name="runasync"></a>RunAsync
-A plataforma chama esse método quando uma instância de um serviço é estabelecida e está pronta para execução. Para um serviço sem estado, isso simplesmente significa quando a instância do serviço é aberta. Um token de cancelamento é fornecido para coordenar quando sua instância de serviço deve ser fechada. No Service Fabric, esse ciclo de abertura/fechamento de uma instância de serviço pode ocorrer várias vezes durante a vida útil do serviço como um todo. Isso pode ocorrer por vários motivos, incluindo:
+A plataforma chama esse método quando uma instância de um serviço é estabelecida e está pronta para execução. Para um serviço sem estado, isso significa quando a instância do serviço é aberta. Um token de cancelamento é fornecido para coordenar quando sua instância de serviço deve ser fechada. No Service Fabric, esse ciclo de abertura/fechamento de uma instância de serviço pode ocorrer várias vezes durante a vida útil do serviço como um todo. Isso pode ocorrer por vários motivos, incluindo:
 
 * O sistema move as instâncias de serviço para balanceamento de recursos.
 * Ocorrem falhas no código.
@@ -200,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e os Hashmaps Confiáveis, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Os Hashmaps Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e os HashMap Confiáveis, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Os HashMap Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
 
 As Coleções Confiáveis podem armazenar qualquer tipo Java, incluindo tipos personalizados, com algumas limitações:
 
-* O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e os Hashmaps Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nos Hashmaps Confiáveis deve ser *serializável*. 
-* Os objetos são replicados para alta disponibilidade quando você confirma transações nos Hashmaps Confiáveis. Objetos armazenados nos Hashmaps confiáveis são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
+* O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e os HashMap Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nos HashMap Confiáveis deve ser *serializável*. 
+* Os objetos são replicados para alta disponibilidade quando você confirma transações nos HashMap Confiáveis. Objetos armazenados nos HashMap confiáveis são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
   
    É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve inserir novamente o objeto de volta no dicionário ou usar um dos métodos *atualizar* do dicionário.
 
-O Gerenciador de Estado Confiável gerencia os Hashmaps Confiáveis para você. Basta solicitar ao Gerenciador de Estado Confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O Gerenciador de Estado Confiável assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O Gerenciador de Estado Confiável faz esse trabalho para você e jé otimizado para repetir visitas.
+O Gerenciador de Estado Confiável gerencia os HashMap Confiáveis para você. Basta solicitar ao Gerenciador de Estado Confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O Gerenciador de Estado Confiável assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O Gerenciador de Estado Confiável faz esse trabalho para você e jé otimizado para repetir visitas.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operações transacionais e assíncronas
@@ -230,12 +231,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-As operações nos Hashmaps Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
+As operações nos HashMap Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
 
-As operações de Hashmap Confiável são *transacionais*, de modo que você pode manter o estado consistente entre vários Hashmaps Confiáveis e operações. Por exemplo, você pode obter um item de trabalho de um Dicionário Confiável, executar uma operação nele e salvar o resultado em outro Hashmap Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
+As operações de HashMap Confiável são *transacionais*, de modo que você pode manter o estado consistente entre vários HashMap Confiáveis e operações. Por exemplo, você pode obter um item de trabalho de um Dicionário Confiável, executar uma operação nele e salvar o resultado em outro HashMap Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="build-the-application"></a>Compilar o aplicativo
 
 O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para executar o aplicativo, primeiro compile o aplicativo com gradle:
 
@@ -245,13 +246,31 @@ $ gradle
 
 Isso produz um pacote de aplicativos do Service Fabric que poderá ser implantado usando a CLI do Service Fabric.
 
-### <a name="deploy-with-service-fabric-cli"></a>Implantar com a CLI do Service Fabric
+## <a name="deploy-the-application"></a>Implantar o aplicativo
 
-O script install.sh contém os comandos da CLI do Service Fabric necessários para implantar o pacote de aplicativos. Execute o script install.sh para implantar o aplicativo.
+Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 
-```bash
-$ ./install.sh
-```
+1. Conectar-se ao cluster local do Service Fabric.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registre o tipo de aplicativo e crie uma instância do aplicativo.
+
+    ```bash
+    ./install.sh
+    ```
+
+A implantação do aplicativo interno é igual a qualquer outro aplicativo do Service Fabric. Consulte a documentação sobre [como gerenciar um aplicativo do Service Fabric com a CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md) para obter instruções detalhadas.
+
+Os parâmetros para esses comandos podem ser encontrados nos manifestos gerados dentro do pacote de aplicativos.
+
+Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+
+> [!IMPORTANT]
+> Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução do Service Fabric. Isso permite que os serviços de Reliable Services se comuniquem com as APIs de tempo de execução do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 

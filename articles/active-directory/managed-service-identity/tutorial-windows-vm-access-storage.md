@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301743"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901221"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Microsoft Azure por meio de uma chave de acesso
 
@@ -196,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="related-content"></a>Conteúdo relacionado
+Neste tutorial, você aprendeu a criar uma Identidade de Serviço Gerenciada para acessar o Armazenamento do Azure usando uma chave de acesso.  Para saber mais sobre as chaves de acesso de Armazenamento do Azure, confira:
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-- Para saber como executar este mesmo tutorial usando uma credencial SAS de armazenamento, consulte [Usar uma Identidade de Serviço Gerenciado do Windows VM para acessar o Armazenamento do Azure por meio de uma credencial SAS](tutorial-windows-vm-access-storage-sas.md)
-- Para obter mais informações sobre o recurso SAS da conta de Armazenamento do Azure, consulte:
-  - [Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS (Criação de uma SAS de serviço)](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo
-
+> [!div class="nextstepaction"]
+>[Gerenciar suas chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

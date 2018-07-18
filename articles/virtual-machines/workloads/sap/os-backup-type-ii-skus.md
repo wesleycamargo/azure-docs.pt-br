@@ -1,33 +1,34 @@
 ---
-title: "Backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure | Microsoft Docs"
-description: "Realizar backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure"
+title: Backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure | Microsoft Docs
+description: Realizar backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41349cd7fe3bf39b5b42c44ba47acf980d15ebe7
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063267"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Backup e restauração do sistema operacional para SKUs do tipo II
 
-Este documento descreve as etapas para realizar backup e restauração do sistema operacional para o **SKUs do tipo II** de Instâncias Grandes de HANA. 
+Este documento descreve as etapas para executar um backup e uma restauração em nível de arquivo do sistema operacional para as **SKUs Tipo II** das instâncias grandes do HANA. 
 
 >[!NOTE]
 >Os scripts de backup do sistema operacional usam o software ReaR, que vem pré-instalado no servidor.  
 
-Depois que o provisionamento for concluído pela equipe de Gerenciamento de Serviços da Microsoft, o servidor é configurado por padrão com dois agendamentos de backup para fazer backup do sistema operacional completo. Verifique o status do agendamento do trabalho de backup usando o comando a seguir:
+Depois que o provisionamento for concluído pela equipe do Microsoft Service Management, por padrão, o servidor será configurado com dois agendamentos de backups para fazer backup do backup do sistema operacional no nível do sistema de arquivos. Verifique o status do agendamento do trabalho de backup usando o comando a seguir:
 ```
 #crontab –l
 ```
@@ -37,7 +38,7 @@ Depois que o provisionamento for concluído pela equipe de Gerenciamento de Serv
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Como fazer um backup manual?
 
-O backup do sistema operacional já é agendado usando um **trabalho cron**. No entanto, também é possível executar o backup do sistema operacional manualmente. Para fazer um backup manual, execute o seguinte comando:
+O backup do sistema operacional já é agendado usando um **trabalho cron**. No entanto, você também pode executar manualmente o backup em nível de arquivo do sistema operacional. Para fazer um backup manual, execute o seguinte comando:
 
 ```
 #rear -v mkbackup

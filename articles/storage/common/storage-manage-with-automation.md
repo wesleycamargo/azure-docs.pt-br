@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar o Armazenamento do Azure usando a Automação do Azure"
-description: "Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Armazenamento do Azure em grande escala."
+title: Gerenciar o Armazenamento do Azure usando a Automação do Azure
+description: Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar o Armazenamento do Azure em grande escala.
 services: storage, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059541"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gerenciando o armazenamento do Azure usando a Automação do Azure
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento dos bancos de dados SQL do Azure.

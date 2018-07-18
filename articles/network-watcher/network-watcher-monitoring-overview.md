@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639336"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -48,11 +49,11 @@ Você pode baixar uma versão editável da imagem no formato svg. Saiba mais sob
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnosticar problemas de filtragem de tráfego de erro para ou de uma VM
 
-Quando você implanta uma máquina virtual, o Microsoft Azure aplica-se a várias regras de segurança padrão para a máquina virtual que permitem ou negam o tráfego de ou para a máquina virtual. Você pode substituir as regras padrão do Azure ou criar regras adicionais. Em algum momento, uma VM pode se tornar incapaz de se comunicar com outros recursos, devido a uma regra de segurança. O recurso *de verificação do fluxo IP* permite que você especifique um endereço IPv4 de origem e de destino, a porta, o protocolo (TCP ou UDP) e a direção do tráfego (entrada ou saída). Verificar o fluxo IP, em seguida, testa a comunicação e informa se a conexão for bem-sucedida ou se falhou. Se a conexão falhar, verifique se o fluxo IP informa qual regra de segurança permitiu ou negou comunicação, para que você possa resolver o problema. Para saber mais, consulte [Verificar o fluxo IP](network-watcher-ip-flow-verify-overview.md).
+Quando você implanta uma máquina virtual, o Microsoft Azure aplica-se a várias regras de segurança padrão para a máquina virtual que permitem ou negam o tráfego de ou para a máquina virtual. Você pode substituir as regras padrão do Azure ou criar regras adicionais. Em algum momento, uma VM pode se tornar incapaz de se comunicar com outros recursos, devido a uma regra de segurança. O recurso *de verificação do fluxo IP* permite que você especifique um endereço IPv4 de origem e de destino, a porta, o protocolo (TCP ou UDP) e a direção do tráfego (entrada ou saída). Verificar o fluxo IP, em seguida, testa a comunicação e informa se a conexão for bem-sucedida ou se falhou. Se a conexão falhar, verifique se o fluxo IP informa qual regra de segurança permitiu ou negou comunicação, para que você possa resolver o problema. Saiba mais sobre a verificação do fluxo de IP concluindo o tutorial [Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnosticar problemas de roteamento de rede de uma VM
 
-Quando você cria uma rede virtual, o Microsoft Azure cria várias rotas de saída padrão para o tráfego de rede. O tráfego de saída de todos os recursos, como máquinas virtuais, implantados em uma rede virtual, são roteados com base nas rotas de padrão do Microsoft Azure. Você pode substituir as regras padrão do Microsoft Azure ou criar regras adicionais. Você pode achar que uma VM não pode se comunicar com outros recursos devido a uma rota específica. O recurso *próximo salto* permite especificar um endereço IPv4 de origem e de destino. Em seguida, o próximo salto testa a comunicação e informa que tipo de próximo salto é usado para rotear o tráfego. Você pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de roteamento. Saiba mais sobre o recurso [próximo salto](network-watcher-next-hop-overview.md?).
+Quando você cria uma rede virtual, o Microsoft Azure cria várias rotas de saída padrão para o tráfego de rede. O tráfego de saída de todos os recursos, como máquinas virtuais, implantados em uma rede virtual, são roteados com base nas rotas de padrão do Microsoft Azure. Você pode substituir as regras padrão do Microsoft Azure ou criar regras adicionais. Você pode achar que uma VM não pode se comunicar com outros recursos devido a uma rota específica. O recurso *próximo salto* permite especificar um endereço IPv4 de origem e de destino. Em seguida, o próximo salto testa a comunicação e informa que tipo de próximo salto é usado para rotear o tráfego. Você pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de roteamento. Saiba mais sobre o recurso [próximo salto](diagnose-vm-network-routing-problem.md).
 
 ### <a name="connection-troubleshoot"></a>Diagnosticar de conexão de saída de uma máquina virtual
 
@@ -64,7 +65,7 @@ As opções avançadas de filtragem e os controles ajustados, como o recurso de 
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnosticar problemas com conexões e gateway de rede Virtual do Azure
 
-Os gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais. Para garantir que a comunicação não seja quebrada, é essencial monitorar os gateways e suas conexões. O recurso *diagnóstico VPN* oferece a capacidade de diagnosticar conexões e gateways. O diagnóstico VPN diagnostica a integridade do gateway ou conexão de gateway e informa se um gateway e conexões de gateway, estão disponíveis. Se o gateway ou a conexão não estiver disponível, o diagnóstico VPN informa por que, para que você solucione o problema. Saiba mais sobre o [Diagnóstico VPN](network-watcher-troubleshoot-overview.md).
+Os gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais. Para garantir que a comunicação não seja quebrada, é essencial monitorar os gateways e suas conexões. O recurso *diagnóstico VPN* oferece a capacidade de diagnosticar conexões e gateways. O diagnóstico VPN diagnostica a integridade do gateway ou conexão de gateway e informa se um gateway e conexões de gateway, estão disponíveis. Se o gateway ou a conexão não estiver disponível, o diagnóstico VPN informa por que, para que você solucione o problema. Saiba mais sobre o diagnóstico de VPN concluindo o tutorial [Diagnosticar um problema de comunicação entre redes](diagnose-communication-problem-between-networks.md).
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Determinar as latências relativas entre regiões do Microsoft Azure e provedores de serviços de internet
 
@@ -90,7 +91,7 @@ Os grupos de segurança de rede (NSG) permitem ou negam o tráfego de entrada ou
 
 ![Análise de tráfego](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Saiba mais sobre [logs de fluxo NSG](network-watcher-nsg-flow-logging-overview.md) e [análise de tráfego](traffic-analytics.md).
+Saiba mais sobre os logs de fluxo de NSG concluindo o tutorial [Registrar o tráfego de rede de uma máquina virtual](network-watcher-nsg-flow-logging-portal.md) e como implementar a [análise de tráfego](traffic-analytics.md).
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Exibir logs de diagnóstico para recursos de rede
 

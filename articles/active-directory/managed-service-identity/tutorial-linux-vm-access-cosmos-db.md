@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304123"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904417"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: Usar uma MSI de VM do Linux para acessar o Azure Cosmos DB 
 
@@ -255,5 +255,8 @@ Esse comando de CLI retorna detalhes sobre a coleção:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da MSI, consulte [MSI (Identidade de Serviço Gerenciado) para recursos do Azure](overview.md).
+Neste tutorial, você aprendeu a usar uma Identidade de Serviço Gerenciada em uma máquina virtual do Linux para acessar o Cosmos DB.  Para saber mais sobre o Cosmos DB, confira:
+
+> [!div class="nextstepaction"]
+>[Visão geral do Azure Cosmos DB](/azure/cosmos-db/introduction)
 

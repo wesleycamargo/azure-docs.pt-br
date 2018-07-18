@@ -1,11 +1,11 @@
 ---
-title: "Comprar um nome de domínio personalizado para aplicativos Web do Azure"
-description: "Saiba como comprar um nome de domínio personalizado com um aplicativo Web no Serviço de Aplicativo do Azure."
+title: Comprar um nome de domínio personalizado para aplicativos Web do Azure
+description: Saiba como comprar um nome de domínio personalizado com um aplicativo Web no Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714877"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para aplicativos Web do Azure
 
@@ -57,17 +58,17 @@ No painel de navegação à esquerda da página do aplicativo, role até a seç�
 
 ![Menu Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-A camada atual do aplicativo é realçada por uma borda azul. Verifique se o aplicativo não está na camada **Gratuita**. Não há suporte para DNS personalizado no tipo **Gratuito**. 
+A camada atual do aplicativo é realçada por uma borda azul. Verifique se o aplicativo não está na camada **F1**. Não há suporte para DNS personalizado na camada **F1**. 
 
 ![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Se o plano do Serviço de Aplicativo não for **Gratuito**, feche a página **Escolher o tipo de preço** e vá para [Comprar o domínio](#buy-the-domain).
+Se o plano de serviço de aplicativo não está no **F1** camada, feche o **expandir** página e ir para [comprar o domínio](#buy-the-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalar verticalmente o plano do Serviço de Aplicativo
 
-Selecione qualquer uma das camadas não estão livres (**compartilhado**, **básica**, **padrão**, ou **Premium**). 
+Selecione qualquer uma das camadas não gratuitas (**D1**, **B1**, **B2**, **B3** ou qualquer camada na categoria **Produção**). Para obter opções adicionais, clique em **Ver opções adicionais**.
 
-Clique em **Selecionar**.
+Clique em **Aplicar**.
 
 ![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5387f3911c58b115629c461420737230fce6b85a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061178"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento de interface do usuário Microsoft.Common.OptionsGroup
 Um controle de seleção com uma linha de opções disponíveis.
@@ -31,7 +32,7 @@ Um controle de seleção com uma linha de opções disponíveis.
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -43,7 +44,8 @@ Um controle de seleção com uma linha de opções disponíveis.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -52,12 +54,11 @@ Um controle de seleção com uma linha de opções disponíveis.
 ## <a name="remarks"></a>Comentários
 - O rótulo de `constraints.allowedValues` é o texto exibido para um item e seu valor é o valor de saída do elemento quando selecionado.
 - Se especificado, o valor padrão deve ser um rótulo presente em `constraints.allowedValues`. Se não for especificado, o primeiro item em `constraints.allowedValues` será selecionado por padrão. O valor padrão é **null**.
-- `constraints.allowedValues` deve conter pelo menos um item.
-- Esse elemento não dá suporte à propriedade `constraints.required`; um item deve ser selecionado para validar com êxito.
+- `constraints.allowedValues`deve ter pelo menos um item.
 
 ## <a name="sample-output"></a>Saída de exemplo
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

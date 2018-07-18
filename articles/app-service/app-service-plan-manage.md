@@ -1,12 +1,12 @@
 ---
-title: "Gerenciar um Plano do Serviço de Aplicativo no Azure | Microsoft Docs"
-description: "Saiba como executar diferentes tarefas para gerenciar um Plano do Serviço de Aplicativo."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, trocar, criar, gerenciar, gerenciamento"
+title: Gerenciar um Plano do Serviço de Aplicativo no Azure | Microsoft Docs
+description: Saiba como executar diferentes tarefas para gerenciar um Plano do Serviço de Aplicativo.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, trocar, criar, gerenciar, gerenciamento
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117673"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 

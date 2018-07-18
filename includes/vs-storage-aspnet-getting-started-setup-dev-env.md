@@ -16,13 +16,13 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
     ![Captura de tela da caixa de diálogo Novo Aplicativo Web ASP.NET](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Usar Serviços Conectados para se conectar a uma conta de armazenamento do Azure
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Usar serviços conectados para se conectar a uma conta de armazenamento do Azure
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto.
 
 2. No menu de contexto, selecione **Adicionar** > **Serviços Conectados**.
 
-1. Na caixa de diálogo **Serviços Conectados**, selecione **Armazenamento na Nuvem com Armazenamento do Microsoft Azure** e, a seguir, selecione **Configurar**.
+1. Na caixa de diálogo **Serviços Conectados**, selecione **Armazenamento em Nuvem com o Armazenamento do Microsoft Azure**.
 
     ![Tela de captura da caixa de diálogo Serviços Conectados](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

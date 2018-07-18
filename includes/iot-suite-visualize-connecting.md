@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307610"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665988"
 ---
 ## <a name="view-device-telemetry"></a>Exibir telemetria de dispositivo
 
@@ -33,7 +33,7 @@ Você pode exibir a telemetria enviada do dispositivo na página **Dispositivos*
 
 ## <a name="act-on-your-device"></a>Agir no dispositivo
 
-Para invocar métodos em seus dispositivos, use a página **Dispositivos** na solução de monitoramento remoto. Por exemplo, na solução de monitoramento remoto, os dispositivos **Chiller** implementam um método **FirmwareUpdate**.
+Para invocar métodos em seus dispositivos, use a página **Dispositivos** na solução de Monitoramento Remoto. Por exemplo, na solução de Monitoramento Remoto, os dispositivos **Chiller** implementam um método **FirmwareUpdate**.
 
 1. Escolha **Dispositivos** para navegar até a página **Dispositivos** na solução.
 
@@ -58,4 +58,4 @@ Para invocar métodos em seus dispositivos, use a página **Dispositivos** na so
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O artigo [Personalizar o acelerador de monitoramento remoto pré-configurado](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas maneiras de personalizar o acelerador da solução.
+O artigo [Personalizar o acelerador de Monitoramento Remoto pré-configurado](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas maneiras de personalizar o acelerador da solução.

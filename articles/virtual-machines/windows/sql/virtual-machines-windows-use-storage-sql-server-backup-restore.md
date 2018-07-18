@@ -1,8 +1,8 @@
 ---
-title: "Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Microsoft Docs"
-description: "Saiba como fazer backup do SQL Server no Armazenamento do Azure. Explica os benefícios de fazer backup de bancos de dados SQL no Armazenamento do Azure."
+title: Como usar o armazenamento do Azure para o backup e a restauração do SQL Server | Microsoft Docs
+description: Saiba como fazer backup do SQL Server no Armazenamento do Azure. Explica os benefícios de fazer backup de bancos de dados SQL no Armazenamento do Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399042"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usar o armazenamento do Azure para o backup e restauração do SQL Server
 ## <a name="overview"></a>Visão geral

@@ -1,23 +1,19 @@
 ---
-title: Transmitir dados de monitoramento do Azure para os Hubs de Eventos | Microsoft Docs
+title: Transmitir dados de monitoramento do Azure para os Hubs de Eventos
 description: Saiba como transmitir todos os dados de monitoramento do Azure para um hub de eventos para colocar os dados em um SIEM ou ferramenta de análise de um parceiro.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/05/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 7/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902982"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
@@ -97,7 +93,7 @@ Dados de monitoramento de aplicativo requerem que seu código seja instrumentado
 
 1. [Configure a exportação contínua](../application-insights/app-insights-export-telemetry.md) dos dados do Application Insights para uma conta de armazenamento.
 
-2. Configure um aplicativo lógico disparado por timer que [efetua pull de dados do armazenamento de blobs](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) e [envia esses dados por push como uma mensagem para o hub de eventos](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Configure um aplicativo lógico disparado por timer que [efetua pull de dados do armazenamento de blobs](../connectors/connectors-create-api-azureblobstorage.md#add-action) e [envia esses dados por push como uma mensagem para o hub de eventos](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>O que pode fazer com os dados de monitoramento que estão sendo enviados para o hub de eventos?
 
@@ -106,7 +102,7 @@ Rotear dados de monitoramento para um hub de eventos com o Azure Monitor permite
 * **IBM QRadar** – o Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](http://www.ibm.com/support). Você pode [saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -dependendo da configuração de Splunk, há duas abordagens:
     1. [O Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) está disponível no Splunkbase e em um projeto de software livre. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/sebastus/AzureFunctionForSplunkVS).
+    2. Se você não puder instalar um complemento na instância do Splunk (por exemplo, Se usar um proxy ou estiver executando na Splunk Cloud), você poderá encaminhar esses eventos para o Splunk HTTP Event Collector usando [essa função disparada por novas mensagens no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** – instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão [disponíveis aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Próximas etapas

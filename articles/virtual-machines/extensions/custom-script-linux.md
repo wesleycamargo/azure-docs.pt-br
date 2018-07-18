@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 3977aa16878ea1e2d808376165f551ce5fb8d00f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 850acae818638bb7c823edde03dbbecccf930073
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944978"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969316"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o tempo de execução da extensão. 
@@ -31,7 +31,7 @@ Este artigo fornece detalhes sobre como usar a extensão de Script personalizado
 
 
 Há duas Extensões do Script Personalizado do Linux:
-* Versão 1 – Microsoft.OSTCExtensions.CustomScriptForLinux
+* Versão 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Versão 2 – Microsoft.Azure.Extensions.CustomScript
 
 Alterne entre implantações novas e existentes para usar a nova versão 2. A nova versão tem o objetivo de ser uma substituição perfeita. Assim, a migração é tão fácil quanto alterar o nome e versão. Você não precisa alterar a configuração de extensão.
@@ -43,23 +43,23 @@ A Extensão de Script Personalizado para Linux será executada nos SOs de extens
 
 ### <a name="script-location"></a>Local do script
 
-Você pode utilizar a extensão para usar suas credenciais do Armazenamento de Blobs do Azure para acessar esse armazenamento. Como alternativa, a localização do script pode ser qualquer uma, desde que a VM possa rotear para esse ponto de extremidade, como GitHub, servidor de arquivos interno etc.
+Você pode utilizar a extensão para usar suas credenciais do Armazenamento de Blobs do Azure para acessar esse armazenamento. Como alternativa, o local do script pode ser qualquer lugar, desde que a VM possa rotear para esse ponto de extremidade, como GitHub, servidor de arquivos interno, etc.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
-Se você precisar baixar um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede.
 
 ### <a name="tips-and-tricks"></a>Dicas e truques
 * A taxa de falha mais alta para esta extensão acontece devido a erros de sintaxe no script. Teste as execuções de script sem erros e também insira um registro em log adicional no script para facilitar a localização da falha.
-* Escreva scripts idempotentes, para que, se forem executados mais de uma vez por acidente, não causem alterações no sistema.
+* Escreva scripts idempotentes, para que se forem executados mais de uma vez por acidente, eles não causem alterações no sistema.
 * Verifique se os scripts não exigem entrada do usuário quando são executados.
 * É permitido que o script seja executado em até 90 minutos. Um período mais longo resultará em falha na provisão da extensão.
 * Não coloque reinicializações no script, pois isso causará problemas com outras extensões que estão sendo instaladas e, após a reinicialização, a extensão será interrompida. 
-* Se você tiver um script que causará uma reinicialização, instale aplicativos, execute scripts, etc. Você deve agendar a reinicialização usando um trabalho Cron ou usando ferramentas como extensões de Puppet DSC ou Chef.
-* A extensão executará um script somente uma vez. Se quiser executar um script em cada inicialização, você poderá usar [imagem de inicialização de nuvem](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init) e um módulo [Scripts Por Inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, é possível usar o script para criar uma unidade de serviço Systemd.
+* Se você tiver um script que causará uma reinicialização, então instale aplicativos e execute scripts etc. Você deve agendar a reinicialização usando um trabalho Cron ou usando ferramentas como extensões de Puppet DSC ou Chef.
+* A extensão executará um script somente uma vez. Se quiser executar um script em cada inicialização, então você poderá usar [imagem de inicialização de nuvem](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e um módulo [Scripts Por Inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, é possível usar o script para criar uma unidade de serviço Systemd.
 * Se quiser agendar quando um script será executado, você deverá usar a extensão para criar um trabalho Cron. 
-* Quando o script for executado, apenas será exibido o status da extensão 'em transição' no portal do Azure ou na CLI. Se você quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
+* Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, você precisará criar sua própria solução.
 * Extensão de Script Personalizado não oferece nativamente suporte a servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que oferece suporte a servidores proxy no seu script, como *Curl*. 
 * Lembre-se de locais de diretório não padrão nos quais seus scripts ou comandos podem confiar e ter lógica para lidar com isso.
 
@@ -76,7 +76,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 ```json
 {
   "name": "config-app",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -121,7 +121,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | storageAccountName (por exemplo) | examplestorageacct | string |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
-### <a name="property-value-details"></a>Detalhes do valor da propriedade
+### <a name="property-value-details"></a>Detalhes de valor de propriedade
 * `skipDos2Unix`: (opcional, booliano) ignore a conversão de dos2unix das URLs de arquivos baseado no script ou do script.
 * `timestamp`(opcional, inteiro de 32 bits) use este campo somente para disparar uma nova execução do script ao alterar o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
  * `commandToExecute`(**obrigatório** se o script não for definido, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.
@@ -154,7 +154,7 @@ A conversão de dos2unix poderá ser ignorada ao definir o skipDos2Unix como tru
 ```json
 {
   "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
+  "commandToExecute": "<command-to-execute>",
   "skipDos2Unix": true
 }
 ```

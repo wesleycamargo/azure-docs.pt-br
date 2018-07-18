@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18b66cb9c0690df7b95cb36438ba802cb7432af6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211660"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918750"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária
 
@@ -28,7 +28,7 @@ Este tutorial mostra como configurar a recuperação de desastre em uma região 
 > * Configurar o acesso de saída para VMs
 > * Habilitar a replicação para uma VM
 
-A replicação de Azure para Azure está atualmente em versão prévia.
+
 ## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:

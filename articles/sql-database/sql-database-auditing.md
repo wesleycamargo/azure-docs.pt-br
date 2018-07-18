@@ -2,19 +2,19 @@
 title: Introdução à auditoria do banco de dados SQL do Azure | Microsoft Docs
 description: Use a auditoria de banco de dados SQL Azure para rastrear eventos de banco de dados para um log de auditoria.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072160"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751036"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
@@ -78,7 +78,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
     >Para aproveitar ao máximo os modelos de relatórios de auditoria, use a mesma conta de armazenamento para todos os bancos de dados auditados.
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
-6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da API REST.
+6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
 7. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Salvar**.
 
@@ -200,12 +200,17 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
 
 **API REST – Auditoria de blob**:
 
-* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx) (Criar ou atualizar a política de auditoria de blob do banco de dados)
-* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx) (Criar ou atualizar uma política de auditoria de blob de servidor)
-* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx) (Obter a política de auditoria de blob do banco de dados)
-* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx) (Obter a política de auditoria de blob do servidor)
+* [Create or Update Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate) (Criar ou atualizar a política de auditoria de blob do banco de dados)
+* [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate) (Criar ou atualizar uma política de auditoria de blob de servidor)
+* [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get) (Obter a política de auditoria de blob do banco de dados)
+* [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get) (Obter a política de auditoria de blob do servidor)
 * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx) (Obter o resultado da operação de auditoria do blob do servidor)
 
+Diretiva estendida com suporte em que a cláusula de filtragem adicional:
+* [Criar ou Atualizar *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Criar ou Atualizar *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Obter *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Obter *Política* de Auditoria de Blob de Servidor Estendido](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

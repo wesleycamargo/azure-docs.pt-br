@@ -1,12 +1,12 @@
 ---
-title: "Diretrizes de tratamento de erros de funções do Azure Functions | Microsoft Docs"
-description: "Fornece diretrizes gerais para tratamento de erros que ocorrem quando as funções são executadas e links para tópicos de erros específicos da associação."
+title: Diretrizes de tratamento de erros de funções do Azure Functions | Microsoft Docs
+description: Fornece diretrizes gerais para tratamento de erros que ocorrem quando as funções são executadas e links para tópicos de erros específicos da associação.
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29133693"
 ---
 # <a name="azure-functions-error-handling"></a>Tratamento de erros do Azure Functions
 

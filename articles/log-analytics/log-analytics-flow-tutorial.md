@@ -1,22 +1,24 @@
 ---
 title: Automatizar os processos do Azure Log Analytics com o Microsoft Flow
-description: "Saiba como você pode usar o Microsoft Flow para automatizar rapidamente os processos repetidos usando o conector do Azure Log Analytics."
+description: Saiba como você pode usar o Microsoft Flow para automatizar rapidamente os processos repetidos usando o conector do Azure Log Analytics.
 services: log-analytics
-documentationcenter: 
-author: CFreemanwa
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
 ms.service: log-analytics
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: 9884b97aad8f022e6bc20b2a630ccdd07ebc64db
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.component: na
+ms.openlocfilehash: 21cf7cf3d12902b02fcbf650a1623e78004d28b4
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131693"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Log Analytics com o conector para o Microsoft Flow
 O [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para vários serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre serviços diferentes.  O conector do Azure Log Analytics para Microsoft Flow permite que você crie fluxos de trabalho que incluem dados recuperados pelas pesquisas de log no Log Analytics.

@@ -1,5 +1,5 @@
 ---
-title: Como usar o WebJobs SDK para o processamento em segundo plano controlado por evento - Azure
+title: Como usar o SDK do Azure WebJobs
 description: Saiba mais sobre como escrever código para o WebJobs SDK. Crie trabalhos de processamento em segundo plano controlado por evento que acessam dados nos serviços de terceiros e serviços do Azure.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234643"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o WebJobs SDK para o processamento em segundo plano controlado por evento
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
-Este artigo fornece orientação sobre como escrever código para o [WebJobs SDK](webjobs-sdk-get-started.md). A documentação se aplica às versões 2.x e 3.x, exceto quando indicado em contrário. A principal mudança introduzida por 3.x é o uso do .NET Core em vez do .NET Framework.
+Este artigo fornece orientação sobre como escrever código para o [SDK do Azure WebJobs](webjobs-sdk-get-started.md). A documentação se aplica às versões 2.x e 3.x, exceto quando indicado em contrário. A principal mudança introduzida por 3.x é o uso do .NET Core em vez do .NET Framework.
 
 >[!NOTE]
-> O [Azure Functions](../azure-functions/functions-overview.md) é compilado no WebJobs SDK, e este artigo apresenta links para a documentação do Azure Functions para alguns tópicos. Observe as seguintes diferenças entre o Functions e o WebJobs SDK:
+> O [Azure Functions](../azure-functions/functions-overview.md) é compilado no SDK do WebJobs, e este artigo apresenta links para a documentação do Azure Functions para alguns tópicos. Observe as seguintes diferenças entre o Functions e o WebJobs SDK:
 > * O Azure Functions versão 1. x corresponde ao WebJobs SDK versão 2.x, e o Azure Functions 2.x corresponde ao WebJobs SDK 3.x. Os repositórios de código-fonte seguem a numeração do WebJobs SDK, e muitos têm branches v2.x, com o branch mestre atualmente tendo o código de 3.x.
 > * O código de exemplo para bibliotecas de classe C# do Azure Functions é como o código do WebJobs SDK, exceto que não é necessário um atributo `FunctionName` em um projeto do WebJobs SDK.
 > * Alguns tipos de associação são suportados apenas no Functions, como HTTP, webhook e Grade de Eventos (que é baseado em HTTP). 
@@ -322,7 +323,7 @@ Para obter mais informações, consulte [Associação no tempo de execução](..
 
 Informações de referência sobre cada tipo de associação são fornecidas na documentação do Azure Functions. Usando a fila de Armazenamento como um exemplo, você encontrará as informações a seguir em cada artigo de referência de associação:
 
-* [Pacotes](../azure-functions/functions-bindings-storage-queue.md#packages) -Qual pacote instalar para incluir suporte para a associação em um projeto do WebJobs SDK.
+* [Pacotes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) -Qual pacote instalar para incluir suporte para a associação em um projeto do WebJobs SDK.
 * [Exemplos](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - O exemplo da biblioteca de classes C# se aplica ao WebJobs SDK; apenas omita o atributo `FunctionName`.
 * [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) -Os atributos a serem usados para o tipo de associação.
 * [Configuração](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) -Explicações sobre as propriedades de atributo e os parâmetros do construtor.
@@ -390,6 +391,26 @@ Alguns gatilhos têm suporte interno para gerenciamento de simultaneidade:
 * **FileTrigger** - Defina `FileProcessor.MaxDegreeOfParallelism` como 1.
 
 Você pode usar essas configurações para garantir que sua função seja executada como um singleton em uma única instância. Para garantir que apenas uma única instância da função esteja em execução quando o aplicativo Web for expandido para várias instâncias, aplique um bloqueio de Singleton em nível de ouvinte na função (`[Singleton(Mode = SingletonMode.Listener)]`). Os bloqueios de ouvinte são adquiridos durante a inicialização do JobHost. Se três instâncias expandidas forem iniciadas ao mesmo tempo, somente uma das instâncias adquirirá o bloqueio e somente um ouvinte será iniciado.
+
+### <a name="scope-values"></a>Valores de escopo
+
+Você pode especificar um **valor/expressão de escopo** no Singleton que garantirá que todas as execuções da função nesse escopo serão serializadas. Implementar um bloqueio mais granular dessa maneira pode permitir algum nível de paralelismo para sua função e, ao mesmo tempo, serializar outras invocações, conforme definido pelos seus requisitos. No exemplo a seguir, a expressão de escopo associa-se ao valor `Region` da mensagem recebida. Se a fila contiver três mensagens nas regiões "East", "East" e "West" respectivamente, então, as mensagens com a região "East" serão executadas em série enquanto a mensagem com a região "West" serão executadas em paralelo com essas.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

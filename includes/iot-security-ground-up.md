@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0eaf1115dc6ed5a7dc9e7354340d5eb529116c88
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37780648"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Segurança da Internet das Coisas desde o princípio
 
@@ -32,13 +33,13 @@ Dada a segurança, a privacidade, a transparência e as questões de conformidad
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Infraestrutura segura desde o princípio
 
-A infraestrutura do [Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) dá suporte para mais de um bilhão de clientes em 127 países. Com base em décadas de experiência da Microsoft na criação de softwares empresariais e na execução de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais altos de segurança, privacidade, conformidade e práticas de atenuação de ameaças aprimorados do que a maioria dos clientes poderia obter por conta própria.
+A infraestrutura do [Microsoft Cloud](https://azure.microsoft.com) dá suporte para mais de um bilhão de clientes em 127 países. Com base em décadas de experiência da Microsoft na criação de softwares empresariais e na execução de alguns dos maiores serviços online do mundo, o Microsoft Cloud fornece níveis mais altos de segurança, privacidade, conformidade e práticas de atenuação de ameaças aprimorados do que a maioria dos clientes poderia obter por conta própria.
 
 O [SDL (Ciclo de Vida de Desenvolvimento da Segurança)](https://www.microsoft.com/sdl/) fornece um processo de desenvolvimento obrigatório em toda a empresa que incorpora os requisitos de segurança no ciclo de vida do software. Para ajudar a garantir que as atividades operacionais seguirão o mesmo nível de práticas de segurança, o SDL emprega diretrizes rígidas de segurança dispostas em processo de OSA (Garantia de Segurança Operacional) da Microsoft. A Microsoft também trabalha com empresas de auditoria terceirizadas para que haja uma verificação contínua do seu cumprimento com as obrigações de conformidade, e a Microsoft também participa em esforços amplos de segurança por meio da criação de centros de excelência, incluindo a Unidade de Crimes Digitais da Microsoft, o Microsoft Security Response Center e o Centro de Proteção contra Malware da Microsoft.
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - infraestrutura segura da IoT para os seus negócios
 
-O Microsoft Azure oferece uma solução completa de nuvem, que combina uma coleção em constante crescimento dos serviços de nuvem integrados — análise, aprendizado de máquina, armazenamento, segurança, rede e web — com um compromisso líder do setor para a proteção e a privacidade dos seus dados. A estratégia de [violação pressuposta](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) da Microsoft emprega uma *equipe vermelha* dedicada de especialistas em segurança de software que simulam ataques, testando a capacidade do Azure de detectar, proteger contra ameaças emergentes e de se recuperar de falhas. A equipe de [resposta a incidentes globais](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) da Microsoft trabalha o tempo todo para reduzir os efeitos de ataques e de atividades mal-intencionadas. A equipe segue procedimentos estabelecidos para gerenciamento de incidentes, comunicação e recuperação e usa interfaces detectáveis e previsíveis com parceiros internos e externos.
+O Microsoft Azure oferece uma solução completa de nuvem, que combina uma coleção em constante crescimento dos serviços de nuvem integrados — análise, aprendizado de máquina, armazenamento, segurança, rede e web — com um compromisso líder do setor para a proteção e a privacidade dos seus dados. A estratégia de [violação pressuposta](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) da Microsoft emprega uma *equipe vermelha* dedicada de especialistas em segurança de software que simulam ataques, testando a capacidade do Azure de detectar, proteger contra ameaças emergentes e de se recuperar de falhas. A equipe de [resposta a incidentes globais](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) da Microsoft trabalha o tempo todo para reduzir os efeitos de ataques e de atividades mal-intencionadas. A equipe segue procedimentos estabelecidos para gerenciamento de incidentes, comunicação e recuperação e usa interfaces detectáveis e previsíveis com parceiros internos e externos.
 
 Os sistemas da Microsoft oferecem detecção e previsão de intrusão contínua, prevenção de ataques de serviço, testes de penetração regulares e ferramentas forenses que ajudam a identificar e atenuar as ameaças. [Multi-Factor Authentication](../articles/active-directory/authentication/multi-factor-authentication.md) fornece uma camada extra de segurança para que os usuários finais acessem a rede. E, para o aplicativo e para o provedor de host, a Microsoft oferece controle de acesso, monitoramento, antimalware, verificação de vulnerabilidade, patches e gerenciamento de configuração.
 

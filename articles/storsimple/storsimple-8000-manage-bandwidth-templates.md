@@ -1,12 +1,12 @@
 ---
-title: "Gerenciar modelos de largura de banda para StorSimple série 8000 | Microsoft Docs"
+title: Gerenciar modelos de largura de banda para StorSimple série 8000 | Microsoft Docs
 description: Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108614"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar modelos de largura de banda do StorSimple
 

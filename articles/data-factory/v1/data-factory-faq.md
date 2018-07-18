@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299723"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se usar a versão 2 do serviço do Data Factory, que está em versão prévia, veja as [perguntas frequentes - Data Factory versão 2](../frequently-asked-questions.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [perguntas frequentes - Data Factory](../frequently-asked-questions.md).
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
@@ -40,7 +41,7 @@ Confira a [página de Detalhes de Preços do Data Factory][adf-pricing-details] 
 * Para obter um tutorial sobre como **copiar/mover dados** usando a Atividade de Cópia, consulte [Copiar dados do Armazenamento de Blob do Azure para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Qual é a disponibilidade regional do Data Factory?
+### <a name="what-is-the-data-factorys-region-availability"></a>Qual é a disponibilidade de região do Data Factory?
 O Data Factory está disponível no **Oeste dos EUA** e no **Europa Setentrional**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [Regiões com suporte](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quais são os limites de número de fábricas/pipelines/atividades/conjuntos de dados?
@@ -57,7 +58,7 @@ Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 * **Modelo do Azure Resource Manager** Consulte [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para obter detalhes.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
-Nº Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
+Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
 Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:

@@ -180,7 +180,7 @@ Quando você redireciona o usuário para o `end_session_endpoint`, o Azure AD li
 4. Clique em **Configurações**, em **Propriedades** e encontre a caixa de texto **URL de saída**. 
 
 ## <a name="token-acquisition"></a>Aquisição de token
-Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto adquire simultaneamente um `authorization_code` que pode ser usado para obter `access_tokens` usando o Fluxo do Código de Autorização do OAuth.
+Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto adquire simultaneamente um `authorization_code` que pode ser usado para obter `access_tokens` usando o [Fluxo do Código de Autorização do OAuth](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## <a name="get-access-tokens"></a>Obter tokens de acesso
 Para obter tokens de acesso, você precisará modificar a solicitação de entrada acima:

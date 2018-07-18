@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193445"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293322"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: vincular um certificado SSL personalizado existente aos Aplicativos Web do Azure
 
@@ -32,9 +32,11 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Atualizar o tipo de preço do aplicativo
-> * Associar o certificado SSL personalizado ao Serviço de Aplicativo
-> * Impor HTTPS para seu aplicativo
-> * Automatizar a associação de certificado SSL com scripts
+> * Associar seu certificado personalizado ao Serviço de Aplicativo
+> * Renovar certificados
+> * Impor HTTPS
+> * Impor o TLS 1.1/1.2
+> * Automatizar o gerenciamento de TLS com scripts
 
 > [!NOTE]
 > Se você precisar obter um certificado SSL personalizado, você poderá obtê-lo diretamente no Portal do Azure e associá-lo ao seu aplicativo Web. Siga o [tutorial de Certificados do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md).
@@ -84,17 +86,17 @@ No painel de navegação à esquerda da página do aplicativo Web, role até a s
 
 ![Menu Escalar verticalmente](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Certifique-se de que o aplicativo Web não esteja na camada **Gratuita** ou **Compartilhada**. A camada atual do seu aplicativo Web é realçada por uma caixa azul escuro.
+Certifique-se de que o aplicativo Web não esteja na camada **F1** ou **D1**. A camada atual do seu aplicativo Web é realçada por uma caixa azul escuro.
 
 ![Verificar tipo de preço](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Não há suporte para SSL personalizado nas camadas **Gratuito** ou **Compartilhado**. Se precisar escalar verticalmente, siga as etapas da próxima seção. Caso contrário, feche a página **Escolher o tipo de preço** e vá para [Carregar e associar o certificado SSL](#upload).
+Não há suporte para SSL personalizado na camada **F1** ou **D1**. Se precisar escalar verticalmente, siga as etapas da próxima seção. Caso contrário, feche a página **Escalar verticalmente** e vá para [Carregar e associar o certificado SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Escalar verticalmente seu Plano do Serviço de Aplicativo
 
-Selecione uma das camadas **Básico**, **Standard** ou **Premium**.
+Selecione qualquer uma das camadas não gratuitas (**B1**, **B2**, **B3** ou qualquer camada na categoria **Produção**). Para obter opções adicionais, clique em **Ver opções adicionais**.
 
-Clique em **Selecionar**.
+Clique em **Aplicar**.
 
 ![Escolha um tipo de preço](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -213,6 +215,14 @@ Agora, tudo o que resta fazer é certificar-se de que o HTTPS funcione com seu d
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Renovar certificados
+
+Seu endereço IP de entrada pode ser alterado ao excluir uma associação, mesmo se essa associação for baseada em IP. Isso é especialmente importante quando você renova um certificado que já está em uma associação com base em IP. Para evitar uma alteração no endereço IP do seu aplicativo, siga estas etapas pela ordem:
+
+1. Carregar o novo certificado.
+2. Associe o novo certificado para o domínio personalizado que você deseja sem excluir o antigo. Essa ação substitui a associação em vez de remover a antiga.
+3. Exclua o certificado antigo. 
+
 ## <a name="enforce-https"></a>Impor HTTPS
 
 Por padrão, todos ainda podem acessar seu aplicativo Web usando HTTP. Você pode redirecionar todas as solicitações HTTP para a porta HTTPS.
@@ -236,14 +246,6 @@ Em sua página do aplicativo Web, na navegação esquerda, selecione **Configura
 ![Impor o TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Após a conclusão da operação, seu aplicativo rejeitará todas as conexões com versões inferiores do TLS.
-
-## <a name="renew-certificates"></a>Renovar certificados
-
-Seu endereço IP de entrada pode ser alterado ao excluir uma associação, mesmo se essa associação for baseada em IP. Isso é especialmente importante quando você renova um certificado que já está em uma associação com base em IP. Para evitar uma alteração no endereço IP do seu aplicativo, siga estas etapas pela ordem:
-
-1. Carregar o novo certificado.
-2. Associe o novo certificado para o domínio personalizado que você deseja sem excluir o antigo. Essa ação substitui a associação em vez de remover a antiga.
-3. Exclua o certificado antigo. 
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+O comando a seguir impõe a versão mínima do TLS como 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 O comando a seguir carrega um arquivo PFX exportado e adiciona uma associação de SSL baseado em SNI.
@@ -297,9 +308,11 @@ Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Atualizar o tipo de preço do aplicativo
-> * Associar o certificado SSL personalizado ao Serviço de Aplicativo
-> * Impor HTTPS para seu aplicativo
-> * Automatizar a associação de certificado SSL com scripts
+> * Associar seu certificado personalizado ao Serviço de Aplicativo
+> * Renovar certificados
+> * Impor HTTPS
+> * Impor o TLS 1.1/1.2
+> * Automatizar o gerenciamento de TLS com scripts
 
 Vá para o próximo tutorial para saber como usar a Rede de Distribuição de Conteúdo do Azure.
 

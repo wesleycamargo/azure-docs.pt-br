@@ -1,28 +1,24 @@
 ---
-title: 'Backup do Azure: Recuperar arquivos e pastas de um backup de VM do Azure | Microsoft Docs'
+title: 'Backup do Azure: recupere arquivos e pastas de um backup de VM do Azure'
 description: Recuperar arquivos de um ponto de recuperação de uma máquina virtual do Azure
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: recuperação a nível de item; recuperação de arquivos de backup da VM do Azure; restaurar arquivos de uma VM do Azure
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958613"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
-O Backup do Azure fornece a capacidade de restaurar [VMs (máquinas virtuais) do Azure e discos](./backup-azure-arm-restore-vms.md) dos backups de VM do Azure, também conhecido como pontos de restauração. Este artigo explica como recuperar arquivos e pastas de um backup de VM do Azure. A restauração de arquivos e pastas está disponível somente para VMs do Azure implantadas usando o modelo Gerenciador de Recursos e protegidas para um cofre de serviços de Recuperação.
+O Backup do Azure fornece a capacidade de restaurar [máquinas virtuais (VMs) do Azure e discos](./backup-azure-arm-restore-vms.md) de backups de máquina virtual do Azure, também conhecido como pontos de recuperação. Este artigo explica como recuperar arquivos e pastas de um backup de VM do Azure. A restauração de arquivos e pastas está disponível somente para VMs do Azure implantadas usando o modelo Gerenciador de Recursos e protegidas para um cofre de serviços de Recuperação.
 
 > [!Note]
 > Esse recurso está disponível para máquinas virtuais do Azure implantadas usando o modelo do Resource Manager e protegidas em um cofre dos Serviços de Recuperação.
@@ -31,7 +27,7 @@ O Backup do Azure fornece a capacidade de restaurar [VMs (máquinas virtuais) do
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montar os volume e copiar arquivos
 
-Para restaurar arquivos ou pastas do ponto de restauração, acesse a máquina virtual e escolha o ponto de restauração. 
+Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina virtual e escolha o ponto de recuperação desejado. 
 
 1. Entre no [Portal do Azure](http://portal.Azure.com) e no menu à esquerda clique em **Máquinas virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o painel da máquina virtual. 
 
@@ -177,7 +173,7 @@ A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de com
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Para Linux
+### <a name="for-linux-os"></a>Para Sistema operacional Linux
 
 No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer suporte para o sistema de arquivos da máquina virtual protegida. Ao selecionar um computador para executar o script, certifique-se de que o computador possui um SO compatível e usa uma das versões identificadas na tabela a seguir:
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098739"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -33,13 +34,13 @@ Há duas maneiras de licenciar o SQL Server em Máquinas Virtuais do Microsoft A
 1. Benefícios de mobilidade da licença que fazem parte do Software Assurance. Para saber mais, consulte [Mobilidade de licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Taxa de pagamento por hora de Máquinas Virtuais do Azure com o SQL Server instalado. Consulte a seção "SQL Server" em [Preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Para saber mais sobre licenciamento e taxas atuais, consulte [Perguntas frequentes sobre licenciamento de máquinas virtuais](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Para saber mais sobre licenciamento e taxas atuais, consulte [Perguntas frequentes sobre licenciamento de máquinas virtuais](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Imagens do SQL Server disponíveis na galeria de Máquinas Virtuais do Azure
 A galeria de Máquinas Virtuais do Microsoft Azure inclui várias imagens com o Microsoft SQL Server. O software instalado nas imagens da máquina virtual varia de acordo com a versão do sistema operacional e a versão do SQL Server. A lista de imagens disponíveis na galeria de Máquinas Virtuais do Azure é alterada com frequência.
 
 <!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
-![Imagem do SQL na Galeria da VM do Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
+![Imagem do SQL na galeria da VM do Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) O script do PowerShell a seguir retorna a lista de imagens do Azure que contêm "SQL-Server" em ImageName:
 
@@ -62,7 +63,7 @@ A galeria de Máquinas Virtuais do Microsoft Azure inclui várias imagens com o 
 
 Para saber mais sobre edições e recursos com suporte do SQL Server, consulte o seguinte:
 
-* [Edições do SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [Edições do SQL Server](https://www.microsoft.com/sql-server/sql-server-2017-editions)
 * [Recursos com suporte das edições do SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Recursos de BI instalados nas imagens da galeria de Máquinas Virtuais do SQL Server
@@ -350,5 +351,5 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 > [Enviar comentários e informações de contato pelo Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>Conteúdo da comunidade
-* [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [Gerenciamento de banco de dados SQL do Azure com o PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 

@@ -1,12 +1,12 @@
 ---
-title: "Usar a Automação do Azure para inicializar um trabalho no Gerenciador de Dados StorSimple | Microsoft Docs"
-description: "Saiba como usar a Automação do Azure para disparar trabalhos do Gerenciador de Dados do StorSimple"
+title: Usar a Automação do Azure para inicializar um trabalho no Gerenciador de Dados StorSimple | Microsoft Docs
+description: Saiba como usar a Automação do Azure para disparar trabalhos do Gerenciador de Dados do StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862189"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 

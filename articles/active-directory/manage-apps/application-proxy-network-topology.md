@@ -15,11 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c3f07aa0ef4fea773e214e3e161a61e9337dc617
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 673f41e368d54aeed903400179a818e534845860
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292731"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -175,4 +176,4 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 - [Habilitar Proxy de aplicativo](application-proxy-enable.md)
 - [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar o acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
-- [Solucionar problemas que surgirem com o Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+- [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)

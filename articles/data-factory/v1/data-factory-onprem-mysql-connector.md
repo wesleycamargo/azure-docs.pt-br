@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 685998729e9aa01f60c80735b5f2f4d278769bdb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046877"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-onprem-mysql-connector.md)
-> * [Versão 2 – Versão prévia](../connector-mysql.md)
+> * [Versão 1](data-factory-onprem-mysql-connector.md)
+> * [Versão 2 (versão atual)](../connector-mysql.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [MySQL connector in V2](../connector-mysql.md) (Conector do MySQL na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MySQL na V2](../connector-mysql.md).
 
 
 Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MySQL local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
@@ -42,7 +43,7 @@ O gateway é requerido mesmo que o banco de dados MySQL esteja hospedado em uma 
 > Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
-Para o Gateway de Gerenciamento de Dados conectar-se ao Banco de Dados MySQL, você precisa instalar o [Conector do MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão 6.6.5 ou superior) no mesmo sistema que o Gateway de Gerenciamento de Dados. Este driver de 32 bits é compatível com o Gateway de Gerenciamento de Dados de 64 bits. Há suporte para o MySQL versão 5.1 e superior.
+Para que o Data Management Gateway - Gerenciamento de Dados se conecte ao banco de dados MySQL, é necessário instalar o [ MySQL Connector / Net para Microsoft Windows ](https://dev.mysql.com/downloads/connector/net/) (versão entre 6.6.5 e 6.10.7) no mesmo sistema que o Data Management Gateway. Este driver de 32 bits é compatível com o Gateway de Gerenciamento de Dados de 64 bits. Há suporte para o MySQL versão 5.1 e superior.
 
 > [!TIP]
 > Se você encontrar o erro "A autenticação falhou porque a entidade remota fechou o fluxo de transporte.", considere atualizar o Conector do MySQL/Net para uma versão superior.

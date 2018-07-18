@@ -1,24 +1,25 @@
 ---
 title: Uso do provedor de recursos API | Microsoft Docs
-description: "Referência de API, o uso do recurso que recupera informações de uso da pilha do Azure"
+description: Referência de API, o uso do recurso que recupera informações de uso da pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052691"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recurso de provedor
 O termo *provedor* aplica-se para o administrador de serviço e os provedores de delegado. Operadores de pilha do Azure e provedores de delegado podem usar o API de uso do provedor para exibir o uso de seus locatários diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar o API para obter informações de uso sobre do P1 provedor e o uso direto do P2 e P1 podem chamar para obter informações de uso sobre P3 e P4.
@@ -33,10 +34,10 @@ Esse uso de API é um provedor de API, para que o chamador deve ser atribuído a
 
 | **Método** | **URI de solicitação** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {value token} |
 
 ### <a name="arguments"></a>Argumentos
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager ponto de extremidade de seu ambiente de pilha do Azure. A convenção de pilha do Azure é o nome do ponto de extremidade do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio for *local.azurestack.external*, em seguida, o ponto de extremidade do Gerenciador de recursos `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID da assinatura do usuário que faz a chamada. |
@@ -48,7 +49,7 @@ Esse uso de API é um provedor de API, para que o chamador deve ser atribuído a
 | *continuationToken* |Token recuperado da última chamada para o provedor de uso de API. Esse token é necessária quando uma resposta é maior que 1.000 linhas e ele atua como um indicador de andamento. Se o token não estiver presente, os dados são recuperados a partir do início do dia ou hora, com base na granularidade passado. |
 
 ### <a name="response"></a>Response
-GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
+OBTER /subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diariamente & subscriberId = sub1.1 & api-version = 1.0
 
 ```json
 {
@@ -56,11 +57,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?r
 {
 
 "id":
-"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"/subscriptions/sub1.1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1.1-
 
 meterID1",
 "name": "sub1.1-meterID1",
-"type": "Microsoft.Commerce/UsageAggregate",
+"type": "Microsoft.Commerce.Admin/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1.1",
@@ -77,7 +78,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Detalhes da resposta
-| **Argument** | **Descrição** |
+| **Argumento** | **Descrição** |
 | --- | --- |
 | *ID* |ID exclusiva da agregação de uso. |
 | *name* |Nome da agregação de uso. |

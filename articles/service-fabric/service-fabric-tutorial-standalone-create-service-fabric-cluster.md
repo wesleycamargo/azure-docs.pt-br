@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211728"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344148"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
@@ -61,15 +61,9 @@ Depois de atualizar os nós, eles são exibidos da seguinte maneira:
         }
 ```
 
-Em seguida, você precisa atualizar algumas das propriedades.  Na linha 34, você precisa modificar a cadeia de conexão para o armazenamento de diagnóstico com o qual ela deve se parecer depois da modificação, com seu endereço IP substituído em `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+Em seguida, você precisa atualizar algumas das propriedades.  Na linha 34, você precisa modificar a cadeia de conexão para o armazenamento de diagnóstico que deverá se parecer assim `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
-Depois de atualizar a cadeia de conexão, certifique-se de criar a pasta.  O comando a seguir irá criá-la, certifique-se de substituir o endereço IP abaixo pelo endereço IP que você inseriu na cadeia de conexão:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
-
-Por fim, na seção `nodeTypes` adicionar da configuração adicione uma nova seção para mapear as portas efêmeras que serão usadas pelo Windows.  O arquivo de configuração deve estar semelhante ao seguinte:
+Por fim, na seção `nodeTypes` da configuração adicione uma nova seção para mapear as portas efêmeras que serão usadas pelo Windows.  O arquivo de configuração deve estar semelhante ao seguinte:
 
 ```json
 "applicationPorts": {

@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355830"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295521"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -84,6 +84,11 @@ Não, o Gateway de Aplicativo não oferece suporte a endereços IP públicos est
 
 Há suporte a apenas um endereço IP público em um Gateway de Aplicativo.
 
+**P. Com qual tamanho devo criar minha sub-rede do Gateway de Aplicativo?**
+
+O Gateway de Aplicativo consome um endereço IP privado por instância, além de outro endereço IP privado se uma configuração de IP de front-end privado for configurada. Além disso, o Azure reservará os quatro primeiros e o último endereço IP em cada sub-rede para uso interno.
+Por exemplo, se o Gateway de Aplicativo for definido como três instâncias e nenhum IP de front-end privado, um tamanho de sub-rede /29 ou maior será necessário. Nesse caso, o Gateway de Aplicativo usa três endereços IP. Se você tiver três instâncias e um endereço IP para a configuração de IP de front-end privado, um tamanho de sub-rede /28 ou maior será necessário, visto que quatro endereços IP são necessários.
+
 **P. O Gateway de Aplicativo oferece suporte a cabeçalhos x-forwarded-for?**
 
 Sim, o Gateway de Aplicativo insere cabeçalhos x-forwarded-for, x-forwarded-proto e x-forwarded-port na solicitação encaminhada ao back-end. O formato do cabeçalho x-forwarded-for é uma lista separada por vírgulas de IP:Porta. Os valores válidos para x-forwarded-proto são http ou https. X-forwarded-port especifica a porta na qual a solicitação alcançou o Gateway de Aplicativo.
@@ -110,7 +115,7 @@ Não, mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicativo com as seguintes restrições:
 
-* Exceções devem ser colocadas para tráfego de entrada nas portas 65503-65534 para integridade de back-end para funcionar corretamente.
+* Exceções devem ser feitas para o tráfego de entrada nas portas 65503-65534. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
 
 * A conectividade de internet de saída não pode ser bloqueada.
 
@@ -154,13 +159,17 @@ Esse cenário pode ser feito usando os NSGs na sub-rede de Gateway de Aplicativo
 
 * Permitir tráfego de entrada de intervalo de IP/IP de origem.
 
-* Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md).
+* Permitir solicitações de entrada de todas as fontes para portas 65534 65503 para [comunicação de integridade de back-end](application-gateway-diagnostics.md). Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem os certificados apropriados, as entidades externas, incluindo os clientes desses gateways, não poderão iniciar nenhuma alteração nesses pontos de extremidade.
 
 * Permitir entradas investigações do Azure Load Balancer (marca AzureLoadBalancer) e tráfego de rede virtual entrada (marca VirtualNetwork) no [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todo o outro tráfego de entrada com um Negar todas as regras.
 
 * Permitir tráfego de saída para a internet para todos os destinos.
+
+**P. A mesma porta pode ser utilizada tanto para ouvintes voltados ao privado como ao público?**
+
+Não, isso não tem suporte.
 
 ## <a name="performance"></a>Desempenho
 
@@ -184,6 +193,21 @@ Não há tempo de inatividade, as instâncias são distribuídas entre domínios
 
 Sim. Você pode configurar o descarregamento de conexão para alterar os membros dentro de um pool de back-end sem interrupções. Isso permitirá conexões existentes para continuar a ser enviado ao seu destino anterior até que essa conexão é fechada ou expira um tempo limite configurável. Observe que esse descarregamento de conexão somente espera para concluir as conexões atuais em curso. O Gateway de Aplicativo não está ciente do estado de sessão do aplicativo.
 
+**P. Quais são os tamanhos de gateway de aplicativo?**
+
+O Gateway de Aplicativo atualmente é oferecido em três tamanhos: **Pequeno**, **Médio** e **Grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+
+Você pode criar até 50 Gateways de Aplicativo por assinatura e cada um deles pode ter até 10 instâncias. Cada gateway de aplicativo pode consistir em 20 ouvintes http. Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do gateway de aplicativo com o descarregamento SSL habilitado:
+
+| Tamanho médio de resposta de página de back-end | Pequena | Média | grande |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Esses valores são valores aproximados para uma produtividade do Gateway de Aplicativo. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para obter números de desempenho exatos, você deve executar seus próprios testes. Esses valores são fornecidos apenas para a orientação do planejamento de capacidade.
 
 **P. Posso alterar o tamanho da instância de média para grande sem interrupções?**
 

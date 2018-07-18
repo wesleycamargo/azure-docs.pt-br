@@ -9,16 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131544"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Coletar alertas do Nagios e do Zabbix no Log Analytics do Agente do OMS para Linux 
 O [Nagios](https://www.nagios.org/) e o [Zabbix](http://www.zabbix.com/) são ferramentas de monitoramento de software livre. Você pode coletar alertas dessas ferramentas para o Log Analytics para analisá-los junto com os [alertas de outras fontes](log-analytics-alerts.md).  Este artigo descreve como configurar o Agente do OMS para Linux para coletar alertas desses sistemas.
@@ -56,7 +58,7 @@ Para coletar alertas, execute as etapas a seguir no servidor do Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurar coleta de alertas do Zabbix
-Para obter alertas de um servidor do Zabbix, você precisa especificar um usuário e senha com *texto não criptografado*.  Embora não seja o ideal, é recomendável que você crie o usuário e conceda permissões somente para monitorar.
+Para obter alertas de um servidor do Zabbix, você precisa especificar um usuário e senha com *texto não criptografado*.  Embora não seja ideal, é recomendável que você crie um usuário Zabbix com permissões somente leitura para capturar alarmes relevantes.
 
 Para coletar alertas no servidor do Nagios, execute as etapas a seguir.
 
@@ -73,7 +75,7 @@ Para coletar alertas no servidor do Nagios, execute as etapas a seguir.
 
 2. Reinicie o daemon omsagent
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Registros de alerta

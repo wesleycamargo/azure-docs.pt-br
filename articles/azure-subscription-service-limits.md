@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939953"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610765"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -40,8 +40,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 
 > [!NOTE]
 > É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas vCPU como um exemplo. Se você precisar solicitar um aumento de cota com suporte para vCPU, você precisa decidir quantos vCPUs deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de vCPU do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 vCPUs na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 vCPUs na Europa Ocidental. Mas você não terá um aumento na cota de vCPU em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 vCPUs.
-> <!-- -->
-> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-manager-common-deployment-errors.md) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+> <!-- --> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-manager-common-deployment-errors.md) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 >
 >
 
@@ -74,6 +73,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviço de Provisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identidade gerenciada](#managed-identity-limits)
 * [Serviços de Mídia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
@@ -83,6 +83,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Observador de Rede](#network-watcher-limits)
 * [Serviço de hub de notificação](#notification-hub-service-limits)
 * [Grupo de recursos](#resource-group-limits)
+* [Controle de acesso baseado em função](#role-based-access-control-limits)
 * [Agendador](#scheduler-limits)
 * [Search](#search-limits)
 * [Barramento de Serviço](#service-bus-limits)
@@ -316,8 +317,14 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="automation-limits"></a>Limites de automação
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
+### <a name="managed-identity-limits"></a>Limites de identidade gerenciada
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Limites de controle de acesso baseado em função
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
+
 ### <a name="sql-database-limits"></a>Limites de banco de dados SQL
-Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
+Para conferir os limites do Banco de Dados SQL, veja [Limites de recursos de Banco de Dados SQL para bancos de dados individuais](sql-database/sql-database-vcore-resource-limits-single-databases.md) e [Limites de recursos de Banco de Dados SQL para pools elásticos e bancos de dados em pool](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para limites do SQL Data Warehouse, consulte [Limites de recursos do SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

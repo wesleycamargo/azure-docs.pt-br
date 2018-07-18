@@ -1,25 +1,26 @@
 ---
-title: "Sobre as conexões VPN Ponto a Site do Azure | Microsoft Docs"
-description: "Este artigo ajuda você a entender as conexões Ponto a Site e ajuda você a decidir qual tipo de autenticação de gateway de VPN P2S usar."
+title: Sobre as conexões VPN Ponto a Site do Azure | Microsoft Docs
+description: Este artigo ajuda você a entender as conexões Ponto a Site e ajuda você a decidir qual tipo de autenticação de gateway de VPN P2S usar.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721421"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN Ponto a Site
 
@@ -47,7 +48,7 @@ Antes de o Azure aceitar uma conexão VPN P2S, o usuário deve autenticar primei
 
 Ao usar a autenticação de certificado nativa do Azure, um certificado de cliente que está presente no dispositivo é usado para autenticar o usuário conectado. Certificados de cliente são gerados a partir de um certificado raiz confiável e instalado em cada computador cliente. Você pode usar um certificado raiz que foi gerado usando uma solução corporativa ou você pode gerar um certificado autoassinado.
 
-A validação do certificado do cliente é realizada pelo gateway de VPN e acontece durante o estabelecimento da conexão de VPN P2S. O certificado raiz é necessário para a validação e deve ser carregado no Azure. 
+A validação do certificado do cliente é realizada pelo gateway de VPN e acontece durante o estabelecimento da conexão de VPN P2S. O certificado raiz é necessário para a validação e deve ser carregado no Azure.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticar usando o servidor de domínio do Active Directory (AD)
 
@@ -59,7 +60,11 @@ Um servidor RADIUS também pode integrar-se com outros sistemas de identidade ex
 
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>Requisitos de configuração para dispositivos cliente
+## <a name="what-are-the-client-configuration-requirements"></a>Quais são os requisitos de configuração do cliente?
+
+>[!NOTE]
+>Para clientes do Windows, é necessário ter direitos de administrador no dispositivo cliente para iniciar a conexão VPN do dispositivo cliente para o Azure.
+>
 
 Os usuários usam os clientes VPN nativos em dispositivos Windows e Mac para P2S. O Azure fornece um arquivo compactado de configuração de cliente de VPN que contém as configurações necessárias para esses clientes nativos se conectarem ao Azure.
 
@@ -69,10 +74,10 @@ Os usuários usam os clientes VPN nativos em dispositivos Windows e Mac para P2S
 O arquivo zip também fornece os valores de algumas das configurações importantes no lado do Azure que você pode usar para criar seu próprio perfil para esses dispositivos. Alguns dos valores incluem o endereço de gateway de VPN, os tipos de encapsulamento configurados, rotas e o certificado raiz para validação de gateway.
 
 >[!NOTE]
->Para clientes do Windows, é necessário ter direitos de administrador no dispositivo cliente para iniciar a conexão VPN do dispositivo cliente para o Azure.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Quais SKUs de gateway dão suporte à VPN P2S?
+## <a name="gwsku"></a>Quais SKUs de gateway dão suporte à VPN P2S?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 

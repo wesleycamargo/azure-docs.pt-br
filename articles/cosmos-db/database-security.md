@@ -5,20 +5,17 @@ keywords: segurança do banco de dados nosql, segurança de informações, segur
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611612"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de banco de dados do Azure Cosmos DB
 
@@ -73,10 +70,10 @@ Vamos examinar cada um deles em detalhes.
 |Replicação local|Mesmo em um único data center, o Azure Cosmos DB replica automaticamente os dados para proporcionar alta disponibilidade, oferecendo a você a opção de [níveis de consistência](consistency-levels.md). Isso garante [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) de 99,99% para todas as contas de região única e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões.|
 |Backups online automatizados|Os bancos de dados do Azure Cosmos DB passam por backup e são armazenados regularmente em um repositório com redundância geográfica. <br><br>Saiba mais em [Backup e restauração online automáticos com o Azure Cosmos DB](online-backup-and-restore.md).|
 |Restaurar dados excluídos|Os backups online automatizados podem ser usados para recuperar dados que você pode ter excluído acidentalmente até 30 dias após o evento. <br><br>Saiba mais em [Backup e restauração online automáticos com o Azure Cosmos DB](online-backup-and-restore.md)|
-|Proteger e isolar dados confidenciais|Todos os dados nas regiões listadas em [Novidades](#whats-new) agora serão criptografados em repouso.<br><br>As informações de identificação pessoal e outros dados confidenciais podem ser isolados em coleções específicas, e o acesso de leitura/gravação ou somente leitura pode ser limitado a usuários específicos.|
+|Proteger e isolar dados confidenciais|Todos os dados nas regiões listadas em [Novidades](#whats-new) agora serão criptografados em repouso.<br><br>Dados pessoais e outros dados confidenciais podem ser isolados em coleções específicas, e o acesso de leitura/gravação ou somente leitura pode ser limitado a usuários específicos.|
 |Monitorar ataques|Com o [log de auditoria e os logs de atividade](logging.md), você pode monitorar as atividades normais e anormais de sua conta. Veja as operações que foram executadas em seus recursos, quem iniciou a operação, quando a operação ocorreu, o status da operação e muito mais conforme mostrado na captura de tela após esta tabela.|
 |Responder a ataques|Depois de contatar o suporte do Azure para relatar um possível ataque, começa um processo de resposta ao incidente com cinco etapas. O objetivo do processo de cinco etapas é restaurar a segurança normal do serviço e as operações o mais rápido possível após a detecção de um problema e o início de uma investigação.<br><br>Saiba mais em [Resposta da segurança do Microsoft Azure na nuvem](https://aka.ms/securityresponsepaper).|
-|Isolamento geográfico|O Azure Cosmos DB garante a governança de dados e conformidade em regiões soberanas (por exemplo, Alemanha, China, US Gov).|
+|Isolamento geográfico|O Azure Cosmos DB garante a governança de dados em regiões soberanas (por exemplo, Alemanha, China, US Gov).|
 |Instalações protegidas|Os dados do Azure Cosmos DB são armazenados em SSDs, nos data centers protegidos do Azure.<br><br>Saiba mais em [Datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Criptografia HTTPS/SSL/TLS|Todas as interações do cliente com o serviço do Azure Cosmos DB são compatíveis com SSL/TLS 1.2. Além disso, toda replicação dentro do datacenter e entre datacenters é imposta por SSL/TLS 1.2.|
 |Criptografia em repouso|Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso. Saiba mais em [Criptografia em repouso do Azure Cosmos DB](.\database-encryption-at-rest.md)|

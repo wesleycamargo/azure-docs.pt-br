@@ -1,24 +1,25 @@
 ---
 title: Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure | Microsoft Docs
-description: "O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP."
+description: O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261042"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -49,6 +50,7 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
     ![Botão Gerenciar perfil da CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
+
 2. Selecione a guia **HTTP Grande** e, em seguida, selecione **Mecanismo de Regras**.
    
     As opções para uma nova regra são exibidas.
@@ -58,7 +60,9 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
    > [!IMPORTANT]
    > A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
    > 
+
 3. Insira um nome na caixa de texto **Nome/Descrição** .
+
 4. Identifique o tipo de solicitação à qual a regra se aplica. Use a condição de correspondência padrão, **Sempre**. 
    
    ![Condição de correspondência de regra de CDN](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
    > Para obter uma lista detalhada das condições de correspondência, consulte [Condições de correspondência do mecanismo de regras](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Para adicionar um novo recurso, selecione o botão **+** próximo aos **Recursos**.  Na lista suspensa à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, digite **300**. Não altere os valores padrão restantes.
+
+5. Para adicionar um novo recurso, selecione o botão **+** próximo aos **Recursos**.  Na lista suspensa à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, digite **300**. Não altere os valores padrão restantes.
    
    ![Recurso de regra da CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,10 +88,11 @@ Para acessar o mecanismo de regras, será necessário primeiro selecionar **Gere
    > Para obter uma lista detalhada de recursos, consulte [Recursos do mecanismo de regras](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Clique no botão **Adicionar** para salvar a nova regra.  A nova regra agora está aguardando aprovação. Após ter sido aprovado, o status altera de **XML pendente** para **XML ativo**.
+
+6. Selecione **Adicionar** para salvar a nova regra.  A nova regra agora está aguardando aprovação. Após ter sido aprovado, o status altera de **XML pendente** para **XML ativo**.
    
    > [!IMPORTANT]
-   > As alterações de regras podem levar até 90 minutos para propagar através da CDN.
+   > As alterações nas regras podem demorar até 10 minutos para serem propagadas pela CDN do Azure.
    > 
    > 
 

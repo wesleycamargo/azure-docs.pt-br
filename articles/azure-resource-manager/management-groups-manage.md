@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754108"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento 
 Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, a política e a conformidade entre várias assinaturas. Você pode alterar, excluir e gerenciar esses contêineres para ter hierarquias que podem ser usadas com o [Azure Policy](../azure-policy/azure-policy-introduction.md) e os [Controles de Acesso Baseados em Função (RBAC) do Azure](../role-based-access-control/overview.md). Para saber mais sobre grupos de gerenciamento, consulte [Organizar seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md).
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 Para a CLI do Azure, use o comando de atualização. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Exclusão na CLI do Azure
 Com a CLI do Azure, use o comando az account management-group delete. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Exibir na CLI do Azure
 Você pode usar o comando list para recuperar todos os grupos.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 Para obter informações de um único grupo de gerenciamento, use o comando show
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -150,7 +151,7 @@ Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em s
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento** 
 3. Selecione o grupo de gerenciamento o qual planeja que seja o pai.      
 5. Na parte superior da página, selecione **Adicionar existente**. 
-6. No menu aberto, selecione o **Tipo de Recurso** do item que você está tentando mover, que é **Assinatura**.
+6. No menu que abriu, selecione o **Tipo de Recurso** do item que você está tentando mover, que é **Assinatura**.
 7. Selecione a assinatura na lista com a ID correta. 
 
     ![Filhos](media/management-groups/add_context_2.png)
@@ -159,7 +160,7 @@ Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em s
 **Remover uma assinatura de um grupo de gerenciamento**
 1. Fazer logon no [Portal do Azure](https://portal.azure.com)
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento** 
-3. Selecione o grupo de gerenciamento o qual planeja que seja o pai atual.  
+3. Selecione o grupo de gerenciamento que você está planejando que é o pai atual.  
 4. Selecione a elipse no final da linha da assinatura na lista que você deseja mover.
 
     ![Mover](media/management-groups/move_small.png)
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Mover assinaturas na CLI do Azure
 Para mover uma assinatura na CLI, use o comando add. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 Para remover a assinatura do grupo de gerenciamento, use o comando subscription remove.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -206,7 +207,7 @@ Quando você move um grupo de gerenciamento pai, todos os recursos filhos que co
 2. Selecione **Todos os serviços** > **Grupos de gerenciamento** 
 3. Selecione o grupo de gerenciamento o qual planeja que seja o pai.      
 5. Na parte superior da página, selecione **Adicionar existente**.
-6. No menu aberto, selecione o **Tipo de Recurso** do item que você está tentando mover, que é **Grupo de Gerenciamento**.
+6. No menu que abriu, selecione **Tipo de Recurso** do item que você está tentando mover, que é **Grupo de Gerenciamento**.
 7. Selecione o grupo de gerenciamento com a ID e o Nome correto.
 
     ![mover](media/management-groups/add_context.png)
@@ -216,13 +217,13 @@ Quando você move um grupo de gerenciamento pai, todos os recursos filhos que co
 Use o comando Update-AzureRmManagementGroup no PowerShell para mover um grupo de gerenciamento em um grupo diferente.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de gerenciamento na CLI do Azure
 Use o comando update para mover um grupo de gerenciamento com a CLI do Azure. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---

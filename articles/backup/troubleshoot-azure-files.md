@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas do backup de Arquivos do Azure
+title: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 services: backup
 ms.service: backup
@@ -7,28 +7,30 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959790"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-files"></a>Solucionar problemas do backup de Arquivos do Azure
-É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Arquivos do Azure com as informações listadas nas tabelas a seguir.
+# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
+É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Compartilhamentos de Arquivos do Azure com as informações listadas nas tabelas a seguir.
 
-## <a name="preview-boundaries"></a>Limites da versão prévia
-O backup de Arquivos do Azure está em versão prévia. Não há suporte para os seguintes cenários de backup para compartilhamentos de arquivos do Azure:
-- Protegendo compartilhamentos de arquivos do Azure em Contas de armazenamento com [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) ou replicação [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
-- Protegendo compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais habilitadas.
-- Fazendo backup de compartilhamento de arquivos do Azure usando o PowerShell ou a CLI.
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de arquivos do Azure durante a versão prévia
+O backup para compartilhamentos de Arquivos do Azure está em versão prévia. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
+- Não é possível proteger compartilhamentos de arquivos do Azure em Contas de Armazenamento com replicação* de [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
+- Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
+- Não há nenhum PowerShell ou CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
+- A quantidade máxima de backups agendados por dia é de um.
+- A quantidade máxima de backups sob demanda por dia é de quatro.
+- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
+- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
 
-### <a name="limitations"></a>Limitações
-- O #Scheduled-backup máximo por dia é 1.
-- O #On-Demand-backup por dia é 4.
-- Use bloqueios de recursos na Conta de Armazenamento para impedir a exclusão acidental de backups em seu Cofre dos Serviços de Recuperação.
-- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração
+\*Compartilhamentos de arquivos do Azure em Contas de Armazenamento com função de replicação de [armazenamento com redundância geográfica com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS) como GRS e cobrados com preços de GRS.
+
+O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no Centro dos EUA (CUS), Leste dos EUA 2 (EUS2), Europa Setentrional (NE), Sudeste Asiático (SEA) e Europa Ocidental (WE).
 
 ## <a name="configuring-backup"></a>Configurando o backup
 A tabela abaixo serve para configurar o backup:
@@ -40,7 +42,7 @@ A tabela abaixo serve para configurar o backup:
 | A validação ou o registro da Conta de Armazenamento selecionada falhou.| Repita a operação, e se o problema persistir, entre em contato com o suporte.|
 | Não foi possível listar ou localizar os compartilhamentos de arquivos na Conta de Armazenamento selecionada. | <ul><li> Verifique se a Conta de Armazenamento existe no Grupo de Recursos (e se não foi excluída ou movida após a última validação/registro no cofre).<li>Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li>Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos.<li>Verifique se o compartilhamento de arquivos já está protegido no mesmo cofre dos Serviços de Recuperação.|
 | A configuração de compartilhamento de arquivos de backup (ou a configuração de política de proteção) está falhando. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li> Se estiver tentando proteger vários compartilhamentos de arquivos ao mesmo tempo e alguns deles estiverem falhando, repita a configuração de backup para os compartilhamentos de arquivos com falha. |
-| Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal do Azure, abra a **Infraestrutura de backup** > **Contas de armazenamento** e clique em **Cancelar o registro** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
+| Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal do Azure, abra o seu Cofre > **Infraestrutura de backup** > **Contas de armazenamento** e clique em **Cancelar o registro** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
 
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas de trabalho de backup ou restauração
@@ -52,7 +54,7 @@ A tabela abaixo serve para configurar o backup:
 | Você atingiu o limite máximo de instantâneos para este compartilhamento de arquivos e poderá tirar outros depois que os antigos expirarem. | <ul><li> Este erro pode ocorrer ao criar vários backups sob demanda para um arquivo. <li> Há um limite de 200 instantâneos por compartilhamento de arquivos, incluindo aqueles tirados pelo Backup do Azure. Os backups (ou instantâneos) agendados mais antigos são limpos automaticamente. Os backups (ou instantâneos) sob demanda devem ser excluídos se o limite máximo for atingido.<li> Exclua os backups sob demanda (instantâneos de compartilhamento de arquivo do Azure) no portal de Arquivos do Azure. **Observação**: os pontos de recuperação são perdidos se você exclui instantâneos criados pelo Backup do Azure. |
 | O backup de compartilhamento de arquivos ou a restauração falhou devido à limitação do serviço de armazenamento. Isso pode ser devido ao serviço de armazenamento estar ocupado processando outras solicitações para determinada conta de armazenamento.| Repita a operação após algum tempo. |
 | Falha na restauração com o compartilhamento de arquivos de destino não encontrado. | <ul><li>Verifique se a Conta de Armazenamento selecionada existe e se o compartilhamento de Arquivos de Destino não foi excluído. <li> Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos. |
-| Atualmente, o backup do Azure não tem suporte para Contas de Armazenamento dos Arquivos do Azure com Redes Virtuais habilitadas. | Desabilite as Redes Virtuais na sua Conta de Armazenamento para garantir o êxito dos backups ou operações de restauração. |
+| Atualmente, o backup do Azure não tem suporte para Contas de Armazenamento dos Compartilhamentos de Arquivos do Azure com Redes Virtuais habilitadas. | Desabilite as Redes Virtuais na sua Conta de Armazenamento para garantir o êxito dos backups ou operações de restauração. |
 | Os trabalhos de backup ou restauração falharam porque a conta de armazenamento estava no estado Bloqueado. | Remova o bloqueio da Conta de Armazenamento ou use o bloqueio de exclusão em vez do bloqueio de leitura e repita a operação. |
 | A recuperação falhou porque o número de arquivos com falha é maior do que o limite. | <ul><li> As razões da falha de recuperação são listadas em um arquivo (caminho fornecido nos detalhes do trabalho). Aborde as falhas e repita a operação de restauração apenas para os arquivos com falha. <li> Motivos comuns para falhas na restauração de arquivo: <br/> – verifique se os arquivos que falharam não estão em uso no momento; <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
 | A recuperação falhou porque nenhum arquivo pôde ser recuperado. | <ul><li> As razões da falha de recuperação são listadas em um arquivo (caminho fornecido nos detalhes do trabalho). Aborde as falhas e repita as operações de restauração apenas para os arquivos com falha. <li> Motivos comuns para falhas na restauração de arquivo: <br/> – verifique se os arquivos que falharam não estão em uso no momento; <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |

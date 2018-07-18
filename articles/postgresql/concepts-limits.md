@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757409"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
 
-## <a name="pricing-tier-maximums"></a>Tipos de preço máximos
-O Banco de Dados do Azure para PostgreSQL possui vários tipos de preço que você pode escolher ao criar um servidor. Para obter mais informações, consulte [Tipos de preço no Banco de Dados do Azure para PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexões
+O número máximo de conexões por tipo de preço e vCores é o seguinte: 
 
-Há um número máximo de conexões, unidades de computação e armazenamento em tipo de preço, conforme a seguir: 
-
-|Camada de preços| Geração de computação| vCore(s)| Máximo de conexões |
-|---|---|---|---|
-|Basic| Gen 4| 1| 50 |
-|Basic| Gen 4| 2| 100 |
-|Basic| Gen 5| 1| 50 |
-|Basic| Gen 5| 2| 100 |
-|Uso geral| Gen 4| 2| 150|
-|Uso geral| Gen 4| 4| 250|
-|Uso geral| Gen 4| 8| 480|
-|Uso geral| Gen 4| 16| 950|
-|Uso geral| Gen 4| 32| 1500|
-|Uso geral| Gen 5| 2| 150|
-|Uso geral| Gen 5| 4| 250|
-|Uso geral| Gen 5| 8| 480|
-|Uso geral| Gen 5| 16| 950|
-|Uso geral| Gen 5| 32| 1500|
-|Otimizado para memória| Gen 5| 2| 150|
-|Otimizado para memória| Gen 5| 4| 250|
-|Otimizado para memória| Gen 5| 8| 480|
-|Otimizado para memória| Gen 5| 16| 950|
+|**Tipo de preço**| **vCore(s)**| **Máximo de conexões** |
+|---|---|---|
+|Basic| 1| 50 |
+|Basic| 2| 100 |
+|Uso geral| 2| 150|
+|Uso geral| 4| 250|
+|Uso geral| 8| 480|
+|Uso geral| 16| 950|
+|Uso geral| 32| 1500|
+|Otimizado para memória| 2| 150|
+|Otimizado para memória| 4| 250|
+|Otimizado para memória| 8| 480|
+|Otimizado para memória| 16| 950|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes

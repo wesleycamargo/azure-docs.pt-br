@@ -14,12 +14,14 @@
     - name: Configurar políticas de Hive
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Use o VSCode para vincular ao cluster de ingresso no domínio
+    - name: Use o VSCode para vincular ao cluster ingressado no domínio
       href: ../hdinsight-for-vscode.md
     - name: Use o IntelliJ para vincular ao cluster de ingresso no domínio
       href: ../spark/apache-spark-intellij-tool-plugin.md
-    - name: Use o Eclipse para vincular ao cluster de ingresso no domínio
+    - name: Use o Eclipse para vincular ao cluster ingressado no domínio
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: Usar Oozie em clusters ingressados no domínio
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Proteção de dados
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -37,13 +39,10 @@
     - name: Replicação de cluster HBase na VNet do Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Monitoramento usando OMS
+- name: Monitoramento usando Log Analytics
   items:
     - name: Usar Log Analytics do Azure
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Painéis específicos do cluster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Usar consultas com o Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -72,6 +71,10 @@
     - name: Notas de versão
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Notas de versão arquivadas
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Obtenha ajuda no fórum

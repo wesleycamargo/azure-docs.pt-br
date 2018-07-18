@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824924"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
@@ -37,8 +38,6 @@ Nesse tipo de configuração, o ambiente de computação é totalmente gerenciad
 
 > [!NOTE]
 > A configuração sob demanda tem suporte somente para clusters do Azure HDInsight.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Serviço vinculado do Azure HDInsight sob demanda
 O serviço Azure Data Factory pode criar automaticamente um cluster HDInsight sob demanda para processar dados. O cluster é criado na mesma região que a conta de armazenamento (propriedade linkedServiceName em JSON) associada ao cluster. A conta de armazenamento deve ser uma conta de armazenamento do Azure padrão de uso geral. 
@@ -48,11 +47,14 @@ Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight
 * O cluster HDInsight sob demanda é criado sob sua assinatura do Azure. Quando o cluster estiver ativo e em execução, você poderá vê-lo em seu Portal do Azure. 
 * Os logs para trabalhos que são executados em um cluster HDInsight sob demanda são copiados para a conta de armazenamento associada ao cluster HDInsight. clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword determinados em sua definição de serviço vinculado são usados para fazer logon no cluster para solução de problemas detalhada durante o ciclo de vida do cluster. 
 * Você é cobrado somente pelo tempo em que o cluster HDInsight estiver ativo e executando trabalhos.
+* Você não pode usar uma ação de Script com o serviço vinculado do Azure HDInsight sob demanda. Se você precisa instalar outras dependências, por exemplo, considere o uso do Azure Automation para executar um script do PowerShell que faz o seguinte:  
+  a. Crie o cluster HDInsight.  
+  b. Execute uma ação de Script para instalar outras dependências, por exemplo.  
+  c. Execute o pipeline da Data Factory.  
+  d. Excluir o cluster.  
 
 > [!IMPORTANT]
 > Em geral, são necessários **20 minutos** ou mais para provisionar um cluster Azure HDInsight sob demanda.
->
-> 
 
 ### <a name="example"></a>Exemplo
 O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Linux. O serviço Data Factory cria automaticamente um cluster HDInsight **baseado em Linux** para processar a atividade solicitada. 

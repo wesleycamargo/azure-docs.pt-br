@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 6edcf9ae8135de8bf82d819e50d3d336b641166e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34068566"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário Carregamento de Arquivo para solicitar um novo suporte do Microsoft Azure
 Quando você [criar uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário Carregar Arquivo poderá ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que considere relevantes para o incidente.  

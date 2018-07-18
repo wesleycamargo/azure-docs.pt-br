@@ -1,6 +1,6 @@
 ---
-title: "Obtenção de tabelas ARP: Resource Manager: Solução de problemas de ExpressRoute do Azure | Microsoft Docs"
-description: "Esta página fornece instruções sobre como obter tabelas ARP para um circuito de ExpressRoute"
+title: 'Obtenção de tabelas ARP: Resource Manager: Solução de problemas de ExpressRoute do Azure | Microsoft Docs'
+description: Esta página fornece instruções sobre como obter tabelas ARP para um circuito de ExpressRoute
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013131"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]

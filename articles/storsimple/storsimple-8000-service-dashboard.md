@@ -1,12 +1,12 @@
 ---
 title: Usar o resumo do dispositivo StorSimple 8000 series | Microsoft Docs
-description: "Descreve a folha de resumo do serviço StorSimple e explica como usá-lo para monitorar a integridade da solução StorSimple."
+description: Descreve a folha de resumo do serviço StorSimple e explica como usá-lo para monitorar a integridade da solução StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108204"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Use a folha de resumo do serviço do dispositivo StorSimple 8000 series
 

@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267434"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrar dados locais para o armazenamento em nuvem usando o AzCopy
 
@@ -22,8 +23,8 @@ O AzCopy é uma ferramenta de linha de comando para copiar dados para ou do Arma
 
 Há duas versões do AzCopy que podem ser baixadas:
 
-* O [AzCopy no Linux](storage-use-azcopy.md) é criado com o .NET Core Framework. Ele se destina a plataformas Linux, oferecendo opções de linha de comando de estilo POSIX. 
-* O [AzCopy no Windows](../storage-use-azcopy.md) é criado com o .NET Framework. Ele oferece opções de linha de comando estilo Windows. 
+* O [AzCopy no Linux](storage-use-azcopy-linux.md) é criado com o .NET Core Framework. Ele se destina a plataformas Linux, oferecendo opções de linha de comando de estilo POSIX. 
+* O [AzCopy no Windows](storage-use-azcopy.md) é criado com o .NET Framework. Ele oferece opções de linha de comando estilo Windows. 
  
 Neste tutorial, você aprenderá como:
 

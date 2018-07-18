@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Escopos
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Criar variáveis para salvar os valores
+          href: logic-apps-create-variables-store-values.md
         - name: Adicionar código personalizado com o Azure Functions
           href: logic-apps-azure-functions.md
         - name: Chamar aplicativos lógicos com o Azure Functions
@@ -174,7 +176,7 @@
           href: ../connectors/connectors-create-api-excel.md
         - name: Facebook
           href: ../connectors/connectors-create-api-facebook.md
-        - name: Sistema de Arquivos
+        - name: Sistema de arquivos
           href: logic-apps-using-file-connector.md
         - name: Arquivo simples
           href: logic-apps-enterprise-integration-flatfile.md
@@ -226,13 +228,15 @@
           href: ../connectors/connectors-native-recurrence.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
+        - name: SFTP
+          href: ../connectors/connectors-create-api-sftp.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
           href: ../connectors/connectors-create-api-sharepointserver.md
         - name: Margem de atraso
           href: ../connectors/connectors-create-api-slack.md
-        - name: SQL Azure e SQL Server
+        - name: SQL Server
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Transformar XML
           href: logic-apps-enterprise-integration-transform.md
@@ -266,14 +270,14 @@
       items:
         - name: Monitorar status do aplicativo lógico
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Monitorar status do aplicativo lógico no OMS com Log Analytics
+        - name: Monitorar status do aplicativo lógico com Log Analytics do Azure
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: Monitorar mensagens B2B
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: Controlar mensagens B2B no OMS
+            - name: Rastrear mensagens B2B no Log Analytics do Azure
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Consultar OMS para mensagens B2B
+            - name: Consultar Log Analytics do Azure para mensagens B2B
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Exemplos, cenários e explicações passo a passo'
       href: logic-apps-examples-and-scenarios.md
@@ -288,6 +292,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: Referência
   items:
+    - name: Padrões de Arquitetura
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: Enterprise Integration Simples
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: Enterprise Integration com Filas e Eventos
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: Conectores - Detalhes completos
       href: 'https://docs.microsoft.com/connectors/'
     - name: Limites e configurações

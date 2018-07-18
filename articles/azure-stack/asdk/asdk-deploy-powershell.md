@@ -1,39 +1,30 @@
 ---
 title: Implantar a pilha do Azure - PowerShell | Microsoft Docs
-description: "Neste tutorial, você pode instalar o ASDK da linha de comando."
+description: Neste artigo, você pode instalar o ASDK da linha de comando usando o PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849950"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Tutorial: implantar o ASDK da linha de comando
-Neste tutorial, você deve implantar o Azure pilha Development Kit (ASDK) na linha de comando em um ambiente de não produção. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Implantar o ASDK da linha de comando
 O ASDK é um ambiente de teste e desenvolvimento que você pode implantar para avaliar e demonstrar os serviços e recursos da pilha do Azure. Para colocá-lo em funcionamento, você precisa preparar o ambiente hardware e executar alguns scripts (Isso levará várias horas). Depois disso, você pode entrar portais de administrador e usuário para começar a usar a pilha do Azure.
-
-Neste tutorial, você aprenderá como:
-
-> [!div class="checklist"]
-> * Baixe e extraia o pacote de implantação
-> * Preparar o computador de host do kit de desenvolvimento 
-> * Executar as configurações de pós-implantação
-> * Registrar com o Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Prepare o computador de host do kit de desenvolvimento. Planeje o hardware, software e rede. O computador que hospeda o kit de desenvolvimento (o host do kit de desenvolvimento) deve atender aos requisitos de rede, software e hardware. Você também deve escolher entre usar o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS). Certifique-se de estar em conformidade com esses pré-requisitos antes de iniciar a implantação para que o processo de instalação seja executado sem problemas. 
@@ -61,7 +52,7 @@ Para configurar o computador host ASDK CloudBuilder.vhdx de inicialização:
 
   1. Inicie um prompt de comando como administrador.
   2. Execute o `bcdedit /copy {current} /d "Azure Stack"`
-  3. Copiar (CTRL + C) o valor CLSID retornado, incluindo o {} necessária ' s. Esse valor é conhecido como {CLSID} e precisará ser colado (CTRL + V ou o botão direito do mouse) nas etapas restantes.
+  3. Copiar (CTRL + C) o valor CLSID retornado, incluindo necessários {}' s. Esse valor é conhecido como {CLSID} e precisará ser colado (CTRL + V ou o botão direito do mouse) nas etapas restantes.
   4. Execute o `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Execute o `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Execute o `bcdedit /set {CLSID} detecthal on` 
@@ -154,7 +145,7 @@ Se seu ambiente tiver DHCP habilitado, você deve incluir os seguintes parâmetr
 |DNSForwarder|Opcional|Um servidor DNS é criado como parte da implantação da pilha do Azure. Para permitir que os computadores dentro da solução para resolver nomes fora o carimbo, forneça o servidor DNS de infraestrutura existente. O servidor DNS no carimbo encaminha solicitações de resolução de nome desconhecido para o servidor.|
 |NatIPv4Address|Necessário para suporte de NAT DHCP|Define um endereço IP estático para MAS BGPNAT01. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
 |NatIPv4Subnet|Necessário para suporte de NAT DHCP|Prefixo de sub-rede IP usado para DHCP sobre suporte NAT. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
-|PublicVlanId|Opcional|Define a ID de VLAN. Somente use esse parâmetro se o host e BGPNAT01 MAS deverá configurar o ID de VLAN para acessar a rede física (e Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
+|PublicVlanId|Opcional|Define a ID de VLAN. Somente use esse parâmetro se o host e BGPNAT01 MAS deverá configurar o ID de VLAN para acessar a rede física (e Internet). Por exemplo,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
 |Executar novamente|Opcional|Use este sinalizador para executar novamente a implantação. Todas as entradas anteriores é usada. Inserir novamente dados previamente fornecidos não são suportados porque vários valores exclusivos são gerados e usados para implantação.|
 
 
@@ -176,16 +167,5 @@ Você deve registrar a pilha do Azure com o Azure para que você possa [baixar i
 ## <a name="next-steps"></a>Próximas etapas
 Parabéns! Depois de concluir essas etapas, você terá um ambiente de kit de desenvolvimento com [administrador](https://adminportal.local.azurestack.external) e [usuário](https://portal.local.azurestack.external) portais. 
 
-Neste tutorial, você aprendeu como:
-
-> [!div class="checklist"]
-> * Baixe e extraia o pacote de implantação
-> * Preparar o computador de host do kit de desenvolvimento 
-> * Executar as configurações de pós-implantação
-> * Registrar com o Azure
-
-Avança para o próximo tutorial para aprender a adicionar um item do marketplace de pilha do Azure.
-
-> [!div class="nextstepaction"]
-> [Adicionar um item do marketplace de pilha do Azure](asdk-marketplace-item.md)
+[Pós-instalação de ASDK tarefas de configuração](asdk-post-deploy.md)
 

@@ -1,24 +1,25 @@
 ---
-title: "Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Entender como e por que os aplicativos lógicos falham"
+title: Solucionar problemas e diagnosticar falhas – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Entender como e por que os aplicativos lógicos falham
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298783"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solucionar problemas e diagnosticar falhas nos aplicativos lógicos
 
@@ -31,7 +32,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 1. Para verificar se o gatilho foi disparado, escolha **Visão geral** no menu do aplicativo lógico. Em **Histórico de gatilho**, examine o status do gatilho.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar histórico de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
@@ -41,7 +42,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 
    Aqui estão os possíveis status para uma tentativa de disparo:
 
-   | Status | Descrição | 
+   | Status | DESCRIÇÃO | 
    | ------ | ----------- | 
    | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. | 
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. | 
@@ -72,7 +73,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 1. No menu do aplicativo lógico, escolha **Visão geral**. Em **Histórico de execuções**, examine a execução do gatilho disparado.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar o histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
@@ -82,7 +83,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    Estes são os possíveis status para uma execução:
 
-   | Status | Descrição | 
+   | Status | DESCRIÇÃO | 
    | ------ | ----------- | 
    | **Êxito** | Todas as ações foram bem sucedidas. <p>Caso tenha ocorrido alguma falha em uma ação específica, uma ação posterior no fluxo de trabalho a tratou. | 
    | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho estava configurada para tratar essa falha. | 
@@ -98,7 +99,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    ![Exibir os detalhes de uma execução de aplicativo lógico](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Para examinar as entradas, saídas e as mensagens de erro para uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo:
+3. Para examinar as entradas, saídas e as mensagens de erro para uma etapa específica, escolha essa etapa para que a forma se expanda e mostre os detalhes. Por exemplo: 
 
    ![Exibir detalhes da etapa](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

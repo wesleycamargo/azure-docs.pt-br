@@ -1,6 +1,6 @@
 ---
-title: Operacionalizar o Microsoft R Server no HDInsight - Azure| Microsoft Docs
-description: Saiba como operacionalizar o Microsoft R Server no Azure HDInsight.
+title: Operacionalizar o ML Services no HDInsight - Azure | Microsoft Docs
+description: Saiba como operacionalizar o ML Services no Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,27 +10,31 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 6de6e78d9b4ad68d268b59cff18c75fbdd7be757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046132"
 ---
-# <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>Operar o cluster do Microsoft R Server no Azure HDInsight
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
-Depois que você tiver usado o cluster do Microsoft R Server no HDInsight para concluir os modelagem de dados, você pode utilizar o modelo para fazer previsões. Esse artigo fornece instruções sobre como fazer essa tarefa.
+Após usar o cluster do ML Services no HDInsight para concluir a modelagem de dados, você poderá operacionalizar o modelo para fazer previsões. Esse artigo fornece instruções sobre como fazer essa tarefa.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* **Um cluser do Microsoft R Server no HDInsight**: para obter instruções, consulte [ Iniciar com o R Server no HDInsight](r-server-get-started.md).
+* **Um cluster do ML Services no HDInsight** : Para obter instruções, consulte [Introdução ao ML Services no HDInsight](r-server-get-started.md).
 
 * **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="operationalize-r-server-cluster-with-one-box-configuration"></a>Opera o Microsoft R Server com uma caixa de configuração
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster do ML Services com configuração de uma caixa
 
-1. SSH no nó de borda.  
+> [!NOTE]
+> As etapas abaixo aplicam-se ao Microsoft R Server 9.0 e ML Server 9.1. Para o ML Server 9.3, consulte [Usar a ferramenta de administração para gerenciar a configuração de operacionalização](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+
+1. SSH no nó de borda.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
@@ -38,7 +42,7 @@ Depois que você tiver usado o cluster do Microsoft R Server no HDInsight para c
 
 2. Altere o diretório para a versão relevante e sudo do dll dot net: 
 
-    - Para o Microsoft R Server 9.1:
+    - Para Microsoft ML Server 9.1:
 
             cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
             sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
@@ -48,11 +52,11 @@ Depois que você tiver usado o cluster do Microsoft R Server no HDInsight para c
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na seguinte captura de tela, para **Configurar o Microsoft R Server para operacionalização**.
+3. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
 
     ![operações de uma caixa](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Agora é apresentada a opção de escolher como você quer operar o Microsoft R Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
+4. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
 
     ![operações de uma caixa](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -98,7 +102,7 @@ Se você tiver longos atrasos ao tentar consumir um serviço web criado com as f
 
 Nesse estágio, a configuração de operacionalização foi concluída. Agora, você pode usar o pacote `mrsdeploy`em seu RClient para conectar a operacionalização no nó de borda e começar a usar seus recursos como a [execução remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e os [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). A depender se o cluster está configurado em uma rede virtual ou não, você pode precisar configurar o túnel de encaminhamento da porta por meio de logon de SSH. As seções a seguir explicam como configurar esse túnel.
 
-### <a name="r-server-cluster-on-virtual-network"></a>Cluster do Microsoft R Server em rede virtual
+### <a name="ml-services-cluster-on-virtual-network"></a>Cluster do ML Service na rede virtual
 
 Lembre-se de permitir o tráfego pela porta 12800 para o nó de borda. Dessa forma, você pode usar o nó de borda para se conectar ao recurso de operacionalização.
 
@@ -114,7 +118,7 @@ Lembre-se de permitir o tráfego pela porta 12800 para o nó de borda. Dessa for
 
 Se o `remoteLogin()` não puder se conectar ao nó de borda, mas for possível executar o SSH para o nó de borda, você precisará verificar se a regra que permite o tráfego na porta 12800 foi configurada corretamente. Caso o problema persista, você pode usar uma solução alternativa configurando o túnel de encaminhamento da porta por meio de SSH. Para obter instruções, consulte a seção a seguir:
 
-### <a name="r-server-cluster-not-set-up-on-virtual-network"></a>Cluster do Microsoft R Server não configurado em rede virtual
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>Cluster do ML Services não configurado na rede virtual
 
 Se o cluster não estiver configurado na rede virtual ou se você estiver tendo problemas com a conectividade por meio da rede virtual, use o túnel SSH de encaminhamento da porta:
 
@@ -138,7 +142,7 @@ Para expandir os nós de computação, desativa os nós de trabalho e, em seguid
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Etapa 1: Desativar os nós de trabalho
 
-O cluster do Microsoft R Server não é gerenciado por meio de YARN. Se os nós de trabalho não forem encerrados, o Gerenciador de Recursos YARN não funcionará como esperado porque não estará ciente dos recursos consumidos pelo servidor. Para evitar essa situação,recomendamos desativar os nós de trabalho antes de expandir os nós de computação.
+O cluster do ML Services não é gerenciado pelo YARN. Se os nós de trabalho não forem encerrados, o Gerenciador de Recursos YARN não funcionará como esperado porque não estará ciente dos recursos consumidos pelo servidor. Para evitar essa situação,recomendamos desativar os nós de trabalho antes de expandir os nós de computação.
 
 Siga estas etapas para desativar os nós de trabalho:
 
@@ -162,11 +166,11 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. SSH em cada nó de trabalho desativado.
 
-2. Execute o utilitário de administração usando a DLL relevante para o cluster do Microsoft R Server que você tem. Para R Server 9.1, execute o seguinte:
+2. Execute o utilitário admin usando a DLL relevante para o cluster do ML Services existente. Para ML Server 9.1, execute o seguinte:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Insira **1** para selecionar a opção **Configurar o Microsoft R Server para operacionalização**.
+3. Insira **1** para selecionar a opção **Configurar o ML Server para operacionalização**.
 
 4. Insira **C** para selecionar a opção `C. Compute node`. Isso configura o nó de computação no nó de trabalho.
 
@@ -174,7 +178,7 @@ Siga estas etapas para desativar os nós de trabalho:
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Etapa 3: adicionar detalhes de nós de computação no nó da Web
 
-Depois que todos os nós de trabalho encerrados forem configurados para executar o nó de computação, volte ao nó de borda e adicione os endereços IP dos nós de trabalho encerrados na configuração do nó de web do Microsoft R Server:
+Depois que todos os nós de trabalho encerrados forem configurados para executar o nó de computação, volte ao nó de borda e adicione os endereços IP dos nós de trabalho encerrados na configuração do nó de web do ML Server:
 
 1. SSH no nó de borda.
 
@@ -191,6 +195,6 @@ Depois que todos os nós de trabalho encerrados forem configurados para executar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar o cluster do Microsoft R Server no HDInsight](r-server-hdinsight-manage.md)
-* [Opções de contexto de computação para cluster do Microsoft R Server no HDInsight](r-server-compute-contexts.md)
-* [Opções de Armazenamento do Microsoft Azure para cluster do Microsoft R Server no HDInsight](r-server-storage.md)
+* [Gerenciar o cluster do ML Services no HDInsight](r-server-hdinsight-manage.md)
+* [Opções de contexto de computação para cluster do ML Services no HDInsight](r-server-compute-contexts.md)
+* [Opções de Armazenamento do Microsoft Azure para cluster do ML Services no HDInsight](r-server-storage.md)

@@ -2,23 +2,20 @@
 title: Log de diagnósticos do Azure Cosmos DB | Microsoft Docs
 description: Use este tutorial para ajudá-lo a começar a usar o log do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612207"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -47,7 +44,7 @@ O Log de Atividades do Azure é um log de assinatura que fornece informações s
 
 O Log de Atividades difere dos Logs de Diagnóstico. O Log de Atividades fornece dados sobre as operações em um recurso externo (o _plano de controle_). No contexto do Microsoft Azure Cosmos DB, as operações do plano de controle incluem criar coleção, listar chaves, excluir chaves, listar banco de dados etc. Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso (o _plano de dados_). Alguns exemplos das operações do plano de dados no log de diagnóstico são Excluir, Inserir e ReadFeed.
 
-Os Logs de Atividades (operações do plano de controle) podem ser muito mais completos e incluir endereço de email completo do chamador, endereço IP do chamador, nome do recurso, nome da operação, TenantId etc. O Log de Atividades contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter todos os detalhes sobre o esquema dessas categorias, veja o [esquema de eventos de Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, Logs de Diagnóstico podem ser restritivos, pois dados de PII geralmente são retirados deles. Você pode ter o endereço IP do chamador, mas o último octant é removido.
+Os Logs de Atividades (operações do plano de controle) podem ser muito mais completos e incluir endereço de email completo do chamador, endereço IP do chamador, nome do recurso, nome da operação, TenantId etc. O Log de Atividades contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter todos os detalhes sobre o esquema dessas categorias, veja o [esquema de eventos de Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, Logs de Diagnóstico podem ser restritivos, pois dados pessoais geralmente são retirados deles. Você pode ter o endereço IP do chamador, mas o último octant é removido.
 
 ### <a name="azure-metrics"></a>Métricas do Azure
 
@@ -90,7 +87,7 @@ Para habilitar os logs de diagnóstico no portal do Azure, execute as seguintes 
     * **Registrar MongoRequests**: selecione esta opção para registrar solicitações iniciadas pelo usuário de front-end do Azure Cosmos DB para fornecimento de contas da API do MongoDB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Solicitações de Métrica**: selecione esta opção para armazenar dados detalhados em [Métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
     Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do espaço de trabalho>. Para a assinatura \<id da assinatura> não está registrado para usar o microsoft.insights", siga as instruções de [Solucionar problemas de diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta e repetir esse procedimento.
 

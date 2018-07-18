@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802344"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -47,7 +48,6 @@ Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das fi
 
 * Sua solução precisar ser capaz de receber mensagens sem precisar sondar a fila. Com o Barramento de Serviço, isso pode ser alcançado pela operação de recebimento de sondagem longa usando os protocolos baseados em TCP que têm suporte do Barramento de Serviço.
 * Sua solução exigir que a fila forneça uma entrega ordenada PEPS (primeiro a entrar, primeiro a sair).
-* Você desejar uma experiência simétrica no Azure e no Windows Server (nuvem privada). Para obter mais informações, confira [Barramento de Serviço para Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Sua solução precisar ser capaz de oferecer suporte à detecção automática de duplicidades.
 * Você desejar que seu aplicativo processe mensagens como fluxos paralelos de longa execução (mensagens associadas a um fluxo usando a propriedade [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) na mensagem). Nesse modelo, cada nó no aplicativo de consumo compete por fluxos, em oposição às mensagens. Quando um fluxo é fornecido a um nó de consumo, o nó pode examinar o estado do fluxo do aplicativo usando transações.
 * Sua solução exigir comportamento transacional e atomicidade ao enviar ou receber várias mensagens de uma fila.
@@ -65,7 +65,7 @@ As tabelas nas seções a seguir fornecem um agrupamento lógico de recursos de 
 ## <a name="foundational-capabilities"></a>Recursos básicos
 Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos pelas filas do Armazenamento e filas do Barramento de Serviço.
 
-| Critérios de comparação | Filas de armazenamento | Filas de barramento de serviço |
+| Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Garantia de ordenação |**Não** <br/><br>Para obter mais informações, confira a primeira observação na seção “Informações adicionais”.</br> |**Sim - Primeiro a Entrar, Primeiro a Sair (PEPS)**<br/><br>(por meio do uso de sessões de mensagens) |
 | Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez**<br/><br/>**No máximo uma vez** |
@@ -97,7 +97,7 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 ## <a name="advanced-capabilities"></a>Recursos avançados
 Esta seção compara recursos avançados fornecidos pelas filas do Armazenamento e do Barramento de Serviço.
 
-| Critérios de comparação | Filas de armazenamento | Filas de barramento de serviço |
+| Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Entrega agendada |**Sim** |**Sim** |
 | Mensagens mortas automáticas |**Não** |**Sim** |
@@ -128,7 +128,7 @@ Esta seção compara recursos avançados fornecidos pelas filas do Armazenamento
 ## <a name="capacity-and-quotas"></a>Capacidade e cotas
 Esta seção compara as filas do Armazenamento e as filas do Barramento de Serviço da perspectiva de [capacidade e cotas](service-bus-quotas.md) que podem ser aplicáveis.
 
-| Critérios de comparação | Filas de armazenamento | Filas de barramento de serviço |
+| Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [capacidade de conta de armazenamento única](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – confira a seção "Informações adicionais") |
 | Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
@@ -138,7 +138,7 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no Barramento de Serviço, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).
-* No [tipo Standard](service-bus-premium-messaging.md), você pode criar filas do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). No tipo Premium, você pode criar filas de até 80 GB. No tipo Standard, com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal]. No tipo Premium, somente duas partições são criadas por fila.
+* Não há suporte para particionamento na [Camada Premium](service-bus-premium-messaging.md). Na camada Standard, é possível criar filas do Barramento de Serviço nos tamanhos 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). No tipo Standard, com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal].
 * Com as filas do Armazenamento, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64**. Se você codificar a mensagem em **Base64**, a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
 * Com as filas do Barramento de Serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho máximo da mensagem com suporte da camada de serviço.
 * Quando os clientes se comunicam com as filas do Barramento de Serviço pelo protocolo TCP, o número máximo de conexões simultâneas para uma única fila do Barramento de Serviço é limitado a 100. Esse número é compartilhado entre remetentes e receptores. Se essa cota for atingida, as solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Esse limite não é imposto a clientes que se conectam às filas usando a API baseada em REST.
@@ -171,7 +171,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas filas do Arma
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 Esta seção aborda os recursos de autenticação e autorização com suporte nas filas do Armazenamento e do Barramento de Serviço.
 
-| Critérios de comparação | Filas de armazenamento | Filas de barramento de serviço |
+| Critérios de comparação | Filas de armazenamento | Filas do Barramento de Serviço |
 | --- | --- | --- |
 | Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado via tokens de SAS. |SAS |

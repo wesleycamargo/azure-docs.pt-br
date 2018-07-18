@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722806"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -36,7 +37,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-* [IDE do Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 ou versão mais recente). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs). 
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 

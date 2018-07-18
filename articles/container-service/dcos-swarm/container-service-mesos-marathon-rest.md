@@ -2,19 +2,19 @@
 title: Gerenciar cluster DC/OS do Azure com o API REST do Marathon
 description: Implante contêineres em cluster DC/OS do Serviço de Contêiner do Azure usando a API REST do Marathon.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165598"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901743"
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
 

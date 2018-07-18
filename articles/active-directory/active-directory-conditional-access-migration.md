@@ -1,28 +1,30 @@
 ---
-title: "Migrar políticas clássicas no portal do Azure | Microsoft Docs"
-description: "Veja o que você precisa saber para migrar as políticas clássicas no portal do Azure."
+title: O que é uma migração de política no acesso condicional do Active Directory do Azure? | Microsoft Docs
+description: Veja o que você precisa saber para migrar as políticas clássicas no portal do Azure.
 services: active-directory
-keywords: "acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231826"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrar políticas clássicas no portal do Azure 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>O que é uma migração de política no acesso condicional do Active Directory do Azure? 
 
 
 [Acesso condicional](active-directory-conditional-access-azure-portal.md) é uma funcionalidade do Azure Active Directory (Azure AD) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Enquanto a finalidade ainda é a mesma, a versão do novo portal do Azure introduziu melhorias significativas em relação ao modo como funciona o acesso condicional.
@@ -83,11 +85,11 @@ Sem o acesso condicional no portal do Azure, você pode gerenciar todas as suas 
 
 Consulte:
 
-- [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md) para saber mais sobre a terminologia e os conceitos básicos.
+- [O que é acesso condicional no Active Directory do Azure](active-directory-conditional-access-azure-portal.md) para aprender sobre os conceitos básicos e a terminologia.
 
 - [Práticas recomendadas para acesso condicional no Active Directory do Azure](active-directory-conditional-access-best-practices.md) para obter orientação sobre como implantar o acesso condicional em sua organização.
 
-- [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) para se familiarizar com a interface do usuário no portal do Azure.
+- [ Exija o MFA para aplicativos específicos com acesso condicional do Azure Active Directory ](active-directory-conditional-access-app-based-mfa.md) para se familiarizar com a interface do usuário no portal do Azure.
 
 
  
@@ -168,6 +170,6 @@ Em uma nova política, você precisa selecionar as [plataformas de dispositivo](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [GRuem o MFA para aplicativos específicos com acesso condicional do Active Directory do Azure](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Tutoriais
   items:
-    - name: Construtor
-      items:
-        - name: 1 - Definir um novo tipo de dispositivo
-          href: tutorial-define-device-type.md
-        - name: 2 - Configurar regras
-          href: tutorial-configure-rules.md
-        - name: 3 - Personalizar exibição do operador
-          href: tutorial-customize-operator.md
-    - name: Operador
-      items:
-        - name: 4 - Monitorar seus dispositivos
-          href: tutorial-monitor-devices.md
-        - name: 5 - Adicionar um dispositivo
-          href: tutorial-add-device.md
+    - name: 1 - Definir um novo tipo de dispositivo
+      href: tutorial-define-device-type.md
+    - name: 2 - Configurar regras
+      href: tutorial-configure-rules.md
+    - name: 3 - Personalizar exibição do operador
+      href: tutorial-customize-operator.md
+    - name: 4 - Monitorar seus dispositivos
+      href: tutorial-monitor-devices.md
+    - name: 5 - Adicionar um dispositivo
+      href: tutorial-add-device.md
 - name: Conceitos
   items:
     - name: Arquitetura
@@ -41,10 +37,12 @@
   items:
     - name: Administrador
       items:
-        - name: Criar um aplicativo
-          href: howto-create-application.md
+        - name: Criar e gerir um aplicativo enquanto CSP
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: Administrar seu aplicativo
           href: howto-administer.md
+        - name: Exportar seus dados
+          href: howto-export-data.md
     - name: Construtor
       items:
         - name: Configurar o modelo de dispositivo
@@ -55,6 +53,10 @@
           href: howto-create-telemetry-rules.md
         - name: Criar uma regra de eventos
           href: howto-create-event-rules.md
+        - name: Criar fluxos de trabalho no Microsoft Flow
+          href: howto-add-microsoft-flow.md
+        - name: Configurar home page
+          href: howto-configure-homepage.md
         - name: Preparar e carregar imagens
           href: howto-prepare-images.md
     - name: Operador

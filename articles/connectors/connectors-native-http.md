@@ -3,7 +3,7 @@ title: Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplic
 description: Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296417"
 ---
 # <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
 

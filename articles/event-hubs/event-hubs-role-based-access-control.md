@@ -1,12 +1,12 @@
 ---
-title: "Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Controle de acesso baseado em função de Hubs de Eventos do Azure"
+title: Versão prévia do RBAC (controle de acesso baseado em função) dos Hubs de Eventos do Azure | Microsoft Docs
+description: Controle de acesso baseado em função de Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783312"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 

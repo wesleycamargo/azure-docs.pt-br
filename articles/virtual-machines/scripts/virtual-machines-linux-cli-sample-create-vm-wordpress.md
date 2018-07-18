@@ -1,30 +1,31 @@
 ---
-title: "Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com WordPress | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com WordPress"
+title: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com WordPress | Microsoft Docs
+description: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linux com WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7676e139bb9629726c92ee7825c4905ca31e7aa3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1c543c2357dd31bb06a19c7d53284c65a7ca7299
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928117"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Criar uma máquina virtual com WordPress
 
-Esse script cria uma máquina virtual e, em seguida, usa a extensão de script personalizado de Máquina Virtual do Azure para instalar WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`. 
+Esse script cria uma máquina virtual e, em seguida, usa a extensão de script personalizado de Máquina Virtual do Azure para instalar WordPress. Após a execução do script, é possível acessar o site de configuração do WordPress em `http://<public IP of VM>/wordpress`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -34,19 +35,19 @@ Esse script cria uma máquina virtual e, em seguida, usa a extensão de script p
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-wordpress-mysql/create-wordpress-mysql.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |

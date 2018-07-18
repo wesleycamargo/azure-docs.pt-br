@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962348"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console serial da máquina virtual (visualização) 
 
@@ -31,6 +32,7 @@ O console serial da máquina virtual no Azure fornece acesso a um console basead
 
 ## <a name="prerequisites"></a>pré-requisitos 
 
+* Você deve estar usando o modelo de implantação do Gerenciamento de Recursos. Implantações clássicas não possuem suporte. 
 * A máquina virtual deve ter os [diagnósticos de inicialização](boot-diagnostics.md) habilitados 
 * A conta que usa o console serial deve ter a [função de Colaborador](../../role-based-access-control/built-in-roles.md) para a VM e a conta de armazenamento [diagnósticos de inicialização](boot-diagnostics.md). 
 * Para obter configurações específicas de distribuição do Linux, confira [Acesso ao console serial para Linux](#accessing-serial-console-for-linux)
@@ -89,8 +91,8 @@ Interagir com o carregador de inicialização | Acesse GRUB/BCD usando o console
 ## <a name="accessing-serial-console-for-linux"></a>Acessar o console serial para Linux
 Para que o console serial funcione corretamente, o sistema operacional convidado deve ser configurado para ler e gravar mensagens de console para a porta serial. A maioria das [Distribuições do Linux para Azure aprovadas](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tem o console serial configurado por padrão. Basta clicar no portal na seção de Console serial para obter acesso ao console. 
 
-### <a name="access-for-redhat"></a>Acesso para RedHat 
-Imagens do RedHat disponíveis no Azure têm o acesso ao console habilitado por padrão. O modo de usuário único no Red Hat requer que o usuário raiz seja habilitado. Ele é desabilitado por padrão. Se você precisar habilitar o modo de usuário único, siga estas instruções:
+### <a name="access-for-red-hat"></a>Acesso para Red Hat 
+Red Hat Images disponível no Azure tem acesso de console habilitado por padrão. O modo de usuário único no Red Hat requer que o usuário raiz seja habilitado. Ele é desabilitado por padrão. Se você precisar habilitar o modo de usuário único, siga estas instruções:
 
 1. Faça logon no sistema Red Hat via SSH
 2. Habilitar a senha para o usuário raiz 

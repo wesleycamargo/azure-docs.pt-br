@@ -1,26 +1,27 @@
 ---
-title: "Criar uma Função do Azure que se conecta a um armazenamento Azure | Microsoft Docs"
-description: "Amostra de script da CLI do Azure – Criar uma função do Azure que se conecta a um armazenamento Azure"
+title: Criar uma Função do Azure que se conecta a um armazenamento Azure | Microsoft Docs
+description: Amostra de script da CLI do Azure – Criar uma função do Azure que se conecta a um armazenamento Azure
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 tags: functions
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: cbe7bf95574ca7a77d666981691da05357ce9a0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467819"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Criar um aplicativo de funções que se conecta a uma conta de armazenamento do Azure
 
@@ -41,7 +42,7 @@ Este exemplo cria um Aplicativo de funções do Azure e adiciona a cadeia de con
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Após executar o exemplo de script, execute o comando a seguir para remover o grupo de recursos e todos os recursos relacionados:
 
@@ -49,9 +50,9 @@ Após executar o exemplo de script, execute o comando a seguir para remover o gr
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Fazer logon no Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com local |

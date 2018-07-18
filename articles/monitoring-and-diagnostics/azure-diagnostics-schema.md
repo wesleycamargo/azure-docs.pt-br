@@ -1,24 +1,20 @@
 ---
-title: Versões de esquema de configuração da extensão do Diagnóstico do Azure | Microsoft Docs
+title: Histórico de versões de esquema de configuração da extensão do Diagnóstico do Azure
 description: Relevante para a coleta de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e Serviços de Nuvem.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.component: diagnostic-extension
+ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262191"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
 Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fornecidas como parte do SDK do Microsoft Azure.  
@@ -26,7 +22,7 @@ Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fo
 > [!NOTE]
 > A extensão do Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de:
 > - Máquinas Virtuais do Azure 
-> - Conjuntos de Escala de Máquina Virtual
+> - Conjuntos de Dimensionamento de Máquinas Virtuais
 > - Service Fabric 
 > - Serviços de Nuvem 
 > - Grupos de segurança de rede

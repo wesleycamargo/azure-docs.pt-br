@@ -1,24 +1,20 @@
 ---
 title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (.NET/.NET) | Microsoft Docs
 description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use o SDK do dispositivo IoT do Azure para .NET para implementar o aplicativo de dispositivo simulado e o SDK do serviço IoT do Azure para .NET para implementar um aplicativo de serviço que adiciona as marcas e executa a consulta do Hub IoT.
-services: iot-hub
-documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: ''
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ce1a3983ad34882236b175d6b8eec5e538c736b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723548"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Introdução aos dispositivos gêmeos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -228,7 +224,7 @@ Veja os recursos a seguir para saber como:
 
 [lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

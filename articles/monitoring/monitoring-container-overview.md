@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207520"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Visão geral do monitoramento dos contêineres no Azure
 Com o Azure, você pode, efetivamente, monitorar e gerenciar suas cargas de trabalho implantadas em contêineres do Azure executando Kubernetes ou Docker. É importante entender como os contêineres com vários aplicativos de microsserviço são executados para prestar um serviço confiável em grande escala e para suporte do seu plano de monitoramento. Este artigo fornece uma visão geral dos recursos de gerenciamento e monitoramento no Azure para ajudar a entender cada recurso e quais são apropriados com base nos seus requisitos.

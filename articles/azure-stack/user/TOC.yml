@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Configurar a conectividade de nuvem híbrida
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Assinar uma oferta
+      href: azure-stack-subscribe-services.md
+    - name: Criar uma máquina virtual de um modelo
+      href: azure-stack-create-vm-template.md
 - name: Guias de instruções
   items:
     - name: Usar o Portal do Azure Stack
@@ -93,7 +97,7 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: Aplicativo de amostra do KeyVault
               href: azure-stack-kv-sample-app.md
-        - name: Modelos de solução
+        - name: Modelos de Solução
           items:
             - name: Implantar um cluster do Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md

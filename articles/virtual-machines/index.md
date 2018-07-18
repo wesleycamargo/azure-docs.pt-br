@@ -1,11 +1,11 @@
 ---
-title: "Documentação das Máquinas Virtuais do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como criar, implantar e gerenciar máquinas virtuais Windows ou Linux. Tutoriais, referências de API e outras documentações."
+title: Documentação das Máquinas Virtuais do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Saiba como criar, implantar e gerenciar máquinas virtuais Windows ou Linux. Tutoriais, referências de API e outras documentações.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072853"
 ---
 # <a name="virtual-machines-documentation"></a>Documentação de Máquinas Virtuais
 

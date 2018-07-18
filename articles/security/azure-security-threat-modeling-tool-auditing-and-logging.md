@@ -1,6 +1,6 @@
 ---
-title: "Auditoria e Log - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Auditoria e Log - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029974"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
 | Produto/Serviço | Artigo |
@@ -161,7 +162,7 @@ ms.lasthandoff: 10/11/2017
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Etapas** | <p>A falta de uma trilha de auditoria adequada após um incidente de segurança pode atrapalhar os esforços forenses. Windows Communication Foundation (WCF) oferece a capacidade de registrar tentativas de autenticação bem-sucedidas e/ou com falha.</p><p>Registro em log as tentativas de autenticação com falha pode avisar os administradores de possíveis ataques de força bruta. Da mesma forma, o log de eventos de autenticação bem-sucedida pode fornecer uma trilha de auditoria útil quando uma conta legítima seja comprometida. Habilitar o recurso de auditoria de segurança de serviço do WCF |
 
 ### <a name="example"></a>Exemplo
@@ -190,7 +191,7 @@ A seguir está um exemplo de configuração com a auditoria ativada
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Etapas** | <p>Solução desenvolvida está configurada para não gerar uma exceção quando ele falha ao gravar em um log de auditoria. Se o WCF está configurado para não lançar uma exceção quando não é possível gravar em um log de auditoria, o programa não será notificado da falha e auditoria de eventos de segurança crítica pode não ocorrer.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -240,4 +241,4 @@ Configure o WCF para notificar o programa sempre que não é possível gravar em
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Introdução ao monitoramento de operações do Hub IoT](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Etapas** | <p>Design para coletar e armazenar dados de auditoria coletados por meio do monitoramento de operações de Hub IoT. Habilite monitoramentos categorias a seguir:</p><ul><li>Operações de identidade do dispositivo</li><li>Comunicações do dispositivo para a nuvem</li><li>Comunicações da nuvem para o dispositivo</li><li>Conexões</li><li>Carregamentos de arquivos</li></ul>|
+| **Etapas** | <p>Design para coletar e armazenar dados de auditoria coletados por meio do monitoramento de operações de Hub IoT. Habilite monitoramentos categorias a seguir:</p><ul><li>Operações de identidade do dispositivo</li><li>Comunicações do dispositivo para a nuvem</li><li>Comunicações da nuvem para o dispositivo</li><li>conexões</li><li>Carregamentos de arquivos</li></ul>|

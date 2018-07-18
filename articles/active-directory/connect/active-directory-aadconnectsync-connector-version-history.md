@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
-ms.author: davidste
-ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 9bbf75f258f9853803ca4c00155eb186ceca54a3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916397"
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
 Os Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager) são atualizados com frequência.

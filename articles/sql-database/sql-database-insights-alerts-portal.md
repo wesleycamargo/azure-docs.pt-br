@@ -6,14 +6,15 @@ manager: craigg
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: aamalvea
-ms.openlocfilehash: 0c543ccf1d2104a83f7610bc870334b460ec40fb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648016"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar o Portal do Azure para criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse
 

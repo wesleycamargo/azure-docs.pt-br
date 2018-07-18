@@ -2,10 +2,10 @@
 title: Como Criar um ASE ILB Usando Modelos do Azure Resource Manager | Microsoft Docs
 description: Saiba como criar um ASE de balanceador de carga interno usando modelos do Azure Resource Manager.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986831"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como criar um ASE ILB usando modelos do Azure Resource Manager
 

@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193964"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645327"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
@@ -264,7 +264,7 @@ Nesta tarefa, você atualiza bancos de dados de locatário restaurados. O proces
 
 3. Para executar o script, selecione F5.
 
-4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt;usuário&gt;.trafficmanager.net/contosoconcerthall) e observe que o evento Seriously Strauss está ausente.
+4. Atualize a página de eventos do Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) e observe que o evento Seriously Strauss está ausente.
 
 Nesse ponto no tutorial, você recuperou o aplicativo, que está em execução na região de recuperação. Você provisionou um novo locatário na região de recuperação e modificou dados de um dos locatários restaurados.  
 

@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930122"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903872"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) de um VMSS usando o PowerShell
 
@@ -27,13 +27,13 @@ ms.locfileid: "33930122"
 
 A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidade gerenciada automaticamente no Active Directory do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código. 
 
-Neste artigo, você aprenderá a executar as seguintes operações de Identidade de Serviço Gerenciada em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure usando o PowerShell:
-- Habilitar e desabilitar a identidade atribuída pelo sistema em um VMSS do Azure
-- Adicionar e remover uma identidade atribuída pelo sistema em um VMSS do Azure
+Neste artigo, você aprenderá a executar as seguintes operações de Identidade de Serviço Gerenciada em um VMSS (conjunto de dimensionamento de máquinas virtuais), usando o PowerShell:
+- Habilitar e desabilitar a identidade atribuída ao sistema em um VMSS do Azure
+- Adicionar e remover uma identidade atribuída pelo sistema em uma VMSS do Azure
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-- Se você não estiver familiarizado com a MSI, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
+- Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez. 
 
@@ -54,7 +54,7 @@ Para criar um VMSS com a identidade atribuída pelo sistema habilitada:
 2. (Opcional) Adicione a extensão do VMSS da MSI usando os parâmetros `-Name` e `-Type` no cmdlet [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension). Você pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeá-lo usando o `-Name` parâmetro. O parâmetro `-Settings` especifica a porta usada pelo ponto de extremidade do token OAuth para aquisição de token:
 
     > [!NOTE]
-    > Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também.
+    > Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.
 
    ```powershell
    $setting = @{ "port" = 50342 }
@@ -108,7 +108,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade atribuí
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Atribuir uma identidade atribuída pelo usuário durante a criação de um VMSS do Azure
 
-Atualmente, não há suporte para criar um novo VMSS com uma identidade atribuída pelo usuário a por meio do PowerShell. Consulte a próxima seção sobre como adicionar uma identidade atribuída pelo usuário a um VMSS existente. Procure novamente por atualizações.
+Atualmente, não há suporte para criar um novo VMSS com uma identidade atribuída pelo usuário por meio do PowerShell. Consulte a próxima seção sobre como adicionar uma identidade atribuída pelo usuário a um VMSS existente. Procure novamente por atualizações.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Atribuir uma identidade de usuário a um VMSS existente do Azure
 
@@ -122,8 +122,7 @@ Para atribuir uma identidade atribuída pelo usuário a um VMSS existente do Azu
 
 2. Primeiro, recupere as propriedades da VM usando o cmdlet `Get-AzureRmVM`. Depois, para atribuir uma identidade atribuída pelo usuário para o Azure VMSS, use as opções `-IdentityType` e `-IdentityID` no cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm). Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>` e `USER ASSIGNED ID2` pelos seus próprios valores.
 
-   > [!IMPORTANT]
-   > A criação de identidades atribuídas pelo usuário oferece suporte somente a caracteres alfanuméricos e hífen (0-9 ou a-z ou A-Z ou -). Além disso, o nome deve ter um limite de 24 caracteres para que a atribuição a VM/VMSS funcione corretamente. Procure novamente por atualizações. Para obter mais informações, consulte [Perguntas frequentes e problemas conhecidos](known-issues.md).
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell
@@ -144,7 +143,7 @@ $vmss.Identity.IdentityIds = "<MSI NAME>"
 Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachineScaleSet $vmss
 ```
 
-Se seu VMSS tiver identidades atribuídas pelo sistema e pelo usuário, você pode remover todas as identidades atribuídas  pelos usuários ao alternar para usar somente as atribuídas pelo sistema. Use o seguinte comando:
+Se o seu VMSS tiver identidades designadas pelo sistema e atribuídas pelo usuário, você poderá remover todas as identidades atribuídas pelo usuário, alternando para usar somente o sistema atribuído. Use o seguinte comando:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

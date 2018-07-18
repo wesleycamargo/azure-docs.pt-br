@@ -3,34 +3,28 @@ title: Encontrar relatórios de atividade de usuário do Azure Active Directory 
 description: Saiba onde os relatórios de atividade do usuário do Azure Active Directory estão no portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231314"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
 Neste artigo, descrevemos como localizar relatórios de atividade de usuário do Azure Active Directory no portal do Azure.
 
-## <a name="whats-new"></a>Novidades
-
-Os relatórios no Portal Clássico do Azure estavam separados em categorias:
-* Relatórios de segurança
-* Relatórios de atividades
-* Relatórios de aplicativo integrados
-
-### <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
+## <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
 
 Para relatórios baseados no contexto no Portal do Azure, os relatórios existentes são mesclados em uma única exibição. Uma única API subjacente fornece os dados para a exibição.
 
@@ -87,7 +81,7 @@ Para exibir detalhes sobre o uso do aplicativo para todos os aplicativos ou para
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Relatórios de atividades anômalas do Azure AD
 
-Os relatórios de segurança de atividades anômalas do Azure AD do Portal Clássico do Azure foram consolidados para fornecer uma exibição única e central. Essa exibição mostra todos os eventos de risco relacionado à segurança que o Azure AD pode detectar e relatar.
+Os relatórios de segurança de atividade anômala do Azure AD são consolidados para fornecer uma visão central. Essa exibição mostra todos os eventos de risco relacionado à segurança que o Azure AD pode detectar e relatar.
 
 A tabela a seguir lista os relatórios de segurança de atividades anômalas do Azure AD e os tipos de evento de risco correspondentes no Portal do Azure.
 
@@ -104,8 +98,6 @@ Os seguintes relatórios de segurança de atividade anômala do Azure AD não s�
 
 * Entradas após várias falhas
 * Entradas de várias geografias
-
-Esses relatórios ainda estão disponíveis no Portal Clássico do Azure, mas serão desativados em algum momento no futuro.
 
 Para saber mais, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Para saber mais sobre relatórios de segurança, veja:
 - [Relatório de entradas de risco no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Relatórios de atividade no Portal Clássico do Azure versus Portal do Azure
-
-A tabela nesta seção lista os relatórios existentes no Portal Clássico do Azure. Também descreve como você pode obter as mesmas informações no Portal do Azure.
-
-Para ver todos os dados de auditoria, na folha **Azure Active Directory**, em **ATIVIDADE**, acesse **Logs de auditoria**.
-
-![Logs de auditoria](./media/active-directory-reporting-migration/61.png "Logs de auditoria")
-
-| portal clássico do Azure                 | Para encontrar no Portal do Azure                                                         |
-| ---                                  | ---                                                                        |
-| Logs de auditoria                           | Para **Categoria da Atividade**, selecione **Diretório Principal**.                       |
-| Atividade de redefinição de senha              | Para **Categoria da Atividade**, selecione **Gerenciamento de Senhas de Autoatendimento**. |
-| Atividade de registro de redefinição de senha | Para **Categoria da Atividade**, selecione **Gerenciamento de Senhas de Autoatendimento**.     |
-| Atividade dos grupos de autoatendimento         | Para **Categoria da Atividade**, selecione **Gerenciamento de Grupos de Autoatendimento**.        |
-| Atividade de provisionamento de conta        | Para **Categoria da Atividade**, selecione **Provisionamento do Usuário da Conta**.         |
-| Status de substituição de senha             | Para **Categoria da Atividade**, selecione **Substituição Automática de Senha do Aplicativo**.      |
-| Erros de provisionamento de conta          | Para **Categoria da Atividade**, selecione **Provisionamento do Usuário da Conta**.        |
-| Alterações de nome do grupo do Office365         | Para **Categoria da Atividade**, selecione **Gerenciamento de Senhas de Autoatendimento**. Para **Tipo de Recurso de Atividade**, selecione **Grupo**. Para **Origem da Atividade**, selecione **Grupos do O365**.|
-
 Para ver o relatório **Uso do Aplicativo**, na folha **Azure Active Directory**, em **GERENCIAR**, selecione **Aplicativos Empresariais** e selecione **Entradas**.
 
 
-![Relatório de Entradas de aplicativos empresariais](./media/active-directory-reporting-migration/199.png "Relatório de Entradas de aplicativos empresariais")
+![Relatório de Inscrições de Aplicativos Corporativos](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

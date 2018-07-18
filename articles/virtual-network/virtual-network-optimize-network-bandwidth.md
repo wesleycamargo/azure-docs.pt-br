@@ -1,12 +1,12 @@
 ---
-title: "Otimizar a taxa de transferência de rede de VM | Microsoft Docs"
-description: "Aprenda a otimizar a taxa de transferência de rede de máquina virtual do Azure."
+title: Otimizar a taxa de transferência de rede de VM | Microsoft Docs
+description: Aprenda a otimizar a taxa de transferência de rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132884"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a taxa de transferência de rede para máquinas virtuais do Azure
 

@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 49429dd4db4c33f16fce39a932f387e2145da250
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0580d8ac864bf8ac5017985c96bfe7469a7c2276
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017581"
 ---
 # <a name="billing-tags-policy-initiative"></a>Iniciativa de política de marcas de cobrança
 
@@ -63,20 +64,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Depois de atribuir as políticas, você pode disparar uma atualização para todos os recursos existentes para impor as políticas de marca que você adicionou. O script a seguir mantém outras marcas que existiam nos recursos:
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+$resources = Get-AzureRmResource -ResourceGroupName 'ExampleGroup'
 
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+foreach ($r in $resources) {
+    try {
+        Set-AzureRmResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
     }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
+    catch {
+        Write-Host $r.ResourceId + "can't be updated"
     }
 }
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Exemplos adicionais de modelo de Azure Policy estão em [Modelos de Azure Policy](../json-samples.md).
+- Revisar mais exemplos em [exemplos do Azure Policy](../json-samples.md).

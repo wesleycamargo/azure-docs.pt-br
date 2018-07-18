@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297321"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectar uma conta do Amazon Web Services
 
@@ -33,7 +34,7 @@ As seções a seguir detalham como criar uma função IAM somente leitura para f
 
 A primeira etapa é obter a frase secreta de conexão exclusiva do portal de Gerenciamento de Custos do Azure. Ela é usada em AWS como a **ID Externa**.
 
-1. Abra o portal da Cloudyn no Portal do Azure ou navegue até [https://azure.cloudyn.com](https://azure.cloudyn.com) e faça logon.
+1. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até [https://azure.cloudyn.com](https://azure.cloudyn.com) e entre.
 2. Clique no símbolo de engrenagem e, em seguida, selecione **Contas de Nuvem**.
 3. Em Gerenciamento de Contas, selecione a guia **Contas do AWS** e, em seguida, clique em **Adicionar novo +**.
 4. Na caixa de diálogo **Adicionar Conta do AWS**, copie a **ID Externa** e salve o valor para as etapas de criação da Função do AWS na próxima seção. A ID externa é exclusiva para a sua conta. Na imagem a seguir, a ID externa de exemplo é _Contoso_ seguida por um número. Sua ID é diferente.  
@@ -54,7 +55,7 @@ A primeira etapa é obter a frase secreta de conexão exclusiva do portal de Ger
 
 ### <a name="configure-aws-iam-role-access-in-cost-management"></a>Configurar o acesso da função do IAM do AWS no Gerenciamento de Custos
 
-1. Abra o portal da Cloudyn no Portal do Azure ou navegue até https://azure.cloudyn.com/ e faça login.
+1. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até https://azure.cloudyn.com/ e entre.
 2. Clique no símbolo de engrenagem e, em seguida, selecione **Contas de Nuvem**.
 3. Em Gerenciamento de Contas, selecione a guia **Contas do AWS** e, em seguida, clique em **Adicionar novo +**.
 4. Em **Nome da Conta**, digite um nome para a conta.
@@ -91,7 +92,7 @@ As seções a seguir detalham como criar um usuário somente leitura para fornec
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configurar o acesso baseado no usuário do AWS do IAM no Gerenciamento de Custos
 
-1. Abra o portal da Cloudyn no portal do Azure ou navegue até https://azure.cloudyn.com/ e faça login.
+1. Abra o portal da Cloudyn por meio do portal do Azure ou navegue até https://azure.cloudyn.com/ e entre.
 2. Clique no símbolo de engrenagem e, em seguida, selecione **Contas de Nuvem**.
 3. Em Gerenciamento de Contas, selecione a guia **Contas do AWS** e, em seguida, clique em **Adicionar novo +**.
 4. Para **Nome da Conta**, digite um nome da conta.
@@ -107,7 +108,7 @@ O Gerenciamento de Custos começa coletando dados e relatórios de preenchimento
 
 Use as etapas a seguir para obter o ARN da Função do AWS. Use o ARN da Função para conceder permissões de leitura a um bucket de cobrança.
 
-1. Faça logon no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
+1. Entre no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
 2. Na caixa Pesquisa de Serviço, digite *IAM* e selecione essa opção.
 3. Selecione **Funções** no menu à esquerda.
 4. Na lista de funções, selecione a função que você criou para acesso ao Cloudyn.
@@ -117,7 +118,7 @@ Use as etapas a seguir para obter o ARN da Função do AWS. Use o ARN da Funçã
 
 Crie um bucket S3 para armazenar informações de cobrança detalhadas.
 
-1. Faça logon no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
+1. Entre no console do AWS em https://console.aws.amazon.com e selecione **Serviços**.
 2. Na caixa Pesquisa de Serviço, digite *S3* e selecione **S3**.
 3. Na página Amazon S3, clique em **Criar bucket**.
 4. No assistente Criar bucket, escolha um nome de Bucket e Região e, em seguida, clique em **Avançar**.  

@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: Criar aplicativo web no ASEv1
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Hospedagem de alta densidade
-          href: app-service-high-density-hosting.md
         - name: Conectar-se ao back-end
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Configurar o ExpressRoute
@@ -74,15 +72,6 @@
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Use a segurança em camadas
           href: app-service-app-service-environment-layered-security.md
-    - name: CLI 2.0
-- name: Referência
-  items:
-    - name: CLI do Azure
-      href: /cli/azure/appservice
-    - name: Azure PowerShell
-      href: /powershell
-    - name: API REST
-      href: /rest/api/appservice/
 - name: Recursos
   items:
     - name: Roteiro do Azure

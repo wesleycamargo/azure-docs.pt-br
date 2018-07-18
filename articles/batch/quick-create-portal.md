@@ -7,14 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7daaf042d22ba4ac0369b732b586a3760d8cd51c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859567"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: executar o primeiro trabalho do Lote no portal do Azure
 
@@ -31,7 +32,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 Siga estas etapas para criar uma conta do Lote de exemplo para fins de teste. Você precisa de uma conta do Lote para criar pools e trabalhos. Conforme mostrado aqui, você pode vincular uma conta de armazenamento do Azure à conta do lote. Embora não seja necessário para este guia de início rápido, a conta de armazenamento é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real.
 
 
-1. Clique em **Novo** > **Computação** > **Serviço de Lote**. 
+1. Selecione **Criar um recurso** >  **Computação** > **Serviço de lote**. 
 
   ![Lote no Marketplace][marketplace_portal]
 
@@ -39,7 +40,7 @@ Siga estas etapas para criar uma conta do Lote de exemplo para fins de teste. Vo
 
 3. Na **Conta de armazenamento**, selecione uma conta de armazenamento existente ou crie uma nova.
 
-4. Mantenha os padrões para as configurações restantes e clique em **Criar** para criar a conta.
+4. Mantenha os padrões para as configurações restantes e selecione **Criar** para criar a conta.
 
   ![Criar uma conta do Batch][account_portal]  
 
@@ -50,7 +51,7 @@ Quando a mensagem **Implantação bem-sucedida** for exibida, vá para a conta d
 Agora que você tem uma conta do Lote, crie um pool de exemplo de nós de computação do Windows para fins de teste. O pool para este exemplo rápido consiste em dois nós executando uma imagem do Windows Server 2012 R2 no Azure Marketplace.
 
 
-1. Na conta do Lote, clique em **Pools** > **Adicionar**.
+1. Na conta do Lote, selecione **Pools** > **Adicionar**.
 
 2. Insira um **ID do Pool** chamado *mypool*. 
 
@@ -74,19 +75,19 @@ Agora que você tem uma conta do Lote, crie um pool de exemplo de nós de comput
 
   ![Selecione um tamanho de pool][pool_size] 
 
-5. Mantenha os padrões para as configurações restantes e clique em **OK** para criar o pool.
+5. Mantenha os padrões para as configurações restantes e selecione **OK** para criar o pool.
 
 O Lote cria o pool imediatamente, mas leva alguns minutos para alocar e iniciar os nós de computação. Durante esse tempo, o **Estado de alocação** do pool é **Resizing**. Você pode prosseguir e criar trabalho e tarefas enquanto o pool está redimensionando. 
 
 ![Pool no estado Resizing][pool_resizing]
 
-Depois de alguns minutos, o estado do pool é **Constante** e os nós são iniciados. Clique em **Nós** para verificar o estado dos nós. Quando o estado do nó é **Ocioso**, ele está pronto para executar tarefas. 
+Depois de alguns minutos, o estado do pool é **Constante** e os nós são iniciados. Selecione **Nós** para verificar o estado dos nós. Quando o estado do nó é **Ocioso**, ele está pronto para executar tarefas. 
 
 ## <a name="create-a-job"></a>Criar um trabalho
 
 Agora que você tem um pool, crie um trabalho para executar nele. Um trabalho do Lote é um grupo lógico para uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. Inicialmente, o trabalho não tem nenhuma tarefa. 
 
-1. No modo de exibição de conta do Lote, clique em **Trabalhos** > **Adicionar**. 
+1. No modo de exibição de conta do Lote, selecione **Trabalhos** > **Adicionar**. 
 
 2. Insira uma **ID do trabalho** chamada *myjob*. Em **Pool**, selecione *mypool*. Mantenha os padrões para as configurações restantes e clique em **OK**.
 
@@ -102,7 +103,7 @@ Quando você usa o Lote, a linha de comando é onde você especifica seu aplicat
 
 Para criar a primeira tarefa:
 
-1. Clique em **Adicionar**.
+1. Selecione **Adicionar**.
 
 2. Insira uma **ID da tarefa** chamada *mytask*. 
 
@@ -116,7 +117,7 @@ Para criar uma segunda tarefa, volte para a etapa 1. Insira outra **ID da tarefa
 
 ## <a name="view-task-output"></a>Exibir saída da tarefa
 
-Os exemplos de tarefa anteriores são concluídos em alguns minutos. Para exibir a saída de uma tarefa concluída, clique em **Arquivos no nó**e selecione o arquivo `stdout.txt`. Esse arquivo mostra a saída padrão da tarefa. O conteúdo é semelhante ao seguinte:
+Os exemplos de tarefa anteriores são concluídos em alguns minutos. Para exibir a saída de uma tarefa concluída, selecione **Arquivos no nó**e selecione o arquivo `stdout.txt`. Esse arquivo mostra a saída padrão da tarefa. O conteúdo é semelhante ao seguinte:
 
 ![Exibir saída da tarefa][task_output]
 
@@ -126,9 +127,9 @@ O conteúdo mostra as variáveis de ambiente do Lote do Azure que são definidas
 
 Se você quiser continuar com exemplos e tutoriais do Lote, use a conta do Lote e a conta de armazenamento vinculada criada neste guia de início rápido. Não há nenhum encargo pela conta do Lote.
 
-Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Na exibição da conta, clique em **Pools** e no nome do pool. Em seguida, clique em **Excluir**.  Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. 
+Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Na exibição da conta, selecione **Pools** e o nome do pool. Em seguida, selecione **Excluir**.  Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. 
 
-Quando não for mais necessário, exclua o grupo de recursos, a conta do Lote e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos para a conta do Lote e clique em **Excluir grupo de recursos**.
+Quando não for mais necessário, exclua o grupo de recursos, a conta do Lote e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos para a conta do Lote e selecione **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

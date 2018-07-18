@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212663"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642216"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar seu primeiro aplicativo Reliable Services com estado do Service Fabric em C#
 
@@ -68,12 +68,15 @@ Para obter uma visão geral do conteúdo do projeto de serviço, confira [Introd
 
 Agora que você tem um aplicativo, execute-o, implante-o e depure-o executando as etapas a seguir.
 
-1. Pressione F5 no Visual Studio a fim de implantar o aplicativo para depuração.
+1. Pressione **F5** no Visual Studio para implantar o aplicativo para depuração.  Clique em **Sim** se for exibida uma caixa de mensagem pedindo para conceder permissões de leitura e execução para o grupo “ServiceFabricAllowedUsers” para o seu diretório de projeto do Visual Studio.
 
     >[!NOTE]
     >Na primeira vez em que você executar e implantar o aplicativo localmente, o Visual Studio criará um cluster local para depuração. Isso pode levar algum tempo. O status de criação do cluster é exibido na janela de saída do Visual Studio.
-
-    Quando o cluster estiver pronto, você receberá uma notificação do aplicativo gerenciador da bandeja do sistema do cluster local que vem incluído com o SDK.
+    
+     Quando o cluster estiver pronto, você receberá uma notificação do aplicativo gerenciador da bandeja do sistema do cluster local que vem incluído com o SDK.
+     
+    >[!NOTE]
+    >Este exercício exige um cluster de 5 nós (vs. de 1 nó). Você pode verificar isso da seguinte maneira: Inicie a ferramenta Service Fabric Explorer clicando com o botão direito do mouse no aplicativo de bandeja do sistema **Gerenciador de Cluster Local do Service Fabric** e clique em **Alterar o modo de cluster**. Clique em **5 Nós** se 1 Nó estiver selecionado no momento.
     
     ![Notificação de bandeja do sistema de cluster local][4]
 
@@ -107,7 +110,7 @@ Agora que você tem um aplicativo, execute-o, implante-o e depure-o executando a
 
     ![Ponto de interrupção no método RunAsync de serviço com estado][7]
 
-7. Inicie a ferramenta Service Fabric Explorer clicando com o botão direito do mouse no aplicativo de bandeja do sistema **Gerenciador de Cluster Local** e selecionando **Gerenciar Cluster Local**.
+7. Inicie a ferramenta Service Fabric Explorer clicando com o botão direito do mouse no aplicativo de bandeja do sistema **Gerenciador de Cluster Local do Service Fabric** e selecionando **Gerenciar Cluster Local**.
 
     ![Iniciar o Service Fabric Explorer do gerenciador de cluster local][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Agora que você tem um aplicativo, execute-o, implante-o e depure-o executando a
 
     ![Parar um nó no Service Fabric Explorer][sfx-stop-node]
 
-    Momentaneamente, você deverá ver o ponto de interrupção atingido no Visual Studio, já que a computação que você estava fazendo diretamente em um nó falha em outro.
+    Momentaneamente, você deverá ver o ponto de interrupção atingido no Visual Studio, já que a computação que você estava fazendo diretamente em um nó falha em outro. Pressione **F5** para continuar.
 
 9. Em seguida, retorne ao Visualizador de Eventos de Diagnóstico e observe as mensagens. O contador continua aumentando, mesmo que os eventos estejam, na verdade, vindo de um nó diferente.
 

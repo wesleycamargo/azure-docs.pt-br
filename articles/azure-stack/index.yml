@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786529"
 abstract:
   description: O Microsoft Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita provisionar serviços do Azure por meio do seu datacenter. Saiba como gerenciar a infraestrutura de sistemas integrados de pilha do Azure e oferecer serviços com tutoriais e guias de início rápido.<br/><br/>Se você for um usuário de pilha do Azure que usa os serviços ou cria aplicativos para a pilha do Azure, consulte nosso <a href="/azure/azure-stack/user">documentação de usuário</a>.<br/><br/>Se você estiver interessado no Azure pilha Development Kit (ASDK), uma implantação de nó único da pilha do Azure que você pode baixar e usar gratuitamente, um operador de pilha do Azure, consulte nosso <a href="/azure/azure-stack/asdk">documentação ASDK</a>.
 sections:

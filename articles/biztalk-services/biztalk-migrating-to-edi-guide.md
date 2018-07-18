@@ -1,11 +1,11 @@
 ---
-title: "Migrando as soluções EDI do BizTalk Server para os Serviços BizTalk: guia técnico | Microsoft Docs"
-description: "Migrar EDI para MABS; Serviços BizTalk do Microsoft Azure"
+title: 'Migrando as soluções EDI do BizTalk Server para os Serviços BizTalk: guia técnico | Microsoft Docs'
+description: Migrar EDI para MABS; Serviços BizTalk do Microsoft Azure
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860071"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrando as soluções EDI do BizTalk Server aos Serviços BizTalk: guia técnico
 
@@ -103,7 +104,7 @@ Você também pode examinar uma amostra por Sandro Pereira, MVP do BizTalk, sobr
 ## <a name="orchestrations"></a>Orquestrações
 Se você precisar migrar o processamento de orquestração do BizTalk Server para o Microsoft Azure, as orquestrações precisariam ser regravadas porque o Microsoft Azure não oferece suporte à execução de orquestrações do BizTalk Server.  Você poderia reescrever a funcionalidade de orquestração em um serviço do Windows Workflow Foundation 4.0 (WF4).  Isso seria uma regravação completa, pois não há nenhuma migração de orquestrações do BizTalk Server para o WF4 atualmente. Aqui estão alguns recursos do Windows Workflow:
 
-* [*Como integrar um Serviço do Fluxo de Trabalho do WCF com Tópicos e Filas do Barramento de Serviço*](https://msdn.microsoft.com/library/azure/hh709041.aspx) de Paolo Salvatori. 
+* [*Como integrar um Serviço do Fluxo de Trabalho do WCF com Tópicos e Filas do Barramento de Serviço*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) de Paolo Salvatori. 
 * [*Sessão* Criando aplicativos com o Windows Workflow Foundation e o Azure](http://go.microsoft.com/fwlink/p/?LinkId=237314) da conferência Build 2011.
 * [*Centro de Desenvolvedores do Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) no MSDN.
 * [*Documentação do Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) no MSDN.
@@ -120,7 +121,7 @@ As pontes dos Serviços BizTalk, em seu estado atual, não oferecem suporte para
 ## <a name="conclusion"></a>Conclusão
 Os Serviços BizTalk do Microsoft Azure são atualizados em etapas regulares para adicionar mais recursos e capacidades. Com cada atualização, buscamos oferecer suporte a mais funcionalidades para facilitar a criação de soluções de ponta a ponta usando os Serviços BizTalk e outras tecnologias do Azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 [Desenvolvimento de aplicativos empresariais com o Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

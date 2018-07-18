@@ -3,7 +3,7 @@ title: Instalar e configurar Ansible para uso com máquinas virtuais do Azure | 
 description: Saber como instalar e configurar o Ansible para gerenciar recursos do Azure no Ubuntu, no CentOS e no SLES
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
-ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: cynthn
+ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896122"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930062"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalar e configurar o Ansible para gerenciar máquinas virtuais no Azure
 
@@ -50,7 +50,7 @@ Agora, selecione uma das distribuições a seguir para obter instruções sobre 
 
 ### <a name="centos-74"></a>CentOS 7.4
 
-Se necessário, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
+Se necessário, crie uma VM usando [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -82,7 +82,7 @@ Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-Se necessário, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
+Se necessário, crie uma VM usando [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVMAnsible*:
 
 ```azurecli
 az vm create \
@@ -106,7 +106,7 @@ Na sua VM, instale os pacotes necessários para os módulos de SDK de Python no 
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
@@ -150,7 +150,7 @@ Agora vá para [Criar credenciais do Azure](#create-azure-credentials).
 
 O Ansible comunica-se com o Azure usando um nome de usuário e uma senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o Ansible. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para aprimorar a segurança, em vez de apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
 
-No computador host ou no Azure Cloud Shell, crie uma entidade de serviço usando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). As credenciais que o Ansible precisa são exibidas na tela:
+No computador host ou no Azure Cloud Shell, crie uma entidade de serviço usando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). As credenciais que o Ansible precisa são exibidas na tela:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -166,7 +166,7 @@ Um exemplo da saída dos comandos anteriores é o seguinte:
 }
 ```
 
-Para autenticar no Azure, também é necessário obter a ID da assinatura do Azure usando [az account show](/cli/azure/account#az_account_show):
+Para autenticar no Azure, também é necessário obter a ID da assinatura do Azure usando [az account show](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

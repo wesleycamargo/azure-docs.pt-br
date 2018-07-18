@@ -1,6 +1,6 @@
 ---
 title: Projetos de exemplo do aplicativo gerenciado pelo Azure | Microsoft Docs
-description: "Resume os projetos de exemplo disponíveis para os aplicativos gerenciados pelo Azure"
+description: Resume os projetos de exemplo disponíveis para os aplicativos gerenciados pelo Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753053"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Projetos de exemplo para aplicativos gerenciados pelo Azure
 

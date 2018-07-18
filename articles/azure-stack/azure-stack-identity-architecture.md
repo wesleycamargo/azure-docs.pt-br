@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257481"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitetura de identidade para a pilha do Azure
 Antes de escolher um provedor de identidade para usar com a pilha do Azure, compreenda as diferenças importantes entre as opções do Azure Active Directory (AD do Azure) e os serviços de Federação do Active Directory (AD FS). 

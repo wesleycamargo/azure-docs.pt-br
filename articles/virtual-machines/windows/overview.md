@@ -3,7 +3,7 @@ title: Visão geral de máquinas virtuais do Windows | Microsoft Docs
 description: Saiba mais sobre como criar e gerenciar máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932171"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -75,7 +76,7 @@ Sua assinatura do Azure tem [limites de cota](../../azure-subscription-service-l
 ### <a name="operating-system-disks-and-images"></a>Imagens e discos de sistema operacional
 As máquinas virtuais usam [VHDs (discos rígidos virtuais)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar seus dados e sistema operacional (SO). Os VHDs também são usados para as imagens que você pode optar por instalar um sistema operacional. 
 
-O Azure fornece muitas [imagens do marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) para usar com várias versões e tipos de sistemas operacionais Windows Server. As imagens do Marketplace são identificadas por editor de imagem, oferta, sku e versão (normalmente, a versão é especificada como a versão mais recente). 
+O Azure fornece muitas [imagens do marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) para usar com várias versões e tipos de sistemas operacionais Windows Server. As imagens do Marketplace são identificadas por editor de imagem, oferta, sku e versão (normalmente, a versão é especificada como a versão mais recente). Há suporte somente para sistemas operacionais de 64 bits. Para saber mais informações sobre os sistemas operacionais convidados, funções e recursos com suporte, consulte [Suporte de software para servidores Microsoft para máquinas virtuais do Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 

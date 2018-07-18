@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211364"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701710"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
@@ -28,6 +28,8 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 
 ## <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
 O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. O Stream Analytics deve estar autorizado a acessar o Data Lake Store.
+
+Saída do repositório Azure Data Lake do Stream Analytics não está disponível no Azure na China (21Vianet) e regiões do Azure Alemanha (T-Systems internacional).
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Autorizar uma conta do Azure Data Lake Store
 
@@ -45,7 +47,7 @@ O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.m
 | --- | --- |
 | Alias de saída | Um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Data Lake Store. | 
 | Nome da conta | O nome da conta do Data Lake Store para a qual você está enviando a saída. Você verá uma lista suspensa de contas do Data Lake Store que estão disponíveis na sua assinatura. |
-| Padrão de prefixo de caminho | O caminho do arquivo usado para gravar seus arquivos na Conta do Repositório Data Lake especificada. Você pode especificar uma ou mais instâncias de variáveis de {data} e {hora}.</br><ul><li>Exemplo 1: pasta1/logs/{data}/{hora}</li><li>Exemplo 2: pasta1/logs/{data}</li></ul>Se o padrão de caminho do arquivo não contiver uma "/" à direita, o último padrão no caminho do arquivo é tratado como um prefixo de nome de arquivo. </br></br>Novos arquivos são criados nessas circunstâncias:<ul><li>Alteração no esquema de saída</li><li>Reinicialização interna ou externa de um trabalho.</li></ul> |
+| Padrão de prefixo de caminho | O caminho do arquivo usado para gravar seus arquivos na Conta do Repositório Data Lake especificada. Você pode especificar uma ou mais instâncias de variáveis de {data} e {hora}.</br><ul><li>Exemplo 1: pasta1/logs/{data}/{hora}</li><li>Exemplo 2: pasta1/logs/{data}</li></ul><br>O registro de data e hora da estrutura de pastas criada segue o UTC e não o horário local.</br><br>Se o padrão de caminho do arquivo não contiver uma "/" à direita, o último padrão no caminho do arquivo é tratado como um prefixo de nome de arquivo. </br></br>Novos arquivos são criados nessas circunstâncias:<ul><li>Alteração no esquema de saída</li><li>Reinicialização interna ou externa de um trabalho.</li></ul> |
 | Formato de data | Opcional. Se o token de data for usado no caminho do prefixo, você pode selecionar o formato de data na qual os arquivos são organizados. Exemplo: AAAA/MM/DD |
 |Formato de hora | Opcional. Se o token de hora for usado no caminho do prefixo, você pode selecionar o formato de hora na qual os arquivos são organizados. Atualmente, o único valor aceito é HH. |
 | Formato de serialização do evento | Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro.| 
@@ -68,7 +70,7 @@ Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Dat
 | Alias de saída |Um nome amigável utilizado em consultas para direcionar a saída da consulta para esse banco de dados. |
 | Banco de dados | O nome do banco de dados para o qual você está enviando a saída. |
 | Nome do servidor | Nome do servidor de Banco de Dados SQL do Azure. |
-| Nome de Usuário | O nome de usuário, que tem acesso de gravação no banco de dados. |
+| Nome de Usuário | O nome de usuário, que tem acesso para gravar no banco de dados. |
 | Senha | A senha para se conectar ao banco de dados. |
 | Tabela | O nome da tabela em que a saída é gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
 
@@ -87,7 +89,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Conta de armazenamento | O nome da conta de armazenamento para o qual você está enviando a saída |
 | Chave da conta de armazenamento | A chave secreta associada à conta de armazenamento. |
 | Contêiner de armazenamento | Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço Blob, você deve especificar um contêiner para aquele blob. |
-| Padrão de caminho | Opcional. O padrão do caminho do arquivo usado para gravar seus blobs no contêiner especificado. </br></br> No padrão de caminho, você pode optar por usar uma ou mais instâncias das duas variáveis de hora e data para especificar a frequência com a qual os blobs são gravados: </br> {data}, {hora} </br> </br>Se você se inscreveu para a [versão prévia](https://aka.ms/ASAPreview), também pode especificar um nome {campo} personalizado de seus dados para os blobs da partição, onde o nome do campo é alfanumérico e pode incluir espaços, hifens e sublinhados. Restrições em campos personalizados incluem o seguinte: <ul><li>Sem diferenciação de maiúsculas e minúsculas (não pode ser diferente entre a coluna "ID" e a coluna "id")</li><li>Campos aninhados não são permitidos (em vez disso, use um alias na consulta de trabalho “nivelar” o campo)</li><li>As expressões não podem ser usadas como um nome de campo</li></ul>Exemplos: <ul><li>Exemplo 1: cluster1/logs /{data}/{hora}</li><li>Exemplo 2: cluster1/logs/{data}</li><li>Exemplo 3 (versão prévia): cluster1/{client_id}/{data}/{hora}</li><li>Exemplo 4 (versão prévia): cluster1/{myField} em que a consulta é: SELECIONAR data.myField COMO myField DA Entrada;</li></ul><BR> A nomenclatura de arquivo segue a seguinte convenção: </br> {Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension </br></br> Exemplo de arquivos de saída: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Padrão de caminho | Opcional. O padrão do caminho do arquivo usado para gravar seus blobs no contêiner especificado. </br></br> No padrão de caminho, você pode optar por usar uma ou mais instâncias das duas variáveis de hora e data para especificar a frequência com a qual os blobs são gravados: </br> {data}, {hora} </br> </br>Se você se inscreveu para a [versão prévia](https://aka.ms/ASAPreview), também pode especificar um nome {campo} personalizado de seus dados para os blobs da partição, onde o nome do campo é alfanumérico e pode incluir espaços, hifens e sublinhados. Restrições em campos personalizados incluem o seguinte: <ul><li>Insensibilidade a maiúsculas e minúsculas (não é possível diferenciar entre "ID" da coluna e "id" da coluna)</li><li>Campos aninhados não são permitidos (em vez disso, use um alias na consulta de trabalho “nivelar” o campo)</li><li>As expressões não podem ser usadas como um nome de campo</li></ul>Exemplos: <ul><li>Exemplo 1: cluster1/logs /{data}/{hora}</li><li>Exemplo 2: cluster1/logs/{data}</li><li>Exemplo 3 (versão prévia): cluster1/{client_id}/{data}/{hora}</li><li>Exemplo 4 (versão prévia): cluster1/{myField} em que a consulta é: SELECIONAR data.myField COMO myField DA Entrada;</li></ul><br>O registro de data e hora da estrutura de pastas criada segue o UTC e não o horário local.</br><BR> A nomenclatura de arquivo segue a seguinte convenção: </br> {Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension </br></br> Exemplo de arquivos de saída: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato de data | Opcional. Se o token de data for usado no caminho do prefixo, você pode selecionar o formato de data na qual os arquivos são organizados. Exemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Se o token de hora for usado no caminho do prefixo, você pode selecionar o formato de hora na qual os arquivos são organizados. Atualmente, o único valor aceito é HH. |
 | Formato de serialização do evento | Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro.
@@ -104,7 +106,7 @@ Ao usar o Armazenamento Blobs como saída, um novo arquivo é criado no blob nos
 * Se um arquivo ou um contêiner da conta de armazenamento for excluído pelo usuário.  
 * Se a saída for tempo particionado usando o padrão de prefixo do caminho, um novo blob será usado quando a consulta se mover para a próxima hora.
 * Se a saída for particionada por um campo personalizado, um novo blob será criado por chave de partição se ele não existir.
-*   Se a saída for particionada por um campo personalizado, onde a cardinalidade da chave de partição excede 8000, um novo blob poderá ser criado por chave de partição.
+* Se a saída for particionada por um campo personalizado, onde a cardinalidade da chave de partição excede 8000, um novo blob poderá ser criado por chave de partição.
 
 ## <a name="event-hub"></a>Hub de evento
 Os serviço de [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) são um ingestor de eventos altamente escalonável de publicação/assinatura. Ele pode coletar milhões de eventos por segundo. Uma utilização de um Hub de Eventos como saída é quando a saída de um trabalho do Stream Analytics torna-se a entrada de outro trabalho de streaming.
@@ -114,7 +116,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Nome da propriedade | DESCRIÇÃO |
 | --- | --- |
 | Alias de saída | Um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Hub de Eventos. |
-| Namespace do Hub de Eventos |Um namespace do Hub de Eventos é um contêiner para um conjunto de entidades de mensagens. Ao criar um novo Hub de Eventos, você também criou um namespace do Hub de Eventos. |
+| Namespace do Hub de Eventos |Um namespace do Event Hub é um contêiner para um conjunto de entidades de mensagens. Quando você criou um novo Hub de Eventos, também criou um namespace do Hub de Eventos. |
 | Nome do Hub de Eventos | O nome da sua saída de Hub de Eventos. |
 | Nome da política do Hub de Eventos | A política de acesso compartilhada, que pode ser criada na guia Configurar o Hub de Eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do Hub de Eventos | A chave de Acesso Compartilhado usada para autenticar o acesso ao namespace do Hub de Eventos. |
@@ -126,6 +128,8 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
+
+A saída do Power BI do Stream Analytics atualmente não está disponível nas regiões Azure China (21Vianet) e Azure Germany (T-Systems International).
 
 ### <a name="authorize-a-power-bi-account"></a>Autorizar uma conta do Power BI
 1. Quando o Power BI é selecionado como uma saída no portal do Azure, você é solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
@@ -248,6 +252,8 @@ O número de partições baseia-se [no tamanho e SKU do Barramento de Serviço](
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 O [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) é um serviço de banco de dados multimodelo distribuído globalmente que oferece dimensionamento elástico ilimitado em todo o mundo, consulta avançada e indexação automática em modelos de dados independentes de esquemas, baixa latência garantida e SLAs abrangentes líderes do setor. Para saber mais sobre opções de coleta do Cosmos DB para Stream Analytics, consulte o artigo [Stream Analytics com o Cosmos DB como saída](stream-analytics-documentdb-output.md).
 
+A saída do Azure Cosmos DB do Stream Analytics não está disponível atualmente nas regiões Azure China (21Vianet) e Azure Germany (T-Systems International).
+
 > [!Note]
 > Neste momento, o Azure Stream Analytics oferece suporte apenas à conexão ao CosmosDB usando a **API do SQL**.
 > Ainda não há suporte para outras APIs do Azure Cosmos DB. Se você apontar o Azure Stream Analytics para as contas do Azure Cosmos DB criado com as outras APIs, talvez os dados não sejam armazenados corretamente. 
@@ -267,6 +273,8 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 
 ## <a name="azure-functions"></a>Funções do Azure
 O Azure Functions é um serviço de computação sem servidor que lhe permite executar código sob demanda sem a necessidade de provisionar explicitamente ou gerenciar a infraestrutura. Ele permite que você implemente código que é disparado por eventos que ocorrem no Azure ou por serviços de terceiros.  Essa capacidade do Azure Functions para responder a gatilhos torna uma saída natural para um Azure Stream Analytics. Este adaptador de saída permite aos usuários se conectar o Stream Analytics ao Azure Functions e executar um script ou trecho de código em resposta a vários eventos.
+
+A saída das Funções do Azure do Stream Analytics não está disponível atualmente nas regiões Azure China (21Vianet) e Azure Germany (T-Systems International).
 
 O Azure Stream Analytics chama o Azure Functions por meio de gatilhos de HTTP. O novo Adaptador de saída do Azure Functions está disponível com as seguintes propriedades configuráveis:
 

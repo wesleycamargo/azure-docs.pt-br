@@ -10,21 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 300ae2a9dd788ea7d0259d9ae9a6f4d52494836e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: df45613105c8fb005fc8ba0c796ef768e293c57e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052425"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
 
 Este artigo descreve como usar Copy Activity no Azure Data Factory para copiar dados de/para SAP Cloud for Customer (C4C). Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Atividade de cópia na V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -159,8 +157,8 @@ Para copiar dados do SAP Cloud for Customer, defina o tipo de coletor na ativida
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | sim |
-| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Nº Padrão “Inserir”. |
-| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Nº Padrão 10. |
+| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Não. Padrão “Inserir”. |
+| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Não. Padrão 10. |
 
 **Exemplo:**
 
@@ -187,7 +185,7 @@ Para copiar dados do SAP Cloud for Customer, defina o tipo de coletor na ativida
                 "writeBatchSize": 30
             },
             "parallelCopies": 10,
-            "cloudDataMovementUnits": 4,
+            "dataIntegrationUnits": 4,
             "enableSkipIncompatibleRow": true,
             "redirectIncompatibleRowSettings": {
                 "linkedServiceName": {

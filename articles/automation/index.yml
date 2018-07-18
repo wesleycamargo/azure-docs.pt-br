@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação do Usuário de Automação do Azure"
+title: Documentação do Usuário de Automação do Azure
 metadata:
   document_id: 
-  title: "Documentação da Automação do Azure - Tutoriais, Referência da API"
-  description: "Saiba como usar a automação do Azure"
+  title: Documentação da Automação do Azure - Tutoriais, Referência da API
+  description: Saiba como usar a automação do Azure
   services: automation
   author: georgewallace
   manager: carmonm
@@ -19,19 +19,20 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 01/11/2018
+  ms.locfileid: "27773818"
 abstract:
-  description: "Saiba como usar a Automação para configurar e automatizar as tarefas operacionais em um ambiente híbrido. Os tutoriais, referências da API e outras documentações mostram como automatizar os processos, realizar o gerenciamento das atualizações, fornecer a configuração do estado desejado, controlar as alterações e coletar o inventário."
+  description: Saiba como usar a Automação para configurar e automatizar as tarefas operacionais em um ambiente híbrido. Os tutoriais, referências da API e outras documentações mostram como automatizar os processos, realizar o gerenciamento das atualizações, fornecer a configuração do estado desejado, controlar as alterações e coletar o inventário.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como automatizar e configurar seu ambiente do Azure e híbrido usando a Automação:"
+    text: 'Saiba como automatizar e configurar seu ambiente do Azure e híbrido usando a Automação:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/automation/media/index/automation.svg
-      text: "Criar uma conta de Automação"
+      text: Criar uma conta de Automação
       href: /azure/automation/automation-quickstart-create-account
     - image:
         src: /azure/automation/media/index/runbook.svg
@@ -39,21 +40,21 @@ sections:
       href: /azure/automation/automation-quickstart-create-runbook
     - image:
         src: /azure/automation/media/index/dscconfig.svg
-      text: "Criar uma configuração de DSC"
+      text: Criar uma configuração de DSC
       href: /azure/automation/automation-quickstart-dsc-configuration
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como integrar, implantar e gerenciar seus ambientes do Azure e híbrido."
+    text: Saiba como integrar, implantar e gerenciar seus ambientes do Azure e híbrido.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Configurar tarefas do observador</a>
-    - html: "<a href=\"/azure/automation/automation-tutorial-update-management\">Gerenciar atualizações em sua VM</a>"
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Gerenciar atualizações em sua VM</a>
     - html: <a href="/azure/automation/automation-onboard-solutions">Integrado em escala</a>
     - html: <a href="/azure/automation/automation-tutorial-installed-software">Identificar o software instalado em uma VM</a>
-    - html: "<a href=\"/azure/automation/automation-tutorial-troubleshoot-changes\">Solucionar problemas de alterações em uma VM</a>"
-- title: "Referência"
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Solucionar problemas de alterações em uma VM</a>
+- title: Referência
   items:
   - type: list
     style: cards
@@ -64,4 +65,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/automation\">API REST de Automação</a></p>"
+      html: <p><a href="/rest/api/automation">API REST de Automação</a></p>

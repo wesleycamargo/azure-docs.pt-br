@@ -6,14 +6,16 @@ author: mwinkle
 ms.author: mwinkle
 manager: cgronlun
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 09/21/2017
-ms.openlocfilehash: 868647780bafe9117a15891264a38535edff7250
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e744b0e4a7ccebcdedac5a822ff717bed6b1f72
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268409"
 ---
 # <a name="what-is-machine-learning"></a>O que é o Machine Learning?
 
@@ -94,7 +96,7 @@ Para obter mais informações, faça referência aos seguintes artigos:
 - [Guia do Usuário de Preparação de Dados](../desktop-workbench/data-prep-user-guide.md)
 - [Usando o Git com o Azure Machine Learning](../desktop-workbench/using-git-ml-project.md)
 - [Usando o Bloco de anotações do Jupyter no Azure Machine Learning](../desktop-workbench/how-to-use-jupyter-notebooks.md)
-- Roaming e Compartilhamento
+- [Roaming e Compartilhamento](../desktop-workbench/roaming-and-collaboration.md)
 - [Lista do Histórico de Execuções](../desktop-workbench/how-to-use-run-history-model-metrics.md)
 - [Integração de IDE](../desktop-workbench/how-to-configure-your-ide.md)
 

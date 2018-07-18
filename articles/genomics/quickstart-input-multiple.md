@@ -1,7 +1,7 @@
 ---
-title: "Guia de início rápido: enviar um fluxo de trabalho usando várias entradas | Microsoft Docs"
+title: 'Guia de início rápido: enviar um fluxo de trabalho usando várias entradas | Microsoft Docs'
 titleSuffix: Azure
-description: "O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço."
+description: O guia de início rápido pressupõe que você tem o cliente msgen instalado e executou com êxito os dados de exemplo por meio do serviço.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29119988"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Enviar um fluxo de trabalho usando várias entradas do mesmo exemplo
 

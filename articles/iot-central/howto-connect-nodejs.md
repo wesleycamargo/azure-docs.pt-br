@@ -1,19 +1,19 @@
 ---
 title: Conectar um aplicativo cliente Node.js genérico ao Azure IoT Central | Microsoft Docs
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo Node.js genérico ao aplicativo Azure IoT Central.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199588"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628531"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conectar um aplicativo cliente genérico ao aplicativo Azure IoT Central (Node.js)
 
@@ -49,7 +49,7 @@ Adicione o estado a seguir na página **Medidas**:
 
 | Nome de exibição | Nome do campo  | Valor 1 | Nome de exibição | Valor 2 | Nome de exibição |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modo da ventoinha     | fanmode     | 1       | Executando      | 0       | Parado      |
+| Modo ventilação     | fanmode     | 1       | Executando      | 0       | Parado      |
 
 > [!NOTE]
   O tipo de dados da medida de Estado é cadeia de caracteres.

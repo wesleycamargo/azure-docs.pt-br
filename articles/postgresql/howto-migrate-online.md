@@ -1,6 +1,6 @@
 ---
 title: Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve como executar uma migração com tempo de inatividade mínimo extraindo um banco de dados PostgreSQL para um arquivo de despejo, restaurando o banco de dados PostgreSQL de um arquivo criado por pg_dump no Banco de Dados do Azure para PostgreSQL e configurando a carga inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino usando o Attunity Replicate para Microsoft Migrations.
+description: Este artigo descreve como realizar uma migração de tempo de inatividade mínimo de um banco de dados PostgreSQL para o Banco de Dados do Azure para PostgreSQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -8,31 +8,24 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 06/21/2018
+ms.openlocfilehash: 9ab5d4615a8baf763d0b7ee47bf0890124f8665c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292535"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para PostgreSQL
-Migre seu banco de dados PostgreSQL existente para o Banco de Dados do Azure para PostgreSQL usando o Attunity Replicate para Microsoft Migrations. O Attunity Replicate é uma oferta conjunta da Attunity e da Microsoft. Juntamente com o Serviço de Migração de Banco de Dados do Azure, ele é incluído sem custo adicional para os clientes da Microsoft. 
+É possível realizar migrações do PostgreSQL para o Banco de Dados do Azure para PostgreSQL com tempo de inatividade mínimo usando o **recurso de sincronização contínua** introduzido recentemente para [DMS](https://aka.ms/get-dms) (Serviço de Migração de Banco de Dados do Azure). Essa funcionalidade limita o tempo de inatividade incorrido pelo aplicativo.
 
-O Attunity Replicate ajuda a minimizar o tempo de inatividade durante as migrações de banco de dados e mantém o banco de dados de origem em funcionamento durante todo o processo.
+## <a name="overview"></a>Visão geral
+O DMS executa uma carga inicial do local no Banco de Dados do Azure para PostgreSQL e, em seguida, sincroniza continuamente quaisquer novas transações no Azure enquanto o aplicativo permanece em execução. Depois que os dados são atualizados no lado do Azure de destino, você interrompe o aplicativo por um breve momento (tempo de inatividade mínimo), aguarde o último lote de dados (desde o momento em que você para o aplicativo até que o aplicativo esteja efetivamente indisponível para receber qualquer novo tráfego) para atualizar no destino e, em seguida, atualize a cadeia de conexão para apontar para o Azure. Quando você terminar, o aplicativo estará ativo no Azure!
 
-O Attunity Replicate é uma ferramenta de replicação de dados que permite a sincronização de dados entre uma variedade de origens e destinos. Ele propaga o script de criação de esquema e os dados associados a cada tabela de banco de dados. O Attunity Replicate não propaga nenhum outro artefato (como SP, gatilhos, funções e assim por diante) nem converte, por exemplo, o código PL/SQL hospedado nesses artefatos em T-SQL.
+![Sincronização contínua com o Serviço de Migração de Banco de Dados do Azure](./media/howto-migrate-online/ContinuousSync.png)
 
-> [!NOTE]
-> Embora o Attunity Replicate seja compatível com um amplo conjunto de cenários de migração, ele enfoca o suporte para um subconjunto específico de pares de origem/destino.
+A migração de fontes PostgreSQL do DMS atualmente está em versão prévia. Se você quiser experimentar o serviço para migrar as cargas de trabalho do PostgreSQL, inscreva-se através da [página de versão prévia](https://aka.ms/dms-preview) do DMS do Azure para expressar seu interesse. Seu comentários são imprescindíveis para ajudar a melhorar ainda mais o serviço.
 
-Uma visão geral do processo para executar uma migração com tempo de inatividade mínimo inclui:
-
-* **Migrar o esquema de origem do PostgreSQL** para um Banco de Dados do Azure para PostgreSQL usando o comando [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) com o parâmetro -n e, em seguida, usando o comando [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html).
-
-* **Configurar a carga inicial e a sincronização de dados contínua do banco de dados de origem para o banco de dados de destino** usando o Attunity Replicate para Microsoft Migrations. Fazer isso minimiza o tempo que o banco de dados de origem precisa estar definido como somente leitura quando você se prepara para passar seus aplicativos para o banco de dados PostgreSQL de destino no Azure.
-
-Para obter mais informações sobre a oferta Attunity Replicate para Microsoft Migrations, consulte os seguintes recursos:
- - Acesse a página da Web do [Attunity Replicate para Microsoft Migrations](https://aka.ms/attunity-replicate).
- - Baixe o [Attunity Replicate para Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Acesse a [Comunidade do Attunity Replicate](https://aka.ms/attunity-community/) par obter um Guia de Início Rápido, tutoriais e suporte.
- - Para obter diretrizes passo a passo sobre como usar o Attunity Replicate para migrar do PostgreSQL para o Banco de Dados do Azure para PostgreSQL, consulte o [Guia de Migração de Banco de Dados](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).
+## <a name="next-steps"></a>Próximas etapas
+- Exibir o vídeo [Modernização de aplicativos com o Microsoft Azure](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102), que contém uma demonstração mostrando como migrar aplicativos do PostgreSQL para o Banco de Dados do Azure para PostgreSQL.
+- Inscreva-se para uma versão prévia limitada das migrações de tempo de inatividade mínimo do PostgreSQL para Banco de Dados do Azure para PostgreSQL através da [página de versão prévia](https://aka.ms/dms-preview).

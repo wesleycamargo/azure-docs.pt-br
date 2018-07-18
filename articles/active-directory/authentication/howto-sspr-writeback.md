@@ -10,15 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296883"
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
-Com o write-back de senha, você pode configurar o Azure Active Directory (Azure AD) para o write-back de senhas para o Active Directory local. O write-back de senha remove a necessidade de configurar e gerenciar uma solução complicada de autoatendimento de redefinição de senha (SSPR) local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. O write-back de senha é um componente do [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais das [Edições do Azure Active Directory](../active-directory-whatis.md) Premium.
+Com o write-back de senha, você pode configurar o Azure Active Directory (Azure AD) para o write-back de senhas para o Active Directory local. O write-back de senha remove a necessidade de configurar e gerenciar uma solução complicada de autoatendimento de redefinição de senha (SSPR) local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam. O write-back de senha é um componente do [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais das [Edições do Azure Active Directory](../fundamentals/active-directory-whatis.md) Premium.
 
 O write-back de senha fornece os seguintes recursos:
 
@@ -128,7 +129,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
 
-Para obter informações sobre o licenciamento, consulte [Licenças necessárias para o write-back de senha](concept-sspr-licensing.md#licenses-required-for-password-writeback) ou os seguintes sites:
+Para obter informações sobre o licenciamento, consulte [Licenças necessárias para o write-back de senha](concept-sspr-licensing.md) ou os seguintes sites:
 
 * [Site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

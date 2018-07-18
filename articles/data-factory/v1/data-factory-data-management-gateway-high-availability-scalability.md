@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053829"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [tempo de execução de integração auto-hospedado na versão 2](../create-self-hosted-integration-runtime.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
 
 
 Este artigo ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway/Integração de Gerenciamento de Dados.    
@@ -112,7 +113,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
         ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
     2. Selecione o **gateway** para ver a página **Gateway**:
     
-        ![Página inicial da data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
+        ![Página inicial do data factory](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
     4. Você vê a página **Gateway**:   
 
         ![Gateway com exibição de nó único](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 

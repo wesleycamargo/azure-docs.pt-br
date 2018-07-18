@@ -1,29 +1,25 @@
 ---
-title: "Branches paralelos – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Criar ou ingressar um branch paralelo em aplicativos lógicos"
+title: Criar ou unir branches paralelos – Aplicativo Lógico do Azure | Microsoft Docs
+description: Como criar ou unir branches paralelos para fluxos de trabalho no Aplicativo Lógico do Azure
 services: logic-apps
-keywords: branches, processamento paralelo
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298848"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>Criar ou ingressar um branch paralelo no seu aplicativo lógico
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho no Aplicativo Lógico do Azure
 
-Por padrão, as ações em um aplicativo lógico são executadas em sequência. Para executar ações independentes ao mesmo tempo, você pode criar [Branches paralelos](#parallel-branches) e, em seguida, [unir esses branches](#join-branches) posteriormente no seu fluxo. 
+Por padrão, suas ações nos fluxos de trabalho de aplicativo lógico são executadas sequencialmente. Para executar ações independentes ao mesmo tempo, você pode criar [Branches paralelos](#parallel-branches) e, em seguida, [unir esses branches](#join-branches) posteriormente no seu fluxo. 
 
 > [!TIP] 
 > Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).

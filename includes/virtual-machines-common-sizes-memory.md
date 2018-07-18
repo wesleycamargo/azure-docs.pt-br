@@ -5,22 +5,22 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943514"
 ---
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
 * A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a memória maior (até 3,8 TiB) de qualquer máquina virtual na nuvem.  Ele é ideal para bancos de dados muito grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória.
 
-* As séries Dv2, D e G, bem como as equivalentes DS/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de armazenamento temporário ou que têm maior demanda de memória.  Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
+* As séries Dv2 e G, bem como as equivalentes DSv2/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de armazenamento temporário ou que têm maior demanda de memória.  Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 
-* As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por vCPU e uma unidade de estado sólido (SSD) para o armazenamento temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 * A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração dos processadores Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou E5-2673 v4 2.3 GHz (Broadwell) e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
@@ -83,10 +83,22 @@ ACU: 160-180 <sup>1</sup>
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64s  | 64   | 1024        | 2.048           | 64             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
-| Standard_M64ms  | 64   | 1792        | 2.048           | 64             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2.048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 30000          |
+| M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10.000 / 100 (793)  | 5.000  / 125 | 4 / 2.000 |
+| M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000 / 250 | 8 / 4.000 |
+| Standard_M32ts | 32 | 192    | 1.024 | 32 | 40.000 / 400 (3.174) | 20.000 / 500 | 8 / 8,000 |
+| Standard_M32ls | 32 | 256    | 1.024 | 32 | 40.000 / 400 (3.174) | 20.000 / 500 | 8 / 8,000 |
+| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1.024 | 32 | 40.000 / 400 (3.174) | 20.000 / 500 | 8 / 8,000 |
+| Standard_M64s  | 64 | 1.024   | 2.048 | 64 | 80.000 / 800 (6.348)| 40.000 / 1.000 | 8 / 16.000          |
+|Standard_M64ls  | 64 | 512    | 2.048 | 64 | 80.000 / 800 (6.348) | 40.000 / 1.000 | 8 / 16.000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1.792 | 2.048 | 64 | 80.000 / 800 (6.348)| 40.000 / 1.000 | 8 / 160.00          |
+| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2.048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 30,000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3.892  | 4.096 | 64 | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 30,000          |
+| Standard_M64   | 64  | 1.024 | 7.168  | 64 | 80.000  / 800  (1.228) | 40.000 / 1000 | 8 / 16000 |
+| Standard_M64m  | 64  | 1.792 | 7.168  | 64 | 80.000  / 800  (1.228) | 40.000 / 1000 | 8 / 16000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14.336 | 64 | 250.000 / 1.600 (2.456) | 80.000 / 2000 | 8 / 32000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3.892 | 14.336 | 64 | 250.000 / 1.600 (2.456) | 80.000 / 2000 | 8 / 32000 |
+
+
 
 <sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série M
 
@@ -133,7 +145,7 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series"></a>Série DSv2 
+## <a name="dsv2-series-11-15"></a>Série DSv2 11-15
 
 ACU: 210 - 250 <sup>1</sup>
 
@@ -156,7 +168,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 <br>
 
-## <a name="dv2-series"></a>Série Dv2
+## <a name="dv2-series-11-15"></a>Série Dv2 11-15
 
 ACU: 210 - 250
 
@@ -176,31 +188,5 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series"></a>Série DS 
 
-ACU: 160 <sup>1</sup>
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8.000 / 64 (72) |6.400 / 64 |2 / 1000 |
-| Standard_DS12 |4 |28 |56 |16 |16.000 / 128 (144) |12.800 / 128 |4 / 2000 |
-| Standard_DS13 |8 |56 |112 |32 |32.000 / 256 (288) |25.600 / 256 |8 / 4000 |
-| Standard_DS14 |16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 512 |8 / 8000 |
-
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
-
-
-
-## <a name="d-series"></a>Série D
-
-ACU: 160
-
-| Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
-| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
-| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
-
-<br>
 

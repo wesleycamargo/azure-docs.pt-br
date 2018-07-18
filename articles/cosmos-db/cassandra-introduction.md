@@ -3,21 +3,19 @@ title: Introdução à API do Cassandra do Azure Cosmos DB | Microsoft Docs
 description: Saiba como você pode usar o Azure Cosmos DB para migrar os aplicativos existentes por lift-and-shift e criar novos aplicativos usando a API do Cassandra com os drivers do Cassandra e o CQL com os quais você já está familiarizado.
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795264"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Introdução ao Azure Cosmos DB: API do Apache Cassandra
 
@@ -57,7 +55,7 @@ A API do Cassandra possibilita interagir com os dados armazenados no Azure Cosmo
 
 **Opção de consistência**: o Azure Cosmos DB fornece a opção de cinco níveis de consistência bem-definidos para obter a compensação ideal entre consistência e desempenho. Esses níveis de consistência são forte, desatualização limitada, sessão, prefixo consistente e eventual. Esses níveis de consistência granulares e bem-definidos permitem que o desenvolvedor faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md). 
 
-**Nível empresarial**: seguro e em conformidade por padrão – o Azure Cosmos DB fornece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os usuários possam usar a plataforma sem se preocupar com problemas de conformidade. O Azure Cosmos DB também fornece criptografia em repouso e em movimento, firewall de IP e logs de auditoria para atividades do plano de controle.  
+**Pequeno porte**: O Azure Cosmos DB oferece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os usuários possam usar a plataforma de forma segura. O Azure Cosmos DB também fornece criptografia em repouso e em movimento, firewall de IP e logs de auditoria para atividades do plano de controle.  
 
 <a id="sign-up-now"></a>
 ## <a name="sign-up-now"></a>Inscreva-se agora mesmo 

@@ -1,8 +1,8 @@
 ---
-title: "Sincronização do Azure Active Directory Connect: Noções Básicas sobre Usuários, Grupos e Contatos | Microsoft Docs"
-description: "Explica usuários, grupos e contatos na sincronização do Azure Active Directory Connect."
+title: 'Sincronização do Azure Active Directory Connect: Noções Básicas sobre Usuários, Grupos e Contatos | Microsoft Docs'
+description: Explica usuários, grupos e contatos na sincronização do Azure Active Directory Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi;andkjell
-ms.openlocfilehash: 7f4bc51630653bfe341bfcb5c11699020053585a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: 740908a87752d4e3b94e0cd25fa7107c45b9f0d7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915316"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos
 Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão da sincronização do Azure AD Connect não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.

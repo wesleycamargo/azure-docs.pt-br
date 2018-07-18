@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109473"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -82,8 +83,9 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
       -   Informações sobre a renovação - > por exemplo, 90 dias antes de expirar  
 
   - Um processo de criação de certificado é geralmente um processo assíncrono e envolve a sondagem do seu Key Vault para saber o estado da operação de criação de certificado.  
-[Operação para obter certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) -   Status: concluída, falha com informações de erro ou, cancelada  
-            -   Uma operação de cancelamento devido ao atraso para criar. O cancelamento pode ou não ser eficaz.  
+[Operação de obtenção de certificado](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Status: concluída, falha com informações de erro ou, cancelada  
+      -   Devido ao atraso da criação, uma operação de cancelamento pode começar. O cancelamento pode ou não ser eficaz.  
 
 ## <a name="import-a-certificate"></a>Importar um certificado  
  Como alternativa – um certificado pode ser importado para o Key Vault – PFX ou PEM.  
@@ -119,5 +121,5 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
   (5) - Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
 ## <a name="see-also"></a>Veja também
-- [Operações de certificado](/rest/api/keyvault/certificate-operations.md)
+- [Operações de certificado](/rest/api/keyvault/certificate-operations)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

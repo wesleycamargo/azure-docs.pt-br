@@ -1,11 +1,11 @@
 ---
-title: "Exceções de Retransmissão do Azure e como resolvê-las | Microsoft Docs"
-description: "Lista de exceções de Retransmissão do Azure e ações sugeridas que você pode realizar para ajudar a resolvê-las."
+title: Exceções de Retransmissão do Azure e como resolvê-las | Microsoft Docs
+description: Lista de exceções de Retransmissão do Azure e ações sugeridas que você pode realizar para ajudar a resolvê-las.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855854"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de Retransmissão do Azure
 

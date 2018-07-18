@@ -1,23 +1,21 @@
 ---
-title: Recursos e SDK .NET da API de Tabela do Azure CosmosDB | Microsoft Docs
+title: Recursos e SDK do .NET da API de Tabela do Azure Cosmos DB | Microsoft Docs
 description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
 services: cosmos-db
-documentationcenter: .net
 author: rnagpal
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
-ms.openlocfilehash: 7e012e07b8f93554ea44404c611a7bc0eb64a0d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 391948af7fe00e0a5e6171d5322c09c05fcd1cc3
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798467"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET de Tabela do Azure CosmosDB: download e notas de versão
 > [!div class="op_single_selector"]

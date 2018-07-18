@@ -1,8 +1,8 @@
 ---
-title: "Opções de computação do Azure – Serviços de Nuvem do Azure | Microsoft Docs"
-description: "Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem do Azure e Máquinas Virtuais"
+title: Opções de computação do Azure – Serviços de Nuvem do Azure | Microsoft Docs
+description: 'Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem do Azure e Máquinas Virtuais'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120277"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Devo escolher os Serviços de Nuvem do Azure ou algo mais?
 Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto diferente de serviços. Qual deles escolher depende exatamente do que você está tentando fazer.

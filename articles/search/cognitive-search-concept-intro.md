@@ -3,17 +3,18 @@ title: Pesquisa cognitiva para extração de dados e processamento de idioma nat
 description: Extração de dados, NLP (processamento de idioma natural) e processamento de imagem para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942152"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304277"
 ---
 # <a name="what-is-cognitive-search"></a>O que é pesquisa cognitiva?
 
@@ -25,12 +26,12 @@ A integração de IA é por meio de *habilidades cognitivas* que enriquecem os d
 
 As habilidades usadas durante a indexação podem ser predefinidas ou personalizadas:
 
-+ As [habilidades predefinidas](cognitive-search-predefined-skills.md) são baseadas nos mesmos algoritmos de IA usados nas APIs de API de Serviços Cognitivos: [Reconhecimento de Entidade Nomeada](cognitive-search-skill-named-entity-recognition.md), [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
++ As [habilidades predefinidas](cognitive-search-predefined-skills.md) são baseadas nos mesmos algoritmos de IA usados nas APIs de Serviços Cognitivos: [Reconhecimento de Entidade Nomeada](cognitive-search-skill-named-entity-recognition.md), [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
 
 + As [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) podem ser desenvolvidas por você para qualquer processamento especializado necessário. Exemplos de habilidades personalizadas podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está na versão prévia pública e a execução do conjunto de habilidades é oferecida no momento gratuitamente. Posteriormente, o preço dessa capacidade será anunciado.
+> A Pesquisa Cognitiva está em versão prévia pública, e a execução do conjunto de habilidades é oferecida gratuitamente no momento. Posteriormente, o preço dessa capacidade será anunciado.
 
 ## <a name="components-of-cognitive-search"></a>Componentes da pesquisa cognitiva
 
@@ -103,9 +104,9 @@ Atualmente, apenas as APIs REST são fornecidas. Use o `api-version=2017-11-11-P
 | API REST | DESCRIÇÃO |
 |-----|-------------|
 | [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
-| [Criar Conjunto de Habilidades (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Um recurso que coordena o uso de [habilidades predefinidas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
+| [Criar Conjunto de Habilidades (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades predefinidas](cognitive-search-predefined-skills.md) e de [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
 | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice do Azure Search. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
-| [Criar Indexador (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um corpus de pesquisa com base no esquema de índice, populado com os dados de origem, enriquecidos por conjuntos de habilidades.  |
+| [Criar Indexador (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um corpus de pesquisa com base no esquema de índice, populado com os dados de origem, enriquecidos por conjuntos de habilidades.  |
 
 **Lista de verificação: um fluxo de trabalho típico**
 
@@ -113,11 +114,11 @@ Atualmente, apenas as APIs REST são fornecidas. Use o `api-version=2017-11-11-P
 
 1. Crie um [objeto de fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) no Azure Search para fornecer uma cadeia de conexão para a recuperação de dados.
 
-1. Crie um [conjunto de habilidades](ref-create-skillset.md) com etapas de enriquecimento.
+1. Crie um [conjunto de habilidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com etapas de enriquecimento.
 
 1. Defina o [esquema de índice](https://docs.microsoft.com/rest/api/searchservice/create-index). A coleção *Campos* inclui campos da fonte de dados. Você também deve usar stub de campos adicionais para manter os valores gerados para o conteúdo criado durante o enriquecimento.
 
-1. Defina o [indexador](ref-create-skillset.md) referenciando a fonte de dados, o conjunto de habilidades e o índice.
+1. Defina o [indexador](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referenciando a fonte de dados, o conjunto de habilidades e o índice.
 
 1. Dentro do indexador, adicione *outputFieldMappings*. Esta seção mapeia a saída do conjunto de habilidades (na etapa 3) para os campos de entrada no esquema de índice (na etapa 4).
 

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 2780438e715b6f6cb04d820c02d09f14e14b480f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638493"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Rotear eventos de Serviços de Mídia do Azure para um ponto de extremidade da Web personalizado usando a CLI
 
@@ -184,4 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Reagindo a eventos](reacting-to-media-services-events.md)
+[Reagindo a eventos](reacting-to-media-services-events.md) Consulte também
+
+## <a name="see-also"></a>Consulte também
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

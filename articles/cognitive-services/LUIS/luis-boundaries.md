@@ -1,0 +1,90 @@
+---
+title: Noções básicas sobre limites do LUIS (Reconhecimento vocal) | Microsoft Docs
+titleSuffix: Azure
+description: Este artigo contém limites do LUIS conhecidos.
+services: cognitive-services
+author: v-geberr
+manager: kamran.iqbal
+ms.service: cognitive-services
+ms.component: language-understanding
+ms.topic: article
+ms.date: 05/07/2018
+ms.author: v-geberr
+ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266797"
+---
+# <a name="luis-boundaries"></a>Limites do LUIS
+O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
+
+
+## <a name="model-boundaries"></a>Limites de modelo
+
+|Área|Limite|
+|--|:--|--|
+| [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
+| [Teste de lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
+| **[Composição](./luis-concept-entity-types.md)|100 com até 10 filhos |
+| Lista explícita | 50 por aplicativo|
+| **[Hierárquico](./luis-concept-entity-types.md) |100 com até 10 filhos |
+| [Intenções][intents]|500 por aplicativo<br>O aplicativo [com base em expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) tem 500 fontes de expedição correspondentes|
+| [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome canônico é o máximo de caracteres padrão* Sinônimos não têm restrição de comprimento. |
+| [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
+| [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |
+| [Lista de frases][phrase-list]|10 listas de frases, 5 mil itens por lista|
+| [Entidades predefinidas](./Pre-builtEntities.md) | nenhum limite|
+| [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres, no máximo, por padrão de entidade de expressão regular|
+| [Funções](luis-concept-roles.md)|300 funções por aplicativo. 10 funções por entidade|
+| **[Simples](./luis-concept-entity-types.md)| 100 entidades|
+| [Declaração][utterances] | 500 caracteres|
+| [Declarações][utterances] | 15 mil por aplicativo|
+| [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
+
+*O máximo de caracteres padrão é 50 caracteres. 
+
+**A contagem total de entidades simples, hierárquicas e compostas não pode exceder 100. A contagem total de entidades hierárquicas, compostas, simples e entidades filho hierárquicas não pode exceder 330. 
+
+## <a name="intent-and-entity-naming"></a>Nomenclatura de intenções e de entidades
+Não use os seguintes caracteres nos nomes de intenções e de entidades:
+
+|Character|NOME|
+|--|--|
+|`{`|Chave esquerda|
+|`}`|Chave direita|
+|`[`|Colchete esquerdo|
+|`]`|Colchete direito|
+|`\`|Barra invertida|
+
+## <a name="key-limits"></a>Limites de chave
+A chave de criação tem diferentes limites para criação e ponto de extremidade. A chave de assinatura do serviço LUIS só é válida para consultas de ponto de extremidade.
+
+|Chave|Criação|Ponto de extremidade|Finalidade|
+|--|--|--|--|
+|Criação/Início|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criando seu aplicativo LUIS|
+|[Assinatura][pricing] – F0 – Camada gratuita |inválido|10 mil/mês, 5/segundo|Consultando seu ponto de extremidade LUIS|
+|[Assinatura][pricing] – S0 – Camada básica|inválido|50/segundo|Consultando seu ponto de extremidade LUIS|
+|[Integração de análise de sentimento](publishapp.md#enable-sentiment-analysis)|inválido|sem encargos|Adicionando informações de sentimento incluindo extração de dados de frase de chave |
+|Integração de fala|inválido|US$ 5,50/1 mil solicitações de ponto de extremidade|Converter declaração falada em declaração de texto e retornar resultados do LUIS|
+
+## <a name="keyboard-controls"></a>Controles de teclado
+
+|Entrada de teclado | DESCRIÇÃO | 
+|--|--|
+|Control+E|alterna entre tokens e entidades na lista de declarações|
+
+## <a name="website-sign-in-time-period"></a>Período de tempo de entrada no site
+
+O acesso de entrada é para **60 minutos**. Após esse período, você obterá esse erro. É necessário fazer logon novamente.
+
+[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
+[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
+[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
+[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
+[pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+<!-- TBD: fix this link -->
+[speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/

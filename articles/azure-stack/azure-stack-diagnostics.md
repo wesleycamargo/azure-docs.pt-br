@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064160"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -45,9 +46,38 @@ Seguem alguns exemplos de tipos de log são coletados:
 *   **Logs do ETW**
 
 Esses arquivos são coletados e salvos em um compartilhamento pelo coletor de rastreamento. O **AzureStackLog Get** cmdlet do PowerShell, em seguida, pode ser usado para coletá-los quando necessário.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Para executar o Get-AzureStackLog na pilha do Azure sistemas integrados 
+Para executar a ferramenta de coleta de log em um sistema integrado, você precisa ter acesso para o ponto de extremidade privilegiado (PEP). Aqui está um exemplo de script que você pode executar usando o PEP para coletar logs em um sistema integrado:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para carregar os logs para uma pasta compartilhada externa.
+- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs por um período de tempo específico. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar o Get-AzureStackLog em um sistema de Kit de desenvolvimento na pilha do Azure (ASDK)
-1. Faça logon como **AzureStack\CloudAdmin** no host.
+1. Entrar como **AzureStack\CloudAdmin** no host.
 2. Abra uma janela do PowerShell como administrador.
 3. Execute o **AzureStackLog Get** cmdlet do PowerShell.
 
@@ -77,70 +107,11 @@ Esses arquivos são coletados e salvos em um compartilhamento pelo coletor de ra
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Para executar o Get-AzureStackLog na pilha do Azure integrado versão sistemas 1804 e posterior
-
-Para executar a ferramenta de coleta de log em um sistema integrado, você precisa ter acesso para o ponto de extremidade privilegiado (PEP). Aqui está um exemplo de script que você pode executar usando o PEP para coletar logs em um sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para carregar os logs para uma pasta compartilhada externa.
-- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs por um período de tempo específico. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Para executar o Get-AzureStackLog na pilha do Azure integrado versão sistemas 1803 e versões anterior
-
-Para executar a ferramenta de coleta de log em um sistema integrado, você precisa ter acesso para o ponto de extremidade privilegiado (PEP). Aqui está um exemplo de script que você pode executar usando o PEP para coletar logs em um sistema integrado:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Quando você coletar logs do PEP, especifique o **OutputPath** parâmetro para ser um local no computador Host de ciclo de vida de Hardware (HLH). Certifique-se também de que o local está criptografado.
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são opcionais e são usadas quando você carrega os logs para uma pasta compartilhada externa. Use estes parâmetros *além* para **OutputPath**. Se **OutputPath** não for especificado, a ferramenta de coleta de log usa a unidade do sistema da VM PEP para armazenamento. Isso pode causar falha porque o espaço em disco é limitado no script.
-- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs por um período de tempo específico. Isso pode ser útil para cenários como coletar logs após a aplicação de um pacote de atualização em um sistema integrado.
-
-
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
 - Se o **FromDate** e **ToDate** parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
 - Você pode usar o **TimeOutInMinutes** para definir o tempo limite para coleta de log. Ele é definido como 150 (2,5 horas) por padrão.
-
+- Na versão 1805 e posteriores, a coleta de log de arquivo de despejo é desabilitada por padrão. Para habilitá-lo, use o **IncludeDumpFile** parâmetro de opção. 
 - No momento, você pode usar o **FilterByRole** parâmetro à coleção de log de filtros, as seguintes funções:
 
    |   |   |   |
@@ -184,7 +155,7 @@ Para saber mais sobre o script do PowerShell ERCS_AzureStackLogs.ps1, você pode
 * O comando leva algum tempo para executar com base em quais funções coletar os logs. Fatores também incluem a duração de tempo especificada para a coleta de log e os números de nós no ambiente de pilha do Azure.
 * Como execuções de coleta de logs, verifique a nova pasta criada no **OutputSharePath** parâmetro especificado no comando.
 * Cada função tem seus logs nos arquivos zip individuais. Dependendo do tamanho dos logs coletados, uma função pode ter seus logs dividida em vários arquivos zip. Para função, se você quiser ter todos os arquivos de log foi descompactados em para uma única pasta, use uma ferramenta que pode descompactar em massa (como 7zip). Selecione todos os arquivos compactados para a função e selecione **extrair aqui**. Isso descompacta todos os arquivos de log para essa função em uma única pasta mesclada.
-* Um arquivo chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os arquivos de log compactado. Esse arquivo é um log de saída do comando, que pode ser usado para solucionar problemas durante a coleta de log.
+* Um arquivo chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os arquivos de log compactado. Esse arquivo é um log de saída do comando, que pode ser usado para solucionar problemas durante a coleta de log. Às vezes, o arquivo de log inclui `PS>TerminatingError` entradas que podem ser ignoradas, a menos que faltam arquivos de log esperado depois de execuções de coleta de log.
 * Para investigar uma falha específica, os logs podem ser necessários de mais de um componente.
     -   Logs de eventos para todas as VMs de infraestrutura e de sistema são coletados no *VirtualMachines* função.
     -   Sistema e logs de eventos para todos os hosts são coletados no *BareMetal* função.

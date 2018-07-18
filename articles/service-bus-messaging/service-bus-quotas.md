@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979200"
 ---
 # <a name="service-bus-quotas"></a>Cotas do Barramento de Serviço
 Esta seção lista as cotas básicas e as limitações nas mensagens do Barramento de Serviço do Azure.

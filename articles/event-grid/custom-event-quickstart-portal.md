@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302552"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869136"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Você pode enviar o evento para uma Função do Azure que registra os dados do evento. Ao concluir, você verá que os dados do evento foram enviados e registrados para um ponto de extremidade.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
@@ -35,11 +37,11 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 
    ![Pesquisar tópico de grade de eventos](./media/custom-event-quickstart-portal/search-event-grid.png)
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    ![Etapas de início](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Selecione uma das [regiões com suporte](overview.md). Forneça um nome para um novo grupo de recursos. Clique em **Criar**.
+1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Selecione uma das [regiões com suporte](overview.md). Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
 
    ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -71,7 +73,7 @@ Antes de assinar o tópico, vamos criar o ponto de extremidade para a mensagem d
 
    ![Criar função](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Forneça um nome exclusivo para o Azure Functions. Não use o nome mostrado na imagem. Selecione o grupo de recursos criado neste artigo. Para o plano de hospedagem, use **Plano de Consumo**. Use a nova conta de armazenamento sugerida. Depois de definir os valores, selecione **Criar**.
+1. Forneça um nome exclusivo para o Azure Functions. Não use o nome mostrado na imagem. Selecione o grupo de recursos criado neste artigo. Para o plano de hospedagem, use **Plano de Consumo**. Use a nova conta de armazenamento sugerida. você pode desativar o Application Insights. Depois de definir os valores, selecione **Criar**.
 
    ![Fornecer os valores de função](./media/custom-event-quickstart-portal/provide-function-values.png)
 

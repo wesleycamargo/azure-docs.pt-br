@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334791"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo do Azure Resource Manager. Ele apresenta as diferentes seções de um modelo e as propriedades que estão disponíveis nessas seções. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para ver um tutorial passo a passo sobre como criar um modelo, confira [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
-Em sua estrutura mais simples, um modelo contém os seguintes elementos:
+Em sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json
 {
@@ -41,14 +42,14 @@ Em sua estrutura mais simples, um modelo contém os seguintes elementos:
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | $schema |sim |Local do arquivo de esquema JSON que descreve a versão da linguagem do modelo. Use a URL mostrada no exemplo anterior. |
-| contentVersion |sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
+| contentVersion |sim |Versão do modelo (como 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado. |
 | parâmetros |Não  |Valores que são fornecidos quando a implantação é executada para personalizar a implantação dos recursos. |
 | variáveis |Não  |Valores que são usados como fragmentos JSON no modelo para simplificar expressões de linguagem do modelo. |
 | funções |Não  |Funções definidas pelo usuário que estão disponíveis no modelo. |
 | recursos |sim |Tipos de recursos que são implantados ou atualizados em um grupo de recursos. |
 | outputs |Não  |Valores que são retornados após a implantação. |
 
-Cada elemento contém propriedades que você pode definir. O seguinte exemplo contém a sintaxe completa de um modelo:
+Cada elemento tem propriedades que você pode definir. O seguinte exemplo mostra a sintaxe completa de um modelo:
 
 ```json
 {
@@ -213,6 +214,7 @@ Dentro de seu modelo, você pode criar suas próprias funções. Essas funções
 Ao definir uma função de usuário, há algumas restrições:
 
 * A função não pode acessar variáveis.
+* A função não pode chamar outras funções definidas pelo usuário.
 * A função não pode usar a [função de referência](resource-group-template-functions-resource.md#reference).
 * Os parâmetros para a função não podem ter valores padrão.
 

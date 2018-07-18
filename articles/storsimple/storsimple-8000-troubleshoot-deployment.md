@@ -1,12 +1,12 @@
 ---
-title: "Solucionar problemas de implantação do StorSimple série 8000 | Microsoft Docs"
-description: "Descreve como diagnosticar e corrigir os erros que ocorrem quando você implanta o StorSimple pela primeira vez."
+title: Solucionar problemas de implantação do StorSimple série 8000 | Microsoft Docs
+description: Descreve como diagnosticar e corrigir os erros que ocorrem quando você implanta o StorSimple pela primeira vez.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23112254"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solucionar problemas de implantação do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral

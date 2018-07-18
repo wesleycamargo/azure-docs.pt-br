@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108749"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Criar uma máquina virtual e instale um certificado recuperado de um cofre de chave de pilha do Azure
 
@@ -42,8 +43,8 @@ As etapas a seguir descrevem o processo necessário para enviar por push um cert
 2. Atualize o arquivo azuredeploy.parameters.json.
 3. Implantar o modelo
 
->[!NOTE]
->Se você estiver conectado por meio de VPN, você pode usar essas etapas do Kit de desenvolvimento de pilha do Azure ou de um cliente externo.
+> [!NOTE]
+> Se você estiver conectado por meio de VPN, você pode usar essas etapas do Kit de desenvolvimento de pilha do Azure ou de um cliente externo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,8 +56,8 @@ As etapas a seguir descrevem o processo necessário para enviar por push um cert
 
 O script a seguir cria um certificado no formato. pfx, cria um cofre de chaves e armazena o certificado no cofre de chave como um segredo.
 
->[!IMPORTANT]
->Você deve usar o `-EnabledForDeployment` parâmetro ao criar a chave falha. Esse parâmetro garante que o Cofre de chaves pode ser referenciado de modelos do Gerenciador de recursos do Azure.
+> [!IMPORTANT]
+> Você deve usar o `-EnabledForDeployment` parâmetro ao criar a chave do cofre. Esse parâmetro garante que o Cofre de chaves pode ser referenciado de modelos do Gerenciador de recursos do Azure.
 
 ```powershell
 

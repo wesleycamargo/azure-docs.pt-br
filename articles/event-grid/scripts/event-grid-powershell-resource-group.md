@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425741"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Inscrever-se em eventos para um grupo de recursos com o Azure PowerShell
 

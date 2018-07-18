@@ -4,7 +4,7 @@ description: Este artigo descreve a autenticação de passagem do Azure AD (Azur
 services: active-directory
 keywords: o que é a autenticação de passagem do Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917271"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -47,7 +49,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - *Proteger*
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
   - O agente estabelece conexões de saída apenas de dentro de sua rede. Portanto, não há nenhum requisito de instalar o agente em uma rede de perímetro, também conhecida como DMZ.
-  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), e [filtrando ataques de senha de força bruta](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
 - *Altamente disponível*
   - Agentes adicionais podem ser instalados em vários servidores locais para promover a alta disponibilidade de solicitações de entrada.
 
@@ -62,12 +64,12 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - Ele pode ser habilitado por meio do [Azure AD Connect](active-directory-aadconnect.md).
 - Ele usa um agente local leve que escuta e responde a solicitações de validação de senha.
 - Instalar vários agentes fornece alta disponibilidade de solicitações de entrada.
-- Isso [protege](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
+- Isso [protege](../authentication/howto-password-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
-- [**Bloqueio Inteligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [**Bloqueio Inteligente**](../authentication/howto-password-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.

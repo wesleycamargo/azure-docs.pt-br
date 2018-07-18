@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09b35483b5ace1523c88576cfe37dfc313b93036
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299853"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-data-movement-activities.md)
-> * [Versão 2 – Versão prévia](../copy-activity-overview.md)
+> * [Versão 1](data-factory-data-movement-activities.md)
+> * [Versão 2 (versão atual)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [Copy Activity in V2](../copy-activity-overview.md) (Atividade de cópia na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar atividade na V2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Visão geral
 No Azure Data Factory, você pode usar a Atividade de Cópia para copiar dados entre armazenamentos de dados locais e na nuvem. Após os dados serem copiados, eles ainda podem ser transformados e analisados. Também é possível usar a Atividade de Cópia a fim de publicar resultados de análise e transformação para consumo do aplicativo e BI (business intelligence).
@@ -119,10 +120,10 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Sul da Índia | Índia Central |
 | Japão | Leste do Japão | Leste do Japão |
 | &nbsp; | Oeste do Japão | Leste do Japão |
-| Coreia | Coreia Central | Coreia Central |
+| Coreia do Sul | Coreia Central | Coreia Central |
 | &nbsp; | Sul da Coreia | Coreia Central |
 
-Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região na transferência realizada durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
+Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região na transferência realizada durante a cópia. Por exemplo, para copiar entre os repositórios do Azure na Coreia do Sul, especifique `"executionLocation": "Japan East"` para rotear pela região do Japão (veja [exemplo de JSON](#by-using-json-scripts) como referência).
 
 > [!NOTE]
 > Se a região do repositório de dados de destino não estiver na lista anterior ou não puder ser detectada, a Atividade de Cópia falhará em vez de passar por uma região alternativa, a menos que `executionLocation` seja especificado. A lista de regiões com suporte será expandida ao longo do tempo.

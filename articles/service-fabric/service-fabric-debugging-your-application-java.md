@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78483a5a5d78b539415aeeb0e28c1dbaf3680173
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619333"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar seu aplicativo Java do Service Fabric usando o Eclipse
 > [!div class="op_single_selector"]
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/16/2018
 2. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Esse arquivo pode ser encontrado no seguinte local: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Neste exemplo, a porta 8001 foi definida para depuração.
 
     ```sh
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
 3. Atualize o Manifesto do Aplicativo, definindo a contagem de instâncias ou a contagem de réplicas para o serviço que está sendo depurado como 1. Essa configuração evita conflitos para a porta que é usada para depuração. Por exemplo, para serviços sem estado, defina ``InstanceCount="1"`` e, para serviços com estado, defina o destino e o tamanho mínimo do conjunto de réplicas para 1, como se segue: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 

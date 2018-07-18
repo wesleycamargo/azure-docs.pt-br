@@ -1,11 +1,11 @@
 ---
-title: "Considerações sobre design da identidade híbrida do Azure Active Directory - próximas etapas| Microsoft Docs"
-description: "Resumo e próximas etapas depois de ler o guia de considerações de design de identidade híbrida"
-documentationcenter: 
+title: Considerações sobre design da identidade híbrida do Azure Active Directory - próximas etapas| Microsoft Docs
+description: Resumo e próximas etapas depois de ler o guia de considerações de design de identidade híbrida
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284663"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerações do design de identidade híbrida do Active Directory do Azure - próximas etapas
 Agora que você terminou de definir seus requisitos e examinou todas as opções para sua solução de gerenciamento de dispositivo móvel, você está pronto para executar as próximas etapas para implantar a infraestrutura de suporte que é ideal para você e sua organização.
@@ -40,12 +42,12 @@ Conceitos e procedimentos de planejamento, implantação e conteúdo de administ
 ## <a name="hybrid-identity-resources"></a>Recursos de identidade híbrida
 O monitoramento dos seguintes recursos geralmente fornece as últimas notícias e atualizações em soluções de gerenciamento de dispositivo móvel:
 
-* [Blog do Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
+* [Blog do Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blog Microsoft na nuvem](http://blogs.technet.com/b/in_the_cloud/)
 * [Blog do Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 * [Blog do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 * [Blog da Equipe do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

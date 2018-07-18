@@ -1,0 +1,714 @@
+---
+title: Noções básicas sobre conceitos de extração de dados no LUIS – Azure | Microsoft Docs
+description: Saiba quais tipos de dados podem ser extraídos do LUIS (Reconhecimento vocal)
+services: cognitive-services
+author: v-geberr
+manager: kamran.iqbal
+ms.service: cognitive-services
+ms.component: language-understanding
+ms.topic: article
+ms.date: 05/07/2018
+ms.author: v-geberr;
+ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265245"
+---
+# <a name="data-extraction"></a>Extração de dados
+O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chatbot para executar uma ação.
+
+Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON. Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados. 
+
+## <a name="data-location-and-key-usage"></a>Local dos dados e uso da chave
+O LUIS fornece os dados do [ponto de extremidade](luis-glossary.md#endpoint) publicado. A **solicitação HTTPS** (POST ou GET) contém a declaração, assim como algumas configurações opcionais, como ambientes de preparo ou de produção. 
+
+`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+O `appID` estará disponível na página **Configurações** do seu aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar sua chave de criação/de início gratuita enquanto você estiver aprendendo a usar o LUIS, é importante alterar a chave de assinatura para uma chave compatível com o [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
+
+A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL de ponto de extremidade é encontrada na página **Publicar** do site do [LUIS][LUIS]. 
+
+## <a name="data-from-intents"></a>Dados de intenções
+Os dados primários são o **nome da intenção** da pontuação mais alta. Usando o `MyStore` [início rápido](luis-quickstart-intents-only.md), a resposta do ponto de extremidade é:
+
+```JSON
+{
+  "query": "when do you open next?",
+  "topScoringIntent": {
+    "intent": "GetStoreInfo",
+    "score": 0.984749258
+  },
+  "entities": []
+}
+```
+
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|--|--|--|--|
+|Intenção|Cadeia de caracteres|topScoringIntent.intent|"GetStoreInfo"|
+
+Se o chatbot ou o aplicativo que chama o LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retorne as pontuações de todas as intenções definindo o parâmetro querystring, `verbose=true`. A resposta do ponto de extremidade é:
+
+```JSON
+{
+  "query": "when do you open next?",
+  "topScoringIntent": {
+    "intent": "GetStoreInfo",
+    "score": 0.984749258
+  },
+  "intents": [
+    {
+      "intent": "GetStoreInfo",
+      "score": 0.984749258
+    },
+    {
+      "intent": "None",
+      "score": 0.2040639
+    }
+  ],
+  "entities": []
+}
+```
+
+As intenções são ordenadas da pontuação mais alta para a mais baixa.
+
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
+|--|--|--|--|:--|
+|Intenção|Cadeia de caracteres|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Intenção|Cadeia de caracteres|intents[1].intent|"None"|0,0168218873|
+
+Se você adicionar domínios predefinidos, o nome da intenção indicará o domínio, como `Utilties` ou `Communication`, assim como a intenção:
+
+```JSON
+{
+  "query": "Turn on the lights next monday at 9am",
+  "topScoringIntent": {
+    "intent": "Utilities.ShowNext",
+    "score": 0.07842206
+  },
+  "intents": [
+    {
+      "intent": "Utilities.ShowNext",
+      "score": 0.07842206
+    },
+    {
+      "intent": "Communication.StartOver",
+      "score": 0.0239675418
+    },
+    {
+      "intent": "None",
+      "score": 0.0168218873
+    }],
+  "entities": []
+}
+```
+    
+|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
+|--|--|--|--|--|
+|Utilidades|Intenção|Cadeia de caracteres|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicação|Intenção|Cadeia de caracteres|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intenção|Cadeia de caracteres|intents[2].intent|"None"|
+
+
+## <a name="data-from-entities"></a>Dados de entidades
+A maioria dos chatbots e aplicativos precisam de mais do que o nome da intenção. Esses dados adicionais e opcionais são provenientes de entidades descobertas na declaração. Cada tipo de entidade retorna diferentes informações sobre a correspondência. 
+
+Uma única palavra ou frase em uma declaração pode corresponder a mais de uma entidade. Nesse caso, cada entidade de correspondência é retornada com sua pontuação. 
+
+Todas as entidades são retornadas na matriz de **entidades** da resposta do ponto de extremidade:
+
+```JSON
+"entities": [
+  {
+    "entity": "bob jones",
+    "type": "Name",
+    "startIndex": 0,
+    "endIndex": 8,
+    "score": 0.473899543
+  },
+  {
+    "entity": "3",
+    "type": "builtin.number",
+    "startIndex": 16,
+    "endIndex": 16,
+    "resolution": {
+      "value": "3"
+    }
+  }
+]
+```
+
+## <a name="tokenized-entity-returned"></a>Entidade indexada retornada
+Várias [culturas](luis-supported-languages.md#tokenization) retornam o objeto de entidade com o `entity` valor [indexado](luis-glossary.md#token). Os startIndex e endIndex retornados pelo LUIS no objeto de entidade não mapeiam o valor novo e indexado, mas a consulta original para você extrair a entidade bruta programaticamente. 
+
+Por exemplo, em alemão, a palavra `das Bauernbrot` é indexado em `das bauern brot`. O valor indexado, `das bauern brot`, é retornado e o valor original pode ser determinado programaticamente do startIndex e do endIndex da consulta original, dando a você `das Bauernbrot`.
+
+## <a name="simple-entity-data"></a>Dados de entidade simples
+
+Uma [entidade simples](luis-concept-entity-types.md) é um valor de aprendizado de máquina. Ele pode ser uma palavra ou frase. 
+
+`Bob Jones wants 3 meatball pho`
+
+Na declaração anterior, `Bob Jones` é rotulado como uma entidade `Customer` simples.
+
+Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto descoberto da declaração, o local do texto descoberto e a pontuação:
+
+```JSON
+"entities": [
+  {
+  "entity": "bob jones",
+  "type": "Customer",
+  "startIndex": 0,
+  "endIndex": 8,
+  "score": 0.473899543
+  }
+]
+```
+
+|Objeto de dados|Nome da entidade|Valor|
+|--|--|--|
+|Entidade simples|"Cliente"|"bob jones"|
+
+## <a name="hierarchical-entity-data"></a>Dados de entidade hierárquica
+
+Entidades [hierárquicas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Filhos são identificados pelo contexto. Se estiver procurando uma relação pai-filho com correspondência exata do texto, use uma entidade [Lista](#list-entity-data). 
+
+`book 2 tickets to paris`
+
+Na declaração anterior, `paris` é rotulado como um filho `Location::ToLocation` da entidade hierárquica `Location`. 
+
+Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome do filho, o texto descoberto da declaração, o local do texto descoberto e a pontuação: 
+
+```JSON
+"entities": [
+  {
+    "entity": "paris",
+    "type": "Location::ToLocation",
+    "startIndex": 18,
+    "endIndex": 22,
+    "score": 0.6866132
+  }
+]
+```
+
+|Objeto de dados|Pai|Filho|Valor|
+|--|--|--|--|--|
+|Entidade hierárquica|Local padrão|ToLocation|"paris"|
+
+## <a name="composite-entity-data"></a>Dados da entidade composta
+Entidades [compostas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de `number` e `Location::ToLocation` predefinidos com a seguinte declaração:
+
+`book 2 tickets to paris`
+
+Observe que `2`, o número e `paris`, o ToLocation tem palavras entre eles que não fazem parte de nenhuma entidade. O sublinhado verde, usado em uma declaração rotulada no site do [LUIS][LUIS], indica uma entidade composta.
+
+![Entidade composta](./media/luis-concept-data-extraction/composite-entity.png)
+
+Entidades compostas são retornadas em uma matriz `compositeEntities` e todas as entidades com a composta também são retornadas na matriz `entities`:
+
+```JSON
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Location::ToLocation",
+      "startIndex": 18,
+      "endIndex": 22,
+      "score": 0.956998169
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "2 tickets to paris",
+      "type": "Order",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.7714499
+    }
+  ],
+  "compositeEntities": [
+    {
+      "parentType": "Order",
+      "value": "2 tickets to paris",
+      "children": [
+        {
+          "type": "builtin.number",
+          "value": "2"
+        },
+        {
+          "type": "Location::ToLocation",
+          "value": "paris"
+        }
+      ]
+    }
+  ]
+```    
+
+|Objeto de dados|Nome da entidade|Valor|
+|--|--|--|
+|Entidade predefinida – número|"builtin.number"|"2"|
+|Entidade hierárquica – local|"Location::ToLocation"|"paris"|
+
+## <a name="list-entity-data"></a>Dados da entidade Lista
+
+Uma entidade [lista](luis-concept-entity-types.md) não é de aprendizado de máquina. É uma correspondência exata do texto. Uma lista representa os itens na lista junto com os sinônimos desses itens. O LUIS marca qualquer correspondência a um item em qualquer lista como uma entidade na resposta. Um sinônimo pode estar em mais de uma lista. 
+
+Suponha que o aplicativo tem uma lista, chamada `Cities`, que permite variações de nomes de cidade que incluem a cidade do aeroporto (SEA), o código do aeroporto (SEA), o CEP (98101) e o código da área de telefone (206). 
+
+|Item de lista|Sinônimos do item|
+|---|---|
+|Seattle|sea-tac, sea, 98101, 206, +1 |
+|Paris|cdg, roissy, ory, 75001, 1, +33|
+
+`book 2 tickets to paris`
+
+Na declaração anterior, a palavra `paris` é mapeada para o item paris como parte da entidade de lista `Cities`. A entidade de lista corresponde ao nome normalizado do item, assim como aos sinônimos do item. 
+
+```JSON
+"entities": [
+  {
+    "entity": "paris",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 22,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
+    }
+  }
+]
+```
+
+Outra declaração de exemplo, que usa um sinônimo para Paris:
+
+`book 2 tickets to roissy`
+
+```JSON
+"entities": [
+  {
+    "entity": "roissy",
+    "type": "Cities",
+    "startIndex": 18,
+    "endIndex": 23,
+    "resolution": {
+      "values": [
+        "Paris"
+      ]
+    }
+  }
+]
+```
+
+## <a name="prebuilt-entity-data"></a>Dados de entidade predefinida
+Entidades [predefinidas](luis-concept-entity-types.md) são descobertas com base em uma correspondência de expressão regular usando o projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Entidades predefinidas são retornadas na matriz de entidades e usam o nome do tipo que começa com `builtin::`. O texto a seguir é uma declaração de exemplo com as entidades predefinidas retornadas:
+
+`Dec 5th send to +1 360-555-1212`
+
+```JSON
+"entities": [
+    {
+      "entity": "dec 5th",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 0,
+      "endIndex": 6,
+      "resolution": {
+        "values": [
+          {
+            "timex": "XXXX-12-05",
+            "type": "date",
+            "value": "2017-12-05"
+          },
+          {
+            "timex": "XXXX-12-05",
+            "type": "date",
+            "value": "2018-12-05"
+          }
+        ]
+      }
+    },
+    {
+      "entity": "1",
+      "type": "builtin.number",
+      "startIndex": 18,
+      "endIndex": 18,
+      "resolution": {
+        "value": "1"
+      }
+    },
+    {
+      "entity": "360",
+      "type": "builtin.number",
+      "startIndex": 20,
+      "endIndex": 22,
+      "resolution": {
+        "value": "360"
+      }
+    },
+    {
+      "entity": "555",
+      "type": "builtin.number",
+      "startIndex": 26,
+      "endIndex": 28,
+      "resolution": {
+        "value": "555"
+      }
+    },
+    {
+      "entity": "1212",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 35,
+      "resolution": {
+        "value": "1212"
+      }
+    },
+    {
+      "entity": "5th",
+      "type": "builtin.ordinal",
+      "startIndex": 4,
+      "endIndex": 6,
+      "resolution": {
+        "value": "5"
+      }
+    },
+    {
+      "entity": "1 360 - 555 - 1212",
+      "type": "builtin.phonenumber",
+      "startIndex": 18,
+      "endIndex": 35,
+      "resolution": {
+        "value": "1 360 - 555 - 1212"
+      }
+    }
+  ]
+``` 
+
+## <a name="regular-expression-entity-data"></a>Dados de entidade de expressão regular
+Entidades de [expressão regular](luis-concept-entity-types.md) são descobertas com base em uma correspondência de expressão regular usando uma expressão que você fornece ao criar a entidade. Ao usar o `kb[0-9]{6}` como a definição de entidade de expressão regular, a resposta JSON a seguir é uma declaração de exemplo com as entidades de expressão regular retornadas para a consulta `When was kb123456 published?`:
+
+```JSON
+{
+  "query": "when was kb123456 published?",
+  "topScoringIntent": {
+    "intent": "FindKBArticle",
+    "score": 0.933641255
+  },
+  "intents": [
+    {
+      "intent": "FindKBArticle",
+      "score": 0.933641255
+    },
+    {
+      "intent": "None",
+      "score": 0.04397359
+    }
+  ],
+  "entities": [
+    {
+      "entity": "kb123456",
+      "type": "KB number",
+      "startIndex": 9,
+      "endIndex": 16
+    }
+  ]
+}
+```
+
+## <a name="extracting-names"></a>Extraindo nomes
+Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, você tem várias opções. Elas não são regras, são diretrizes. 
+
+### <a name="names-of-people"></a>Nomes de pessoas
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+
+### <a name="names-of-places"></a>Nomes de locais
+Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+
+### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+
+## <a name="pattern-roles-data"></a>Dados de funções de padrão
+Funções são diferenças contextuais de entidades. 
+
+```JSON
+{
+  "query": "move bob jones from seattle to redmond",
+  "topScoringIntent": {
+    "intent": "MoveAssetsOrPeople",
+    "score": 0.9999998
+  },
+  "intents": [
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 0.9999998
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 6.12244548E-07
+    },
+    {
+      "intent": "FindForm",
+      "score": 1.1E-09
+    }
+  ],
+  "entities": [
+    {
+      "entity": "bob jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 13,
+      "score": 0.922820568,
+      "role": ""
+    },
+    {
+      "entity": "seattle",
+      "type": "Location",
+      "startIndex": 20,
+      "endIndex": 26,
+      "score": 0.948008537,
+      "role": "Origin"
+    },
+    {
+      "entity": "redmond",
+      "type": "Location",
+      "startIndex": 31,
+      "endIndex": 37,
+      "score": 0.7047979,
+      "role": "Destination"
+    }
+  ]
+}
+```
+
+## <a name="patternany-entity-data"></a>Dados de entidade pattern.any
+Entidades pattern.any são entidades de comprimento variável usadas em declarações de modelo de um [padrão](luis-concept-patterns.md). 
+
+```JSON
+{
+  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.999999464
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.999999464
+    },
+    {
+      "intent": "GetEmployeeBenefits",
+      "score": 4.883697E-06
+    },
+    {
+      "intent": "None",
+      "score": 1.02040713E-06
+    },
+    {
+      "intent": "GetEmployeeOrgChart",
+      "score": 9.278342E-07
+    },
+    {
+      "intent": "MoveAssetsOrPeople",
+      "score": 9.278342E-07
+    }
+  ],
+  "entities": [
+    {
+      "entity": "understand your responsibilities as a member of the community",
+      "type": "FormName",
+      "startIndex": 18,
+      "endIndex": 78,
+      "role": ""
+    }
+  ]
+}
+```
+
+
+## <a name="sentiment-analysis"></a>Análise de sentimento
+Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+### <a name="sentiment-data"></a>Dados de sentimento
+Dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
+
+Quando a cultura for `en-us`, a resposta será:
+
+```JSON
+"sentimentAnalysis": {
+  "label": "positive",
+  "score": 0.9163064
+}
+```
+
+Para todas as outras culturas, a resposta é:
+
+```JSON
+"sentimentAnalysis": {
+  "score": 0.9163064
+}
+```
+
+
+### <a name="key-phrase-extraction-entity-data"></a>Dados de entidade de extração de frases-chave
+A entidade de extração de frases-chave retorna frases-chave na declaração, fornecida pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+
+<!-- TBD: verify JSON-->
+```JSON
+"keyPhrases": [
+    "places",
+    "beautiful views",
+    "favorite trail"
+]
+```
+
+## <a name="data-matching-multiple-entities"></a>Dados que correspondem a várias entidades
+O LUIS retorna todas as entidades descobertas na declaração. Como resultado, seu chatbot pode precisar tomar uma decisão com base nos resultados. Uma declaração pode ter muitas entidades em uma declaração:
+
+`book me 2 adult business tickets to paris tomorrow on air france`
+
+O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidades: 
+
+```JSON
+{
+  "query": "book me 2 adult business tickets to paris tomorrow on air france",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 1.0
+  },
+  "intents": [
+    {
+      "intent": "BookFlight",
+      "score": 1.0
+    },
+    {
+      "intent": "Concierge",
+      "score": 0.04216196
+    },
+    {
+      "intent": "None",
+      "score": 0.03610297
+    }
+  ],
+  "entities": [
+    {
+      "entity": "air france",
+      "type": "Airline",
+      "startIndex": 54,
+      "endIndex": 63,
+      "score": 0.8291798
+    },
+    {
+      "entity": "adult",
+      "type": "Category",
+      "startIndex": 10,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "adult"
+        ]
+      }
+    },
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 36,
+      "endIndex": 40,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
+    },
+    {
+      "entity": "tomorrow",
+      "type": "builtin.datetimeV2.date",
+      "startIndex": 42,
+      "endIndex": 49,
+      "resolution": {
+        "values": [
+          {
+            "timex": "2018-02-21",
+            "type": "date",
+            "value": "2018-02-21"
+          }
+        ]
+      }
+    },
+    {
+      "entity": "paris",
+      "type": "Location::ToLocation",
+      "startIndex": 36,
+      "endIndex": 40,
+      "score": 0.9730773
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 8,
+      "endIndex": 8,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "business",
+      "type": "Seat",
+      "startIndex": 16,
+      "endIndex": 23,
+      "resolution": {
+        "values": [
+          "business"
+        ]
+      }
+    },
+    {
+      "entity": "2 adult business",
+      "type": "TicketSeatOrder",
+      "startIndex": 8,
+      "endIndex": 23,
+      "score": 0.8784727
+    }
+  ],
+  "compositeEntities": [
+    {
+      "parentType": "TicketSeatOrder",
+      "value": "2 adult business",
+      "children": [
+        {
+          "type": "Category",
+          "value": "adult"
+        },
+        {
+          "type": "builtin.number",
+          "value": "2"
+        },
+        {
+          "type": "Seat",
+          "value": "business"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

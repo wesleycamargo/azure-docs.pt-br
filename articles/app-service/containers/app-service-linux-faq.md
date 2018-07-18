@@ -13,19 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/18/2018
+ms.author: msangapu
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222970"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
 Com o lançamento do Serviço de Aplicativo no Linux, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Este artigo fornece as respostas para as perguntas que nossos clientes têm feito recentemente.
 
-Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
+Se você tiver qualquer dúvida, comente este artigo.
 
 ## <a name="built-in-images"></a>Imagens internas
 
@@ -35,7 +36,7 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de tempo de execução?**
 
-Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
+Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada como `dotnet <myapp>.dll`. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
 
 ## <a name="management"></a>Gerenciamento
 
@@ -47,19 +48,19 @@ Esta ação é igual a um reinício do Docker.
 
 Sim, você pode fazer isso por meio do site de gerenciamento do controle de origem (SCM) .
 
-> [!NOTE] 
+> [!NOTE]
 > Você também pode se conectar ao contêiner de aplicativo diretamente do seu computador de desenvolvimento local usando SSH, SFTP ou Visual Studio Code (para aplicativos do Node.js de depuração ao vivo). Para obter mais informações, consulte [Depuração remota e SSH no Serviço de Aplicativo no Linux](https://aka.ms/linux-debug).
 >
 
 **Como criar um plano de Serviço de Aplicativo Linux por meio de um SDK ou um modelo do Azure Resource Manager?**
 
-Você precisa definir o campo **reservado** do serviço de aplicativo como *true*.
+Você deve definir o campo **reservado** do serviço de aplicativo para *true*.
 
 ## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
 
 **Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?**
 
-Para configurar a integração/implantação contínua para o Registro de Contêiner do Azure ou para imagens do DockerHub, confira o seguinte artigo [Implantação contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
+Sim, para configurar integração/implantação contínua para o Registro de Contêiner do Azure ou DockerHub, seguindo a [Implantação contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
 
 **Há suporte para ambientes de preparo?**
 
@@ -69,15 +70,15 @@ Sim.
 
 Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` como *false*.
 
-**A implantação do Git do meu aplicativo falha ao usar um aplicativo Web do Linux. Como resolver esse problema?**
+**A implantação do Git do meu aplicativo falha ao usar um aplicativo Web do Linux. Como fazer para resolver o problema??**
 
-Se a implantação do Git falhar no seu aplicativo Web do Linux, você pode escolher as seguintes alternativas para implantar seu código de aplicativo:
+Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das opções a seguir para implantar o código do aplicativo:
 
-- Usar o recurso Entrega Contínua (versão prévia): você pode armazenar o código-fonte do seu aplicativo em um repositório Git do Team Services ou em um repositório do GitHub para usar a Entrega Contínua do Azure. Para obter mais detalhes, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Usar o recurso Entrega Contínua (versão prévia): você pode armazenar o código-fonte do seu aplicativo em um repositório Git do Team Services ou em um repositório do GitHub para usar a Entrega Contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e vá para a pasta onde você deseja implantar seu código. Execute o seguinte:
+- Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e vá para a pasta onde você deseja implantar seu código. Execute o código a seguir:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -85,10 +86,11 @@ Se a implantação do Git falhar no seu aplicativo Web do Linux, você pode esco
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-**Desejo usar websockets no meu aplicativo Node.js, configurações especiais ou configurações para definir?**
+**Eu quero usar websockets no aplicativo Node.js, há definições ou configurações especiais a serem definidas?**
 
-Sim, desabilite `perMessageDeflate` no seu código do Node.js do lado do servidor. Por exemplo, se você estiver usando socket.io, faça o seguinte:
-```
+Sim, desabilite `perMessageDeflate` no código Node.js do servidor. Por exemplo, se estiver usando o socket.io, use o código a seguir:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -100,20 +102,20 @@ Sim.
 
 **Há suporte para o Criador como um gerenciador de dependências para aplicativos PHP?**
 
-Sim. Durante a implantação de Git, o Kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo de composer.lock) e o Kudu então disparará uma instalação de criador para você.
+Sim, durante uma implantação do Git, o Kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo composer.lock) e o Kudu, então, disparará uma instalação de criador.
 
 ## <a name="custom-containers"></a>Contêineres personalizados
 
 **Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB para o diretório `/home/`.**
 
-Você pode definir a configuração de aplicativo `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como *true* ou remova totalmente a configuração do aplicativo. Lembre-se de que isso causará reinicializações de contêiner quando o armazenamento de plataforma passar por uma alteração. 
+É possível fazer isso, definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo como *true*. Lembre-se de que isso fará com que o contêiner seja reiniciado quando o armazenamento da plataforma passar por uma alteração.
 
 >[!NOTE]
->Se a configuração de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` for *false*, o diretório `/home/` não poderá mais ser compartilhado entre instâncias de escala e arquivos gravados ali não serão persistidos entre as reinicializações.
+>Se a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração não for especificada ou definida como para *false*, o `/home/`diretório não será compartilhado entre as instâncias de escala e os arquivos gravados lá não serão mantidos nos reinícios.
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 
-Você pode configurar o tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração de aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo permitido é 600 segundos.
+Você pode configurar o tempo que a plataforma aguardará antes de reiniciar o contêiner. Para fazer isso, defina a configuração de aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` como o valor desejado. O valor padrão é 230 segundos e o valor máximo permitido é 1800 segundos.
 
 **Qual é o formato da URL do servidor do Registro privado?**
 
@@ -161,6 +163,6 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
-* [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implantação Contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)
+- [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
+- [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Implantação Contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)

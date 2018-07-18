@@ -10,18 +10,18 @@
   items:
     - name: Laboratórios de Desenvolvimento/Teste
       items:
-        - name: 1. Configurar um laboratório personalizado
+        - name: 1. Configurar um laboratório
           href: tutorial-create-custom-lab.md
-        - name: 2. Acessar um laboratório personalizado
+        - name: 2. Acessar um laboratório
           href: tutorial-use-custom-lab.md
     - name: Laboratórios de sala de aula
       items:
         - name: 1. Configurar uma conta de laboratório
-          href: tutorial-setup-lab-account.md
+          href: classroom-labs/tutorial-setup-lab-account.md
         - name: 2. Configurar um laboratório de sala de aula
-          href: tutorial-setup-classroom-lab.md
+          href: classroom-labs/tutorial-setup-classroom-lab.md
         - name: 3. Acessar um laboratório de sala de aula
-          href: tutorial-connect-virtual-machine-classroom-lab.md
+          href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
 - name: Exemplos
   items:
     - name: Laboratórios de Desenvolvimento/Teste
@@ -50,20 +50,22 @@
     - name: Laboratórios de sala de aula
       items:
         - name: Gerenciar contas de laboratório
-          href: how-to-manage-lab-accounts.md
+          href: classroom-labs/how-to-manage-lab-accounts.md
         - name: Gerenciar laboratórios de sala de aula
-          href: how-to-manage-classroom-labs.md
+          href: classroom-labs/how-to-manage-classroom-labs.md
         - name: Acessar laboratórios de sala de aula
-          href: how-to-use-classroom-lab.md
+          href: classroom-labs/how-to-use-classroom-lab.md
     - name: Laboratórios de desenvolvimento/teste
       items:
-        - name: Criar um laboratório personalizado
+        - name: Criar um laboratório
           href: devtest-lab-create-lab.md
-        - name: Criar uma VM no laboratório personalizado
+        - name: Criar uma VM no laboratório
           href: devtest-lab-create-first-vm.md
-        - name: Definir políticas para o laboratório personalizado
+        - name: Definir políticas para o laboratório
           href: devtest-lab-get-started-with-lab-policies.md
-        - name: Usar VMs em um laboratório personalizado
+        - name: Armazenar segredos no Azure Key Vault
+          href: devtest-lab-store-secrets-in-key-vault.md
+        - name: Usar VMs em um laboratório
           items:
             - name: Criar VMs
               href: devtest-lab-add-vm.md
@@ -75,7 +77,13 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Reiniciar uma VM
               href: devtest-lab-restart-vm.md
-        - name: Usar ambientes em um laboratório personalizado
+            - name: Redimensionar uma VM
+              href: devtest-lab-resize-vm.md
+            - name: Reimplantar uma VM
+              href: devtest-lab-redeploy-vm.md
+            - name: Importar uma VM
+              href: devtest-lab-import-vm.md
+        - name: Usar ambientes em um laboratório
           items:
             - name: Criar um ambiente
               href: devtest-lab-create-environment-from-arm.md
@@ -85,7 +93,7 @@
               href: devtest-lab-add-devtest-user.md
             - name: Personalizar permissões com funções personalizadas
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: Configurar um laboratório personalizado
+        - name: Configurar um laboratório
           items:
             - name: Definir políticas e agendas
               href: devtest-lab-set-lab-policy.md
@@ -95,11 +103,11 @@
               href: devtest-lab-configure-marketplace-images.md
             - name: Habilitar uma imagem licenciada
               href: devtest-lab-enable-licensed-images.md
-            - name: Adicionar marcas a um laboratório personalizado
+            - name: Adicionar marcas a um laboratório
               href: devtest-lab-add-tag.md
-            - name: Notificação de postagem em um laboratório personalizado
+            - name: Notificação de postagem em um laboratório
               href: devtest-lab-announcements.md
-            - name: Adicionar informações de suporte a um laboratório personalizado
+            - name: Adicionar informações de suporte a um laboratório
               href: devtest-lab-internal-support-message.md
         - name: Selecionar imagem ou fórmula personalizadas
           href: devtest-lab-comparing-vm-base-image-types.md

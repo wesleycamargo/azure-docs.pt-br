@@ -1,11 +1,11 @@
 ---
-title: "Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs"
-description: "Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes)."
+title: Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes) | Microsoft Docs
+description: Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 41fbeb848d7d97e5ee41a2221b69cc88380dc1e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657189"
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Como solucionar problemas e monitorar o SAP HANA (instâncias grandes) no Azure
 
@@ -90,9 +91,9 @@ Talvez você perceba o alto consumo de CPU em seu banco de dados SAP HANA em um 
 
 ![Uso de CPU exibido na tela de visão geral](./media/troubleshooting-monitoring/image3-cpu-usage.png)
 
-O gráfico de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior:
+O grafo de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior:
 
-![O gráfico de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior](./media/troubleshooting-monitoring/image4-load-graph.png)
+![O grafo de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior](./media/troubleshooting-monitoring/image4-load-graph.png)
 
 Um alerta disparado devido à alta utilização de CPU pode ser causado por vários motivos, incluindo, mas sem limitação: execução de certas transações, carregamento de dados, travamento de trabalhos, instruções SQL de longa execução e desempenho ruim da consulta (por exemplo, com BW em cubos HANA).
 
@@ -125,10 +126,10 @@ Consulte o site [Solução de problemas do SAP HANA: problemas de memória](http
 Consulte a [Nota SAP nº 2081065 – Solução de problemas de rede do SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e execute as etapas de solução de problemas de rede desta Nota SAP.
 
 1. Análise do tempo de ida e volta entre o cliente e servidor.
-  R. Execute o script SQL [_HANA\_Rede\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  a. Execute o script SQL [_HANA\_Rede\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Análise da comunicação entre nós.
-  R. Execute o script SQL [_HANA\_Rede\_Serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  a. Execute o script SQL [_HANA\_Rede\_Serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Execute o comando Linux **ifconfig** (a saída mostrará se ocorre quaisquer perdas de pacote).
 4. Execute o comando Linux **tcpdump**.

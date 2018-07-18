@@ -1,6 +1,6 @@
 ---
 title: Conceitos de servidor no Banco de Dados do Azure para PostgreSQL
-description: "Este artigo fornece diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores PostgreSQL."
+description: Este artigo fornece diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640006"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Banco de Dados do Azure para servidores PostgreSQL
 Este artigo apresenta diretrizes e considerações para trabalhar com servidores do Banco de Dados do Azure para PostgreSQL.
@@ -45,13 +46,22 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados:
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |
 | **Firewall** | Para ajudar a proteger seus dados, uma regra de firewall impede todo acesso ao servidor e seus bancos de dados até que você especifique quais computadores têm permissão. Confira [Regras de firewall do Banco de Dados do Azure para servidor PostgreSQL](concepts-firewall-rules.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
+## <a name="managing-your-server"></a>Gerenciando o servidor
 Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o [Portal do Azure](https://portal.azure.com) ou a [CLI do Azure](/cli/azure/postgres).
+
+Ao criar um servidor, você configura as credenciais de seu usuário administrador. O usuário administrador é o usuário com privilégio mais elevado no servidor. Ele pertence à função azure_pg_admin. Essa função não tem permissões completas de superusuário. 
+
+O atributo de superusuário do PostgreSQL é atribuído a azure_superuser, que pertence ao serviço gerenciado. Você não tem acesso a essa função.
+
+Um servidor do Banco de Dados do Azure para PostgreSQL tem dois bancos de dados padrão: 
+- **postgres** – um banco de dados padrão a que você poderá se conectar após seu servidor ser criado.
+- **azure_maintenance** – este banco de dados é usado para separar os processos que fornecem o serviço gerenciado das ações do usuário. Você não tem acesso a esse banco de dados.
+
 
 ## <a name="server-parameters"></a>Parâmetros do Servidor
 Os parâmetros de servidor PostgreSQL determinam a configuração do servidor. No Banco de Dados do Azure para PostgreSQL, a lista de parâmetros pode ser exibida e editada usando o portal do Azure ou a CLI do Azure. 
 
-Como um serviço gerenciado para Postgres, os parâmetros configuráveis no banco de dados do Azure para PostgreSQL são um subconjunto dos parâmetros em uma instância local do Postgres (para obter mais informações sobre parâmetros Postgres, consulte o [PostgreSQL documentação](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). O banco de dados do Azure para servidor PostgreSQL está habilitado com valores padrão para cada parâmetro na criação. Parâmetros que necessitariam de um reinício de servidor ou acesso de superusuário para mudanças sentirem efeito não podem ser configurados pelo usuário.
+Como um serviço gerenciado para Postgres, os parâmetros configuráveis no banco de dados do Azure para PostgreSQL são um subconjunto dos parâmetros em uma instância local do Postgres (para obter mais informações sobre parâmetros Postgres, consulte o [PostgreSQL documentação](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). O banco de dados do Azure para servidor PostgreSQL está habilitado com valores padrão para cada parâmetro na criação. Alguns parâmetros que necessitariam de um reinício de servidor ou de acesso de superusuário para as mudanças terem efeito não podem ser configurados pelo usuário.
 
 
 ## <a name="next-steps"></a>Próximas etapas

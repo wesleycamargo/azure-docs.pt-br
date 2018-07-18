@@ -4,17 +4,18 @@ description: Execute um aplicativo Web ASP.NET de exemplo que usa o Azure Active
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 4342e8c58c9bb20580d8428a6c9869f9a3b893cb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e52674014a888913e288f7b0749d9b2e05bedf45
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292779"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo ASP.NET usando o Azure Active Directory B2C
 
@@ -123,4 +124,4 @@ Neste início rápido você usou um aplicativo do ASP.NET de exemplo habilitado 
 Continue o tutorial para aprender a configurar o ASP.NET de exemplo para usar seu próprio locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar usuários com o Azure Active Directory B2C em um aplicativo Web ASP.NET](active-directory-b2c-tutorials-web-app.md)
+> [Criar um locatário do Azure Active Directory B2C no Portal do Azure](tutorial-create-tenant.md)

@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651198"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -206,10 +207,9 @@ O Microsoft Azure StorSimple usa eliminação de duplicação e compactação de
 
 Os recursos de proteção de dados StorSimple permitem que você crie backups sob demanda. Além disso, um agendamento padrão garante que o backup dos dados seja realizado diariamente. Backups são feitos na forma de instantâneos incrementais, que são armazenados na nuvem. Instantâneos, que registram apenas as alterações desde o último backup, podem ser criados e restaurados rapidamente. Esses instantâneos podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
 
-## <a name="gdpr-compliance"></a>Conformidade de GDPR
-O [GDPR (Regulamento Geral sobre a Proteção de Dados)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é uma lei de privacidade e proteção de dados da União Europeia (UE). O GDPR contém muitos requisitos sobre como coletar, armazenar e usar informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam da UE e coletam, analisam dados vinculados para residentes da UE.
+## <a name="managing-personal-information"></a>Gerenciando informações pessoais
 
-O Gerenciador de Dispositivos de StorSimple para séries virtuais é compatível com GDPR. Há duas instâncias de chave, onde as informações pessoais são coletadas e exibidas no serviço:
+O StorSimple Device Manager para séries virtuais coleta informações pessoais em duas instâncias principais:
  - Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser apagadas pelo administrador. 
  - Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser exportada. Essa lista também será excluída quando os compartilhamentos são excluídos.
 

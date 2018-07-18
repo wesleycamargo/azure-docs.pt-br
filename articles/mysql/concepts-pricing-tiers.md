@@ -6,15 +6,15 @@ author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 07/11/2018
+ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271970"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971930"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -24,31 +24,31 @@ Você pode criar um servidor do Banco de Dados do Azure para MySQL em um dos tr�
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memória por vCore | Linha de base | 2 x Básico | 2x Uso Geral |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 2 TB | 5 GB a 2 TB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção do backup de banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
 Para escolher um tipo de preço, use a tabela a seguir como ponto de partida.
 
-| Tipo de preço  | Cargas de trabalho de destino |
+| Tipo de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
 | Basic | Cargas de trabalho que exigem desempenho de E/S e computação leve. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
 | Uso geral | A maioria das cargas de trabalho que exigem a computação e a memória balanceadas com a taxa de transferência de E/S escalonável. Os exemplos incluem servidores para hospedar aplicativos Web e móveis e outros aplicativos empresariais.|
 | Otimizado para memória | Cargas de trabalho de banco de dados de alto desempenho que exigem desempenho na memória para o processamento de transações mais rápido e com simultaneidade mais alta. Os exemplos incluem servidores para o processamento de dados em tempo real e aplicativos analíticos ou transacionais de alto desempenho.|
 
-Depois de criar um servidor, o número de vCores pode ser aumentado ou reduzido (com a mesma camada de preços) em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Recursos de dimensionamento](#scale-resources).
+Depois de criar um servidor, o número de vCores a geração de hardware e o tipo de preço (exceto em Básico) pode ser alterado para cima ou para baixo em segundos. Você pode também, independentemente, ajustar a quantidade de armazenamento de backup e o período de retenção de backup para cima ou para baixo sem tempo de inatividade do aplicativo. Não será possível alterar o tipo de armazenamento de backup depois que um servidor é criado. Para obter mais informações, consulte a seção [Recursos de dimensionamento](#scale-resources).
 
-## <a name="compute-generations-vcores-and-memory"></a>Gerações de computação, vCores e memória
+## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
-Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. No momento, você pode escolher entre duas gerações de computação, Gen 4 e 5. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível). 
+Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. No momento, você pode escolher entre duas gerações de computação, Gen 4 e 5. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível).
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
 | Centro dos EUA | X |  |
 | Leste dos EUA | X | X |
 | Leste dos EUA 2 | X | X |
-| Centro-Norte dos EUA | X |  |
+| Centro-Norte dos EUA | X | X |
 | Centro-Sul dos Estados Unidos | X | X |
 | Oeste dos EUA | X | X |
 | Oeste dos EUA 2 |  | X |
@@ -57,20 +57,22 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Sul do Brasil | X | X |
 | Norte da Europa | X | X |
 | Europa Ocidental |  | X |
+| França Central |  | X |
 | Oeste do Reino Unido |  | X |
 | Sul do Reino Unido |  | X |
-| Ásia Oriental | X |  |
+| Ásia Oriental | X | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
+| Austrália Central |  | X |
+| Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
-| Índia Central | X |  |
-| Índia Ocidental | X |  |
+| Índia Central | X | X |
+| Índia Ocidental | X | X |
 | Sul da Índia |  | X |
 | Leste do Japão | X | X |
 | Oeste do Japão | X | X |
+| Coreia Central |  | X |
 | Sul da Coreia |  | X |
-
-Dependendo do tipo de preço, cada vCore é configurado com uma quantidade específica de memória. Quando você aumenta ou reduz o número de vCores para o servidor, a memória aumenta ou diminui proporcionalmente. A camada de uso geral fornece o dobro da quantidade de memória por vCore comparada com a camada Básico. O nível de otimização de memória fornece o dobro da quantidade de memória comparado com a camada de uso geral.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -79,9 +81,9 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 |    | **Básico** | **Uso geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 2 TB | 5 GB a 2 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
-| IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS |
+| IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>Máx 6000 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>Máx 6000 IOPS |
 
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor. A camada Básico não oferece garantia de IOPS. Nos tipos de preço Uso Geral e Otimizado para Memória, o IOPS é dimensionado com o tamanho de armazenamento provisionado a uma taxa de 3:1.
 
@@ -99,9 +101,9 @@ O serviço faz backups do servidor automaticamente. O período de retenção mí
 
 ## <a name="scale-resources"></a>Recursos de escala
 
-Após criar o servidor, você poderá, independentemente, alterar vCores, a quantidade de armazenamento e o período de retenção de backup. Não será possível alterar o tipo de preço ou o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser dimensionado para cima ou para baixo dentro do mesmo tipo de preço. Os vCores e o período de retenção de backup podem ser aumentados ou reduzidos de 7 a 35 dias. O tamanho de armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou da CLI do Azure. Para obter um exemplo de dimensionamento usando a CLI do Azure, consulte [Monitorar e dimensionar um servidor do Banco de Dados do Azure para MySQL usando a CLI do Azure](scripts/sample-scale-server.md).
+Após criar o servidor, você poderá, independentemente, alterar vCores, a geração de hardware, o tipo de preço (exceto em Básico), a quantidade de armazenamento e o período de retenção de backup. Não será possível alterar o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser dimensionado para cima ou para baixo. Os vCores e o período de retenção de backup podem ser aumentados ou reduzidos de 7 a 35 dias. O tamanho de armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou da CLI do Azure. Para obter um exemplo de dimensionamento usando a CLI do Azure, consulte [Monitorar e dimensionar um servidor do Banco de Dados do Azure para MySQL usando a CLI do Azure](scripts/sample-scale-server.md).
 
-Ao alterar o número de vCores, uma cópia do servidor original é criada com a nova alocação de computação. Depois que o novo servidor entra em execução, as conexões são alternadas para o novo servidor. Durante um momento enquanto o sistema muda para o novo servidor, nenhuma nova conexão pode ser estabelecida e todas as transações não confirmadas são revertidas. Esse período varia, mas na maioria dos casos fica abaixo um minuto.
+Ao alterar o número de vCores, a geração de hardware ou o tipo de preço, uma cópia do servidor original é criada com a nova alocação de computação. Depois que o novo servidor entra em execução, as conexões são alternadas para o novo servidor. Durante um momento enquanto o sistema muda para o novo servidor, nenhuma nova conexão pode ser estabelecida e todas as transações não confirmadas são revertidas. Esse período varia, mas na maioria dos casos fica abaixo um minuto.
 
 O dimensionamento do armazenamento e a alteração do período de retenção de backup são operações realmente online. Não há nenhum tempo de inatividade e o aplicativo não é afetado. Conforme o IOPS é dimensionado com o tamanho do armazenamento provisionado, você pode aumentar o IOPS disponível para seu servidor aumentando o armazenamento.
 

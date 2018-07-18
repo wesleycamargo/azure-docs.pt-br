@@ -1,11 +1,11 @@
 ---
-title: "Exemplos de configuração do roteador do cliente ExpressRoute | Microsoft Docs"
-description: "Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper."
+title: Exemplos de configuração do roteador do cliente ExpressRoute | Microsoft Docs
+description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013101"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 

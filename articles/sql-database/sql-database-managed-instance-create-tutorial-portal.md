@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850603"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma Instância Gerenciada do Banco de Dados SQL no portal do Azure
 
@@ -161,16 +162,16 @@ As etapas a seguir mostram como criar sua Instância Gerenciada depois que a ver
 
    ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Selecione sua assinatura e verifique se os termos da versão prévia mostram a opção **Aceito**.
+4. Selecione sua assinatura e verifique se os termos da versão prévia mostram a opção **Aceito**.
 
    ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Preencha o formulário de Instância Gerenciada com as informações solicitadas, usando as informações na tabela abaixo:
+5. Preencha o formulário de Instância Gerenciada com as informações solicitadas, usando as informações na tabela abaixo:
 
    | Configuração| Valor sugerido | DESCRIÇÃO |
    | ------ | --------------- | ----------- |
    |**Nome da Instância Gerenciada**|Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Logon de administrador da Instância Gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Logon de administrador da Instância Gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use “serveradmin”, que é uma função de nível de servidor reservada.| 
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 16 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Grupo de recursos**|O grupo de recursos criado anteriormente||
    |**Localidade**|O local selecionado anteriormente|Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ As etapas a seguir mostram como criar sua Instância Gerenciada depois que a ver
 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Clique em **Tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. Por padrão, a instância obtém 32 GB de espaço de armazenamento sem custo adicional, que podem não ser suficientes para seus aplicativos.
-6. Use os controles deslizantes ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Clique em **Tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. Por padrão, a instância obtém 32 GB de espaço de armazenamento sem custo adicional, que podem não ser suficientes para seus aplicativos.
+7. Use os controles deslizantes ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
+   ![tipo de preço de instância gerenciada](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Ao concluir, clique em **Aplicar** para salvar sua seleção.  
-8. Clique em **Criar** para implantar a Instância Gerenciada.
-9. Clique no ícone **Notificações** para exibir o status da implantação.
+8. Ao concluir, clique em **Aplicar** para salvar sua seleção.  
+9. Clique em **Criar** para implantar a Instância Gerenciada.
+10. Clique no ícone **Notificações** para exibir o status da implantação.
  
    ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Clique em **Implantação em andamento** para abrir a janela Instância Gerenciada e monitorar melhor o progresso da implantação.
+11. Clique em **Implantação em andamento** para abrir a janela Instância Gerenciada e monitorar melhor o progresso da implantação.
  
    ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ As etapas a seguir mostram como criar uma máquina virtual na mesma rede virtual
 
    ![virtual machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Clique em **OK**.
-4. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Para este tutorial, você só precisa de uma máquina virtual pequena.
+4. Clique em **OK**.
+5. Selecione um tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Para este tutorial, você só precisa de uma máquina virtual pequena.
 
     ![Tamanhos de VM](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Clique em **Selecionar**.
-6. No formulário **Configurações**, clique em **sub-rede** e selecione **vm_subnet**. Não escolha a sub-rede em que a Instância Gerenciada é provisionada; em vez disso, escolha outra sub-rede na mesma rede virtual.
+6. Clique em **Selecionar**.
+7. No formulário **Configurações**, clique em **sub-rede** e selecione **vm_subnet**. Não escolha a sub-rede em que a Instância Gerenciada é provisionada; em vez disso, escolha outra sub-rede na mesma rede virtual.
 
     ![Configurações da VM](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Clique em **OK**.
-8. Na página Resumo, analise os detalhes da oferta e clique em **Criar** para iniciar a implantação da máquina virtual.
+8. Clique em **OK**.
+9. Na página Resumo, analise os detalhes da oferta e clique em **Criar** para iniciar a implantação da máquina virtual.
  
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 

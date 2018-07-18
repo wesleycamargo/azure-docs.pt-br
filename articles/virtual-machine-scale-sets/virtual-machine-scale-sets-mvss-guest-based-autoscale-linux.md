@@ -1,11 +1,11 @@
 ---
-title: "Usar o dimensionamento automático do Azure com métricas de convidado em um modelo de conjunto de dimensionamento do Linux | Microsoft Docs"
-description: "Saiba como fazer dimensionamento automático usando métricas de convidado em um modelo de Conjunto de Dimensionamento de Máquinas Virtuais do Linux"
+title: Usar o dimensionamento automático do Azure com métricas de convidado em um modelo de conjunto de dimensionamento do Linux | Microsoft Docs
+description: Saiba como fazer dimensionamento automático usando métricas de convidado em um modelo de Conjunto de Dimensionamento de Máquinas Virtuais do Linux
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781421"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático usando métricas de convidado em um modelo de conjunto de dimensionamento do Linux
 

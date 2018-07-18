@@ -1,26 +1,28 @@
 ---
-title: "Chamar uma função do PowerApps | Microsoft Docs"
-description: "Crie um conector personalizado e, em seguida, chame uma função usando esse conector."
+title: Chamar uma função do PowerApps | Microsoft Docs
+description: Crie um conector personalizado e, em seguida, chame uma função usando esse conector.
 services: functions
-keywords: "aplicativos de nuvem, serviços de nuvem, PowerApps, processos de negócios, aplicativo de negócios"
-documentationcenter: 
-author: mgblythe
+keywords: aplicativos de nuvem, serviços de nuvem, PowerApps, processos de negócios, aplicativo de negócios
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586969"
 ---
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função do PowerApps
 A plataforma [PowerApps](https://powerapps.microsoft.com) destina-se a especialistas comerciais para o build de aplicativos sem código de aplicativo tradicional. Desenvolvedores profissionais podem usar o Azure Functions para estender os recursos do PowerApps e, ao mesmo tempo, proteger os construtores de aplicativo do PowerApps de detalhes técnicos.
@@ -44,7 +46,7 @@ Neste tópico, você aprenderá a:
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-+ Uma [conta do PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) ativa com as mesmas credenciais de entrada da sua conta do Azure. 
++ Uma [conta do PowerApps](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) ativa com as mesmas credenciais de entrada da sua conta do Azure. 
 + Excel e o [arquivo de exemplo do Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que você usará como uma fonte de dados para seu aplicativo.
 + Conclua o tutorial [Criar uma definição de OpenAPI para uma função](functions-openapi-definition.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Considerações de integração para sistemas de pilha do Azure integradas de rede | Microsoft Docs
-description: Saiba o que você pode fazer para planejar a integração com vários nós do Azure pilha da rede do datacenter.
+title: Considerações de integração para os sistemas integrados do Azure Stack de rede | Microsoft Docs
+description: Saiba o que você pode fazer para planejar a integração de rede de datacenter com vários nós do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,79 +12,80 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 752481186167fccb46d5bf3beb87c1507e0f4feb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003606"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
-Este artigo fornece informações de infraestrutura de rede de pilha do Azure para ajudá-lo a decidir como integrar melhor pilha do Azure em seu ambiente de rede existente. 
+Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudá-lo a decidir como se integrar melhor a pilha do Azure em seu ambiente de rede existente. 
 
 > [!NOTE]
-> Para resolver nomes DNS externos da pilha do Azure (por exemplo, www.bing.com), você precisa fornecer os servidores DNS para encaminhar solicitações de DNS. Para obter mais informações sobre os requisitos de DNS de pilha do Azure, consulte [integração de datacenter do Azure pilha - DNS](azure-stack-integrate-dns.md).
+> Para resolver nomes DNS externos do Azure Stack (por exemplo, www.bing.com), você precisa fornecer os servidores DNS para encaminhar solicitações DNS. Para obter mais informações sobre os requisitos de DNS do Azure Stack, consulte [integração de datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Design de rede física
-A solução de pilha do Azure exige uma infraestrutura física flexível e altamente disponível para dar suporte a seus serviços e a operação. O diagrama a seguir representa nosso design recomendado:
+A solução do Azure Stack requer uma infraestrutura física resiliente e altamente disponível para dar suporte a seus serviços e a operação. Uplinks a partir do ToR comutadores de borda são limitadas a SFP + ou mídia SFP28 e 1 GB, 10 GB ou velocidades de 25 GB. Verifique com seu fornecedor de hardware do fabricante original do equipamento (OEM) para disponibilidade. O diagrama a seguir apresenta nosso design recomendado:
 
-![Design de rede recomendado pilha do Azure](media/azure-stack-network/recommended-design.png)
+![Design de rede do Azure Stack recomendado](media/azure-stack-network/recommended-design.png)
 
 
 ## <a name="logical-networks"></a>Redes lógicas
-Redes lógicas representam uma abstração da infraestrutura de rede física subjacente. Eles são usados para organizar e simplificar atribuições de rede para hosts, máquinas virtuais e serviços. Como parte da criação de rede lógica, sites de rede são criados para definir redes locais virtuais (VLANs), sub-redes IP e pares de sub-rede/VLAN IP que estão associados com a rede lógica em cada local físico.
+Redes lógicas representam uma abstração da infraestrutura de rede física subjacente. Eles são usados para organizar e simplificar atribuições de rede para hosts, máquinas virtuais e serviços. Como parte da criação de rede lógica, os sites de rede são criadas para definir as redes locais virtuais (VLANs), as sub-redes IP e pares de sub-rede/VLAN IP que estão associados com a rede lógica em cada local físico.
 
-A tabela a seguir mostra as redes lógicas e os intervalos de sub-rede IPv4 associados que você deve planejar para:
+A tabela a seguir mostra as redes lógicas e intervalos de sub-rede IPv4 associados que você deve planejar:
 
 | Rede Lógica | DESCRIÇÃO | Tamanho | 
 | -------- | ------------- | ------------ | 
-| VIP público | A pilha do Azure usa um total de 32 endereços da rede. Oito endereços IP públicos são usados para um pequeno conjunto de serviços de pilha do Azure e o restante são usados por máquinas virtuais de locatário. Se você planeja usar o serviço de aplicativo e os provedores de recursos do SQL, 7 mais endereços são usados. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
-| Infraestrutura de chave | Endereços IP de ponta a ponta para fins de roteamento, dedicados alternar interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | / 26 | 
-| Infraestrutura | Usado para componentes internos da pilha do Azure para se comunicar. | /24 |
-| Privado | Usado para a rede de armazenamento e os VIPs privadas. | /24 | 
-| BMC | Usado para se comunicar com BMCs em hosts físicos. | / 27 | 
+| VIP público | O Azure Stack utiliza um total de 32 endereços da rede. Oito endereços IP públicos são usados para um pequeno conjunto de serviços do Azure Stack e o restante são usados por máquinas virtuais de locatário. Se você planeja usar o serviço de aplicativo e os provedores de recursos do SQL, endereços de mais de 7 são usados. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
+| Infraestrutura de opção | Endereços IP ponto a ponto para fins de roteamento, dedicados alternar interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | / 26 | 
+| Infraestrutura | Usado para os componentes internos do Azure Stack para se comunicar. | /24 |
+| Privado | Usado para a rede de armazenamento e os VIPs privados. | /24 | 
+| BMC | Usado para comunicar-se com BMCs em hosts físicos. | / 27 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede
-A infraestrutura de rede para a pilha do Azure consiste em várias redes lógicas que são configurados nos switches. O diagrama a seguir mostra essas redes lógicas e como integrar o top-of-rack (TOR) controlador BMC (BMC) e comutadores (rede de cliente) da borda.
+A infraestrutura de rede para o Azure Stack consiste em várias redes lógicas configuradas dos comutadores. O diagrama a seguir mostra essas redes lógicas e como eles se integram com o top-of-rack (TOR) baseboard management controller (BMC) e (rede de cliente) comutadores de borda.
 
 ![Conexões de diagrama e o comutador de rede lógica](media/azure-stack-network/NetworkDiagram.png)
 
-### <a name="bmc-network"></a>Rede do BMC
-Esta rede dedicada para se conectar a todos os controladores BMC (também conhecido como processadores de serviço, por exemplo, iDRAC iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o Host de ciclo de vida de Hardware (HLH) está localizado na rede e pode fornecer o software específico do OEM para manutenção de hardware ou de monitoramento. 
+### <a name="bmc-network"></a>Rede BMC
+Essa rede é dedicada para conectar-se todos os controladores (também conhecido como processadores de serviço, por exemplo, iDRAC, iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o Host de ciclo de vida de Hardware (HLH) está localizado nesta rede e fornecer software específico do OEM para manutenção de hardware ou de monitoramento. 
 
-O HLH também hospeda a VM de implantação (DVM). O DVM é usado durante a implantação da pilha do Azure e será removido quando a implantação for concluída. O DVM requer acesso à internet em cenários de implantação conectado para testar, validar e acessar os vários componentes. Esses componentes podem ser dentro e fora da sua rede corporativa; Por exemplo NTP, o DNS e o Azure. Para obter mais informações sobre requisitos de conectividade, consulte o [seção NAT na integração do firewall do Azure pilha](azure-stack-firewall.md#network-address-translation). 
+O HLH também hospeda a VM de implantação (DVM). O DVM é usado durante a implantação do Azure Stack e será removido quando a implantação for concluída. O DVM requer acesso à internet em cenários de implantação conectados para testar, validar e acessar os vários componentes. Esses componentes podem ser dentro e fora da sua rede corporativa; Por exemplo, NTP, DNS e do Azure. Para obter mais informações sobre os requisitos de conectividade, consulte a [seção NAT na integração do firewall do Azure Stack](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Rede privada
-Este /24 254 host da rede de IP) (é privada à região de pilha do Azure (não expandir além dos dispositivos de switch de borda da região de pilha do Azure) e é dividido em duas sub-redes:
+Este /24 (IPs de host 254) é privada para a região do Azure Stack (não expandam além dos dispositivos de switch de borda da região do Azure Stack) e é dividido em duas sub-redes de rede:
 
-- **Rede de armazenamento**. Migração ao vivo de um /25 126 host da rede de IP) (é usado para suporte ao uso do tráfego de armazenamento direto de espaços e bloco de mensagens de servidor (SMB) e a máquina virtual. 
-- **Rede IP virtual interna**. Um/25 VIPs dedicados a somente interno para o balanceador de carga do software de rede.
+- **Rede de armazenamento**. Um/25 (host 126 IPs) usado para dar suporte ao uso de espaços diretos e bloco de mensagens de servidor (SMB) o tráfego de armazenamento e migração ao vivo de máquina virtual de rede. 
+- **Rede IP virtual interno**. Um/25 VIPs dedicados a somente interno para o balanceador de carga de software de rede.
 
-### <a name="azure-stack-infrastructure-network"></a>Rede de infraestrutura de pilha do Azure
-Isso/24 de rede dedicado para componentes internos de pilha do Azure para que eles possam se comunicar e trocar dados entre si. Essa sub-rede requer endereços IP roteáveis, mas é mantida privada para a solução usando listas de controle de acesso (ACLs). Não se espera que ele deve ser roteada além as opções de borda, exceto um pequeno intervalo equivalente em tamanho um /27 rede utilizada por alguns desses serviços quando eles requerem acesso a recursos externos e/ou a internet. 
+### <a name="azure-stack-infrastructure-network"></a>Rede de infraestrutura do Azure Stack
+Isso/24 rede é dedicada aos componentes internos do Azure Stack para que eles possam se comunicar e trocar dados entre si. Essa sub-rede requer endereços IP roteáveis, mas é mantida privada à solução usando listas de controle de acesso (ACLs). Ele não é esperado para ser roteado além os comutadores de borda, exceto para um pequeno intervalo equivalente em tamanho um/27 rede utilizada por alguns desses serviços quando eles requerem acesso a recursos externos e/ou a internet. 
 
 ### <a name="public-infrastructure-network"></a>Rede de infraestrutura pública
-Isso/27 de rede é pequeno intervalo de sub-rede de infraestrutura do Azure pilha mencionado anteriormente, ele não requer que os endereços IP públicos, mas exige acesso à internet por meio de um NAT ou um Proxy transparente. Esta rede será alocada para sistema de Console de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registro para o Azure e durante os backups de infraestrutura. A VM ERCS deve ser roteável à sua rede de gerenciamento para fins de solução de problemas.
+Isso/27 de rede é pequeno intervalo de sub-rede de infraestrutura do Azure Stack mencionado anteriormente, não exige endereços IP públicos, mas ele requer acesso à internet por meio de um NAT ou um Proxy transparente. Esta rede será alocada para sistema de Console de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registro para o Azure e durante os backups de infraestrutura. A VM ERCS deve ser roteável para sua rede de gerenciamento para fins de solução de problemas.
 
-### <a name="public-vip-network"></a>Rede pública de VIP
-Rede pública VIP é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB usa o pool de endereços e atribui/32 redes para cargas de trabalho de locatário. Na tabela de roteamento de comutador, desses IPs 32 são publicados como uma rota disponível por meio do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure reserva os primeiros 31 endereços desta rede VIP público enquanto o restante é usado pelas máquinas virtuais do locatário. O tamanho da rede nesta sub-rede pode variar de um mínimo de /26 (64 hosts) a um máximo de /22 (1022 hosts), é recomendável que você planejar um /24 rede.
+### <a name="public-vip-network"></a>Rede VIP pública
+A rede VIP público é atribuída ao controlador de rede no Azure Stack. Não é uma rede lógica no comutador. O SLB usa o pool de endereços e atribui/32 de redes para cargas de trabalho de locatário. A tabela de roteamento de comutador, esses IPs 32 são anunciados como uma rota disponível por meio do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura do Azure Stack reserva os primeiros 31 endereços desta rede VIP pública enquanto o restante é usado pelas VMs do locatário. O tamanho de rede nessa sub-rede pode variar de um mínimo de /26 (64 hosts) a um máximo de /22 (1022 hosts), é recomendável que você planeje um/24 rede.
 
-### <a name="switch-infrastructure-network"></a>Rede de infraestrutura de chave
-Isso/26 de rede é a sub-rede que contém sub-redes de IP de ponto a ponto roteável /30 (IP host 2) e o loopbacks que são dedicados/32 sub-redes de banda no comutador gerenciamento e a ID do roteador BGP. Esse intervalo de endereços IP deve ser roteável externamente da solução de pilha do Azure para o data center, podem ser IPs privadas ou públicas.
+### <a name="switch-infrastructure-network"></a>Rede de infraestrutura de opção
+Isso/26 de rede é a sub-rede que contém as sub-redes de (IPs de host 2) / 30 de IP de ponto a ponto roteável e loopbacks, que são dedicadas/32 sub-redes para em banda alternar o gerenciamento e a ID do roteador BGP. Este intervalo de endereços IP deve ser roteável externamente da solução do Azure Stack para seu datacenter, eles podem ser IPs público ou privado.
 
 ### <a name="switch-management-network"></a>Rede de gerenciamento de switch
-Este /29 (6 host IPs) dedicada para conectar as portas de gerenciamento dos comutadores de rede. Ele permite acesso de fora da banda para implantação, gerenciamento e solução de problemas. Ele é calculado da rede de infraestrutura de comutador mencionado acima.
+Este /29 (6 host IPs) dedicado para conectar as portas de gerenciamento das opções de rede. Ele permite o acesso de fora da banda para a implantação, gerenciamento e solução de problemas. Ele é calculado da rede de infraestrutura de opção mencionado acima.
 
-## <a name="publish-azure-stack-services"></a>Publicar os serviços do Azure pilha
-Você precisará disponibilizar os serviços do Azure pilha para os usuários da pilha fora do Azure. A pilha do Azure define vários pontos de extremidade para suas funções de infraestrutura. Esses pontos de extremidade são atribuídos os VIPs do pool de endereços IP público. Uma entrada de DNS é criada para cada ponto de extremidade na zona DNS externo, que foi especificado no momento da implantação. Por exemplo, o portal do usuário é atribuído a entrada do host DNS do portal.  *&lt;região >.&lt; FQDN >*.
+## <a name="publish-azure-stack-services"></a>Publicar os serviços do Azure Stack
+Você precisará disponibilizar serviços do Azure Stack para usuários de fora do Azure Stack. O Azure Stack define vários pontos de extremidade para suas funções de infraestrutura. Esses pontos de extremidade são atribuídos os VIPs do pool de endereços IP público. Uma entrada de DNS é criada para cada ponto de extremidade na zona DNS externo, que foi especificado no momento da implantação. Por exemplo, o portal do usuário é atribuído a entrada do host DNS do portal.  *&lt;região >.&lt; FQDN >*.
 
-### <a name="ports-and-urls"></a>URLs e portas
-Para tornar os serviços do Azure pilha (como os portais do Azure Resource Manager, DNS, etc.) disponíveis para redes externas, você deve permitir tráfego de entrada para esses pontos de extremidade específicos de URLs, portas e protocolos.
+### <a name="ports-and-urls"></a>Portas e URLs
+Para tornar os serviços do Azure Stack (como os portais do Azure Resource Manager, DNS, etc.) disponíveis para redes externas, você deve permitir tráfego de entrada para esses pontos de extremidade para URLs, portas e protocolos específicos.
  
-Em uma implantação onde uplinks um proxy transparente em um servidor de proxy tradicional, você deve permitir URLs e portas específicas para ambos [entrada](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [saída](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicação. Isso inclui URLs e portas de identidade, distribuição de mercado, patch e atualização, registro e dados de uso.
+Em uma implantação em que um uplinks de proxy transparente para um servidor proxy tradicional, você deve permitir URLs e portas específicas para ambos [entrada](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [saída](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicação. Isso inclui as portas e URLs para identidade, distribuição de mercado, patch e atualização, registro e dados de uso.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Conectividade de borda](azure-stack-border-connectivity.md)

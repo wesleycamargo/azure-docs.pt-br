@@ -111,8 +111,26 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contate o suporte
       href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: Exemplos
+  items:
+    - name: API REST
+      items:
+        - name: Analisar os custos da empresa
+          href: billing-review-enterprise-billing.md
+        - name: Analisar o uso de assinaturas
+          href: billing-review-subscription-billing.md
+    - name: Amostras do .NET
+      items:
+        - name: Exemplo de código da API da Fatura
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Exemplo de código da API do Uso
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: Exemplo de código da API do RateCard
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Referência
   items:
+    - name: Cenários para Automação de Cobrança
+      href: billing-cost-management-automation-scenarios.md
     - name: Visão Geral da API de Cobrança do Azure
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +138,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: Solução de parceiro - Cloud Cruiser
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: API de Consumo do Azure
+    - name: Visão Geral da API de Consumo do Azure
+      href: billing-consumption-api-overview.md
       items:
         - name: API REST de Consumo do Azure
           href: 'https://docs.microsoft.com/rest/api/consumption'
@@ -133,11 +152,3 @@
       items:
         - name: API REST dos relatórios do Enterprise
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
-    - name: Exemplos de código de cobrança
-      items:
-        - name: Exemplo de código da API da Fatura
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: Exemplo de código da API do Uso
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: Exemplo de código da API do RateCard
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'

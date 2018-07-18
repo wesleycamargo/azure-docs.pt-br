@@ -1,12 +1,12 @@
 ---
-title: "Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em lotes | Microsoft Docs"
-description: "Exemplo de Script da CLI do Azure – Criar uma conta do Lote em modo de Serviço em lotes"
+title: Exemplo de Script da CLI do Azure – Criar Conta do Lote – Serviço em lotes | Microsoft Docs
+description: Exemplo de Script da CLI do Azure – Criar uma conta do Lote em modo de Serviço em lotes
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
 ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38455104"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo da CLI: criar uma conta do Lote em modo de Serviço em lotes
 
@@ -32,7 +33,7 @@ Caso opte por instalar e usar a CLI localmente, este artigo exige que seja execu
 
 [!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
@@ -42,9 +43,9 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote. |

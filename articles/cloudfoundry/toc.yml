@@ -13,6 +13,8 @@
       href: /azure/virtual-machines/linux/cloudfoundry-get-started
     - name: Implantar bocal CF OMS
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Integrar o Cloud Foundry com o Azure
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Recursos
   items:
     - name: Roteiro do Azure

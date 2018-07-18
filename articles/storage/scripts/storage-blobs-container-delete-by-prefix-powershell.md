@@ -1,12 +1,12 @@
 ---
-title: "Amostra de Script do Azure PowerShell – excluir contêineres por prefixo | Microsoft Docs"
-description: "Exclua contêineres de blob do Armazenamento do Azure com base em um prefixo de nome de contêiner."
+title: Amostra de Script do Azure PowerShell – excluir contêineres por prefixo | Microsoft Docs
+description: Exclua contêineres de blob do Armazenamento do Azure com base em um prefixo de nome de contêiner.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983891"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Excluir contêineres com base no prefixo de nome de contêiner
 

@@ -1,0 +1,169 @@
+- name: Documentação de Visual Computacional
+  href: index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que é a Pesquisa Visual Computacional?
+      href: Home.md
+- name: Guias de início rápido da API
+  items:
+    - name: Resumo
+      href: QuickStarts/quickstart-summary.md
+    - name: 'C#'
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/CSharp-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/CSharp-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/CSharp-print-text.md
+        - name: Extrair texto escrito à mão
+          href: QuickStarts/CSharp-hand-text.md
+    - name: cURL
+      items:
+        - name: Analisar uma imagem remota
+          href: QuickStarts/curl-analyze.md
+        - name: Analisar uma imagem local
+          href: QuickStarts/curl-disk.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/curl-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/curl-print-text.md
+    - name: Go
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/go-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/go-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/go-print-text.md
+    - name: Java
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/java-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/java-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/java-print-text.md
+        - name: Extrair texto escrito à mão
+          href: QuickStarts/java-hand-text.md
+    - name: JavaScript
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/javascript-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/javascript-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/javascript-print-text.md
+        - name: Extrair texto escrito à mão
+          href: QuickStarts/javascript-hand-text.md
+    - name: Node.js
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/node-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/node-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/node-print-text.md
+    - name: PHP
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/php-analyze.md
+        - name: Usar um modelo de domínio
+          href: QuickStarts/php-domain.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/php-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/php-print-text.md
+    - name: Python
+      items:
+        - name: Analisar uma imagem remota
+          href: QuickStarts/python-analyze.md
+        - name: Analisar uma imagem local
+          href: QuickStarts/python-disk.md
+        - name: Usar um modelo de domínio
+          href: QuickStarts/python-domain.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/python-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/python-print-text.md
+        - name: Extrair texto escrito à mão
+          href: QuickStarts/python-hand-text.md
+    - name: Ruby
+      items:
+        - name: Analisar uma imagem
+          href: QuickStarts/ruby-analyze.md
+        - name: Gerar uma miniatura
+          href: QuickStarts/ruby-thumb.md
+        - name: Extrair texto impresso
+          href: QuickStarts/ruby-print-text.md
+- name: Guias de início rápido do SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analisar uma imagem
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Gerar uma miniatura
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Extrair texto escrito à mão
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Guias de instruções
+  items:
+    - name: Primeiros aplicativos da Pesquisa Visual Computacional
+      items:
+        - name: 'C#'
+          href: Tutorials/CSharpTutorial.md
+        - name: Java
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: Obter chaves de assinatura
+      href: Vision-API-How-to-Topics/HowToSubscribe.md
+    - name: Chamar a API da Pesquisa Visual Computacional
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: Analisar vídeos em tempo real
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Trabalhar com o Visual Studio
+      items:
+        - name: Use serviço conectado da Pesquisa Visual Computacional
+          href: vs-computer-vision-connected-service.md
+- name: Referência
+  items:
+    - name: API da Pesquisa Visual Computacional v2.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: API da Pesquisa Visual Computacional v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: SDKs
+      items:
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-vision-windows'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision'
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-vision-android'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
+- name: Recursos
+  items:
+    - name: Exemplos
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Perguntas frequentes
+      href: FAQ.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Taxonomia de categoria
+      href: Category-Taxonomy.md

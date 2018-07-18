@@ -1,8 +1,8 @@
 ---
-title: "Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure"
-description: "Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que ele está relacionado ao Serviço de Aplicativo do Azure."
+title: Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
+description: Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que ele está relacionado ao Serviço de Aplicativo do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824033"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -33,10 +34,10 @@ Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solici
 ## <a name="routing-methods"></a>Métodos de roteamento
 O Gerenciador de Tráfego do Azure usa quatro métodos diferentes de roteamento. Esses métodos são descritos na lista a seguir, já que pertencem a aplicativos do Serviço de Aplicativo do Azure.
 
-* **[Prioridade](#priority):** use um aplicativo primário para todo o tráfego e forneça backups caso o backup primário ou os aplicativos de backup não estejam disponíveis.
-* **[Ponderada](#weighted):** distribua tráfego em um conjunto de aplicativos, seja uniformemente ou acordo com pesos, o que você definir.
-* **[Desempenho](#performance):** quando você tiver aplicativos em diferentes localizações geográficas, use o aplicativo "mais próximo" em termos da menor latência de rede.
-* **[Geográfico](#geographic):** direcionar os usuários para aplicativos específicos com base em qual localização geográfica a consulta DNS se origina. 
+* **[Prioridade](../traffic-manager/traffic-manager-routing-methods.md#priority):** use um aplicativo primário para todo o tráfego e forneça backups caso o backup primário ou os aplicativos de backup não estejam disponíveis.
+* **[Ponderada](../traffic-manager/traffic-manager-routing-methods.md#weighted):** distribua tráfego em um conjunto de aplicativos, seja uniformemente ou acordo com pesos, o que você definir.
+* **[Desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando você tiver aplicativos em diferentes localizações geográficas, use o aplicativo "mais próximo" em termos da menor latência de rede.
+* **[Geográfico](../traffic-manager/traffic-manager-routing-methods.md#geographic):** direcionar os usuários para aplicativos específicos com base em qual localização geográfica a consulta DNS se origina. 
 
 Para obter mais informações, consulte [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 

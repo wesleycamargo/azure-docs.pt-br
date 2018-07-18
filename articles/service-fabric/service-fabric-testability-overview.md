@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209677"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falha
 O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Microsoft Azure Service Fabric. Com o Serviço de Análise de Falha, é possível induzir falhas significativas e executar cenários de teste completos para seus aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.

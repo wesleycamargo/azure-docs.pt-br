@@ -1,25 +1,22 @@
 ---
-title: "Adicionar o conector Informix a seus Aplicativos Lógicos | Microsoft Docs"
-description: "Visão geral do Conector do Informix com os parâmetros da API REST"
-services: 
-documentationcenter: 
+title: Conectar ao banco de dados IBM Informix – Aplicativo Lógico do Azure | Microsoft Docs
+description: Gerenciar recursos com as APIs REST do IBM Informix e o Aplicativo Lógico do Azure
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296029"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
 O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).
@@ -148,7 +145,7 @@ Você pode criar uma ação de aplicativo lógico para buscar todas as linhas na
     ![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
 10. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 11. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-12. Selecione **Salvar**. 
+12. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)
 13. Na folha **InformixgetRows**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -175,7 +172,7 @@ Você pode criar uma ação de aplicativo lógico para adicionar uma linha a uma
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Area 99999` e digite `102` para **REGIONID**. 
-10. Selecione **Salvar**.
+10. Clique em **Salvar**.
     
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)
 11. Na folha **InformixinsertRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -203,7 +200,7 @@ Você pode criar uma ação de aplicativo lógico para buscar uma linha em uma t
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
 10. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-11. Selecione **Salvar**. 
+11. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)
 12. Na folha **InformixgetRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -230,7 +227,7 @@ Você pode criar uma ação de aplicativo lógico para alterar uma linha em uma 
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Updated 99999` e digite `102` para **REGIONID**. 
-10. Selecione **Salvar**. 
+10. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)
 11. Na folha **InformixupdateRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
@@ -257,7 +254,7 @@ Você pode criar uma ação de aplicativo lógico para remover uma linha de uma 
     ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
-10. Selecione **Salvar**. 
+10. Clique em **Salvar**. 
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)
 11. Na folha **InformixdeleteRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).

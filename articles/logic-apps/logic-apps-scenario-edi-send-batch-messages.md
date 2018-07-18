@@ -1,13 +1,13 @@
 ---
-title: "Processar mensagens de EDI em lote como um grupo ou uma coleção – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Enviar mensagens de EDI para processamento em lote em aplicativos lógicos"
-keywords: "lote, processamento de lote, codificação em lote"
+title: Processar mensagens de EDI em lote como um grupo ou uma coleção – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Enviar mensagens de EDI para processamento em lote em aplicativos lógicos
+keywords: lote, processamento de lote, codificação em lote
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299283"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Envie mensagens X12 em lote para parceiros comerciais
 
@@ -38,7 +39,7 @@ Este tópico mostra como você pode processar mensagens X12 como um lote executa
 * [Criar um aplicativo lógico que envia os itens a um lote](#sender). Esse aplicativo lógico "remetente" especifica para onde enviar os itens para agrupar em lote, que deve ser um aplicativo lógico receptor existente.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para seguir este exemplo, você precisa destes itens:
 

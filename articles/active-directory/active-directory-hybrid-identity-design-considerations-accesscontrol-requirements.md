@@ -1,25 +1,27 @@
 ---
-title: "Design de identidade híbrida - requisitos de controle de acesso do Azure | Microsoft Docs"
-description: "Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
-documentationcenter: 
+title: Design de identidade híbrida - requisitos de controle de acesso do Azure | Microsoft Docs
+description: Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801211"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
@@ -41,7 +43,7 @@ Há cenários diferentes para autenticação e autorização; esses cenários te
 
 * Sua organização irá autenticar e autorizar somente os usuários localizados em seu sistema de gerenciamento de identidade?
   * Há planos para cenários B2B?
-  * Se sim, você já sabe quais protocolos (SAML, OAuth, Kerberos, Tokens ou Certificados) serão usados para conectar as duas empresas?
+  * Se sim, você já sabe quais protocolos (SAML, OAuth, Kerberos ou Certificados) serão usados para conectar as duas empresas?
 * A solução de identidade híbrida que vocês vão adotar dá suporte a esses protocolos?
 
 Outro ponto importante a considerar é onde o repositório de autenticação que será usado pelos usuários e parceiros estará localizado e o modelo administrativo que será usado. Considere as duas opções principais a seguir:
@@ -58,7 +60,7 @@ Qual modelo sua organização adotará vai variar de acordo com suas necessidade
   * Em caso afirmativo, a adoção de um modelo de identidade híbrida afeta esse processo?
 
 ## <a name="access-control"></a>Controle de Acesso
-Embora a autenticação e a autorização sejam os principais elementos para habilitar o acesso a dados corporativos usando a validação do usuário, também é importante controlar o nível de acesso que esses usuários terão e o nível de acesso que os administradores terão sobre os recursos que gerenciam. Sua solução de identidade híbrida deve ser capaz de fornecer acesso granular ao controle de recursos, delegação e acesso à base de função. Verifique se as seguintes perguntas são respondidas sobre o controle de acesso:
+Embora a autenticação e a autorização sejam os principais elementos para habilitar o acesso a dados corporativos usando a validação do usuário, também é importante controlar o nível de acesso que esses usuários terão e o nível de acesso que os administradores terão sobre os recursos que gerenciam. Sua solução de identidade híbrida deve ser capaz de fornecer acesso granular aos recursos, à delegação e ao controle de acesso baseado em função. Verifique se as seguintes perguntas são respondidas sobre o controle de acesso:
 
 * Sua empresa tem mais de um usuário com privilégio elevado para gerenciar seu sistema de identidade?
   * Em caso afirmativo, cada usuário precisa do mesmo nível de acesso?

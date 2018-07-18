@@ -1,11 +1,11 @@
 ---
-title: "Otimizando o código do Azure no Visual Studio | Microsoft Docs"
-description: "Saiba mais sobre como as ferramentas de otimização de código do Azure no Visual Studio ajudam a tornar o código mais robusto e com melhor desempenho."
+title: Otimizando o código do Azure no Visual Studio | Microsoft Docs
+description: Saiba mais sobre como as ferramentas de otimização de código do Azure no Visual Studio ajudam a tornar o código mais robusto e com melhor desempenho.
 services: visual-studio-online
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937550"
 ---
 # <a name="optimizing-your-azure-code"></a>Otimizando o código do Azure
 Quando você está programando aplicativos que usam o Microsoft Azure, existem algumas práticas de codificação que você deve seguir para ajudar a evitar problemas de escalabilidade, comportamento e desempenho do aplicativo em um ambiente de nuvem. A Microsoft fornece uma ferramenta de análise de código do Azure que reconhece e identifica vários desses problemas comumente encontrados e ajuda a resolvê-los. Você pode baixar a ferramenta no Visual Studio, via NuGet.
@@ -30,7 +31,7 @@ A ferramenta de análise de código do Azure usa as seguintes regras para sinali
 ### <a name="id"></a>ID
 AP0000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Se você usar o modo de estado de sessão padrão (em processo) para aplicativos em nuvem, poderá perder o estado da sessão.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -47,7 +48,7 @@ O estado da sessão ASP.NET dá suporte a várias opções diferentes de armazen
 ### <a name="id"></a>ID
 AP1000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Crie métodos assíncronos (como [await](https://msdn.microsoft.com/library/hh156528.aspx)) fora do método [Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) e, em seguida, chamar os métodos assíncronos de [Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx). A declaração do método [[Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) como assíncrono faz com que a função de trabalho insira um loop de reinicialização.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -92,13 +93,13 @@ public async Task RunAsync()
 ### <a name="id"></a>ID
 AP2000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Use SAS (Assinatura de Acesso Compartilhado) para autenticação. ACS (Serviço de Controle de Acesso) está sendo preterido para autenticação do barramento de serviço.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Motivo
-Para mais segurança, o Active Directory do Azure está substituindo a autenticação do ACS pela autenticação SAS. Consulte [Active Directory do Azure é o futuro do ACS](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) para obter informações sobre o plano de transição.
+Para mais segurança, o Active Directory do Azure está substituindo a autenticação do ACS pela autenticação SAS. Consulte [Active Directory do Azure é o futuro do ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) para obter informações sobre o plano de transição.
 
 ### <a name="solution"></a>Solução
 Use autenticação de SAS em seus aplicativos. O exemplo a seguir mostra como usar um token SAS existente para acessar um namespace do barramento de serviço ou uma entidade.
@@ -119,7 +120,7 @@ Para obter mais informações, consulte os tópicos a seguir.
 ### <a name="id"></a>ID
 AP2002
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Para evitar o início de um "loop de recebimento" a chamada ao método **OnMessage** é a melhor solução para receber mensagens do que chamar o método **Receive**. No entanto, se você deve usar o método **Receive** e especificar um tempo de espera de servidor não padrão, verifique se o tempo de espera do servidor é mais de um minuto.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -222,7 +223,7 @@ while (true)
 ### <a name="id"></a>ID
 AP2003
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Use os métodos assíncronos do barramento de serviço para melhorar o desempenho com sistema de mensagens agenciado.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -239,7 +240,7 @@ Para melhorar o desempenho da infraestrutura de mensagens do Azure, consulte o p
 ### <a name="id"></a>ID
 AP2004
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Particione filas e tópicos do barramento de serviço para um melhor desempenho com as mensagens do barramento de serviço.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -264,7 +265,7 @@ Para obter mais informações, consulte [Tópicos e filas do barramento de servi
 ### <a name="id"></a>ID
 AP3001
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Você deve evitar usar SharedAccessStartTimeset para a hora atual para iniciar imediatamente a política de acesso compartilhado. Você só precisa definir essa propriedade se quiser iniciar a política de acesso compartilhado em um momento posterior.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -296,7 +297,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 ### <a name="id"></a>ID
 AP3002
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Pode haver até cinco minutos de diferença em relógios dos data centers em locais diferentes devido a uma condição conhecida como "defasagem horária". Para impedir que o token da política de SAS expire antes do planejado, defina a hora de expiração para mais de cinco minutos.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -346,7 +347,7 @@ Para obter mais informações, consulte [Criar e usar uma assinatura de acesso c
 ### <a name="id"></a>ID
 AP4000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 O uso da classe [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager\(v=vs.110\).aspx) para projetos como o site do Azure e serviços móveis do Azure não introduzirá problemas de tempo de execução. Como melhor prática, no entanto, é uma boa ideia usar Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager\(v=vs.110\).aspx) como uma forma unificada de gerenciamento de configurações para todos os aplicativos de nuvem do Azure.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -383,7 +384,7 @@ Eis um exemplo de como armazenar a definição de configuração em um arquivo A
 ### <a name="id"></a>ID
 AP4001
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Se você usar cadeias de conexão embutidas em código e precisar atualizá-las mais tarde, terá de fazer alterações em seu código-fonte e recompilar o aplicativo. No entanto, se você armazenar as cadeias de conexão em um arquivo de configuração, poderá alterá-las posteriormente simplesmente atualizando o arquivo de configuração.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -404,7 +405,7 @@ Para obter informações sobre como usar arquivos de configurações, como web.c
 ### <a name="id"></a>ID
 AP5000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Em vez de definir as configurações de diagnóstico em seu código usando a API de programação Microsoft.WindowsAzure.Diagnostics, você deve configurar as definições de diagnóstico no arquivo diagnostics.wadcfg. (Ou diagnostics.wadcfgx se você usar o SDK 2.5 do Azure). Fazendo isso, você pode alterar as configurações de diagnóstico sem recompilar o código.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -429,7 +430,7 @@ Use o designer de configuração de diagnóstico para mover as configurações d
 ### <a name="id"></a>ID
 AP6000
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIÇÃO
 Para economizar memória, evite declarar objetos DbContext como estáticos.
 
 Compartilhe suas ideias e comentários em [Comentários de análise de código do Azure](http://go.microsoft.com/fwlink/?LinkId=403771).

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160634"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919753"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
@@ -23,7 +23,7 @@ Este artigo resume os componentes compatíveis e as configurações de recupera�
 
 **Cenário** | **Detalhes**
 --- | ---
-VMs VMware | Replicação de VMs VMware locais para Azure. É possível implantar este cenário no portal do Azure ou usando o PowerShell.
+VMs VMware | Replicação de VMs VMware locais para Azure. É possível implantar este cenário no portal do Azure ou usando o [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Servidores físicos | Replicação de servidores físicos Windows/Linux locais para Azure. Implante esse cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
@@ -40,7 +40,7 @@ O servidor de configuração é um computador local que executa componentes do S
 **Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
-RAM | 12 GB
+RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Os discos incluem o disco do sistema operacional, disco de cache do servidor de processo e a unidade de retenção para failback.
 Espaço livre em disco | 600 GB de espaço necessário para cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
@@ -76,15 +76,15 @@ Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0
 
 **Versão com suporte** | **Serviço de Mobilidade do Azure Site Recovery versão** | **Versão do kernel** |
 --- | --- | --- |
-14.04 LTS | 9.12 | 3.13.0-24-generic a 3.13.0-132-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-96-generic |
-14.04 LTS | 9.13 | 3.13.0-24-generic a 3.13.0-137-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic para 3.13.0-142-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-116-generic |
+14.04 LTS | 9.17 | 3.13.0-24-generic a 3.13.0-149-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-127-generic |
+14.04 LTS | 9.16 | 3.13.0-24-generic para 3.13.0-144-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-119-generic, |
 14.04 LTS | 9.15 | 3.13.0-24-generic para 3.13.0-144-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-119-generic, |
-16.04 LTS | 9.12 | 4.4.0-21-generic a 4.4.0-96-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-35-generic |
-16.04 LTS | 9.13 | 4.4.0-21-generic a 4.4.0-104-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-generic para 4.4.0-116-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic para 4.13.0-36-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1011-azure |
-16.04 LTS | 9.15 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-38-generic,<br/>4.11.0-1009-azure para 4.11.0-1016-azure,<br/>4.13.0-1005-azure para 4.13.0-1012-azure |
-
+14.04 LTS | 9.14 | 3.13.0-24-generic para 3.13.0-142-generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-generic para 4.4.0-116-generic |
+|||
+16.04 LTS | 9.17 | 4.4.0-21-generic a 4.4.0-127-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-43-generic |
+16.04 LTS | 9.16 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic |
+16.04 LTS | 9.15 | 4.4.0-21-generic para 4.4.0-119-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic |
+16.04 LTS | 9.14 | 4.4.0-21-generic para 4.4.0-116-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic para 4.10.0-42-generic,<br/>4.11.0-13-generic para 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-36-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Versões de Kernel do Debian
@@ -92,7 +92,11 @@ Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0
 
 **Versão com suporte** | **Serviço de Mobilidade do Azure Site Recovery versão** | **Versão do kernel** |
 --- | --- | --- |
-Debian 7 | 9,14, 9.15 | 3.2.0-4-amd64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9,14, 9.15, 9.16 | 3.2.0-4-amd64 para 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+|||
+Debian 8 | 9.17 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.16 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9,14, 9.15 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.5-amd64 |
 
 
@@ -118,10 +122,10 @@ XFSv5 | Recursos XFSv5 em sistemas de arquivos XFS, como a soma de verificação
 Agrupamento NIC da rede do host | Compatível com VMs da VMware. <br/><br/>Sem suporte para a replicação de computador físico.
 VLAN da rede do host | Sim.
 IPv4 da rede do host | Sim.
-IPv6 da rede do host | Nº
-Agrupamento NIC da rede do convidado/servidor | Nº
+IPv6 da rede do host | Não.
+Agrupamento NIC da rede do convidado/servidor | Não.
 IPv4 da rede do convidado/servidor | Sim.
-IPv6 da rede do convidado/servidor | Nº
+IPv6 da rede do convidado/servidor | Não.
 IP estático da rede do convidado/servidor (Windows) | Sim.
 IP estático da rede do convidado/servidor (Linux) | Sim. <br/><br/>As VMs são configuradas para usar o DHCP no failback.
 Várias NICs da rede do convidado/servidor | Sim.
@@ -204,7 +208,7 @@ VMs locais que são replicados para o Azure devem atender aos requisitos de VM d
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operacional convidado | Verificar os [sistemas operacionais compatíveis](#replicated machines). | A verificação falha se não tiver suporte.
+Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte.
 Contagem do disco do sistema operacional | 1 | A verificação falha se não tiver suporte.  

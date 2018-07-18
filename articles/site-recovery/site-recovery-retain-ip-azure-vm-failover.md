@@ -1,25 +1,20 @@
 ---
 title: Manter endereços IP durante o failover de máquinas virtuais do Azure para outra região do Azure | Microsoft Docs
 description: Descreve como manter os endereços IP para cenários de failover de Azure para Azure com o Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 9a9c18bfe9073e5af94c7bd8f0fbb91651387731
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d9753f4359e1123ec9051dc303416a74e7aee847
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071657"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920409"
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Retenção de endereço IP para failover de máquina virtual do Azure
 

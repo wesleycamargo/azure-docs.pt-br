@@ -3,7 +3,7 @@ title: Conectar o Operations Manager ao Log Analytics | Microsoft Docs
 description: Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.component: na
+ms.openlocfilehash: 29ab649f8fe06ae598ff138ff98eb2611ec38e1f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128870"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do Log Analytics.  Isso permite aproveitar as oportunidades do Log Analytics e continuar a usar o Operations Manager para:
@@ -77,7 +79,9 @@ Realize a série de etapas a seguir para configurar o grupo de gerenciamento do 
 Se esta for a primeira vez em que o grupo de gerenciamento do Operations Manager está sendo registrado com um espaço de trabalho do Log Analytics e os servidores de gerenciamento precisarem se comunicar com o serviço por meio de um servidor de Gateway do OMS ou de proxy, a opção para especificar a configuração de proxy para o grupo de gerenciamento não estará disponível no console de operações.  O grupo de gerenciamento deve ser registrado com êxito com o serviço antes que essa opção esteja disponível.  Você precisa atualizar a configuração de proxy do sistema usando Netsh no sistema de seu console de operações de execução para configurar a integração e todos os servidores de gerenciamento no grupo de gerenciamento.  
 
 1. Abra um prompt de comando com privilégios elevados.
-1. Digite o comando a seguir e pressione **Enter**:
+   a. Vá para **Iniciar** e digite **cmd**.
+   b. Clique com o botão direito do mouse no **prompt de comando** e selecione Executar como administrador**.
+2. Digite o comando a seguir e pressione **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +201,9 @@ Não é possível excluir facilmente do grupo de gerenciamento nem os pacotes de
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
-1. Abra o menu **Configurações avançadas** do espaço de trabalho do Log Analytics no Portal do Azure.
-1. Selecione **Fontes Conectadas** e, em seguida, **System Center**.
-1. Você deve ver o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
+7. No portal do OMS, clique no bloco **Configurações**.
+8. Selecione **Fontes Conectadas**.
+9. Na tabela na seção System Center Operations Manager, você verá o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
    
     > [!NOTE]
     > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  
@@ -210,7 +214,7 @@ Não é possível excluir facilmente do grupo de gerenciamento nem os pacotes de
 Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e o Conector do Advisor, salve o script do PowerShell abaixo em seu computador e execute-o usando os exemplos a seguir:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

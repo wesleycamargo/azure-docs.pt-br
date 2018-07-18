@@ -1,16 +1,33 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806291"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard econômico e discos de VM do Azure gerenciados e não gerenciados
 
-O Armazenamento Standard do Azure oferece suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho insensíveis a latência. Ele também oferece suporte a tabelas, blobs, filas e arquivos. Com o Armazenamento Standard, os dados são armazenados em unidades de disco rígido (HDDs - hard disk drives). Ao trabalhar com VMs, você pode usar discos de armazenamento padrão para cenários de desenvolvimento/teste e cargas de trabalho menos críticas e discos de armazenamento premium para aplicativos de produção de missão crítica. O Armazenamento Standard está disponível em todas as regiões do Azure por Standard. 
+O Armazenamento Standard do Azure oferece suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho insensíveis a latência. Ele também oferece suporte a tabelas, blobs, filas e arquivos. Com o Armazenamento Standard, os dados são armazenados em unidades de disco rígido (HDDs - hard disk drives). Ao trabalhar com VMs, você pode usar discos SSD e HDD para cenários Dev/Test e cargas de trabalho menos críticas, e discos SSD premium para aplicativos de produção de missão crítica. O Armazenamento Standard está disponível em todas as regiões do Azure por Standard. 
 
-Este artigo se concentra no uso de armazenamento padrão para discos de VM. Para obter mais informações sobre o uso de armazenamento com tabelas, blobs, filas e arquivos, consulte [Introdução ao armazenamento](../articles/storage/common/storage-introduction.md).
+Este artigo se concentra no uso de armazenamento padrão para discos SSD standard e HDD. Para obter mais informações sobre o uso de armazenamento com tabelas, blobs, filas e arquivos, consulte [Introdução ao armazenamento](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Tipos de disco
 
 Há duas maneiras de criar discos padrão para VMs do Azure:
 
-**Discos não gerenciados**: esse é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 TB de armazenamento por VM.
+**Discos não gerenciados**: esse tipo de disco é o método original onde você gerencia as contas de armazenamento usadas para armazenar os arquivos VHD que correspondem aos discos de VM. Os arquivos VHD são armazenados como blobs de páginas nas contas de armazenamento. Discos não gerenciados podem ser anexados a qualquer tamanho de VM do Azure, incluindo as VMs que usam principalmente o armazenamento Premium, como a série DSv2 e GS. As VMs do Azure suportam anexar vários discos padrão, permitindo que até 256 TB de armazenamento por VM.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium ou Standard) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esse recurso gerencia as contas de armazenamento usadas para os discos de VM para você. Você só precisa especificar o tipo (Premium SSD, Standard SSD ou Standard HDD) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. Você não precisa se preocupar com o local em que colocará os discos em várias contas de armazenamento para garantir que fique dentro dos limites de escalabilidade das contas de armazenamento – o Azure cuida disso para você.
 
 Embora os dois tipos de discos estejam disponíveis, é recomendável usar o Managed Disks para aproveitar seus muitos recursos.
 
@@ -19,7 +36,7 @@ Para começar a usar o Armazenamento Standard do Azure, visite a página [Introd
 Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI 2.0 do Azure](../articles/virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
 
@@ -27,7 +44,9 @@ Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para sabe
 
 **Armazenamento Standard**: o Armazenamento Standard do Azure oferece suporte a discos do Azure, blobs do Azure, arquivos do Azure, tabelas do Azure e filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Discos de armazenamento Standard:** discos de armazenamento Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o armazenamento Premium, como as séries DSv2 e GS. Um disco de armazenamento padrão só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descrevemos as especificações em mais detalhes. 
+**Discos padrão do SSD:** os discos padrão SSD proporcionam um desempenho mais confiável do que discos de HDD Standard e estão disponíveis atualmente no modo de visualização. Para obter mais informações sobre a disponibilidade de região de discos Padrão SSD, consulte [disponibilidade de região de discos padrão SSD (versão prévia)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Discos de armazenamento Standard:** os HDD Standard podem ser anexados a todas as VMs do Azure, incluindo as VMs da série de tamanho usadas com o Armazenamento Premium, como as séries DSv2 e GS. Um disco HDD Standard só pode ser anexado a uma VM. No entanto, você pode anexar um ou mais desses discos em uma VM até a contagem máxima do disco definida para aquele tamanho de VM. Na seção a seguir sobre Metas de desempenho e escalabilidade do Armazenamento Standard, descrevemos as especificações em mais detalhes.
 
 **Blob de páginas Standard**: blobs de páginas Standard são usados para manter discos persistentes para VMs e também podem ser acessados diretamente por meio do REST como outros tipos de Blobs do Azure. [Blobs de páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) são uma coleção de páginas de 512 bytes otimizadas para leitura aleatória e operações de gravação. 
 
@@ -130,4 +149,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Criar uma VM Linux usando a CLI do Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI 2.0 do Azure](../articles/virtual-machines/linux/quick-create-cli.md)

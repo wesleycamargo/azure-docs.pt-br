@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuração do QQ | Microsoft Docs'
+title: Configuração do QQ no Azure Active Directory B2C | Microsoft Docs
 description: Forneça inscrição e entrada para consumidores com contas do QQ em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 12daed5f90e2b073a7520c061f18761baaed5c03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 1f9a0f56158f08dd3b22078f111c9ec6911b726c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444422"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas do QQ
 
@@ -41,16 +41,16 @@ Para usar o QQ como um provedor de identidade no Azure AD (Azure Active Director
 ### <a name="register-a-qq-application"></a>Registrar um aplicativo do QQ
 
 1. Vá para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
-2. Clique em **应用管理** (gerenciamento de aplicativo).
-3. Clique em **创建应用** (criar aplicativo).
+2. Clique em **应用管理**(gerenciamento de aplicativos).
+3. Clique em **创建应用**(criar aplicativo).
 4. Insira as informações do aplicativo necessárias.
-5. Clique em **创建应用** (criar aplicativo).
+5. Clique em **创建应用**(criar aplicativo).
 6. Insira as informações necessárias.
-7. Para o campo **授权回调域** (URL de retorno de chamada), digite `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, defina a URL como `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-8. Clique em **创建应用** (criar aplicativo).
-9. Na página de confirmação, clique em **应用管理** (gerenciamento de aplicativo) para retornar à página de gerenciamento de aplicativo.
-10. Clique em **查看** (exibir) ao lado do aplicativo que você acabou de criar.
-11. Clique em **修改** (editar).
+7. Para o campo **授权回调域**(URL de retorno de chamada), digite `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, defina a URL como `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Clique em **创建应用**(criar aplicativo).
+9. Na página de confirmação, clique em **应用管理**(gerenciamento de aplicativos) para retornar à página de gerenciamento de aplicativos.
+10. Clique em **查看**(exibir) ao lado do aplicativo que você acabou de criar.
+11. Clique em **修改**(editar).
 12. Na parte superior da página, copie a **ID DO APLICATIVO** e a **CHAVE DO APLICATIVO**.
 
 ## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configurar a QQ como um provedor de identidade em seu locatário

@@ -1,9 +1,25 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: storage
+author: luywang
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: luywang
+ms.custom: include file
+ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806359"
+---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
 Este artigo explica como planejar o backup e a DR (recuperação de desastre) de VMs (máquinas virtuais) e discos de IaaS no Azure. Este documento aborda discos gerenciados e discos não gerenciados.
 
-Primeiro, abordamos as funcionalidades internas de tolerância a falhas da plataforma Azure que ajudam a proteger contra falhas locais. Em seguida, abordamos os cenários de desastre que não são totalmente cobertos pelas funcionalidades internas. Este é o tópico principal abordado por este documento. Também mostramos vários exemplos de cenários de carga de trabalho nos quais diferentes considerações sobre backup e DR se aplicam. Depois, examinamos possíveis soluções para DR de discos de IaaS. 
+Primeiro, abordamos as funcionalidades internas de tolerância a falhas da plataforma Azure que ajudam a proteger contra falhas locais. Em seguida, abordamos os cenários de desastre que não são totalmente cobertos pelas funcionalidades internas. Também mostramos vários exemplos de cenários de carga de trabalho nos quais diferentes considerações sobre backup e DR se aplicam. Depois, examinamos possíveis soluções para DR de discos de IaaS. 
 
 ## <a name="introduction"></a>Introdução
 
@@ -23,15 +39,15 @@ Antes de examinarmos as opções de backup e DR, vamos recapitular alguns métod
 
 Uma máquina virtual consiste principalmente em duas partes: um servidor de computação e os discos persistentes. Ambos afetam a tolerância a falhas de uma máquina virtual.
 
-Se o servidor host de computação do Azure que hospeda a VM tiver uma falha de hardware, o que é raro, o Azure restaurará automaticamente a VM em outro servidor, pois foi projetado para isso. Se isso ocorrer, o computador será reinicializado e a VM volta a funcionar após algum tempo. O Azure detecta essas falhas de hardware automaticamente e executa recuperações para ajudar a garantir que a VM do cliente estará disponível assim que possível.
+Se o servidor host de computação do Azure que hospeda a VM tiver uma falha de hardware, o que é raro, o Azure restaurará automaticamente a VM em outro servidor, pois foi projetado para isso. Se esse cenário ocorrer, o computador será reinicializado e a VM volta a funcionar após algum tempo. O Azure detecta essas falhas de hardware automaticamente e executa recuperações para ajudar a garantir que a VM do cliente estará disponível assim que possível.
 
-Em relação aos discos de IaaS, a durabilidade dos dados é crítica para uma plataforma de armazenamento persistente. Os clientes do Azure têm aplicativos de negócios importantes em execução na IaaS e dependem da persistência dos dados. O Azure projeta a proteção para esses discos de IaaS, com três cópias redundantes dos dados armazenados localmente. Essas cópias fornecem alta durabilidade contra falhas locais. Se um dos componentes de hardware que contém o disco falhar, a VM não será afetada porque há duas cópias adicionais para dar suporte às solicitações do disco. Isso funcionará bem, mesmo se dois componentes de hardware diferentes que dão suporte a um disco falharem ao mesmo tempo (o que é muito raro). 
+Em relação aos discos de IaaS, a durabilidade dos dados é crítica para uma plataforma de armazenamento persistente. Os clientes do Azure têm aplicativos de negócios importantes em execução na IaaS e dependem da persistência dos dados. O Azure projeta a proteção para esses discos de IaaS, com três cópias redundantes dos dados armazenados localmente. Essas cópias fornecem alta durabilidade contra falhas locais. Se um dos componentes de hardware que contém o disco falhar, a VM não será afetada porque há duas cópias adicionais para dar suporte às solicitações do disco. Isso funcionará bem, mesmo se dois componentes de hardware diferentes que dão suporte a um disco falharem ao mesmo tempo (o que é raro). 
 
 Para ajudar a garantir que você sempre mantém três réplicas, o Armazenamento do Azure gera automaticamente uma nova cópia dos dados em segundo plano se uma das três cópias não fica disponível. Portanto, não deve ser necessário usar o RAID com discos do Azure para a tolerância a falhas. Uma simples configuração RAID 0 deve ser suficiente para a distribuição dos discos, se necessário, para criar volumes maiores.
 
 Devido a essa arquitetura, o Azure proporcionou durabilidade de nível empresarial de modo consistente para discos de IaaS, com uma [taxa de falha anualizada](https://en.wikipedia.org/wiki/Annualized_failure_rate) líder do setor de 0%.
 
-Falhas de hardware localizadas no host de computação ou na plataforma de Armazenamento podem, às vezes, resultar na indisponibilidade temporária para a VM que é coberta pelo [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) em relação à disponibilidade da VM. O Azure também fornece um SLA líder do setor para instâncias de VM individuais que usam discos do Armazenamento Premium do Azure.
+Falhas de hardware localizadas no host de computação ou na plataforma de Armazenamento podem, às vezes, resultar na indisponibilidade temporária para a VM que é coberta pelo [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) em relação à disponibilidade da VM. O Azure também fornece um SLA líder do setor para instâncias de VM individuais que usam discos SSD Premium do Azure.
 
 Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade devido à indisponibilidade temporária de um disco ou de uma VM, os clientes podem usar [conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md). Duas ou mais máquinas virtuais em um conjunto de disponibilidade fornecem redundância para o aplicativo. Em seguida, o Azure cria essas VMs e esses discos em domínios de falha separados com diferentes componentes de energia, rede e servidor. 
 
@@ -39,15 +55,15 @@ Devido a esses domínios de falha separados, as falhas de hardware localizadas g
 
 ### <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 
-A recuperação de desastre é a capacidade de recuperação de incidentes raros, mas importantes. Isso inclui falhas não transitórias de larga escala, como interrupções de serviço que afetam toda uma região. A recuperação de desastre inclui backup e arquivamento de dados e pode incluir a intervenção manual, como a restauração um banco de dados com base em um backup.
+A recuperação de desastre é a capacidade de recuperação de incidentes raros, mas importantes. Esses incidentes incluem falhas não transitórias de larga escala, como interrupções de serviço que afetam toda uma região. A recuperação de desastre inclui backup e arquivamento de dados e pode incluir a intervenção manual, como a restauração um banco de dados com base em um backup.
 
-A proteção interna da plataforma Azure contra falhas localizadas poderá não proteger totalmente as VMs e os discos se desastres graves causarem interrupções em grande escala. Isso inclui eventos catastróficos, como se um data center for atingido por um furacão, terremoto, incêndio ou se houver falhas de unidade de hardware em grande escala. Além disso, você pode encontrar falhas devido a problemas dos dados ou do aplicativo.
+A proteção interna da plataforma Azure contra falhas localizadas poderá não proteger totalmente as VMs e os discos se desastres graves causarem interrupções em grande escala. Isso inclui interrupções em larga escala, como se um data center for atingido por um furacão, terremoto, incêndio ou se houver falhas de unidade de hardware em grande escala. Além disso, você pode encontrar falhas devido a problemas dos dados ou do aplicativo.
 
-Para ajudar a proteger as cargas de trabalho de IaaS contra interrupções, você deve planejar a redundância e ter backups para permitir a recuperação. Para a recuperação de desastre, você deve fazer backup em uma localização geográfica diferente fora do site primário. Isso ajuda a garantir que o backup não é afetado pelo mesmo evento que originalmente afetou a VM ou os discos. Para obter mais informações, consulte [Recuperação de desastre para aplicativos do Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Para ajudar a proteger as cargas de trabalho de IaaS contra interrupções, você deve planejar a redundância e ter backups para permitir a recuperação. Para a recuperação de desastre, você deve fazer backup em uma localização geográfica diferente fora do site primário. Essa abordagem ajuda a garantir que o backup não é afetado pelo mesmo evento que originalmente afetou a VM ou os discos. Para obter mais informações, consulte [Recuperação de desastre para aplicativos do Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 Suas considerações sobre DR podem incluir os seguintes aspectos:
 
-- Alta disponibilidade: a capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro* queremos dizer que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
+- Alta disponibilidade: a capacidade do aplicativo de continuar em execução em um estado íntegro, sem tempo de inatividade significativo. Por *estado íntegro*, esse estado significa que o aplicativo está respondendo e que os usuários podem se conectar ao aplicativo e interagir com ele. Alguns aplicativos e bancos de dados críticos podem precisar estar sempre disponíveis, mesmo quando há falhas na plataforma. Para essas cargas de trabalho, talvez você precise planejar a redundância para o aplicativo, bem como para os dados.
 
 - Durabilidade dos dados: em alguns casos, a principal consideração é garantir que os dados são preservados no caso de um desastre. Portanto, talvez seja necessário fazer um backup dos dados em outro site. Para essas cargas de trabalho, talvez não seja necessário ter a redundância total para o aplicativo, mas apenas um backup regular dos discos.
 
@@ -84,7 +100,7 @@ Problemas de dados de aplicativos IaaS são outra possibilidade. Considere um ap
 
 O [Backup do Azure](https://azure.microsoft.com/services/backup/) é usado para backups e DR e funciona com [discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md), bem como com [discos não gerenciados](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Crie um trabalho de backup com backups baseados em tempo, fácil restauração de VM e políticas de retenção de backup. 
 
-Se você usar [discos do Armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md), [discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md) ou outros tipos de disco com a opção [armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md), é especialmente importante fazer backups periódicos de DR. O Backup do Azure armazena os dados no cofre dos serviços de recuperação para retenção de longo prazo. Escolha a opção [armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md) para o cofre dos serviços de recuperação de backup. Essa opção garante que os backups são replicados em outra região do Azure para proteger contra desastres regionais.
+Se você usar [Discos SSD Premium](../articles/virtual-machines/windows/premium-storage.md), [discos gerenciados](../articles/virtual-machines/windows/managed-disks-overview.md) ou outros tipos de disco com a opção [armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md), é especialmente importante fazer backups periódicos de DR. O Backup do Azure armazena os dados no cofre dos serviços de recuperação para retenção de longo prazo. Escolha a opção [armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md) para o cofre dos serviços de recuperação de backup. Essa opção garante que os backups são replicados em outra região do Azure para proteger contra desastres regionais.
 
 Para [discos não gerenciados](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), use o tipo de armazenamento com redundância local para discos de IaaS, mas verifique se o Backup do Azure está habilitado com a opção de armazenamento com redundância geográfica no cofre dos serviços de recuperação.
 
@@ -95,7 +111,7 @@ Para [discos não gerenciados](../articles/virtual-machines/windows/about-disks-
 
 | Cenário | Replicação automática | Solução de DR |
 | --- | --- | --- |
-| Discos do Armazenamento Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
+| Discos SSD Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos gerenciados | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância local | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância geográfica | Várias regiões ([armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
@@ -132,7 +148,7 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
     b. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar** e siga as etapas para criar um novo cofre na mesma região da VM. Por exemplo, se a VM estiver na região Oeste dos EUA, escolha Oeste dos EUA para o cofre.
 
-2.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **Cofres dos Serviços de Recuperação** e acesse **Configurações** > **Configuração de Backup**. Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Isso garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
+2.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **Cofres dos Serviços de Recuperação** e acesse **Configurações** > **Configuração de Backup**. Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Essa opção garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
 
 3.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 
@@ -166,7 +182,7 @@ Um instantâneo é uma representação de um objeto em um ponto específico no t
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Criar instantâneos enquanto a VM está em execução
 
-Embora você possa tirar um instantâneo a qualquer momento, se a VM estiver em execução, ainda haverá dados sendo transmitidos para os discos e os instantâneos poderão conter operações parciais que estavam em trânsito. Além disso, se houver vários discos envolvidos, os instantâneos de discos diferentes poderão ter ocorrido em horários diferentes. Isso significa que esses instantâneos podem não estar coordenados. Isso é especialmente problemático para volumes distribuídos cujos arquivos podem ser corrompidos se alterações estavam sendo feitas durante o backup.
+Embora você possa tirar um instantâneo a qualquer momento, se a VM estiver em execução, ainda haverá dados sendo transmitidos para os discos. Os instantâneos podem conter operações parciais que estavam em trânsito. Além disso, se houver vários discos envolvidos, os instantâneos de discos diferentes poderão ter ocorrido em horários diferentes. Esses cenários podem fazer com que os instantâneos não sejam coordenados. Essa falta de coordenação é especialmente problemática para volumes distribuídos cujos arquivos podem ser corrompidos se alterações estavam sendo feitas durante o backup.
 
 Para evitar essa situação, o processo de backup deve implementar as seguintes etapas:
 
@@ -176,7 +192,7 @@ Para evitar essa situação, o processo de backup deve implementar as seguintes 
 
 3.  [Crie um instantâneo de blob](../articles/storage/blobs/storage-blob-snapshots.md) para todos os discos.
 
-Alguns aplicativos do Windows, como o SQL Server, fornecem um mecanismo de backup coordenado por meio do serviço de sombra de volume para criar backups consistentes com o aplicativo. No Linux, use uma ferramenta como o fsfreeze para coordenar os discos. Essa ferramenta fornece backups consistentes com os arquivos, mas não instantâneos consistentes com o aplicativo. Esse processo é complexo. Portanto, considere o uso de [Backup do Azure](../articles/backup/backup-azure-vms-introduction.md) ou de uma solução de backup de terceiros que já implementa esse procedimento.
+Alguns aplicativos do Windows, como o SQL Server, fornecem um mecanismo de backup coordenado por meio do serviço de sombra de volume para criar backups consistentes com o aplicativo. No Linux, use uma ferramenta como o *fsfreeze* para coordenar os discos. Essa ferramenta fornece backups consistentes com os arquivos, mas não instantâneos consistentes com o aplicativo. Esse processo é complexo. Portanto, considere o uso de [Backup do Azure](../articles/backup/backup-azure-vms-introduction.md) ou de uma solução de backup de terceiros que já implementa esse procedimento.
 
 O processo anterior resulta em uma coleção de instantâneos coordenados para todos os discos de VM, representando uma exibição pontual específica da VM. Esse é um ponto de restauração de backup para a VM. Repita o processo em intervalos agendados para criar backups periódicos. Consulte [Copiar os backups para outra região](#copy-the-snapshots-to-another-region) para obter as etapas para copiar os instantâneos para outra região para DR.
 
@@ -219,11 +235,11 @@ Para VMs com vários discos, é necessário copiar todos os instantâneos que fa
 
 ### <a name="sql-server"></a>SQL Server
 
-O SQL Server em execução em uma VM tem suas próprias funcionalidades internas para fazer backup do banco de dados do SQL Server para o armazenamento de Blobs do Azure ou um compartilhamento de arquivos. Se a conta de armazenamento for de armazenamento com redundância geográfica ou de armazenamento com redundância geográfica com acesso de leitura, você poderá acessar esses backups no datacenter secundário da conta de armazenamento em caso de desastre, com as mesmas restrições, conforme abordado anteriormente. Para obter mais informações, consulte [Backup e restauração para o SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Além de fazer backup e restaurar, os [grupos de disponibilidade AlwaysOn do SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) podem manter réplicas secundárias de bancos de dados. Isso reduz consideravelmente o tempo de recuperação de desastre.
+O SQL Server em execução em uma VM tem suas próprias funcionalidades internas para fazer backup do banco de dados do SQL Server para o armazenamento de Blobs do Azure ou um compartilhamento de arquivos. Se a conta de armazenamento for de armazenamento com redundância geográfica ou de armazenamento com redundância geográfica com acesso de leitura, você poderá acessar esses backups no datacenter secundário da conta de armazenamento em caso de desastre, com as mesmas restrições, conforme abordado anteriormente. Para obter mais informações, consulte [Backup e restauração para o SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Além de fazer backup e restaurar, os [grupos de disponibilidade AlwaysOn do SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) podem manter réplicas secundárias de bancos de dados. Essa capacidade reduz consideravelmente o tempo de recuperação de desastre.
 
 ## <a name="other-considerations"></a>Outras considerações
 
-Este artigo abordou como fazer backup ou tirar instantâneos das VMs e de seus discos para dar suporte à recuperação de desastre e como usá-los para recuperar os dados. Com o modelo do Azure Resource Manager, muitas pessoas usam modelos para criar suas VMs e outras infraestruturas no Azure. Use um modelo para criar uma VM que tem sempre a mesma configuração. Se você usar imagens personalizadas para criar as VMs, também deverá verificar se as imagens são protegidas usando uma conta de armazenamento com redundância geográfica com acesso de leitura para armazená-las.
+Este artigo abordou como fazer backup ou tirar instantâneos das VMs e de seus discos para dar suporte à recuperação de desastre e como realizes esses backups ou instantâneos para recuperar seus dados. Com o modelo do Azure Resource Manager, muitas pessoas usam modelos para criar suas VMs e outras infraestruturas no Azure. Use um modelo para criar uma VM que tem sempre a mesma configuração. Se você usar imagens personalizadas para criar as VMs, também deverá verificar se as imagens são protegidas usando uma conta de armazenamento com redundância geográfica com acesso de leitura para armazená-las.
 
 Consequentemente, o processo de backup pode ser uma combinação de duas coisas:
 
@@ -236,7 +252,7 @@ Dependendo da opção de backup escolhida, talvez você precise administrar o ba
 
 Para contas de armazenamento no Azure, há três tipos de redundância de dados que devem ser considerados em relação à recuperação de desastre: redundância local, redundância geográfica ou redundância geográfica com acesso de leitura. 
 
-O armazenamento com redundância local retém três cópias dos dados no mesmo datacenter. Quando a VM grava os dados, todas as três cópias são atualizadas antes que uma operação bem-sucedida seja retornada ao chamador, de modo que você saiba que elas são idênticas. O disco está protegido contra falhas locais, pois é muito improvável que todas as três cópias sejam afetadas ao mesmo tempo. No caso do armazenamento com redundância local, não há nenhuma redundância geográfica e, portanto, o disco não está protegido contra falhas catastróficas que podem afetar todo um datacenter ou uma unidade de armazenamento.
+O armazenamento com redundância local retém três cópias dos dados no mesmo datacenter. Quando a VM grava os dados, todas as três cópias são atualizadas antes que uma operação bem-sucedida seja retornada ao chamador, de modo que você saiba que elas são idênticas. O disco está protegido contra falhas locais, pois é improvável que todas as três cópias sejam afetadas ao mesmo tempo. No caso do armazenamento com redundância local, não há nenhuma redundância geográfica e, portanto, o disco não está protegido contra falhas catastróficas que podem afetar todo um datacenter ou uma unidade de armazenamento.
 
 Com o armazenamento com redundância geográfica e o armazenamento com redundância geográfica com acesso de leitura, três cópias dos dados são retidas na região primária escolhida por você. Mais três cópias dos dados são retidas em uma região secundária correspondente que é definida pelo Azure. Por exemplo, se você armazenar dados no Oeste dos EUA, os dados serão replicados no Leste dos EUA. A retenção de cópia é feita de forma assíncrona e há um pequeno atraso entre as atualizações nos sites primário e secundário. As réplicas dos discos no site secundário são consistentes por disco (com o atraso), mas as réplicas de vários discos ativos podem não estar sincronizadas entre si. Para ter réplicas consistentes em vários discos, são necessários instantâneos consistentes.
 

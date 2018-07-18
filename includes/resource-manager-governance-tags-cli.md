@@ -1,6 +1,6 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29956166"
 ---
 Para adicionar duas marcas a um grupo de recursos, use o comando [az group update](/cli/azure/group#az_group_update):
 

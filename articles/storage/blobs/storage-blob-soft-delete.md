@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701676"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Exclusão reversível para blobs do Armazenamento do Microsoft Azure (visualização)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para blobs do Armazenamento do Azure
 
 ## <a name="overview"></a>Visão geral
 
-O Armazenamento do Microsoft Azure agora oferece a exclusão reversível (visualização) para objetos de blob para que você possa recuperar os dados mais facilmente quando eles forem modificados ou excluídos erroneamente por outro usuário de conta de armazenamento ou um aplicativo.
+O Armazenamento do Azure agora oferece a exclusão reversível para objetos de blob para que você possa recuperar os dados mais facilmente quando eles forem modificados ou excluídos erroneamente por outro usuário de conta de armazenamento ou um aplicativo.
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
@@ -29,10 +30,6 @@ Você pode configurar o tempo durante o qual os dados com exclusão reversível 
 
 A exclusão reversível é compatível com versões anteriores; você não precisa alterar nada nos seus aplicativos para aproveitar as proteções que esse recurso oferece. No entanto, a [recuperação de dados](#recovery) apresenta uma nova API **Restaurar Blob**.
 
-> [!NOTE]
-> Durante a Visualização Pública, a chamada de Definir Nível de Blob em um blob com instantâneos não é permitida.
-A exclusão reversível gera instantâneos para proteger seus dados quando eles são substituídos. Estamos trabalhando ativamente em uma solução para habilitar a camada de blobs com instantâneos.
-
 ### <a name="configuration-settings"></a>Definições de configuração
 
 Quando você cria uma nova conta, a exclusão reversível fica desativada por padrão. A exclusão reversível também está desativada por padrão para as contas de armazenamento existentes. Você pode ativar ou desativar o recurso a qualquer momento durante a existência de uma conta de armazenamento.
@@ -41,7 +38,7 @@ Você ainda poderá acessar e recuperar dados com exclusão reversível quando o
 
 O período de retenção indica o tempo de armazenamento e disponibilidade dos dados com exclusão reversível para recuperação. Para blobs e instantâneos de blob que são excluídos explicitamente, a contagem do período de retenção se inicia quando os dados são excluídos. Para instantâneos com exclusão reversível gerados pelo recurso de exclusão reversível quando os dados são substituídos, o tempo começa a ser contado quando o instantâneo é gerado. No momento, você pode manter os dados com exclusão reversível entre 1 e 365 dias.
 
-Você pode alterar o período de retenção de exclusão reversível a qualquer momento. Um período de retenção atualizado será aplicado apenas aos dados recentemente excluídos. Os dados excluídos anteriormente expirarão com base no período de retenção que foi configurado quando esses dados foram excluídos.
+Você pode alterar o período de retenção de exclusão reversível a qualquer momento. Um período de retenção atualizado será aplicado apenas aos dados recentemente excluídos. Os dados excluídos anteriormente expirarão com base no período de retenção que foi configurado quando esses dados foram excluídos. A tentativa de excluir um objeto que sofreu exclusão reversível não afetará seu tempo de expiração.
 
 ### <a name="saving-deleted-data"></a>Salvando dados excluídos
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Consulte a seção [Próximas etapas](#Next steps) seção para obter um ponteiro para o aplicativo que gerou essa saída.
+Consulte a seção [Próximas etapas](#next-steps) seção para obter um ponteiro para o aplicativo que gerou essa saída.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>CLI do Azure 
+Para habilitar a exclusão reversível, atualize as propriedades de serviço do cliente de um blob:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Para verificar se a exclusão reversível está ativada, use o seguinte comando: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Biblioteca de clientes Python
 
 Para habilitar a exclusão reversível, atualize as propriedades de serviço do cliente de um blob:
@@ -276,11 +286,15 @@ Atualmente, a exclusão reversível só está disponível para armazenamento de 
 
 **A exclusão reversível está disponível para todos os tipos de conta de armazenamento?**
 
-Sim, a exclusão reversível está disponível para contas de armazenamento de blob e também para blobs nas contas de armazenamento de finalidade geral. Isso se aplica às contas standard e premium. A exclusão reversível não está disponível para discos gerenciados.
+Sim, a exclusão reversível está disponível para contas de armazenamento de blobs e também para blobs nas contas de armazenamento de finalidade geral (GPv1 e GPv2). Isso se aplica às contas standard e premium. A exclusão reversível não está disponível para discos gerenciados.
 
 **A exclusão reversível está disponível para todas as camadas de armazenamento?**
 
 Sim, a exclusão reversível está disponível para todas as camadas de armazenamento, incluindo frequente, esporádico e arquivos. Contudo, a exclusão reversível não permite substituir a proteção para blobs na camada de arquivos.
+
+**Posso usar a API de definição de camada do blob para criar camadas de blobs com instantâneos que foram excluídos com exclusão reversível?**
+
+Sim. Os instantâneos com exclusão reversível permanecerão na camada original, mas o blob de base será movido para a nova camada. 
 
 **As contas de armazenamento Premium têm um limite de 100 instantâneos por blob. A contagem de instantâneos com exclusão reversível vai além desse limite?**
 

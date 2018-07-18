@@ -1,11 +1,11 @@
 ---
-title: "Pesquisa da Central de Segurança do Azure | Microsoft Docs"
-description: "Saiba como a Central de Segurança do Azure usa a pesquisa do Log Analytics para recuperar e analisar seus dados de segurança."
+title: Pesquisa da Central de Segurança do Azure | Microsoft Docs
+description: Saiba como a Central de Segurança do Azure usa a pesquisa do Log Analytics para recuperar e analisar seus dados de segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040431"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa da Central de Segurança do Azure
 A Central de Segurança do Azure usa a [pesquisa do Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Na Central de Segurança, você pode aproveitar a pesquisa do Log Analytics para construir consultas e analisar os dados coletados.

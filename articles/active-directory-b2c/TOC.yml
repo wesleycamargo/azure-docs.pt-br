@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Tutoriais
   items:
-    - name: 1 - Registrar aplicativos
-      href: tutorial-register-applications.md
+    - name: 1 - Criar o locatário B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Autenticar contas
       items:
         - name: ASP.NET
@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Usando a restrição de idade
           href: basic-age-gating.md
+        - name: Entrada direta
+          href: direct-signin.md
     - name: Identity Experience Framework
       items:
         - name: Políticas personalizadas

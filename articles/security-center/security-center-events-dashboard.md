@@ -1,11 +1,11 @@
 ---
-title: "Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Saiba como você pode usar o painel de eventos da Central de Segurança para ver os eventos de segurança em suas VMs do Azure e em seus computadores não Azure."
+title: Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure | Microsoft Docs
+description: Saiba como você pode usar o painel de eventos da Central de Segurança para ver os eventos de segurança em suas VMs do Azure e em seus computadores não Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040651"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure
 O painel Eventos fornece uma visão geral do número de eventos de segurança coletado ao longo do tempo, além de uma lista de eventos notáveis que possam demandar sua atenção.  

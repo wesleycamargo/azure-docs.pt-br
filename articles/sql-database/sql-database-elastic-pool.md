@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: ninarn
-ms.topic: article
-ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.openlocfilehash: 5ef32b231a77906a6840ad3550e81b631ddc0c13
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195457"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309647"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -104,7 +104,7 @@ O melhor tamanho para um pool depende dos recursos agregados necessários para t
 
 Para as camadas de serviço disponíveis para cada modelo de recurso, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
 
-O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, confira [Monitorar, gerenciar e dimensionar um pool elástico](sql-database-elastic-pool-manage-portal.md).
+O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, confira [Monitorar, gerenciar e dimensionar um pool elástico](#monitor-an-elastic-pool-and-its-databases).
 
 Em casos em que você não pode usar as ferramentas, os procedimentos passo a passo a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
@@ -138,9 +138,7 @@ Os bancos de dados elásticos normalmente dão suporte aos mesmos [recursos de c
 
 - **Replicação geográfica ativa**: para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-geo-replication-overview.md).
 
-## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Gerenciar pools elásticos e bancos de dados usando o portal do Azure
-
-### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Criar um novo pool elástico de um Banco de Dados SQL usando o Portal do Azure
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Criar um novo pool elástico de um Banco de Dados SQL usando o Portal do Azure
 
 Há duas maneiras de criar um pool elástico no Portal do Azure.
 1. É possível criar um pool elástico, pesquisando **pool elástico do SQL** no **Marketplace** ou clicando em **+ Adicionar** na folha de procura de pools elásticos do SQL. Você pode especificar um servidor novo ou existente por este fluxo de trabalho de provisionamento de pool.
@@ -149,13 +147,13 @@ Há duas maneiras de criar um pool elástico no Portal do Azure.
 > [!NOTE]
 > Você pode criar vários pools em um servidor, mas não pode adicionar bancos de dados de servidores diferentes ao mesmo pool.
 
-A camada de serviço do pool determina os recursos disponíveis para os elásticos no pool e a quantidade máxima de recursos disponíveis para cada banco de dados. Para obter mais detalhes, consulte Limites de recursos para pools elásticos no [modelo DTU](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) e [Modelo vCore](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+A camada de serviço do pool determina os recursos disponíveis para os elásticos no pool e a quantidade máxima de recursos disponíveis para cada banco de dados. Para obter mais detalhes, veja Limites de recursos para pools elásticos no [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Para saber os limites de recurso baseados em vCore para pools elásticos, confira [Limites de recurso baseados em vCore - pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Para configurar os recursos e preços do pool, clique em **Configurar pool**. Em seguida, selecione uma camada de serviço, adicione bancos de dados ao pool e configure os limites de recursos para o pool e os bancos de dados.
 
 Quando tiver concluído a configuração do pool, você poderá clicar em "Aplicar", nomear o pool e clicar em "OK" para criar o pool.
 
-### <a name="monitor-an-elastic-pool-and-its-databases"></a>Monitorar um pool elástico e os bancos de dados
+## <a name="monitor-an-elastic-pool-and-its-databases"></a>Monitorar um pool elástico e os bancos de dados
 
 No Portal do Azure, é possível monitorar a utilização de um pool elástico e os bancos de dados no pool. Você também pode criar um conjunto de alterações para o pool elástico e enviar todas as alterações ao mesmo tempo. Essas alterações incluem adicionar ou remover bancos de dados, alterar as configurações de pool elástico ou alterar suas configurações de banco de dados.
 
@@ -174,13 +172,13 @@ Se você quiser monitorar os bancos de dados dentro do pool, clique em **Utiliza
 
 ![Página Utilização de recursos do banco de dados](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-#### <a name="to-customize-the-chart-display"></a>Para personalizar a exibição do gráfico
+### <a name="to-customize-the-chart-display"></a>Para personalizar a exibição do gráfico
 
 Edite o gráfico e a página de métrica para exibir outras métricas como percentual da CPU, percentual de E/S de dados e percentual de E/S de log usado.
 
 No formulário **Editar Gráfico**, é possível selecionar um intervalo de tempo fixo ou clicar em **personalizar** para selecionar qualquer janela de 24 horas nas últimas duas semanas e, em seguida, selecionar os recursos a serem monitorados.
 
-#### <a name="to-select-databases-to-monitor"></a>Para selecionar os bancos de dados a serem monitorados
+### <a name="to-select-databases-to-monitor"></a>Para selecionar os bancos de dados a serem monitorados
 
 Por padrão, o gráfico na folha **Utilização de Recursos de Banco de Dados** mostrará os 5 principais bancos de dados por DTU ou CPU (dependendo da camada de serviço). É possível alternar os bancos de dados nesse gráfico, selecionando e desmarcando os bancos de dados da lista abaixo do gráfico por meio das caixas de seleção esquerdas.
 
@@ -188,104 +186,9 @@ Você também pode selecionar mais métricas para exibir lado a lado nessa tabel
 
 Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
 
-### <a name="manage-an-elastic-pool-and-its-databases"></a>Gerenciar um pool elástico e os respectivos bancos de dados
-
-Todas as configurações de pool podem ser localizadas em um só local: na folha **Configurar pool**. Para chegar até aqui, localize um pool elástico no portal e clique em **Configurar pool** na parte superior da folha ou no menu de recursos esquerdo.
-
-A partir deste ponto, é possível fazer qualquer combinação das alterações a seguir e salvá-las em um lote:
-1. Alterar a camada de serviço do pool
-2. Escalar o desempenho (DTU ou vCores) e armazenar ou reduzir verticalmente
-3. Adicionar ou remover bancos de dados de/para o pool
-4. Definir um limite de desempenho mínimo (garantido) e máximo para os bancos de dados nos pools
-5. Analise o resumo de custos para visualizar quaisquer alterações na fatura como resultado das novas seleções
-
-![Folha de configuração do pool elástico](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
-
-## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Gerenciar pools elásticos e bancos de dados usando o PowerShell
-
-Para criar e gerenciar pools elásticos do Banco de Dados SQL com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Para criar e gerenciar bancos de dados, servidores e regras de firewall, consulte [Criar e gerenciar servidores de Banco de Dados SQL do Microsoft Azure e bancos de dados usando o PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
-
-> [!TIP]
-> Para ver scripts de exemplo do PowerShell, consulte [Criar pools elásticos e mover bancos de dados entre pools e fora de um pool usando o PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [Usar o PowerShell para monitorar e dimensionar um pool elástico SQL no Banco de Dados SQL do Microsoft Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md).
->
-
-| Cmdlet | DESCRIÇÃO |
-| --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um pool de banco de dados elástico em um SQL Server lógico.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém pools elásticos e seus valores de propriedade em um SQL Server lógico.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um pool de banco de dados elástico em um SQL Server lógico. Por exemplo, use a propriedade **StorageMB** para modificar o armazenamento máximo de um pool elástico.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Exclui um pool de banco de dados elástico de um SQL Server lógico.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtém o status de operações em um pool elástico em um SQL Server lógico.|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria um novo banco de dados em um pool existente ou como um Banco de Dados Individual. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém um ou mais bancos de dados.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para um banco de dados ou move um banco de dados existente para um pool elástico, para fora dele ou entre pools elásticos.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Remove um banco de dados.|
-
-
-> [!TIP]
-> A criação de muitos bancos de dados em um pool elástico pode levar tempo quando feito usando o portal ou cmdlets do PowerShell que criam apenas um banco de dados individual por vez. Para automatizar a criação em um pool elástico, consulte [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
-
-## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Gerenciar pools elásticos e bancos de dados usando a CLI do Azure
-
-Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azure](/cli/azure), use os seguintes comandos do [Banco de Dados SQL da CLI do Azure](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
-
-> [!TIP]
-> Para scripts de exemplo da CLI do Azure, consulte [Usar a CLI para mover um Banco de Dados SQL do Microsoft Azure em um pool elástico SQL](scripts/sql-database-move-database-between-pools-cli.md) e [Usar a CLI do Azure para escalar um pool elástico do SQL no Banco de Dados SQL do Microsoft Azure](scripts/sql-database-scale-pool-cli.md).
->
-
-| Cmdlet | DESCRIÇÃO |
-| --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Cria um pool elástico.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retorna uma lista de pools elásticos em um servidor.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Também inclui as configurações DTU do pool disponível, limites de armazenamento e configurações por banco de dados. Para reduzir o detalhamento, os limites de armazenamento adicionais e as configurações por banco de dados ficam ocultos por padrão.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Atualiza um pool elástico.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Excluir o pool elástico.|
-
-## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Gerenciar bancos de dados em pools elásticos usando o Transact-SQL
-
-Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. Para criar e gerenciar bancos de dados, servidores e regras de firewall, consulte [Criar e gerenciar servidores de Banco de Dados SQL do Microsoft Azure e bancos de dados usando o Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
-
-> [!IMPORTANT]
-> Não é possível criar, atualizar ou excluir um pool elástico de Banco de Dados SQL do Microsoft Azure usando o Transact-SQL. Você pode adicionar ou remover bancos de dados de um pool elástico, bem como pode usar DMVs para retornar informações sobre os pools elásticos existentes.
->
-
-| Comando | DESCRIÇÃO |
-| --- | --- |
-|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados em um pool existente ou como um Banco de Dados Individual. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Move um banco de dados para dentro de um pool elástico, para fora dele ou entre pools elásticos.|
-|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Exclui um banco de dados.|
-|[sys.elastic_pool_resource_stats (Banco de Dados SQL do Microsoft Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retorna estatísticas de uso de recursos de todos os pools de banco de dados elástico em um servidor lógico. Para cada pool de banco de dados elástico, há uma linha para cada janela de relatórios de 15 segundos (quatro linhas por minuto). Isso inclui a utilização de CPU, E/S, log, consumo de armazenamento e solicitações/sessões simultâneas de todos os bancos de dados no pool.|
-|[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (nível de serviço), o objetivo do serviço (tipo de preço) e o nome do pool elástico, se houver um, para um Banco de Dados SQL do Azure ou um SQL Data Warehouse do Azure. Se estiver conectado ao banco de dados mestre em um servidor de Banco de Dados SQL do Azure, retornará informações sobre todos os bancos de dados. Para o SQL Data Warehouse do Azure, você deve estar conectado ao banco de dados mestre.|
-
-## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Gerenciar pools elásticos e bancos de dados usando a API REST
-
-Para criar e gerenciar pools elásticos do Banco de Dados SQL, use estas solicitações da API REST.
-
-| Comando | DESCRIÇÃO |
-| --- | --- |
-|[Pools Elásticos – Criar ou Atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
-|[Pools Elásticos – Excluir](/rest/api/sql/elasticpools/delete)|Excluir o pool elástico.|
-|[Pools Elásticos – Obter](/rest/api/sql/elasticpools/get)|Obtém um pool elástico.|
-|[Pools Elásticos – Listar por Servidor](/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
-|[Pools Elásticos – Atualizar](/rest/api/sql/elasticpools/update)|Atualiza um pool elástico existente.|
-|[Pools Elásticos Recomendados – Obter](/rest/api/sql/recommendedelasticpools/get)|Obtém um pool elástico recomendado.|
-|[Pools Elásticos Recomendados – Listar por Servidor](/rest/api/sql/recommendedelasticpools/listbyserver)|Retorna os pools elásticos recomendados.|
-|[Pools Elásticos Recomendados – Listar Métricas](/rest/api/sql/recommendedelasticpools/listmetrics)|Retorna as métricas do pool elástico recomendado.|
-|[Atividades do Pool Elástico](/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
-|[Atividades do Banco de Dados de Pool Elástico](/rest/api/sql/elasticpooldatabaseactivities)|Retorna as atividades nos bancos de dados dentro de um pool elástico.|
-|[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
-|[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
-|[Bancos de Dados – Obter por Pool Elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém um banco de dados dentro de um pool elástico.|
-|[Bancos de Dados – Obter por Pool Elástico Recomendado](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém um banco de dados dentro de um pool elástico recomendado.|
-|[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
-|[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
-
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 * Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 * Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).

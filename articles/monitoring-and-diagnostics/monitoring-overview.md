@@ -1,25 +1,19 @@
 ---
-title: Monitoramento dos aplicativos e recursos do Azure | Microsoft Docs
+title: Monitoramento dos aplicativos e recursos do Azure
 description: Visão geral dos serviços e funcionalidades da Microsoft que contribuem para uma estratégia de monitoramento completa para seus serviços e aplicativos do Azure.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777545"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265125"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoramento dos aplicativos e recursos do Azure
 
@@ -118,9 +112,9 @@ Há várias ferramentas que trabalham em conjunto para monitorar vários aspecto
 
 O [Observador de Rede](../network-watcher/network-watcher-monitoring-overview.md) fornece diagnóstico e monitoramento baseado em cenários para diferentes cenários de rede no Azure. Ele armazena dados de métricas e diagnósticos do Azure para análise posterior. Funciona com as seguintes soluções para monitorar vários aspectos da rede.
 
-[NPM (Monitor de Desempenho de Rede)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): é uma solução de monitoramento de rede com base em nuvem que monitora a conectividade em várias nuvens públicas, data centers e ambientes locais.
+[NPM (Monitor de Desempenho de Rede)](../log-analytics/log-analytics-network-performance-monitor.md): é uma solução de monitoramento de rede com base em nuvem que monitora a conectividade em várias nuvens públicas, data centers e ambientes locais.
 
-[Monitor do ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): é um recurso NPM que monitora a conectividade de ponta a ponta e o desempenho em circuitos do Azure ExpressRoute.
+[Monitor do ExpressRoute](../expressroute/how-to-npm.md): é um recurso NPM que monitora a conectividade de ponta a ponta e o desempenho em circuitos do Azure ExpressRoute.
 
 [Análise de DNS](../log-analytics/log-analytics-dns.md): é uma solução que fornece insights relacionados a segurança, desempenho e operações, com base nos servidores DNS.
 

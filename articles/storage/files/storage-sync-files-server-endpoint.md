@@ -4,22 +4,22 @@ description: Saiba o que considerar ao planejar uma implantação de Arquivos do
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187735"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738472"
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor da Sincronização de Arquivo do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -44,22 +44,25 @@ As informações a seguir são necessárias em **Adicionar ponto de extremidade 
 
 - **Servidor Registrado**: o nome do servidor ou cluster no qual criar o ponto de extremidade do servidor.
 - **Caminho**: o caminho no Windows Server a ser sincronizado como parte do grupo de sincronização.
-- **Camadas de Nuvem**: uma opção para habilitar ou desabilitar as camadas de nuvem, o que permite que os arquivos pouco usados ou acessados sejam dispostos em camadas para os Arquivos do Azure.
+- **Nuvem em camadas**: uma opção para habilitar ou desabilitar a nuvem camadas. Quando habilitada, será camada na nuvem *camada* arquivos para os compartilhamentos de arquivos do Azure. Isso converte os compartilhamentos de arquivos local em um cache, em vez de uma cópia completa do conjunto de dados, para ajudá-lo a gerenciar a eficiência de espaço em seu servidor.
 - **Espaço Livre no Volume**: a quantidade de espaço livre para reservar no volume no qual reside o ponto de extremidade do servidor. Por exemplo, se o espaço livre do volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
 
 Selecione **Criar** para adicionar o ponto de extremidade do servidor. Agora, os arquivos dentro de um namespace de um Grupo de Sincronização serão mantidos sincronizados. 
 
 ## <a name="remove-a-server-endpoint"></a>Remover um ponto de extremidade do servidor
-Quando habilitada para um ponto de extremidade do servidor, a definição de camadas de nuvem *colocará os arquivos em camadas* nos compartilhamentos de arquivos do Azure. Isso permite que os compartilhamentos de arquivos locais atuem como um cache, em vez de uma cópia completa do conjunto de dados, para utilizar o espaço no servidor de arquivos de forma eficiente. No entanto, **se um ponto de extremidade do servidor for removido e ainda houver arquivos em camadas localmente no servidor, esses arquivos ficarão inacessíveis**. Portanto, se o acesso contínuo ao arquivo for desejado nos compartilhamentos de arquivos locais, será necessário realizar o recall de todos os arquivos em camadas dos Arquivos do Azure antes de continuar com a exclusão do ponto de extremidade do servidor. 
+Se você quiser interromper o uso da Azure File Sync - Sincronização de arquivos do Azure para um determinado servidor de ponto de extremidade, você pode remover o ponto de extremidade do servidor. 
 
-Isso pode ser feito com o cmdlet do PowerShell como mostrado abaixo:
+> [!Warning]  
+> Não tente solucionar problemas com a sincronização, camadas de nuvem ou qualquer outro aspecto da Azure File Sync - Sincronização de arquivos do Azure removendo e recriando o ponto de extremidade do servidor, a menos que explicitamente instruído pelo engenheiro de Microsoft. Remover um ponto de extremidade do servidor é uma operação destrutiva e arquivos em camadas em que o ponto de extremidade do servidor não "retornará" em seus locais no compartilhamento de arquivos do Azure após o ponto de extremidade do servidor é recriado, o que resultará em erros em sincronia. Observe também, arquivos em camadas que existem fora do namespace de ponto de extremidade do servidor poderão ser perdidos permanentemente. Arquivos em camadas podem existir em seu se até mesmo de ponto de extremidade do servidor nuvem camadas nunca foi habilitada.
+
+Para garantir que todos os arquivos em camadas são recuperados antes de remover o ponto de extremidade do servidor, desabilitar nuvem camadas no ponto de extremidade do servidor e, em seguida, execute o seguinte cmdlet do PowerShell para recuperar todos os arquivos em camadas no seu namespace de ponto de extremidade do servidor:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
-> [!Warning]  
+> [!Note]  
 > Se o volume local que hospeda o servidor não tiver espaço livre suficiente para realizar o recall de todos os dados em camadas, o cmdlet `Invoke-StorageSyncFileRecall` falha.  
 
 Para remover o ponto de extremidade do servidor:

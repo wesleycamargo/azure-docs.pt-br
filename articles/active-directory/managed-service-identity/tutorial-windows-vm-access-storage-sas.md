@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ac807bf12e0d6a465b1741d34e6d3d02885c8ea1
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0c09ad0dd6ca2748a19aabc161390d9e0d09c6e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303766"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594910"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Microsoft Azure por meio de uma credencial SAS
 
@@ -228,15 +228,11 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="related-content"></a>Conteúdo relacionado
+Neste tutorial, você aprendeu a criar uma Identidade de Serviço Gerenciada para acessar o Armazenamento do Azure usando uma credencial de SAS.  Para saber mais sobre SAS de Armazenamento do Azure, confira:
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-- Para saber como executar este mesmo tutorial usando uma chave de conta de armazenamento, consulte [Usar uma Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Azure](tutorial-windows-vm-access-storage.md)
-- Para obter mais informações sobre o recurso SAS da conta de Armazenamento do Azure, consulte:
-  - [Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Constructing a Service SAS (Criação de uma SAS de serviço)](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
 

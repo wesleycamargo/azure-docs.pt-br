@@ -1,11 +1,11 @@
 ---
-title: "Administração de interface do usuário da Web da StorSimple Virtual Array | Microsoft Docs"
-description: "Descreve como executar tarefas de administração básicas do dispositivo por meio da interface do usuário da Web do StorSimple Virtual Array."
+title: Administração de interface do usuário da Web da StorSimple Virtual Array | Microsoft Docs
+description: Descreve como executar tarefas de administração básicas do dispositivo por meio da interface do usuário da Web do StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109954"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar a interface do usuário da Web para administrar o StorSimple Virtual Array
 ![fluxo do processo de instalação](./media/storsimple-ova-web-ui-admin/manage4.png)

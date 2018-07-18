@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197662"
 ---
 | **SKU** | **Conexões P2S**| **Agregar parâmetro de comparação de taxa de transferência** | **Autenticação Radius** | **VPN IKEv2 P2S** |
 |---|---|---|---| --- |

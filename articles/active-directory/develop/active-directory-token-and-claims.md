@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157914"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317819"
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token. 
@@ -56,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | Declaração JWT | NOME | DESCRIÇÃO |
 | --- | --- | --- |
 | `aud` |Público-alvo |O destinatário pretendido do token. O aplicativo que recebe o token deve verificar se o valor de público-alvo está correto e rejeitar quaisquer tokens destinados a um público-alvo diferente. <br><br> **Valor de exemplo de SAML**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de exemplo de JWT**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Referência de classe de contexto de autenticação de aplicativo |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se a ID do cliente e o segredo do cliente são usados, o valor é 1. <br><br> **Valor de exemplo de JWT**: <br> `"appidacr": "0"` |
+| `appidacr` |Referência de classe de contexto de autenticação de aplicativo |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se a ID do cliente e o segredo do cliente são usados, o valor é 1. Se um certificado do cliente tiver sido usado para autenticação, o valor será 2. <br><br> **Valor de exemplo de JWT**: <br> `"appidacr": "0"` |
 | `acr` |Referência de classe de contexto de autenticação |Indica como o assunto foi autenticado, em oposição ao cliente na declaração de Referência de Classe de Contexto de Autenticação do Aplicativo. Um valor "0" indica que a autenticação do usuário final não atendeu aos requisitos da ISO/IEC 29115. <br><br> **Valor de exemplo de JWT**: <br> `"acr": "0"` |
 | Instante da autenticação |Registra a data e o horário em que ocorreu a autenticação. <br><br> **Valor de exemplo de SAML**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Método de autenticação |Identifica como o assunto do token foi autenticado. <br><br> **Valor de exemplo de SAML**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Valor de exemplo de JWT**: `“amr”: ["pwd"]` |
@@ -113,7 +113,8 @@ Os tokens emitidos pelo Azure AD são assinados usando algoritmos de criptografi
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Experimente essa URL em um navegador!
-> 
-> 
 
 Esse documento de metadados é um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade exigidos para execução da autenticação do OpenID Connect. 
 
 Ele também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento de JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho do JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Assim, ele pode executar a validação da assinatura usando a chave pública correta e o algoritmo indicado.
+
+> [!NOTE]
+> O ponto de extremidade v1.0 retorna as declarações `x5t` e `kid`. A declaração `x5t` está ausente de tokens v2.0. O ponto de extremidade v 2.0 responde com a declaração `kid`. No futuro, é recomendável usar a declaração `kid` para validar o token.
 
 Executar a validação da assinatura está fora do escopo deste documento — há muitas bibliotecas de software livre disponíveis para ajudar você a fazer isso, caso seja necessário.
 
@@ -153,21 +155,31 @@ Para obter uma lista completa das validações de declaração que seu aplicativ
 ## <a name="token-revocation"></a>Revogação de tokens
 
 Os tokens de atualização podem ser invalidados ou revogados a qualquer momento por vários motivos. Eles se encaixam em duas categorias principais: tempos limite e revogações. 
-* Tempos limite de token
-  * MaxInactiveTime: Se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
-  * MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor foi definida como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession *. 
-  * Exemplos:
-    * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente. 
-    * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de 1 dia. Se um usuário fizer logon na segunda-feira e na terça-feira (após decorridas 25 horas), ele deverá autenticar-se novamente. 
-* Revogação
-  * Alteração de senha voluntária: Se um usuário altera sua senha, ele pode ter que autenticar-se novamente em alguns de seus aplicativos, dependendo do modo que o token foi obtido. Consulte as observações abaixo para exceções. 
-  * Involuntária alteração de senha: Se um administrador força o usuário a alterar sua senha ou a redefini-la, os tokens de usuário serão invalidados se foram obtidos usando sua senha. Consulte as observações abaixo para exceções. 
-  * Violação de segurança: No caso de uma violação de segurança (por exemplo, o armazenamento local de senhas for ultrapassado) o administrador pode revogar todos os tokens de atualização emitidos no momento. Isso forçará todos os usuários para autenticar novamente. 
+
+**Tempos limite de token**
+
+* MaxInactiveTime: Se o token de atualização não foi usado no tempo determinado pelo MaxInactiveTime, o Token de atualização não será válido. 
+* MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor foi definida como algo diferente do padrão (até revogado), será necessária a reautenticação depois de decorrido o tempo definido em MaxAgeSession *. 
+* Exemplos:
+  * O locatário tem uma MaxInactiveTime de 5 dias e o usuário entrou em férias por uma semana e então AAD não obteve uma nova solicitação de token do usuário em 7 dias. Na próxima vez que o usuário solicitar um novo token, ele verá que seu Token de atualização foi revogado e deverá inserir suas credenciais novamente. 
+  * Um aplicativo confidencial tem um MaxAgeSessionSingleFactor de 1 dia. Se um usuário fizer logon na segunda-feira e na terça-feira (após decorridas 25 horas), ele deverá autenticar-se novamente. 
+
+**Revogação**
+
+|   | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseado em senha | Token de cliente confidencial| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|A senha expira| Permanece ativo|Permanece ativo|Permanece ativo|Permanece ativo|Permanece ativo|
+|Senha alterada pelo usuário| Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Usuário faz SSPR|Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Administrador redefine senha|Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Usuário revoga seus tokens de atualização [por meio do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado |Revogado | Revogado |
+|O administrador revoga todos os tokens de atualização do locatário [por meio do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado |Revogado | Revogado |
+|[Saída única](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) na Web | Revogado | Permanece ativo |Revogado | Permanece ativo |Permanece ativo |Permanece ativo |
 
 > [!NOTE]
->Se um método diferente de senha de autenticação foi usado (Windows Hello, o aplicativo Authenticator, biometria como uma face ou impressão digital) para obter o token, alterar a senha do usuário não forçará o usuário a autenticar novamente (mas vai forçar seu aplicativo autenticador a autenticar novamente). Isso ocorre porque a autenticação escolhida de entrada (uma face, por exemplo) não foi alterado e, portanto, pode ser usado novamente para autenticar novamente.
+> Um logon "não baseado em senha" é um logon em que o usuário não digita uma senha para entrar.  Por exemplo, usando o rosto no Windows Hello, uma chave FIDO ou um PIN. 
 >
-> Confidential clients are not impacted by password change revocations. A confidential client with a refresh token issued before a password change will continue to be abl to use that refresh token to get more tokens. 
+> Existe um problema conhecido com o Token de atualização primário do Windows.  Se o PRT for obtido por meio de uma senha e, em seguida, o usuário fizer logon usando o Hello, isso não alterará a origem do PRT e será revogado se o usuário alterar sua senha. 
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 

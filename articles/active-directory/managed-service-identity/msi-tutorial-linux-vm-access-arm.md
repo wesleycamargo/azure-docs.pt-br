@@ -9,18 +9,18 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: arluca
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6d4f7378ccd24af4281793dbc93df40830a1b31a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300794"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904383"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: Usar uma identidade atribuída pelo usuário em uma VM do Linux para acessar o Azure Resource Manager
 
@@ -74,29 +74,29 @@ Para este tutorial, você primeiro cria uma nova VM do Linux. Você também pode
 
 2. Crie uma identidade atribuída pelo usuário usando [az identity create](/cli/azure/identity#az_identity_create). O parâmetro `-g` especifica o grupo de recursos no qual o MSI é criado, enquanto o parâmetro `-n` especifica seu nome. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<MSI NAME>` pelos seus próprios valores:
     
-    > [!IMPORTANT]
-    > A criação de identidades atribuídas pelo usuário oferece suporte somente a caracteres alfanuméricos e hífen (0-9 ou a-z ou A-Z ou -). Além disso, o nome deve ter um limite de 24 caracteres para que a atribuição a VM/VMSS funcione corretamente. Procure novamente por atualizações. Para mais informações, consulte [Perguntas frequentes e problemas conhecidos](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <MSI NAME>
-    ```
 
-    A resposta contém detalhes para a identidade atribuída pelo usuário criada, semelhante ao exemplo a seguir. Tome nota do valor `id` para sua identidade atribuída pelo usuário, pois ela será usada na próxima etapa:
+```azurecli-interactive
+az identity create -g <RESOURCE GROUP> -n <MSI NAME>
+```
 
-    ```json
-    {
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "9012",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-    ```
+A resposta contém detalhes para a identidade atribuída pelo usuário criada, semelhante ao exemplo a seguir. Tome nota do valor `id` para sua identidade atribuída pelo usuário, pois ela será usada na próxima etapa:
+
+```json
+{
+"clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+"clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=12344643-8088-4d70-9532-c3a0fdc190fz",
+"id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+"location": "westcentralus",
+"name": "<MSI NAME>",
+"principalId": "9012",
+"resourceGroup": "<RESOURCE GROUP>",
+"tags": {},
+"tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+"type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
 
 ## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Atribuir uma identidade atribuída pelo usuário a uma VM do Linux
 
@@ -193,5 +193,8 @@ Para concluir essas etapas, você precisará do cliente SSH. Se você estiver us
     
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral da Identidade de Serviço Gerenciada, confira s [visão geral](overview.md).
+Neste tutorial, você aprendeu a criar uma identidade atribuída pelo usuário e a anexá-la a uma máquina virtual do Linux para acessar a API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, confira:
+
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

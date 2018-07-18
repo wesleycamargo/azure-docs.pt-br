@@ -1,0 +1,95 @@
+- name: Documentação de Pesquisa de Imagem do Bing
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Pesquisa de Imagem do Bing?
+      href: overview.md
+- name: Guias de início rápido da API REST
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Guias de início rápido do SDK
+  items:
+    - name: Visão geral dos exemplos do SDK
+      href: sdk.md
+    - name: 'Guia de início rápido do C# do SDK da Pesquisa de Imagem'
+      href: image-search-sdk-quickstart.md
+    - name: Guia de início rápido do Node.js do SDK da Pesquisa de Imagem
+      href: image-search-sdk-node-quickstart.md
+    - name: Guia de início rápido do Python do SDK da Pesquisa de Imagem
+      href: image-sdk-python-quickstart.md
+    - name: Guia de início rápido do Java do SDK da Pesquisa de Imagem
+      href: image-sdk-java-quickstart.md
+- name: Tutoriais
+  items:
+    - name: Aplicativo Web de página única
+      href: tutorial-bing-image-search-single-page-app.md
+    - name: Aplicativo Web de página única (código-fonte)
+      href: tutorial-bing-image-search-single-page-app-source.md
+    - name: Carregamento de imagem do Bing para insights
+      href: tutorial-image-post.md
+    - name: Carregamento de imagem do Bing para insights (código-fonte)
+      href: tutorial-image-post-source.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
+- name: Guias de instruções
+  items:
+    - name: Resultados de uso e exibição
+      href: UseAndDisplayRequirements.md
+    - name: Obter insights de imagens
+      href: image-insights.md
+    - name: Obter imagens .gif
+      href: gif-images.md
+    - name: Obter imagens populares
+      href: trending-images.md
+    - name: Percorrer as imagens
+      href: paging-images.md
+    - name: Miniaturas de redimensionamento e corte
+      href: resize-and-crop-thumbnails.md
+    - name: Atualizar de v5 para v7
+      href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Referência
+  items:
+    - name: API de Pesquisa de Imagem do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+    - name: API de Pesquisa de Imagem do Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: bing-image-search-resource-faq.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obter chave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
+    - name: Experimente!
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
+    - name: Pontos de extremidade da Pesquisa de Imagem do Bing
+      href: image-search-endpoint.md
+    - name: Países e mercados com suporte
+      href: supported-countries-markets.md
+    - name: Análise da API de Pesquisa de Imagem do Bing
+      href: bing-image-stats.md

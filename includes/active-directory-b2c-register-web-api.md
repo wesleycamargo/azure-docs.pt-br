@@ -4,11 +4,11 @@ Para registrar sua API da Web, use as configurações especificadas na tabela.
 
 ![Exemplo de configurações de registro para nova API Web](./media/active-directory-b2c-register-web-api/b2c-new-web-api-settings.png)
 
-| Configuração      | Valor de exemplo  | Descrição                                        |
+| Configuração      | Valor de exemplo  | DESCRIÇÃO                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | API B2C da Contoso | Insira um **Nome** para o aplicativo que descreva sua API aos consumidores. | 
-| **Incluir aplicativo Web/API Web** | Sim | Selecione **Sim** para uma API Web. |
-| **Permitir fluxo implícito** | Sim | Escolha **Sim** se o seu aplicativo usar [Entrada do OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
+| **Incluir aplicativo Web/API Web** | sim | Selecione **Sim** para uma API Web. |
+| **Permitir fluxo implícito** | sim | Escolha **Sim** se o seu aplicativo usar [Entrada do OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
 | **URL de Resposta** | `https://localhost:44316/` | As URLs de Resposta são pontos de extremidade para onde o Azure AD B2C retorna quaisquer tokens que seus aplicativo solicitarem. Insira uma **URL de Resposta** [apropriada](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url). Neste exemplo, a sua API Web é local e escuta na porta 44316. |
 | **URI da ID do Aplicativo** | api | O URI da ID do Aplicativo é o identificador usado para sua API Web. O URI do identificador completo, incluindo o domínio, é gerado para você. |
 

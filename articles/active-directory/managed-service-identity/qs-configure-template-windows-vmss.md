@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: f7c5d063bfb287de9afe808395b951ecb161da69
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930605"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901204"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciada de uma VMSS usando um modelo
 
@@ -127,7 +127,7 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VMSS d
 
     }
     ```
-2. (Opcional) Adicione a seguinte entrada no elemento `extensionProfile` para atribuir a extensão de identidade gerenciada para sua VMSS. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também. Use a seguinte sintaxe:
+2. (Opcional) Adicione a seguinte entrada no elemento `extensionProfile` para atribuir a extensão de identidade gerenciada para sua VMSS. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens. Use a seguinte sintaxe:
    
     ```JSON
        "extensionProfile": {

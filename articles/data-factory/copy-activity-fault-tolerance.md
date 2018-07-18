@@ -10,30 +10,27 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 4fef9a9d30adb48f8f68d34e35a7436c04b63125
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055233"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versão 2 – Versão prévia](copy-activity-fault-tolerance.md)
+> * [Versão 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Versão atual](copy-activity-fault-tolerance.md)
 
 A atividade de cópia do Azure Data Factory oferece duas maneiras de manipular linhas incompatíveis ao copiar dados entre os armazenamentos de dados da origem e do coletor:
 
 - Você pode anular e fazer com que a atividade de cópia falhe quando dados incompatíveis forem encontrados (comportamento padrão).
 - Você pode continuar copiando todos os dados adicionando tolerância a falhas e ignorando linhas de dados incompatíveis. Além disso, é possível registrar em log as linhas incompatíveis no armazenamento de Blobs do Azure ou Azure Data Lake Store. Em seguida, examine o log para saber a causa da falha, corrija os dados na origem de dados e repita a atividade de cópia.
 
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [tolerância a falhas da atividade de cópia na V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Cenários com suporte
+## <a name="supported-scenarios"></a>Cenários com suporte
 A Atividade de Cópia dá suporte a três cenários para detectar, ignorar e registrar em log dados incompatíveis:
 
 - **Incompatibilidade entre o tipo de dados de origem e o tipo nativo do coletor**. 

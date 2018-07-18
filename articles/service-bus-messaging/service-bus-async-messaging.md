@@ -1,11 +1,11 @@
 ---
-title: "Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft Docs"
-description: "Descrição da mensagem assíncrona do Barramento de Serviço do Azure."
+title: Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft Docs
+description: Descrição da mensagem assíncrona do Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28929958"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
 

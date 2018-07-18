@@ -1,25 +1,19 @@
 ---
-title: Backup do Azure - backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure | Microsoft Docs
+title: Backup do Azure - backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure
 description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939695"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831441"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -57,7 +51,7 @@ Os seguintes recursos ou cargas de trabalho do Backup do Azure são compatíveis
 Antes de iniciar o fluxo de trabalho de Backup Offline, execute os seguintes pré-requisitos: 
 * Crie um [Cofre de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md). Para criar um cofre, veja as etapas [neste artigo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Verifique se apenas a [versão mais recente do agente de Backup do Azure](https://aka.ms/azurebackup_agent) foi instalada no cliente Windows Server/Windows, conforme se aplique, e se o computador está registrado no Cofre de Serviços de Recuperação.
-* O Azure PowerShell 3.7.0 ou posterior é necessário no computador que executa o agente de Backup do Azure. É recomendável [instalar a versão mais recente do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* O Azure PowerShell 3.7.0 é necessário no computador que executa o agente de Backup do Azure. Recomendamos o download e a instalação da [versão 3.7.0 do Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * No computador que executa o agente de Backup do Azure, verifique se o Microsoft Edge ou o Internet Explorer 11 está instalado e se o JavaScript está habilitado. 
 * Crie uma conta de Armazenamento do Azure na mesma assinatura que o cofre de Serviços de Recuperação. 
 * Verifique se você tem as [permissões necessárias](../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar o aplicativo do Azure Active Directory. O fluxo de trabalho de Backup Offline cria um aplicativo do Azure Active Directory na assinatura associada à conta de Armazenamento do Azure. A meta do aplicativo é fornecer ao Backup do Azure o acesso seguro e com escopo para o serviço de Importação do Azure, necessário para o fluxo de trabalho de Backup Offline. 
@@ -68,7 +62,7 @@ Antes de iniciar o fluxo de trabalho de Backup Offline, execute os seguintes pr�
     4. Na lista de provedores role para baixo até Microsoft.ImportExport. Se o Status for NotRegistered, clique em **Registrar**.
     ![Registrando o provedor de recursos](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Um local de preparo, o que pode ser um compartilhamento de rede ou qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter sua cópia inicial, é criado. Por exemplo, se você estiver tentando fazer backup de um servidor de arquivos de 500 GB, certifique-se de que a área de preparo tenha pelo menos 500 GB. (Um valor menor é usado devido à compactação).
-* Ao enviar discos para o Azure, use apenas SSD de 2,5 polegadas ou discos rígidos internos SATA II/III de 2,5 ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-service.md#hard-disk-drives) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
+* Ao enviar discos para o Azure, use apenas SSD de 2,5 polegadas ou discos rígidos internos SATA II/III de 2,5 ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Confira a [documentação da Importação/Exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para saber o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA precisam estar conectadas a um computador (conhecido como *computador de cópia*) de onde é realizada a cópia de dados de backup do *local de preparo* para as unidades SATA. Verifique se o BitLocker está habilitado no *computador de cópia*.
 
 ## <a name="workflow"></a>Fluxo de trabalho
@@ -114,7 +108,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho de **Iniciar o backup offline** .
     * O BitLocker está habilitado no computador de cópia.
-    * O Azure PowerShell 3.7.0 ou superior está instalado.
+    * O Azure PowerShell 3.7.0 está instalado.
     * Os navegadores com suporte mais recentes (Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
     * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia também pode ser o computador de origem.
     

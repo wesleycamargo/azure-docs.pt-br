@@ -1,24 +1,25 @@
 ---
-title: "Configurar um cluster autônomo do Azure Service Fabric | Microsoft Docs"
-description: "Crie um cluster de desenvolvimento autônomo com três nós em execução no mesmo computador. Depois de concluir a instalação, você estará pronto para criar um cluster com várias máquinas."
+title: Configurar um cluster autônomo do Azure Service Fabric | Microsoft Docs
+description: Crie um cluster de desenvolvimento autônomo com três nós em execução no mesmo computador. Depois de concluir a instalação, você estará pronto para criar um cluster com várias máquinas.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643457"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Criar seu primeiro cluster autônomo do Service Fabric
 Você pode criar um cluster autônomo do Service Fabric em máquinas virtuais ou computadores que executam o Windows Server 2012 R2 ou Windows Server 2016, localmente ou na nuvem. Este guia de início rápido ajuda a criar um cluster autônomo de desenvolvimento em apenas alguns minutos.  Quando terminar, você terá um cluster de três nós em execução em um único computador no qual poderá implantar aplicativos.

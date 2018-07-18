@@ -1,25 +1,19 @@
 ---
-title: "Usar métricas para monitorar o IoT Hub do Azure | Microsoft Docs"
-description: "Como usar as métricas do Hub IoT do Azure para avaliar e monitorar a integridade geral dos seus hubs IoT."
-services: iot-hub
-documentationcenter: 
+title: Usar métricas para monitorar o IoT Hub do Azure | Microsoft Docs
+description: Como usar as métricas do Hub IoT do Azure para avaliar e monitorar a integridade geral dos seus hubs IoT.
 author: nberdy
-manager: timlt
-editor: 
-ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 754901bb9c851f66708771346cbb7fe2e42688cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634056"
 ---
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas de Hub IoT
 As métricas do Hub IoT fornecem dados melhores sobre o estado dos recursos IoT do Azure na sua assinatura do Azure. As métricas Hub IoT permitem avaliar a integridade geral do serviço do Hub IoT e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam você a ver o que está acontecendo com o Hub IoT e com os problemas de causa raiz sem precisar contatar o suporte do Azure.
@@ -38,7 +32,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métricas do Hub IoT e como usá-las
 O Hub IoT fornece várias métricas que dão uma visão geral da integridade do hub e o número total de dispositivos conectados. É possível combinar informações de várias métricas para ter uma ideia mais ampla do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica se relaciona com o status geral do Hub IoT.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|
 |---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Tentativas de envio de mensagem de telemetria|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|
 |d2c.telemetry.ingress.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria do dispositivo para nuvem enviadas com êxito para o hub IoT|

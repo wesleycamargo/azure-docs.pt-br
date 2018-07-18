@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640254"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de pesquisa cognitivas usando habilidades e dados de exemplo
 
@@ -95,6 +96,8 @@ Uma vantagem de usar o assistente **Importar dados** é que ele também pode cri
 ### <a name="step-2-add-cognitive-skills"></a>Etapa 2: Adicionar habilidades cognitivas
 
 Em seguida, adicione etapas de enriquecimento para o pipeline de indexação. O portal fornece habilidades cognitivas predefinidas para análise de imagem e a análise de texto. No portal, um conjunto de qualificações opera em um campo de origem única. Isso pode parecer assim como um destino pequeno, mas para blobs do Azure o campo `content` contém a maior parte do documento blob (por exemplo, um documento do Word ou PowerPoint). Como tal, esse campo é uma entrada ideal porque todo o conteúdo de um blob está lá.
+
+Às vezes você deseja extrair a representação textual de arquivos que são compostos principalmente por imagens digitalizadas, como um PDF gerado por um scanner. O Azure Search pode extrair automaticamente o conteúdo de imagens incorporadas no documento. Para fazer isso, selecione a opção **Habilitar OCR e mesclar todo o texto no campo merged_content**. Isso criará automaticamente um campo `merged_content` que contém o texto extraído do documento, bem como a representação textual das imagens incorporadas no documento. Quando você seleciona essa opção `Source data field` será definida como `merged_content`.
 
 Em **Adicionar habilidades cognitivas**, escolha as habilidades que executam o processamento de idioma natural. Para este guia de início rápido, escolha o reconhecimento de entidade para pessoas, empresas e locais.
 

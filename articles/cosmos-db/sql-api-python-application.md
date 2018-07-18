@@ -3,23 +3,21 @@ title: Tutorial do aplicativo Web do Python Flask para o Azure Cosmos DB | Micro
 description: Analise um tutorial de banco de dados sobre como usar o Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web Python Flask hospedado no Azure. Encontre soluções de desenvolvimento de aplicativo.
 keywords: Desenvolvimento de aplicativos, python flask, aplicativo Web python, desenvolvimento Web do python
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629043"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web do Python Flask usando o Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -368,7 +366,7 @@ def vote():
 6. Pare a depuração do projeto pressionando Shift+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Etapa 5: Implantar o aplicativo Web no Azure
-Agora que você tem o aplicativo concluído funcionando corretamente no Azure Cosmos DB localmente, criaremos um arquivo web.config, atualizaremos os arquivos no servidor para corresponderem ao ambiente local e, em seguida, exibiremos o aplicativo concluído no Azure. Esse procedimento é específico para o Visual Studio 2017. Se você estiver usando uma versão diferente do Visual Studio, consulte [Publicação para o Serviço de Aplicativo do Azure](/visualstudio/python/publishing-to-azure.md).
+Agora que você tem o aplicativo concluído funcionando corretamente no Azure Cosmos DB localmente, criaremos um arquivo web.config, atualizaremos os arquivos no servidor para corresponderem ao ambiente local e, em seguida, exibiremos o aplicativo concluído no Azure. Esse procedimento é específico para o Visual Studio 2017. Se você estiver usando uma versão diferente do Visual Studio, consulte [Publicação para o Serviço de Aplicativo do Azure](/visualstudio/python/publishing-to-azure).
 
 1. No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no projeto e escolha **Adicionar > Novo Item...**. Na caixa de diálogo que aparece, selecione o modelo **Azure web.config (Fast CGI)** e selecione **OK**. Isso cria um arquivo `web.config` na raiz de seu projeto. 
 
@@ -406,7 +404,7 @@ Agora que você tem o aplicativo concluído funcionando corretamente no Azure Co
 
 10. Na página **Escolher extensão**, role para baixo até a instalação mais recente do Python 2.7, selecione a opção de x86 ou x64 bits e clique em **OK** para aceitar os termos legais.  
    
-11. Use o console de Kudu, você pode procurar em `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, para instalar os pacotes listados no arquivo `requirements.txt` do aplicativo. Para fazer isso, no Console de diagnóstico do Kudu, navegue até a pasta `D:\home\Python27` do Python e, em seguida, execute o comando a seguir, conforme descrito na seção [Console do Kudu](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console):
+11. Use o console de Kudu, você pode procurar em `https://<your app service name>.scm.azurewebsites.net/DebugConsole`, para instalar os pacotes listados no arquivo `requirements.txt` do aplicativo. Para fazer isso, no Console de diagnóstico do Kudu, navegue até a pasta `D:\home\Python27` do Python e, em seguida, execute o comando a seguir, conforme descrito na seção [Console do Kudu](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console):
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
@@ -439,9 +437,3 @@ Para incluir funcionalidade adicional no aplicativo Web, examine as APIs dispon�
 Para saber mais sobre o Azure, o Visual Studio e o Python, consulte o [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/). 
 
 Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com

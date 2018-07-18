@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205069"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 A estratégia padrão do Gerenciador de Recursos do Service Fabric para gerenciar métricas de carga no cluster é distribuir a carga. Garantir que os nós sejam utilizados de maneira uniforme evita pontos altos e baixos que levam à contenção e ao desperdício de recursos. A distribuição das cargas de trabalho no cluster também é a opção mais segura em termos de sobrevivência a falhas, uma vez que garante que uma falha não destruirá um grande percentual de uma determinada carga de trabalho. 

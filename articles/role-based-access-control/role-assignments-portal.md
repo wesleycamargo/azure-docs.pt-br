@@ -1,6 +1,6 @@
 ---
-title: Controle de acesso baseado em função no portal do Azure | Microsoft Docs
-description: Introdução ao gerenciamento de acesso com o Controle de Acesso Baseado em Função no Portal do Azure. Use as atribuições de função para atribuir permissões a seus recursos.
+title: Gerenciar acesso usando o RBAC e o Portal do Azure | Microsoft Docs
+description: Saiba como gerenciar acesso de usuários, grupos e aplicativos usando o RBAC (controle de acesso baseado em função) e o portal do Azure. Isso inclui como listar o acesso, conceder o acesso e remover o acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,76 +8,170 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 06/13/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4ac7fda78f456a233c8dba90a6a50e19774991df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: bagovind
+ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203641"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435610"
 ---
-# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Usar o Controle de Acesso Baseado em Funções para gerenciar o acesso aos recursos de sua assinatura do Azure
-> [!div class="op_single_selector"]
-> * [Gerenciar o acesso por usuário ou grupo](role-assignments-users.md)
-> * [Gerenciar o acesso por recurso](role-assignments-portal.md)
+# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerenciar acesso usando o RBAC e o Portal do Azure
 
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Este artigo ajuda você a começar a usar o RBAC no portal do Azure. Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](overview.md).
+O [Controle de acesso baseado em função (RBAC)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Este artigo descreve como gerenciar o acesso de usuários, grupos e aplicativos usando o RBAC e o Portal do Azure.
 
-Dentro de cada assinatura, você pode conceder até 2000 atribuições de função. 
+## <a name="list-roles"></a>Listar funções
 
-## <a name="view-access"></a>Exibir o acesso
-Você pode ver quem tem acesso a um recurso, grupo de recursos ou assinatura em sua folha principal no [portal do Azure](https://portal.azure.com). Por exemplo, queremos ver quem tem acesso a um dos nossos grupos de recursos:
+Uma definição de função é uma coleção de permissões que podem ser usadas para atribuições de função. O Azure tem mais de 60 [funções internas](built-in-roles.md).
 
-1. Selecione o ícone **Grupo de recursos** na barra de navegação à esquerda.  
-    ![Grupos de recursos - ícone](./media/role-assignments-portal/resourcegroups_icon.png)
-2. Na folha **Grupos de recursos** , selecione o nome do grupo de recursos.
-3. Selecione **Controle de acesso (IAM)** no menu à esquerda.  
-4. A folha Controle de acesso lista todos os usuários, grupos e aplicativos que receberam acesso ao grupo de recursos.  
-   
-    ![Folha Usuários - acesso herdado versus atribuído - captura de tela](./media/role-assignments-portal/view-access.png)
+1. No Portal do Azure, escolha **Todos os serviços** e **Assinaturas**.
 
-Observe que algumas funções são definidas para **Este recurso** enquanto outras são **Herdadas** de outro escopo. O acesso é atribuído especificamente ao grupo de recursos ou herdado de uma atribuição à assinatura pai.
+1. Escolha sua assinatura.
 
-> [!NOTE]
-> Os administradores e coadministradores de assinatura clássicos são, na realidade, os proprietários da assinatura no novo modelo de RBAC.
+1. Clique em **Controle de acesso (IAM)**.
 
-## <a name="add-access"></a>Adicionar acesso
-Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que é o escopo da atribuição de função.
+   ![Opção Funções](./media/role-assignments-portal/list-subscription-access-control.png)
 
-1. Selecione **Adicionar** na folha Controle de acesso.  
-2. Selecione a função que você deseja atribuir na folha **Selecionar uma função** .
-3. Selecione o usuário, o grupo ou o aplicativo ao qual você deseja conceder acesso. Você pode pesquisar o diretório por nomes para exibição, endereços de email e identificadores de objeto.  
-   
-    ![Folha Adicionar usuários - pesquisar - captura de tela](./media/role-assignments-portal/grant-access2.png)
-4. Selecione **OK** para criar a atribuição. O pop-up **Adicionando usuário** rastreia o progresso.  
-    ![Adicionando barra de progresso do usuário - captura de tela](./media/role-assignments-portal/addinguser_popup.png)
+1. Escolha **Funções** para ver uma lista de todas as funções internas e personalizadas.
 
-Após a adição de uma atribuição de função com êxito, ela será exibida na folha **Usuários** .
+   ![Opção Funções](./media/role-assignments-portal/roles-option.png)
+
+   Você pode ver o número de usuários e grupos que estão atribuídos a cada função.
+
+   ![Lista de funções](./media/role-assignments-portal/roles-list.png)
+
+## <a name="list-access"></a>Relacionar acesso
+
+Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permissões e em que nível. Para listar o acesso, liste as atribuições de função.
+
+### <a name="list-role-assignments-for-a-subscription"></a>Listar atribuições de função de um usuário
+
+1. No Portal do Azure, escolha **Todos os serviços** e **Assinaturas**.
+
+1. Escolha sua assinatura.
+
+1. Clique em **Controle de acesso (IAM)**.
+
+    Na folha Controle de acesso (IAM), também conhecida como gerenciamento de identidade e acesso, você pode ver quem tem acesso a essa assinatura e à função.
+
+    ![Folha Controle de acesso (IAM)](./media/role-assignments-portal/subscription-access-control.png)
+
+    Os administradores e coadministradores de assinatura clássicos são, na realidade, os proprietários da assinatura no novo modelo de RBAC.
+
+
+### <a name="list-role-assignments-for-a-resource-group"></a>Listar as atribuições para um grupo de recursos
+
+1. Na lista de navegação, escolha **Grupos de recursos**.
+
+1. Escolha um grupo de recursos e escolha **Controle de acesso (IAM)**.
+
+   Na folha Controle de acesso (IAM), você pode ver quem tem acesso a esse grupo de recursos. Observe que algumas funções são definidas para **Este recurso** enquanto outras são **(Herdadas)** de outro escopo. O acesso é atribuído especificamente ao grupo de recursos ou herdado de uma atribuição à assinatura pai.
+
+   ![Grupos de recursos](./media/role-assignments-portal/resource-group-access-control.png)
+
+### <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
+
+1. Na lista de navegação, escolha **Azure Active Directory**.
+
+1. Escolha **Usuários** para abrir **Todos os usuários**.
+
+   ![Folha Todos os usuários do Azure Active Directory](./media/role-assignments-portal/aad-all-users.png)
+
+1. Escolha um usuário específico na lista.
+
+1. Na seção **Gerenciar**, escolha **Recursos do Azure**.
+
+   ![Recursos do Azure para usuário do Azure Active Directory](./media/role-assignments-portal/aad-user-azure-resources.png)
+
+   Na folha de recursos do Azure, você pode ver as atribuições de função para o usuário selecionado. Essa lista inclui apenas as atribuições de função para os recursos que você tem permissão para ler. Por exemplo, se o usuário também tem atribuições de função em uma assinatura diferente você não pode ler, as atribuições de função não aparecerão na lista.
+
+## <a name="grant-access"></a>Conceder acesso
+
+No RBAC, para conceder acesso, você cria uma atribuição de função.
+
+### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Criar uma atribuição de função em um escopo de assinatura
+
+1. No Portal do Azure, escolha **Todos os serviços** e **Assinaturas**.
+
+1. Escolha sua assinatura.
+
+1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função no escopo da assinatura.
+
+   ![Folha Controle de acesso (IAM) para o grupo de recursos](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+
+   Se você não tiver permissões para atribuir funções, não verá a opção **Adicionar**.
+
+   ![Painel Adicionar permissões](./media/role-assignments-portal/add-permissions.png)
+
+1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
+
+1. Na lista **Selecionar**, selecione um usuário, grupo ou aplicativo. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
+
+1. Escolha **Salvar** para criar a atribuição de função.
+
+   Após alguns instantes, a entidade de segurança é atribuída à função no escopo da assinatura.
+
+### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Criar uma atribuição de função em um escopo de grupo de recursos
+
+1. Na lista de navegação, escolha **Grupos de recursos**.
+
+1. Escolha um grupo de recursos.
+
+1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função no escopo do grupo de recursos.
+
+   ![Folha Controle de acesso (IAM) para o grupo de recursos](./media/role-assignments-portal/grant-resource-group-access-control.png)
+
+1. Escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+
+   Se você não tiver permissões para atribuir funções, não verá a opção **Adicionar**.
+
+   ![Painel Adicionar permissões](./media/role-assignments-portal/add-permissions.png)
+
+1. Na lista suspensa **Função**, selecione uma função, por exemplo, **Colaborador da Máquina Virtual**.
+
+1. Na lista **Selecionar**, selecione um usuário, grupo ou aplicativo. Se você não vir a entidade de segurança na lista, digite na caixa **Selecionar** para pesquisar nomes de exibição, endereços de email e identificadores de objeto no diretório.
+
+1. Escolha **Salvar** para criar a atribuição de função.
+
+   Após alguns instantes, a entidade de segurança é atribuída à função no escopo do grupo de recursos.
 
 ## <a name="remove-access"></a>Remover acesso
-1. Focalize o cursor sobre o nome da atribuição que você deseja remover. Uma caixa de seleção aparece ao lado do nome.
-2. Use as caixas de seleção para selecionar uma ou mais atribuições de função.
-2. Selecione **Remover**.  
-3. Clique em **Sim** para confirmar a remoção.
 
-Atribuições herdadas não podem ser removidas. Se você precisar remover uma atribuição herdada, será necessário fazê-lo no escopo em que a atribuição de função foi criada. Na coluna **Escopo**, ao lado de **Herdado**, há um link que leva aos recursos em que essa função foi atribuída. Vá para o recurso listado ali a fim de remover a atribuição de função.
+No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
-![Folha Usuários - botão remover desativa o acesso herdado - captura de tela](./media/role-assignments-portal/remove-access2.png)
+### <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
+
+1. Abra a folha **Controle de acesso (IAM)** da assinatura, o grupo de recursos ou o recurso que tem a atribuição de função que você deseja remover.
+
+1. Na lista de atribuições de função, marque a caixa de seleção ao lado de objeto com a atribuição de função de segurança que você deseja remover.
+
+   ![Remover mensagem de atribuição de função](./media/role-assignments-portal/remove-role-assignment-select.png)
+
+1. Escolha **Remover**.
+
+   ![Remover mensagem de atribuição de função](./media/role-assignments-portal/remove-role-assignment.png)
+
+1. Na mensagem de remoção de atribuição de função que aparece, escolha **Sim**.
+
+As atribuições herdadas não podem ser removidas. Se você precisar remover uma atribuição de função herdada, precisará fazê-lo no escopo em que a atribuição de função foi criada. Na coluna **Escopo**, ao lado de **Herdado**, há um link que leva aos recursos em que essa função foi atribuída. Vá para o escopo listado a fim de remover a atribuição de função.
 
 ## <a name="other-tools-to-manage-access"></a>Outras ferramentas para gerenciar o acesso
-Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure em ferramentas que não sejam o portal do Azure.  Siga os links para saber mais sobre os pré-requisitos e começar a usar os comandos do RBAC do Azure.
+
+Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure em ferramentas que não sejam o portal do Azure. Para obter mais informações, consulte os links a seguir:
 
 * [PowerShell do Azure](role-assignments-powershell.md)
-* [Interface de linha de comando do Azure](role-assignments-cli.md)
+* [CLI do Azure](role-assignments-cli.md)
 * [API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar relatório de histórico de alterações de acesso](change-history-report.md)
-* Confira as [Funções internas do RBAC do Azure](built-in-roles.md)
-* Defina suas próprias [Funções personalizadas no RBAC do Azure](custom-roles.md)
 
+* [Início Rápido: Conceder acesso a um usuário usando o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
+* [Tutorial: conceder acesso a um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Funções internas](built-in-roles.md)

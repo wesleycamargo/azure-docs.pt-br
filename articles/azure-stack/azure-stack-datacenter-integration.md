@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261197"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Datacenter para sistemas de pilha do Azure integrado
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -88,7 +89,7 @@ A tabela a seguir resume essas decisões de nomeação de domínio.
 
 | NOME | DESCRIÇÃO | 
 | -------- | ------------- | 
-|Nome de região | O nome da sua região do Azure pilha primeiro. Esse nome é usado como parte do FQDN para os endereços IP virtuais públicos (VIPs) que gerencia a pilha do Azure. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter. | 
+|Nome da região | O nome da sua região do Azure pilha primeiro. Esse nome é usado como parte do FQDN para os endereços IP virtuais públicos (VIPs) que gerencia a pilha do Azure. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter. | 
 | Nome de domínio externo | O nome da zona de sistema de nome de domínio (DNS) para pontos de extremidade com externo VIPs. Usado no FQDN para esses VIPs públicos. | 
 | Nome de domínio (interno) privada | O nome do domínio (e zona DNS interna) criado na pilha do Azure para gerenciamento de infraestrutura. 
 | | |
@@ -134,9 +135,9 @@ A tabela a seguir resume os cenários de conectividade híbrida, com casos de us
 
 | Cenário | Método de conectividade | Prós | Contras | BOM para |
 | -- | -- | --| -- | --|
-| Único locatário do Azure pilha, implantação de intranet | NAT de saída | Melhor largura de banda para transferências mais rápidas. Simples de implementar; Não há gateways necessários. | Tráfego não criptografado; Não há isolamento ou criptografia além TOR. | Implantações de empresa onde todos os locatários são igualmente confiáveis.<br><br>Empresas que têm um circuito de rota expressa do Azure para o Azure. |
+| Único locatário do Azure pilha, implantação de intranet | NAT de saída | Melhor largura de banda para transferências mais rápidas. Simples de implementar; Não há gateways necessários. | Tráfego não criptografado; Não há isolamento ou criptografia fora da pilha. | Implantações de empresa onde todos os locatários são igualmente confiáveis.<br><br>Empresas que têm um circuito de rota expressa do Azure para o Azure. |
 | Pilha de Azure multilocatário, implantação de intranet | VPN site a site | Tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway da rede virtual e um dispositivo VPN na rede de destino. | Implantações de empresa onde algumas tráfego de locatário devem ser protegidas de outros locatários. |
-| Único locatário do Azure pilha, implantação de internet | NAT de saída | Melhor largura de banda para transferências mais rápidas. | Tráfego não criptografado; Não há isolamento ou criptografia além TOR. | Hospedagem de cenários em que o locatário obtém sua própria implantação de pilha do Azure e um circuito dedicado para o ambiente de pilha do Azure. Por exemplo, alternando de rótulo multiprotocolo (MPLS) e rota expressa.
+| Único locatário do Azure pilha, implantação de internet | NAT de saída | Melhor largura de banda para transferências mais rápidas. | Tráfego não criptografado; Não há isolamento ou criptografia fora da pilha. | Hospedagem de cenários em que o locatário obtém sua própria implantação de pilha do Azure e um circuito dedicado para o ambiente de pilha do Azure. Por exemplo, alternando de rótulo multiprotocolo (MPLS) e rota expressa.
 | Pilha de Azure multilocatário, implantação de internet | VPN site a site | Tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway da rede virtual e um dispositivo VPN na rede de destino. | Onde quer que o provedor ofereça uma nuvem de multilocatária de cenários de hospedagem, em que os locatários não confia entre si e o tráfego deve ser criptografada.
 |  |  |  |  |  |
 

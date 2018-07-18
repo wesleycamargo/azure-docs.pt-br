@@ -1,11 +1,11 @@
 ---
-title: "Como usar as filas de Barramento de Serviço com PHP | Microsoft Docs"
-description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP."
+title: Como usar as filas de Barramento de Serviço com PHP | Microsoft Docs
+description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP.
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
 ms.workload: na
@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 3514812f7f087582035dad5d9a4d620652aa4da9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531615"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Como usar filas do Barramento de Serviço com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

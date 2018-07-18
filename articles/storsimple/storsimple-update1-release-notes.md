@@ -15,11 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061802"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 1.2 para seu dispositivo StorSimple série 8000
 
@@ -53,7 +54,7 @@ Esses recursos foram lançados pela primeira vez com a Atualização 1, que foi 
   * **Continuidade dos negócios**, permitindo a migração dos dados existentes nos dispositivos séries 5000-7000 para dispositivos série 8000.
   * **Ofertas de recursos aprimorados dos dispositivos 8000 Series**, como o gerenciamento centralizado eficiente de vários dispositivos por meio do serviço StorSimple Manager, uma classe melhor de hardware e firmware atualizado, dispositivos virtuais, mobilidade de dados e recursos no mapa futuro.
     
-    Consulte o [guia de migração](http://www.microsoft.com/download/details.aspx?id=47322) para obter detalhes sobre como migrar um dispositivo StorSimple 5000-7000 Series para um dispositivo 8000 Series. 
+    Consulte o [guia de migração](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) para obter detalhes sobre como migrar um dispositivo StorSimple 5000-7000 Series para um dispositivo 8000 Series. 
 * **Disponibilidade no Portal Governamental do Azure** – Agora, o StorSimple está disponível no portal Governamental do Azure. Veja como [implantar um dispositivo StorSimple no Portal de Gerenciamento do Azure](storsimple-deployment-walkthrough-gov.md).
 * **Suporte para outros provedores de serviços de nuvem** – Os outros provedores de serviços de nuvem com suporte são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 * **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple 8000 Series que estão executando as versões de software Atualização 1 (Versão, 0.1, 0.2 e 0.3) estão usando versões das APIs do Serviço de Armazenamento do Azure anteriores a 17 de julho de 2009. Conforme mencionado no [anúncio atualizado sobre remoção de versões de serviço de armazenamento](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), até 1 de agosto de 2016, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1 do StorSimple 8000 Series antes de 1 de agosto de 2016. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
@@ -63,7 +64,7 @@ Esses recursos foram lançados pela primeira vez com a Atualização 1, que foi 
 ## <a name="issues-fixed-in-update-12"></a>Problemas corrigidos na Atualização 1.2
 A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atualizações 1.2, 1.1 e 1.    
 
-| Nº | Recurso | Problema | Corrigido na Atualização | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não. | Recurso | Problema | Corrigido na Atualização | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell para StorSimple |Quando um usuário acessava remotamente o dispositivo StorSimple por meio do Windows PowerShell para StorSimple e depois iniciava o assistente de instalação, uma falha ocorria assim que o IP 0 de Dados era inserido. Agora, esse bug foi corrigido na Atualização 1. |Atualização 1 |sim |sim |
 | 2 |Redefinição de fábrica |Em alguns casos, quando você executava uma redefinição de fábrica, o dispositivo StorSimple travava e exibia esta mensagem: **a redefinição de fábrica está em andamento (fase 8)**. Isso acontecia se você pressionasse CTRL+C enquanto o cmdlet estava em andamento. Agora esse bug foi corrigido. |Atualização 1 |sim |Não  |
@@ -81,7 +82,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 ## <a name="known-issues-in-update-12"></a>Problemas conhecidos na Atualização 1.2
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
-| Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não. | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum de disco |Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, em seguida, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. |Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. |sim |Não  |
 | 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. |sim |Não  |

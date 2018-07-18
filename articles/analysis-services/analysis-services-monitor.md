@@ -3,16 +3,17 @@ title: Monitorar métricas do servidor do Azure Analysis Services | Microsoft Do
 description: Saiba como monitorar as métricas do servidor do Analysis Services no portal do Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b07bd41ee3aa67924256d694c1f9dadd39b038cc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442926"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
 

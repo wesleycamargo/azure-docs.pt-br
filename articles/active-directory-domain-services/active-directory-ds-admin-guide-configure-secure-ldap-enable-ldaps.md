@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061038"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
@@ -46,7 +48,7 @@ Execute as seguintes etapas de configuração para habilitar o LDAP seguro:
 4. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado fica desabilitado. Posicione a tecla de alternância **LDAP Seguro** em **Habilitar**.
 
     ![Habilitar o LDAP seguro](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado pela Internet fica desabilitado. Posicione a tecla de alternância **Permitir acesso LDAP seguro na Internet** em **Habilitar**, se desejar. 
+5. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado pela Internet fica desabilitado. Posicione a tecla de alternância **Permitir acesso LDAP seguro na Internet** em **Habilitar**, se desejar.
 
     > [!WARNING]
     > Quando você habilita o acesso LDAP seguro por meio da Internet, seu domínio fica suscetível a ataques de força bruta de senha por meio da Internet. Portanto, é recomendável configurar um NSG para bloquear o acesso aos intervalos de endereços IP de origem necessários. Consulte as instruções para [bloquear o acesso a LDAPS para seu domínio gerenciado pela Internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -109,6 +111,23 @@ A tabela a seguir ilustra um exemplo de NSG que você pode configurar para bloqu
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Ligar para o domínio gerenciado por LDAP usando LDP.exe
+Você pode usar a ferramenta LDP.exe que está incluída no pacote da ferramenta de administração de servidor remoto para associar e pesquisar através de LDAP.
+
+Primeiro, abra o LDP e conecte-se ao domínio gerenciado. Clique em **Conexão** e clique em **conectar...**  no menu. Especifique o nome de domínio DNS do domínio gerenciado. Especifique a porta a ser usada para conexões. Para conexões LDAP, use a porta 389. Para LDAPS conexões que usam a porta 636. Clique em **Okey** botão para se conectar ao domínio gerenciado.
+
+Em seguida, vincule o domínio gerenciado. Clique em **Conexão** e clique em **vincular...**  no menu. Forneça as credenciais de uma conta de usuário que pertencem ao grupo 'Administradores de controlador de domínio do AAD'.
+
+Selecione **exibição**e, em seguida, selecione **árvore** no menu. Deixe o campo Base DN em branco e clique em Okey. Navegue até o contêiner que você deseja pesquisar, o contêiner e selecione a pesquisa.
+
+> [!TIP]
+> - Os usuários e grupos sincronizados do AD do Azure são armazenados no **AADDC usuários** contêiner. O caminho de pesquisa para este contêiner aparência ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Contas de computador para computadores que ingressaram no domínio gerenciado são armazenadas na **AADDC computadores** contêiner. O caminho de pesquisa para este contêiner aparência ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Mais informações - [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>solução de problemas
 Se você tiver problemas para se conectar ao domínio gerenciado usando o LDAP seguro, siga as etapas de solução de problemas a seguir:
@@ -127,6 +146,7 @@ Se você ainda tiver problemas para se conectar com o domínio gerenciado usando
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de Domínio do Azure AD - guia de Introdução](active-directory-ds-getting-started.md)
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
+* [Noções básicas de consulta LDAP](https://technet.microsoft.com/library/aa996205.aspx)
 * [Administrar a política de grupo em um domínio gerenciado do Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Grupos de segurança de rede](../virtual-network/security-overview.md)
-* [Criar um Grupo de Segurança de Rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Criar um Grupo de Segurança de Rede](../virtual-network/tutorial-filter-network-traffic.md)

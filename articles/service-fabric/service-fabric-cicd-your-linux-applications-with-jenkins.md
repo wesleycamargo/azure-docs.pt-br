@@ -14,31 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: saysa
-ms.openlocfilehash: 047b3d00da4f192febeeab79c9c87b67a8a0489b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972241"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usar o Jenkins para criar e implantar seus aplicativos do Linux
 Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
 
 ## <a name="topic-overview"></a>Visão geral do tópico
-Este artigo aborda várias maneiras de configurar seu ambiente do Jenkins e diferentes maneiras de implantar seu aplicativo em um cluster do Service Fabric depois de criado. Siga estas etapas gerais para instalar o Jenkins, efetuar pull de alterações do GitHub, criar seu aplicativo e implantá-lo em seu cluster com êxito:
+Este artigo aborda várias maneiras de configurar o ambiente do Jenkins e diferentes maneiras de implantar seu aplicativo em um cluster do Service Fabric, depois que ele for criado. Siga estas etapas gerais para instalar o Jenkins, extrair as alterações do GitHub, criar seu aplicativo e implantá-lo no cluster com êxito:
 
-1. Instale os [pré-requisitos](#prerequisites).
+1. Instale os [Pré-requisitos](#prerequisites).
 2. Em seguida, siga as etapas em uma destas seções para configurar o Jenkins:
    * [Configurar o Jenkins em um cluster do Service Fabric](#set-up-jenkins-inside-a-service-fabric-cluster), 
    * [Configurar o Jenkins fora de um cluster do Service Fabric](#set-up-jenkins-outside-a-service-fabric-cluster) ou
    * [Instalar o plug-in do Service Fabric em um ambiente do Jenkins existente](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-3. Depois de configurar o Jenkins, siga as etapas em [Criar e configurar um trabalho do Jenkins](#create-and-configure-a-jenkins-job) a fim de configurar o GitHub para disparar o Jenkins quando forem feitas alterações ao seu aplicativo e para configurar o pipeline de trabalho do Jenkins usando a etapa de compilação para efetuar pull das alterações do GitHub e criar seu aplicativo. 
-4. Finalmente, configure a etapa de pós-compilação do trabalho do Jenkins para implantar seu aplicativo no cluster do Service Fabric. Há duas maneiras de configurar o Jenkins para implantar seu aplicativo em um cluster:    
-   * No caso de ambientes de desenvolvimento e teste, use [Configurar a implantação usando o ponto de extremidade de gerenciamento do cluster](#configure-deployment-using-cluster-management-endpoint). Esse é o método de implantação mais simples de se configurar.
+3. Depois de configurar o Jenkins, siga as etapas em [Criar e configurar um trabalho do Jenkins](#create-and-configure-a-jenkins-job) a fim de configurar o GitHub para disparar o Jenkins quando forem feitas alterações ao seu aplicativo e para configurar o pipeline de trabalho do Jenkins usando a etapa de compilação para extrair as alterações do GitHub e criar seu aplicativo. 
+4. Por fim, configure a etapa de pós-compilação do trabalho do Jenkins para implantar seu aplicativo no cluster do Service Fabric. Há duas maneiras de configurar o Jenkins para implantar seu aplicativo em um cluster:    
+   * No caso de ambientes de desenvolvimento e teste, use [Configurar a implantação usando o ponto de extremidade de gerenciamento do cluster](#configure-deployment-using-cluster-management-endpoint). Esse é o método de implantação mais simples de configurar.
    * No caso de ambientes de produção, use [Configurar a implantação usando as credenciais do Azure](#configure-deployment-using-azure-credentials). A Microsoft recomenda esse método para ambientes de produção porque, com as credenciais do Azure, você pode limitar o acesso de um trabalho do Jenkins aos recursos do Azure. 
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-- Instale o git localmente. Você pode instalar a versão apropriada do Git da [página de downloads do Git](https://git-scm.com/downloads), com base no seu sistema operacional. Se o Git for novidade para você, saiba mais sobre ele na [documentação do Git](https://git-scm.com/docs).
+- Instale o Git localmente. Você pode instalar a versão apropriada do Git da [página de downloads do Git](https://git-scm.com/downloads), com base no seu sistema operacional. Se o Git for novidade para você, saiba mais sobre ele na [documentação do Git](https://git-scm.com/docs).
 - Este artigo usa o *exemplo da Introdução ao Service Fabric* no GitHub: [ https://github.com/Azure-Samples/service-fabric-java-getting-started ](https://github.com/Azure-Samples/service-fabric-java-getting-started) para compilar e implantar o aplicativo. Você pode bifurcar esse repositório para acompanhar ou, com algumas modificações nas instruções, usar seu próprio projeto do GitHub.
 
 
@@ -104,7 +105,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
 5. **Somente cluster seguro:** 
    
-   para configurar a implantação de aplicativos em um cluster seguro do Jenkins, o certificado deve ser acessível dentro do contêiner do Jenkins. No arquivo *ApplicationManifest.xml*, na marca **ContainerHostPolicies**, adicione essa referência de certificado e atualize o valor da impressão digital com o do certificado de cluster.
+   Para configurar a implantação de aplicativos em um cluster seguro do Jenkins, o certificado deve ser acessível dentro do contêiner do Jenkins. No arquivo *ApplicationManifest.xml*, na marca **ContainerHostPolicies**, adicione essa referência de certificado e atualize o valor da impressão digital com o do certificado de cluster.
 
    ```xml
    <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
@@ -125,7 +126,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
    sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
    bash Scripts/install.sh
    ```
-   O comando anterior usa o certificado no formato PEM. Se o certificado está no formato PFX, você pode usar o comando a seguir para convertê-lo. Se o arquivo PFX não estiver protegido por senha, especifique o parâmetro **passin** como `-passin pass:`.
+   O comando anterior usa o certificado no formato PEM. Se o certificado estiver no formato PFX, use o comando a seguir para convertê-lo. Se o arquivo PFX não estiver protegido por senha, especifique o parâmetro **passin** como `-passin pass:`.
    ```sh
    openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:MyPassword1234!
    ``` 
@@ -297,12 +298,12 @@ Para ambientes de produção, é recomendado configurar uma credencial do Azure 
 
 Para ambientes de desenvolvimento e teste, você pode configurar as credenciais do Azure ou o ponto de extremidade de gerenciamento do cluster para implantar seu aplicativo. Para obter detalhes sobre como configurar um ponto de extremidade de gerenciamento do cluster, confira [Configurar a implantação usando o ponto de extremidade de gerenciamento do cluster](#configure-deployment-using-cluster-management-endpoint).   
 
-1. Para criar uma entidade de serviço do Azure Active Directory e atribuir a ela permissões em sua assinatura do Azure, siga as etapas em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atenção ao seguinte:
+1. Para criar uma entidade de serviço do Azure Active Directory e atribuir a ela permissões em sua assinatura do Azure, siga as etapas em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atenção ao seguinte:
 
    * Ao seguir as etapas no tópico, não deixe de copiar e salvar os seguintes valores: *ID do aplicativo*, *Chave de aplicativo*, *ID do diretório (ID do locatário)* e *ID da assinatura*. Necessário para configurar as credenciais do Azure no Jenkins.
-   * Se você não tiver as [permissões necessárias](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) em seu diretório, precisará pedir ao administrador para conceder as permissões ou criar a entidade de serviço, ou precisará configurar o ponto de extremidade de gerenciamento para o cluster nas **Ações de Pós-Compilação** relativo ao seu trabalho no Jenkins.
-   * Na seção [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), você pode inserir qualquer URL adequada em **URL de logon**.
-   * Na seção [Atribuir aplicativo a uma Função](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), você pode atribuir ao aplicativo a função de *Leitor* no grupo de recursos para o cluster.
+   * Se você não tiver as [permissões necessárias](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) em seu diretório, precisará pedir ao administrador para conceder as permissões ou criar a entidade de serviço, ou precisará configurar o ponto de extremidade de gerenciamento para o cluster nas **Ações de Pós-Compilação** relativo ao seu trabalho no Jenkins.
+   * Na seção [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), você pode inserir qualquer URL adequada em **URL de logon**.
+   * Na seção [Atribuir aplicativo a uma Função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), você pode atribuir ao aplicativo a função de *Leitor* no grupo de recursos para o cluster.
 
 2. De volta ao trabalho do Jenkins, clique na guia **Ações de Pós-compilação**.
 3. No menu suspenso **Ações Pós-Compilação**, selecione **Implantar Projeto do Service Fabric**. 

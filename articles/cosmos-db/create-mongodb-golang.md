@@ -2,18 +2,21 @@
 title: 'BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure | Microsoft Docs'
 description: Apresenta um exemplo de código Golang que pode ser usado para conectar e consultar o BD Cosmos do Azure
 services: cosmos-db
-author: Durgaprasad-Budhwani
+author: SnehaGunda
 manager: kfile
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d5ac2f683308385b2bd4ca422cf00abaa37735fd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38612809"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure
 
@@ -207,7 +210,7 @@ if err != nil {
 ## <a name="run-the-app"></a>Execute o aplicativo
 
 1. Em Goglang, verifique se seu GOPATH (disponível em **Arquivo**, **Configurações**, **Go**, **GOPATH**) inclui o local no qual o gopkg foi instalado, que é PERFILDOUSUÁRIO/go por padrão. 
-2. Comente as linhas que excluem o documento, linhas 91 a 96, para que você possa ver o documento depois de executar o aplicativo.
+2. Comente as linhas que excluem o documento, linhas 103 a 107, para que você possa ver o documento depois de executar o aplicativo.
 3. No Goglang, clique em **Executar**e em **Run 'Build main.go and run'**.
 
     O aplicativo termina e exibe a descrição do documento criado em [Criar um documento](#create-document).
@@ -243,4 +246,4 @@ Volte para o portal do Azure a fim de ver o documento no Data Explorer.
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure e executar um aplicativo Golang usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure para a API do MongoDB](mongodb-migrate.md)
+> [Importar dados no Azure Cosmos DB para a API do MongoDB](mongodb-migrate.md)

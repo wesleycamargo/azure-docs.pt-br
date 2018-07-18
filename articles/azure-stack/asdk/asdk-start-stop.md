@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427331"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Iniciar e parar o Kit de desenvolvimento de pilha do Azure (ASDK)
 Não é recomendável reiniciar o computador host ASDK simplesmente. Em vez disso, você deve seguir os procedimentos neste artigo para desligar e reiniciar serviços ASDK corretamente. 

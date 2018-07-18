@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação da Grade de Eventos do Azure"
+title: Documentação da Grade de Eventos do Azure
 metadata:
-  title: "Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API"
-  description: "Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real."
+  title: Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API
+  description: Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real.
   services: event-grid
   author: czeumault
   manager: carolz
@@ -18,10 +18,11 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 02/01/2018
+  ms.locfileid: "28921762"
 abstract:
-  description: "A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos."
+  description: A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
     text: Saiba como criar e assinar eventos personalizados.
@@ -60,10 +61,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Monitorar as alterações nas VMs com aplicativos lógicos</a>"
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorar as alterações nas VMs com aplicativos lógicos</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
-    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Integrando a Automação do Azure com a Grade de Eventos</a>"
-- title: "Referência"
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrando a Automação do Azure com a Grade de Eventos</a>
+- title: Referência
   items:
   - type: list
     style: cards

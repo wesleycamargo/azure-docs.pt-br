@@ -1,13 +1,13 @@
 ---
-title: "Solucionar problemas de configurações e conexões de Gateway de VPN | Microsoft Docs"
-description: "Este artigo ajuda-o com links de artigos para solucionar problemas de configuração e conexão de Gateway de VPN e a validar taxa de transferência."
+title: Solucionar problemas de configurações e conexões de Gateway de VPN | Microsoft Docs
+description: Este artigo ajuda-o com links de artigos para solucionar problemas de configuração e conexão de Gateway de VPN e a validar taxa de transferência.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934648"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Solucionar problemas de Gateway de VPN
 

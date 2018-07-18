@@ -1,13 +1,13 @@
 ---
-title: "Usar a reinicialização de VM da infraestrutura do Azure para atingir \"maior disponibilidade\" em um sistema SAP | Microsoft Docs"
-description: "Usar a reinicialização de VM da infraestrutura do Azure para atingir \"maior disponibilidade\" de aplicativos SAP"
+title: Usar a reinicialização de VM da infraestrutura do Azure para atingir "maior disponibilidade" em um sistema SAP | Microsoft Docs
+description: Usar a reinicialização de VM da infraestrutura do Azure para atingir "maior disponibilidade" de aplicativos SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: f0b2f8f0-e798-4176-8217-017afe147917
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be0792affba1eba32c2643344b7e284858adb9d6
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 82396d3a2eadd0257bbe65f36a78cf4e7731ec16
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657546"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Usar a reinicialização de VM da infraestrutura do Azure para atingir "maior disponibilidade" de um sistema SAP
 
@@ -125,7 +126,7 @@ ms.lasthandoff: 11/16/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de alta disponibilidade de várias SID do SAP)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png

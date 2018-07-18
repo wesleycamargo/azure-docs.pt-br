@@ -1,10 +1,10 @@
 ---
-title: "Sincronização de dados offline em aplicativos móveis do Azure | Microsoft Docs"
-description: "Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure"
+title: Sincronização de dados offline em aplicativos móveis do Azure | Microsoft Docs
+description: Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597970"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline em Aplicativos Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é sincronização de dados offline?
@@ -42,7 +43,7 @@ Os tutoriais a seguir mostram como adicionar sincronização offline para os cli
 * [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]
 * [Xamarin.Forms: habilitar a sincronização offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Plataforma Universal do Windows: habilitar a sincronização offline]
+* [Plataforma Universal do Windows: Habilitar sincronização offline]
 
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
 Para acessar o ponto de extremidade "/tables", os SDKs do cliente móvel do Azure fornecem interfaces como `IMobileServiceTable` (SDK do cliente .NET) ou `MSTable` (cliente iOS). Essas APIs se conectam diretamente ao back-end do Aplicativo Móvel do Azure e falharão se o dispositivo cliente não tiver uma conexão de rede.
@@ -52,7 +53,7 @@ Para oferecer suporte a uso offline, seu aplicativo deve usar as APIs de *tabela
 ## <a name="what-is-a-local-store"></a>O que é um armazenamento local?
 Um armazenamento local é a camada de persistência de dados no dispositivo cliente. Os SDKs de cliente de aplicativos móveis do Azure oferecem uma implementação padrão do armazenamento local. No Windows, Xamarin e Android, ele se baseia em SQLite. No iOS, ele se baseia em Core Data.
 
-Para usar a implementação baseada em SQLite no Windows Phone ou Windows Store 8.1, é preciso instalar uma extensão do SQLite. Para obter mais detalhes, veja [Plataforma Universal do Windows: habilitar a sincronização offline]. Android e iOS são fornecidos com uma versão do SQLite no próprio sistema operacional do dispositivo; portanto, não é necessário fazer referência a sua própria versão do SQLite.
+Para usar a implementação baseada em SQLite no Windows Phone ou Microsoft Store, você precisa instalar uma extensão SQLite. Para obter mais detalhes, veja [Plataforma Universal do Windows: Habilitar sincronização offline]. Android e iOS são fornecidos com uma versão do SQLite no próprio sistema operacional do dispositivo; portanto, não é necessário fazer referência a sua própria versão do SQLite.
 
 Os desenvolvedores também podem implementar seu próprio armazenamento local. Por exemplo, se você quiser armazenar dados em um formato criptografado no cliente móvel, poderá definir um armazenamento local que usa SQLCipher para criptografia.
 
@@ -92,7 +93,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 * [iOS: Habilitar a sincronização offline]
 * [Xamarin iOS: Habilitar a sincronização offline]
 * [Xamarin Android: Habilitar a sincronização offline]
-* [Plataforma Universal do Windows: habilitar a sincronização offline]
+* [Plataforma Universal do Windows: Habilitar sincronização offline]
 
 <!-- Links -->
 [SDK do cliente do .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -100,4 +101,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [iOS: Habilitar a sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Plataforma Universal do Windows: habilitar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Plataforma Universal do Windows: Habilitar sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

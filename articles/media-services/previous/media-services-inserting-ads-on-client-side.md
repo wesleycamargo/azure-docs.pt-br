@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903040"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -275,7 +276,7 @@ O exemplo a seguir mostra um arquivo VMAP que especifica os eventos de rastreame
     </vmap:VMAP>
 ```
 
-Para saber mais sobre o elemento <**TrackingEvents**> e seus filhos, confira http://iab.org/VMAP.pdf
+Para saber mais sobre o elemento <**TrackingEvents**> e seus filhos, confira http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Usando um arquivo MAST (Media Abstract Sequencing Template)
 Um arquivo MAST permite que você especifique gatilhos que definem quando um anúncio é exibido. O exemplo a seguir é de arquivo MAST que contém gatilhos para um anúncios do tipo pre-roll, mid-roll e post-roll.

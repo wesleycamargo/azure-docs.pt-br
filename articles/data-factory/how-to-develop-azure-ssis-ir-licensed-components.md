@@ -1,36 +1,40 @@
 ---
-title: Desenvolver componentes pagos ou licenciados para o Tempo de Execução de Integração do Azure-SSIS  | Microsoft Docs
-description: Este artigo descreve como um ISV pode desenvolver e instalar componentes personalizados pagos ou licenciadas para o tempo de execução de integração do Azure-SSIS
+title: Instalar componentes licenciados para o tempo de execução de integração do Azure-SSIS | Microsoft Docs
+description: Saiba como um ISV pode desenvolver e instalar componentes personalizados pagos ou licenciados para o tempo de execução de integração do Azure-SSIS
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 146dc8c4475a041f28d7fe7ca464dfbc104258c7
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265947"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Desenvolver componentes personalizados pagos ou licenciados para o Tempo de Execução de Integração do Azure-SSIS
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalar componentes personalizados pagos ou licenciados para o tempo de execução de integração do Azure-SSIS
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Problema: o IR do Azure-SSIS exige uma abordagem diferente
+Este artigo descreve como um ISV pode desenvolver e instalar componentes personalizados pagos ou licenciados para pacotes do SSIS (SQL Server Integration Services) executados no Azure no tempo de execução de integração do Azure-SSIS.
 
-A natureza do tempo de execução de integração do Azure-SSIS apresenta vários desafios, o que torna inadequados os métodos de licenciamento comuns usados para a instalação local de componentes personalizados.
+## <a name="the-problem"></a>O problema
+
+A natureza do tempo de execução de integração do Azure-SSIS apresenta vários desafios, o que torna inadequados os métodos de licenciamento comuns usados para a instalação local de componentes personalizados. Consequentemente, o IR do Azure-SSIS exige uma abordagem diferente.
 
 -   Os nós de IR do Azure-SSIS são voláteis e podem ser alocados ou liberados a qualquer momento. Por exemplo, você pode iniciar ou parar nós para gerenciar o custo ou aumentar e diminuir vários tamanhos de nó. Como resultado, a associação de uma licença de componente de terceiros a um nó específico usando as informações específicas do computador, como endereço MAC ou ID de CPU, não é mais viável.
 
 -   Você também pode expandir ou reduzir o IR do Azure-SSIS para que o número de nós possa diminuir ou aumentar a qualquer momento.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Solução: variáveis de ambiente do Windows e variáveis de sistema do SSIS para validação e associação da licença
+## <a name="the-solution"></a>A solução
 
-Como resultado das limitações dos métodos tradicionais de licenciamento descritos na seção anterior, o IR do Azure-SSIS fornece variáveis de ambiente do Windows e variáveis de sistema do SSIS para a validação e associação da licença de componentes de terceiros. Os ISVs podem usar essas variáveis para obter informações exclusivas e persistente para um IR do Azure-SSIS, como ID do Cluster e Contagem de Nós do Cluster. Com essas informações, ISVs podem vincular a licença para seu componente a um IR do Azure-SSIS *como cluster*, com uma ID que não se altera quando os clientes iniciam ou param, expandem ou reduzem, ou reconfiguram o IR do Azure-SSIS de qualquer forma.
+Como resultado das limitações dos métodos tradicionais de licenciamento descritos na seção anterior, o IR do Azure-SSIS fornece uma nova solução. Essa solução usa variáveis de ambiente do Windows e variáveis de sistema do SSIS para validação e associação da licença de componentes de terceiros. Os ISVs podem usar essas variáveis para obter informações exclusivas e persistente para um IR do Azure-SSIS, como ID do Cluster e Contagem de Nós do Cluster. Com essas informações, os ISVs podem, em seguida, associar a licença para seu componente ao IR do Azure-SSIS *como um cluster*. Esta associação usa uma ID que não se altera quando os clientes iniciam ou param, aumentam ou reduzem a escala verticalmente, aumentam ou reduzem a escala horizontalmente ou reconfigurar o IR do SSIS-Azure de qualquer outra forma.
 
 O diagrama a seguir mostra a instalação, a ativação e a associação típicas da licença e os fluxos de validação para componentes de terceiros que usam essas novas variáveis:
 
@@ -70,6 +74,10 @@ O diagrama a seguir mostra a instalação, a ativação e a associação típica
                                                                                                                                
     }
     ```
+
+## <a name="isv-partners"></a>Parceiros do ISV
+
+Você pode encontrar uma lista de parceiros do ISV que adaptaram seus componentes e extensões para o IR do Azure-SSIS no final desta postagem de blog – [Enterprise Edition, Instalação Personalizada e Extensibilidade de Terceiros para SSIS no ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

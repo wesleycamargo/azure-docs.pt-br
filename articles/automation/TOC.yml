@@ -29,6 +29,8 @@
   items:
     - name: Integração
       items:
+        - name: Incluir várias VMs do portal
+          href: automation-onboard-solutions-from-browse.md
         - name: Integrar a partir de uma VM do Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Integrar a partir da Conta de automação
@@ -45,6 +47,8 @@
       items:
         - name: Visão geral do Controle de Alterações
           href: automation-change-tracking.md
+        - name: Exibir o conteúdo de arquivos rastreados
+          href: change-tracking-file-contents.md
     - name: Inventário
       items:
         - name: Gerenciar VM com uma coleção de inventários
@@ -159,14 +163,12 @@
       items:
         - name: Galeria de Runbook
           href: automation-runbook-gallery.md
-        - name: Monitorar runbooks com logs de atividade
-          href: automation-alert-activity-log.md
+        - name: Monitorar runbooks com alertas de métrica
+          href: automation-alert-metric.md
         - name: Iniciar um runbook a partir de alertas do Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Criar VM do Serviço Web da Amazon
           href: automation-scenario-aws-deployment.md
-        - name: Corrigir alerta da VM do Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Iniciar/parar VMs nos horários inativos
           href: automation-solution-vm-management.md
         - name: Remover grupo de recursos
@@ -195,10 +197,16 @@
           href: automation-migrate-account-subscription.md
     - name: Solucionar problemas
       items:
-        - name: Solução de problemas comuns
-          href: automation-troubleshooting-automation-errors.md
-        - name: Solucionar problemas do Hybrid Runbook Worker
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Integração
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: DSC (Configuração de Estado Desejado)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Gerenciamento de atualizações
+          href: troubleshoot/update-management.md
 - name: Referência
   items:
     - name: Azure PowerShell
@@ -215,16 +223,12 @@
   items:
     - name: Vídeo de introdução a automação
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Treinamento em Automação do Azure
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Roteiro de aprendizagem
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Notas de versão

@@ -15,11 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f00c22a5a7bde69136c674c1362e3a9d65dd7934
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294624"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -182,4 +183,4 @@ Depois de concluir todas essas etapas, seu aplicativo estará pronto para execu�
 
 - [Configurar o PingAccess para Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Como o Proxy de Aplicativo do Azure AD fornece logon único?](application-proxy-single-sign-on.md)
-- [Solucionar problemas de Proxy de Aplicativo](../active-directory-application-proxy-troubleshoot.md)
+- [Solucionar problemas de Proxy de Aplicativo](application-proxy-troubleshoot.md)

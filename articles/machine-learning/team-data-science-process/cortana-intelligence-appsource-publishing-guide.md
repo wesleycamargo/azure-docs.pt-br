@@ -7,17 +7,19 @@ author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f4e88be7b9b8e3ed7f6a2bbd299fd1e92f9c7af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836612"
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guia de publicação do AppSource do Cortana Intelligence
 
@@ -48,10 +50,10 @@ Aqui está a lista de critérios que o aplicativo precisa atender
     - HDInsight
     - Machine Learning
     - Data Lake Analytics
-    - Análise de fluxo
+    - Stream Analytics
     - Serviços Cognitivos
     - Ambas as estruturas
-    - Serviços de análise
+    - Analysis Services
     - Microsoft R Server autônomo
     - Serviços do R em SQL 2016 ou HDInsight Premium
 1. A solução deve gerar pelo menos US$ 1000 por mês por cliente usando DPOR/CSP.

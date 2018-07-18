@@ -1,11 +1,11 @@
 ---
-title: "Painel, Monitor, Escala, Configuração e Conexões Híbridas nos Serviços BizTalk | Microsoft Docs"
-description: "Saiba mais sobre os controles e monitore o desempenho de Serviços BizTalk"
+title: Painel, Monitor, Escala, Configuração e Conexões Híbridas nos Serviços BizTalk | Microsoft Docs
+description: Saiba mais sobre os controles e monitore o desempenho de Serviços BizTalk
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103354"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
 

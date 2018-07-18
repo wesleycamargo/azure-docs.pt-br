@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180786"
 abstract:
   description: Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves que acessam e criptografam seus recursos e soluções.
 sections:

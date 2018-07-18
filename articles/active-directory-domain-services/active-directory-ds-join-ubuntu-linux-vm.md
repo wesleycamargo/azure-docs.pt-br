@@ -7,22 +7,25 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332904"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para executar as tarefas listadas neste artigo, você precisa do seguinte:  
@@ -120,17 +123,17 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Solução de problemas:** se *realm discover* não puder localizar o domínio gerenciado:
      * Verifique se o domínio pode ser acessado da máquina virtual (tente executar o ping).
      * Verifique se a máquina virtual, de fato, foi implantada na mesma rede virtual na qual o domínio gerenciado está disponível.
      * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.
    >
 
-2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando: 
+2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
-    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’. 
+    > [!TIP]
+    > * Certifique-se de especificar um usuário que pertence ao grupo 'Administradores do DC do AAD’.
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, o kinit falhará.
     >
 
@@ -138,9 +141,9 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     kinit bob@CONTOSO100.COM
     ```
 
-3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando: 
+3. Ingresse a máquina no domínio. No terminal SSH, digite o seguinte comando:
 
-    > [!TIP] 
+    > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior ('kinit').
     >
 
@@ -173,7 +176,7 @@ Para habilitar a criação automática da pasta base depois de fazer logon de us
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Adicione a seguinte linha ao arquivo abaixo da linha 'session optional pam_sss.so' e salve-o:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

@@ -10,24 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b54138c5197d1c5870eed6fd4782e47c6a8b0300
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054285"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-copy-activity-performance.md)
-> * [Versão 2 – Versão prévia](../copy-activity-performance.md)
+> * [Versão 1](data-factory-copy-activity-performance.md)
+> * [ Versão 2 (versão atual) ](../copy-activity-performance.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço Data Factory, que está na versão prévia, consulte o [Guia de desempenho e ajuste da atividade de cópia para o Data Factory versão 2](../copy-activity-performance.md).
+> Este artigo se aplica à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço do Data Factory, consulte [ Copiar o desempenho da atividade e o guia de ajuste para o Data Factory ](../copy-activity-performance.md).
 
 A Atividade de cópia do Azure Data Factory fornece uma solução de dados excelente, segura, confiável e de alto desempenho. Ela permite que você a copie dezenas de terabytes de dados diariamente em uma grande variedade de repositórios de dados na nuvem e locais. Desempenho de carregamento de dados de rápido são a chave para garantir que você possa se concentrar no principal problema de "Big Data": a criação de soluções de análise avançada e obtenção de informações aprofundadas de todos esses dados.
 
@@ -102,8 +103,8 @@ Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que repr
 
 | Copiar cenário | DMUs padrão determinadas pelo serviço |
 |:--- |:--- |
-| Copiar dados entre repositórios baseados em arquivo | Entre 2 e 16 dependendo do número e tamanho dos arquivos. |
-| Todos os outros cenários de cópia | 2 |
+| Copiar dados entre repositórios baseados em arquivo | Entre 4 e 16, dependendo do número e tamanho dos arquivos. |
+| Todos os outros cenários de cópia | 4 |
 
 Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são 2, 4, 8, 16, 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
 
@@ -368,13 +369,13 @@ Se o tamanho dos dados que você deseja copiar for grande, você poderá ajustar
 Tenha cuidado com o número de conjuntos de dados e atividades de cópia que requerem o Data Factory para conectar o mesmo armazenamento de dados ao mesmo tempo. Vários trabalhos de cópia simultâneos pode restringir um armazenamento de dados e levar a um desempenho reduzido, repetições internas do trabalho de cópia e, em alguns casos, falhas de execução.
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Cenário de exemplo: copiar de um SQL Server local para o armazenamento de Blobs
-**Cenário:**um pipeline é criado para copiar os dados de um SQL Server local para um armazenamento de Blobs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
+**Cenário:** um pipeline é criado para copiar os dados de um SQL Server local para um armazenamento de Blobs no formato CSV. Para acelerar o trabalho de cópia, os arquivos CSV devem ser compactados no formato bzip2.
 
 **Análise e teste**: A taxa de transferência da Atividade de Cópia é menor que 2 MBps, que é muito mais lento do que o parâmetro de comparação de desempenho.
 
-**Análise e ajuste do desempenho:**para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
+**Análise e ajuste do desempenho:** para solucionar o problema de desempenho, vejamos como os dados são processados e movidos.
 
-1. **Ler dados:**o Gateway abre uma conexão com o SQL Server e envia a consulta. SQL Server responde enviando o fluxo de dados para o Gateway por meio da intranet.
+1. **Ler dados:** o Gateway abre uma conexão com o SQL Server e envia a consulta. SQL Server responde enviando o fluxo de dados para o Gateway por meio da intranet.
 2. **Serializar e compactar dados**: o Gateway serializa o fluxo de dados para o formato CSV e compacta os dados em um fluxo bzip2.
 3. **Gravar dados**: o Gateway carrega o fluxo bzip2 no armazenamento de Blobs via Internet.
 
@@ -384,7 +385,7 @@ Como você pode ver, os dados estão sendo processados e movidos de forma sequen
 
 Um ou mais dos seguintes fatores pode causar o gargalo do desempenho:
 
-* **Origem:**o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
+* **Origem:** o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
 * **Gateway de Gerenciamento de Dados**:
   * **LAN**: o Gateway está localizado longe do computador do SQL Server e tem uma conexão de baixa largura de banda.
   * **Gateway**: o Gateway atingiu suas limitações de carga para executar as seguintes operações:

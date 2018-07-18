@@ -27,7 +27,7 @@
         - name: Serviços de Domínio
           tocHref: /azure/active-directory-domain-services/
           topicHref: /azure/active-directory-domain-services/
-    - name: Analysis Services
+    - name: Serviços de análise
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
     - name: Gerenciamento de API
@@ -89,6 +89,9 @@
     - name: Azure China 21Vianet
       tocHref: /azure/china/
       topicHref: /azure/china/
+    - name: Azure NetApp Files
+      tocHref: /azure/azure-netapp-files/
+      topicHref: /azure/azure-netapp-files/
     - name: Portal do Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -271,7 +274,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Armazenamento do Data Lake Gen1
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Laboratório de Desenvolvimento/Teste
@@ -289,6 +292,9 @@
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Firewall
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Diretrizes
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
@@ -311,7 +317,7 @@
         - name: Segurança do Enterprise
           tocHref: /azure/hdinsight/domain-joined
           topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-        - name: Servidor R
+        - name: ML Services
           tocHref: /azure/hdinsight/r-server
           topicHref: /azure/hdinsight/r-server-overview
         - name: Spark
@@ -469,6 +475,9 @@
     - name: Resiliência
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Controle de acesso baseado em função
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Integridade do Serviço
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
@@ -515,6 +524,9 @@
         - name: Blobs
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: Armazenamento do Data Lake Gen2
+          tocHref: /azure/storage/data-lake-storage-gen2/
+          topicHref: /azure/storage/data-lake-storage/introduction
         - name: Arquivos
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction

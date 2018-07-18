@@ -1,29 +1,25 @@
 ---
-title: Loops - Processar ações de repetição ou matrizes - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Processar matrizes com loops Foreach ou repetir ações até que as condições específicas sejam atendidas nos aplicativos lógicos
+title: Adicionar loops que repetem ações ou processam matrizes – Aplicativo Lógico do Azure | Microsoft Docs
+description: Como criar loops que repetem ações de fluxo de trabalho ou processam matrizes no Aplicativo Lógico do Azure
 services: logic-apps
-keywords: loops Foreach
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298178"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Loops: processar matrizes ou repetir ações até que uma condição seja atendida
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes no Aplicativo Lógico do Azure
 
-Para iterar sobre matrizes no aplicativo lógico, é possível utilizar um [loop "Foreach"](#foreach-loop) ou um [loop "Foreach" sequencial](#sequential-foreach-loop). Os ciclos em um loop "Foreach" padrão são executados em paralelo, enquanto os ciclos em um loop "Foreach" sequencial são executados um de cada vez. Para o número máximo de itens de matriz que loops "Foreach" podem processar em uma única execução do aplicativo lógico, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para iterar sobre matrizes no aplicativo lógico, é possível utilizar um [loop "Foreach"](#foreach-loop) ou um [loop "Foreach" sequencial](#sequential-foreach-loop). As iterações em um loop "Foreach" padrão são executadas em paralelo, enquanto as iterações em um loop "Foreach" sequencial são executadas um de cada vez. Para o número máximo de itens de matriz que loops "Foreach" podem processar em uma única execução do aplicativo lógico, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Se você tiver um gatilho que recebe uma matriz e deseja executar um fluxo de trabalho para cada item de matriz, é possível fazer *debatch* dessa matriz com o [**SplitOn** da propriedade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 

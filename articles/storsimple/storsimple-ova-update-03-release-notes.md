@@ -1,11 +1,11 @@
 ---
-title: "Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Docs"
-description: "Descreve os problemas em aberto críticos e resoluções para a StorSimple Virtual Array que executa a Atualização 0.3."
+title: Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Docs
+description: Descreve os problemas em aberto críticos e resoluções para a StorSimple Virtual Array que executa a Atualização 0.3.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b197651a-3c40-4185-b23d-4c8f22cfa8f4
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109334"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notas de versão da Atualização 0.3 da StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral

@@ -1,12 +1,12 @@
 ---
-title: "Tarefas de avaliação do Azure pilha avançadas | Microsoft Docs"
-description: "Este artigo descreve tarefas avançadas de avaliação de pilha do Azure."
+title: Tarefas de avaliação do Azure pilha avançadas | Microsoft Docs
+description: Este artigo descreve tarefas avançadas de avaliação de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976348"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Tarefas avançadas de avaliação do Kit de desenvolvimento de pilha do Azure
 Depois de ter obtido familiaridade com os recursos e os recursos de serviço básico do Kit de desenvolvimento na pilha do Azure (ASDK), você pode aprofundar o seu conhecimento da pilha do Azure ainda mais por testar os cenários mais avançados. Essas tarefas de avaliação mais avançadas são documentadas totalmente na documentação do operador de pilha do Azure.

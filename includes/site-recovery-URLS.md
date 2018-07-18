@@ -5,5 +5,7 @@
 ``dc.services.visualstudio.com`` – usado para telemetria. <br>
 ``time.nist.gov`` e ``time.windows.com``. Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
 <br/><br/>
-URLs para a nuvem do Azure Government:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+URLs para a nuvem do Azure Government:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
+https://login.microsoftonline.us<br/>-
+https://login.microsoftonline.com<br/>
 

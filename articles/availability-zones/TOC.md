@@ -22,7 +22,7 @@
 ### conjuntos de escala de máquina virtual
 #### [Criar um conjunto de dimensionamento em uma região de disponibilidade](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Balanceador de carga
+### Load Balancer
 #### [O que é o Balanceador de carga?](../load-balancer/load-balancer-standard-overview.md)
 #### [Zonas de disponibilidade e padrão do balanceador de carga](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -42,6 +42,18 @@
 
 ### Armazenamento
 #### [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
+
+### Hubs de Eventos
+#### [Recuperação de desastre geográfico dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Barramento de Serviço
+#### [Recuperação de desastre geográfico do Barramento de Serviço](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### Gateway de VPN
+#### [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Recuperação de desastre
 ## [Usar o Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

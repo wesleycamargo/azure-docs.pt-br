@@ -14,7 +14,7 @@ Depois de [implantar um cluster do Serviço de Contêiner do Azure](../articles/
 
 ## <a name="scale-with-the-azure-cli-20"></a>Dimensionar com a CLI 2.0 do Azure
 
-Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 do Azure mais recente e conectou-se a uma conta do Azure (`az login`).
+Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 do Azure mais recente e conectou-se a uma conta do Microsoft Azure (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Conferir a conta do agente atual
 Para ver o número de agentes atualmente no cluster, execute o comando `az acs show`. Isso mostra a configuração do cluster. Por exemplo, o seguinte comando mostra a configuração do serviço de contêiner chamado `containerservice-myACSName` no grupo de recursos `myResourceGroup`:

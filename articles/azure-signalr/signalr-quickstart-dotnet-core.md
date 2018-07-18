@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674845"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: Criar uma sala de chat com o Serviço SignalR
 
@@ -86,18 +87,18 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
 
 1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.SignalR` executando o seguinte comando:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Execute o seguinte comando para restaurar os pacotes para o seu projeto.
 
         dotnet restore
 
-3. Adicione um segredo chamado *Azure:SignalR:ConnectionString* ao Gerenciador de Segredos. Esse segredo conterá a cadeia de conexão para acessar seu recurso SignalR Service. *Azure:SignalR:ConnectionString* é a chave de configuração padrão que o SignalR procura para estabelecer uma conexão. Substitua o valor no comando abaixo pela cadeia de conexão do recurso Serviço SignalR.
+3. Adicione um segredo chamado *Azure__SignalR__ConnectionString* ao Gerenciador de Segredos. Esse segredo é um valor de configuração hierárquica e os dois-pontos (:) podem não funcionar em todas as plataformas. O sublinhado duplo (_), conforme usado por esse segredo, é compatível com todas as plataformas.  Esse segredo conterá a cadeia de conexão para acessar seu recurso SignalR Service. *Azure__SignalR__ConnectionString* é a chave de configuração padrão que o SignalR procura para estabelecer uma conexão. Substitua o valor no comando abaixo pela cadeia de conexão do recurso Serviço SignalR.
 
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     O Gerenciador de Segredos só será usado para testar o aplicativo Web enquanto ele estiver hospedado localmente. Em um tutorial posterior, você implantará o aplicativo Web de chat no Azure. Após a implantação do aplicativo Web no Azure, você usará uma configuração de aplicativo em vez de armazenar a cadeia de conexão com o Gerenciador de Segredos.
@@ -112,7 +113,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
     }
     ```
 
-    Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão, *Azure:SignalR:ConnectionString*, para a cadeia de conexão do recurso Serviço SignalR.
+    Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão, *Azure__SignalR__ConnectionString*, para a cadeia de conexão do recurso Serviço SignalR.
 
 5. Também no *Startup.cs*, atualize o método `Configure` substituindo a chamada para `app.UseStaticFiles()` pelo código a seguir e salve o arquivo.
 
@@ -186,7 +187,7 @@ O código em *index.html*, chama `HubConnectionBuilder.build()` para fazer uma c
 
 Se a conexão for bem-sucedida, essa conexão será passada para `bindConnectionMessage`, o que adiciona manipuladores de eventos aos envios por push do conteúdo de entrada para o cliente. 
 
-`HubConnection.start()` inicia a comunicação com o hub. Quando a comunicação é iniciada, `onConnected()` adiciona os manipuladores de evento do botão. Esses manipuladores usam a conexão para permitir que esse cliente envie por push as atualizações de conteúdo a todos os clientes conectados.
+`HubConnection.start()` inicia a comunicação com o hub. Quando a comunicação é iniciada, o `onConnected()` adiciona os manipuladores de evento do botão. Esses manipuladores usam a conexão para permitir que esse cliente envie por push as atualizações de conteúdo a todos os clientes conectados.
 
 ## <a name="add-a-development-runtime-profile"></a>Adicionar um perfil de tempo de execução de desenvolvimento
 

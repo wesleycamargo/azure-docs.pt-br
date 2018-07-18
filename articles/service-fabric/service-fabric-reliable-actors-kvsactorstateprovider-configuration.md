@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017640"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
 A configuração padrão do KVSActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Microsoft Visual Studio dentro da pasta Config para o ator especificado.
@@ -33,6 +34,10 @@ O tempo de execução do Service Fabric do Azure procura nomes de seção predef
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que têm alta disponibilidade também estejam seguros.
 Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
+
+> [!IMPORTANT]
+> Em nós Linux, certificados devem estar formatados como PEM. Para saber mais sobre como localizar e configurar certificados para Linux, consulte [Configurar certificados em Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

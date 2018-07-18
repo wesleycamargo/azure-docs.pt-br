@@ -1,23 +1,19 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – Atestado de TPM
 description: Este artigo fornece uma visão geral conceitual do fluxo de atestado de TPM usando o Serviço de Provisionamento de Dispositivos  IoT.
-services: iot-dps
-keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 04/23/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: dec024c5c23bf8c628457127af57b8d18800660e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-dps
+manager: briz
+ms.openlocfilehash: 90f41e56f8e95584959576d3e5ad837f4774048a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182136"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629075"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 

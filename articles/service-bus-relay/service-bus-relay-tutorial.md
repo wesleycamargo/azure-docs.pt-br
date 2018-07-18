@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de Retransmissão de WCF do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Compilar um cliente e um aplicativo de serviço usando a Retransmissão WCF."
+title: Tutorial de Retransmissão de WCF do Barramento de Serviço do Azure | Microsoft Docs
+description: Compilar um cliente e um aplicativo de serviço usando a Retransmissão WCF.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642301"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Retransmissão de WCF do Azure
 
-Este tutorial descreve como compilar um aplicativo cliente e de serviço simples de Retransmissão de WCF usando a Retransmissão do Azure. Para obter um tutorial semelhante que usa o [Sistema de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Este tutorial descreve como compilar um aplicativo cliente e de serviço simples de Retransmissão de WCF usando a Retransmissão do Azure. Para obter um tutorial semelhante que usa o [Sistema de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Trabalhar com este tutorial fornece uma compreensão das etapas necessárias para criar um aplicativo de serviço e cliente de Retransmissão de WCF. Assim como suas contrapartes WCF originais, um serviço é um constructo que expõe um ou mais pontos de extremidade, cada um dos quais expõe uma ou mais operações de serviço. O ponto de extremidade de serviço especifica um endereço em que o serviço pode ser encontrado, uma associação que contém as informações que um cliente deve comunicar com o serviço e um contrato que define a funcionalidade fornecida pelo serviço a seus clientes. A principal diferença entre um WCF e uma de Retransmissão de WCF é que o ponto de extremidade é exposto na nuvem, em vez de localmente em seu computador.
 
@@ -30,7 +31,7 @@ Depois de trabalhar passando pela sequência de tópicos neste tutorial, você t
 
 As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo e usar um cliente que pode acessar a funcionalidade do host.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir esse tutorial, você precisará do seguinte:
 
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples da a Retransmissão do Azure usando os recursos de Retransmissão de WCF do Barramento de Serviço. Para obter um tutorial semelhante que usa o [Sistema de Mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples da a Retransmissão do Azure usando os recursos de Retransmissão de WCF do Barramento de Serviço. Para obter um tutorial semelhante que usa o [Sistema de Mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Para saber mais sobre a Retransmissão do Azure, consulte os tópicos a seguir.
 

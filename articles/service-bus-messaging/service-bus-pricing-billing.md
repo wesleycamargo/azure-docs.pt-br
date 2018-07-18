@@ -1,11 +1,11 @@
 ---
-title: "Preços e cobrança do Barramento de Serviço | Microsoft Docs"
-description: "Visão geral da estrutura de preços de Barramento de Serviço."
+title: Preços e cobrança do Barramento de Serviço | Microsoft Docs
+description: Visão geral da estrutura de preços de Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159779"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
 

@@ -12,17 +12,18 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: ca44354b6aa51cae9218594ba5120d9c4a6f5ece
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6774bd156e31bde0a933b942e4597ec46425d2a9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097821"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Início Rápido: Criar um cluster Spark no HDInsight usando um modelo
 
 Saiba como criar um cluster do Apache Spark no Azure HDInsight e como executar consultas Spark SQL nas tabelas do Hive. O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
-Neste início rápido, você usará um modelo do Resource Manager para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster.
+Neste início rápido, você usará um modelo do Resource Manager para criar um cluster Spark do HDInsight. O cluster usa Azure Storage Blobs como o armazenamento de cluster. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > A cobrança dos clusters do HDInsight será proporcional por minuto, independentemente de eles estarem sendo usados ou não. Exclua seu cluster depois de terminar de usá-lo. Para saber mais, confira a seção [Recursos de limpeza](#clean-up-resources) deste artigo.
@@ -43,7 +44,7 @@ Crie um cluster Spark do HDInsight usando um modelo do Azure Resource Manager. O
     |---|---|
     |**Assinatura**|Selecione sua assinatura do Azure usada para criar este cluster. A assinatura usada para este início rápido é **&lt;nome da assinatura do Azure>**. |
     | **Grupo de recursos**|Crie um grupo de recursos ou selecione um existente. O grupo de recursos é usado para gerenciar recursos do Azure em seus projetos. O novo nome do grupo de recursos usado para este início rápido é **myspark20180403rg**.|
-    | **Local**|Selecione um local para o grupo de recursos. O modelo usa esse local para criar o cluster, bem como para o armazenamento de cluster padrão. O local usado para este início rápido é **Leste dos EUA 2**.|
+    | **Localidade**|Selecione um local para o grupo de recursos. O modelo usa esse local para criar o cluster, bem como para o armazenamento de cluster padrão. O local usado para este início rápido é **Leste dos EUA 2**.|
     | **ClusterName**|Insira um nome para o cluster HDInsight que você deseja criar. O novo nome do cluster usado para este início rápido é **myspark20180403**.|
     | **Nome e senha de logon do cluster**|O nome padrão de logon é admin. Escolha uma senha para o logon do cluster. O nome de logon usado para este início rápido é **admin**.|
     | **Nome de usuário e senha de SSH**|Escolha uma senha para o usuário do SSH. O nome de usuário de SSH usado para este início rápido é **sshuser**.|
@@ -53,6 +54,12 @@ Crie um cluster Spark do HDInsight usando um modelo do Azure Resource Manager. O
 3. Selecione **Concordo com os termos e condições declarados acima**, selecione **Fixar no painel**e, em seguida, selecione **Comprar**. Veja um novo bloco intitulado **Implantar a implantação de modelo**. Demora cerca de 20 minutos para criar o cluster. O cluster deve ser criado antes de prosseguir para a próxima sessão.
 
 Se você tiver um problema com a criação de clusters HDInsight, é possível que você não tenha as permissões corretas para fazer isso. Para saber mais, confira [Requisitos do controle de acesso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+
+## <a name="install-intellijeclipse-for-spark-application"></a>Instalar IntelliJ/Eclipse para aplicativo Spark
+Use o plug-in Kit de Ferramentas do Azure para IntelliJ/Eclipse a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do Azure HDInsight diretamente do ambiente de desenvolvimento integrado (IDE) do IntelliJ/Eclipse. Para obter mais informações, consulte [Usar IntelliJ para criar/enviar aplicativo Spark](./apache-spark-intellij-tool-plugin.md) e [Usar Eclipse para criar/enviar aplicativo Spark](./apache-spark-eclipse-tool-plugin.md).
+
+## <a name="install-vscode-for-pysparkhive-applications"></a>Instalar o VSCode para aplicativos PySpark/hive
+Saiba como usar as Ferramentas do Azure HDInsight para Visual Studio Code (VSCode) para criar e enviar trabalhos em lotes do Hive, consultas interativas do Hive, lote do PySpark e scripts interativos PySpark. As Ferramentas do Azure HDInsight podem ser instaladas em plataformas compatíveis com VSCode. Isso inclui Windows, Linux e macOS. Para obter mais informações, consulte [Usar o VSCode para criar/enviar aplicativo PySpark](../hdinsight-for-vscode.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
 

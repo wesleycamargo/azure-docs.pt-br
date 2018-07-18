@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: introdução | Microsoft Docs"
+title: 'Azure Active Directory Domain Services: introdução | Microsoft Docs'
 description: Habilite o Azure Active Directory Domain Services usando o portal do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263968"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
@@ -40,16 +42,19 @@ O assistente cria automaticamente o grupo administrativo em seu diretório do Az
 
 3. Quando terminar, clique em **OK** para ir para a página **Resumo** do assistente.
 
-4. Na página **Resumo** do assistente, examine as definições de configuração do domínio gerenciado. Você pode voltar para qualquer etapa do assistente para fazer alterações se for necessário. Quando terminar, clique em **OK** para criar o novo domínio gerenciado.
+
+## <a name="deploy-your-managed-domain"></a>Implantar o domínio gerenciado
+
+1. Na página **Resumo** do assistente, examine as definições de configuração do domínio gerenciado. Você pode voltar para qualquer etapa do assistente para fazer alterações se for necessário. Quando terminar, clique em **OK** para criar o novo domínio gerenciado.
 
     ![Resumo](./media/getting-started/domain-services-blade-summary.png)
 
-5. Você verá uma notificação que mostra o andamento da implantação do Azure AD Domain Services. Clique na notificação para ver detalhes do andamento da implantação.
+2. Você verá uma notificação que mostra o andamento da implantação do Azure AD Domain Services. Clique na notificação para ver detalhes do andamento da implantação.
 
     ![Notificação – implantação em andamento](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Provisionar o domínio gerenciado
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verifique o status de implantação do domínio gerenciado
 O processo de provisionamento de seu domínio gerenciado pode levar até uma hora.
 
 1. Enquanto a implantação está em andamento, você pode pesquisar por "domain services" na caixa de pesquisa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa. A folha **Azure AD Domain Services** lista o domínio gerenciado que está sendo provisionado.
@@ -67,6 +72,9 @@ O processo de provisionamento de seu domínio gerenciado pode levar até uma hor
 4. Quando o domínio gerenciado está totalmente provisionado, a guia **Visão Geral** mostra o status do domínio como **Em execução**.
 
     ![Domain Services - guia Visão geral depois de totalmente provisionado](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Durante o processo de provisionamento, o Azure AD Domain Services cria Aplicativos Empresariais nomeados "Serviços do Controlador de Domínio" e "AzureActiveDirectoryDomainControllerServices" no diretório. Esses Aplicativos Empresariais são necessários para atender o domínio gerenciado. É imperativo que não sejam excluídos a qualquer momento.
+    >
 
 5. Na guia **Propriedades**, você vê dois endereços IP nos quais controladores de domínio estão disponíveis para a rede virtual.
 

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 02ce774f30cd03b7520f482196629bf4b7ec9ae5
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355229"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318561"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicativo #
  
@@ -43,10 +43,11 @@ Os clientes podem criar vários ASEs dentro de uma única região do Azure, bem 
 
 Os ASEs são isolados para executar somente aplicativos de um único cliente e sempre são implantados em uma rede virtual. Os clientes têm controle refinado sobre o tráfego de rede de entrada e de saída do aplicativo. Os aplicativos podem estabelecer conexões seguras de alta velocidade por VPNs para recursos corporativos locais.
 
-* Os ASEs permitem a hospedagem de aplicativos de grande escala com acesso à rede segura. Para obter mais informações, consulte o [Aprofundamento no AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sobre ASEs.
+* ASE vem com seu próprio preço da camada, saiba como a [oferta isolada](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) ajuda a gerar hiperescala e segurança.
+* [V2 de Ambientes do Serviço de Aplicativo](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) fornece uma proteção completa para seus aplicativos em uma sub-rede de sua rede e fornece sua própria implementação privada do Serviço de Aplicativo do Azure.
 * Vários ASEs podem ser usados para escalar horizontalmente. Para obter mais informações, consulte [Como configurar uma marca do aplicativo distribuído geograficamente](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs podem ser usados para configurar a arquitetura de segurança, conforme mostrado no Aprofundamento no AzureCon. Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o [artigo sobre a como implementar uma arquitetura de segurança em camadas](app-service-app-service-environment-layered-security.md) com os ambientes do Serviço de Aplicativo.
-* Os aplicativos executados nos ASEs podem ter seu acesso restrito por dispositivos upstream como WAFs (firewalls do aplicativo Web). Para saber mais, confira [Integrar o Ambiente do Serviço de Aplicativo do ILB ao Gateway de Aplicativo Azure][AppGW].
+* Os aplicativos executados nos ASEs podem ter seu acesso restrito por dispositivos upstream como WAFs (firewalls do aplicativo Web). Para saber mais, confira [Firewall do aplicativo Web (WAF)][AppGW].
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
@@ -72,7 +73,7 @@ Um ASE pode ser voltado para a Internet com um endereço IP público ou voltado 
 
 [Grupos de Segurança de Rede][NSGs] restringem a comunicação de rede de entrada à sub-rede na qual um ASE reside. Você pode usar NSGs para executar aplicativos por trás de dispositivos e serviços upstream, tais como WAFs e provedores SaaS de rede.
 
-Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN [Site a Site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN [Site a Site](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) ou [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 Para obter mais informações sobre o funcionamento dos ASEs com redes virtuais e redes locais, consulte [Considerações de rede do Ambiente do Serviço de Aplicativo][ASENetwork].
 
@@ -87,6 +88,8 @@ No ASEv1, você precisa gerenciar todos os recursos manualmente. Isso inclui os 
 O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada vCPU alocado. Isso inclui os vCPUs usados para front-ends ou funções de trabalho que não hospedem nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
 
 <!--Links-->
+[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
+[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -105,4 +108,4 @@ O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cad
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../application-gateway/waf-overview.md

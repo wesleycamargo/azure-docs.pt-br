@@ -2,49 +2,41 @@
 title: Limitações no Banco de Dados do Azure para MySQL
 description: Este artigo descreve limitações no Banco de Dados do Azure para MySQL, como número de opções de mecanismo de armazenamento e conexão.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311190"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
 
-## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
-O Banco de Dados do Azure para MySQL tem vários níveis de serviço que podem ser escolhidos durante a criação de um servidor. Para saber mais, confira [Tipos de preço do Banco de Dados do Azure para MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de conexões
+O número máximo de conexões por tipo de preço e vCores é o seguinte: 
 
-Há um número máximo de conexões, Unidades de Computação e armazenamento em cada camada de serviço, conforme a seguir: 
+|**Tipo de preço**|**vCore(s)**| **Máximo de conexões**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Uso geral| 2| 300|
+|Uso geral| 4| 625|
+|Uso geral| 8| 1250|
+|Uso geral| 16| 2500|
+|Uso geral| 32| 5.000|
+|Otimizado para memória| 2| 600|
+|Otimizado para memória| 4| 1250|
+|Otimizado para memória| 8| 2500|
+|Otimizado para memória| 16| 5.000|
 
-|**Tipo de preço**| **Geração de computação**|**vCore(s)**| **Máximo de conexões**|
-|---|---|---|---|
-|Basic| Gen 4| 1| 50|
-|Basic| Gen 4| 2| 100|
-|Basic| Gen 5| 1| 50|
-|Basic| Gen 5| 2| 100|
-|Uso geral| Gen 4| 2| 300|
-|Uso geral| Gen 4| 4| 625|
-|Uso geral| Gen 4| 8| 1250|
-|Uso geral| Gen 4| 16| 2500|
-|Uso geral| Gen 4| 32| 5.000|
-|Uso geral| Gen 5| 2| 300|
-|Uso geral| Gen 5| 4| 625|
-|Uso geral| Gen 5| 8| 1250|
-|Uso geral| Gen 5| 16| 2500|
-|Uso geral| Gen 5| 32| 5.000|
-|Otimizado para memória| Gen 5| 2| 600|
-|Otimizado para memória| Gen 5| 4| 1250|
-|Otimizado para memória| Gen 5| 8| 2500|
-|Otimizado para memória| Gen 5| 16| 5.000|
-
-Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
@@ -68,31 +60,29 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 
 ### <a name="supported"></a>Com suporte
-- CARREGAR DADOS INFILE - com suporte, mas deve especificar o parâmetro [LOCAL] que é direcionado para um caminho UNC (montado por meio de XSMB do armazenamento do Azure).
+- `LOAD DATA INFILE` tem suporte, mas o parâmetro `[LOCAL]` deve ser especificado e direcionado para um caminho UNC (armazenamento do Azure montado por meio do SMB).
 
 ### <a name="unsupported"></a>Sem suporte
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitações funcionais
 
 ### <a name="scale-operations"></a>Operações de dimensionamento
-- Atualmente, não há suporte para o dimensionamento dos servidores em tipos de preço. Ou seja, alternando entre os tipos de preço Básico, Uso Geral e Otimizado para Memória.
+- O dimensionamento dinâmico de e para as camadas de preços básicas não tem suporte no momento.
 - Não há suporte para diminuir o tamanho de armazenamento do servidor.
 
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal.
 
 ### <a name="point-in-time-restore"></a>Restauração pontual
-- Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+- Ao usar o recurso PITR, o novo servidor é criado com as mesmas configurações nas quais o servidor está baseado.
 - Não há suporte para restaurar um servidor eliminado.
-
-## <a name="functional-limitations"></a>Limitações funcionais
 
 ### <a name="subscription-management"></a>Gerenciamento de assinaturas
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
 ## <a name="current-known-issues"></a>Problemas frequentes conhecidos
-- A Instância do MySQL Server exibe a versão de servidor incorreta após a conexão ser estabelecida. Para obter a versão correta da instância de servidor, use o comando select version(); no prompt do MySQL.
+- A Instância do MySQL Server exibe a versão de servidor incorreta após a conexão ser estabelecida. Para obter a versão correta do mecanismo de instância de servidor, use o comando `select version();`.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [O que está disponível em cada camada de serviço](concepts-pricing-tiers.md)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034229"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
 
@@ -34,7 +35,9 @@ Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Linux destina-se
 ### <a name="installation-on-linux"></a>Instalação no Linux
 
 > [!NOTE]
-> Talvez seja necessário instalar as dependências do .NET Core 2.1 destacadas neste [artigo de pré-requisitos do .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x), dependendo da sua distribuição. Para distribuições de fluxo principal, como o Ubuntu 16.04 e o RHEL 7, isso geralmente não é necessário.
+> Talvez seja necessário instalar as dependências do .NET Core 2.1 destacadas neste [artigo de pré-requisitos do .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x), dependendo da sua distribuição. 
+>
+> Para distribuições do RHEL 7, instale as dependências de ICU e libunwind: ```yum install -y libunwind icu```
 
 A instalação do AzCopy no Linux (v7.2 ou posterior) é tão fácil quanto extrair um pacote tar e executar o script de instalação. 
 
@@ -722,4 +725,3 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consult
 * [AzCopy: Transferir dados com o modo reiniciável e um token SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

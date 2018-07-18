@@ -1,5 +1,5 @@
 ---
-title: Fazer upgrade do tempo de execução do Azure Service Fabric | Microsoft Docs
+title: Fazer upgrade do tempo de execução do Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, você aprende a usar o PowerShell para atualizar o tempo de execução de um cluster do Service Fabric hospedado pelo Azure.
 services: service-fabric
 documentationcenter: .net
@@ -15,13 +15,14 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109759"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Tutorial: Fazer upgrade do tempo de execução de um cluster do Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Fazer upgrade do tempo de execução de um cluster do Service Fabric no Azure
 
 Este tutorial é a parte três de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi criada para clusters do Service Fabric em execução no Azure e não se aplica a clusters do Service Fabric autônomo.
 
@@ -43,15 +44,18 @@ Nesta série de tutoriais, você aprenderá a:
 > * Atualizar o tempo de execução de um cluster
 > * [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de começar este tutorial:
-- Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [CLI 2.0 do Azure](/cli/azure/install-azure-cli).
-- Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) seguro no Azure
-- Se você implantar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale as cargas de trabalho do [Visual Studio 2017](http://www.visualstudio.com) e o **Desenvolvimento do Azure**, de **desenvolvimento ASP.NET e Web** e de **desenvolvimento multiplataforma do .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
-- Se você implantar um cluster do Linux, configure um ambiente de desenvolvimento Java em [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Instale a [CLI do Service Fabric](service-fabric-cli.md). 
+
+* Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+* Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) seguro no Azure
+* Se você implantar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale as cargas de trabalho do [Visual Studio 2017](http://www.visualstudio.com) e o **Desenvolvimento do Azure**, de **desenvolvimento ASP.NET e Web** e de **desenvolvimento multiplataforma do .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+* Se você implantar um cluster do Linux, configure um ambiente de desenvolvimento Java em [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Instale a [CLI do Service Fabric](service-fabric-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
+
 Entre na sua conta do Azure e selecione sua assinatura antes de executar comandos do Azure.
 
 ```powershell
@@ -97,7 +101,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > O upgrade do tempo de execução do cluster pode demorar muito para ser concluído. O PowerShell fica bloqueado durante a execução do upgrade. Você pode usar outra sessão do PowerShell para verificar o status do upgrade.
 
-O status do upgrade pode ser monitorado com o PowerShell ou a CLI do `sfctl`.
+O status do upgrade pode ser monitorado com o PowerShell ou a CLI do Azure Service Fabric (sfctl).
 
 Primeiro, conecte-se ao cluster com o certificado SSL criado na primeira parte do tutorial. Use o cmdlet `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 
@@ -191,7 +195,8 @@ sfctl cluster upgrade-status
 }
 ```
 
-## <a name="conclusion"></a>Conclusão
+## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]

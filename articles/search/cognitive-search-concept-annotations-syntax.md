@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 2e838e9c94d5b19565bea3d02890fe6164bb37d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786785"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640899"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como referenciar anotações em um conjunto de habilidades de pesquisa cognitiva
 
@@ -125,5 +125,5 @@ Observe que a cardinalidade de `"/document/people/*/lastname"` é maior que a do
 ## <a name="see-also"></a>Consulte também
 + [Como integrar uma habilidade personalizada a um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de habilidades (REST)](ref-create-skillset.md)
++ [Criar conjunto de habilidades (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md) (Como mapear campos enriquecidos para um índice)

@@ -1,12 +1,12 @@
 ---
-title: "Segurança para seu dispositivo StorSimple | Microsoft Docs"
-description: "Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
+title: Segurança para seu dispositivo StorSimple | Microsoft Docs
+description: Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108654"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)

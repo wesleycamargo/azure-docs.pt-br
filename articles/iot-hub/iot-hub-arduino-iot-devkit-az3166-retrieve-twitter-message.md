@@ -1,24 +1,20 @@
 ---
 title: Recuperar uma mensagem do Twitter com o Azure Functions | Microsoft Docs
-description: Use o sensor de movimento para detectar agitando e usar o Azure Functions para localizar um tweet aleatório com um hashtag que você especificar.
-services: iot-hub
-documentationcenter: ''
+description: Use o sensor de movimento para detectar agitando e usar o Azure Functions para localizar um tweet aleatório com um hashtag que você especificar
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752669"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions!
 
@@ -40,7 +36,7 @@ Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por
 
 ### <a name="start-vs-code"></a>Iniciar o VS Code
 
-- Verifique se o Kit de Desenvolvimento **não** está conectado ao computador.
+- Verifique se o Kit de Desenvolvimento está conectado ao computador.
 - Iniciar o VS Code.
 - Conecte o DevKit ao computador.
 
@@ -49,7 +45,10 @@ Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por
 
 ### <a name="open-arduino-examples-folder"></a>Abra a pasta de exemplos de Arduino
 
-Expanda a seção **EXEMPLOS DO ARDUINO** no canto esquerdo, vá até **Exemplos para MXCHIP AZ3166 > AzureIoT** e selecione **ShakeShake**. Abre uma nova janela do VS Code com a pasta de projeto nela.
+Expanda a seção **EXEMPLOS DO ARDUINO** no canto esquerdo, vá até **Exemplos para MXCHIP AZ3166 > AzureIoT** e selecione **ShakeShake**. Abre uma nova janela do VS Code com a pasta de projeto nela.  
+
+> [!NOTE]
+> Se você não consegue ver os a seção MXCHIP AZ3166, verifique se o seu dispositivo está devidamente conectado e reinicie o Visual Studio Code.  
 
 ![Exemplos de minisolução](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

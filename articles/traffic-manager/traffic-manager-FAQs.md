@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942349"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301058"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -86,10 +86,18 @@ Quando uma consulta DNS chega no Gerenciador de Tráfego, ela define um valor na
 
 Você pode definir, em um nível por perfil, o TTL do DNS tão baixo quanto 0 segundos e tão alto quanto 2.147.483.647 segundos (o intervalo máximo em conformidade com [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Um TTL de 0 significa que os resolvedores DNS de downstream não armazenam em cache respostas de consultas e que todas as consultas devem alcançar os servidores DNS do Gerenciador de Tráfego para a resolução.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Como faço para entender o volume de consultas que chega ao meu perfil? 
+Um das métricas de fornecidas pelo Gerenciador de Tráfego é o número de consultas respondidas por um perfil. Consiga essas informações em uma agregação de nível de perfil, ou divida-as para ver o volume de consultas no qual os pontos de extremidade específicos foram retornados. Além disso, você pode configurar alertas para receber uma notificação se o volume de resposta da consulta atender às condições que você definiu. Para obter mais detalhes, [Métricas e alertas do Gerenciador de Tráfego](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de roteamento de tráfego geográfico do Gerenciador de Tráfego
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quais são alguns casos de uso em que o roteamento geográfico é útil? 
 O tipo de roteamento geográfico pode ser usado em qualquer cenário em que um cliente do Azure precise diferenciar seus usuários com base nas regiões geográficas. Por exemplo, ao usar o método de roteamento de tráfego geográfico, você proporciona aos usuários de regiões específicas uma experiência de usuário diferente daquelas de outras regiões. Outro exemplo é estar em conformidade com as normas soberanas de dados locais que exigem que os usuários de uma região específica sejam atendidos somente pelos pontos de extremidade dessa região.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Como fazer para decidir se eu devo usar o método de roteamento de desempenho ou método de roteamento geográfico? 
+A principal diferença entre esses dois métodos de roteamentos populares é que, no método de roteamento de desempenho o principal objetivo é enviar o tráfego para o ponto de extremidade que pode fornecer a latência mais baixa para o chamador, enquanto no roteamento geográfico o objetivo principal é impor uma limitação geográfica para os chamadores, para que você possa encaminhá-los deliberadamente para um ponto de extremidade específico. A sobreposição acontece porque não há uma correlação entre proximidade geográfica e latência mais baixa, embora isso nem sempre seja verdadeiro. Pode haver um ponto de extremidade em uma geografia diferente que pode fornecer uma experiência de latência melhor para o chamador e, nesse caso, o roteamento de desempenho enviará o usuário para esse ponto de extremidade, mas o roteamento geográfico sempre os enviará para o ponto de extremidade que você mapeou para o região geográfica. Para esclarecer isso ainda mais, veja o seguinte exemplo - com o roteamento geográfico, você pode fazer mapeamentos incomuns, como enviar todo o tráfego da Ásia para pontos de extremidade nos EUA, e em todo o tráfego dos EUA para pontos de extremidade na Ásia. Nesse caso, o roteamento geográfico fará deliberadamente exatamente o que você configurou, e a otimização de desempenho não entra em consideração. 
+>[!NOTE]
+>Talvez, em algumas situações, você precise dos recursos do roteamento de desempenho e geográfico. Nesses cenários, os perfis aninhados podem ser uma ótima opção. Por exemplo, configure um perfil pai com roteamento geográfico, em que você envia todo o tráfego da América do Norte para um perfil aninhado com pontos de extremidade nos EUA, e usa o roteamento de desempenho para enviar esses tráfego para o melhor ponto de extremidade nesse conjunto. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quais são as regiões com suporte do Gerenciador de Tráfego para roteamento geográfico? 
 A hierarquia de país/região usada pelo Gerenciador de Tráfego pode ser encontrada [aqui](traffic-manager-geographic-regions.md). Embora essa página esteja sempre atualizada com todas as alterações, você também pode recuperar, de modo programático, as mesmas informações usando a [API REST do Gerenciador de Tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -331,6 +339,9 @@ Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/az
 O número de verificações de integridade do Gerenciador de Tráfego que atingem seu ponto de extremidade depende do seguinte:
 - o valor que você definiu para o intervalo de monitoramento (intervalo menor significa que mais solicitações chegaram no ponto de extremidade em um determinado período de tempo).
 - o número de locais dos quais as verificações de integridade se originam (os endereços IP dos quais você pode esperar essas verificações estão listados nas perguntas frequentes anteriores).
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso receber uma notificação se um dos meus pontos de extremidade ficar inativo? 
+Um das métricas fornecidas pelo Gerenciador de Tráfego é o status de integridade dos pontos de extremidade em um perfil. Veja isso como uma agregação de todos os pontos de extremidade dentro de um perfil (por exemplo, 75% de seus pontos de extremidade estão íntegros), ou por nível de ponto de extremidade. As métricas do Gerenciador de Tráfego são expostas por meio do Azure Monitor, e você pode usar seus [recursos de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para receber notificações quando há uma alteração no status de integridade de seu ponto de extremidade. Para obter mais detalhes, confira [Métricas e alertas do Gerenciador de Tráfego](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 

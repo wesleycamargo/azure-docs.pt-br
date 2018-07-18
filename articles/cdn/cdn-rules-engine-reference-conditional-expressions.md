@@ -1,11 +1,11 @@
 ---
-title: "Expressões condicionais do mecanismo de regras da CDN do Azure | Microsoft Docs"
-description: "Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure."
+title: Expressões condicionais do mecanismo de regras da CDN do Azure | Microsoft Docs
+description: Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997971"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expressões condicionais do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas das Expressões condicionais para o [Mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.

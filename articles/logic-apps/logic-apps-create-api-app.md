@@ -1,12 +1,12 @@
 ---
-title: "Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Crie APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas de fluxos de trabalho de aplicativos lógicos para integrações do sistema"
-keywords: "APIs Web, APIs REST, fluxos de trabalho, integrações do sistema"
+title: Criar APIs Web e APIs REST para Aplicativos Lógicos do Azure | Microsoft Docs
+description: Crie APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas de fluxos de trabalho de aplicativos lógicos para integrações do sistema
+keywords: APIs Web, APIs REST, fluxos de trabalho, integrações do sistema
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299521"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Crie APIs personalizadas que podem ser chamadas de fluxos de trabalho de aplicativos lógicos
 

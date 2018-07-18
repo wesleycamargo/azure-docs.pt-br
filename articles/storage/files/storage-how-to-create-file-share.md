@@ -5,7 +5,7 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737853"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar um compartilhamento de arquivos nos Arquivos do Azure
 Você pode criar compartilhamentos de Arquivos do Azure usando o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, você irá aprender:
-* [Como criar um Compartilhamento de arquivos do Azure usando o portal do Azure](#Create file share through the Portal)
-* [Como criar um Compartilhamento de arquivos do Azure usando o Powershell](#Create file share using PowerShell)
-* [Como criar um Compartilhamento de arquivos do Azure usando a CLI](#create-file-share-using-command-line-interface-cli)
+* [Como criar um compartilhamento de arquivos do Azure usando o portal do Azure](#create-file-share-through-the-azure-portal)
+* [Como criar um compartilhamento de arquivos do Azure usando o Powershell](#create-file-share-through-powershell)
+* [Como criar um compartilhamento de arquivos do Azure usando a CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>pré-requisitos
-Para criar um compartilhamento de Arquivos do Azure, você pode usar uma Conta de Armazenamento que já existe ou [criar uma nova conta do Armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar um compartilhamento de Arquivos do Azure com o PowerShell, serão necessários a chave da conta e o nome de sua conta de armazenamento. Você precisará da chave da Conta de armazenamento se planejar usar o Powershell ou a CLI.
+Para criar um compartilhamento de arquivos do Azure, você pode usar uma Conta de Armazenamento que já existe ou [criar uma nova Conta de Armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar um compartilhamento de arquivos do Azure com o PowerShell, serão necessários a chave da conta e o nome de sua conta de armazenamento. Você precisará da chave da Conta de armazenamento se planejar usar o Powershell ou a CLI.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Criar um compartilhamento de arquivos por meio do portal do Azure
 1. **Vá para a folha Conta de Armazenamento no portal do Azure**:    

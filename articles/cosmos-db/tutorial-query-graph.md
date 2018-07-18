@@ -2,25 +2,23 @@
 title: Como consultar dados do grafo no Azure Cosmos DB? | Microsoft Docs
 description: Aprenda a consultar dados do grafo no Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 449821d6121f8fec40b151ae06f687586133c3d1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081900"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutorial: Consultar a API do Graph do Azure Cosmos DB usando Gremlin
 
@@ -31,9 +29,9 @@ Este artigo aborda as seguintes tarefas:
 > [!div class="checklist"]
 > * Consultar dados com o Gremlin
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para essas consultas funcionarem, você deve ter uma conta do Azure Cosmos DB e ter dados de grafo no contêiner. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-graph-dotnet.md) ou o [tutorial de desenvolvedor](tutorial-query-graph.md) para criar uma conta e preencher seu banco de dados. Você pode executar as seguintes consultas usando a [Biblioteca de grafos do .NET do Azure Cosmos DB](graph-sdk-dotnet.md), [Console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu driver favorito do Gremlin.
+Para essas consultas funcionarem, você deve ter uma conta do Azure Cosmos DB e ter dados de grafo no contêiner. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-graph-dotnet.md) ou o [tutorial de desenvolvedor](tutorial-query-graph.md) para criar uma conta e preencher seu banco de dados. Você pode executar as seguintes consultas usando o [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu driver favorito do Gremlin.
 
 ## <a name="count-vertices-in-the-graph"></a>Contagem de vértices no grafo
 
@@ -82,7 +80,8 @@ Neste tutorial, você fez o seguinte:
 > [!div class="checklist"]
 > * Aprendeu a consultar usando o Graph 
 
-Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seus dados globalmente.
+Agora você pode seguir para a seção Conceitos para obter mais informações sobre o Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribuir os dados globalmente](tutorial-global-distribution-graph.md)
+> [Distribuição global](distribute-data-globally.md) 
+

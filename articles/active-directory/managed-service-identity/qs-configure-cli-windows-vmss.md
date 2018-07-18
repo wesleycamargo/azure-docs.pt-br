@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8851d2cad5958b01df1d21ea44e5c03bb788c83b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157434"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904035"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) do conjunto de dimensionamento de máquinas virtuais usando CLI do Azure
 
@@ -120,8 +120,7 @@ Esta seção orienta você na criação de um VMSS e na atribuição de uma iden
 
 2. Crie uma identidade atribuída pelo usuário usando [ az identity create ](/cli/azure/identity#az-identity-create).  O parâmetro `-g` especifica o grupo de recursos onde a identidade definida pelo usuário é criada e o parâmetro `-n` especifica seu nome. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
-    > [!IMPORTANT]
-    > A criação de identidades atribuídas pelo usuário oferece suporte somente a caracteres alfanuméricos e hífen (0-9 ou a-z ou A-Z ou -). Além disso, o nome deve ter um limite de 24 caracteres para que a atribuição a VM/VMSS funcione corretamente. Procure novamente por atualizações. Para mais informações, consulte [Perguntas frequentes e problemas conhecidos](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -177,10 +176,10 @@ A resposta contém detalhes para a identidade atribuída pelo usuário criada, s
    }
    ```
 
-2. Atribua a identidade atribuída pelo usuário ao seu VMSS usando [ az vmss identity assign ](/cli/azure/vmss/identity#az_vm_assign_identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY ID>` será a propriedade `id` do recurso da identidade atribuída pelo usuário, conforme criada na etapa anterior:
+2. Atribua a identidade atribuída pelo usuário ao seu VMSS usando [ az vmss identity assign ](/cli/azure/vmss/identity#az_vm_assign_identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY ID>` será a propriedade `id` do recurso da identidade atribuída pelo usuário, conforme criada na etapa anterior:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Remover uma identidade atribuída pelo usuário em um VMSS do Azure
@@ -188,15 +187,15 @@ A resposta contém detalhes para a identidade atribuída pelo usuário criada, s
 > [!NOTE]
 >  Atualmente, não há suporte para a remoção de todas as identidades atribuídas pelo usuário de um conjunto de dimensionamento de máquinas virtuais, a menos que tenha uma identidade atribuída pelo sistema. 
 
-Se o seu VMSS tiver várias identidades atribuídas pelo usuário, você poderá remover todas, exceto a última, usando [ az vmss identity remove ](/cli/azure/vmss/identity#az-vmss-identity-remove). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<MSI NAME>` é a propriedade de nome da identidade atribuída pelo usuário, que pode ser encontrada na seção de identidade da VM usando `az vm show`:
+Se o seu VMSS tiver várias identidades atribuídas pelo usuário, você poderá remover todas, exceto a última, usando [ az vmss identity remove ](/cli/azure/vmss/identity#az-vmss-identity-remove). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<MSI NAME>` é a propriedade de nome da identidade atribuída pelo usuário, que pode ser encontrada na seção de identidade da VM usando `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 Se o seu VMSS tiver identidades designadas pelo sistema e atribuídas pelo usuário, você poderá remover todas as identidades atribuídas pelo usuário, alternando para usar somente o sistema atribuído. Use o seguinte comando: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

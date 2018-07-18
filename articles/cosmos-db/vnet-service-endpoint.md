@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333905"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB usando o ponto de extremidade de serviço da Rede Virtual do Azure
 
@@ -48,7 +49,7 @@ Depois que uma conta do Azure Cosmos DB é configurada com um ponto de extremida
    ![Selecionar rede virtual e sub-rede](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Se o ponto de extremidade de serviço do Azure Cosmos DB configurado anteriormente não estiver configurado para as redes virtuais e as sub-redes do Azure, ele poderá ser configurado como parte dessa operação. A habilitação do acesso levará até 15 minutos para ser concluída. 
+   > Se o ponto de extremidade de serviço do Azure Cosmos DB configurado anteriormente não estiver configurado para as redes virtuais e as sub-redes do Azure, ele poderá ser configurado como parte dessa operação. A habilitação do acesso levará até 15 minutos para ser concluída. É muito importante desabilitar o firewall IP após anotar o conteúdo da ACL do firewall para habilitá-lo novamente mais tarde. 
 
    ![rede virtual e sub-rede configuradas com êxito](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Agora, sua conta do Azure Cosmos DB só permitirá o tráfego proveniente dessa 
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto de extremidade de serviço para uma rede virtual do Azure e uma sub-rede novas
 
 1. Na folha **Todos os recursos**, localize a conta do Azure Cosmos DB que você deseja proteger.  
+
+> [!NOTE]
+> Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
 
 2. Antes de habilitar o ponto de extremidade de serviço de rede virtual, copie as informações de firewall IP associadas à sua conta do Azure Cosmos DB para uso futuro. Você pode habilitar o firewall IP novamente depois de configurar o ponto de extremidade de serviço.  
 
@@ -76,7 +80,7 @@ Após os pontos de extremidade de serviço de Rede Virtual do Azure serem habili
 
 Se a sua conta do Azure Cosmos DB for usada por outros serviços do Azure, como Azure Search, ou acessada a partir do Stream Analytics ou do Power BI, você permitirá o acesso marcando **Permitir acesso aos Serviços do Azure**.
 
-Para garantir que você tenha acesso às métricas do Azure Cosmos DB pelo portal, é preciso habilitar as opções de **Permitir acesso ao portal do Azure**. Para saber mais sobre essas opções, consulte as seções [Conexões do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [Conexões de serviços de PaaS do Azure](firewall-support.md#connections-from-other-azure-paas-services). Depois de selecionar o acesso, selecione **Salvar** para salvar as configurações.
+Para garantir que você tenha acesso às métricas do Azure Cosmos DB pelo portal, é preciso habilitar as opções de **Permitir acesso ao portal do Azure**. Para saber mais sobre essas opções, consulte as seções [Conexões do portal do Azure](firewall-support.md#connections-from-the-azure-portal) e [Conexões de serviços de PaaS do Azure](firewall-support.md#connections-from-global-azure-datacenters-or-azure-paas-services). Depois de selecionar o acesso, selecione **Salvar** para salvar as configurações.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Remover uma rede virtual ou sub-rede 
 
@@ -95,6 +99,10 @@ Para garantir que você tenha acesso às métricas do Azure Cosmos DB pelo porta
 Use as seguintes etapas para configurar o ponto de extremidade de serviço para uma conta do Azure Cosmos DB usando o Azure PowerShell:  
 
 1. Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) mais recente e [faça logon](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Anote as configurações de firewall IP e exclua o firewall IP completamente antes de habilitar o ponto de extremidade de serviço para a conta.
+
+
+> [!NOTE]
+> Se você tiver um firewall IP existente configurado na conta do Azure Cosmos DB, observe a configuração do firewall, remova o firewall IP e habilite o ponto de extremidade de Serviço. Se você habilitar o ponto de extremidade de Serviço sem desabilitar o firewall, o tráfego desse intervalo de IP perderá a identidade do IP virtual e será descartado com uma mensagem de erro do filtro IP. Portanto, para evitar esse erro, você deve sempre desabilitar as regras de firewall, copiá-las, habilitar o ponto de extremidade de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto de extremidade de serviço e adicionar a ACL, você poderá habilitar novamente o firewall IP, se necessário.
 
 2. Antes de habilitar o ponto de extremidade de serviço de rede virtual, copie as informações de firewall IP associadas à sua conta do Azure Cosmos DB para uso futuro. Você habilitará o firewall IP novamente depois de configurar o ponto de extremidade de serviço.  
 
@@ -117,15 +125,16 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
 4. Prepare-se para a habilitação de ACL na Conta CosmosDB, verificando se a rede virtual e a sub-rede têm o ponto de extremidade de serviço habilitado para o Azure Cosmos DB.
 
    ```powershell
-   $subnet = Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName  | Get-AzureRmVirtualNetworkSubnetConfig -Name $sname
-   $vnProp = Get-AzureRmVirtualNetwork `-Name $vnName  -ResourceGroupName $rgName
+   $vnProp = Get-AzureRmVirtualNetwork `
+     -Name $vnName  -ResourceGroupName $rgName
    ```
 
 5. Obtenha as propriedades de conta do Azure Cosmos DB executando o seguinte cmdlet:  
 
    ```powershell
+   $apiVersion = "2015-04-08"
+   $acctName = "<Azure Cosmos DB account name>"
+
    $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -136,15 +145,24 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
 
    ```powershell
    $locations = @(@{})
+
+   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+
+   $locations = @(@{"locationName"="<Write location>"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="<Read location>"; 
+                  "failoverPriority"=1}) #>
+
    $consistencyPolicy = @{}
    $cosmosDBProperties = @{}
 
    $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
    $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
+
    $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
 
    $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $subnetName  
+   $subnetID = $vnProp.Id+"/subnets/" + $sname  
    $virtualNetworkRules = @(@{"id"=$subnetID})
    $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
    ```
@@ -158,7 +176,7 @@ Use as seguintes etapas para configurar o ponto de extremidade de serviço para 
    $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
-   Set-AzureRmResource ``
+   Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -219,9 +237,13 @@ Isso é necessário somente quando você deseja que sua conta do Azure Cosmos DB
 
 Sessenta e quatro pontos de extremidade de serviço de rede virtual são permitidos para uma conta do Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>Qual é a relação do Ponto de Extremidade de Serviço em relação às regras do Grupo de Segurança de Rede (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Qual é a relação entre as regras NSG (Grupo de Segurança de Rede) e o Ponto de Extremidade de Serviço?  
 
-A regra do Azure Cosmos DB do NSG permite acesso restrito apenas ao intervalo de endereços IP do Azure Cosmos DB.
+As regras NSG no Azure Cosmos DB permitem restringir o acesso a um intervalo específico de endereços IP do Azure Cosmos DB. Se você quiser permitir o acesso a uma instância do Azure Cosmos DB presente em uma [região](https://azure.microsoft.com/global-infrastructure/regions/) específica, especifique a região no formato a seguir: 
+
+    AzureCosmosDB.<region name>
+
+Para saber mais sobre as marcas NSG, consulte o artigo [marcas de serviço de rede virtual](../virtual-network/security-overview.md#service-tags). 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>Qual é a relação entre um firewall IP e o recurso de ponto de extremidade do serviço de Rede Virtual?  
 

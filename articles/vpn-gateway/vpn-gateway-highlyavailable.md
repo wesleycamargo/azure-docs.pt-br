@@ -1,12 +1,12 @@
 ---
-title: "Visão geral das configurações de alta disponibilidade com Gateways de VPN do Azure | Microsoft Docs"
-description: "Este artigo fornece uma visão geral das opções de configuração de alta disponibilidade usando os Gateways de VPN do Azure."
+title: Visão geral das configurações de alta disponibilidade com Gateways de VPN do Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral das opções de configuração de alta disponibilidade usando os Gateways de VPN do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126304"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade Altamente Disponível entre os Locais e VNet com VNet
 Este artigo fornece uma visão geral das opções de configuração Altamente Disponível para sua conectividade entre os locais e VNet com VNet usando os gateways de VPN.

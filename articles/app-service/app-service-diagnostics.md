@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969231"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure 
 
@@ -26,7 +27,7 @@ Quando você estiver executando um aplicativo Web, você deseja estar preparado 
  
 Embora essa experiência seja útil quando você estiver tendo problemas com seu aplicativo Web nas últimas 24 horas, todos os gráficos de diagnóstico estarão disponíveis para você analisar o tempo todo. Ferramentas e links de solução de problemas adicionais para documentação e fóruns úteis localizados na coluna à direita.
 
-O diagnóstico do Serviço de Aplicativo funciona não para apenas o aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) e [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+O diagnóstico do Serviço de Aplicativo funciona não para apenas o aplicativo no Windows, mas também aplicativos em [Linux/contêineres](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/intro) e [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). 
 
 ## <a name="open-app-service-diagnostics"></a>Abra o diagnóstico do Serviço de Aplicativo
 

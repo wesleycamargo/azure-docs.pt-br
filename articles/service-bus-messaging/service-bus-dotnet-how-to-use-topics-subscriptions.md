@@ -1,24 +1,25 @@
 ---
-title: "Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço."
+title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure | Microsoft Docs
+description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38298955"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -51,7 +52,7 @@ Se você já criou um namespace de Mensagens do Barramento de Serviço, vá para
 
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Criar um tópico usando o portal do Azure
 
-1. Faça logon no [Portal do Azure][azure-portal].
+1. Entre no [Portal do Azure][azure-portal].
 2. No painel de navegação à esquerda do portal, clique em **Barramento de Serviço** (se a opção **Barramento de Serviço** não estiver visível, clique em **Todos os serviços** ou clique em **Todos os recursos**). Clique no namespace no qual você gostaria de criar o tópico. 
 3. A janela de visão geral do namespace é aberta. Clique em **Tópicos**:
    
@@ -428,7 +429,7 @@ Parabéns! Usando a biblioteca .NET padrão, você acabou de criar um tópico e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
+Confira o [Repositório GitHub do Barramento de Serviço do Microsoft Azure com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 
 <!--Image references-->
 

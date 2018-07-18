@@ -3,19 +3,20 @@ title: Permissões de usuário e autenticação no Azure Analysis Services | Mic
 description: Saiba mais sobre as permissões de usuário e autenticação no Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448700"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
-O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/active-directory-administer.md) na mesma assinatura.
+O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/fundamentals/active-directory-administer.md) na mesma assinatura.
 
 O Azure Analysis Services dá suporte à [Colaboração B2B do Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Com o B2B, os usuários de fora de uma organização podem ser convidados como usuários convidados em um diretório do Azure AD. Os convidados podem ser de outro diretório do locatário do Azure AD ou qualquer endereço de email válido. Após ser convidado e o usuário aceitar o convite enviado por email do Azure, a identidade do usuário é adicionada ao diretório do locatário. Essas identidades podem ser adicionadas a grupos de segurança ou como membros de uma função de banco de dados ou administrador do servidor.
 
@@ -75,7 +76,7 @@ As funções nesse nível se aplicam a usuários ou contas que precisam executar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/active-directory-manage-groups.md)   
+[Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
 [Gerenciar administradores de servidor](analysis-services-server-admins.md)  
 [Controle de acesso baseado em função](../role-based-access-control/overview.md)  

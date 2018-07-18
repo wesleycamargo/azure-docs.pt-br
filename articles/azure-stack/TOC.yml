@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notas de versão
       items:
+        - name: atualização 1805
+          href: azure-stack-update-1805.md
         - name: 1804 atualização
           href: azure-stack-update-1804.md
         - name: atualização 1803
           href: azure-stack-update-1803.md
         - name: atualização 1802
           href: azure-stack-update-1802.md
-        - name: atualização de 1712
-          href: azure-stack-update-1712.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: Publicar pontos de extremidade
                   href: azure-stack-integrate-endpoints.md
+        - name: Integração de identidade
+          items:
+            - name: Escolha um provedor de identidade
+              href: azure-stack-integrate-identity.md
+            - name: Validar a identidade do Azure
+              href: azure-stack-validate-identity.md
         - name: Requisitos de PKI de implantação de pilha do Azure
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: Corrigir certificados PKI
               href: azure-stack-remediate-certs.md
-            - name: Recursos de implantação
-              items:
-                - name: Referência de cmdlet Start-AzsReadiness
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Exibir o relatório de preparação
-                  href: azure-stack-validation-report.md
-            - name: Integração de identidade
-              items:
-                - name: Escolha um provedor de identidade
-                  href: azure-stack-integrate-identity.md
-                - name: Validar a identidade do Azure
-                  href: azure-stack-validate-identity.md
+        - name: Recursos de implantação
+          items:
+            - name: Sobre a rede de implantação
+              href: deployment-networking.md
         - name: Validar o registro do Azure
           href: azure-stack-validate-registration.md
+          items:
+            - name: Referência de cmdlet Start-AzsReadiness
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Exibir o relatório de preparação
+              href: azure-stack-validation-report.md
         - name: Monitoramento externo
           href: azure-stack-integrate-monitor.md
         - name: Integração de segurança
@@ -125,8 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Gerenciar recursos de rede
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Gerenciar VMs do Microsoft Azure Pack
-          href: azure-stack-manage-windows-azure-pack.md
+        - name: Alterar o proprietário da assinatura usuário
+          href: azure-stack-change-subscription-owner.md
         - name: Iniciar e parar a pilha do Azure
           href: azure-stack-start-and-stop.md
         - name: Gerenciar a capacidade
@@ -156,7 +159,7 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Fazer backup do Azure pilha
               href: azure-stack-backup-back-up-azure-stack.md
-            - name: Fazer backup de arquivos e aplicativos na pilha do Azure
+            - name: Fazer backup de arquivos e aplicativos no Azure Stack
               href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Recuperação de perda de dados catastrófica
               href: azure-stack-backup-recover-data.md
@@ -186,6 +189,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Girar segredos
           href: azure-stack-rotate-secrets.md
+        - name: Atualização de antivírus
+          href: azure-stack-security-av.md
     - name: Oferecer serviços
       items:
         - name: Visão geral da oferta de serviços
@@ -196,6 +201,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: Criar um plano
               href: azure-stack-create-plan.md
+            - name: Criar um plano de complemento
+              href: create-add-on-plan.md
             - name: Criar uma oferta
               href: azure-stack-create-offer.md
             - name: Assinar uma oferta
@@ -211,7 +218,7 @@
           items:
             - name: Implantar o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Adicionar servidores de hospedagem
+            - name: Adicionar servidores de hospedagem SQL
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: Criar bancos de dados SQL
               href: azure-stack-sql-resource-provider-databases.md
@@ -222,7 +229,20 @@
             - name: Remover o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-remove.md
         - name: Oferecer MySQL como PaaS
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: Implantar o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Adicionar servidores de hospedagem MySQL
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: Criar bancos de dados MySQL
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: Atualizar o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: Manter o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: Remover o provedor de recursos do servidor MySQL
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: Oferta de Serviço de Aplicativo como PaaS
           items:
             - name: Serviço de Aplicativo na visão geral do Azure Stack
@@ -249,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Serviço de aplicativo em notas de versão de atualização 2 de pilha do Azure
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Implantar Ethereum
+          href: azure-stack-ethereum.md
         - name: Preencher o marketplace
           items:
             - name: Visão geral do Marketplace
@@ -274,15 +296,15 @@
             - name: Oferecer um Cluster Kubernetes
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Uso e cobrança
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Visão geral
-              href: azure-stack-billing-and-chargeback.md
             - name: Gerenciar o uso e cobrança como um CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Adicionar locatários pelo uso e cobrança
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Gerenciar o registro do inquilino
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Adicionar locatários pelo uso e cobrança
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Gerenciar o registro do inquilino
+                  href: azure-stack-csp-ref-operations.md
             - name: Uso e cobrança referência
               items:
                 - name: Relatórios de dados de uso

@@ -2,22 +2,23 @@
 title: Tutorial do Kubernetes no Azure – Preparar o ACR
 description: Tutorial do AKS – preparar o ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1ffa6ed801f5e261e79b0f7ca505d869fa3b2532
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1e512bdd0a7df50b19fa49bd7b83632499775b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927716"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: implantar e usar o Registro de Contêiner do Azure
 
-O ACR (Registro de Contêiner do Azure) é um registro privado baseado no Azure, para imagens de contêiner do Docker. Este tutorial, parte dois de oito, demonstra a implantação de uma instância de Registro de Contêiner do Azure e envia por push uma imagem de contêiner para ela. As etapas concluídas incluem:
+O ACR (Registro de Contêiner do Azure) é um registro privado baseado no Azure, para imagens de contêiner do Docker. Este tutorial, parte dois de sete, demonstra a implantação de uma instância de Registro de Contêiner do Azure e envia por push uma imagem de contêiner. As etapas concluídas incluem:
 
 > [!div class="checklist"]
 > * Implantando uma instância de ACR (Registro de Contêiner do Azure)

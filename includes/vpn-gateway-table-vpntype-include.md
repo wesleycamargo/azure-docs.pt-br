@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198002"
 ---
 #### <a name="vpn-type---resource-manager-deployment-model"></a>Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
 |  | **RouteBased** | **PolicyBased** |

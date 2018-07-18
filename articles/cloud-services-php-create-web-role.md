@@ -13,25 +13,29 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34608892"
 ---
-# <a name="how-to-create-php-web-and-worker-roles"></a>Como criar funções Web e de trabalho do PHP
+# <a name="create-php-web-and-worker-roles"></a>Criar funções de trabalho e funções Web de PHP
+
 ## <a name="overview"></a>Visão geral
+
 Este guia mostrará como criar funções Web ou de trabalho do PHP em um ambiente de desenvolvimento Windows, como escolher uma versão específica do PHP nas versões "internas" disponíveis, como alterar a configuração do PHP, habilitar extensões e, finalmente, como implantar no Azure. Também descreve como configurar uma função Web ou de trabalho para usar um tempo de execução do PHP (com configuração e extensões personalizadas) que você fornece.
 
-## <a name="what-are-php-web-and-worker-roles"></a>O que são funções Web e de Trabalho do PHP?
 O Azure fornece três modelos de computação para a execução de aplicativos: Serviço de Aplicativo do Azure, Máquinas Virtuais do Azure e Serviços de Nuvem do Azure. Todos os três modelos oferecem suporte ao PHP. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função web fornece um servidor Web de IIS (Serviços de Informações da Internet) dedicado, usado para hospedar aplicativos Web de front-end. Uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentemente da interação do usuário ou da entrada.
 
 Para obter mais informações sobre essas opções, consulte [Opções de hospedagem de computação fornecidas pelo Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Baixar o SDK do Azure para PHP
-O [SDK do Azure para PHP] consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+
+O [SDK do Azure para PHP](php-download-sdk.md) consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Criar um projeto de Serviço de Nuvem
+
 A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar um projeto de Serviço do Azure. um projeto de Serviço do Azure serve como um contêiner lógico para as funções da Web e de trabalho, e contém os arquivos de [definição do serviço (.csdef)] e [configuração do serviço (.cscfg)] do projeto.
 
 Para criar um novo projeto de Serviço do Azure, execute o Azure PowerShell como administrador e execute o seguinte comando:
@@ -41,6 +45,7 @@ Para criar um novo projeto de Serviço do Azure, execute o Azure PowerShell como
 Esse comando criará um novo diretório (`myProject`) ao qual você pode adicionar funções Web e de trabalho.
 
 ## <a name="add-php-web-or-worker-roles"></a>Adicionar funções de trabalho ou Web PHP
+
 Para adicionar uma função Web do PHP a um projeto, execute o seguinte comando no diretório raiz do projeto:
 
     PS C:\myProject> Add-AzurePHPWebRole roleName
@@ -55,6 +60,7 @@ Para uma função de trabalho, use este comando:
 >
 
 ## <a name="specify-the-built-in-php-version"></a>Especificar a versão do PHP interno
+
 Quando você adiciona uma função Web ou de trabalho do PHP a um projeto, os arquivos de configuração do projeto são modificados para que o PHP seja instalado em cada instância da web ou de trabalho do seu aplicativo quando ele for implantado. Para ver a versão do PHP que será instalada por padrão, execute o seguinte comando:
 
     PS C:\myProject> Get-AzureServiceProjectRoleRuntime
@@ -83,6 +89,7 @@ Você pode definir a versão de tempo de execução do PHP para qualquer uma das
 >
 
 ## <a name="customize-the-built-in-php-runtime"></a>Personalizar o tempo de execução do PHP interno
+
 Você tem controle total sobre a configuração do tempo de execução do PHP que é instalado quando você segue as etapas acima, incluindo a modificação das configurações de `php.ini` e a habilitação de extensões.
 
 Para personalizar o tempo de execução do PHP interno, siga estas etapas:
@@ -100,9 +107,11 @@ Para personalizar o tempo de execução do PHP interno, siga estas etapas:
 >
 
 ## <a name="use-your-own-php-runtime"></a>Usar seu próprio tempo de execução PHP
+
 Em alguns casos, em vez de selecionar um tempo de execução do PHP interno e configurá-lo conforme descrito acima, você pode desejar fornecer seu próprio tempo de execução do PHP. Por exemplo, você pode usar o mesmo tempo de execução do PHP em uma função Web ou de trabalho que você usa no seu ambiente de desenvolvimento. Isso torna mais fácil garantir que o aplicativo não mudará o comportamento no ambiente de produção.
 
 ### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>Configurar uma função web para usar o seu próprio tempo de execução do PHP
+
 Para configurar uma função web para usar um tempo de execução do PHP fornecido por você, siga as etapas a seguir:
 
 1. Crie um projeto de Serviço do Azure e adicione uma função Web do PHP conforme descrito anteriormente neste tópico.
@@ -138,6 +147,7 @@ Para configurar uma função web para usar um tempo de execução do PHP forneci
 >
 
 ### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Configurar uma função de trabalho para usar o seu próprio tempo de execução do PHP
+
 Para configurar uma função de trabalho para usar um tempo de execução do PHP fornecido por você, siga as etapas a seguir:
 
 1. Crie um projeto de Serviço do Azure e adicione uma função de trabalho do PHP conforme descrito anteriormente neste tópico.
@@ -177,6 +187,7 @@ Para configurar uma função de trabalho para usar um tempo de execução do PHP
 6. Publique seu aplicativo como descrito na seção abaixo, [Publicar seu aplicativo](#publish-your-application).
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Executar seu aplicativo nos emuladores de computação e de armazenamento
+
 Os emuladores do Azure fornecem um ambiente local no qual você pode testar seu aplicativo do Azure antes de implantá-lo na nuvem. Existem algumas diferenças entre os emuladores e o ambiente do Azure. Para entender isso melhor, consulte [Usar o emulador de armazenamento do Azure para desenvolvimento e teste](storage/common/storage-use-emulator.md).
 
 Observe que você deve ter instalado o PHP localmente para usar o emulador de computação. O emulador de computação usará sua instalação local do PHP para executar o aplicativo.
@@ -199,12 +210,13 @@ Para parar os emuladores, execute este comando:
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Publicar seu aplicativo
+
 Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
-[SDK do Azure para PHP]: /develop/php/common-tasks/download-php-sdk/
+Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](https://azure.microsoft.com/develop/php/).
+
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definição do serviço (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configuração do serviço (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx

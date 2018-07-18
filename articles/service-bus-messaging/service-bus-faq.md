@@ -1,27 +1,23 @@
 ---
-title: "Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs"
-description: "Responde a algumas perguntas frequentes sobre o Barramento de Serviço do Azure."
+title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
+description: Responde a algumas perguntas frequentes sobre o Barramento de Serviço do Azure.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109511"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
-Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços e suporte do Azure.
+
+Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para obter informações gerais sobre preços e suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
@@ -37,9 +33,11 @@ A [Fila do Barramento de Serviço](service-bus-queues-topics-subscriptions.md) �
 Um tópico pode ser visualizado como uma fila e ao usar várias assinaturas, ele se torna um modelo mais abrangente de mensagens; essencialmente, uma ferramenta de comunicação de um-para-muitos. Esse modelo de publicação/assinatura (ou *pub/sub*) habilita um aplicativo que envia uma mensagem para um tópico com várias assinaturas para fazer com que essa mensagem seja recebida por vários aplicativos.
 
 ### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade particionada?
-Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. Uma [fila ou um tópico particionado](service-bus-partitioning.md) é manipulada por vários agentes de mensagens e armazenada em vários repositórios de mensagens. Isso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível.
+Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. Compatível apenas com as camadas de mensagens Básico e Standard, uma [fila ou um tópico particionado](service-bus-partitioning.md) é manipulada por vários agentes de mensagens e armazenada em vários repositórios de mensagens. Esse recurso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível.
 
-Observe que a ordenação não é garantida ao usar entidades particionadas. Se uma partição não estiver disponível, você poderá enviar e receber mensagens de outras partições.
+A ordenação não é garantida ao usar entidades particionadas. Se uma partição não estiver disponível, você poderá enviar e receber mensagens de outras partições.
+
+ As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do Barramento de Serviço do Azure?
@@ -58,7 +56,7 @@ Esta seção responde a algumas perguntas frequentes sobre a estrutura de preço
 
 O artigo [Preços e cobrança do Barramento de Serviço](service-bus-pricing-billing.md) explica os medidores de cobrança no Barramento de Serviço. Para saber mais sobre o preço do Barramento de Serviço, veja [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obter informações gerais sobre preços do Azure. 
+Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/en-us/support/faq/) para obter informações gerais sobre preços do Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado o Barramento de Serviço?
 Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
@@ -74,9 +72,9 @@ Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há um
 Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas do Barramento de Serviço][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O Barramento de Serviço tem cotas de uso?
-Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Como compreendemos que talvez seja necessário usar mais do que esses limites, você pode entrar em contato com o atendimento ao cliente a qualquer momento para que possamos entender as suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, a cota de uso agregado é de 5 bilhões de mensagens por mês.
+Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Se precisar de mais do que esses limites, você poderá entrar em contato com o atendimento ao cliente em qualquer horário para que possamos entender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, a cota de uso agregado é de 5 bilhões de mensagens por mês.
 
-Embora nos reservemos o direito de desabilitar uma conta de cliente que tenha excedido suas cotas de uso em determinado mês, fornecemos uma notificação por email e fazemos várias tentativas de contatar o cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis por cobranças que excedam as cotas.
+Embora a Microsoft se reserve o direito de desabilitar uma conta de cliente que tenha ultrapassado suas cotas de uso em determinado mês, notificações por email são enviadas e várias tentativas de contatar o cliente são feitas antes de realizarmos qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis por cobranças que excedam as cotas.
 
 Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas em [visão geral de cotas do Barramento de Serviço][Quotas overview].
 

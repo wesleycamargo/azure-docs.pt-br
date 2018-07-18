@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473742"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -243,7 +244,7 @@ O SDK do Node.js de Aplicativos Móveis fornece três opções para servir dados
 * Usar o driver **MSSQL** para fornecer um repositório de dados do SQL Server Express para desenvolvimento.
 * Usar o driver **MSSQL** para fornecer um armazenamento de dados do Banco de Dados SQL do Microsoft Azure para produção.
 
-O SDK do Node.js dos Aplicativos Móveis usa o [pacote do Node.js do MSSQL] para estabelecer e usar uma conexão tanto para o Banco de Dados SQL como para o SQL Server Express. Este pacote exige que você habilite as conexões TCP na instância do SQL Server Express.
+O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para estabelecer e usar uma conexão tanto para o Banco de Dados SQL como para o SQL Server Express. Este pacote exige que você habilite as conexões TCP na instância do SQL Server Express.
 
 > [!TIP]
 > O driver de memória não fornece um conjunto completo de recursos para teste. Se você quiser testar o back-end local, é recomendável o uso de um armazenamento de dados do SQL Server Express e do driver MSSQL.
@@ -353,7 +354,7 @@ Para definir uma configuração de Aplicativo:
 5. Role até a seção **Configurações de aplicativo**.
 6. Se a configuração do seu aplicativo já existir, selecione o valor da configuração de aplicativo para editar o valor.
    Se a configuração do seu aplicativo não existir, insira a configuração de aplicativo na caixa **Chave** e o valor na caixa **Valor**.
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 A alteração da maioria das Configurações do Aplicativo requer o reinício do serviço.
 
@@ -901,7 +902,7 @@ Ao usar o Portal do Azure, você poderá editar seus arquivos de script de back-
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Ferramentas do Node.js 1.1 para Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[pacote do Node.js do MSSQL]: https://www.npmjs.com/package/mssql
+[pacote de Node.js mssql]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

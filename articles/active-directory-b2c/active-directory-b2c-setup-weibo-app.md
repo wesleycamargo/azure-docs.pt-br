@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuração do Weibo | Microsoft Docs'
+title: Configuração do Weibo no Azure Active Directory B2C | Microsoft Docs
 description: Forneça inscrição e conexão para consumidores com contas do Weibo em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: bfd7dde290bd040f8457e6d095fdf896e802764b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444782"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: fornecer inscrição e conexão para consumidores com contas do Weibo
 
@@ -25,17 +25,17 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="create-a-weibo-application"></a>Criar um aplicativo Weibo
 
-Para usar o Weibo como um provedor de identidade no Azure AD (Active Directory) B2C, você precisa criar um aplicativo Weibo e fornecer a ele os parâmetros certos. Para fazer isso, é necessário ter uma conta Weibo. Se você não tiver, é possível obter uma conta em [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).
+Para usar o Weibo como um provedor de identidade no Azure AD (Active Directory) B2C, você precisa criar um aplicativo Weibo e fornecer a ele os parâmetros certos. Para fazer isso, é necessário ter uma conta Weibo. Se você não tiver, é possível obter uma em [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).
 
 ### <a name="register-for-the-weibo-developer-program"></a>Registrar-se no programa de desenvolvedores do Weibo
 
 1. Vá para o [portal do desenvolvedor do Weibo](http://open.weibo.com/) e entre com suas credenciais de conta do Weibo.
 2. Depois de entrar, clique no seu nome de exibição no canto superior direito.
 3. No menu suspenso, selecione **编辑开发者信息** (editar informações do desenvolvedor).
-4. Insira as informações necessárias no formulário e clique em **提交** (enviar).
+4. Insira as informações necessárias no formulário e clique em **提交**(enviar).
 5. Conclua o processo de verificação de email.
 6. Acesse a [página de verificação de identidade](http://open.weibo.com/developers/identity/edit).
-7. Insira as informações necessárias no formulário e clique em **提交** (enviar).
+7. Insira as informações necessárias no formulário e clique em **提交**(enviar).
 
 ### <a name="register-a-weibo-application"></a>Registrar um aplicativo Weibo
 
@@ -46,8 +46,8 @@ Para usar o Weibo como um provedor de identidade no Azure AD (Active Directory) 
 5. Carregue as fotos necessárias e insira as informações necessárias.
 6. Clique em **保存以上信息** (salvar).
 7. Clique em **高级信息** (informações avançadas).
-8. Clique em **编辑** (editar) ao lado do campo para **授权设置** (URL de redirecionamento) do OAuth2.0.
-9. Insira `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` para **授权设置** (URL de redirecionamento) do OAuth2.0. Por exemplo, se seu `tenant_name` for contoso.onmicrosoft.com, defina a URL para ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+8. Clique em **编辑** (editar) ao lado do campo referente a OAuth2.0 **授权设置** (URL de redirecionamento).
+9. Digite `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` para OAuth2.0 **授权设置**(URL de redirecionamento). Por exemplo, se seu `tenant_name` for contoso.onmicrosoft.com, defina a URL para ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Clique em **提交** (enviar).  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Configurar o Weibo como um provedor de identidade em seu locatário

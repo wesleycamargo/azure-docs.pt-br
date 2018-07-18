@@ -1,8 +1,8 @@
 ---
-title: "Credenciais de implantação do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como usar as credenciais de implantação do Serviço de Aplicativo do Azure."
+title: Credenciais de implantação do Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como usar as credenciais de implantação do Serviço de Aplicativo do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778540"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md). Elas não são as mesmas credenciais do Azure Active Directory.

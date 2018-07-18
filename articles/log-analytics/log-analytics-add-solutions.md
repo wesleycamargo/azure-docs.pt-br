@@ -1,25 +1,26 @@
 ---
-title: "Adicionar soluções de gerenciamento do Azure Log Analytics | Microsoft Docs"
-description: "As soluções de gerenciamento do Azure são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem as métricas relacionadas a uma área de problema específica."
+title: Adicionar soluções de gerenciamento do Azure Log Analytics | Microsoft Docs
+description: As soluções de gerenciamento do Azure são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem as métricas relacionadas a uma área de problema específica.
 services: log-analytics
-documentationcenter: 
-author: MGoedtel
+documentationcenter: ''
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 0cffdbcaa128dce52758e4b618b93dd763961361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131468"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicionar soluções de gerenciamento de Log Analytics do Azure a seu espaço de trabalho
 
@@ -138,16 +139,16 @@ O agente do Log Analytics do Windows e o agente do System Center Operations Mana
 
 | Solução de gerenciamento | Plataforma | Agente de monitoramento da Microsoft | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Log Analytics de Atividade | As tabelas |   |   |   |   |   | após a notificação |
+| Log Analytics de Atividade | Azure |   |   |   |   |   | após a notificação |
 | Avaliação do AD |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dias |
 | Status de replicação do AD |Windows |&#8226; |&#8226; |  |  |&#8226; |5 dias |
 | Integridade do agente | Windows e Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minuto |
 | Gerenciamento de Alertas (Nagios) |Linux |&#8226; |  |  |  |  |na chegada |
 | Gerenciamento de Alertas (Zabbix) |Linux |&#8226; |  |  |  |  |1 minuto |
 | Gerenciamento de alertas (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minutos |
-| Conector do Application Insights (visualização) | As tabelas |   |   |   |   |   | após a notificação |
-| Análise de Gateway de Aplicativo do Azure | As tabelas |   |   |   |   |   | após a notificação |
-| Análise de Grupo de Segurança de Rede do Azure | As tabelas |   |   |   |   |   | após a notificação |
+| Conector do Application Insights (visualização) | Azure |   |   |   |   |   | após a notificação |
+| Análise de Gateway de Aplicativo do Azure | Azure |   |   |   |   |   | após a notificação |
+| Análise de Grupo de Segurança de Rede do Azure | Azure |   |   |   |   |   | após a notificação |
 | Azure SQL Analytics (Visualização) |Windows |  |  |  |  |  | 10 minutos |
 | Gerenciamento de Capacidade |Windows |&#8226; |&#8226; |  |  |&#8226; |na chegada |
 | Contêineres | Windows e Linux | &#8226; | &#8226; |   |   |   | 3 minutos |
@@ -193,8 +194,8 @@ O agente do Log Analytics do Windows e o agente do System Center Operations Mana
 
 | Solução de gerenciamento | Plataforma | Agente de monitoramento da Microsoft | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | As tabelas |   |   |   |   |   | n/d |
-| Azure Site Recovery | As tabelas |   |   |   |   |   | n/d |
+| Backup | Azure |   |   |   |   |   | n/d |
+| Azure Site Recovery | Azure |   |   |   |   |   | n/d |
 
 
 ### <a name="data-sources"></a>Fontes de dados

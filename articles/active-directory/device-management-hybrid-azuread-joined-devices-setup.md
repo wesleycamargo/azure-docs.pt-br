@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157785"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261178"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
 Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais detalhes, confira [Introdução ao gerenciamento de dispositivos no Azure Active Directory](device-management-introduction.md).
 
-Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos adicionados ao domínio no Azure AD, você poderá fazer isso configurando dispositivos adicionados ao Azure AD híbrido. O tópico fornece as etapas relacionadas. 
+Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos adicionados ao domínio no Azure AD, você poderá fazer isso configurando dispositivos adicionados ao Azure AD híbrido. Esse artigo fornece as etapas relacionadas. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -37,7 +38,7 @@ Se você estiver dependendo da [Ferramenta de Preparação do Sistema (Sysprep)]
 
 Todos os dispositivos associados ao domínio eu executam a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure Active Directory no reinício do dispositivo ou na entrada do usuário, quando as etapas de configuração mencionadas a seguir estiverem concluídas. **Se esse comportamento de registro automático não for preferencial, ou se uma distribuição controlada for desejável**, siga as instruções na seção "Etapa 4: Controle de Implantação e Distribuição" abaixo para habilitar ou desabilitar seletivamente a distribuição automática, antes de seguir as outras etapas de configuração.  
 
-Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir: 
+Para melhorar a legibilidade das descrições, este artigo usa o termo a seguir: 
 
 - **Dispositivos atuais do Windows** - este termo refere-se aos dispositivos associados ao domínio que executam o Windows 10 ou o Windows Server 2016.
 - **Dispositivos de baixo nível do Windows** - este termo refere-se a todos os dispositivos do Windows associados ao domínio **com suporte** que não estão executando o Windows 10 nem o Windows Server 2016.  
@@ -56,7 +57,8 @@ Para melhorar a legibilidade das descrições, este tópico usa o termo a seguir
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://aka.ms/hybrid/sso).
+- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://aka.ms/hybrid/sso). 
+- O registro de dispositivos de nível inferior do Windows **não** é compatível ao usar a Autenticação de Passagem do Azure AD.
 - O registro de dispositivos de nível inferior do Windows **não tem** suporte para dispositivos que utilizam perfis móveis. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
 
 
@@ -80,8 +82,7 @@ Certifique-se de que as seguintes URLs são acessíveis a partir de computadores
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com Permitir
 - https://device.login.microsoftonline.com
 
 - STS de sua organização (domínios federados)
@@ -96,6 +97,7 @@ Se sua organização está planejando usar o SSO contínuo, URLs a seguir precis
 
 - Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações à barra de status por meio de script".
 
+Caso sua organização use a configuração gerenciada (não federada) com o AD local e não use o ADFS para federação com o Azure AD, a junção do Azure AD híbrido no Windows 10 dependerá da sincronização dos objetos de computador no AD com o Azure AD. Verifique se as UOs (Unidades Organizacionais) que contêm os objetos de computador que precisam ser ingressados no Azure AD híbrido estão habilitados para sincronização na configuração de sincronização do Azure AD Connect.
 
 Se sua organização exigir acesso à Internet através de um proxy de saída, é necessário implementar a Descoberta Automática de Proxy da Web (WPAD) para permitir que computadores com Windows 10 registrem-se no Azure AD.
 
@@ -187,6 +189,14 @@ Em uma configuração de várias florestas, você deve usar o script a seguir pa
 
     $deSCP.CommitChanges()
 
+No script acima,
+
+- `$verifiedDomain = "contoso.com"` é um espaço reservado que você precisa substituir por um de seus nomes de domínio verificado no Azure AD. Você precisará ser o proprietário do domínio antes de usá-lo.
+
+Para obter mais detalhes sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+Para obter uma lista dos domínios da empresa verificados, use o cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0). 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Etapa 2: configurar a emissão de declarações
 
@@ -330,6 +340,7 @@ Na declaração acima,
 
 
 Para obter mais detalhes sobre nomes de domínio verificados, confira [Adicionar um nome de domínio ao Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+
 Para obter uma lista dos domínios da empresa verificados, você pode usar o cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado'
+title: Como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado | Microsoft Docs
 description: Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
-ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 1a949007750ae9607ac31f02d23e39204b9f58e4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440494"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
 

@@ -1,22 +1,21 @@
 ---
 title: Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos do Azure usando C# | Microsoft Docs
 description: Guia de Início Rápido do Azure – Registrar o dispositivo X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure usando o SDK do serviço C#
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 01/21/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: ef00191e524e93d1ed578193d37fb6002c15a0b8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 444b59da487aa88d42ca6713bba86cabc620a0c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630190"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT usando o SDK do serviço C#
 
@@ -143,8 +142,7 @@ Se você planeja explorar o exemplo do serviço C#, não limpe os recursos criad
 
 1. Feche a janela de saída de exemplo do C# em seu computador.
 2. Navegue até o Serviço de Provisionamento de Dispositivos no Portal do Azure, clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registro**. Selecione *ID de Registro* para a entrada de registro criada usando este Início Rápido e clique no botão **Excluir** na parte superior da folha.  
-3. No Serviço de Provisionamento de Dispositivos no Portal do Azure, clique em **Certificados**, clique no certificado que você enviou para este Guia de Início Rápido e clique no botão
- **Excluir** na parte superior da janela **Detalhes do Certificado**.  
+3. No Serviço de Provisionamento de Dispositivos no Portal do Azure, clique em **Certificados**, clique no certificado que você enviou para este Guia de Início Rápido e clique no botão**Excluir** na parte superior da janela **Detalhes do Certificado**.  
  
 ## <a name="next-steps"></a>Próximas etapas
 Neste Início Rápido, você criou um grupo de registros para um certificado de Autoridade de Certificação X.509 raiz ou intermediário usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. Para saber mais sobre os detalhes de configuração do dispositivo, prossiga para o tutorial de configuração do Serviço de Provisionamento de Dispositivos no portal do Azure. 

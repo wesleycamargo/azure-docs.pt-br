@@ -8,14 +8,15 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949876"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -139,7 +140,7 @@ Com o SSMS, use as etapas a seguir para restaurar o banco de dados da Wide World
 
     ![file list](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. Use o script a seguir para restaurar o banco de dados do Adventure Works 2012 de um arquivo de backup, fornecendo a URL para o contêiner com o arquivo de backup:
+4. Use o script a seguir para restaurar o banco de dados do Wide World Importers de um arquivo de backup, fornecendo a URL para o contêiner com o arquivo de backup:
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

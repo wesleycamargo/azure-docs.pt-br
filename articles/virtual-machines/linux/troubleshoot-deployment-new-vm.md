@@ -1,11 +1,11 @@
 ---
-title: "Solucionar problemas de implantação do RM de VM Linux | Microsoft Docs"
-description: "Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Linux no Azure"
+title: Solucionar problemas de implantação do RM de VM Linux | Microsoft Docs
+description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Linux no Azure
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27579256"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

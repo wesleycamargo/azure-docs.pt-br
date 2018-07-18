@@ -1,10 +1,10 @@
 ---
 title: 'Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure | Microsoft Docs'
-description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade e perfil de CDN.
+description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade de CDN e perfil de CDN.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198700"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607864"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: criar um ponto de extremidade e um perfil de CDN do Azure
 Neste início rápido você habilita a Rede de Distribuição de Conteúdo (CDN) do Azure criando um novo ponto de extremidade e perfil de CDN. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes.
@@ -28,7 +28,7 @@ Neste início rápido você habilita a Rede de Distribuição de Conteúdo (CDN)
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>pré-requisitos
-Para os fins deste início rápido, você deve ter criado uma conta de armazenamento denominada *mystorageacct123*, que você usa para o nome de host de origem. Para obter mais informações, confira [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md)
+Para os fins deste início rápido, você deve ter criado uma conta de armazenamento denominada *mystorageacct123*, que você usa para o nome de host de origem. Para obter mais informações, confira [Integrar uma conta de armazenamento do Azure com a CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azure.
@@ -47,23 +47,23 @@ Depois de criar um perfil CDN, você pode usá-lo para criar um ponto de extremi
    
     ![Perfil CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    A página **Adicionar um ponto de extremidade** é exibida.
+    O painel **Adicionar um ponto de extremidade** é exibido.
 
-    Use as configurações especificadas na tabela que acompanha a imagem.
-   
-    ![Painel Adicionar ponto de extremidade](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. Para as configurações do ponto de extremidade, use os valores especificados na tabela a seguir:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | **Nome** | Digite *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net.|
+    | **Nome** | Digite *my-endpoint-123* para seu nome de host do ponto de extremidade. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. Esse nome será usado para acessar os recursos armazenados em cache no domínio _&lt;nome do ponto de extremidade&gt;_.azureedge.net.|
     | **Tipo de origem** | Selecione **Armazenamento**. | 
-    | **Nome do host de origem** | Digite *mystorageacct123.blob.core.windows.net* para seu nome de host. Esse nome deve ser globalmente exclusivo. Se ele já estiver em uso, você pode inserir um diferente |
+    | **Nome do host de origem** | Digite *mystorageacct123.blob.core.windows.net* para seu nome de host. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. |
     | **Caminho de origem** | Deixe em branco. |
     | **Cabeçalho de host de origem** | Deixe o valor padrão gerado. |  
     | **Protocolo** | Deixe as opções padrão **HTTP** e **HTTPS** selecionadas. |
     | **Porta de origem** | Deixe os valores de porta padrão. | 
     | **Otimizado para** | Deixe a seleção padrão: **Distribuição na Web geral**. |
-    
+
+    ![Painel Adicionar ponto de extremidade](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Selecione **Adicionar** para criar um novo ponto de extremidade.
    
    Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade do perfil.

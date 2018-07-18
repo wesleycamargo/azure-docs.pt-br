@@ -1,12 +1,12 @@
 ---
-title: "Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente | Microsoft Docs"
-description: "Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente."
+title: Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente | Microsoft Docs
+description: Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23987713"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente
 

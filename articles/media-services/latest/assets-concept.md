@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 76ed74f2df62d478b83e109a492977ec2d580198
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305082"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284831"
 ---
 # <a name="assets"></a>Ativos
 
@@ -50,7 +50,7 @@ A tabela a seguir mostra as propriedades do Ativo e retorna suas definições.
 
 Para a definição completa, consulte [Ativos](https://docs.microsoft.com/rest/api/media/assets).
 
-## <a name="filtering-ordering-and-paging-support"></a>Filtragem, classificação e suporte à paginação
+## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
 Os Serviços de Mídia do Microsoft Azure suportam as seguintes opções de consulta OData para ativos: 
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 A paginação é suportada para cada uma das quatro ordens de classificação habilitadas. 
 
-Se uma resposta de consulta tiver muitos itens (atualmente mais de 1000), o serviço retorna uma propriedade "@odata.nextLink" para a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. O tamanho da página não é configurável pelo usuário. 
+Se uma resposta de consulta tiver muitos itens (atualmente mais de 1000), o serviço retorna uma propriedade "\@odata.nextLink" para a próxima página de resultados. Isso pode ser usado para percorrer o conjunto de resultados inteiro. O tamanho da página não é configurável pelo usuário. 
 
 Se Ativos são criados ou excluídos durante a paginação por meio da coleção, as alterações são refletidas nos resultados retornados (se essas alterações estiverem na parte da coleção que não foi baixada.) 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 Para obter exemplos REST, consulte [Ativos - Lista](https://docs.microsoft.com/rest/api/media/assets/list)
+
+
+## <a name="storage-side-encryption"></a>Criptografia do armazenamento
+
+Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
+
+|Opção de criptografia|DESCRIÇÃO|Serviços de Mídia v2|Serviços de Mídia v3|
+|---|---|---|---|
+|Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
+|[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Com suporte|Com suporte|
+|[Criptografia do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Criptografia do cliente oferecida pelo armazenamento do Azure, chave gerenciada pelo cliente no Key Vault|Sem suporte|Sem suporte|
+
+<sup>1</sup> Enquanto os Serviços de Mídia deem suporte para tratamento de conteúdo sem qualquer forma de criptografia/limpo, não é recomendável fazer isso.
+
+<sup>2</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

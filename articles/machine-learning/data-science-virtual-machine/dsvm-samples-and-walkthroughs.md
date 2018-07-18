@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31419969"
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exemplos de Máquinas Virtuais de Ciência de Dados (DSVM)
 

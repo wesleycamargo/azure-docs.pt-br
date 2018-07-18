@@ -1,85 +1,89 @@
 ---
-title: "Entender os controles de segurança de pilha do Azure | Microsoft Docs"
-description: "Como um administrador de serviço Saiba mais sobre os controles de segurança aplicados a pilha do Azure"
+title: Entender os controles de segurança do Azure Stack | Microsoft Docs
+description: Como um administrador de serviço Saiba mais sobre os controles de segurança aplicados para o Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009473"
 ---
-# <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura de pilha do Azure
+# <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
-*Aplica-se a: sistemas integrados de pilha do Azure*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Considerações sobre segurança e regulamentações de conformidade estão entre os drivers principais para usar nuvens híbrida. A pilha do Azure foi projetada para esses cenários e é importante entender os controles já em vigor quando a adoção de pilha do Azure.
+Considerações de segurança e regulamentos de conformidade estão entre os drivers principais para usar nuvens híbridas. O Azure Stack foi projetado para esses cenários, e é importante entender os controles já em vigor ao adotar o Azure Stack.
 
-Na pilha do Azure, há duas camadas de postura de segurança que coexistem. A primeira camada compreende a infra-estrutura de pilha do Azure, que vai de componentes de hardware completamente até o Gerenciador de recursos do Azure e inclui o administrador e os portais de locatário. A segunda camada consiste em cargas de trabalho que criarem, implantar e gerenciarem locatários e inclui coisas como máquinas virtuais ou sites da web de serviços de aplicativos.  
+Coexistam de duas camadas de postura de segurança no Azure Stack. A primeira camada é a infraestrutura do Azure Stack, que inclui os componentes de hardware até o Gerenciador de recursos do Azure. A primeira camada inclui o administrador e os portais de locatário. A segunda camada consiste em cargas de trabalho criado, implantado e gerenciado por locatários. A segunda camada inclui itens como máquinas virtuais e sites da web de serviços de aplicativos.
 
 ## <a name="security-approach"></a>Abordagem de segurança
-A pilha do Azure foi projetada com uma postura de segurança para proteger contra ameaças modernas e foi criada para atender aos requisitos de padrões de conformidade principais. Como resultado, a postura de segurança da infraestrutura do Azure pilha baseia-se em duas colunas:
 
- - **Suponha que a violação.**  
-Iniciando na suposição de que o sistema já tiver sido violado, enfocam *detectando e limitar o impacto de violações de* em vez de apenas tentar evitar ataques. 
- - **Protegido por padrão.**  
-Como a infraestrutura é executado em hardware bem definido e software, nós *habilitar, configurar e validar todos os recursos de segurança* por padrão.
+A postura de segurança para o Azure Stack foi projetada para proteger contra ameaças modernas e foi criada para atender aos requisitos dos padrões de conformidade principais. Como resultado, a postura de segurança da infraestrutura do Azure Stack baseia-se em dois pilares:
 
+ - **Pressuposta**  
+A partir da suposição de que o sistema já tiver sido violado, concentrar *detectando e limitar o impacto de violações* versus apenas tentando impedir ataques. 
+ - **Reforçados por padrão**  
+Como a infraestrutura é executado no hardware bem definida e software, Azure Stack *permite, configura e valida todos os recursos de segurança* por padrão.
 
+Porque o Azure Stack é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure Stack é definida pela Microsoft. Assim como no Azure, locatários são responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura do Azure Stack.
 
-Porque a pilha do Azure é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure pilha é definida pela Microsoft. Assim como no Azure, locatários serão responsáveis por definir a postura de segurança de suas cargas de trabalho de locatário. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura de pilha do Azure.
+## <a name="data-at-rest-encryption"></a>Dados com criptografia em repouso
+Todos os dados de infraestrutura e locatário do Azure Stack são criptografados em repouso usando o Bitlocker. Essa criptografia protege contra a perda física ou o roubo de componentes de armazenamento do Azure Stack. 
 
-## <a name="data-at-rest-encryption"></a>Dados em criptografia de rest
-Todos os dados de infraestrutura e locatário de pilha do Azure são criptografados em repouso usando o Bitlocker. Isso protege contra perda física ou roubo de componentes de armazenamento do Azure pilha. 
+## <a name="data-in-transit-encryption"></a>Dados em criptografia de trânsito
+Os componentes da infraestrutura do Azure Stack comunicar-se usando canais criptografados com o TLS 1.2. Certificados de criptografia são automaticamente gerenciados pela infra-estrutura. 
 
-## <a name="data-in-transit-encryption"></a>Dados de criptografia de trânsito
-Os componentes da infraestrutura do Azure pilha se comunicar usando canais criptografados com o protocolo TLS 1.2. Certificados de criptografia são gerenciados automaticamente pela infraestrutura. 
+Todos os pontos de extremidade externos de infraestrutura, como os pontos de extremidade REST ou o portal do Azure Stack, dão suporte a TLS 1.2 para comunicações seguras. Certificados de criptografia, a partir de sua autoridade de certificação, empresa ou de terceiros devem ser fornecidos para os pontos de extremidade. 
 
-Todos os pontos de extremidade externos de infraestrutura, como os pontos de extremidade REST ou o portal de pilha do Azure, oferecem suporte a TLS 1.2 para proteger comunicações. Certificados de criptografia, a partir de terceiros ou a autoridade de certificação de empresa devem ser fornecidos para os pontos de extremidade. 
+Embora os certificados autoassinados possam ser usados para esses pontos de extremidade externos, a Microsoft aconselha em relação a usá-los. 
 
-Enquanto os certificados autoassinados podem ser usados para esses pontos de extremidade externos, a Microsoft aconselha contra usá-los. 
-
-## <a name="secret-management"></a>Gerenciamento de informações secretas
-Infraestrutura de pilha do Azure usa uma variedade de segredos, como senhas, a função. A maioria deles é girada automaticamente com frequência, porque são contas de serviço gerenciado de grupo, gire a cada 24 horas.
+## <a name="secret-management"></a>Gerenciamento de segredos
+Infraestrutura do Azure Stack usa uma infinidade de segredos, como senhas, para funcionar. A maioria deles é girada automaticamente com frequência, porque eles são contas de serviço gerenciado de grupo, gire a cada 24 horas.
 
 Os segredos restantes que não são contas de serviço gerenciado de grupo podem ser giradas manualmente com um script no ponto de extremidade com privilégios.
 
 ## <a name="code-integrity"></a>Integridade de código
-Pilha do Azure utiliza o Windows Server 2016 mais recentes recursos de segurança. Um deles é o Windows Defender Device Guard, que fornece a lista branca de aplicativos e garante que apenas autorizados a executar o código dentro da infraestrutura de pilha do Azure. 
+O Azure Stack utiliza o o Windows Server 2016 mais recentes recursos de segurança. Um deles é o Windows Defender Device Guard, que fornece a lista de permissões de aplicativo e garante que apenas autorizados a executar o código dentro da infraestrutura do Azure Stack. 
 
-Código não autorizado está assinado pela Microsoft ou o parceiro OEM e ele está incluído na lista de permitidos software que é especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para execução na infraestrutura de pilha do Azure pode ser executado. Qualquer tentativa de executar código não autorizado está bloqueada e uma auditoria é gerada.
+Código não autorizado é assinado pela Microsoft ou o parceiro OEM, e ele está incluído na lista de permitidos software que é especificado em uma política definida pela Microsoft. Em outras palavras, apenas o software que foi aprovado para ser executado na infraestrutura do Azure Stack pode ser executado. Qualquer tentativa de executar código não autorizado está bloqueada e uma auditoria é gerada.
 
-A política de proteção do dispositivo também impede que os agentes de terceiros ou software em execução na infraestrutura de pilha do Azure.
+A política de Device Guard também impede que os agentes de terceiros ou de software em execução na infraestrutura do Azure Stack.
 
-## <a name="credential-guard"></a>Proteção de credenciais
-Outro recurso de segurança do Windows Server 2016 na pilha do Azure é o protetor de credencial do Windows Defender, que é usado para proteger credenciais de infraestrutura do Azure pilha contra ataques de passagem de tíquete e Pass-the-Hash.
+## <a name="credential-guard"></a>Credential Guard
+Outro recurso de segurança do Windows Server 2016 no Azure Stack é o Windows Defender Credential Guard, que é usado para proteger as credenciais de infraestrutura do Azure Stack de Pass-the-Hash e ataques Pass-the-Ticket.
 
 ## <a name="antimalware"></a>Antimalware
-Todos os componentes na pilha do Azure (hosts Hyper-V e máquinas virtuais) é protegido com o Windows Defender antivírus.
+Todos os componentes no Azure Stack (hosts Hyper-V e máquinas virtuais) é protegido com o Windows Defender antivírus.
 
-## <a name="constrained-administration-model"></a>Modelo de administração restrita
-Administração na pilha do Azure é controlada pelo uso de três pontos de entrada, cada um com uma finalidade específica: 
+Em cenários conectados, atualizações de mecanismos e definições de antivírus são aplicadas várias vezes ao dia. Em cenários desconectados, atualizações de antimalware são aplicadas como parte das atualizações mensais do Azure Stack. Ver [atualizar o Windows Defender antivírus no Azure Stack](azure-stack-security-av.md) para obter mais informações.
+
+## <a name="constrained-administration-model"></a>Modelo de administração restrito
+Administração do Azure Stack é controlada com o uso de três pontos de entrada, cada um com uma finalidade específica: 
 1. O [Portal do administrador](azure-stack-manage-portals.md) fornece uma experiência de apontar e clicar para as operações diárias de gerenciamento.
-2. Gerenciador de recursos do Azure expõe todas as operações de gerenciamento do Portal do administrador por meio de uma API REST, usado pelo PowerShell e a CLI do Azure. 
-3. Para operações específicas de baixo nível, por exemplo dados Centro de integração ou oferecer suporte a cenários, pilha do Azure expõe um ponto de extremidade do PowerShell chamado [privilegiada do ponto de extremidade](azure-stack-privileged-endpoint.md). Esse ponto de extremidade expõe apenas um conjunto de lista branca de cmdlets e ele é muito auditado.
+2. O Azure Resource Manager expõe todas as operações de gerenciamento do Portal do administrador por meio da API REST, usado pelo PowerShell e CLI do Azure. 
+3. Para operações específicas de baixo nível, por exemplo data center integração ou dar suporte a cenários, Azure Stack expõe um ponto de extremidade do PowerShell chamado [ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md). Esse ponto de extremidade expõe somente um conjunto na lista de permissões de cmdlets e ele intensamente é auditado.
 
 ## <a name="network-controls"></a>Controles de rede
-Infraestrutura de pilha do Azure vem com várias camadas de rede List(ACL) de controle de acesso. As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam as comunicações de infraestrutura somente os caminhos que são necessários para seu funcionamento. 
+Infraestrutura do Azure Stack é fornecido com várias camadas de rede List(ACL) de controle de acesso. As ACLs impedir acesso não autorizado para os componentes da infraestrutura e limitam a comunicação de infraestrutura para somente os caminhos que são necessários para seu funcionamento. 
 
-As ACLs de rede são impostas em três camadas:
-1.  Alterna a parte superior do Rack
+As ACLs de rede são aplicadas em três camadas:
+1.  Topo de Rack
 2.  Rede definida pelo software
-3.  Firewalls de sistema operacional do host e a VM 
+3.  Firewalls de sistema operacional do host e a VM
 
+## <a name="next-steps"></a>Próximas etapas
 
+- [Saiba como girar seus segredos no Azure Stack](azure-stack-rotate-secrets.md)

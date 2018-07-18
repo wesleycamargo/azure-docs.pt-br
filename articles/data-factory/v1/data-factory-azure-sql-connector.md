@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bf47ad3f401abced4e74260dc9180413d69268c3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d010fd90d96409b262be59f1db4fac9e4cec835c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051552"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados de e para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versão 1 – já disponível](data-factory-azure-sql-connector.md)
-> * [Versão 2 – Versão prévia](../connector-azure-sql-database.md)
+> * [Versão 1](data-factory-azure-sql-connector.md)
+> * [Versão 2 (versão atual)](../connector-azure-sql-database.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [Azure SQL Database connector in V2](../connector-azure-sql-database.md) (Conector do Banco de Dados SQL do Azure na V2).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Banco de Dados SQL do Azure na V2](../connector-azure-sql-database.md).
 
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados bidirecionalmente de e para o Banco de Dados SQL do Azure. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.  
 

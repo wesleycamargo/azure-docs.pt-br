@@ -1,6 +1,6 @@
 ---
-title: "Exemplos de código do Armazenamento do Azure | Microsoft Docs"
-description: "Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra os exemplos de introdução aos blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET, Java, Node.js e C++."
+title: Exemplos de código do Armazenamento do Azure | Microsoft Docs
+description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra os exemplos de introdução aos blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET, Java, Node.js e C++.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059681"
 ---
 # <a name="azure-storage-samples"></a>Exemplos do Armazenamento do Azure
 

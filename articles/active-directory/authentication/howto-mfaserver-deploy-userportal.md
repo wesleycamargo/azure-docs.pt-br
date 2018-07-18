@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 38f75b8fc48f6fdcafd4c6ae25ec0f52641b2c05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100272"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal do usuário para o Servidor de Autenticação Multifator do Azure
 
@@ -29,7 +30,7 @@ Dependendo do seu ambiente, convém implantar o portal do usuário no mesmo serv
 ![Portal do usuário MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> O portal do usuário está disponível apenas com o Servidor de Autenticação Multifator. Se você usar Autenticação Multifator na nuvem, encaminhe os seus usuários para [Configurar sua conta para verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md) ou [Gerenciar as configurações de verificação em duas etapas](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md).
+> O portal do usuário está disponível apenas com o Servidor de Autenticação Multifator. Se você usar Autenticação Multifator na nuvem, encaminhe os seus usuários para [Configurar sua conta para verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-first-time.md) ou [Gerenciar as configurações de verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-manage-settings.md).
 
 ## <a name="install-the-web-service-sdk"></a>Instalar o SDK de Serviço Web
 

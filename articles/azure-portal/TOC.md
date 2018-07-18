@@ -20,25 +20,11 @@
 ### [Gerenciar o acesso com o Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md)
 ### [Compartilhar painéis com o Controle de Acesso Baseado em Função](azure-portal-dashboard-share-access.md)
 ### [Usar marcações para organizar recursos](../azure-resource-manager/resource-group-using-tags.md)
-### [Dimensionar seus recursos](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Criar nova entidade de serviço do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-## Monitoramento
-### [Monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
-### [Habilitar monitoramento e diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
-### [Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web](../application-insights/app-insights-monitor-web-app-availability.md)
-### [Monitorar desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md)
-### [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md)
-### [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+## [Monitorar](../monitoring-and-diagnostics/monitoring-overview.md)
 
 # Relacionados
 ## [Funções de modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
-## [Práticas recomendadas para Dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
-## [Métricas comuns para Dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
-## [Webhooks para notificações de Dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
-## [Webhooks para alertas em logs de auditoria](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-## [Webhooks para alertas de métricas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-## [Exemplos de início rápido do PowerShell do Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Exemplos de início rápido da CLI do Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)

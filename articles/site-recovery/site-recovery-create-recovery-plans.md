@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: e02672ea76eada2d660b20f91c4417019d4efc97
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 853b9c2f50967d7a203e5627bdd2fc6f14e0e4f6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920994"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -28,10 +29,10 @@ Este artigo descreve como criar e personalizar um plano de recuperação no [Azu
    **Failover** | **Fonte** | **Destino** 
    --- | --- | ---
    Azure para o Azure | Região do Azure |Região do Azure
-   VMware no Azure | Servidor de configuração | As tabelas
-   Computadores físicos para o Azure | Servidor de configuração | As tabelas   
-   Hyper-V gerenciado pelo VMM no Azure  | Nome de exibição do VMM | As tabelas
-   Hyper-V sem VMM no Azure | Nome do site Hyper-V | As tabelas
+   VMware no Azure | Servidor de configuração | Azure
+   Computadores físicos para o Azure | Servidor de configuração | Azure   
+   Hyper-V gerenciado pelo VMM no Azure  | Nome de exibição do VMM | Azure
+   Hyper-V sem VMM no Azure | Nome do site Hyper-V | Azure
    VMM no VMM |Nome amigável de VMM | Nome de exibição do VMM 
 
    > [!NOTE]

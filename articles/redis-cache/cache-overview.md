@@ -14,11 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096177"
 ---
 # <a name="what-is-azure-redis-cache"></a>O que é o Cache Redis do Azure
 
@@ -26,7 +27,7 @@ O Cache Redis do Azure é baseado no popular [Cache Redis](https://redis.io/)de 
 
 O Cache Redis do Azure também pode ser usado como um repositório de estruturas de dados na memória, um banco de dados não relacional distribuído e um agente de mensagens. O desempenho do aplicativo é aprimorado com o uso da baixa latência, do desempenho de alta taxa de transferência do mecanismo Redis.
 
-O Cache Redis do Azure oferece acesso a um cache Redis seguro e dedicado, gerenciado pela Microsoft, hospedado no Azure e acessível a qualquer aplicativo no Azure.
+O Cache Redis do Azure oferece acesso a um cache Redis seguro e dedicado, gerenciado pela Microsoft, hospedado no Azure e acessível a qualquer aplicativo dentro ou fora do Azure.
 
 ## <a name="why-use-azure-redis-cache"></a>Por que usar o Cache Redis do Azure
 
@@ -76,6 +77,7 @@ A página [Preço do Cache Redis](https://azure.microsoft.com/pricing/details/ca
 
 * [Início Rápido de aplicativo Web ASP.NET](cache-web-app-howto.md) Crie um aplicativo Web ASP.NET simples que usa um Cache Redis do Azure.
 * [Início Rápido do .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Criar um aplicativo .NET que usa um Cache Redis do Azure.
+* [Início Rápido do .NET Core](cache-dotnet-core-quickstart.md) Crie um aplicativo .NET que usa um Cache Redis do Azure.
 * [Início Rápido do Node.js](cache-nodejs-get-started.md) Crie um aplicativo simples do Node.js que usa um Cache Redis do Azure.
 * [Início Rápido do Java](cache-java-get-started.md) Crie um aplicativo Java simples que usa um Cache Redis do Azure.
 * [Início Rápido do Python](cache-python-get-started.md) Crie um aplicativo simples do Python que usa um Cache Redis do Azure.

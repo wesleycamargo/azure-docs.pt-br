@@ -1,6 +1,6 @@
 ---
-title: "Compartilhamento de arquivos para cluster de controlador de domínio/sistema operacional"
-description: "Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional no Serviço de Contêiner do Azure"
+title: Compartilhamento de arquivos para cluster de controlador de domínio/sistema operacional
+description: Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional no Serviço de Contêiner do Azure
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331195"
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional
 

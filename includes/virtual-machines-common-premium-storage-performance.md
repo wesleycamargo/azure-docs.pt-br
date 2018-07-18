@@ -239,7 +239,7 @@ Para saber mais sobre como o BlobCache funciona, consulte a postagem do blog int
 | **Tipo de disco** | **Configuração padrão de cache** |
 | --- | --- |
 | Disco do sistema operacional |ReadWrite |
-| Disco de dados |Nenhum |
+| Disco de dados |ReadOnly |
 
 Veja a seguir as configurações recomendadas de cache de disco para discos de dados:
 

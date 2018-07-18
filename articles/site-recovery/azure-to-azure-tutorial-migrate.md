@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 122fe9be768341716fb423a58560885c7d3035fe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209701"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920630"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
 
@@ -28,9 +28,7 @@ Este tutorial mostra como migrar VMs do Azure para outra região. Neste tutorial
 
 Este tutorial pressupõe que você já tem uma assinatura do Azure. Caso não tenha, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
->[!NOTE]
->
-> A replicação do Site Recovery para as VMs do Azure está na versão prévia atualmente.
+
 
 
 

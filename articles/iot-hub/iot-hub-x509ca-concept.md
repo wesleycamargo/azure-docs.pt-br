@@ -1,24 +1,19 @@
 ---
-title: "Conceitos de segurança X.509 do Hub IoT do Azure | Microsoft Docs"
-description: "Conceito – compreender os certificados de autoridade de certificação de valor X.509 na fabricação de dispositivo IoT e autenticação."
-services: iot-hub
-documentationcenter: .net
+title: Conceitos de segurança X.509 do Hub IoT do Azure | Microsoft Docs
+description: Conceito – compreender os certificados de autoridade de certificação de valor X.509 na fabricação de dispositivo IoT e autenticação.
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 34d4be431b76d5ba8258d932cb21ed6f4818863e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635688"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 

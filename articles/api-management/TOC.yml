@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: Provisionar e dimensionar
       items:
+        - name: Métrica de capacidade
+          href: api-management-capacity.md
         - name: Atualizar e dimensionar
           href: upgrade-and-scale.md
         - name: Configurar um domínio personalizado
@@ -97,6 +99,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Autenticação Mútua de certificado
           href: api-management-howto-mutual-certificates.md
+        - name: Gerenciar protocolos e codificações
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalizar a experiência do desenvolvedor
       items:
         - name: Modificar o layout e o conteúdo da página
@@ -173,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Registrar eventos nos Hubs de Eventos do Azure
           href: api-management-howto-log-event-hubs.md
+        - name: Registrar solicitações com o Application Insights do Azure
+          href: api-management-howto-app-insights.md
         - name: Configurar DR usando backup/restauração
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gerenciar contas de usuários

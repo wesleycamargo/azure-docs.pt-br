@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: gerenciamento de ameaças| Microsoft Docs'
+title: Gerenciamento de ameaças no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre técnicas de detecção e mitigação de ataques de negação de serviço e ataques de senha no Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2016
 ms.author: davidmu
-ms.openlocfilehash: 5ab699b0dccd772ec905699d94dedaca0eefcdad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7957fdf245090cbca3726cb1e4788ec34f63faca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440412"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: gerenciamento de ameaças
 
@@ -29,4 +29,4 @@ O Azure AD B2C usa técnicas de detecção e de mitigação como cookies SYN e l
 
 O Azure AD B2C também tem técnicas de mitigação prontas para ataques de senha. A mitigação inclui ataques de senhas de força bruta e ataques de senhas de dicionário. As senhas definidas pelos usuários devem ser de complexidade razoável. Ao usar vários sinais, o Azure AD B2C analisa a integridade das solicitações. O Azure AD B2C foi projetado para diferenciar, de forma inteligente, os usuários pretendidos de hackers e botnets. O Azure AD B2C oferece uma estratégia sofisticada para bloquear contas com base nas senhas digitadas, na probabilidade de um ataque.
 
-Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement).
+Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/trustcenter/default.aspx).

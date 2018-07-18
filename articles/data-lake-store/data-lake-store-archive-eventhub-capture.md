@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624654"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Store Use para capturar dados de Hubs de Eventos
 
@@ -56,12 +57,12 @@ Nesta seção, você criará uma pasta dentro da conta na qual você deseja capt
 
     c. Em **Atribuir Permissões**, clique em **Selecionar Permissões**. Defina **Permissões** como **Executar**. Defina **Adicionar a** como **Esta pasta e todas as filhas**. Defina **Adicionar como** como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**.
 
-> [!IMPORTANT]
-> Ao criar uma nova hierarquia de pastas para capturar dados recebidos pelos Hubs de Eventos do Azure, essa é uma maneira fácil de garantir o acesso à pasta de destino.  No entanto, adicionar permissões a todos os elementos filhos de uma pasta de nível superior com muitos arquivos e pastas secundários pode levar um longo tempo.  Se a pasta raiz contiver um grande número de arquivos e pastas, talvez seja mais rápido adicionar permissões **Executar** para `Microsoft.EventHubs`individualmente em cada pasta no caminho para a pasta de destino final. 
+    > [!IMPORTANT]
+    > Ao criar uma nova hierarquia de pastas para capturar dados recebidos pelos Hubs de Eventos do Azure, essa é uma maneira fácil de garantir o acesso à pasta de destino.  No entanto, adicionar permissões a todos os elementos filhos de uma pasta de nível superior com muitos arquivos e pastas secundários pode levar um longo tempo.  Se a pasta raiz contiver um grande número de arquivos e pastas, talvez seja mais rápido adicionar permissões **Executar** para `Microsoft.EventHubs`individualmente em cada pasta no caminho para a pasta de destino final. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Atribuir permissões para a raiz do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Atribuir permissões para a raiz do Data Lake Store")
 
-    Click **OK**.
+    Clique em **OK**.
 
 4. Atribua permissões para a pasta na conta do Data Lake Store onde você deseja capturar dados.
 

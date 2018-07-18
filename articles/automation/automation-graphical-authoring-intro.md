@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195481"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437868"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 
@@ -289,6 +289,9 @@ A atividade Executar Como Conexão de Get (por exemplo, Get-AutomationConnection
 A próxima atividade, Connect-AzureRmAccoun, adiciona a conta Executar Como autenticada para usar no runbook.
 
 ![Conjunto de parâmetros Connect-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+
+> [!IMPORTANT]
+> **Connect-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Ao pesquisar sua biblioteca de itens, se você não vir **Connect-AzureRMAccount**, você pode usar **Connect-AzureRmAccount**, ou você pode atualizar seus módulos em sua Conta de Automação.
 
 Para os parâmetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** e **TENANTID**, você precisa especificar o nome da propriedade para o caminho Campo porque a atividade produz um objeto com várias propriedades. Caso contrário, quando você executar o runbook, ele falha ao tentar autenticar-se. Isso é o que você precisa, no mínimo, para autenticar seu runbook com a conta Executar Como.
 

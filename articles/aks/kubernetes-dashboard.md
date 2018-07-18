@@ -2,18 +2,19 @@
 title: Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
 description: Usar o painel do Kubernetes no AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100418"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
 
@@ -37,7 +38,7 @@ Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kuberne
 
 ## <a name="run-an-application"></a>Executar um aplicativo
 
-No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e digite `nginx:latest` para o nome das imagens. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
+No painel do Kubernetes, clique no botão **Criar** na janela superior direita. Dê o nome `nginx` para a implantação e insira `nginx:latest` para o nome da imagem de contêiner. Em **Serviço**, selecione **Externo** e insira `80` para a porta e a porta de destino.
 
 Quando estiver pronto, clique em **Implantar** para criar a implantação.
 

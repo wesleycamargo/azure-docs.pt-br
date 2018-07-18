@@ -2,18 +2,19 @@
 title: Guia de início rápido - cluster Kubernetes do Azure para Linux
 description: Aprenda rapidamente a criar um cluster Kubernetes para contêineres do Linux no AKS com a CLI do Azure.
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d07cf87f736b6df58ed46ef0ae98767d4d8a7a48
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5b5ae6ba945b1428ffc2877711ebdc73937ea0a3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915935"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -27,23 +28,11 @@ Este início rápido pressupõe uma compreensão básica dos conceitos de Kubern
 
 Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.27 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="enabling-aks-preview"></a>Habilitar a versão prévia de AKS
-
-Certifique-se de que os provedores de serviços do Azure necessários estejam habilitados com o comando `az provider register`.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-Após o registro, você estará pronto para criar um cluster do Kubernetes com o AKS.
-
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create][az-group-create]. Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
-Ao criar um grupo de recursos, você será solicitado a especificar um local; isso é onde os recursos residirão no Azure. Enquanto o AKS está em versão prévia, apenas algumas opções de local estão disponíveis. Estes são `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+Ao criar um grupo de recursos, você será solicitado a especificar um local; isso é onde os recursos residirão no Azure.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
@@ -68,7 +57,7 @@ Saída:
 
 ## <a name="create-aks-cluster"></a>Criar cluster AKS
 
-Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó.
+Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Ao implantar um cluster do AKS, a solução de monitoramento de integridade do contêiner também pode ser habilitada. Para saber mais sobre como habilitar a solução de monitoramento de integridade do contêiner, consulte [Integridade do Serviço Kubernetes do Monitor do Azure][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -173,10 +162,10 @@ spec:
     app: azure-vote-front
 ```
 
-Use o comando [kubectl create][kubectl-create] para executar o aplicativo.
+Use o comando [kubectl apply][kubectl-apply] para executar o aplicativo.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Saída:
@@ -241,13 +230,15 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -255,5 +246,4 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 

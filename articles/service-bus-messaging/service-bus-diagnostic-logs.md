@@ -1,13 +1,13 @@
 ---
-title: "Logs de diagnóstico do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para o Barramento de Serviço no Azure."
-keywords: 
+title: Logs de diagnóstico do Barramento de Serviço do Azure | Microsoft Docs
+description: Saiba como configurar logs de diagnóstico para o Barramento de Serviço no Azure.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122165"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 

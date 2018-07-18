@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: Tarefas de nó simultâneas
           href: batch-parallel-node-tasks.md
-        - name: Contagem de tarefas por estado
-          href: batch-get-task-counts.md
         - name: Dependências da tarefa
           href: batch-task-dependencies.md
         - name: Contas de usuário para a execução de tarefas
@@ -111,7 +109,7 @@
         - name: Renderização
           href: batch-rendering-service.md
         - name: Processamento de dados com Lote e Data Factory
-          href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+          href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
     - name: Monitorar soluções do Lote
       href: monitoring-overview.md
       items:
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Monitorar com Application Insights
           href: monitor-application-insights.md
-        - name: Consultas de lista eficientes
+        - name: Recursos de contagem por estado
+          href: batch-get-resource-counts.md
+        - name: Consultar recursos com eficiência
           href: batch-efficient-list-queries.md
     - name: Usar ferramentas do desenvolvedor
       items:
@@ -178,8 +178,8 @@
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum do lote
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Comunidade de Lotes
+      href: 'https://github.com/Azure/Batch'
     - name: Shipyard de lote
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog

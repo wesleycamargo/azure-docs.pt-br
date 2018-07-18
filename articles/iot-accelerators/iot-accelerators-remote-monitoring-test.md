@@ -1,27 +1,23 @@
 ---
 title: Simulação de dispositivo na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este tutorial mostra como usar o simulador de dispositivo com o acelerador de solução de monitoramento remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367918"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628252"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
-Este tutorial mostra como personalizar o microsserviço do simulador de dispositivo no acelerador de solução de monitoramento remoto. Para mostrar os recursos do simulador de dispositivo, este tutorial usa dois cenários no aplicativo de IoT da Contoso.
+Este tutorial mostra como personalizar o microsserviço do simulador de dispositivo no acelerador de solução de Monitoramento Remoto. Para mostrar os recursos do simulador de dispositivo, este tutorial usa dois cenários no aplicativo de IoT da Contoso.
 
 O vídeo a seguir apresenta uma visão geral das opções de personalização microsserviço do simulador de dispositivo:
 
@@ -73,7 +69,7 @@ A tabela a seguir mostra o status inicial do dispositivo:
 
 No segundo cenário, você adiciona um novo tipo de telemetria no dispositivo **Resfriador** existente da Contoso.
 
-Este tutorial mostra como usar o simulador de dispositivo com o acelerador de solução de monitoramento remoto:
+Este tutorial mostra como usar o simulador de dispositivo com o acelerador de solução de Monitoramento Remoto:
 
 Neste tutorial, você aprenderá como:
 
@@ -83,7 +79,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar um novo tipo de dispositivo no painel
 > * Enviar telemetria personalizada de um tipo de dispositivo existente
 
-O vídeo a seguir mostra um passo a passo para conectar dispositivos simulados e reais à solução de monitoramento remoto:
+O vídeo a seguir mostra um passo a passo para conectar dispositivos simulados e reais à solução de Monitoramento Remoto:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -91,7 +87,7 @@ O vídeo a seguir mostra um passo a passo para conectar dispositivos simulados e
 
 Para seguir este tutorial, você precisa do seguinte:
 
-* Uma instância implantada da solução de monitoramento remoto em sua assinatura do Azure. Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Uma instância implantada da solução de Monitoramento Remoto em sua assinatura do Azure. Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Se você não tem o Visual Studio 2017 instalado, baixe a edição gratuita [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
@@ -103,21 +99,21 @@ Para seguir este tutorial, você precisa do seguinte:
 
 ## <a name="prepare-your-development-environment"></a>Preparar seu ambiente de desenvolvimento
 
-Conclua as seguintes tarefas para preparar o ambiente de desenvolvimento para a adição de um novo dispositivo simulado à solução de monitoramento remoto:
+Conclua as seguintes tarefas para preparar o ambiente de desenvolvimento para a adição de um novo dispositivo simulado à solução de Monitoramento Remoto:
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Configurar o acesso SSH à máquina virtual da solução no Azure
 
-Quando você criou sua solução de monitoramento remoto em [www.azureiotsuite.com](https://www.azureiotsuite.com), você escolheu um nome da solução. O nome da solução torna-se o nome do grupo de recursos do Azure que contém os vários recursos implantados usados pela solução. Os comandos a seguir usam um grupo de recursos chamado **Contoso-01**. Você deve substituir **Contoso-01** pelo nome de seu grupo de recursos.
+Quando você criou sua solução de Monitoramento Remoto em [www.azureiotsolutions.com](https://www.azureiotsolutions.com), você escolheu um nome da solução. O nome da solução torna-se o nome do grupo de recursos do Azure que contém os vários recursos implantados usados pela solução. Os comandos a seguir usam um grupo de recursos chamado **Contoso-01**. Você deve substituir **Contoso-01** pelo nome de seu grupo de recursos.
 
 Os comandos a seguir usam o comando `az` da [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Instale a CLI 2.0 do Azure no computador de desenvolvimento ou use o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no [portal do Azure](http://portal.azure.com). A CLI 2.0 do Azure é pré-instalada no Cloud Shell.
 
-1. Para verificar o nome do grupo de recursos que contém os recursos de monitoramentos remoto, execute o seguinte comando:
+1. Para verificar o nome do grupo de recursos que contém os recursos de Monitoramento Remoto, execute o seguinte comando:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Esse comando lista todos os grupos de recursos em sua assinatura. A lista deve conter um grupo de recursos com o mesmo nome da solução de monitoramento remoto.
+    Esse comando lista todos os grupos de recursos em sua assinatura. A lista deve conter um grupo de recursos com o mesmo nome da solução de Monitoramento Remoto.
 
 1. Para tornar o grupo de recurso o grupo padrão para os próximos comandos, execute o seguinte comando usando o nome do grupo de recursos no lugar de **Contoso-01**:
 
@@ -162,7 +158,7 @@ Os comandos a seguir usam o comando `az` da [CLI 2.0 do Azure](https://docs.micr
     ssh azureuser@public-ip-address
     ```
 
-    Agora você tem acesso ao shell na máquina virtual que executa os contêineres do Docker na solução de monitoramento remoto. Para exibir os contêineres em execução, use o seguinte comando:
+    Agora você tem acesso ao shell na máquina virtual que executa os contêineres do Docker na solução de Monitoramento Remoto. Para exibir os contêineres em execução, use o seguinte comando:
 
     ```sh
     docker ps
@@ -221,7 +217,7 @@ Neste tutorial, você trabalha com os projetos **device-simulation** e **storage
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    O serviço de simulação de dispositivo na solução de monitoramento remoto permite que você faça alterações nos tipos de dispositivo simulado internos e crie novos tipos de dispositivo simulado. Use tipos de dispositivo personalizado para testar o comportamento da solução de monitoramento remoto antes de conectar os dispositivos físicos.
+    O serviço de simulação de dispositivo na solução de Monitoramento Remoto permite que você faça alterações nos tipos de dispositivo simulado internos e crie novos tipos de dispositivo simulado. Use tipos de dispositivo personalizado para testar o comportamento da solução de Monitoramento Remoto antes de conectar os dispositivos físicos.
 
 1. Para clonar a versão do .NET do repositório **storage-adapter**, execute o seguinte comando:
 
@@ -229,7 +225,7 @@ Neste tutorial, você trabalha com os projetos **device-simulation** e **storage
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    O serviço de simulação de dispositivo usa o serviço de adaptador de armazenamento para se conectar ao serviço Cosmos DB no Azure. A solução de monitoramento remoto armazena os dados de configuração do dispositivo simulado em um banco de dados Cosmos DB.
+    O serviço de simulação de dispositivo usa o serviço de adaptador de armazenamento para se conectar ao serviço Cosmos DB no Azure. A solução de Monitoramento Remoto armazena os dados de configuração do dispositivo simulado em um banco de dados Cosmos DB.
 
 ### <a name="run-the-storage-adapter-service-locally"></a>Executar o serviço de adaptador de armazenamento localmente
 
@@ -247,7 +243,7 @@ O serviço de simulação do dispositivo usa o serviço de adaptador de armazena
 
 1. Deixe o serviço de adaptador de armazenamento em execução localmente até que você conclua o tutorial.
 
-Agora você tem tudo implementado e está pronto para começar a adicionar um novo tipo de dispositivo simulado à sua solução de monitoramento remoto.
+Agora você tem tudo implementado e está pronto para começar a adicionar um novo tipo de dispositivo simulado à sua solução de Monitoramento Remoto.
 
 ## <a name="create-a-simulated-device-type"></a>Criar um tipo de dispositivo simulado
 
@@ -479,23 +475,23 @@ Agora você está pronto para testar o novo tipo de lâmpada simulada executando
 
 1. Para verificar se os dois dispositivos simulados estão conectados ao Hub IoT, abra o portal do Azure no navegador.
 
-1. Navegue para o hub IoT no grupo de recursos que contém a solução de monitoramento remoto.
+1. Navegue para o Hub IoT no grupo de recursos que contém a solução de Monitoramento Remoto.
 
 1. Na seção **Monitoramento**, escolha **Métricas**. Em seguida, verifique se o número de **Dispositivos conectados** é dois:
 
     ![Número de dispositivos conectados](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. No navegador, navegue para o **Painel** de sua solução de monitoramento remoto. No painel de telemetria no **Painel**, selecione **temperatura**. A temperatura de todos os dispositivos simulados é exibida no gráfico:
+1. No navegador, navegue para o **Painel** de sua solução de Monitoramento Remoto. No painel de telemetria no **Painel**, selecione **temperatura**. A temperatura de todos os dispositivos simulados é exibida no gráfico:
 
     ![Telemetria de temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Agora você tem a simulação de dispositivo de lâmpada sendo executada localmente. A próxima etapa é implantar o código do simulador atualizado na máquina virtual que executa os microsserviços de monitoramento remoto no Azure.
+Agora você tem a simulação de dispositivo de lâmpada sendo executada localmente. A próxima etapa é implantar o código do simulador atualizado na máquina virtual que executa os microsserviços de Monitoramento Remoto no Azure.
 
 Antes de continuar, pare a depuração da simulação de dispositivo e dos projetos de adaptador de armazenamento no Visual Studio.
 
 ### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Implantar o simulador atualizado na nuvem
 
-Os microsserviços na solução de monitoramento remoto são executados em contêineres do Docker. Os contêineres são hospedados na máquina virtual da solução no Azure. Nesta seção, você:
+Os microsserviços na solução de Monitoramento Remoto são executados em contêineres do Docker. Os contêineres são hospedados na máquina virtual da solução no Azure. Nesta seção, você:
 
 * Crie uma nova imagem do Docker de simulação de dispositivo.
 * Carregue a imagem no repositório do hub do Docker.
@@ -583,9 +579,9 @@ As etapas a seguir pressupõem que você tenha um repositório chamado **lightbu
     docker logs {container ID}
     ```
 
-Agora você concluiu as etapas para implantar uma versão atualizada do serviço de simulação de dispositivo em sua solução de monitoramento remoto.
+Agora você concluiu as etapas para implantar uma versão atualizada do serviço de simulação de dispositivo em sua solução de Monitoramento Remoto.
 
-No navegador, navegue para o **Painel** de sua solução de monitoramento remoto. No painel de telemetria no **Painel**, selecione **temperatura**. A temperatura para os dois dispositivos simulados é exibida no gráfico:
+No navegador, navegue para o **Painel** de sua solução de Monitoramento Remoto. No painel de telemetria no **Painel**, selecione **temperatura**. A temperatura para os dois dispositivos simulados é exibida no gráfico:
 
 ![Telemetria de temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
@@ -679,7 +675,7 @@ As etapas a seguir mostram como adicionar um novo tipo **Temperatura Interna** n
 
 Para testar o tipo de dispositivo **Resfriador** atualizado, primeiro execute uma cópia local do serviço **device-simulation** para testar se o tipo de dispositivo se comporta como esperado. Depois de testar e depurar o tipo de dispositivo atualizado localmente, você poderá recriar o contêiner e reimplantar o serviço **device-simulation** no Azure.
 
-Quando você executa o serviço **device-simulation** localmente, ele envia a telemetria para a solução de monitoramento remoto. Na página **Dispositivos**, você pode provisionar instâncias de seu tipo atualizado.
+Quando você executa o serviço **device-simulation** localmente, ele envia a telemetria para a solução de Monitoramento Remoto. Na página **Dispositivos**, você pode provisionar instâncias de seu tipo atualizado.
 
 Para testar e depurar as alterações localmente, consulte a seção anterior [Testar o tipo de dispositivo Lâmpada localmente](#test-the-lightbulb-device-type-locally).
 
@@ -702,9 +698,9 @@ Neste tutorial, nós mostramos como:
 > * Adicionar um novo tipo de dispositivo no painel
 > * Enviar telemetria personalizada de um tipo de dispositivo existente
 
-Agora, você aprendeu a personalizar o serviço de simulação de dispositivo. A próxima etapa sugerida é saber como [conectar um dispositivo físico à solução de monitoramento remoto](iot-accelerators-connecting-devices-node.md).
+Agora, você aprendeu a personalizar o serviço de simulação de dispositivo. A próxima etapa sugerida é saber como [conectar um dispositivo físico à solução de Monitoramento Remoto](iot-accelerators-connecting-devices-node.md).
 
-Para obter informações para o desenvolvedor sobre a solução de monitoramento remoto, consulte:
+Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
 * [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Solução de Problemas do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

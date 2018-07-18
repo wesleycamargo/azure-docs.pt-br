@@ -1,26 +1,28 @@
 ---
-title: Documentação do Azure Data Lake Store - Tutoriais, Referência de API | Microsoft Docs
+title: Documentação do Armazenamento do Azure Data Lake Gen1 - Tutoriais, Referência de API | Microsoft Docs
 description: Saiba mais sobre como configurar, gerenciar e acessar um repositório data lake compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033392"
 ---
-# <a name="data-lake-store-documentation"></a>Documentação do Data Lake Store
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação do Armazenamento do Azure Data Lake Gen1
 
-Saiba mais sobre como usar o Data Lake Store para criar um repositório compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão. Os tutoriais, as referências de API e outras documentações mostram como configurar, gerenciar e acessar um repositório data lake para análise operacional e exploratória.
+Saiba mais sobre como usar o Armazenamento do Azure Data Lake Gen1 (antes conhecido como Azure Data Lake Store) para criar um repositório compatível com o Hadoop de hiperescala para a análise de dados de qualquer tamanho, tipo e velocidade de ingestão. Os tutoriais, as referências de API e outras documentações mostram como configurar, gerenciar e acessar um repositório data lake para análise operacional e exploratória.
+
+Se você estiver interessado em saber mais sobre a versão prévia do Armazenamento do Data Lake Gen2, consulte a [página do produto](https://aka.ms/adlsgen2-product).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Saiba mais sobre o Azure Data Lake Store</h3>
+                        <h3>Saiba mais sobre o Armazenamento do Data Lake Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biblioteca de vídeos do Azure Data Lake Store</h3>
+                        <h3>Biblioteca de Vídeos do Armazenamento do Data Lake Gen1</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o Portal do Azure</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando o portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o PowerShell</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando o PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando a CLI do Azure</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando a CLI do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o .NET</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando o .NET</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o Java</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando o Java</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o Node.js</h3>
+                        <h3>Introdução ao Armazenamento do Data Lake Gen1 usando o Node.js</h3>
                     </div>
                 </div>
             </div>

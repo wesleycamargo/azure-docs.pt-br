@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358210"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuração dos Serviços de Nuvem do Azure (arquivo .cscfg)
 O arquivo de configuração de serviço especifica o número de instâncias de função a ser implantado para cada função no serviço, os valores das configurações e as impressões digitais de todos os certificados associados a uma função. Se o serviço fizer parte de uma Rede Virtual, as informações de configuração da rede deverão ser fornecidas no arquivo de configuração de serviço, bem como no arquivo de configuração de rede virtual. A extensão padrão do arquivo de configuração de serviço é .cscfg.

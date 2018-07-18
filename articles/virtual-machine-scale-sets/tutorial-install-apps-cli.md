@@ -3,7 +3,7 @@ title: Tutorial - Instalar aplicativos em um conjunto de dimensionamento com a C
 description: Saiba como usar a CLI 2.0 do Azure para instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5db044471c324a3707198ab57ee9b9b6528e121d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606518"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Tutorial: instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
 Para executar aplicativos em instâncias de VM (máquina virtual) em um conjunto de dimensionamento, primeiro é necessário instalar os componentes de aplicativo e os arquivos necessários. Em um tutorial anterior, você aprendeu a criar e usar uma imagem de VM personalizada para implantar suas instâncias de VM. Essa imagem personalizada incluía instalações manuais de aplicativos e configurações. Você também pode automatizar a instalação de aplicativos para um conjunto de dimensionamento após a implantação de cada instância de VM ou atualizar um aplicativo que já é executado em um conjunto de dimensionamento. Neste tutorial, você aprenderá a:
@@ -37,7 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 
-## <a name="what-is-the-azure-custom-script-extension"></a>Qual é a Extensão de Script Personalizado do Azure?
+## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
 A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão.
 
 A extensão de script personalizado se integra com modelos do Azure Resource Manager e também pode ser usada com a CLI 2.0 do Azure, o PowerShell, o Portal do Azure ou a API REST. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
@@ -93,7 +94,7 @@ az vmss extension set \
   --settings @customConfig.json
 ```
 
-Cada instância de VM no conjunto de dimensionamento baixa e executa o script do GitHub. Em um exemplo mais complexo, vários componentes de aplicativos e arquivos podem ser instalados. Se o conjunto de dimensionamento estiver escalado verticalmente, as novas instâncias de VM se aplicarão automaticamente à mesma definição de Extensão de Script Personalizado e instalarão o aplicativo necessário.
+Cada instância de VM no conjunto de dimensionamento baixa e executa o script do GitHub. Em um exemplo mais complexo, vários componentes de aplicativos e arquivos poderiam ser instalados. Se o conjunto de dimensionamento estiver escalado verticalmente, as novas instâncias de VM serão aplicadas automaticamente à mesma definição de Extensão de Script Personalizado e instalarão o aplicativo necessário.
 
 
 ## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
@@ -128,7 +129,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web. O
 Deixe o navegador da Web aberto para que você possa ver uma versão atualizada na próxima etapa.
 
 
-## <a name="update-app-deployment"></a>Atualizar implantação de aplicativo
+## <a name="update-app-deployment"></a>Atualizar a implantação do aplicativo
 Em todo o ciclo de vida de um conjunto de dimensionamento, talvez seja necessário implantar uma versão atualizada de seu aplicativo. Com a Extensão de Script Personalizado, você pode fazer referência a um script de implantação atualizado e, em seguida, aplicar novamente a extensão ao seu conjunto de dimensionamento. Quando o conjunto de dimensionamento foi criado em uma etapa anterior, o `--upgrade-policy-mode` foi definido como *automático*. Essa configuração permite que as instâncias de VM no conjunto de dimensionamento se atualizem automaticamente e apliquem a versão mais recente de seu aplicativo.
 
 No shell atual, crie um arquivo chamado *customConfigv2.json* e cole a configuração a seguir. Essa definição executa uma versão atualizada *v2* do script de instalação do aplicativo:

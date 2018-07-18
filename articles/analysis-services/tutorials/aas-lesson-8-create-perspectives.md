@@ -3,16 +3,17 @@ title: 'Lição 8 do tutorial do Azure Analysis Services: criar perspectivas | M
 description: Descreve como criar perspectivas no projeto de tutorial do Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f72c1048a4bf2cb0a2f42db99bb35cf66563ae0f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442093"
 ---
 # <a name="create-perspectives"></a>Criar perspectivas
 

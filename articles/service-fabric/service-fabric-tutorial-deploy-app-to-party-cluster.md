@@ -1,5 +1,5 @@
 ---
-title: Implantar um aplicativo do Azure Service Fabric em um cluster | Microsoft Docs
+title: Implantar um do Service Fabric em um cluster no Azure | Microsoft Docs
 description: Saiba como implantar um aplicativo em um cluster no Visual Studio.
 services: service-fabric
 documentationcenter: .net
@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83ebcce68a7abe53d7b8eaeff5913a907e3df9a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208872"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344182"
 ---
-# <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implantar um aplicativo em um cluster do Service Fabric no Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo do Service Fabric em um cluster no Azure
+
 Este tutorial é a segunda parte de uma série e mostra como implantar um aplicativo do Azure Service Fabric em um novo cluster no Azure diretamente do Visual Studio.
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 > * Criar um cluster no Visual Studio
 > * Implantar um aplicativo em um cluster remoto usando o Visual Studio
-
 
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
@@ -39,32 +39,37 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial:
-- Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
-- [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
+
+* Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
+* [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Baixar o aplicativo de exemplo Votação
+
 Se você não tiver criado o aplicativo de exemplo Votação na [parte um desta série de tutoriais](service-fabric-tutorial-create-dotnet-app.md), poderá baixá-lo. Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
 
-```
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
+
 Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diretamente por meio do Visual Studio. Um cluster do [Service Fabric](/service-fabric/service-fabric-deploy-anywhere.md) é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados.
 
 Você tem duas opções de implantação dentro do Visual Studio:
-- Criar um cluster no Microsoft Azure a partir do Visual Studio. Essa opção permite que você crie um cluster seguro diretamente no Visual Studio com suas configurações preferenciais. Esse tipo de cluster é ideal para cenários de teste, onde você pode criar o cluster e, em seguida, publicar diretamente nele no Visual Studio.
-- Publicar em um cluster existente na sua assinatura.  Você pode criar clusters do Service Fabric por meio do [portal do Microsoft Azure](https://portal.azure.com)usando o [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou [os scripts da CLI do Azure](./scripts/cli-create-cluster.md), ou de um modelo do [Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+
+* Criar um cluster no Microsoft Azure a partir do Visual Studio. Essa opção permite que você crie um cluster seguro diretamente no Visual Studio com suas configurações preferenciais. Esse tipo de cluster é ideal para cenários de teste, onde você pode criar o cluster e, em seguida, publicar diretamente nele no Visual Studio.
+* Publicar em um cluster existente na sua assinatura.  Você pode criar clusters do Service Fabric por meio do [portal do Microsoft Azure](https://portal.azure.com)usando o [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou [os scripts da CLI do Azure](./scripts/cli-create-cluster.md), ou de um modelo do [Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Este tutorial cria um cluster a partir do Visual Studio. Se já houver um cluster implantado, é possível copiar e colar o ponto de extremidade de conexão ou escolhê-lo na sua assinatura.
 > [!NOTE]
 > Muitos serviços usam o proxy inverso para se comunicar entre si. Os clusters criados no Visual Studio e os clusters party têm proxy inverso habilitado por padrão.  Se usar um cluster existente, você deverá [habilitar o proxy inverso no cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="find-the-votingweb-service-endpoint"></a>Localizar o ponto de extremidade de serviço VotingWeb
+
 Primeiro, encontre o ponto de extremidade do serviço web de front-end.  O serviço web de front-end está ouvindo em uma porta específica.  Quando o aplicativo for implantado para um cluster no Azure, o cluster e o aplicativo executam atrás de um balanceador de carga do Azure.  A porta do aplicativo deve estar aberta no balanceador de carga do Microsoft Azure para que o tráfego de entrada pode obter por meio para o serviço web.  A porta (por exemplo, 8080) foi encontrada no arquivo *VotingWeb/PackageRoot/ServiceManifest.xml* no elemento **Ponto de extremidade**:
 
 ```xml
@@ -74,14 +79,15 @@ Primeiro, encontre o ponto de extremidade do serviço web de front-end.  O servi
 Na próxima etapa, especifique essa porta na guia  **Avançado** da caixa de diálogo **Criar cluster**.  Se você estiver implantando o aplicativo a um cluster existente, você pode abrir essa porta no balanceador de carga do Microsoft Azure usando um [script do PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) ou o [portal do Microsoft Azure](https://portal.azure.com).
 
 ### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Criar um cluster no Microsoft Azure através do Visual Studio.
+
 Clique com botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha **Publicar**.
 
 Entre usando sua conta do Azure para que você possa ter acesso às assinaturas. Essa etapa é opcional se você está usando um cluster party.
 
 Selecione a lista suspensa para o **Ponto de Extremidade de Conexão** e selecione a opção **<Create New Cluster...>**.
-    
+
 ![Caixa de diálogo Publicar](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
-    
+
 Na caixa de diálogo **Criar cluster**, modifique as seguintes configurações:
 
 1. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a assinatura e o local que você deseja usar.
@@ -94,6 +100,7 @@ Na caixa de diálogo **Criar cluster**, modifique as seguintes configurações:
 ![Diálogo Criar Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 ## <a name="deploy-the-sample-application"></a>Implantar o aplicativo de exemplo
+
 Quando o cluster que você deseja usar estiver pronto, clique com botão direito do mouse no projeto de aplicativo e escolha **Publicar**.
 
 Quando a publicação for concluída, você poderá enviar uma solicitação ao aplicativo por meio de um navegador.
@@ -105,6 +112,7 @@ Agora você verá o mesmo resultado que viu ao executar o aplicativo localmente.
 ![Resposta de API do Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]

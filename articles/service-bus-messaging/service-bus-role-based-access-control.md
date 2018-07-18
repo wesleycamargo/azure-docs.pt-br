@@ -1,12 +1,12 @@
 ---
-title: "Versão prévia do RBAC (controle de acesso baseado em função) do Barramento de Serviço do Azure| Microsoft Docs"
-description: "Controle de acesso baseado em função do Barramento de Serviço do Azure"
+title: Versão prévia do RBAC (controle de acesso baseado em função) do Barramento de Serviço do Azure| Microsoft Docs
+description: Controle de acesso baseado em função do Barramento de Serviço do Azure
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783314"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 

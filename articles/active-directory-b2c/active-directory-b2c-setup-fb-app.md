@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuração do Facebook | Microsoft Docs'
+title: Configuração do Facebook no Azure Active Directory B2C | Microsoft Docs
 description: Forneça inscrição e entrada para consumidores com contas do Facebook em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/7/2017
 ms.author: davidmu
-ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 316e44ea92a25ab804c8cc499f91c45e4a66ef02
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445493"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas do Facebook
 ## <a name="create-a-facebook-application"></a>Criar um aplicativo do Facebook

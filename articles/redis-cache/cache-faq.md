@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640465"
 ---
 # <a name="azure-redis-cache-faq"></a>Perguntas frequentes sobre Cache Redis do Azure
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure.
@@ -385,7 +386,7 @@ Dadas essas informações, recomendamos fortemente que os clientes definam o val
 
 Como definir essa configuração:
 
-* No ASP.NET, use a [configuração “minIoThreads”]["minIoThreads" configuration setting] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir essa configuração por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
+* No ASP.NET, use a [definição de configuração “minIoThreads” ou “minWorkerThreads”]["minIoThreads" configuration setting] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir essa configuração por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
 
   > [!NOTE] 
   > O valor especificado nesse elemento de configuração é uma *configuração por núcleo*. Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja de 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412570"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>O que são Coleções de Espaços de Trabalho do Power BI?
 

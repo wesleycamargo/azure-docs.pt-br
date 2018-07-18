@@ -1,0 +1,123 @@
+- name: Documentação de API do Serviço de fala
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é Serviço de fala?
+      href: overview.md
+      expanded: true
+    - name: Cenários de fala
+      href: speech-scenarios.md
+- name: Guia de início rápido
+  items:
+    - name: Experimente o serviço de Fala gratuitamente
+      href: get-started.md
+    - name: 'Reconhecer fala no C# (.NET no Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Reconhecer fala no C# (.NET Core no Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Reconhecer fala em um aplicativo UWP
+      href: quickstart-csharp-uwp.md
+    - name: Reconhecer fala no C++ para Windows
+      href: quickstart-cpp-windows.md
+    - name: Reconhecer fala no C++ para Linux
+      href: quickstart-cpp-linux.md
+    - name: Reconhecer fala no Java para Android
+      href: quickstart-java-android.md
+    - name: Introdução ao SDK de dispositivos de fala
+      href: speech-devices-sdk-qsg.md
+- name: Guias de instruções
+  items:
+    - name: Reconhecer fala
+      href: how-to-speech-to-text.md
+    - name: Sintetizar fala
+      href: how-to-text-to-speech.md
+    - name: Traduzir fala
+      href: how-to-translate-speech.md
+    - name: Transcrição de lote
+      href: batch-transcription.md
+    - name: Obter SDK dos dispositivos de fala
+      href: get-speech-devices-sdk.md
+- name: Personalização
+  items:
+    - name: Personalizar modelos acústicos
+      href: how-to-customize-acoustic-models.md
+    - name: Personalizar modelos de linguagem
+      href: how-to-customize-language-model.md
+    - name: Personalizar a pronúncia
+      href: how-to-customize-pronunciation.md
+    - name: Personalizar fontes de voz (bot brand voice)
+      href: how-to-customize-voice-font.md
+    - name: Amostras de memorando de voz
+      href: record-custom-voice-samples.md
+    - name: Preparar transcrições
+      href: prepare-transcription.md
+    - name: Usar transmissões de áudio personalizados
+      href: how-to-use-audio-input-streams.md
+    - name: Personalizar palavra de ativação do dispositivo (SKD de Dispositivos)
+      href: speech-devices-sdk-create-kws.md
+- name: Exemplos
+  items:
+    - name: Baixar amostras
+      href: samples.md
+    - name: Reconhecimento de fala
+      href: speech-to-text-sample.md
+    - name: Reconhecimento de intenção
+      href: intent.md
+    - name: Tradução
+      href: translation.md
+- name: Conceitos
+  items:
+    - name: Conversão de Fala em Texto
+      href: speech-to-text.md
+    - name: Texto em fala
+      href: text-to-speech.md
+    - name: Tradução de Fala
+      href: speech-translation.md
+    - name: SDK de fala
+      href: speech-sdk.md
+    - name: SDK de Dispositivos de Fala
+      href: speech-devices-sdk.md
+- name: Referência
+  items:
+    - name: Idiomas com suporte
+      href: supported-languages.md
+    - name: Regiões
+      href: regions.md
+    - name: APIs REST
+      href: rest-apis.md
+    - name: API do SDK de fala
+      href: speech-sdk-reference.md
+    - name: Marcação de síntese de fala
+      href: speech-synthesis-markup.md
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      items:
+        - name: Perguntas frequentes da conversão de fala em texto
+          href: faq-stt.md
+        - name: Perguntas Frequentes da Conversão de Texto em Fala
+          href: faq-text-to-speech.md
+        - name: Perguntas Frequentes do Tradutor
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Política de privacidade e cookies
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: solução de problemas
+      href: troubleshooting.md
+    - name: Enviando seu aplicativo
+      href: ship-application.md
+    - name: Notas de versão
+      href: releasenotes.md
+    - name: Licença do SDK de fala
+      href: license.md
+    - name: Licença do SDK de dispositivos de fala
+      href: speech-devices-sdk-license.md
+    - name: Avisos de terceiros
+      href: third-party-notices.md

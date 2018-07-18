@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681564"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -66,7 +67,7 @@ Um dispositivo StorSimple conectado a um host Linux pode ser configurado para al
 
 O procedimento a seguir descreve como configurar vários caminhos quando um dispositivo StorSimple com duas interfaces de rede está conectado a um host com duas interfaces de rede.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Esta seção detalha os pré-requisitos de configuração para o servidor CentOS e seu dispositivo StorSimple.
 
 ### <a name="on-centos-host"></a>No host CentOS
@@ -419,7 +420,7 @@ a. Para verificar se seu dispositivo está na lista branca, use o seguinte coman
 Para saber mais, veja como [usar o comando interativo de solução de problemas para múltiplos caminhos](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Digite  | Get-Help | DESCRIÇÃO |
+| Digite  | Comando | DESCRIÇÃO |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |
@@ -444,5 +445,5 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 Já que você está configurando o MPIO no host Linux, talvez também seja necessário consultar os seguintes documentos do CentoS 6.6:
 
 * [Configurando o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Guia de treinamento do Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Guia de treinamento do Linux](http://linux-training.be/linuxsys.pdf)
 

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuração do LinkedIn | Microsoft Docs'
-description: Forneça inscrição e entrada para consumidores com contas do LinkedIn em seus aplicativos protegidos pelo Azure Active Directory B2C
+title: Configuração do LinkedIn no Azure Active Directory B2C | Microsoft Docs
+description: Forneça inscrição e entrada para consumidores com contas do LinkedIn em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7588711bd1c2a02e2e9a100d2ba182f43e7df488
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446046"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: fornecer inscrição e entrada aos consumidores com contas do LinkedIn
 ## <a name="create-a-linkedin-application"></a>Criar um aplicativo do LinkedIn
@@ -35,7 +35,7 @@ Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Direc
    > **Segredo do Cliente** é uma credencial de segurança importante.
    > 
    > 
-6. Digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento Autorizado** (em **OAuth 2.0**). Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Clique em **Adicionar** e depois em **Atualizar**. O valor **{tenant}** diferencia letras maiúsculas de minúsculas.
+6. Digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento Autorizado** (em **OAuth 2.0**). Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Clique em **Adicionar** e depois em **Atualizar**. O valor **{tenant}** deve estar em minúsculas.
    
     ![LinkedIn — Configurar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

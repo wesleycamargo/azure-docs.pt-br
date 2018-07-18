@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059882"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload
 Um controle que permite a um usuário especificar um ou mais arquivos a carregar.
@@ -49,19 +50,19 @@ Um controle que permite a um usuário especificar um ou mais arquivos a carregar
 ## <a name="remarks"></a>Comentários
 - `constraints.accept`Especifica os tipos de arquivos que são mostrados no diálogo do arquivo do navegador. Consulte a [especificação do HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **null**.
 - Se `options.multiple` é definido como **true**, o usuário pode selecionar mais de um arquivo no diálogo do arquivo do navegador. O valor padrão é **false**.
-- Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se **file** for especificado, a saída conterá o conteúdo do arquivo como um blob. Se **url** for especificado, o arquivo será carregado em um local temporário e a saída conterá a URL do blob. Blobs temporários serão limpos após 24 horas. O valor padrão é **file**.
+- Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se **file** for especificado, a saída terá o conteúdo do arquivo como um blob. Se **url** for especificado, o arquivo será carregado em um local temporário e a saída terá a URL do blob. Blobs temporários serão limpos após 24 horas. O valor padrão é **file**.
 - O valor de `options.openMode` determina como o arquivo é lido. Se o arquivo deve ser texto sem formatação, especifique **text**; caso contrário, especifique **binary**. O valor padrão é **text**.
 - Se `options.uploadMode` é definido como **file** e `options.openMode` é definido como **binary**, a saída é codificada em base64.
 - `options.encoding`Especifica a codificação a ser usada para ler o arquivo. O valor padrão é **UTF-8**e é usado apenas quando `options.openMode` é definido como **text**.
 
 ## <a name="sample-output"></a>Saída de exemplo
-Se options.multiple for false e options.uploadMode for file, a saída conterá o conteúdo do arquivo como uma cadeia de caracteres JSON:
+Se options.multiple for false e options.uploadMode for file, a saída terá o conteúdo do arquivo como uma cadeia de caracteres JSON:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Se options.multiple for true e options.uploadMode for file, a saída conterá o conteúdo do arquivo como uma matriz JSON:
+Se options.multiple for true e options.uploadMode for file, a saída terá o conteúdo dos arquivos como uma matriz JSON:
 
 ```json
 [
@@ -72,13 +73,13 @@ Se options.multiple for true e options.uploadMode for file, a saída conterá o 
 ]
 ```
 
-Se options.multiple for false e options.uploadMode for url, a saída conterá a URL como uma cadeia de caracteres JSON:
+Se options.multiple for false e options.uploadMode for url, a saída terá o conteúdo dos arquivos como uma cadeia de caracteres JSON:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Se options.multiple for true e options.uploadMode for url, a saída conterá a URL como uma matriz JSON:
+Se options.multiple for true e options.uploadMode for url, a saída terá o conteúdo dos arquivos como uma cadeia de caracteres JSON:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",

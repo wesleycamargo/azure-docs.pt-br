@@ -4,8 +4,8 @@ description: Saiba o que considerar ao planejar uma implantação de Arquivos do
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077667"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335832"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -145,6 +145,12 @@ Para Sincronização de arquivos do Azure e DFS-R trabalharem lado a lado:
 
 Para obter mais informações, consulte [Visão geral da Replicação do DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+Usando o sysprep em um servidor que possua o agente Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer depois da implantação da imagem do servidor e da conclusão da mini-instalação do sysprep.
+
+### <a name="windows-search"></a>Windows Search
+Se a classificação em nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estão com problemas serão ignorados e não indexados pelo Windows Search. Arquivos sem camadas são indexados corretamente.
+
 ### <a name="antivirus-solutions"></a>Soluções de antivírus
 Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-intencionados conhecidos, um antivírus pode causar o recall de arquivos em camadas. Como os arquivos em camadas têm o atributo “offline” definido, recomendamos consultar seu fornecedor de software para saber como configurar sua solução para ignorar a leitura de arquivos offline. 
 
@@ -158,6 +164,11 @@ Sabe-se que as seguintes soluções dão suporte à possibilidade de ignorar arq
 
 ### <a name="backup-solutions"></a>Soluções de backup
 Como as soluções de antivírus, as soluções de backup podem causar o recall de arquivos em camadas. Recomendamos o uso de uma solução de backup de nuvem para fazer backup do compartilhamento do arquivos do Azure, em vez de um produto de backup local.
+
+Se você estiver usando uma solução de backup local, os backups deverão ser executados em um servidor no grupo de sincronização que possui a camada de nuvem desabilitada. Ao restaurar arquivos no local do ponto de extremidade do servidor, use a opção de restauração no nível de arquivo. Os arquivos restaurados serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.
+
+> [!Note]  
+> Opções de restauração BMR (recuperação bare-metal) e nível de volume com reconhecimento de aplicativo podem causar resultados inesperados e atualmente não têm suporte. Essas opções de restauração terão suporte em uma versão futura.
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:
@@ -180,6 +191,7 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Região | Localização do Datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
+| Sudeste da Austrália | Vitória |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
 | Centro dos EUA | Iowa |
@@ -189,6 +201,7 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Norte da Europa | Irlanda |
 | Sudeste Asiático | Cingapura |
 | Sul do Reino Unido | Londres |
+| Oeste do Reino Unido | Cardiff |
 | Europa Ocidental | Países Baixos |
 | Oeste dos EUA | Califórnia |
 

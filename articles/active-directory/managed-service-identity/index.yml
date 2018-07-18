@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/20/2018
+  ms.locfileid: "34354275"
 abstract:
   description: A MSI (Identidade de Serviço Gerenciado) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar essa identidade para se autenticar em qualquer serviço que dá suporte à autenticação do Azure AD sem ter as credenciais no código.  Saiba como criar e gerenciar as Identidades de Serviço Gerenciada com tutoriais e guias de início rápido.
 sections:

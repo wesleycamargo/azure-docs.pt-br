@@ -1,11 +1,11 @@
 ---
-title: "Mensagens, payloads e serialização do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Visão geral dos payloads de mensagem do Barramento de Serviço"
+title: Mensagens, payloads e serialização do Barramento de Serviço do Azure | Microsoft Docs
+description: Visão geral dos payloads de mensagem do Barramento de Serviço
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200056"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 

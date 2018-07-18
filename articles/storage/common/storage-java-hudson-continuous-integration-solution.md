@@ -1,6 +1,6 @@
 ---
 title: Como usar o Hudson com o Armazenamento de Blobs | Microsoft Docs
-description: "Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação."
+description: Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060121"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 ## <a name="overview"></a>Visão geral

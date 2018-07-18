@@ -1,12 +1,12 @@
 ---
-title: "Criar tíquete ou caso de suporte para o StorSimple série 8000 | Microsoft Docs"
-description: "Saiba como registrar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000."
+title: Criar tíquete ou caso de suporte para o StorSimple série 8000 | Microsoft Docs
+description: Saiba como registrar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743035"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
 

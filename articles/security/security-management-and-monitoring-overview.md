@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364362"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697098"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monitoramento de serviços de nuvem e máquinas virtuais (VMs) do Azure. Este artigo fornece uma visão geral desses recursos e serviços de segurança básicos. São fornecidos links para artigos que apresentam detalhes de cada um para que você possa saber mais sobre eles.
@@ -39,7 +39,7 @@ O RBAC (Controle de Acesso Baseado em Função) fornece o gerenciamento de acess
 
 Saiba mais:
 
-* [Blog da equipe do Active Directory sobre o RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [Blog da equipe do Active Directory sobre o RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
@@ -100,8 +100,8 @@ O Privileged Identity Management apresenta o conceito de um administrador tempor
 
 Saiba mais:
 
-* [Gerenciamento de identidades com privilégios do AD do Azure](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Introdução ao Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Gerenciamento de identidades com privilégios do AD do Azure](../active-directory/privileged-identity-management/pim-configure.md)
+* [Introdução ao Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>Identity Protection
 O Azure Active Directory Identity Protection fornece uma exibição consolidada das atividades de entrada suspeitas e das vulnerabilidades potenciais, com o objetivo de ajudar a proteger seus negócios. A Proteção de Identidade detecta atividades suspeitas para usuários e identidades com privilégios (administrador), com base em sinais como:

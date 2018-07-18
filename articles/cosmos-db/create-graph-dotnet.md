@@ -2,23 +2,21 @@
 title: Compilar um aplicativo .NET Framework ou Core do Azure Cosmos DB usando a API do Graph | Microsoft Docs
 description: Apresenta um exemplo de código do .NET Framework/Core que pode ser usado para conectar e consultar o Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453409"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilar um aplicativo .NET Framework ou Core usando a API do Graph
 
@@ -69,7 +67,7 @@ Agora, clonaremos um aplicativo de API do Graph do GitHub, definiremos a cadeia 
 5. Restaure os pacotes NuGet no projeto. Isso deve incluir o driver Gremlin.Net, bem como o pacote Newtonsoft.Json.
 
 
-6. Também é possível instalar o driver Gremlin.Net manualmente, usando o gerenciador de pacotes Nuget ou o [utilitário de linha de comando do nuget](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. Também é possível instalar o driver Gremlin.Net manualmente, usando o gerenciador de pacotes Nuget ou o [utilitário de linha de comando do nuget](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -88,7 +86,7 @@ Todos os trechos de código a seguir são retirados do arquivo Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Os comandos de Gremlin a serem executados são listados em um dicionário (linha 26):
@@ -177,7 +175,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     `private static string database = "your-database";`
 
-5. De modo semelhante, usando as informações da coleção criada acima, cole a coleção (que também é o nome do grafo) dentro da variável `collection` na linha 23. 
+5. De modo semelhante, usando as informações do contêiner criada acima, cole o contêiner (que também é o nome do grafo) dentro da variável `collection` na linha 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -195,7 +193,7 @@ Clique em CTRL + F5 para executar o aplicativo. O aplicativo imprimirá os coman
 
 Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consultar seus novos dados de grafo.
 
-1. No Data Explorer, o novo banco de dados aparece no painel Grafos. Expanda os nós do banco de dados e da coleção, depois clique em **Grafo**.
+1. No Data Explorer, o novo banco de dados aparece no painel Grafos. Expanda os nós do banco de dados e do contêiner, depois clique em **Grafo**.
 
 2. Clique no botão **Aplicar Filtro** para usar a consulta padrão para exibir todos os vértices no grafo. Os dados gerados pelo aplicativo de exemplo são exibidos no painel Grafos.
 

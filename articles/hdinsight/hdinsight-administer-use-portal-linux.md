@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361964"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627016"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -62,7 +62,7 @@ Você deve especificar uma assinatura do Azure, quando você cria um cluster HDI
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Clique em **Assinatura** no menu à esquerda. Ele tem um ícone amarelo de chave. Você verá uma lista de assinaturas.
     3. Clique na assinatura que você usa para criar clusters. 
-    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/overview.md#built-in-roles) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
+    4. Clique em **Minhas permissões**.  Isso mostra a [função](../role-based-access-control/built-in-roles.md) na assinatura. Você precisa de pelo menos acesso de Colaborador para criar o cluster do HDInsight.
 
 - Para usar um grupo de recursos existente:
 
@@ -282,7 +282,7 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
    | --- | --- |
    | NOME |Alterar senha SSH |
    | URI do script Bash |O URI do arquivo changepassword.sh |
-   | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nós listados |
+   | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nó listados |
    | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
    | Persistir esta ação de script... |Deixe este campo desmarcado. |
 5. Selecione **Criar** para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.

@@ -15,10 +15,11 @@ ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700893"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Hubs de Notificação usando o Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +42,7 @@ Este tutorial exige:
 ## <a name="create-a-baidu-account"></a>Criar uma conta de Baidu
 Para usar o Baidu, você deve ter uma conta do Baidu. Se você já tiver uma, faça logon no [portal do Baidu] e vá para a próxima etapa. Caso contrário, veja as instruções abaixo sobre como criar uma conta do Baidu.  
 
-1. Vá para o [portal do Baidu] e clique no link **登录** (**Login**). Clique em **立即注册** (**Registrar Agora**) para iniciar o processo de registro de conta.
+1. Vá para o [portal do Baidu] e clique no link **登录**(**Logon**). Clique em**立即注册**(**Registrar Agora**) para iniciar o processo de registro de conta.
    
     ![Registro do Baidu](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
@@ -62,11 +63,11 @@ Depois de ativar uma conta do Baidu, faça logon no [portal do Baidu].
 ## <a name="create-a-baidu-cloud-push-project"></a>Criar um projeto de envio na nuvem Baidu
 Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de aplicativo, chave API e a chave secreta.
 
-1. Depois de fazer logon no [portal do Baidu], clique em **更多 >>** (**mais**).
+1. Depois de se conectar ao [portal do Baidu], clique em**更多 >>** (**mais**).
    
     ![Registro - Mais](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
-2. Role para baixo na seção **站长与开发者服务** (**Webmaster e Serviços de Desenvolvedor**) e clique em **百度云推送** (**push da nuvem Baidu**).
+2. Role para baixo na seção **站长与开发者服务**(**Webmaster e Serviços de Desenvolvedor**) e clique em**百度云推送**(**Push de Nuvem do Baidu**).
    
     ![Plataforma de Nuvem Aberta do Baidu](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
@@ -74,7 +75,7 @@ Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de apl
    
     ![Logon do Baidu](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
-4. Em seguida, clique em **创建应用**(**Criar Aplicativo**) nesta página.
+4. Em seguida, clique em**创建应用**(**Criar Aplicativo**) nesta página.
 
     ![Criar Aplicativo do Baidu](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
@@ -90,7 +91,7 @@ Quando você cria um projeto de envio na nuvem Baidu, você recebe sua ID de apl
    
     ![Segredos de Push do Baidu](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
-8. Configure o projeto para notificações por push clicando em 创建通知 (**Criar Notificação**) no painel esquerdo.
+8. Configure o projeto para notificações por push, clicando em 创建通知 (**Criar Notificação**) no painel esquerdo.
    
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
@@ -116,7 +117,7 @@ Anote `DefaultListenSharedAccessSignature` e `DefaultFullSharedAccessSignature` 
 
     ![Hubs de Notificação do Azure - Novo Projeto do Baidu](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Insira um Nome de Aplicativo e verifique se a versão do SDK Mínimo Necessário está definida como API 16: Android 4.1. **Verifique também se o nome do pacote (应用包名) é igual ao do Portal de Push de Nuvem do Baidu**
+2.  Insira um Nome de Aplicativo e verifique se a versão do SDK Mínimo Necessário está definida como API 16: Android 4.1. **Além disso, verifique se o nome do pacote (应用包名) é igual ao do Portal de Push de Nuvem do Baidu**
 
     ![Hubs de Notificação do Azure - SDK1 Mín do Baidu](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
     ![Hubs de Notificação do Azure - SDK2 Mín do Baidu](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
@@ -532,5 +533,5 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK do Android Push Baidu]: http://push.baidu.com/sdk/push_client_sdk_for_android
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [portal do Baidu]: http://www.baidu.com/

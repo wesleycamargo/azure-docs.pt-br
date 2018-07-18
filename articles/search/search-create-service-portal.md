@@ -6,13 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950660"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
@@ -28,8 +29,8 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 ## <a name="find-azure-search"></a>Encontrar o Azure Search
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Clique no sinal de adição ("+") no canto superior esquerdo.
-3. Selecione **Web + Móvel** > **Azure Search**.
+2. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
+3. Selecione **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -76,12 +77,14 @@ As ***partições*** permitem que o seu serviço armazene e pesquise mais docume
 
 ***Réplicas*** permitem que seu serviço lide com uma carga maior de consultas de pesquisa.
 
+A adição de recursos aumenta sua fatura mensal. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode ajudá-lo a entender as implicações de cobrança de adição de recursos. Lembre-se de que você pode ajustar os recursos com base na carga. Por exemplo, você pode aumentar os recursos para criar um índice inicial completo e reduzir recursos posteriormente para um nível mais adequado para indexação incremental.
+
 > [!Important]
 > Um serviço deve ter [duas réplicas para o SLA somente leitura e três réplicas para o SLA de leitura/gravação](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vá até a folha de serviço de pesquisa no Portal do Azure.
 2. No painel de navegação esquerdo, selecione **Configurações** > **Escala**.
-3. Use a barra deslizante para adicionar réplicas ou partições.
+3. Use a barra deslizante para adicionar recursos de qualquer tipo.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363682"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330733"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar um Firewall de Última Geração na Central de Segurança do Azure
 A Central de Segurança do Azure pode recomendar que você adicione um firewall de última geração (NGFW) de um parceiro da Microsoft para aumentar suas proteções de segurança. Este documento guiará você por um exemplo de como fazer isso.
@@ -58,7 +58,7 @@ Volte para a folha **Recomendações** . Uma nova entrada foi gerada após a adi
 Este documento mostrou como implementar a recomendação da Central de Segurança para "Adicionar um Firewall de Última Geração". Para saber mais sobre NGFWs e a solução de parceiro da Check Point, consulte:
 
 * [Firewall de Última Geração](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

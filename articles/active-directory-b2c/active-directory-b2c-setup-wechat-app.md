@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configuração WeChat | Microsoft Docs'
+title: A configuração do WeChat no Active Directory B2C do Azure | Microsoft Docs
 description: Forneça inscrição e conexão para consumidores com contas do WeChat em seus aplicativos protegidos pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ca12c84042f92dafff67dc10ce6b56b77c0456eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: a18d41a4f45b147790a17664156659d282e710d4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445919"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: fornecer inscrição e conexão para consumidores com contas do WeChat
 
@@ -30,9 +30,9 @@ Para usar o WeChat como um provedor de identidade no Azure AD (Active Directory)
 ### <a name="register-a-wechat-application"></a>Registrar um aplicativo WeChat
 
 1. Acesse [https://open.weixin.qq.com/](https://open.weixin.qq.com/) e faça logon.
-2. Clique em **管理中心** (centro de gerenciamento).
+2. Clique em**管理中心**(Centro de gerenciamento).
 3. Siga as etapas necessárias para registrar um novo aplicativo.
-4. Para **授权回调域** (URL de retorno de chamada), digite `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se seu `tenant_name` for contoso.onmicrosoft.com, defina a URL para ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+4. Para **授权 回调 域** (URL de retorno de chamada), insira `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se seu `tenant_name` for contoso.onmicrosoft.com, defina a URL para ser `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 5. Localize e copie a **ID DO APLICATIVO** e a **CHAVE DO APLICATIVO**. Você precisará delas mais tarde.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurar o WeChat como um provedor de identidade em seu locatário

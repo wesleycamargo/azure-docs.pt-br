@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054374"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões de API do provedor de recursos com suporte por perfis na pilha do Azure
 
@@ -25,7 +26,7 @@ Você pode encontrar os números de versão e o provedor de recursos para cada p
 
 O perfil de API usa convenções de nomenclatura de três:
  - mais recente
- - Aaaa-mm-dd-híbrido
+ - aaaa-mm-dd-híbrido
  - aaaa-mm-dd-perfil
 
 Para obter uma explicação de perfis de API e cadência de lançamento de versão para a pilha do Azure, consulte [perfis de versão de API de gerenciamento na pilha do Azure](azure-stack-version-profiles.md).
@@ -83,13 +84,13 @@ Para mais de uma lista das versões para cada tipo de recurso para os provedores
 
 Você pode usar o controle de acesso baseado em função para gerenciar as ações em recursos de usuários em sua organização. Esse conjunto de operações permite que você definir funções, atribuir funções aos usuários ou grupos e obter informações sobre permissões. Para obter mais informações, consulte [autorização](https://docs.microsoft.com/rest/api/authorization/).
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |---------------------|--------------------|
 | Bloqueios | 2017-04-01 |
 | Operações | 2015-07-01 |
 | Permissões | 2015-07-01 |
 | Atribuições de Política | 2016-12-01 (2017-06-01-preview) |
-| Definições de política | 2016-12-01 |
+| Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
 | Atribuições de função | 2015-07-01 |
 | Definições de função | 2015-07-01 |
@@ -141,19 +142,22 @@ As APIs de computação do Azure oferecem acesso programático às máquinas vir
 
 ### <a name="microsoftinsights"></a>Microsoft.insights
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |--------------------|--------------------|
-| Regras de Alerta | 2016-03-01 |
-| Categorias de evento | 2017-03-01-preview |
-| Tipos de evento | 2017-03-01-preview |
-| Definições de Métrica | 2016-03-01 |
 | Operações | 2015-04-01 |
+| Tipos de evento | 2015-04-01 |
+| Categorias de evento | 2015-04-01 |
+| Definições de Métrica | 2018-01-01 |
+| Métricas | 2018-01-01 |
+| Configurações de Diagnóstico | 2017-05-01-preview |
+| Categorias de configurações de diagnóstico | 2017-05-01-preview |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 Gerenciar sua chave de cofres, bem como certificados dentro de seu Cofre de chave, chaves e segredos. Para obter mais informações, consulte [referência de API de REST do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/).
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |-------------------------|--------------|
 | Operações | 2016-10-01 |
 | Cofres | 2016-10-01 |
@@ -164,7 +168,7 @@ Gerenciar sua chave de cofres, bem como certificados dentro de seu Cofre de chav
 
 Resultado da chamada de operações é uma representação da lista de operações de nuvem de rede disponível. Para obter mais informações, consulte [operação REST API](https://docs.microsoft.com/rest/api/operation/).
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |---------------------------|--------------|
 | conexões | 2015-06-15 |
 | Zonas DNS | 2016-04-01 |
@@ -186,7 +190,7 @@ Resultado da chamada de operações é uma representação da lista de operaçõ
 
 O Azure Resource Manager permite que você implante e gerencie a infraestrutura para suas soluções do Azure. Organize os recursos relacionados em grupos de recursos e implante seus recursos com modelos JSON. Para obter uma introdução à implantação e gerenciamento de recursos no Gerenciador de recursos, consulte [visão geral do Gerenciador de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |-----------------------------------------|-------------------|
 | Registros de aplicativo | 2015-01-01 |
 | Verificar Nome do Recurso | 2015-012016-09-01 |
@@ -218,7 +222,7 @@ O Azure Resource Manager permite que você implante e gerencie a infraestrutura 
 
 O provedor de recursos de armazenamento (SRP) permite que você gerencie sua conta de armazenamento e chaves por meio de programação. Para obter mais informações, consulte [referência de API REST do provedor de recursos de armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp/).
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |-------------------------|--------------|
 | Verificar disponibilidade do nome | 2016-01-01 |
 | Locais | 2016-01-01 |
@@ -231,13 +235,13 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 
 ### <a name="microsoft-authorization"></a>Autorização da Microsoft
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |---------------------|---------------------------------|
 | Bloqueios | 2017-04-01 |
 | Operações | 2015-07-01 |
 | Permissões | 2015-07-01 |
 | Atribuições de Política | 2016-12-01 (2017-06-01-preview) |
-| Definições de política | 2016-12-01 |
+| Definições de Política | 2016-12-01 |
 | Operações do provedor | 2015-07-01-preview |
 | Atribuições de função | 2015-07-01 |
 | Definições de função | 2015-07-01 |
@@ -263,7 +267,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |---------------------------|--------------|
 | conexões | 2015-06-15 |
 | Zonas DNS | 2016-04-01 |
@@ -283,7 +287,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |-----------------------------------------|--------------|
 | Registros de aplicativo | 2015-01-01 |
 | Verificar Nome do Recurso | 2016-09-01 |
@@ -313,7 +317,7 @@ O provedor de recursos de armazenamento (SRP) permite que você gerencie sua con
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
 
-| Tipos de Recurso | Versões de API |
+| Tipos de recurso | Versões de API |
 |-------------------------|--------------|
 | Verificar disponibilidade do nome | 2016-01-01 |
 | Locais | 2016-01-01 |

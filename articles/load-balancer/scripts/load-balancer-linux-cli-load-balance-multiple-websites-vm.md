@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181211"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Amostra de script da CLI do Azure: Balancear a carga de vários sites
 

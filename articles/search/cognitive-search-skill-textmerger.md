@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f349158873acca9d50d4d6e5fdfa3539f26207fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362560"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640655"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
 
@@ -144,4 +144,4 @@ O exemplo acima presume que um campo de imagens normalizado existe. Para gerar e
 
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](ref-create-indexer.md)
++ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

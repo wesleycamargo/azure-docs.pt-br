@@ -7,21 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776389"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113598"
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API no Azure Search
-O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem que publiquemos uma nova versão de nossa API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.
+O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem uma nova versão da API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.
 
-Como regra, tentamos publicar novas versões somente quando necessário, pois isso pode envolver esforços para atualizar seu código, a fim de usar uma nova versão de API. Apenas publicaremos uma nova versão se for necessário alterar alguns aspectos da API de uma forma que interrompe a compatibilidade com versões anteriores. Isso pode ocorrer devido a correções a recursos existentes ou devido a recursos novos que alteram a área da superfície da API existente.
+Como regra, a equipe do Azure Search tenta publicar novas versões somente quando necessário, pois isso pode envolver esforços para atualizar seu código, a fim de usar uma nova versão de API. Uma nova versão será necessária somente se alguns aspectos da API tiverem sido alterados de uma forma que interrompa a compatibilidade com versões anteriores. Essas alterações podem ocorrer devido a correções a recursos existentes ou devido a recursos novos que alteram a área da superfície da API existente.
 
-Seguimos a mesma regra para atualizações do SDK. O SDK do Azure Search segue as regras do [controle de versão semântico](http://semver.org/) , o que significa que sua versão tem três partes: principal, secundária e número de build (por exemplo, 1.1.0). Liberaremos uma nova versão principal do SDK somente no caso de alterações que interrompem a compatibilidade com versões anteriores. Para atualizações de recursos contínuas, incrementaremos a versão secundária, e para correções de bug, só aumentaremos a versão de build.
+A mesma regra se aplica às atualizações do SDK. O SDK do Azure Search segue as regras do [controle de versão semântico](http://semver.org/) , o que significa que sua versão tem três partes: principal, secundária e número de build (por exemplo, 1.1.0). Uma nova versão principal do SDK será liberada somente no caso de alterações que interrompam a compatibilidade com versões anteriores. Para atualizações contínuas de recursos, incrementaremos a versão secundária, e para correções de bug, só aumentaremos a versão de build.
 
 > [!NOTE]
 > Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
@@ -33,13 +33,12 @@ Veja abaixo um instantâneo das versões atuais de todas as interfaces de progra
 | --- | --- | --- |
 | [SDK .NET](https://aka.ms/search-sdk) |5.0 |Geralmente disponível, liberado em abril de 2018 |
 | [Preview do SDK do .NET](https://aka.ms/search-sdk-preview) |4.0.1-preview |Versão prévia, lançada em maio de 2017 |
-| [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Disponível |
-| [API REST de Serviço 2016-09-01-Versão prévia](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Visualização |
+| [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |11-11-2017 |Disponível |
 | [API REST de Serviço 2017-11-11-Versão prévia](search-api-2017-11-11-preview.md) |2017-11-11-Versão prévia |Visualização |
 | [SDK do Gerenciamento do .NET](https://aka.ms/search-mgmt-sdk) |2,0 |Disponível |
 | [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponível |
 
-Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso facilita direcionar uma versão específica, como uma API de preview. O seguinte exemplo ilustra como o parâmetro `api-version` é especificado:
+Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Usar `api-version` facilita o direcionamento de uma versão específica, como uma API de versão prévia. O seguinte exemplo ilustra como o parâmetro `api-version` é especificado:
 
     GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
@@ -48,14 +47,14 @@ Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso 
 >
 > A API REST do Serviço e a API REST de Gerenciamento têm controle de versão que não dependem entre si. Qualquer semelhança nos números de versão é uma coincidência.
 
-APIs GA (ou Disponíveis) podem ser usadas na produção e estão sujeitas aos SLAs do Azure. Versões prévias têm recursos experimentais que nem sempre são migrados para uma versão GA. **É altamente recomendável não usar APIs de preview em aplicativos de produção.**
+APIs GA (ou Disponíveis) podem ser usadas na produção e estão sujeitas aos SLAs do Azure. Versões prévias têm recursos experimentais que nem sempre são migrados para uma versão GA. **É altamente recomendável evitar APIs de versão prévia em aplicativos de produção.**
 
 ## <a name="about-preview-and-generally-available-versions"></a>Sobre versões Prévias e Disponíveis para o Público em Geral
 O Azure Search sempre faz o pré-lançamento de recursos experimentais por meio da API REST primeiro, e, então, por meio de versões de pré-lançamento do SDK do .NET.
 
-Não há nenhuma garantia de que os recursos de visualização serão migrados para uma versão GA. Enquanto os recursos em uma versão GA são considerados estáveis e não têm a probabilidade de ser alterados, com a exceção de pequenas melhorias e correções de compatibilidade com versões anteriores, os recursos de visualização estão disponíveis para teste e experimento, com o objetivo de coletar comentários sobre o design e a implementação do recurso.
+Os recursos de versão prévia estão disponíveis para teste e experimentação com a meta de coletar comentários sobre o design e a implementação de recursos. Por esse motivo, os recursos de versão prévia podem ser alterados ao longo do tempo, possivelmente de maneiras que interrompam a compatibilidade com versões anteriores. Isso é diferente de recursos em uma versão de GA, que são estáveis e têm pouca probabilidade de serem alterados, com a exceção de aprimoramentos e pequenas correções de compatibilidade com versões anteriores. Além disso, os recursos de versão prévia nem sempre são liberados para GA.
 
-No entanto, como os recursos de visualização estão sujeitos a alterações, não recomendamos escrever um código de produção que dependa de versões prévias. Caso esteja usando uma versão prévia mais antiga, é recomendável migrar para a versão GA (disponível).
+Por esses motivos, não recomendamos escrever um código de produção que dependa de versões prévias. Caso esteja usando uma versão prévia mais antiga, é recomendável migrar para a versão GA (disponível).
 
 Para o SDK do .NET: diretrizes para a migração de código podem ser encontradas em [Atualizar o SDK do .NET](search-dotnet-sdk-migration.md).
 

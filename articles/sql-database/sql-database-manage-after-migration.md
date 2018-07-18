@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061637"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>DBA novo na nuvem – gerenciamento de banco de dados no Banco de Dados SQL do Azure
 
@@ -30,7 +31,6 @@ Este artigo aborda algumas das principais características do Banco de Dados de 
 - Segurança e conformidade
 - Monitoramento e manutenção de banco de dados inteligente
 - Movimentação de dados
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>BCDR (continuidade de negócios e recuperação de desastres)
 Capacidades de continuidade de negócios e recuperação de desastres permitem continuar seu negócio, como de costume, em caso de um desastre. O desastre pode ser um evento ne nível de banco de dados (por exemplo, alguém por engano descarta uma tabela crucial) ou um evento de nível no centro de dados (catástrofe regional, por exemplo, um tsunami). 
@@ -170,7 +170,7 @@ A Rota Expressa permite aumentar até 2 vezes o limite da largura de banda adqui
 - [Fluxos de trabalho](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>O Banco de Dados SQL está em conformidade com os requisitos regulatórios? Como isso ajuda na conformidade da minha organização?
-O Banco de Dados SQL atende a várias regras de conformidade regulatória. Para exibir o último conjunto de conformidades atendido, visite o [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) e veja os detalhes sobre as conformidades que são importantes para sua organização para saber se o Banco de Dados SQL está incluído nos serviços do Azure em conformidade. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
+O Banco de Dados SQL atende a várias regras de conformidade regulatória. Para exibir o último conjunto de conformidades atendido, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) e veja os detalhes sobre as conformidades que são importantes para sua organização para saber se o Banco de Dados SQL está incluído nos serviços do Azure em conformidade. É importante observar que, embora o Banco de Dados SQL possa ser certificado como um serviço em conformidade, ele ajuda na conformidade do serviço de sua organização, mas não garante essa conformidade automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoramento e manutenção de banco de dados inteligente após a migração
 
@@ -234,7 +234,7 @@ O Banco de Dados SQL oferece várias camadas de serviço: Básica, Standard e Pr
 
 Para assegurar-se de que está usando o nível de desempenho adequado, você pode monitorar o consumo de recursos de consulta e banco de dados por meio de uma das maneiras mencionadas acima em "Como fazer para monitorar o desempenho e a utilização de recursos no Banco de Dados SQL". Para considerar se consultas/bancos de dados estão consistentemente em execução na CPU/memória etc., você pode considerar o aumento para um nível de desempenho maior. Da mesma forma, se você observar que, mesmo durante horários de pico, não parecer que você está usando tanto os recursos, considere reduzir o nível de desempenho atual. 
 
-Se você tiver um cenário de padrão de aplicativo SaaS ou consolidação de banco de dados, considere o uso de um Pool Elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre o gerenciamento de vários bancos de dados usando o pool elástico, consulte: [Gerenciar pools e bancos de dados](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+Se você tiver um cenário de padrão de aplicativo SaaS ou consolidação de banco de dados, considere o uso de um Pool Elástico para otimizar os custos. O pool elástico é uma ótima maneira de obter a consolidação de banco de dados e a otimização de custoa. Para ler mais sobre o gerenciamento de vários bancos de dados usando o pool elástico, consulte: [Gerenciar pools e bancos de dados](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Com que frequência preciso executar verificações de integridade do banco de dados para o meu banco de dados?
 O Banco de Dados SQL usa algumas técnicas inteligentes que permitem manipular determinadas classes de corrupção de dados automaticamente e sem qualquer perda de dados. Essas técnicas são incorporadas ao serviço e são usadas por ele quando necessário. Regularmente, seus backups de banco de dados no serviço são testados restaurando-os e executando DBCC CHECKDB nele. Se houver problemas, o Banco de Dados SQL trata deles proativamente. O [reparo automático de página](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) é realizado para corrigir páginas que estejam corrompidas ou que tenham problemas de integridade dos dados. As páginas de banco de dados sempre são verificadas com a configuração CHECKSUM padrão, que verifica a integridade da página. O Banco de Dados SQL monitora e revisa proativamente a integridade de dados do banco de dados e, se ocorrerem problemas, trata deles com a mais alta prioridade. Além disso, você pode opcionalmente executar suas próprias verificações de integridade à vontade.  Para saber mais, consulte [Integridade dos dados no Banco de Dados SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

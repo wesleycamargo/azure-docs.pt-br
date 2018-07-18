@@ -1,12 +1,12 @@
 ---
-title: "Exemplo de Script da CLI do Azure – Pool do Linux em Lote | Microsoft Docs"
-description: "Exemplo de Script da CLI do Azure – Criar e gerenciar um Pool do Linux em lote"
+title: Exemplo de Script da CLI do Azure – Pool do Linux em Lote | Microsoft Docs
+description: Exemplo de Script da CLI do Azure – Criar e gerenciar um Pool do Linux em lote
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843367"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: criar e gerenciar um pool do Linux em Lote do Azure
 

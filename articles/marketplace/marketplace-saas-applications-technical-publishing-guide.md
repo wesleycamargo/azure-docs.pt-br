@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076691"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809464"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guia de publicação técnica de aplicativos SaaS
 
@@ -51,7 +51,7 @@ Aplicativos SaaS estão disponíveis em ambas as vitrines do Azure A tabela a se
 | **Power BI/Dynamics** | sim | Sim (Integração com o Azure AD) |  
 | **Aplicativos SaaS**| sim | Sim (Integração com o Azure AD) |     
 
-Para obter mais informações sobre as vitrines do Marketplace e uma descrição de cada opção de publicação, confira o [Guia do Editor do Marketplace](https://aka.ms/sellerguide) e as [Opções de Publicação](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Para obter mais informações sobre as vitrines do Marketplace e uma descrição de cada opção de publicação, confira o [Guia do Editor do Marketplace](https://aka.ms/sellerguide) e as [Opções de Publicação](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Requisitos de negócios
 Os requisitos de negócios da oferta SaaS podem ser concluídos em paralelo com os requisitos técnicos. A maioria dos requisitos de negócios e informações são coletadas durante a criação da oferta de SaaS no Portal do Cloud Partner. Os requisitos de negócios são os seguintes: 
@@ -62,7 +62,7 @@ Os requisitos de negócios da oferta SaaS podem ser concluídos em paralelo com 
 * Definição da política de privacidade e dos termos de uso
 * Definição dos contatos de suporte  
 
-Mais informações podem ser encontradas no tópico [Pré-requisitos para publicação no Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Mais informações podem ser encontradas no tópico [Pré-requisitos para publicação no Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -72,11 +72,11 @@ Para começar, é recomendável que você tenha uma assinatura dedicada à publi
 
 As melhores documentações, exemplos e diretrizes do Azure Active Directory estão nestes sites: 
 
-* [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integração com Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integração com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Roteiro do Azure - Segurança e Identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -125,7 +125,7 @@ A tabela a seguir descreve cada uma das principais etapas de publicação:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Usar o Azure Active Directory para habilitar avaliações  
 
-A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clicar na sua listagem de Avaliação no Marketplace e for redirecionado para seu ambiente de Avaliação, você poderá fornecer o usuário diretamente em uma Avaliação sem exigir uma etapa adicional de entrada. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clicar na sua listagem de Avaliação no Marketplace e for redirecionado para seu ambiente de Avaliação, você poderá fornecer o usuário diretamente em uma Avaliação sem exigir uma etapa adicional de entrada. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou avaliação:  
 * Simplifica a experiência do cliente do Marketplace para Avaliação.  
@@ -141,15 +141,15 @@ Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou ava
 
 Se você já dá suporte ao Azure AD, faça o seguinte:
 1.  Registre seu aplicativo no Portal do Azure
-2.  Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Se você é novo no SSO Federado do Azure AD, faça o seguinte: 
 1.  Registre seu aplicativo no Portal do Azure
-2.  Desenvolva SSO com o Azure AD usando [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Habilite o recurso de suporte multilocatário no AAD para obter uma experiência de avaliação com um clique Encontre mais informações específicas [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Desenvolva SSO com o Azure AD usando [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Habilite o recurso de suporte multilocatário no AAD para obter uma experiência de avaliação com um clique Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Para o aplicativo de locatário único, use qualquer uma das seguintes opções:**  
-* Adicionar usuários ao seu diretório como usuários convidados usando [B2B do Azure](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Adicionar usuários ao seu diretório como usuários convidados usando [B2B do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Provisionar manualmente avaliações para clientes por meio do "Entre em contato comigo"
 * Desenvolver um test drive por cliente
 * Compile um aplicativo de demonstração de amostra multilocatário com SSO

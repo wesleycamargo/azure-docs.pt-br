@@ -1,26 +1,21 @@
 ---
 title: Integrar VPN à MFA do Azure usando a extensão Servidor de Políticas de Rede | Microsoft Docs
-description: Este artigo aborda a integração da infraestrutura da sua VPN à MFA do Azure usando a extensão do Servidor de Políticas de Rede para o Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, integrar VPN, Azure Active Directory, extensão do Servidor de Políticas de Rede
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
+description: Integre a infraestrutura VPN com Azure MFA usando a extensão do Servidor de Políticas de Rede para o Microsoft Azure.
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 15d69c6b964c0efdc5578d09c5dea8dde85df83f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098865"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -310,7 +305,7 @@ Para solucionar esses problemas, o ideal é começar analisando os logs de Event
  
 ## <a name="configure-multi-factor-authentication"></a>Configurar Autenticação Multifator
 
-Para obter assistência para configurar usuários para Autenticação Multifator, consulte os artigos [Como exigir a verificação em duas etapas para um usuário ou grupo](howto-mfa-userstates.md) e [Configurar minha conta para verificação em duas etapas](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+Para obter assistência para configurar usuários para Autenticação Multifator, consulte os artigos [Como exigir a verificação em duas etapas para um usuário ou grupo](howto-mfa-userstates.md) e [Configurar minha conta para verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalar e configurar a extensão do NPS
 

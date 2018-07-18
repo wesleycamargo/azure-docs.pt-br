@@ -1,45 +1,46 @@
 ---
 title: Executar uma análise detalhada da recuperação de desastre em computadores locais para o Azure com o Azure Site Recovery | Microsoft Docs
 description: Saiba mais sobre como executar a análise detalhada da recuperação de desastre localmente para o Azure, com o Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209718"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920164"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure
 
-Este tutorial mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados. Neste tutorial, você aprenderá como:
+Este artigo mostra como executar uma análise detalhada da recuperação de desastre para máquinas locais no Azure usando um failover de teste. Uma análise detalhada valida sua estratégia de replicação, sem perda de dados.
+
+Este é o quarto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para VMs VMware ou VMs do Hyper-V locais.
+
+Este tutorial presume que você concluiu os três primeiros tutoriais: 
+    - No [primeiro tutorial](tutorial-prepare-azure.md), configuramos os componentes do Azure necessários para a recuperação de desastres do VMware.
+    - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md) , preparamos os componentes locais para a recuperação de desastres e analisamos os pré-requisitos.
+    - No [terceiro tutorial](vmware-azure-tutorial.md) configuramos e habilitamos a replicação para nossa VM VMware local.
+    - Os tutoriais destinam-se a mostrar o **caminho de implantação mais simples para um cenário**. Eles usam opções padrão quando possível e não mostram todas as possíveis configurações e caminhos. Se você quiser saber mais sobre as etapas de failover de teste em mais detalhes, leia o [Guia](site-recovery-test-failover-to-azure.md).
+
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar uma rede isolada para o failover de teste
 > * Preparar-se para conectar-se à VM do Azure após o failover
 > * Executar um failover de teste para um único computador
 
-Este é o quarto tutorial de uma série. Este tutorial presume que você já tenha concluído as tarefas nos tutoriais anteriores.
-
-1. [Preparar o Azure](tutorial-prepare-azure.md)
-2. [Preparar o VMware local](tutorial-prepare-on-premises-vmware.md)
-3. [Configurar a recuperação de desastre](tutorial-vmware-to-azure.md)
+Este tutorial
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
-Antes de executar um failover de teste, verifique as propriedades da VM e verifique se a VM Hyper-V[hyper-v-azure-support-matrix.md#replicated-vms], a [VM VMware ou o servidor físico](vmware-physical-azure-support-matrix.md#replicated-machines) atende aos requisitos do Azure.
+Antes de executar um failover de teste, confira as propriedades da VM e verifique se a [VM do Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) ou [VM do VMware](vmware-physical-azure-support-matrix.md#replicated-machines) está em conformidade com os requisitos do Azure.
 
-1. Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
+1. Em **Itens Protegidos**, clique em **Itens Replicados** > e na VM.
 2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
-3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
-   
-      >[!NOTE]
-      No momento, o failback para máquinas Hyper-V locais de VMs do Azure com discos gerenciados não é compatível. Você só deverá usar a opção de discos gerenciados para o failover se planejar migrar VMs do local para o Azure, sem fazer seu failback.
-   
+3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o conjunto de disponibilidade e as configurações de disco gerenciado.
 4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
 5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
 
@@ -48,7 +49,7 @@ Antes de executar um failover de teste, verifique as propriedades da VM e verifi
 Quando você executar um failover de teste, acontecerá o seguinte:
 
 1. Uma verificação de pré-requisitos será executada para conferir se todas as condições exigidas para o failover foram cumpridas.
-2. O failover processa os dados para que uma VM do Azure possa ser criada. Se o ponto de recuperação mais recente for selecionado, um ponto de recuperação será criado nos dados.
+2. O failover processa os dados para que uma VM do Azure possa ser criada. Se você selecionar o último ponto de recuperação, um ponto de recuperação será criado a partir dos dados.
 3. Uma VM do Azure é criada usando os dados processados na etapa anterior.
 
 Execute o failover de teste da seguinte maneira:
@@ -68,3 +69,4 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 > [!div class="nextstepaction"]
 > [Executar failover e failback de VMs locais do VMware](vmware-azure-tutorial-failover-failback.md).
+> [Executar failover e failback de VMs locais do Hyper-V](hyper-v-azure-failover-failback-tutorial.md).

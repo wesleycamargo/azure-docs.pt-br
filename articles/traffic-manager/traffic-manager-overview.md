@@ -1,11 +1,11 @@
 ---
-title: "O que é o Gerenciador de Tráfego| Microsoft Docs"
-description: "Este artigo o ajudará a entender o que é o Gerenciador de Tráfego e se é a opção de roteamento do tráfego correta para seu aplicativo"
+title: O que é o Gerenciador de Tráfego| Microsoft Docs
+description: Este artigo o ajudará a entender o que é o Gerenciador de Tráfego e se é a opção de roteamento do tráfego correta para seu aplicativo
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111824"
 ---
 # <a name="overview-of-traffic-manager"></a>Visão Geral do Gerenciador de Tráfego
 

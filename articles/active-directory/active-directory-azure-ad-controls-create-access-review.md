@@ -2,22 +2,24 @@
 title: Criar uma revisão de acesso de membros de um grupo ou usuários com acesso a um aplicativo no Azure AD | Microsoft Docs
 description: Saiba como criar uma revisão de acesso para os membros de um grupo ou usuários para o acesso a um aplicativo.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
-ms.author: billmath
-ms.openlocfilehash: 784a461421420af403a43f944d6f63aef3ccc152
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 06/21/2018
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 853d8f09a94e46db218553500a50dc4ef1ec3d23
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195600"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448264"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão de acesso de membros do grupo ou acesso do aplicativo com o Azure AD
 
@@ -25,7 +27,7 @@ As atribuições de acesso se tornam "obsoletas" quando os usuários possuem um 
 
 ## <a name="create-an-access-review"></a>Criar uma análise de acesso
 
-1. Como administrador global, vá até a [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selecione **Programas**.
+1. Como um administrador global ou administrador de conta de usuário, vá para a [página acessar análises](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selecione **Programas**.
 
 2. Selecione o programa que mantém o controle de análise de acesso que deseja criar. O **Programa padrão** está sempre presente ou você pode criar um programa diferente. Por exemplo, é possível optar por ter um programa para cada iniciativa de conformidade ou meta de negócios.
 
@@ -35,9 +37,9 @@ As atribuições de acesso se tornam "obsoletas" quando os usuários possuem um 
 
 5. Defina a data de início. Por padrão, uma revisão de acesso ocorre uma vez, inicia na mesma hora em que é criada e termina em um mês. Você pode alterar as datas de início e de término para iniciar uma análise de acesso em uma data futura e que dure quantos dias você desejar.
 
-6. Para tornar a revisão de acesso recorrente, altere a frequência de Uma vez para Semanal, Mensal, Trimestral ou Anual e use o controle deslizante ou a caixa de texto para definir quantos dias cada revisão da série recorrente será aberta para entrada dos revisores. Por exemplo, a duração máxima que é possível definir para uma revisão mensal é de 27 dias, para evitar avaliações sobrepostas. 
+6. Para tornar a revisão de acesso recorrente, altere a frequência de Uma vez para Semanal, Mensal, Trimestral ou Anual e use o controle deslizante ou caixa de texto para definir quantos dias cada revisão da série recorrente será aberta para entrada dos revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar avaliações sobrepostas. 
 
-7.  A série de revisão de acesso recorrente pode encerrar de 3 maneiras: ela executa continuamente para iniciar revisões indefinidamente, ou até uma data específica, ou depois que um número definido de ocorrências for concluído. Você ou outro administrador global pode interromper a série após a criação, alterando a data em Configurações para que ela encerre nessa data.
+7.  A série de revisão de acesso recorrente pode terminar de 3 maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você, outro usuário administrador de conta, ou outro administrador global pode interromper a série após a criação, alterando a data em Configurações para que ela encerre nessa data.
 
 8. As revisões de acesso podem ser de membros de um grupo ou usuários que foram atribuídos a um aplicativo. Você pode detalhar ainda mais o escopo da análise de acesso para examinar apenas os usuários convidados que são membros (ou atribuídos ao aplicativo), em vez de examinar todos os usuários que são membros ou que têm acesso ao aplicativo.
 
@@ -47,11 +49,11 @@ As atribuições de acesso se tornam "obsoletas" quando os usuários possuem um 
 
 ### <a name="configuring-an-access-review-with-auto-apply"></a>Configurar uma revisão de acesso com aplicação automática
 
-1.  Expanda o menu para Configurações de conclusão e configurações e habilite Aplicar automaticamente os resultados ao recurso. 
+1.  Expanda o menu para Após as configurações de conclusão e ative Aplicar automaticamente os resultados ao recurso. 
 
-2.  Nos casos em que os usuários não foram revisados pelo revisor dentro do período de revisão, é possível fazer a revisão de acesso aceitar a recomendação do sistema (se habilitada) em negar/aprovar o acesso continuado do usuário, deixar o acesso inalterado ou remover o acesso. Isso não afetará os usuários que foram revisados pelos revisores manualmente – se a decisão do revisor final for Negar, o acesso do usuário será removido.
+2.  Nos casos em que os usuários não foram revisados pelo revisor dentro do período de revisão, você pode fazer a revisão de acesso aceitar a recomendação do sistema (se habilitada) em negar / aprovar o acesso continuado do usuário, manter inalterado o acesso ou remover o acesso. Isso não afetará os usuários que foram revisados pelos revisores manualmente – se a decisão do revisor final for Negar, o acesso do usuário será removido.
 
-3.  Para habilitar a opção para receber recomendações, os revisores não devem responder, e a opção para mostrar as recomendações em Configurações avançadas deve estar habilitada.
+3.  Para ativar a opção de receber recomendações, os revisores não devem responder, expanda Configurações avançadas e ative Exibir recomendações.
  
 4.  Por fim, clique em **Iniciar**.
 
@@ -75,5 +77,3 @@ Quando uma análise de acesso é iniciada, o Azure AD enviará automaticamente a
 Se essa for uma revisão única, depois que o período de revisão de acesso terminar ou o administrador interromper a revisão de acesso, execute as etapas em [Concluir uma revisão de acesso](active-directory-azure-ad-controls-complete-access-review.md) para ver e aplicar os resultados.  
 
 Se essa for uma série de revisão, navegue até o **Histórico da revisão** na página da série de revisão de acesso para selecionar uma revisão de acesso completa.  As próximas revisões serão listadas em **Revisão agendada**, onde será possível editar a duração e adicionar ou remover revisores para comentários individuais.
-
-

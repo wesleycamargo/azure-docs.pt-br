@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bcb4302c3a237ec75ff670b322c9d068d8700de9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941829"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738506"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usar ferramentas do Azure Stream Analytics para Visual Studio
 As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para os usuários do Stream Analytics solucionarem problemas, bem como escreverem consultas complexas e até mesmo escreverem consultas localmente. Você também pode exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
@@ -31,8 +31,7 @@ Depois de concluir este tutorial, você poderá:
 * Exportar os trabalhos existentes para projetos.
 
 >[!IMPORTANT]
->
->Na preparação para o novo GDPR (Regulamento Geral sobre a Proteção de Dados), que entrará em vigor em 25 de maio de 2018, é recomendável que os usuários das Ferramentas do Azure Stream Analytics para Visual Studio atualizem para a versão 2.3.3000.5 ou posterior. Esta versão inclui alterações com base nos requisitos de proteção de dados mais recentes. Observe que as versões anteriores não estão disponíveis para download e foram preteridas. 
+> A Microsoft recomenda que você atualize para a versão 2.3.3000.4 ou posterior das Ferramentas do Azure Data Lake para Visual Studio. As versões anteriores não estão disponíveis para download e foram preteridas. 
 >
 >**O que preciso fazer?**
 >

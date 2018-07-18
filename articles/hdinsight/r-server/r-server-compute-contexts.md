@@ -1,6 +1,6 @@
 ---
-title: Opções de contexto de computação para o R Server no HDInsight – Azure | Microsoft Docs
-description: Conheça as diferentes opções de contexto de computação disponíveis para usuários com o Servidor R no HDInsight
+title: Opções de contexto de computação para ML Services no HDInsight – Azure | Microsoft Docs
+description: Conheça as diferentes opções de contexto de computação disponíveis para usuários com o ML Services no HDInsight
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,25 +11,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 2aa10e1eab6cabe058062519ecc023b88361d742
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050101"
 ---
-# <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opções de contexto de computação para o Servidor R no HDInsight
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
 
-O Microsoft R Server no Azure HDInsight controla como as chamadas são executadas, configurando o contexto de computação. Este artigo descreve as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight.
+O ML Services no Microsoft Azure HDInsight controla como as chamadas são executadas, definindo o contexto de computação. Este artigo descreve as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight.
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-las em todos os nós do cluster usando o Hadoop Map Reduce do RevoScaleR ou os contextos de computação do Spark.
 
-## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server no Azure HDInsight
-O [Microsoft R Server no Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para a análise baseada em R. Ele pode usar dados armazenados em um contêiner HDFS em sua conta de armazenamento de [Blob do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure"), em um Data Lake Store ou no sistema de arquivos local do Linux. Uma vez que o R Server é criado no R de software livre, os aplicativos baseados em R que você compilar podem aplicar qualquer um dos mais de 8.000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no R Server.  
+## <a name="ml-services-on-azure-hdinsight"></a>ML Services no Microsoft Azure HDInsight
+O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner HDFS em sua conta de armazenamento de [Blob do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure"), em um Data Lake Store ou no sistema de arquivos local do Linux. Como o ML Services é compilado em software livre R, os aplicativos baseados em R que você cria podem aplicar qualquer um dos 8000 pacotes R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
-Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. As exceções são aquelas etapas que chamam uma função RevoScaleR. As chamadas de RevoScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do RevoScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:
+Em geral, um script R executado no cluster do ML Services no nó de borda é executado no interpretador R nesse nó. As exceções são aquelas etapas que chamam uma função RevoScaleR. As chamadas de RevoScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do RevoScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:
 
 - local sequencial (*local*)
 - local paralelo (*localpar*)
@@ -77,9 +78,9 @@ Para obter mais informações e exemplos de contextos de computação de RevoSca
 Você também pode consultar a [visão geral da computação distribuída](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) na [documentação do Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight. Para aprender mais sobre como usar o R Server com clusters HDInsight, veja os tópicos a seguir:
+Neste artigo você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight. Para saber mais sobre como usar os ML Services em clusters HDInsight, consulte os seguintes tópicos:
 
-* [Visão geral do Servidor R no Hadoop](r-server-overview.md)
-* [Introdução ao Servidor R para o Hadoop](r-server-get-started.md)
-* [Opções de Armazenamento do Azure para o Servidor R no HDInsight](r-server-storage.md)
+* [Visão geral do ML Services para Hadoop](r-server-overview.md)
+* [Introdução ao ML Services para Hadoop](r-server-get-started.md)
+* [Opções de Armazenamento do Microsoft Azure para ML Services no HDInsight](r-server-storage.md)
 

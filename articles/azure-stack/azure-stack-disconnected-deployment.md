@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151120"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados de decisões de pilha do Azure de planejamento de implantação desconectada do Azure
 Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.

@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770733"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714105"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -54,7 +55,7 @@ Este artigo fornece orientação para solução de possíveis problemas.
 
 - O registro inicial/ingresso de dispositivos está configurado para executar uma tentativa de logon ou de bloqueio/desbloqueio. Pode haver um atraso de cinco minutos disparado por uma tarefa do agendador de tarefas. 
 
-- Reinstalar o sistema operacional ou novos registros manuais podem criar um novo registro no Microsoft Azure Active Directory em várias entradas na guia de informações do USUÁRIO no portal do Azure. 
+- Uma reinstalação do sistema operacional ou a realização de novos registros manuais podem criar um novo registro no Azure AD, o que resulta em várias entradas na guia de informações do USUÁRIO no portal do Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Etapa 1: Recuperar o status do registro 
 
@@ -89,7 +90,7 @@ Se o ingresso no Azure AD híbrido não tiver sido bem-sucedido, a caixa de diá
     
     - O usuário conectado não é um usuário de domínio (por exemplo, um usuário local). O ingresso no Azure AD Híbrido em dispositivos de nível inferior tem suporte apenas para usuários do domínio.
     
-    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser devido a um problemas de conectividade de rede de saída para as URLs do Microsoft Azure Active Directory (Verifique os pré-requisitos). Também é possível que a autenticação multifator (MFA) esteja habilitada/configurada para o usuário e WIAORMUTLIAUTHN não está configurada no servidor de federação (etapas de configuração de verificação). Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) está aguardando a interação do usuário, que evita que o **autoworkplace.exe** obtenha um token silenciosamente.
+    - O Autoworkplace.exe não pode autenticar silenciosamente com o Microsoft Azure Active Directory ou o AD FS. Isso pode ser devido a um problemas de conectividade de rede de saída para as URLs do Azure AD. Também é possível que a MFA (autenticação multifator) esteja habilitada/configurada para o usuário e WIAORMUTLIAUTHN não esteja configurada no servidor de federação. Outra possibilidade é que a página de descoberta de domínio doméstico (HRD) está aguardando a interação do usuário, que evita que o **autoworkplace.exe** obtenha um token silenciosamente.
     
     - Sua organização usa o Logon Único Contínuo do Microsoft Azure Active Directory `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não está presente nas configurações de intranet do Internet Explorer do dispositivo, e **Permitir atualizações à barra de status por meio de script** não está habilitada para a zona da Intranet.
 
@@ -105,7 +106,7 @@ Também é possível encontrar informações de status no log de eventos em: **L
   
 **As causas mais comuns para a falha do ingresso do Azure AD híbrido são:** 
 
-- O computador não está conectado na rede interna da organização nem a uma VPN sem uma conexão ao controlador de domínio do Active Directory local.
+- O computador não está conectado à rede interna da organização nem a uma VPN com conexão ao controlador de domínio do AD local.
 
 - Você está conectado ao computador com uma conta de computador local. 
 

@@ -1,12 +1,12 @@
 ---
-title: "Coletar em Contadores de Desempenho nos Serviços de Nuvem do Microsoft Azure | Microsoft Docs"
-description: "Saiba como descobrir, usar e criar contadores de desempenho nos Serviços de Nuvem com o Application Insights e Diagnóstico do Microsoft Azure."
+title: Coletar em Contadores de Desempenho nos Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+description: Saiba como descobrir, usar e criar contadores de desempenho nos Serviços de Nuvem com o Application Insights e Diagnóstico do Microsoft Azure.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29134043"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 

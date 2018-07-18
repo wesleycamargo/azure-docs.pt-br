@@ -12,38 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/20/2018
 ms.author: TomShinder
-ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295288"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Proteger aplicativos móveis e Web de PaaS usando o Armazenamento do Azure
+
 Neste artigo, discutiremos um conjunto de práticas recomendadas de segurança do Armazenamento do Azure para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
 
 O [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) é uma ótima fonte de informações detalhadas sobre o Armazenamento do Azure e sua segurança.  Este artigo aborda, em um nível mais amplo, alguns dos conceitos encontrados no guia de segurança e leva a ele, bem como a outras fontes, para mais informações.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
+
 O Azure possibilita implantar e usar o armazenamento de formas que não são fáceis de alcançar localmente. Com o Armazenamento do Azure, você pode alcançar altos níveis de escalabilidade e disponibilidade com relativamente pouco esforço. O Armazenamento do Azure não é somente a base para as Máquinas Virtuais do Azure do Windows e Linux, ele também pode dar suporte a grandes aplicativos distribuídos.
 
 O Armazenamento do Azure fornece os quatro seguintes serviços: Armazenamento de Blobs, Armazenamento de Tabelas, Armazenamento de Filas e Armazenamento de Arquivos. Para saber mais, consulte a [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
 ## <a name="best-practices"></a>Práticas recomendadas
+
 Este artigo aborda as seguintes melhores práticas:
 
 - Proteção de acesso:
    - SAS (Assinaturas de Acesso Compartilhado)
-   - Disco gerenciado
    - RBAC (Controle de Acesso Baseado em Função)
 
 - Criptografia de armazenamento:
    - Criptografia do lado do cliente para dados de alto valor
-   - Azure Disk Encryption para VMs (máquinas virtuais)
    - Criptografia do Serviço de Armazenamento
 
 ## <a name="access-protection"></a>Proteção de acesso
+
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Use a Assinatura de Acesso Compartilhado em vez de uma chave de conta de armazenamento
 
 Em uma solução de IaaS, geralmente executando máquinas virtuais do Windows Server ou Linux, os arquivos são protegidos contra ameaças de divulgação e violação usando mecanismos de controle de acesso. No Windows, você usaria [ACLs (listas de controle de acesso)](../virtual-network/virtual-networks-acl.md) e, no Linux, provavelmente usaria [chmod](https://en.wikipedia.org/wiki/Chmod). Essencialmente, é exatamente isso o que você faria se estivesse protegendo arquivos em um servidor em seu próprio data center hoje.
@@ -65,12 +68,6 @@ A SAS lhe permite compartilhar conteúdo da maneira desejada sem precisar fornec
 
 Para obter mais informações, consulte [Uso de SAS (Assinaturas de Acesso Compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para saber mais sobre riscos potenciais e as recomendações para mitigar esses riscos, consulte [Melhores práticas ao usar SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="use-managed-disks-for-vms"></a>Usar discos gerenciados para VMs
-
-Quando você escolhe [Azure Managed Disks](../storage/storage-managed-disks-overview.md), o Azure gerencia contas de armazenamento que você pode usar para os discos de VM. Tudo que você precisa fazer é escolher o tipo de disco (Premium ou Standard) e o tamanho do disco. O Armazenamento do Azure fará o restante. Você não precisa se preocupar com limites de escalabilidade que, de outra forma, poderiam exigir que você aumentasse a quantidade de contas de armazenamento.
-
-Para obter mais informações, consulte [Perguntas frequentes sobre discos premium gerenciados e não gerenciados](../storage/storage-faq-for-disks.md).
-
 ### <a name="use-role-based-access-control"></a>Usar o controle de acesso baseado em função
 
 Anteriormente, discutimos o uso de SAS (Assinatura de Acesso Compartilhado) para conceder acesso limitado a objetos em sua conta de armazenamento a outros clientes sem expor a chave de conta de armazenamento da conta. Às vezes, os riscos associados a uma determinada operação em relação à sua conta de armazenamento superam os benefícios da SAS. Às vezes, é mais simples gerenciar o acesso de outras maneiras.
@@ -88,6 +85,7 @@ Para saber mais sobre o RBAC, consulte:
 - [Guia de Segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) para obter detalhes de como proteger sua conta de armazenamento com RBAC
 
 ## <a name="storage-encryption"></a>Criptografia do armazenamento
+
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Use a criptografia do lado do cliente para dados de alto valor
 
 A criptografia do lado do cliente permite criptografar programaticamente dados em trânsito antes de carregar no Armazenamento do Azure, bem como descriptografar os dados programaticamente ao recuperá-los do armazenamento.  Isso fornece criptografia de dados em trânsito, mas também fornece criptografia de dados em repouso.  A criptografia do lado do cliente é o método mais seguro de criptografar seus dados, mas ela requer que você faça alterações programáticas em seu aplicativo e implemente processos de gerenciamento de chaves.
@@ -96,15 +94,12 @@ A criptografia do lado do cliente também permite que você tenha controle exclu
 
 A criptografia do lado do cliente é interna nas bibliotecas de cliente de armazenamento Java e .NET.  Consulte [Criptografia do lado do cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](../storage/storage-client-side-encryption.md) para obter informações sobre a criptografia de dados em aplicativos cliente e sobre como gerar e gerenciar suas próprias chaves de criptografia.
 
-### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption para máquinas virtuais
-O Azure Disk Encryption é uma capacidade que ajuda você a criptografar seus discos de máquina virtual IaaS Windows e Linux. A Azure Disk Encryption aproveita o recurso padrão da indústria BitLocker do Windows e o recurso DM-Crypt do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Azure Key Vault para ajudá-lo a controlar e gerenciar os segredos e chaves de criptografia de disco em sua assinatura do Key Vault. A solução também garante que todos os dados em discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
-
-Consulte [Azure Disk Encryption para VMs IaaS Windows e Linux](azure-security-disk-encryption.md).
-
 ### <a name="storage-service-encryption"></a>Criptografia do Serviço de Armazenamento
+
 Quando a [Criptografia do serviço de armazenamento](../storage/storage-service-encryption.md) para o armazenamento de arquivos está habilitada, os dados são criptografados automaticamente usando criptografia AES-256. A Microsoft lida com toda a criptografia, a descriptografia e o gerenciamento de chaves. Este recurso está disponível para os tipos de redundância LRS e GRS.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Este artigo apresentou a você um conjunto de melhores práticas de segurança do Armazenamento do Azure para proteger seus aplicativos móveis e Web de PaaS. Para saber mais sobre como proteger suas implantações de PaaS, confira:
 
 - [Proteção de implantações de PaaS](security-paas-deployments.md)

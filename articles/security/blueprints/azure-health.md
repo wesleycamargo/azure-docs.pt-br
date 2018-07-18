@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33894306"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -97,7 +98,7 @@ O administrador de site é responsável pela assinatura do Azure do cliente. Ele
 O analista de banco de dados administra o banco de dados e a instância do SQL Server.
 Eles não têm acesso aos registros de pacientes.
 
--   Atribuições de função internas: [	Contribuidor do DB SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   Atribuições de função interna: [Colaborador de banco de dados SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Atribuições de função personalizadas: N/A
 
@@ -282,7 +283,7 @@ Ao usar o script de demonstração. .\\HealthcareDemo.ps1 com a opção **BulkPa
 
 **2. Key Vault** solicitado por um segredo associado ao token solicitado.
 
-\*\*3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
+**3. As funções do Azure validam a solicitação, e autorizam a solicitação de acesso ao Key Vault.
 
 **4. Key Vault** retorna o segredo, nesse caso, a cadeia de conexão SQL DB.
 

@@ -3,7 +3,7 @@ title: Tutorial - Criar um pipeline de CI/CD no Azure com o Team Services | Micr
 description: Neste tutorial, você aprenderá como criar um pipeline do Visual Studio Team Services para integração e entrega contínuas que implanta um aplicativo Web do IIS em uma VM do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b23cec90573c4be73a73daf0bc0e793da012585c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192213"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932085"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Tutorial: Criar um pipeline de integração contínua com o Visual Studio Team Services e o IIS
 Para automatizar as fases de compilação, teste e implantação do desenvolvimento de aplicativos, você pode usar um pipeline de CI/CD (implantação e integração contínuas). Neste tutorial, você cria um pipeline de CI/CD usando o Visual Studio Team Services e uma VM (máquina virtual) do Windows no Azure que executa o IIS. Você aprenderá como:

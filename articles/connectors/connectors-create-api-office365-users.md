@@ -1,25 +1,22 @@
 ---
-title: Adicionar o conector Usuários do Office 365 aos Aplicativos Lógicos | Microsoft Docs
-description: Visão geral do conector dos Usuários do Office 365 com os parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: Conectar aos Usuários do Office 365 – Aplicativo Lógico do Azure | Microsoft Docs
+description: Gerenciar perfis de usuário com as APIs REST dos Usuários do Office 365 e o Aplicativo Lógico do Azure
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: f030ac07dc1615c435c1a110836d7a03ab8a8546
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295601"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introdução ao conector dos Usuários do Office 365
 Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. Com os Usuários do Office 365, você pode:

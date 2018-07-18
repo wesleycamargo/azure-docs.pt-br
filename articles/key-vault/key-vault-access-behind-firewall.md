@@ -1,8 +1,8 @@
 ---
-title: "Acessar o Key Vault por trás do firewall | Microsoft Docs"
-description: "Saiba como acessar o Azure Key Vault de um aplicativo por trás de um firewall"
+title: Acessar o Key Vault por trás do firewall | Microsoft Docs
+description: Saiba como acessar o Azure Key Vault de um aplicativo por trás de um firewall
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736241"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acessar o Cofre de Chaves do Azure por trás de um firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: meu aplicativo de cliente do cofre de chaves precisa estar por trás de um firewall. Quais portas, hosts ou endereços IP devo abrir para permitir o acesso a um cofre de chaves?
@@ -60,7 +61,7 @@ Para todas as operações de criptografia e gerenciamento de objetos (chaves e s
 | Operações, incluindo operações criptográficas em chaves; criar, ler, atualizar e excluir chaves e segredos; definir ou obter marcas e outros atributos em objetos de cofre de chaves (chaves ou segredos) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>Intervalos de endereços IP
-O serviço de Cofre de Chaves usa outros recursos do Azure, como infraestrutura PaaS. Portanto, não é possível fornecer um intervalo específico de endereços IP que pontos de extremidade do serviço de Cofre de Chaves terão em determinado momento. Se o firewall dá suporte apenas a intervalos de endereços IP, confira o documento [Intervalos IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Para autenticação e identidade (Azure Active Directory), seu aplicativo deve ser capaz de se conectar aos pontos de extremidade descritos em [Endereços de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+O serviço de Cofre de Chaves usa outros recursos do Azure, como infraestrutura PaaS. Portanto, não é possível fornecer um intervalo específico de endereços IP que pontos de extremidade do serviço de Cofre de Chaves terão em determinado momento. Se o firewall dá suporte apenas a intervalos de endereços IP, confira o documento [Intervalos IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Autenticação e identidade (Azure Active Directory) é um serviço global e pode fazer failover para outras regiões ou mover o tráfego sem aviso prévio. Nesse cenário, todos os intervalos IP listados em [Endereços IP de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devem ser adicionados ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você tiver dúvidas sobre o Cofre de Chaves, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

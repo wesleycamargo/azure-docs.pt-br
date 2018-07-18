@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718998"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
 ## <a name="overview"></a>Visão geral
@@ -167,7 +168,7 @@ A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energi
 ## <a name="cable-your-storsimple-8600-device"></a>Cabear o dispositivo StorSimple 8600
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8600 para conexões de energia, rede e serial.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 
 * O compartimento principal e o compartimento EBOD completamente desempacotados

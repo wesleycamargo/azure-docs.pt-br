@@ -3,23 +3,24 @@ title: Perguntas frequentes sobre relatórios do Azure Active Directory | Micros
 description: Perguntas frequentes sobre relatórios do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067003"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335050"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
@@ -71,7 +72,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Quantos registros posso baixar do Portal do Azure?**
 
-**R:** Você pode baixar até 120 mil registros do Portal do Azure. Os registros são classificados pelos *mais recentes* e, por padrão, você obterá os 120 mil registros mais recentes. 
+**R:** É possível baixar até 5000 registros do portal do Azure. Os registros são classificados por *mais recentes* e, por padrão, você obterá 5000 registros mais recentes.
 
 ---
 
@@ -83,7 +84,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: Como obtenho uma licença premium?**
 
-**A:** Consulte [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
+**A:** Consulte [Introdução ao Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md) para obter uma resposta para essa pergunta.
 
 ---
 

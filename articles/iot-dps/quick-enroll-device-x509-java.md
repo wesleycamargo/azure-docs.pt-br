@@ -1,28 +1,27 @@
 ---
-title: "Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs"
-description: "Guia de Início Rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java"
-services: iot-dps
-keywords: 
+title: Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Azure usando Java | Microsoft Docs
+description: Guia de Início Rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b1d21278c821c4501c121266823e153490a50df5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630452"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT usando o SDK do serviço Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Estas etapas mostram como registrar um grupo de dispositivos X.509 simulados programaticamente no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure usando o [SDK do serviço Java](https://azure.github.io/azure-iot-sdk-java/service/) com a ajuda de um aplicativo Java de exemplo. Embora o SDK do serviço Java funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para percorrer o processo de registro.
+Estas etapas mostram como registrar um grupo de dispositivos X.509 simulados programaticamente no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure usando o [SDK do serviço Java](https://azure.github.io/azure-iot-sdk-java/service/) com a ajuda de um aplicativo Java de exemplo. Embora o SDK do serviço Java funcione em computadores Windows e Linux, este artigo usa um computador de desenvolvimento do Windows para demonstrar o processo de registro.
 
 Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de prosseguir.
 
@@ -32,7 +31,7 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 1. Certifique-se de ter o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado no computador. 
 
-2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se for a primeira instalação do Java do seu computador, crie uma nova variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo para o diretório *jdk1.8.x*. No computador Windows, geralmente este diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\* e é possível criar ou editar variáveis de ambiente pesquisando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
+2. Configure variáveis de ambiente para a instalação do Java. A variável `PATH` deve incluir o caminho completo para o diretório *jdk1.8.x\bin*. Se esta for a primeira instalação do Java do seu computador, crie uma variável de ambiente chamada `JAVA_HOME` e aponte-a para o caminho completo até o diretório *jdk1.8.x*. No computador Windows, geralmente, esse diretório está localizado na pasta *C:\\Arquivos de Programas\\Java\\*, e você pode criar ou editar variáveis de ambiente procurando **Editar as variáveis de ambiente do sistema** no **Painel de Controle** do seu computador Windows. 
 
   Verifique se o Java foi instalado com sucesso em seu computador executando o seguinte comando na janela de comando:
 
@@ -42,13 +41,13 @@ Certifique-se de [configurar o Serviço de Provisionamento de Dispositivos do Hu
 
 3. Baixe e extraia [Maven 3](https://maven.apache.org/download.cgi) em seu computador. 
 
-4. Edite a variável de ambiente `PATH` para apontar para a pasta *apache-maven-3.x.x\\bin* dentro da pasta para a qual o Maven foi extraído. Você pode confirmar que o Maven foi instalado com sucesso executando este comando em sua janela de comando:
+4. Edite a variável de ambiente `PATH` para apontar para a pasta *apache-maven-3.x.x\\bin* dentro da pasta na qual o Maven foi extraído. Você pode confirmar que o Maven foi instalado com sucesso executando este comando em sua janela de comando:
 
     ```cmd\sh
     mvn --version
     ```
 
-5. Verifique se o [git](https://git-scm.com/download/) está instalado em seu computador e se foi adicionado à variável de ambiente `PATH`. 
+5. Verifique se o [git](https://git-scm.com/download/) está instalado em seu computador e foi adicionado à variável de ambiente `PATH`. 
 
 
 <a id="javasample"></a>
@@ -65,14 +64,14 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
 
 2. No código-fonte baixado, navegue até a pasta de exemplo **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Abra o arquivo **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** em um editor de sua escolha e adicione os seguintes detalhes:
 
-    1. Adicione o `[Provisioning Connection String]` do serviço de provisionamento do portal desta forma:
+    1. Adicione a `[Provisioning Connection String]` do serviço de provisionamento pelo portal desta forma:
         1. Navegue até seu serviço de provisionamento no [Portal do Azure](https://portal.azure.com). 
-        2. Abra s **Políticas de acesso compartilhadas** e selecione uma política que tem a permissão *EnrollmentWrite*.
+        2. Abra as **Políticas de acesso compartilhadas** e selecione uma política que tenha a permissão *EnrollmentWrite*.
         3. Copie a **Cadeia de conexão da chave primária**. 
 
             ![Obter a cadeia de conexão de provisionamento do portal](./media/quick-enroll-device-x509-java/provisioning-string.png)  
 
-        4. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua o `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
+        4. No arquivo de código de exemplo **_ServiceEnrollmentGroupSample.java_**, substitua a `[Provisioning Connection String]` por uma **cadeia de conexão de chave primária**.
 
             ```Java
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -93,9 +92,9 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
                 java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
                 ```
 
-        5. Quando solicitado, insira opcionalmente um _Nome Comum_ para seus certificados.
+        5. Quando solicitado, você pode inserir um _Nome Comum_ para seus certificados.
         6. A ferramenta gera localmente um **Certificado de Cliente**, a **Chave privada do certificado de cliente** e o **Certificado raiz**.
-        7. Copie o **Certificado raiz**, incluindo as linhas **_-----INICIAR CERTIFICADO-----_** e **_-----ENCERRAR CERTIFICADO-----_**. 
+        7. Copie o **Certificado raiz**, incluindo as linhas **_-----BEGIN CERTIFICATE-----_** e **_-----END CERTIFICATE-----_**. 
         8. Atribua o valor do **Certificado raiz** ao parâmetro **PUBLIC_KEY_CERTIFICATE_STRING** conforme mostrado abaixo:
 
                 ```Java
@@ -114,7 +113,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
                         "-----END CERTIFICATE-----\n";
                 ```
 
-        9. Feche a janela de comando ou insira **n** quando solicitado para *Código de verificação*. 
+        9. Feche a janela de comando ou insira **n** quando solicitado para o *Código de verificação*. 
  
     3. Opcionalmente, você pode configurar seu serviço de provisionamento por meio do código de exemplo:
         - Para adicionar essa configuração ao exemplo, siga estas etapas:
@@ -125,7 +124,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
                 ```
             2. Atribua um nome amigável ao parâmetro *DEVICE_ID* e mantenha o *PROVISIONING_STATUS* como o valor padrão *ENABLED*. 
 
-        - OU, se você optar por não configurar o serviço de provisionamento, certifique-se de comentar ou excluir as seguintes instruções no arquivo _ServiceEnrollmentGroupSample.java_:
+        - OU, se você optar por não configurar o serviço de provisionamento, comente ou exclua as seguintes instruções do arquivo _ServiceEnrollmentGroupSample.java_:
 
             ```Java
             enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
@@ -155,7 +154,7 @@ Esta seção mostra como adicionar os detalhes de provisionamento do dispositivo
     mvn install -DskipTests
     ```
 
-   Esse comando baixa o pacote do Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Esse pacote inclui os binários do SDK do serviço Java, de que o código de exemplo precisa para compilar. Se você executou a ferramenta _gerador do certificado X.509_ na seção anterior, este pacote já será baixado em seu computador. 
+   Esse comando baixa o pacote do Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) para o seu computador. Esse pacote inclui os binários do SDK do serviço Java, de que o código de exemplo precisa para compilar. Se você tiver executado a ferramenta _gerador de certificados X.509_ na seção anterior, o pacote já estará em seu computador. 
 
 3. Execute o exemplo usando estes comandos na janela de comando:
 
@@ -199,7 +198,7 @@ Para registrar um único dispositivo X.509, modifique o código de exemplo do *r
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
             "-----END CERTIFICATE-----\n";
     ```
-3. Na função **principal**, substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para usar o certificado do cliente X.509:
+3. Na função **principal**, substitua a linha `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` pelo seguinte para usar o certificado de cliente X.509:
     ```Java
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```

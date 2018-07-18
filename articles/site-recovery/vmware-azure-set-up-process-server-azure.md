@@ -2,17 +2,18 @@
 title: Configurar um servidor em processo no Azure para o failback de servidor físico e da VM do VMware com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como configurar um servidor em processo no Azure para fazer failback de VMs do Azure para o VMware.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: c6ef0ae663727c519f9b6a8a56027a3dd8a9503d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: raynew
+ms.openlocfilehash: 20c3642bb9f9ad5089c37bb6da8562e570896cb4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308473"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor em processo no Azure para failback
 

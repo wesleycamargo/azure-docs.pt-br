@@ -1,23 +1,19 @@
 ---
 title: Comportamento de dispositivo simulado em solução de monitoramento remoto - Azure | Microsoft Docs
 description: Este artigo descreve como usar JavaScript para definir o comportamento de um dispositivo simulado na solução de monitoramento remota.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: cd6c3c20f8d776996a7089873e010430fd2b570b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 7e874723833eee239a55b937e3fd0bdfc52d762a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367478"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627664"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementar o comportamento do modelo do dispositivo
 
@@ -30,7 +26,7 @@ Neste artigo, você aprenderá a:
 
 >[!div class="checklist"]
 > * Controlar o estado de um dispositivo simulado
-> * Definir como um dispositivo simulado responde a um método de chamada da solução de monitoramento remota
+> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitoramento remoto
 > * Depurar seus scripts
 
 ## <a name="state-behavior"></a>Comportamento de Estado
@@ -264,12 +260,12 @@ Este artigo descreveu como definir o comportamento do seu próprio modelo de dis
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Controlar o estado de um dispositivo simulado
-> * Definir como um dispositivo simulado responde a um método de chamada da solução de monitoramento remota
+> * Definir como um dispositivo simulado responde a uma chamada de método da solução de monitoramento remoto
 > * Depurar seus scripts
 
 Agora que você aprendeu como especificar o comportamento de um dispositivo simulado, a próxima etapa sugerida é saber como [Criar um dispositivo simulado](iot-accelerators-remote-monitoring-test.md).
 
-Para obter informações para o desenvolvedor sobre a solução de monitoramento remoto, consulte:
+Para obter informações do desenvolvedor sobre a solução de Monitoramento Remoto, confira:
 
 * [Guia de Referência do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Solução de Problemas do Desenvolvedor](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

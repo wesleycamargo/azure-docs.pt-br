@@ -1,20 +1,17 @@
 ---
 title: Instalar o servidor de destino mestre do Linux para o failover do Azure no local | Microsoft Docs
 description: Antes de proteger novamente uma máquina virtual Linux, você precisa de um servidor de destino mestre do Linux. Saiba como instalar um.
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072429"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921062"
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -243,7 +240,7 @@ Use as etapas a seguir para criar um disco de retenção:
 
 2. Use o comando **multipath -ll** para conhecer a ID de vários caminhos do disco de retenção: **multipath -ll**
 
-    ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs.ext4 dev/mapper/<ID de vários caminhos do disco de retenção>**.
     

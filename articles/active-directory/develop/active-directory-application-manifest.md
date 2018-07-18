@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157068"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317388"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 Aplicativos que se integram com o Azure AD devem ser registrados com um locatário do Azure AD. Este aplicativo pode ser configurado usando o manifesto do aplicativo (na folha do Azure AD) no [portal do Azure](https://portal.azure.com).

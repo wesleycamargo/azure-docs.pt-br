@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902897"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure
 
@@ -39,15 +40,15 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
      "hmdt": 44
    }
    ```
-2. Entre no Portal do Azure.  
+2. Entre no [portal do Azure](https://portal.azure.com/).  
 
-3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página do trabalho da conta de armazenamento com o **Nome** definido como "myasastorageaccount", o **Local** definido como "Oeste dos EUA 2", o **Grupo de recursos** definido como "MyRG" (tenha a conta de armazenamento no mesmo grupo de recursos do trabalho do Streaming para melhorar o desempenho). As configurações restantes podem ser deixadas em seus valores padrão.  
+3. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Armazenamento** > **Conta de armazenamento**. Preencha a página do trabalho da conta de Armazenamento com **Nome** definido como "asaquickstartstorage", **Local** definido como "Oeste dos EUA 2", **Grupo de recursos** definido como "asaquickstart-resourcegroup" (tenha a conta de armazenamento no mesmo grupo de recursos do trabalho do Streaming para melhorar o desempenho). As configurações restantes podem ser deixadas em seus valores padrão.  
 
    ![Criar Conta de Armazenamento](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
 4. Na página **Todos os recursos**, localize a conta de armazenamento criada na etapa anterior. Abra a página **Visão geral** e o bloco **Blobs**.  
 
-5. Na página **Serviço Blob**, selecione **Contêiner**, forneça um **Nome** para o contêiner, como *container1*, e altere o  **Nível de acesso público** para Blob (acesso de leitura anônimo somente para blobs) > selecione **OK**.  
+5. Na página **Serviço Blob**, selecione **Contêiner**, forneça um **Nome** para o contêiner, como *container1*, e altere o  **Nível de acesso público** para Privado (sem acesso anônimo) > selecione **OK**.  
 
    ![Criar um contêiner](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
@@ -67,10 +68,10 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, q
 
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Nome do trabalho   |  myJob   |   Insira um nome para identificar o trabalho do Stream Analytics. O nome do trabalho do Stream Analytics pode conter somente caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres. |
+   |Nome do trabalho   |  myasajob   |   Insira um nome para identificar o trabalho do Stream Analytics. O nome do trabalho do Stream Analytics pode conter somente caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres. |
    |Assinatura  | \<Sua assinatura\> |  Selecione a assinatura do Azure que você deseja usar para este trabalho. |
-   |Grupo de recursos   |   myResourceGroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
-   |Local padrão  |  \<Selecione a região mais próxima de seus usuários\> | Selecione a localização geográfica onde você pode hospedar seu trabalho do Stream Analytics. Use o local mais próximo de seus usuários para melhorar o desempenho e reduzir o custo de transferência dos dados. |
+   |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
+   |Localização  |  \<Selecione a região mais próxima de seus usuários\> | Selecione a localização geográfica onde você pode hospedar seu trabalho do Stream Analytics. Use o local mais próximo de seus usuários para melhorar o desempenho e reduzir o custo de transferência dos dados. |
    |Unidades de transmissão  | 1  |   As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, consulte o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente de hospedagem  |  Nuvem  |   Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge. |
 
@@ -115,8 +116,9 @@ Nesta seção, você configurará o armazenamento de blobs como uma entrada para
    |---------|---------|---------|
    |Alias de saída |   BlobOutput   |   Insira um nome para identificar a saída do trabalho. |
    |Assinatura  |  \<Sua assinatura\>  |  Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura. |
-   |Conta de armazenamento |  myasastorageaccount |   Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.       |
-   |Contêiner |   container2  |  Crie um novo contêiner na mesma conta de armazenamento que você usou para a entrada.   |
+   |Conta de armazenamento |  asaquickstartstorage |   Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.       |
+   |Contêiner |   container1  |  Selecione o contêiner existente que você criou em sua conta de armazenamento.   |
+   |Padrão de caminho |   output  |  Insira um nome para servir como o caminho em seu contêiner existente para a saída.   |
 
 4. Deixe as outras opções com os valores padrão e selecione **Salvar** para salvar as configurações.  
 
@@ -153,7 +155,7 @@ Nesta seção, você configurará o armazenamento de blobs como uma entrada para
 
    ![Iniciar o trabalho](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Depois de alguns minutos, no portal, localize a conta de armazenamento e o contêiner que você configurou como saída para o trabalho. Agora você pode ver o arquivo de saída no contêiner. O trabalho leva alguns minutos para ser iniciado pela primeira vez. Depois de iniciado, ele continuará a ser executado com a chegada dos dados.  
+3. Depois de alguns minutos, no portal, localize a conta de armazenamento e o contêiner que você configurou como saída para o trabalho. Selecione a saída do caminho. Agora você pode ver o arquivo de saída no contêiner. O trabalho leva alguns minutos para ser iniciado pela primeira vez. Depois de iniciado, ele continuará a ser executado com a chegada dos dados.  
 
    ![Saída transformada](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

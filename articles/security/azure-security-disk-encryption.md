@@ -14,22 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f350716d0ca906376f3eadce9e117694ff14515c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35756389"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para VMs IaaS Windows e Linux
 O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberania dos seus dados e permite que você controle os dados hospedados no Azure usando uma variedade de tecnologias para criptografar, controlar e gerenciar chaves de criptografia, bem como auditar e controlar o acesso aos dados. Isso permite que os clientes do Azure tenham a flexibilidade de escolher a solução que melhor atenda às necessidades de negócios. Neste artigo, apresentaremos a você uma nova solução de tecnologia, "Azure Disk Encryption para VMs IaaS Windows e Linux" para ajudá-lo a proteger seus dados e atender às obrigações de conformidade e segurança da organização. O documento fornece orientações detalhadas sobre como usar os recursos de criptografia de disco do Azure, incluindo os cenários com suporte e as experiências de usuário.
 
-> [!NOTE]
-> Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="overview"></a>Visão geral
 o Azure Disk Encryption é um novo recurso que ajuda a criptografar os discos de suas máquinas virtuais IaaS Windows e Linux. A Azure Disk Encryption aproveita o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura de cofre de chaves. A solução também garante que todos os dados em discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 
 O Azure Disk Encryption para VMs IaaS do Windows e Linux agora está em **Disponibilidade Geral** em todas as regiões públicas do Azure e AzureGov para VMs Standard e VMs com armazenamento premium.
+
+> [!NOTE]
+> Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição.
+
 
 ### <a name="encryption-scenarios"></a>Cenários de criptografia
 A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente:
@@ -352,7 +357,7 @@ Para entender alguns dos termos comuns usados por essa tecnologia, use a seguint
 | --- | --- |
 | AD do Azure | Azure AD significa [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Uma conta do Azure AD é um pré-requisito para autenticar, armazenar e recuperar segredos do cofre de chaves. |
 | Cofre da Chave do Azure | O Key Vault é um serviço de gerenciamento de chaves criptográfico baseado em módulos de segurança de hardware validados pelo FIPS (Federal Information Processing Standards), que ajuda a proteger as chaves criptográficas e os segredos confidenciais. Para obter mais informações, confira a documentação do [Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| ARM | Gerenciador de Recursos do Azure |
+| ARM | Azure Resource Manager |
 | BitLocker |O [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) é uma tecnologia de criptografia de volume do Windows reconhecida pela indústria e usada para habilitar a criptografia de disco em VMs de IaaS do Windows. |
 | BEK | As chaves de criptografia do BitLocker são usadas para criptografar o volume de inicialização do sistema operacional e os volumes de dados. As chaves do BitLocker são protegidas em um cofre de chaves como segredos. |
 | CLI | Confira [Interface de linha de comando do Azure](../cli-install-nodejs.md). |
@@ -368,7 +373,7 @@ Para criar um cofre de chaves, use uma das seguintes opções:
 
 * [Modelo "101-Key-Vault-Create" do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Cmdlets do cofre de chaves do Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
-* Gerenciador de Recursos do Azure
+* Azure Resource Manager
 * Como [ Proteger o key vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
@@ -417,7 +422,7 @@ Você pode habilitar a criptografia de disco em uma nova VM IaaS Windows por mei
 > [!NOTE]
 > Esse modelo cria uma nova VM do Windows criptografada que usa a imagem de galeria do Windows Server 2012.
 
-Você pode habilitar a criptografia de disco em uma nova VM IaaS do RedHat Linux 7.2 com uma matriz RAID 0 de 200 GB usando esse [modelo do Gerenciador de Recursos](https://aka.ms/fde-rhel). Após implantar o modelo, verifique o status de criptografia da VM usando o cmdlet `Get-AzureRmVmDiskEncryptionStatus`, conforme descrito em [Criptografando unidade do SO em uma VM do Linux em execução](#encrypting-os-drive-on-a-running-linux-vm). Quando o computador retornar um status _VMRestartPending_, reinicie a VM.
+Você pode habilitar a criptografia de disco em uma nova VM IaaS do RedHat Linux 7.2 com uma matriz RAID 0 de 200 GB usando esse [modelo do Resource Manager](https://aka.ms/fde-rhel). Após implantar o modelo, verifique o status de criptografia da VM usando o cmdlet `Get-AzureRmVmDiskEncryptionStatus`, conforme descrito em [Criptografando unidade do SO em uma VM do Linux em execução](#encrypting-os-drive-on-a-running-linux-vm). Quando o computador retornar um status _VMRestartPending_, reinicie a VM.
 
 A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos para novas VMs do cenário do Marketplace usando a ID de cliente do Azure AD:
 

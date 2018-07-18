@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando Políticas personalizadas'
-description: Exemplo usando Microsoft como provedor de identidade usando o protocolo OIDC (OpenID Connect)
+title: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Exemplo de como usar Microsoft como provedor de identidade usando o protocolo OIDC (OpenID Connect).
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448745"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar MSA (Conta da Microsoft) como um provedor de identidade usando políticas personalizadas
 
@@ -150,7 +150,7 @@ Neste ponto, o provedor de identidade foi definido, mas não está disponível e
 1.  Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
 2.  Localize o elemento `<UserJourneys>` e copie todo o conteúdo do nó `<UserJourneys>`.
 3.  Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-4.  Cole todo o conteúdo do nó `<UserJournesy>` copiado como um filho do elemento `<UserJourneys>`.
+4.  Cole todo o conteúdo do nó `<UserJourneys>` copiado como um filho do elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção de provedor de declarações e sua ordem.  O elemento `<ClaimsProviderSelection>` é análogo a um botão de provedor de identidade em uma página de inscrição/entrada. Se você adicionar um elemento `<ClaimsProviderSelection>` para a conta da Microsoft, um novo botão será exibido quando um usuário chegar à página. Para adicionar este elemento:
@@ -160,7 +160,7 @@ O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção 
 3.  Adicione o seguinte trecho XML ao nó `<ClaimsProviderSelections>`:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
@@ -170,7 +170,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 2.  Adicione o seguinte trecho XML ao nó `<ClaimsExchanges>`:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

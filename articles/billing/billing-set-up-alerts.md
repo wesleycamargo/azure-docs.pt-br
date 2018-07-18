@@ -2,13 +2,12 @@
 title: Configurar alertas de cobrança ou de crédito para assinaturas do Azure | Microsoft Docs
 description: Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança.
 keywords: alerta de crédito, alerta de cobrança
-services: ''
+services: billing
 documentationcenter: ''
 author: adpick
 manager: adpick
 editor: ''
 tags: billing
-ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,20 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 981cb1153e0268e6572207f8d2401edb23485863
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359043"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607796"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
 Caso seja o Administrador da Conta de uma assinatura do Azure, você poderá usar o Serviço de Alerta de Cobrança do Azure para criar alertas personalizados de cobrança que ajudam a monitorar e gerenciar a atividade de cobrança de suas contas do Azure.
 
 Esse serviço está no modo preview, de modo que você precisa habilitá-lo primeiro na página Recursos do Preview.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os alertas de limite e destinatários de email
 1. Visite [a página Recursos do Preview](https://account.windowsazure.com/PreviewFeatures) e habilite **Serviço de Alerta de Cobrança**.
@@ -51,6 +49,11 @@ O Azure é compatível com qualquer endereço de email, mas não verifica se est
 ## <a name="check-on-your-alerts"></a>Verificar os seus alertas
 Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
 
+## <a name="delete-alerts-or-email-addresses-from-the-azure-billing-alert-service"></a>Excluir alertas ou endereços de e-mail do Serviço de Alerta de Cobrança do Azure
+Se você precisar remover qualquer informação do serviço, atualize o endereço de e-mail no arquivo ou exclua completamente o alerta.
+
+   ![Captura de tela da exibição de alerta de exclusão, onde você pode remover informações pessoais][Image4]
+
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de cobrança para clientes do EA (Enterprise Agreement)
 As assinaturas do EA não são suportadas por este serviço, em vez disso, os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Para começar, confira [Cotas de Gasto por Departamento](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA.
 
@@ -64,3 +67,4 @@ Para saber mais, confira [Orientações sobre o gerenciamento de custos do Azure
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
+[Image4]: ./media/azure-billing-set-up-alerts/AlertsDeleteScreen1.PNG

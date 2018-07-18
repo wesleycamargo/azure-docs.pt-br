@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712861"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
 

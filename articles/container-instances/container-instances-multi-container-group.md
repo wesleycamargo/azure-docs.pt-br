@@ -2,35 +2,43 @@
 title: Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure
 description: Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
-ms.author: nepeters
+ms.date: 06/08/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888190"
 ---
 # <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
 
 As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Isso é útil ao criar um aplicativo secundário para registro em log, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo anexado.
 
-Este documento explica passo a passo como executar uma configuração de sidecar simples de vários contêineres implantando um modelo do Azure Resource Manager.
+Há dois métodos para implantar o contêiner com vários grupos usando a CLI do Azure:
+
+* Implantação de modelo do Resource Manager (este artigo)
+* [Implantação do arquivo YAML](container-instances-multi-container-yaml.md)
+
+A implantação com um modelo do Resource Manager será recomendável se você precisar implantar recursos adicionais de serviço do Azure (por exemplo, um compartilhamento de Arquivos do Azure) no momento da implantação da instância de contêiner. Devido à natureza mais concisa do formato YAML, recomendamos a implantação com um arquivo YAML quando sua implantação incluir *somente* instâncias de contêiner.
 
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças atuais de plataforma em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 
-Crie um arquivo chamado `azuredeploy.json` e copie o seguinte JSON nele.
+As seções deste artigo explicam passo a passo como executar uma configuração de sidecar simples de vários contêineres implantando um modelo do Azure Resource Manager.
 
-Neste exemplo, é definido um grupo de contêineres com dois contêineres, um endereço IP público e duas portas expostas. O primeiro contêiner no grupo executa um aplicativo voltado para a Internet. O outro contêiner, o secundário, faz uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo.
+Crie um arquivo chamado `azuredeploy.json` e copie o seguinte JSON para ele.
 
-```json
+Este modelo do Resource Manager define um grupo de contêineres com dois contêineres, um endereço IP público e duas portas expostas. O primeiro contêiner no grupo executa um aplicativo voltado para a Internet. O outro contêiner, o secundário, faz uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ Neste exemplo, é definido um grupo de contêineres com dois contêineres, um en
 
 Para usar um registro de imagem de contêiner privado, adicione um objeto ao documento JSON com o formato a seguir. Para um exemplo de implementação dessa configuração, consulte a documentação [Referência de modelo do Gerenciador de recursos de ACI] [ template-reference].
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Em alguns segundos, você deverá receber uma resposta inicial do Azure.
 
 ## <a name="view-deployment-state"></a>Exibir estado da implantação
 
-Para exibir o estado da implantação, use o comando [az container show][az-container-show]. Isso retorna o endereço IP público provisionado através do qual o aplicativo pode ser acessado.
+Para exibir o estado da implantação, use o comando [az container show][az-container-show] a seguir:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Saída:
+Se quiser exibir o aplicativo em execução, navegue até o endereço IP dele em seu navegador. Por exemplo, o IP é `52.168.26.124` nesta saída de exemplo:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

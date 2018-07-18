@@ -2,7 +2,7 @@
 title: Monitoramento de desempenho de aplicativos Web - Azure Application Insights | Microsoft Docs
 description: Como o Application Insights se encaixa no ciclo do devOps
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294904"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -114,7 +115,7 @@ E permite que você inspecione imediatamente uma amostra de quaisquer falhas ou 
 ![Eventos de falha em tempo real](./media/app-insights-devops/live-stream-failures.png)
 
 ## <a name="application-map"></a>Mapa de aplicativo
-O mapa de aplicativo detecta automaticamente a topologia do aplicativo, colocando as informações de desempenho sobre ela para permitir que você identifique facilmente os afunilamentos de desempenho e fluxos problemáticos em ambientes distribuídos. Ele permite que você descubra dependências de aplicativos nos Serviços do Azure. Você pode fazer a triagem do problema entendendo se ele é relacionado ao código ou à dependência e, de um único lugar, detalhar a experiência de diagnóstico relacionada. Por exemplo, seu aplicativo pode estar falhando devido à degradação do desempenho na camada SQL. Com o mapa de aplicativo, você pode vê-lo imediatamente e detalhar a experiência do SQL Index Advisor ou Insights de Consulta.
+O mapa de aplicativo detecta automaticamente a topologia do aplicativo, colocando as informações de desempenho sobre ela para permitir que você identifique facilmente os gargalos de desempenho e fluxos problemáticos em ambientes distribuídos. Ele permite que você descubra dependências de aplicativos nos Serviços do Azure. Você pode fazer a triagem do problema entendendo se ele é relacionado ao código ou à dependência e, de um único lugar, detalhar a experiência de diagnóstico relacionada. Por exemplo, seu aplicativo pode estar falhando devido à degradação do desempenho na camada SQL. Com o mapa de aplicativo, você pode vê-lo imediatamente e detalhar a experiência do SQL Index Advisor ou Insights de Consulta.
 
 ![Mapa de aplicativo](./media/app-insights-devops/050.png)
 

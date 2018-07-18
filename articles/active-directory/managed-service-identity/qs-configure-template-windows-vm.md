@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 8c955e6ad9d47c6963a1c136600761fddee03835
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930266"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723738"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -69,7 +69,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
    },
    ```
 
-4. (Opcional) Adicione a extensão da MSI da VM como um elemento `resources`. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também.  Use a seguinte sintaxe:
+4. (Opcional) Adicione a extensão da MSI da VM como um elemento `resources`. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Use a seguinte sintaxe:
 
    >[!NOTE] 
    > O exemplo a seguir pressupõe que uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está sendo implantada. Você também pode configurar para Linux usando `ManagedIdentityExtensionForLinux` em vez disso, para os elementos `"name"` e `"type"`.
@@ -131,12 +131,12 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VM do 
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```
     
-2. (Opcional) Em seguida, no elemento `resources`, adicione a seguinte entrada para atribuir a extensão de identidade gerenciada para sua VM. Esta etapa é opcional, uma vez que você pode usar o ponto de extremidade de identidade do serviço de metadados na instância (IMDS) do Azure para recuperar tokens também. Use a seguinte sintaxe:
+2. (Opcional) Em seguida, no elemento `resources`, adicione a seguinte entrada para atribuir a extensão de identidade gerenciada para sua VM. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens. Use a seguinte sintaxe:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",

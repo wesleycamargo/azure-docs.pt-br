@@ -4,20 +4,18 @@ description: Documentação de referência para a linguagem de consulta SQL do A
 services: cosmos-db
 author: LalithaMV
 manager: kfile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798824"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
 
@@ -246,7 +244,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
     {1,2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
     {4,5} para`input_alias1 = C,`  
   
@@ -264,7 +262,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
     {1,2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
     {4,5} para`input_alias1 = C,`  
   
@@ -272,7 +270,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
     {100, 200} para`input_alias2 = 1,`  
   
-    {300} para`input_alias2 = 3,`  
+    {300} para `input_alias2 = 3,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nas tuplas abaixo:  
   
@@ -293,7 +291,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
     {1,2} para `input_alias1 = A,`  
   
-    {3} para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
     {4,5} para`input_alias1 = C,`  
   
@@ -301,7 +299,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
     {100, 200} para`input_alias2 = A,`  
   
-    {300} para`input_alias2 = C,`  
+    {300} para `input_alias2 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nas tuplas abaixo:  
   

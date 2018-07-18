@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358652"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603756"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Usar a extensão do Visual Studio Code para criar modelos do Azure Resource Manager
 Este artigo mostra os benefícios de instalar e usar a extensão de ferramentas do Azure Resource Manager no Visual Studio Code. Você pode criar modelos do Resource Manager no VS Code sem a extensão, mas a extensão fornece opções de preenchimento automático que simplificam o desenvolvimento do modelo. Ele sugere as funções, parâmetros e variáveis de modelo que estão disponíveis no modelo.
@@ -171,7 +171,18 @@ Este artigo é baseado no modelo que você criou em [Criar e implantar seu prime
 
    ![Mostrar variáveis](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. Selecione a variável **storageName**. Adicione o colchete direito. O exemplo abaixo mostra a seção de saídas:
+10. Selecione a variável **storageName**. Agora, seu código deve ficar assim:
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. O código acima não funcionará porque `reference` retorna um objeto, mas o valor de saída é definido como *cadeia de caracteres*. Você precisa especificar um dos valores nesse objeto. A função de referência pode ser usada com qualquer tipo de recurso, portanto o VS Code não sugere propriedades para o objeto. Em vez disso, veja que um valor [retornado para uma conta de armazenamento](/rest/api/storagerp/storageaccounts/getproperties) é `.primaryEndpoints.blob`. 
+
+   Adicione essa propriedade após o último parêntese. Adicione o colchete direito. O exemplo abaixo mostra a seção de saídas:
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Este artigo é baseado no modelo que você criou em [Criar e implantar seu prime
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ O modelo final é:
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }
@@ -257,7 +268,7 @@ O modelo final é:
 
 ## <a name="deploy-template"></a>Implantar modelo
 
-Você está pronto para implantar o modelo. Use o PowerShell ou a CLI do Azure para criar um grupo de recursos. Em seguida, implante uma conta de armazenamento para esse grupo de recursos.
+Você está pronto para implantar esse modelo. Use o PowerShell ou a CLI do Azure para criar um grupo de recursos. Em seguida, implante uma conta de armazenamento para esse grupo de recursos.
 
 * No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
 

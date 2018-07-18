@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921330"
 ---
 1. Navegue até a página do seu gateway de rede virtual e a abra. Há várias maneiras de navegar. Você pode navegar para o gateway “VNet1GW” acessando **TestVNet1 -> Visão geral -> Dispositivos conectados -> VNet1GW**.
 2. Na página do VNet1GW, clique em **Conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.

@@ -1,74 +1,75 @@
 ---
 title: Responder a eventos com alertas do Azure Log Analytics | Microsoft Docs
-description: "Esse tutorial ajuda você a entender os alertas no Log Analytics para identificar informações importantes no repositório do OMS e notificá-lo de forma proativa de problemas ou invocar ações para tentar corrigi-los."
+description: Este tutorial ajuda-o a reconhecer alertas com Log Analytics para identificar informações importantes no espaço de trabalho e notificá-lo proativamente sobre problemas ou invocar ações para tentar corrigi-los.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 635c1589fcfd71d39439ab4f7df2d26c50c3212c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127247"
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Responder a eventos com alertas do Log Analytics
-Alertas no Log Analytics identificam informações importante no repositório de Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares. Se os resultados da pesquisa de logs correspondem a critérios específicos, é criado um registro de alerta e ele pode ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
+# <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com alertas do Azure Monitor
+Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares e, se os resultados da pesquisa de logs corresponderem a determinados critérios, um registro de alerta será criado e poderá ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma regra de alerta
-> * Configurar uma regra de alerta para enviar uma notificação por email
+> * Configurar um Grupo de Ações para enviar uma notificação por email
 
 Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
 ## <a name="log-in-to-azure-portal"></a>Fazer logon no portal do Azure
-Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Criar alertas
+Alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas salvas ou pesquisas de logs personalizadas em intervalos regulares.  Crie alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, na ausência de um evento ou quando um número de eventos são criados em uma janela de tempo específica.  Por exemplo, alertas podem ser utilizados para notificá-lo quando o uso médio de CPU exceder um determinado limite, quando uma atualização ausente for detectada ou quando um evento for gerado ao detectar que um daemon do Linux ou serviço Windows específico não está em execução.  Se os resultados da pesquisa de logs corresponderem a critérios específicos, um alerta será criado. Em seguida, a regra poderá executar automaticamente uma ou mais ações como notificá-lo sobre o alerta ou invocar outro processo. 
 
-Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Crie alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, na ausência de um evento ou quando um número de eventos são criados em uma janela de tempo específica.  Por exemplo, os alertas podem ser usados para notificá-lo de quando o uso médio da CPU excede determinado limite ou um evento é gerado quando um serviço Windows ou um daemon do Linux específico não está em execução.   Se os resultados da pesquisa de logs corresponderem a critérios específicos, um registro de alerta será criado. A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo. 
+No exemplo a seguir, você criará uma regra de alerta de medição métrica com base na consulta de *VMs do Azure - Utilização do processador*  salva no [tutorial Visualizar dados](log-analytics-tutorial-dashboards.md).  Um alerta será criado para cada máquina virtual que exceder um limite de 90%.  
 
-No exemplo a seguir, você criou uma regra de alerta de medida de métrica que cria um alerta para cada objeto de computador na consulta com um valor que excede um limite de 90%.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Monitor**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Monitor**.
+2. No painel esquerdo, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
+3. Para a primeira etapa, na seção **Criar Alerta** você selecionará o espaço de trabalho do Log Analytics como o recurso, pois esse é um sinal de alerta baseado em log.  Filtre os resultados, escolhendo a **Assinatura** específica na lista suspensa, se houver mais de uma, a qual contém a VM e o espaço de trabalho do Log Analytics criado anteriormente.  Filtre o **Tipo de Recurso**, selecionando o **Log Analytics** na lista suspensa.  Por fim, selecione **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar tarefa 1 da etapa de alerta](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
+4. Na seção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a consulta salva e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar sinal lógico**, selecione *VMs do Azure - Utilização do processador* na lista.  O painel é atualizado para apresentar as configurações do alerta.  Na parte superior, mostra o conjunto de resultados dos últimos 30 minutos do sinal selecionado e a própria consulta de pesquisa.  
+5. Configure o alerta com as informações a seguir:  
+   a. Na lista suspensa **Com base em*, selecione **Medição métrica**.  Uma medição métrica criará um alerta para cada objeto na consulta com um valor que exceda o limite especificado.  
+   b. Para a **Condição**, selecione **Maior que** e insira **90** para o **Limite**.  
+   c. Na seção Disparar Alerta com Base Em, selecione **Violações consecutivas** e na lista suspensa selecione **Maior que** e insira um valor de 3.  
+   d. Na seção Avaliação com Base Em, aceite os padrões. A regra executará a cada cinco minutos e retornará registros criados dentro desse intervalo da hora atual.  
+6. Clique em **Concluído** para concluir a regra de alerta.<br><br> ![Configurar sinal de alerta](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
+7. Agora, passando para a segunda etapa, forneça um nome de alerta no campo **Nome da regra de alerta**, como **Percentual de CPU maior que 90%**.  Especifique uma **Descrição** com detalhes específicos para o alerta e selecione **Critical(Sev 0)** para o valor de **Gravidade** das opções fornecidas.<br><br> ![Configurar detalhes de alerta](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. Para ativar imediatamente a regra de alerta na criação, aceite o valor padrão para **Habilitar regra após a criação**.
+9. Na terceira e última etapa, você especifica um **Grupo de Ações**, o qual garantirá que as mesmas ações sejam executadas sempre que um alerta for disparado e poderá ser utilizado para cada regra definida.  Configure um novo grupo de ações com as informações a seguir:  
+   a. Selecione **Novo grupo de ações** e o painel **Adicionar grupo de ações** aparece.
+   b. Para **Nome do grupo de ações**, especifique um nome como **Operações de TI - Notificar** e um **Nome curto** como **itops-n**.  
+   c. Verifique se os valores padrão para **Assinatura** e **Grupo de recursos** estão corretos. Caso contrário, selecione um correto na lista suspensa.   
+   d. Na seção Ações, especifique um nome para a ação, como **Enviar Email** e em **Tipo de Ação** selecione **Email/SMS/Push/Voz** na lista suspensa. O painel de propriedades **Email/SMS/Push/Voz** será aberto à direita para fornecer informações adicionais.
+   e. No painel **Email/SMS/Push/Voz**, habilite **Email** e forneça um endereço SMTP de email válido para entregar a mensagem. f. Clique em **OK** para salvar as alterações.<br><br> ![Criar novo grupo de ações](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+10. Clique em **OK** para concluir o grupo de ações. 
+11. Clique em **Criar regra de alerta** para concluir a regra de alerta. Ela começa a ser executada imediatamente.<br><br> ![Concluir a criação de nova regra de alerta](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
-2. Inicie o portal do OMS selecionando o Portal do OMS e, na página **Visão Geral**, selecione **Pesquisa de Logs**.  
-3. Selecione **Favoritos** na parte superior do portal e, no painel **Pesquisas Salvas** à direita, selecione a consulta *VMs do Azure – Utilização do Processador*.  
-4. Clique em **Alerta** na parte superior da página para abrir a tela **Adicionar Regra de Alerta**.  
-5. Configure a regra de alerta com as seguintes informações:  
-   a. Forneça um **Nome** para o alerta, como *A utilização do processador de VM excedeu >90*  
-   b. Para **Janela de Tempo**, especifique um intervalo de tempo para a consulta, como *30*.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  
-   c. **Frequência de Alerta** especifica a frequência com que a consulta deve ser executada.  Neste exemplo, especifique *5* minutos, que ocorrerá em nossa janela de tempo especificada.  
-   d. Selecione **Medida da Métrica** e insira *90* para **Valor Agregado** e *3* para **Disparar alerta com base em**   
-   e. Em **Ações**, desabilite a notificação por email.
-6. Clique em **Salvar** para concluir a regra de alerta. Ela começa a ser executada imediatamente.<br><br> ![Exemplo de regra de alerta](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+## <a name="view-your-alerts-in-azure-portal"></a>Exibir os alertas no portal do Azure
+Agora que você criou um alerta, será possível exibir os alertas do Azure em um único painel e gerenciar todas as regras de alerta nas assinaturas do Azure. Ela lista todas as regras de alerta (habilitadas ou desabilitadas) e estas podem ser classificadas com base em grupos de recursos, recursos de destino, nome da regra ou status. Incluem-se uma agregação/resumo de todos os alertas disparados e o total de regras de alerta configuradas/habilitadas.<br><br> ![Página de status de Alertas do Azure](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
-Os registros de alerta criados por regras de alerta no Log Analytics têm um Tipo de **Alerta** e um SourceSystem que indica **OMS**.<br><br> ![Exemplo de eventos de Alerta gerados](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
-
-## <a name="alert-actions"></a>Ações de alerta
-Execute ações avançadas com alertas, como criar uma notificação por email, iniciar um [runbook de Automação](../automation/automation-runbook-types.md), usar um webhook para criar um registro de incidente no sistema de gerenciamento de incidentes ITSM ou com a [Solução de Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md) como uma resposta quando os critérios de alerta são atendidos.   
-
-As ações de email enviam um email com detalhes do alerta para um ou mais destinatários. Você pode especificar o assunto do email, mas seu conteúdo é um formato padrão criado pelo Log Analytics.  Vamos atualizar a regra de alerta criada anteriormente e configurá-la para enviar uma notificação por email, em vez de monitorar ativamente o registro de alerta com uma pesquisa de logs.     
-
-1. No portal do OMS, no menu superior, selecione **Configurações** e, em seguida, **Alertas**.
-2. Na lista de regras de alerta, clique no ícone de lápis ao lado do alerta criado anteriormente.
-3. Na seção **Ações**, habilite as notificações por email.
-4. Forneça um **Assunto** para o email, como *Limite de utilização do processador excedido >90*.
-5. Adicione endereços de um ou mais destinatários de email no campo **Destinatários**.  Se você especificar mais de um endereço, separe os endereços com ponto e vírgula (;).
-6. Clique em **Salvar** para concluir a regra de alerta. Ela começa a ser executada imediatamente.<br><br> ![Regra de alerta com notificação por email](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+Quando o alerta é disparado, a tabela reflete a condição e quantas vezes ocorreu dentro do intervalo de tempo selecionado (o padrão é as últimas seis horas).  Deverá haver um email correspondente na caixa de entrada semelhante ao exemplo a seguir, mostrando a máquina virtual incorreta e os principais resultados que corresponderam à consulta de pesquisa nesse caso.<br><br> ![Exemplo de ação de email de alerta](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como as regras de alerta podem identificar de forma proativa e responder a um problema quando executarem as pesquisas de log em intervalos agendados e correspondem a determinado critério.  
+Neste tutorial, você aprendeu como as regras de alerta podem identificar de forma proativa e responder a um problema quando executarem as pesquisas de log em intervalos agendados e correspondem a determinado critério.
 
 Siga este link para ver amostras de script do Log Analytics pré-criadas.  
 

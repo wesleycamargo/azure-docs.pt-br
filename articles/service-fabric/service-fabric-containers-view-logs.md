@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211918"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824604"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner do Service Fabric
 O Microsoft Azure Service Fabric é um orquestrador de contêineres e dá suporte a [contêineres de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou contêiner inativo para que você possa diagnosticar e solucionar problemas.
@@ -35,6 +35,14 @@ No modo de exibição de árvore, localize o pacote de código no nó *_lnxvm_0*
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Acessar os logs de um contêiner inativo ou com falha
 Começando em v 6.2, você pode buscar também os logs para um contêiner inativo ou falha usando os comandos [APIs REST](/rest/api/servicefabric/sfclient-index) ou [CLI do Service Fabric (SFCTL)](service-fabric-cli.md).
+
+### <a name="set-container-retention-policy"></a>Definir política de retenção de contêiner
+Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service Fabric (versão 6.1 ou superiores) oferece suporte à retenção de contêineres que encerraram ou falharam na inicialização. Essa política pode ser definida no arquivo **ApplicationManifest.xml** conforme mostrado no trecho de código a seguir:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+A configuração **ContainersRetentionCount** especifica o número de contêineres mantidos quando ocorre uma falha. Se um valor negativo for especificado, todos os contêineres com falha serão mantidos. Quando o atributo **ContainersRetentionCount** não for especificado, nenhum contêiner será retido. O atributo **ContainersRetentionCount** também oferece suporte a Parâmetros de Aplicativo para que os usuários possam especificar valores diferentes para clusters de teste e produção. Use restrições de posicionamento para direcionar o serviço de contêiner para um determinado nó quando esses recursos forem usados com a finalidade de impedir que o serviço de contêiner se mova para outros nós. Todos os contêineres retidos usando esse recurso devem ser removidos manualmente.
 
 ### <a name="rest"></a>REST
 Use a operação [Obter Logs de Contêiner Implantados no Nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obter os logs para um contêiner de falha. Especifique o nome do contêiner em execução no nó, nome do aplicativo, nome do manifesto de serviço e o nome do pacote de código.  Especifique `&Previous=true`. A resposta conterá os logs do contêiner para o contêiner inativo da instância do pacote de código.

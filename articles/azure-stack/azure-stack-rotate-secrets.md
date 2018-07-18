@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029009"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar segredos na pilha do Azure
 
@@ -83,11 +84,12 @@ Executar o segredo rotação usando as instruções a seguir corrigirá esses al
     > [!note]  
     > As próximas etapas se aplicam somente quando a rotação de segredos externos da pilha do Azure.
 
-2.  Prepare um novo conjunto de substituição de certificados externos. O novo conjunto coincide com as especificações de certificado apresentadas no [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Armazene um backup de até os certificados usados para rotação em um local de backup seguro. Se a rotação é executado e, em seguida, falha, substitua os certificados no compartilhamento de arquivos com as cópias de backup antes de executar novamente a rotação. Observe, manter cópias de backup no local de backup seguro.
-3.  Crie um compartilhamento de arquivos que você pode acessar de VMs ERCS. O compartilhamento de arquivos deve ser legível e gravável para o **CloudAdmin** identidade.
-4.  Abra um console do ISE do PowerShell em um computador em que você tem acesso ao compartilhamento de arquivos. Navegue até o compartilhamento de arquivos. 
-5.  Executar **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para seus certificados externos.
+2. Certifique-se de rotação secreta não foi executada com êxito em seu ambiente no mês passado. Neste momento pilha do Azure suporta apenas a rotação secreta uma vez por mês. 
+3. Prepare um novo conjunto de substituição de certificados externos. O novo conjunto coincide com as especificações de certificado apresentadas no [requisitos de certificado PKI de pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Armazene um backup de até os certificados usados para rotação em um local de backup seguro. Se a rotação é executado e, em seguida, falha, substitua os certificados no compartilhamento de arquivos com as cópias de backup antes de executar novamente a rotação. Observe, manter cópias de backup no local de backup seguro.
+5.  Crie um compartilhamento de arquivos que você pode acessar de VMs ERCS. O compartilhamento de arquivos deve ser legível e gravável para o **CloudAdmin** identidade.
+6.  Abra um console do ISE do PowerShell em um computador em que você tem acesso ao compartilhamento de arquivos. Navegue até o compartilhamento de arquivos. 
+7.  Executar **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para seus certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Girando segredos internos e externos
 

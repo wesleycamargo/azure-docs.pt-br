@@ -1,11 +1,11 @@
 ---
-title: "Documentação dos Serviços de Nuvem do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Os tutoriais, as referências de API e outras documentações mostram como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis."
+title: Documentação dos Serviços de Nuvem do Azure - Tutoriais, Referência de API | Microsoft Docs
+description: Os tutoriais, as referências de API e outras documentações mostram como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101875"
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços de Nuvem
 

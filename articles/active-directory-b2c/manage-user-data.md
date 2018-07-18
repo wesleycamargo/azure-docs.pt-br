@@ -1,20 +1,21 @@
 ---
-title: Gerenciar dados de usuário no Azure AD B2C | Microsoft Docs
+title: Gerenciar dados dos usuários no Azure Active Directory B2C | Microsoft Docs
 description: Saiba como excluir ou exportar dados de usuário no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2018
 ms.author: davidmu
-ms.openlocfilehash: 414221c3e4942801b5792835d520ec936c8c4bbb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: B2C
+ms.openlocfilehash: dacff48be3fbf16fc719f5a0395937b1f5acc979
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932524"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712531"
 ---
 # <a name="manage-user-data-in-azure-ad-b2c"></a>Gerenciar dados de usuário no Azure AD B2C
 

@@ -1,27 +1,21 @@
 ---
 title: Provisionar o Raspberry Pi para monitoramento remoto em Node.js – Azure | Microsoft Docs
 description: Descreve como conectar um dispositivo Raspberry Pi ao acelerador de solução de Monitoramento Remoto usando um aplicativo escrito em Node.js.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 78647612fc747ec328279536d82fb31bb4858688
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309769"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conecte seu dispositivo Raspberry Pi ao acelerador de solução de monitoramento remoto (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conectar seu dispositivo Raspberry Pi ao acelerador da solução de monitoramento remoto (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -109,7 +103,7 @@ Conclua as etapas a seguir usando a conexão `ssh` com seu Raspberry Pi:
     var async = require('async');
     ```
 
-1. Adicione as declarações de variável a seguir após as instruções `require` . Substitua o valor de espaço reservado `{device connection string}` pelo valor anotado para o dispositivo provisionado na solução de monitoramento remoto:
+1. Adicione as declarações de variável a seguir após as instruções `require` . Substitua o valor de espaço reservado `{device connection string}` pelo valor indicado para o dispositivo provisionado na solução de monitoramento remoto:
 
     ```nodejs
     var connectionString = '{device connection string}';

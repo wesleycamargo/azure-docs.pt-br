@@ -1,11 +1,11 @@
 ---
-title: "Gerenciar logs de fluxo do Grupo de segurança de rede com o Observador de Rede do Azure - API REST | Microsoft Docs"
-description: "Esta página explica como gerenciar logs de fluxo do Grupo de segurança de rede no Observador de Rede do Azure com a API REST"
+title: Gerenciar logs de fluxo do Grupo de segurança de rede com o Observador de Rede do Azure - API REST | Microsoft Docs
+description: Esta página explica como gerenciar logs de fluxo do Grupo de segurança de rede no Observador de Rede do Azure com a API REST
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774364"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar logs de fluxo do Grupo de segurança de rede usando a API REST
 

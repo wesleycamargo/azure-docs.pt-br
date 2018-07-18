@@ -15,10 +15,11 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
 ms.openlocfilehash: 6d503526ed97dd1f61269acd83810cd44598d72f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "33929122"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Atribuir um acesso de MSI (Identidade de Serviço Gerenciado) a um recurso usando o PowerShell
 

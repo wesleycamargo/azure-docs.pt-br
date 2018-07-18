@@ -9,16 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365518"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294100"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
-Este artigo é o primeiro de uma série de artigos que ajudam as organizações a implementar uma solução de identidade híbrida completa do Azure AD (Azure Active Directory). Esta solução foi descrita como a Estrutura de Transformação Digital de Identidade Híbrida. Ela aborda as metas e os resultados dos negócios nos quais as organizações podem se concentrar para implementar uma solução de identidade híbrida robusta e segura. 
+Este artigo é o primeiro de uma série de artigos que ajudam as organizações a implementar uma solução de identidade híbrida completa do Azure AD (Azure Active Directory). Esta solução foi descrita como a [Estrutura de Transformação Digital de Identidade Híbrida](https://aka.ms/aadframework). Ela aborda as metas e os resultados dos negócios nos quais as organizações podem se concentrar para implementar uma solução de identidade híbrida robusta e segura. 
 
 O primeiro resultado comercial da estrutura explica os requisitos para as organizações protegerem o processo de autenticação quando os usuários acessam aplicativos de nuvem. A primeira meta de negócios no resultado dos negócios protegido por autenticação é a capacidade de os usuários entrarem em aplicativos de nuvem usando seus nomes de usuário e senhas locais. Esse processo de entrada e a maneira como os usuários se autenticam tornam tudo que está na nuvem possível.
 
@@ -41,6 +41,8 @@ As organizações que não têm um espaço de diretório local existente não s�
 Quando a solução de identidade híbrida do Azure AD é seu novo plano de controle, a autenticação é a base do acesso à nuvem. Escolher o método de autenticação correto é uma primeira decisão fundamental na configuração de uma solução de identidade híbrida do Azure AD. Implemente o método de autenticação que é configurado usando o Azure AD Connect, que também provisiona usuários na nuvem.
 
 Para escolher um método de autenticação, é necessário considerar o tempo, a infraestrutura existente, a complexidade e o custo de implementação de sua escolha. Esses fatores são diferentes para cada organização e podem mudar ao longo do tempo. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 O Azure AD dá suporte aos seguintes métodos de autenticação para soluções de identidade híbrida.
 
@@ -167,7 +169,7 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[MFA do Azure](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[MFA do Azure](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de Terceiros](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Há suporte para quais estados de conta de usuário?|Contas desabilitadas<br>(até 30 minutos de atraso)|Contas desabilitadas<br><br>Conta bloqueada<br><br>Senha expirada<br><br>Horários de entrada|Contas desabilitadas<br><br>Conta bloqueada<br><br>Senha expirada<br><br>Horários de entrada|
 |Quais são as opções de acesso condicional?|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Acesso condicional do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Regras de declaração do AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Há suporte para protocolos herdados de bloqueio?|Não |Não |[Sim](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Há suporte para protocolos herdados de bloqueio?|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Sim](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Você pode personalizar o logotipo, a imagem e a descrição nas páginas de entrada?|[Sim, com o Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sim, com o Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Sim](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Há suporte para quais cenários avançados?|[Bloqueio de senha inteligente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Relatórios de credenciais vazadas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Bloqueio de senha inteligente](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Sistema de autenticação de baixa latência para vários sites<br><br>[Bloqueio de extranet de AD FS](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integração com sistemas de identidade de terceiros](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

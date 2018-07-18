@@ -1,8 +1,25 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329783"
+---
 ## <a name="provision-the-solution"></a>Provisionar a solução
 
 Se você já não tiver provisionado a solução pré-configurada de monitoramento remoto em sua conta:
 
-1. Faça logon em [azureiotsuite.com][lnk-azureiotsuite] usando as credenciais de sua conta do Azure e clique em **+** para criar uma nova solução.
+1. Entre no [azureiotsuite.com][lnk-azureiotsuite]  usando as credenciais da sua conta do Azure e clique em [**+** para criar uma solução.
 2. Clique em **Selecionar** no bloco **Monitoramento remoto**.
 3. Digite um **Nome de solução** para a solução pré-configurada de monitoramento remoto.
 4. Selecione a **Região** e a **Assinatura** que você deseja usar para provisionar a solução.
@@ -21,7 +38,7 @@ Se você já não tiver provisionado a solução pré-configurada de monitoramen
 
 Há detalhes que você esperaria ver e que não estão listados para sua solução? Envie sugestões de recursos no [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

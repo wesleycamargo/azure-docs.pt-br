@@ -6,12 +6,12 @@ Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas 
 * Aplicar permissões ao grupo de recursos, de modo que somente usuários autorizados do locatário do Azure Active Directory possam interagir com o perfil CDN
 
 ### <a name="creating-the-resource-group"></a>Criando o grupo de recursos
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso**.
 3. Procure o **Grupo de recursos** e no painel de Grupos de Recursos, clique em **Criar**.
 
     ![Criando um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Nomeie o grupo de recursos *CdnConsoleTutorial*.  Selecione sua assinatura e escolha uma localização perto de você.  Se desejar, você pode clicar na caixa de seleção **	Fixar no Painel** para fixar o grupo de recursos no painel no portal.  Ao fixar, facilita a localização posteriormente.  Após fazer suas seleções, clique em **Criar**.
+3. Nomeie o grupo de recursos *CdnConsoleTutorial*.  Selecione sua assinatura e escolha uma localização perto de você.  Se desejar, você poderá clicar na caixa de seleção **Fixar no painel** para fixar o grupo de recursos no painel que está no portal.  Ao fixar, facilita a localização posteriormente.  Após fazer suas seleções, clique em **Criar**.
 
     ![Nomeando o grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. Após a criação do grupo de recursos, se você não o fixou ao painel, encontre-o clicando em **Procurar** e em **Grupos de Recursos**.  Para abri-lo, clique no grupo de recursos.  Anote sua **ID da assinatura**. Ela será necessária mais tarde.
@@ -28,7 +28,7 @@ A criação de uma entidade de serviço abarca várias etapas, incluindo o desen
 >
 > Quando chegar à etapa chamada Configurar aplicativo multilocatário, selecione **Não**.
 >
-> Quando chegar à etapa [Atribuir aplicativo à função](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Leitor**, atribua a função **Colaborador de Perfil de CDN**.  Depois de atribuir a função **Colaborador de Perfil de CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial. 
+> Quando chegar à etapa [Atribuir aplicativo à função](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Leitor**, atribua a função **Colaborador de Perfil de CDN**.  Depois de atribuir a função **Colaborador do Perfil CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial. 
 >
 >
 

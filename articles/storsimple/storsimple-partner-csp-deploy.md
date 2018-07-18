@@ -1,12 +1,12 @@
 ---
-title: "Visão geral do Microsoft Azure StorSimple e do programa Cloud Solutions Provider | Microsoft Docs"
-description: "Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple."
+title: Visão geral do Microsoft Azure StorSimple e do programa Cloud Solutions Provider | Microsoft Docs
+description: Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109574"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 

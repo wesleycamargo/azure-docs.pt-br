@@ -1,6 +1,6 @@
 ---
-title: Condições de acesso condicional do Azure Active Directory | Microsoft Docs
-description: Saiba como as atribuições são usadas no acesso condicional do Azure Active Directory para disparar uma política.
+title: Quais são as condições no acesso condicional do Active Directory do Azure? | Microsoft Docs
+description: Saiba como as condições são usadas no acesso condicional do Active Directory do Azure para acionar uma política.
 services: active-directory
 keywords: acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -9,21 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770614"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36231844"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são as condições no acesso condicional do Active Directory do Azure? 
 
 Com o [acesso condicional do Azure AD (Azure Active Directory)](active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Em uma política de acesso condicional, você define a resposta ("faça isso") para o motivo do acionamento de sua política ("quando isso acontecer"). 
 
@@ -139,7 +140,7 @@ Casos de uso comuns para essa condição são políticas que:
 
 - Bloquear o acesso para usuários que acessam um serviço de países ou regiões específicas. 
 
-Para saber mais, confira [Condições de local no acesso condicional do Azure Active Directory](active-directory-conditional-access-locations.md).
+Para obter mais informações, consulte [ Qual é a condição de local no acesso condicional do Active Directory do Azure? ](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>Aplicativos cliente
@@ -149,7 +150,7 @@ A condição de aplicativos de cliente permite que você aplique uma política a
 - Sites e serviços da Web.
 - Aplicativos móveis e de área de trabalho. 
 
-![Condições](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Um aplicativo é classificado como:
 
@@ -157,7 +158,7 @@ Um aplicativo é classificado como:
 
 - Um aplicativo móvel ou de área de trabalho, se usa o aplicativo móvel OpenID Connect para um cliente nativo.
 
-Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, consulte a [referência técnica de acesso condicional do Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Para obter uma lista completa dos aplicativos de cliente que você pode usar em sua política de acesso condicional, confira a [condição de aplicativos clientes](active-directory-conditional-access-technical-reference.md#client-apps-condition) na referência técnica Acesso condicional do Azure Active Directory.
 
 Casos de uso comuns para essa condição são políticas que:
 
@@ -167,6 +168,20 @@ Casos de uso comuns para essa condição são políticas que:
 
 Além de usar protocolos de autenticação modernos e SSO da Web, você pode aplicar essa condição para aplicativos de email que usam o Exchange ActiveSync, como os aplicativos de email nativos na maioria dos smartphones. No momento, aplicativos cliente que usam os protocolos herdados precisam ser protegidos usando o AD FS.
 
+Você só pode selecionar essa condição se o **Exchange Online do Office 365** é o único aplicativo de nuvem selecionado.
+
+![Aplicativos na nuvem](./media/active-directory-conditional-access-conditions/32.png)
+
+A escolha do **Exchange ActiveSync** como condição de aplicativo cliente só tem suporte se você não tem outras condições configuradas em uma política. No entanto, você pode restringir o escopo dessa condição para aplicar apenas a plataformas com suporte.
+
+ 
+![Plataformas com suporte](./media/active-directory-conditional-access-conditions/33.png)
+
+Aplicar essa condição somente a plataformas com suporte é o equivalente a todas as plataformas de dispositivo em uma [condição de plataforma de dispositivo](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Plataformas com suporte](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Para obter mais informações, consulte:
 
 - [Configurar o SharePoint Online e o Exchange Online para acesso condicional do Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,15 +189,59 @@ Além de usar protocolos de autenticação modernos e SSO da Web, você pode apl
 - [Acesso condicional baseado em aplicativo do Azure Active Directory](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Autenticação herdada  
+
+Agora, o acesso condicional se aplica a clientes mais antigos do Office que dão suporte à autenticação moderna, bem como clientes que usam protocolos de email como POP, IMAP, SMTP e outros. Isso permite que você configure políticas como **bloquear o acesso de outros clientes**.
+
+
+![Autenticação herdada](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Problemas conhecidos
+
+- A configuração de uma política para **Outros clientes** bloqueia determinados clientes, como SPConnect, para toda a organização. Isso ocorre porque esses clientes mais antigos fazem a autenticação de formas inesperadas. Esse problema não se aplica aos principais aplicativos do Office como aos clientes mais antigos do Office. 
+
+- Pode demorar até 24 horas para a política entrar em vigor. 
+
+
+#### <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+**Isso vai bloquear o EWS (Serviços Web do Exchange)?**
+
+Depende do protocolo de autenticação que o EWS está usando. Se o aplicativo do EWS estiver usando autenticação moderna, ele será abordado pelo aplicativo cliente "Aplicativos móveis e clientes de área de trabalho". Se o aplicativo do EWS estiver usando autenticação básica, ele será abordado pelo aplicativo cliente "Outros clientes".
+
+
+**Quais controles posso usar para Outros clientes**
+
+Qualquer controle pode ser configurado para "Outros clientes". No entanto, a experiência do usuário final bloqueará o acesso de todos os casos. "Outros clientes" não dá suporte a controles como MFA, dispositivo compatível, ingresso no domínio, etc. 
+ 
+**Que condições posso usar para Outros clientes?**
+
+Qualquer condição pode ser configurada para "Outros clientes".
+
+**O Exchange ActiveSync dá suporte a todas as condições e controles?**
+
+Não. Aqui está o resumo do suporte ao EAS (Exchange ActiveSync):
+
+- O EAS dá suporte apenas a direcionamento para usuário e grupo. Ele não dá suporte a convidados, funções. Se a condição do convidado/função estiver configurada, todos os usuários poderão ser bloqueados porque não podemos determinar se a política se aplica ao usuário ou não.
+
+- O EAS só funciona com o Exchange como aplicativo de nuvem. 
+
+- O EAS não dá suporte a qualquer condição além do próprio aplicativo cliente.
+
+- O EAS pode ser configurado com qualquer controle (todos, exceto a conformidade do dispositivo, resultarão em bloqueio).
+
+**As políticas serão aplicadas a todos os aplicativos clientes por padrão no futuro?**
+
+Não. Não há nenhuma alteração no comportamento padrão da política. As políticas continuam a ser aplicáveis ao navegador e aos clientes de área de trabalho/aplicativos móveis por padrão.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

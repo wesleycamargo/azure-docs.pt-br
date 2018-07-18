@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070457"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gerenciar o Cofre de chaves na pilha do Azure usando o portal
 

@@ -17,11 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446598"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conectar ao HDInsight (Hadoop) usando o SSH
 
@@ -31,7 +32,7 @@ O HDInsight pode usar o Linux (Ubuntu) como o sistema operacional para os nós n
 
 | Endereço | Porta | Conecta-se a... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó de borda (Servidor R no HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nó do Edge (ML Services no HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nó de borda (qualquer outro tipo de cluster, se existir um nó de borda) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nó de cabeçalho primário |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nó de cabeçalho secundário |
@@ -136,7 +137,19 @@ Para obter informações sobre como alterar a senha de conta de usuário do SSH,
 
 ## <a id="domainjoined"></a>Autenticação: HDInsight associado ao domínio
 
-Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+Se estiver usando um __cluster HDInsight associado ao domínio__, você deverá usar o comando `kinit` após a conexão com o usuário local SSH. Este comando solicita um usuário de domínio e uma senha e autentica a sessão com o domínio do Azure Active Directory associado ao cluster.
+
+Você também pode habilitar a Autenticação Kerberos em cada nó ingressado em domínio (por exemplo, nó de cabeçalho, nó de borda) para ssh usando a conta de domínio. Para fazer isso, edite o arquivo de configuração do sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+remova o comentário e altere `KerberosAuthentication` para `yes`
+
+```bash
+sudo service sshd restart
+```
+
+A qualquer momento, para verificar se a autenticação Kerberos foi bem-sucedida ou não, use o comando `klist`.
 
 Para obter mais informações, confira [Configurar o HDInsight associado ao domínio](./domain-joined/apache-domain-joined-configure.md).
 

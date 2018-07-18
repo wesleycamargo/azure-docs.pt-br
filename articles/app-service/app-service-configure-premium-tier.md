@@ -1,12 +1,12 @@
 ---
-title: "Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Aprenda a melhorar o desempenho para seu aplicativo Web, móvel e de API no Serviço de Aplicativo do Azure, escalonando para o novo tipo de preço PremiumV2."
-keywords: "serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, custo de serviço de aplicativo"
+title: Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure | Microsoft Docs
+description: Aprenda a melhorar o desempenho para seu aplicativo Web, móvel e de API no Serviço de Aplicativo do Azure, escalonando para o novo tipo de preço PremiumV2.
+keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, plano de serviço de aplicativo, custo de serviço de aplicativo
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714554"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure
 
@@ -51,9 +52,9 @@ O tipo de preço de um aplicativo do Serviço de Aplicativo é definido no [Plan
 
 Ao configurar o Plano do Serviço de Aplicativo no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>, selecione **Tipo de preço**. 
 
-Escolha uma das opções de **PremiumV2** e clique em **Selecionar**.
+Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**, em seguida, clique em **aplicar**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Se você não vê **P1V2**, **P2V2** e **P3V2** como opções, isso significa que **PremiumV2** não está disponível em sua região de preferência ou que você está configurando um Plano do Serviço de Aplicativo do Linux, que não dá suporte ao **PremiumV2**.
@@ -70,7 +71,7 @@ No painel de navegação à esquerda da página do seu aplicativo do Serviço de
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Selecione um dos tamanhos de **PremiumV2** e, em seguida, clique em **Selecionar**.
+Selecione **produção**, em seguida, selecione **P1V2**, **P2V2**, ou **P3V2**, em seguida, clique em **aplicar**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

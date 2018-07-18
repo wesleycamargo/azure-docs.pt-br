@@ -2,18 +2,19 @@
 title: Guia de início rápido – guia de início rápido do portal do cluster do Kubernetes do Azure
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contêineres do Linux no AKS com o Portal do Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344467"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -27,11 +28,9 @@ Este guia de início rápido pressupõe uma compreensão básica dos conceitos d
 
 Entre no Portal do Azure em http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>Criar cluster AKS
 
-Escolha **Criar um recurso** > procure por **Kubernetes** > selecione **Serviço de Kubernetes do Azure (versão prévia)** > **Criar**.
+Escolha **Criar um recurso** > selecione **Serviço de Kubernetes**.
 
 Conclua as seguintes etapas sob cada título do formulário de criação de cluster AKS.
 
@@ -61,7 +60,7 @@ Selecione **Revisar+ Criar** e depois **Criar** quando terminar.
 
 ![Criar cluster AKS um](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-Após uma breve espera, o cluster ASK será implantado e estará pronto para uso. Navegue até o grupo de recursos de cluster AKS, selecione o recurso AKS e você deverá ver o painel do cluster AKS.
+Após uma breve espera, o cluster AKS será implantado e estará pronto para uso. Navegue até o grupo de recursos de cluster AKS, selecione o recurso AKS e você deverá ver o painel do cluster AKS.
 
 ![Criar cluster AKS um](media/container-service-walkthrough-portal/aks-portal-5.png)
 
@@ -163,10 +162,10 @@ spec:
     app: azure-vote-front
 ```
 
-Use o comando [kubectl create][kubectl-create] para executar o aplicativo.
+Use o comando [kubectl apply][kubectl-apply] para executar o aplicativo.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Saída:
@@ -244,7 +243,7 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +253,7 @@ Para saber mais sobre o AKS e percorrer um código completo de exemplo de implan
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

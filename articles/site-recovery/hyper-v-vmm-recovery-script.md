@@ -1,24 +1,25 @@
 ---
-title: "Adicionar um script ao plano de recuperação no Azure Site Recovery | Microsoft Docs"
-description: "Saiba mais sobre os pré-requisitos para adicionar um novo script do System Center VMM (Virtual Machine Manager) a um plano de recuperação no Azure."
+title: Adicionar um script ao plano de recuperação no Azure Site Recovery | Microsoft Docs
+description: Saiba mais sobre os pré-requisitos para adicionar um novo script do System Center VMM (Virtual Machine Manager) a um plano de recuperação no Azure.
 services: site-recovery
-documentationcenter: 
-author: ruturaj
-manager: shons
-editor: 
+documentationcenter: ''
+author: rajani-janaki-ram
+manager: rochakm
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2017
-ms.author: ruturaj
-ms.openlocfilehash: 2e00f812fb35ac9a0cb390fc6a3ba40a8678f8dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 07/06/2018
+ms.author: rajanaki
+ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917314"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
@@ -75,13 +76,13 @@ Se você tiver um site de origem do VMM, poderá criar um script no servidor do 
 Depois que VMs ou grupos de replicação são adicionados a um plano de recuperação e este é criado, você pode adicionar o script ao grupo.
 
 1. Abra o plano de recuperação.
-2. Na lista **Etapa**, selecione um item. Em seguida, selecione **Script** ou **Ação Manual**.
+2. Na lista**Etapa**, selecione um item. Em seguida, selecione **Script** ou **Ação Manual**.
 3. Especifique se você deseja adicionar o script ou a ação antes ou depois do item selecionado. Para mover a posição do script para cima ou para baixo, selecione os botões **Mover para cima** e **Mover para baixo**.
-4. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **Caminho do script**, insira o caminho relativo para o compartilhamento. Por exemplo, digite **\RPScripts\RPScript.PS1**.
+4. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **Caminho do Script**, insira o caminho relativo para o compartilhamento. Por exemplo, digite **\RPScripts\RPScript.PS1**.
 5. Se você adicionar um runbook da Automação do Azure, especifique a conta da Automação em que o runbook está localizado. Em seguida, selecione o script de runbook do Azure que você deseja usar.
 6. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais](site-recovery-failover.md) sobre a execução de failovers.
+* Saiba mais sobre [execução de failovers](site-recovery-failover.md).
 

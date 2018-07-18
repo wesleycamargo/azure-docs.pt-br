@@ -3,41 +3,46 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 05/03/2018
+ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 2464fa41deaa1e9c43e5f53e1a900ca11b582040
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33901288"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319719"
 ---
 **Configuração/Requisitos do servidor de processo**
 
 **Componente** | **Requisito** 
 --- | ---
-**HARDWARE** | 
-**Núcleos de CPU** | 8 
-**RAM** | 16 GB
-**Número de discos** | Três, incluindo o disco de OS, disco de cache do servidor de processo e unidade de retenção para failback 
-**Espaço livre em disco (cache do servidor de processo)** | 600 GB
-**Espaço livre em disco (disco de retenção)** | 600 GB
-**SOFTWARE** | 
-**Sistema operacional** | Windows Server 2012 R2 <br> Windows Server 2016
-**Localidade do sistema operacional** | Inglês (en-us)
-**Funções do Windows Server** | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V 
-**Políticas de grupo** | Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando. <br> - Impedir o acesso às ferramentas de edição do registro. <br> - Lógica de confiança para anexos de arquivo. <br> - Ativar a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-**IIS** | - Nenhum site da Web padrão já existente <br> - Nenhum aplicativo/site da Web pré-existente escutando na porta 443 <br>- Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
-**REDE** | 
-**Tipo de endereço IP** | estático 
-**Acesso à Internet** | O servidor precisa acessar essas URLs (diretamente ou via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (se você estiver configurando um servidor de configuração) <br> - time.nist.gov <br> - time.windows.com 
-**Portas** | 443 (orquestração do canal de controle)<br>9443 (transporte de dados) 
-**VMWARE (ao configurar o servidor de processo/configuração como uma VM do VMWare)**
-**tipo NIC** | VMXNET3  
-**VMware vSphere PowerCLI em execução na VM* | [PowerCLI versão 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")
+**CONFIGURAÇÕES DE HARDWARE** | 
+Núcleos de CPU | 8 
+RAM | 16 GB
+Número de discos | Três, incluindo o disco de OS, disco de cache do servidor de processo e unidade de retenção para failback 
+Espaço livre em disco (cache do servidor de processo) | 600 GB
+Espaço livre em disco (disco de retenção) | 600 GB
+ | 
+**CONFIGURAÇÕES DE SOFTWARE** | 
+Sistema operacional | Windows Server 2012 R2 <br> Windows Server 2016
+Localidade do sistema operacional | Inglês (en-us)
+Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V 
+Políticas de grupo | Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando. <br> - Impedir o acesso às ferramentas de edição do registro. <br> - Lógica de confiança para anexos de arquivo. <br> - Ativar a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - Nenhum site da Web padrão já existente <br> - Nenhum aplicativo/site da Web pré-existente escutando na porta 443 <br>- Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+| 
+**CONFIGURAÇÕES DE REDE** | 
+Tipo de endereço IP | estático 
+Acesso à Internet | O servidor precisa acessar essas URLs (diretamente ou via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (se você estiver configurando um servidor de configuração) <br> - time.nist.gov <br> - time.windows.com 
+Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados) 
+Tipo de NIC | VMXNET3 (se o Servidor de Configuração for uma VM do VMware)
+ | 
+**SOFTWARE PARA INSTALAÇÃO** | 
+VMware vSphere PowerCLI 6.0 R3 | [PowerCLI versão 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalado se o servidor de configuração estiver em execução em uma VM do VMware.
+MySQL | MySQL deve ser instalado. Você pode instalar manualmente ou o Azure Site Recovery pode instalá-lo.
 
 **Requisitos de dimensionamento do servidor de processo/configuração**
 

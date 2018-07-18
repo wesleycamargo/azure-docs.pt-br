@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048491"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -32,13 +33,13 @@ A biblioteca do Microsoft Azure Machine Learning para Apache Spark é [MMLSpark]
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) atualmente é a linguagem de programação estatística mais popular do mundo. É uma ferramenta de visualização de dados de software livre com uma comunidade de mais de 2,5 milhões de usuários e em crescimento. Com sua base de usuários próspera e mais de 8.000 pacotes contribuídos, o R é uma opção provável para muitas empresas que precisam de aprendizado de máquina. Você pode criar um Cluster HDInsight com o Microsoft R Server pronto para ser usado com conjuntos de dados maciços e modelos. Essa capacidade fornece aos cientistas de dados e estatísticos uma interface R familiar que pode der dimensionada sob demanda por meio do HDInsight, sem a sobrecarga de configuração e manutenção do cluster.
+[R](https://www.r-project.org/) atualmente é a linguagem de programação estatística mais popular do mundo. É uma ferramenta de visualização de dados de software livre com uma comunidade de mais de 2,5 milhões de usuários e em crescimento. Com sua base de usuários próspera e mais de 8.000 pacotes contribuídos, o R é uma opção provável para muitas empresas que precisam de aprendizado de máquina. Você pode criar um Cluster HDInsight com o ML Services pronto para ser usado com conjuntos de dados maciços e modelos. Essa capacidade fornece aos cientistas de dados e estatísticos uma interface R familiar que pode der dimensionada sob demanda por meio do HDInsight, sem a sobrecarga de configuração e manutenção do cluster.
 
 ![Treinamento para previsão com Microsoft R Server](./media/hdinsight-machine-learning-overview/r-training.png)
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R.  Você também tem a opção de executar scripts R em todos os nós do cluster, usando o Hadoop Map Reduce do ScaleR ou contextos de computação do Spark.
 
-Com o Microsoft R Server no HDInsight com Spark, é possível paralelizar o treinamento em todos os nós de um cluster, usando um contexto de computação do Spark. Você pode executar scripts R diretamente no nó de borda, usando todos os núcleos disponíveis em paralelo, conforme necessário. Alternativamente, você poderá executar seu código do nó de borda para iniciar o processamento distribuído em todos os nós no cluster. O Microsoft R Server no HDInsight com Spark também permite a paralelização de funções de pacotes R de software livre, se desejado.
+Com o ML Services no HDInsight com Spark, é possível paralelizar o treinamento em todos os nós de um cluster, usando um contexto de computação do Spark. Você pode executar scripts R diretamente no nó de borda, usando todos os núcleos disponíveis em paralelo, conforme necessário. Alternativamente, você poderá executar seu código do nó de borda para iniciar o processamento distribuído em todos os nós no cluster. O ML Services no HDInsight com Spark também permite a paralelização de funções de pacotes R de software livre, se desejado.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning e Hive
 

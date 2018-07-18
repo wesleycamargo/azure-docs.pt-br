@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702169"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
 
@@ -228,7 +229,7 @@ Todos os clientes podem acessar apenas VNet1.
 
 ## <a name="multivnets2sbranchbgp"></a>Várias VNets conectadas usando S2S e uma filial (BGP)
 
-Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é conectada à VNet2 usando uma conexão VPN Site a Site. VNet2 é conectada à VNet3 usando uma conexão VPN Site a Site. Não há nenhum tunel VPN Site a Site ou emparelhamento direto entre as redes VNet1 e VNet3. VNet3 é conectada a uma filial (Site1) usando uma conexão VPN Site a Site. Todas as conexões VPN não estão executando o BGP. Todas as conexões VPN estão executando o BGP.
+Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é conectada à VNet2 usando uma conexão VPN Site a Site. VNet2 é conectada à VNet3 usando uma conexão VPN Site a Site. Não há nenhum tunel VPN Site a Site ou emparelhamento direto entre as redes VNet1 e VNet3. VNet3 é conectada a uma filial (Site1) usando uma conexão VPN Site a Site. Todas as conexões VPN estão executando o BGP.
 
 Os clientes que usam o Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionados manualmente ao cliente. Os clientes não Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site sem qualquer intervenção manual. O acesso é transitivo, e os clientes podem acessar recursos em todos os sites (local) e VNets conectadas.
 

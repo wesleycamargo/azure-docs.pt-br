@@ -3,23 +3,25 @@ title: Referência para relatórios de autenticação multifator no portal do Az
 description: Informações de referência para relatórios de autenticação multifator no portal do Azure
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 03/16/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e2d48eeaa98fd60841e2f25c09eb46bb848f78df
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221889"
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Referência para relatórios de autenticação multifator no portal do Azure
 

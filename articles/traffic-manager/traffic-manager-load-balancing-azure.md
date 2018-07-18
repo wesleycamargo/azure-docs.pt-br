@@ -1,11 +1,11 @@
 ---
-title: "Usando os serviços de balanceamento de carga no Azure | Microsoft Docs"
-description: "Este tutorial mostra como criar um cenário usando o portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga."
+title: Usando os serviços de balanceamento de carga no Azure | Microsoft Docs
+description: 'Este tutorial mostra como criar um cenário usando o portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga.'
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401099"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 

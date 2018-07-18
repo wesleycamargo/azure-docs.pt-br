@@ -56,7 +56,7 @@
 ## [Relatórios](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Coleta de dados](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
-## [Guia do usuário do MFA](./end-user/multi-factor-authentication-end-user.md)
+## [Guia do usuário do MFA](../active-directory/user-help/multi-factor-authentication-end-user.md)
 
 ## Solucionar problemas
 ### [Perguntas frequentes](../active-directory/authentication/multi-factor-authentication-faq.md)

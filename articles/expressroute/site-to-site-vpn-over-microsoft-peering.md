@@ -5,8 +5,8 @@ documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: cherylmc
-ms.openlocfilehash: 64203e2cbac1206224f0e0ad8b7d364f19ad0332
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110847"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN site a site no emparelhamento da Microsoft para ExpressRoute
 
@@ -166,7 +167,7 @@ Neste exemplo, as declarações de variáveis correspondem à rede de exemplo. A
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises

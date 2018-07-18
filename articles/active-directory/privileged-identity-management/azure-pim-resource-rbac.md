@@ -3,22 +3,24 @@ title: Visão geral do recurso de RBAC do Azure PIM | Microsoft Docs
 description: Tenha uma visão geral do recurso de RBAC no PIM incluindo terminologia e notificações
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528613"
 ---
 # <a name="pim-for-azure-resources"></a>PIM para Recursos do Azure
 
@@ -57,7 +59,7 @@ Minhas funções contêm uma lista das suas atribuições de função ativas e q
 
 ## <a name="activate-roles"></a>Ativar funções
 
-A ativação de funções para o Azure Resources apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do limite máximo (configurado pelos administradores). Saiba como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md).
+A ativação de funções para o Azure Resources apresenta uma nova experiência que permite aos membros qualificados de uma função agendar a ativação para uma data/hora futura e selecionar uma duração de ativação específica dentro do limite máximo (configurado pelos administradores). Saiba como [ativar funções do Azure AD aqui](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -154,7 +156,7 @@ Selecione Revisar na barra de ação para exibir as revisões de acesso existent
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Saiba mais sobre as revisões de acesso](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Saiba mais sobre as revisões de acesso](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Atualmente as revisões são compatíveis somente com tipos de recurso de Assinatura.
@@ -194,5 +196,5 @@ Selecione Minhas funções no menu de navegação esquerdo e escolha a função 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md)
-- Saiba mais sobre como [ativar funções do Azure AD aqui](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Saiba mais sobre como [ativar funções do Azure AD aqui](pim-how-to-activate-role.md)
 - [Fluxos de trabalho de aprovação do PIM](azure-ad-pim-approval-workflow.md)

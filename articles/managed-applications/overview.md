@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304990"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639200"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -53,7 +53,9 @@ Para obter informações sobre como publicar aplicativos gerenciados para o Mark
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicativos gerenciados
 
-Normalmente, os recursos de um aplicativo gerenciado residem em dois grupos de recursos. O consumidor gerencia um grupo de recursos, e o fornecedor gerencia o outro grupo de recursos. Ao definir o aplicativo gerenciado, o fornecedor especifica os níveis de acesso. A imagem a seguir mostra um cenário no qual o fornecedor solicita a função de proprietário para o grupo de recursos gerenciados. O fornecedor aplicou um bloqueio somente leitura nesse grupo de recursos para o consumidor. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
+Normalmente, os recursos de um aplicativo gerenciado residem em dois grupos de recursos. O consumidor gerencia um grupo de recursos, e o fornecedor gerencia o outro grupo de recursos. Ao definir o aplicativo gerenciado, o fornecedor especifica os níveis de acesso. Atualmente não há suporte para restringir o acesso para [operações de dados](../role-based-access-control/role-definitions.md) para todos os provedores de dados no Azure.
+
+A imagem a seguir mostra um cenário no qual o fornecedor solicita a função de proprietário para o grupo de recursos gerenciados. O fornecedor aplicou um bloqueio somente leitura nesse grupo de recursos para o consumidor. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
 
 ![Acesso ao grupo de recursos](./media/overview/access.png)
 

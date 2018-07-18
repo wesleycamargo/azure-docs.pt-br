@@ -1,22 +1,20 @@
 ---
 title: Configurar Provisionamento de Dispositivos no portal do Azure | Microsoft Docs
-description: "Guia de Início Rápido do Azure - configurar o serviço de Provisionamento de Dispositivos do Hub IoT do Azure no Portal do Azure"
-services: iot-dps
-keywords: 
+description: Guia de Início Rápido do Azure - configurar o serviço de Provisionamento de Dispositivos do Hub IoT do Azure no Portal do Azure
 author: dsk-2015
 ms.author: dkshir
 ms.date: 09/05/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629432"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure
 
@@ -31,7 +29,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
+1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 
 2. Selecione **Internet das Coisas**, selecione **Hub IoT**e clique no botão **Criar**. 
 
@@ -44,7 +42,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Criar uma nova instância para o Serviço de Provisionamento de Dispositivos do Hub IoT
 
-1. Clique no botão **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
+1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 
 2. *Pesquise no Marketplace* o **serviço de Provisionamento de Dispositivos**. Selecione o botão **Serviço de Provisionamento de Dispositivos no Hub IoT** e clique em **Criar**. 
 

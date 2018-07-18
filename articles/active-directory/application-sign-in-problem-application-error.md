@@ -1,23 +1,26 @@
 ---
-title: "Erro em uma página de aplicativo após a entrada | Microsoft Docs"
-description: "Como resolver problemas com a entrada do Azure AD quando o próprio aplicativo emite um erro"
+title: Erro em uma página de aplicativo após a entrada | Microsoft Docs
+description: Como resolver problemas com a entrada do Azure AD quando o próprio aplicativo emite um erro
 services: active-directory
-documentationcenter: 
-author: ajamess
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 02236e7f7ec6be0df5082d2cde3d616e628c3927
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: ce37ab8ac3324226d0d50491b334fe837b77c49d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330298"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erro em uma página de aplicativo após a entrada
 
@@ -49,7 +52,7 @@ Para adicionar um atributo na configuração do Azure Active Directory para ser 
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  clique em **Exibir e editar todos os outros atributos de usuário em** na seção **Atributos de Usuário** para editar os atributos a serem enviados ao aplicativo no token SAML quando o usuário entrar.
 
@@ -85,7 +88,7 @@ Para alterar o valor do Identificador de Usuário, siga estas etapas:
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Nos **Atributos de usuário**, selecione o identificador exclusivo para os usuários na lista suspensa **Identificador de usuário**.
 
@@ -113,7 +116,7 @@ Para alterar quais partes do token SAML são assinadas digitalmente pelo Active 
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Clique em **Mostrar configurações avançadas de assinatura de certificado** na seção **Certificado de Autenticação SAML**.
 
@@ -147,7 +150,7 @@ Para alterar o algoritmo de assinatura, siga estas etapas:
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
 8.  Clique em **Mostrar configurações avançadas de assinatura de certificado** na seção **Certificado de Autenticação SAML**.
 

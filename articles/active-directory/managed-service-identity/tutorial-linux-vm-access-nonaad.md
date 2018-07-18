@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304300"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901469"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: usar uma MSI (Identidade de Serviço Gerenciada) da VM do Linux para acessar o Azure Key Vault 
 
@@ -135,12 +135,12 @@ Para concluir essas etapas, você precisará do cliente SSH.  Se você estiver u
     
 Depois de recuperar o segredo do Key Vault, você pode usá-lo para autenticar um serviço que requer um nome e uma senha.
 
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="related-content"></a>Conteúdo relacionado
+Neste tutorial, você aprendeu a usar uma Identidade de Serviço Gerenciada em uma máquina virtual do Linux para acessar o Azure Key Vault.  Para saber mais sobre o Azure Key Vault, confira:
 
-- Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](overview.md).
-
-Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
+> [!div class="nextstepaction"]
+>[Cofre da Chave do Azure](/azure/key-vault/key-vault-whatis)
 
 
 

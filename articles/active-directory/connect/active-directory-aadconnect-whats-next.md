@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs"
-description: "Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect."
+title: 'Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs'
+description: Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8b73e70606adc2b1fa593745b3ac426c679f417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592078"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
 Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
@@ -64,7 +66,7 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 
 ![Lista de tarefas adicionais](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
-| Tarefa adicional | Descrição |
+| Tarefa adicional | DESCRIÇÃO |
 | --- | --- |
 | **Exibir o cenário selecionado** |Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
 | **Personalizar opções de sincronização** |Altere a configuração atual, por exemplo adicionando florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |

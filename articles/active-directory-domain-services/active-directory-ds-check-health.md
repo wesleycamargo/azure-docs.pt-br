@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Domain Services - Verificar a integridade do domínio gerenciado | Microsoft Docs"
-description: "Verifique a integridade do domínio gerenciado usando a página de integridade no portal do Azure."
+title: Azure AD Domain Services - Verificar a integridade do domínio gerenciado | Microsoft Docs
+description: Verifique a integridade do domínio gerenciado usando a página de integridade no portal do Azure.
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9421ace7abf1f3d45b1f8cd810067d79faa92ec
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffb00ce85a06812dfc42dfbbba74f712c1877615
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212364"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado do Azure AD Domain Services
 

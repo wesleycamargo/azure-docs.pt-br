@@ -1,24 +1,23 @@
 ---
 title: Configurar e monitorar dispositivos IoT em escala com o Azure IoT Hub | Microsoft Docs
 description: Usar configurações de dispositivo automático do Azure IoT Hub para atribuir uma configuração a vários dispositivos
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030760"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Configurar e monitorar dispositivos IoT em escala - versão prévia
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configurar e monitorar dispositivos do IoT em escala usando o portal do Azure
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 O gerenciamento automático do dispositivo no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos sobre a totalidade de seu ciclo de vida. Com o gerenciamento automático do dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo.  Isso é realizado usando uma configuração automática do dispositivo, que também permitirá que você resuma a conclusão e conformidade, trate da mesclagem e conflitos e implante configurações em uma abordagem em fases.
 
@@ -52,7 +51,7 @@ Antes de criar uma configuração, você deve especificar quais dispositivos voc
 ## <a name="create-a-configuration"></a>Criar uma configuração
 
 1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
-1. Selecione **Configuração do dispositivo (versão prévia)**.
+1. Selecione **Configuração do dispositivo IoT**.
 1. Selecione **Adicionar configuração**.
 
 Há cinco etapas para criar uma configuração. As seções a seguir explicam cada uma delas. 
@@ -86,7 +85,7 @@ As métricas fornecem contagens de resumos de vários estados em que um disposit
 
 Por exemplo: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-Você pode incluir uma cláusula que a configuração foi aplicada, por exemplo: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+Você pode incluir uma cláusula que a configuração foi aplicada, por exemplo: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` incluindo os colchetes duplos.
 
 
 ### <a name="step-4-target-devices"></a>Etapa 4: Direcionar dispositivos
@@ -96,7 +95,7 @@ Use a propriedade marcas dos dispositivos gêmeos para direcionar os dispositivo
 Como várias configurações podem direcionar o mesmo dispositivo, você deve atribuir a cada configuração um número de prioridade. Se houver um conflito, a configuração com a prioridade mais alta ganhará. 
 
 1. Insira um inteiro positivo para a **Prioridade** da configuração. O maior valor numérico é considerado a prioridade mais alta. Se duas configurações tiverem o mesmo número de prioridade, aquela que foi criada mais recentemente ganhará. 
-1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa configuração. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. 
+1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa configuração. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. É possível especificar `*` para direcionar todos os dispositivos.
 1. Selecione **Avançar** para ir para a etapa final.
 
 ### <a name="step-5-review-configuration"></a>Etapa 5: Revisar configuração
@@ -108,8 +107,8 @@ Revise as informações da configuração e, em seguida, selecione **Enviar**.
 Para exibir os detalhes de uma configuração e monitorar os dispositivos que a executam, use as seguintes etapas:
 
 1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
-1. Selecione **Configuração do dispositivo (versão prévia)**.
-1. Inspecione a lista de configuração. Para cada configuração, você pode exibir os seguintes detalhes:
+1. Selecione **Configuração do dispositivo IoT**.
+2. Inspecione a lista de configuração. Para cada configuração, você pode exibir os seguintes detalhes:
    * **ID** - o nome da configuração.
    * **Condição de destino** - a consulta usada para definir os dispositivos direcionados.
    * **Prioridade** - o número de prioridade atribuído à configuração.
@@ -136,25 +135,25 @@ Se você atualizar a condição de destino, ocorrerão as seguintes atualizaçõ
 Para modificar uma configuração, use as seguintes etapas: 
 
 1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
-1. Selecione **Configuração do dispositivo (versão prévia)**. 
-1. Selecione a configuração que deseja modificar. 
-1. Faça atualizações nos seguintes campos: 
+1. Selecione **Configuração do dispositivo IoT**. 
+2. Selecione a configuração que deseja modificar. 
+3. Faça atualizações nos seguintes campos: 
    * Condição de destino 
    * Rótulos 
    * Prioridade 
    * Métricas
-1. Clique em **Salvar**.
-1. Siga as etapas em [Monitorar uma implantação][âncora-monitor] para observar as alterações serem distribuídas. 
+4. Clique em **Salvar**.
+5. Siga as etapas em [Monitorar uma implantação][âncora-monitor] para observar as alterações serem distribuídas. 
 
 ## <a name="delete-a-configuration"></a>Excluir uma configuração
 
 Quando você exclui uma configuração, qualquer dispositivo gêmeo assume sua próxima configuração de prioridade mais alta. Se os dispositivos gêmeos não atendem a condição destino de qualquer outra configuração, não serão aplicadas outras configurações. 
 
 1. No [Portal do Azure][lnk-portal], vá ao hub IoT. 
-1. Selecione **Configuração do dispositivo (versão prévia)**. 
-1. Use a caixa de seleção para selecionar a configuração que deseja excluir. 
-1. Selecione **Excluir**.
-1. Uma mensagem solicitará que você confirme.
+1. Selecione **Configuração do dispositivo IoT**. 
+2. Use a caixa de seleção para selecionar a configuração que deseja excluir. 
+3. Selecione **Excluir**.
+4. Uma mensagem solicitará que você confirme.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como configurar e monitorar dispositivos IoT em escala. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:

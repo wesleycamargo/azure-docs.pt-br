@@ -18,6 +18,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010057"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Use perfis de versão de API com Go na pilha do Azure
 

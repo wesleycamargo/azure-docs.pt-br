@@ -2,11 +2,11 @@
 Para que os Aplicativos Móveis gerenciem o processo de autenticação em seu aplicativo, é necessário registrá-los no provedor de identidade. Em seguida, no Serviço de Aplicativo do Azure, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor.
 Para obter mais informações, consulte o tutorial [Adicionar autenticação ao seu aplicativo](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Depois de registrar seu provedor de identidade, chame o método `.login()` com o nome do seu provedor. Por exemplo, para fazer logon com o Facebook, use o código a seguir:
+Depois de registrar seu provedor de identidade, chame o método `.login()` com o nome do seu provedor. Por exemplo, para entrar com o Facebook, use o código a seguir:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);

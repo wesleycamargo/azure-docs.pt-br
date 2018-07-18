@@ -1,6 +1,6 @@
 ---
 title: Como ler ou gravar dados particionados no Azure Data Factory | Microsoft Docs
-description: Aprenda a como ler ou gravar dados particionados no Azure Data Factory versão 2.
+description: Saiba como ler ou gravar dados particionados no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: e3b6ccd1e7066ed86b3d6d2d85228688b06931c4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053703"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Como ler ou gravar dados particionados no Azure Data Factory versão 2
-Na versão 1, com suporte do Azure Data Factory ler ou gravar dados particionados usando variáveis de sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão 2, você pode obter esse comportamento usando um parâmetro de pipeline e de tempo/agendado a hora de início do gatilho como um valor do parâmetro. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Como ler ou gravar dados particionados no Azure Data Factory
+Na versão 1, com suporte do Azure Data Factory ler ou gravar dados particionados usando variáveis de sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual do Data Factory, você pode obter esse comportamento usando um parâmetro de pipeline e o horário de início/horário agendado do gatilho como um valor do parâmetro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Use parâmetro do pipeline 
 Na versão 1, você pode usar a propriedade partitionedBy e a variável de sistema SliceStart conforme mostrado exemplo a seguir: 
 
 ```json
-"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/yearno={Year}/monthno={Month}/dayno={Day}/",
+"folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
 "partitionedBy": [
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
@@ -36,27 +37,33 @@ Na versão 1, você pode usar a propriedade partitionedBy e a variável de siste
 
 Para mais informações sobre a propriedade partitionedBy, veja o artigo [conector de Blob do Azure versão 1](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Na versão 2, uma forma de obter esse comportamento é executar as seguintes ações: 
+Na versão atual do Data Factory, uma maneira de alcançar esse comportamento é executar as ações a seguir: 
 
-1. Definir um **parâmetro pipeline** do tipo cadeia de caracteres. No exemplo a seguir, o nome do parâmetro pipeline é **scheduledRunTime**. 
-2. Definir **folderPath** na definição do conjunto de dados para o valor do parâmetro de pipeline. 
-3. Passe um valor fixo para o parâmetro antes de executar o pipeline. Ou então, passe o tempo de início do gatilho ou agendado dinamicamente em tempo de execução. 
+1. Definir um **parâmetro pipeline** do tipo cadeia de caracteres. No exemplo a seguir, o nome do parâmetro pipeline é **windowStartTime**. 
+2. Definir **folderPath** na definição do conjunto de dados para fazer referência ao valor do parâmetro de pipeline. 
+3. Passe o valor real para o parâmetro ao chamar a pipeline sob demanda ou passe a hora de início do gatilho/tempo agendado dinamicamente em tempo de execução. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Passar em valor de um gatilho
-Na seguinte definição de gatilho, horário agendado do gatilho é passado como um valor para o parâmetro pipeline **scheduledRunTime**: 
+Na seguinte definição de gatilho de janela em cascata, o horário de início da janela do gatilho é passado como um valor para o parâmetro pipeline **windowStartTime**: 
 
 ```json
 {
     "name": "MyTrigger",
     "properties": {
-       ...
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+            "frequency": "Hour",
+            "interval": "1",
+            "startTime": "2018-05-15T00:00:00Z",
+            "delay": "00:10:00",
+            "maxConcurrency": 10
         },
         "pipeline": {
             "pipelineReference": {
@@ -64,7 +71,7 @@ Na seguinte definição de gatilho, horário agendado do gatilho é passado como
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "scheduledRunTime": "@trigger().scheduledTime"
+                "windowStartTime": "@trigger().outputs.windowStartTime"
             }
         }
     }
@@ -73,14 +80,15 @@ Na seguinte definição de gatilho, horário agendado do gatilho é passado como
 
 ## <a name="example"></a>Exemplo
 
-Aqui está um exemplo de definição de conjunto de dados (que usa um parâmetro denominado: `date`):
+Aqui está um exemplo de definição de conjunto de dados:
 
 ```json
 {
+  "name": "SampleBlobDataset",
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
+      "value": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/@{formatDateTime(pipeline().parameters.windowStartTime, 'yyyy/MM/dd')}/",
       "type": "Expression"
     },
     "format": {
@@ -129,20 +137,16 @@ Definição de pipeline:
                         "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/', pipeline().parameters.inputRawLogsFolder, '/')",
                         "type": "Expression"
                     },
-                    "PARTITIONEDOUTPUT": {
-                        "value": "@concat('wasb://', pipeline().parameters.blobContainer, '@', pipeline().parameters.blobStorageAccount, '.blob.core.windows.net/logs/partitionedgameevents/')",
-                        "type": "Expression"
-                    },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'MM')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.windowStartTime, 'dd')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +158,7 @@ Definição de pipeline:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "scheduledRunTime": {
+            "windowStartTime": {
                 "type": "String"
             },
             "blobStorageAccount": {
@@ -164,9 +168,6 @@ Definição de pipeline:
                 "type": "String"
             },
             "inputRawLogsFolder": {
-                "type": "String"
-            },
-            "partitionHiveScriptFile": {
                 "type": "String"
             }
         }

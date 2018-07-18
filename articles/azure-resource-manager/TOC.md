@@ -2,21 +2,25 @@
 
 # Visão geral
 ## [O que é o Resource Manager?](resource-group-overview.md)
-## [Provedores e tipos de recursos](resource-manager-supported-services.md)
 ## [Resource Manager e a implantação clássica](resource-manager-deployment-model.md)
-## [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Organizar recursos com grupos de gerenciamento](management-groups-overview.md)
 
 # Introdução
 ## [Criar e implantar modelo](resource-manager-create-first-template.md)
 ## [Extensão do Código VS para modelos](resource-manager-vscode-extension.md)
 ## [Visual Studio com o Gerenciador de Recursos](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Conceitos
+## [Provedores e tipos de recursos](resource-manager-supported-services.md)
+## [Grupos de gerenciamento](management-groups-overview.md)
+## [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Modelos de consistência de nuvem](templates-cloud-consistency.md)
+
 # Como
 ## Criar modelos
 ### [Seções do modelo](resource-group-authoring-templates.md)
 #### [Parâmetros](resource-manager-templates-parameters.md)
 #### [Variáveis](resource-manager-templates-variables.md)
+#### [Funções](resource-group-authoring-templates.md#functions)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Saídas](resource-manager-templates-outputs.md)
 ### [Modelos vinculados e aninhados](resource-group-linked-templates.md)
@@ -47,7 +51,8 @@
 ### [Portal do Azure](resource-group-portal.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
-### [Criar assinaturas de EA de forma programática](programmatically-create-subscription.md)
+### [Criar assinaturas EA](programmatically-create-subscription.md)
+### [Conceder acesso para criar assinaturas de EA](grant-access-to-create-subscription.md)
 ### [Criar grupos de gerenciamento](management-groups-create.md)
 ### [Gerenciar seus grupos de gerenciamento](management-groups-manage.md)
 

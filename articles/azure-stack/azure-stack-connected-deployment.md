@@ -1,12 +1,12 @@
 ---
-title: "Sistemas integrados de decisões de implantação conectados do Azure para a pilha do Azure | Microsoft Docs"
-description: "Determine as decisões de vários nós do Azure de pilha do Azure conectada implantações de planejamento de implantação."
+title: Sistemas integrados de decisões de implantação conectados do Azure para a pilha do Azure | Microsoft Docs
+description: Determine as decisões de vários nós do Azure de pilha do Azure conectada implantações de planejamento de implantação.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120379"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados do Azure conectada decisões de pilha do Azure de planejamento de implantação
 Depois que você decidir [como integrará pilha do Azure em seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, finalizar suas decisões de implantação da pilha do Azure.

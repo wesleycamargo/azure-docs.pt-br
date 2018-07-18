@@ -12,21 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235739"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de Logs do Azure com logs do Diagnóstico do Azure e encaminhamento de eventos do Windows
 
-A Integração de Logs do Azure oferece aos clientes uma alternativa se um conector do [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) não está disponível de seu fornecedor de SIEM (Gerenciamento de Eventos e Informações de Segurança). A Integração de Logs do Azure torna os logs do Azure disponíveis para o SIEM para que você crie um painel de segurança unificado para todos os seus ativos.
 
-> [!NOTE]
-> Para saber mais sobre o Azure Monitor, confira [Introdução ao Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md). Para saber mais sobre o status de um conector do Azure Monitor, contate o fornecedor de SIEM.
+>[!IMPORTANT]
+> O recurso Integração de log do Azure será substituído em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+
+Você só deverá usar a integração de log do Azure se um conector do [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) não estiver disponível de seu fornecedor de SIEM (Gerenciamento de Eventos e Informações de Segurança).
+
+A Integração de Logs do Azure torna os logs do Azure disponíveis para o SIEM para que você crie um painel de segurança unificado para todos os seus ativos.
+Para saber mais sobre o status de um conector do Azure Monitor, contate o fornecedor de SIEM.
 
 > [!IMPORTANT]
 > Se o seu interesse principal é coletar logs de máquina virtual, a maioria dos fornecedores de SIEM inclui essa opção em sua solução. O uso do conector do fornecedor SIEM sempre é a opção preferencial.
@@ -34,13 +39,13 @@ A Integração de Logs do Azure oferece aos clientes uma alternativa se um conec
 Este artigo ajuda você a começar a usar a Integração de Logs do Azure. Ele aborda a instalação do serviço de Integração de Logs do Azure e integra o serviço ao Diagnóstico do Azure. O serviço de Integração de Logs do Azure coleta informações de Log de Eventos do Windows do canal de Eventos de Segurança do Windows de máquinas virtuais implantadas em uma infraestrutura como serviço do Azure. Isso é semelhante ao *encaminhamento de eventos* que você pode usar em um sistema local.
 
 > [!NOTE]
-> A integração da saída da Integração de Logs do Azure a um SIEM é feita com o SIEM em si. Para saber mais, confira [Integrar a Integração de Logs do Azure com o SIEM local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/).
+> A integração do resultado da Integração de Logs do Azure a um SIEM é feita pelo próprio SIEM. Para saber mais, confira [Integrar a Integração de Logs do Azure com o SIEM local](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/).
 
-O serviço de Integração de Logs do Azure é executado em um computador físico ou virtual que executa o Windows Server 2008 R2 ou posterior (o Windows Server 2016 ou o Windows Server 2012 R2 é preferencial).
+O serviço de Integração de Logs do Azure é executado em um computador físico ou virtual que execute o Windows Server 2008 R2 ou posterior (recomendamos o Windows Server 2016 ou o Windows Server 2012 R2).
 
-Um computador físico pode ser executado localmente ou em um site de hospedagem. Se você optar por executar o serviço Integração do Log do Azure em uma máquina virtual, ela poderá estar localizada localmente ou em uma nuvem pública, como o Microsoft Azure.
+Um computador físico pode ser executado localmente ou em um site de hospedagem. Se você optar por executar o serviço Integração de Logs do Azure em uma máquina virtual, ela poderá estar localizada localmente ou em uma nuvem pública, como o Microsoft Azure.
 
-A máquina virtual ou o computador físico que executa o serviço Integração do Log do Azure requer conectividade de rede com a nuvem pública do Azure. Este artigo fornece detalhes sobre a configuração necessária.
+A máquina virtual ou o computador físico que executa o serviço Integração de Logs do Azure requer conectividade de rede com a nuvem pública do Azure. Este artigo fornece detalhes sobre a configuração necessária.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -68,7 +73,7 @@ Para ver uma demonstração rápida de como criar uma máquina virtual usando o 
 
 Durante o teste, você pode usar qualquer sistema que atenda aos requisitos mínimos do sistema operacional. Para um ambiente de produção, a carga pode exigir que você planeje a expansão ou a redução.
 
-Você pode executar várias instâncias do serviço de Integração de Logs do Azure. No entanto, você pode executar apenas uma instância do serviço por máquina virtual ou física. Além disso, você pode balancear a carga de contas de armazenamento de Diagnóstico do Azure para WAD. O número de assinaturas a serem fornecidas às instâncias baseia-se a sua capacidade.
+Você pode executar várias instâncias do serviço de Integração de Logs do Azure. No entanto, você pode executar apenas uma instância do serviço por máquina virtual ou física. Além disso, você pode balancear a carga de contas de armazenamento de Diagnóstico do Azure para WAD. O número de assinaturas a serem fornecidas às instâncias baseia-se na sua capacidade.
 
 > [!NOTE]
 > No momento, não temos recomendações específicas sobre quando escalar horizontalmente as instâncias de computadores da Integração de Logs do Azure (ou seja, computadores que executam o serviço de Integração de Logs do Azure) ou para contas de armazenamento ou assinaturas. Tome decisões de dimensionamento com base em suas observações de desempenho em cada uma dessas áreas.
@@ -109,16 +114,16 @@ Após concluir a configuração básica, você está pronto para executar as eta
 2. Importe os cmdlets de Integração de Logs do Azure. Para importar os cmdlets, execute o script `LoadAzlogModule.ps1`. Insira `.\LoadAzlogModule.ps1` e pressione Enter (observe o uso de **.\\** nesse comando). Você verá algo parecido com o que é exibido na seguinte figura:
 
   ![Captura de tela da saída do comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
-3. Em seguida, configure a Integração de Logs do Azure para usar um ambiente do Azure específico. Um *ambiente do Azure* é o tipo de datacenter na nuvem do Azure com o qual você deseja trabalhar. Embora existam vários ambientes do Azure, no momento, as opções relevantes no momento são **AzureCloud** ou **AzureUSGovernment**. Executando o PowerShell como administrador, verifique se você está em C:\Arquivos de Programas\Integração de logs do Microsoft Azure\. Em seguida, execute este comando:
+3. Em seguida, configure a Integração de Logs do Azure para usar um ambiente do Azure específico. Um *ambiente do Azure* é o tipo de datacenter na nuvem do Azure com o qual você deseja trabalhar. Embora existam vários ambientes do Azure, atualmente as opções relevantes são **AzureCloud** ou **AzureUSGovernment**. Executando o PowerShell como administrador, verifique se você está em C:\Arquivos de Programas\Integração de logs do Microsoft Azure\. Em seguida, execute este comando:
 
   `Set-AzlogAzureEnvironment -Name AzureCloud` (para **AzureCloud**)
   
   Se você quiser usar a nuvem do US Government Azure, use **AzureUSGovernment** para a variável **-Name**. No momento, não há suporte para outras nuvens do Azure.  
 
   > [!NOTE]
-  > Você não recebe comentários quando o comando tem êxito. 
+  > Você não recebe feedback quando o comando for executado com êxito. 
 
-4. Para poder monitorar um sistema, você precisa do nome da conta de armazenamento usada no Diagnóstico do Azure. No portal do Azure, vá para **Máquinas virtuais**. Procure a máquina virtual que você deseja monitorar. Na seção **Propriedades**, selecione **Configurações de Diagnóstico**.  Em seguida, selecione **Agente**. Anote o nome da conta de armazenamento especificada. Você precisa desse nome de conta para uma etapa posterior.
+4. Para poder monitorar um sistema, você precisa do nome da conta de armazenamento usada no Diagnóstico do Azure. No portal do Azure, vá para **Máquinas virtuais**. Procure por uma máquina virtual do Windows que você irá monitorar. Na seção **Propriedades**, selecione **Configurações de Diagnóstico**.  Em seguida, selecione **Agente**. Anote o nome da conta de armazenamento especificada. Você precisa desse nome de conta para uma etapa posterior.
 
   ![Captura de tela do painel de Configurações de Diagnóstico do Azure](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -128,20 +133,20 @@ Após concluir a configuração básica, você está pronto para executar as eta
   > Se o monitoramento não tiver sido habilitado quando a máquina virtual foi criada, você poderá habilitá-lo conforme mostrado na imagem anterior.
 
 5. Agora, volte para a máquina de Integração de Logs do Azure. Verifique se você tem conectividade com a conta de armazenamento do sistema em que você instalou a Integração de Logs do Azure. O computador que executa o serviço Integração de Logs do Azure precisa acessar a conta de armazenamento para recuperar informações registradas pelo Diagnóstico do Azure em cada um dos sistemas monitorados. Para verificar a conectividade: 
-  1. [Baixar o Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+  1. [Baixe o Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
   2. Conclua a instalação.
   3. Quando a instalação for concluída, selecione **Avançar**. Deixe a caixa de seleção **Iniciar o Gerenciador de Armazenamento do Microsoft Azure** marcada.  
   4. Entre no Azure.
   5. Verifique se você pode ver a conta de armazenamento que configurou para o Diagnóstico do Azure: 
 
-    ![Captura de tela de contas de armazenamento no Gerenciador de Armazenamento](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Captura de tela de contas de armazenamento no Gerenciador de Armazenamento](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. Algumas opções são exibidas em contas de armazenamento. Em **Tabelas**, você deverá ver uma tabela chamada **WADWindowsEventLogsTable**.
 
   Se o monitoramento não foi habilitado quando a máquina virtual foi criada, você pode habilitá-lo conforme descrito anteriormente.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Integrar o log de Diagnóstico do Azure
+## <a name="integrate-windows-vm-logs"></a>Integrar os Logs de VM do Windows
 
 Nesta etapa, você configura o computador que executa o serviço Integração de Logs do Azure para se conectar à conta de armazenamento que contém os arquivos de log.
 
@@ -178,7 +183,7 @@ Para obter a chave de armazenamento, conclua as seguintes etapas:
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exemplo: 
+  Exemplo:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -205,14 +210,43 @@ Se os dados não forem mostrados na pasta Eventos Encaminhados após uma hora, e
 
 Se tiver problemas durante a instalação e configuração, você poderá criar uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Para o serviço, selecione **Integração de Logs**.
 
-Outra opção de suporte é o [Fórum do MSDN de Integração do Log do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). No Fórum do MSDN, a comunidade pode fornecer suporte respondendo a perguntas e compartilhando dicas e truques sobre como aproveitar ao máximo a Integração de Logs do Azure. A equipe de Integração de Logs do Azure também monitora esse fórum. Eles ajudam sempre que possível.
+Outra opção de suporte é o [Fórum do MSDN de Integração de Logs do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). No Fórum do MSDN, a comunidade pode fornecer suporte respondendo a perguntas e compartilhando dicas e truques sobre como aproveitar ao máximo a Integração de Logs do Azure. A equipe de Integração de Logs do Azure também monitora esse fórum. Eles ajudam sempre que possível.
+
+## <a name="integrate-azure-activity-logs"></a>Integrar os logs de atividades do Azure
+
+O Log de Atividades do Azure é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Isso inclui um intervalo de dados, de dados operacionais do Azure Resource Manager para atualizações em eventos de Integridade do Serviço. Os alertas da Central de Segurança do Azure também estão incluídos nesse Log.
+> [!NOTE]
+> Antes de experimentar as etapas neste artigo, você deve examinar o artigo [Introdução](security-azure-log-integration-get-started.md) e concluir as etapas dele.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Etapas para integrar os logs de atividades do Azure
+
+1. Abra o prompt de comando e execute este comando: ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. Execute este comando: ```azlog createazureid```
+
+    Esse comando solicitará o logon do Azure. O comando cria uma entidade de serviço do Azure Active Directory em locatários do Azure AD que hospedam as assinaturas do Azure nas quais o usuário conectado é um administrador, um coadministrador ou um proprietário. O comando falhará se o usuário conectado for apenas um usuário convidado no locatário do Azure AD. A autenticação do Azure é feita por meio do AD do Azure. A criação de uma entidade de serviço para a Integração de Logs do Azure criará a identidade do Azure AD que receberá o acesso de leitura das assinaturas do Azure.
+3.  Execute o seguinte comando para autorizar o acesso da entidade de serviço Integração de Logs do Azure criada na etapa anterior à leitura do Log de Atividades da assinatura. Você precisa ser um Proprietário na assinatura para executar o comando.
+
+    ```Azlog.exe authorize subscriptionId``` Exemplo:
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Auditoria do Azure Active Directory são criados nelas:
+    - C:\Usuários\azlog\AzureResourceManagerJson
+    - C:\Usuários\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> Para obter instruções específicas sobre como colocar as informações nos arquivos JSON em seu SIEM (sistema de gerenciamento de eventos e informações de segurança), contate o fornecedor do SIEM.
+
+Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integração de Log do Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Este fórum permite que as pessoas na comunidade de Integração de Log do Azure deem suporte umas às outras com perguntas, respostas, dicas e truques. Além disso, a equipe de Integração de Logs do Azure monitora esse fórum e ajuda sempre que possível.
+
+Você também pode abrir uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione a Integração de Log como o serviço para o qual você está solicitando suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a Integração do Log do Azure, consulte os seguintes artigos:
+
+Para saber mais sobre a Integração de Logs do Azure, veja os seguintes artigos: antes de experimentar as etapas neste artigo, você deve examinar o artigo Introdução e concluir as etapas dele.
 
 * [Integração de Logs do Azure para logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324). O Centro de Download inclui detalhes, requisitos de sistema e instruções de instalação para a Integração de Logs do Azure.
 * [Introdução à Integração de Logs do Azure](security-azure-log-integration-overview.md). Este documento apresenta a Integração de Logs do Azure, seus principais recursos e como ele funciona.
 * [Etapas de configuração de parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Essa postagem de blog mostra a você como configurar a Integração de Logs do Azure para trabalhar com as soluções de parceiros Splunk, HP ArcSight e IBM QRadar. Descreve nossas diretrizes atuais sobre como configurar os componentes do SIEM. Entre em contato com seu fornecedor do SIEM para obter detalhes adicionais.
-* [Perguntas frequentes sobre a integração do log do Azure](security-azure-log-integration-faq.md). Este artigo de perguntas comuns responde às perguntas sobre a Integração de Logs do Azure.
+* [Perguntas frequentes sobre a Integração de Logs do Azure](security-azure-log-integration-faq.md). Este artigo de perguntas comuns responde às perguntas sobre a Integração de Logs do Azure.
 * [Integração de alertas da Central de Segurança do Azure à Integração de Logs do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md). Este artigo mostra como sincronizar alertas do Centro de Segurança e eventos de segurança de máquina virtual que são coletados pelo Diagnóstico do Azure e logs de atividade do Azure. Você pode sincronizar os logs usando a solução do Azure Log Analytics ou do SIEM.
 * [Novos recursos para o Diagnóstico do Azure e os logs de auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Esta postagem de blog apresenta os logs de auditoria do Azure e outros recursos que podem ajudá-lo a obter informações sobre as operações de recursos do Azure.

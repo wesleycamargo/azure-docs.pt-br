@@ -1,12 +1,12 @@
 ---
-title: "Alterar o algoritmo de hash da assinatura para o objeto de confiança de terceira parte confiável do Office 365 | Microsoft Docs"
-description: "Esta página fornece diretrizes para alterar o algoritmo SHA para confiança de federação com o Office 365"
-keywords: "SHA1, SHA256, O365, federação, aadconnect, adfs, ad fs, alterar o sha, confiança de federação, objeto de confiança de terceira parte confiável"
+title: Alterar o algoritmo de hash da assinatura para o objeto de confiança de terceira parte confiável do Office 365 | Microsoft Docs
+description: Esta página fornece diretrizes para alterar o algoritmo SHA para confiança de federação com o Office 365
+keywords: SHA1, SHA256, O365, federação, aadconnect, adfs, ad fs, alterar o sha, confiança de federação, objeto de confiança de terceira parte confiável
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598956"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365
 ## <a name="overview"></a>Visão geral

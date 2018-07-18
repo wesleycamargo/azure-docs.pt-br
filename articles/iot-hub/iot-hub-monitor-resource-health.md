@@ -1,31 +1,28 @@
 ---
 title: Monitorar a integridade de seu Hub IoT do Azure | Microsoft Docs
 description: Use o Azure Monitor e o Azure Resource Health para monitorar seu Hub IoT Hub e diagnosticar problemas rapidamente
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202213"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611364"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
 As empresas que implementam o Hub IoT do Azure esperam um desempenho confiável de seus recursos. Para ajudá-lo a manter um monitoramento em suas operações, o Hub IoT é totalmente integrado ao [Azure Monitor][lnk-AM] e o [Azure Resource Health] [ lnk-ARH]. Esses dois serviços funcionam em conjunto para fornecer os dados de que você precisa manter suas soluções IoT em execução em um estado íntegro. 
 
-O Azure Monitor é uma fonte única de monitoramento e registro em log para todos os serviços do Azure. Você pode enviar os logs gerados pelo Azure Monitor para o Log Analytics, Hubs de Eventos ou Armazenamento do Microsoft Azure para processamento personalizado. As configurações de diagnóstico e métricas do Azure Monitor oferecem a visibilidade em tempo real sobre o desempenho de seus recursos. Continue lendo este artigo para saber como [Usar o Azure Monitor](#use-azure-monitor) com o Hub IoT. 
+O Azure Monitor é uma fonte única de monitoramento e registro em log para todos os serviços do Azure. Você pode enviar os logs de diagnóstico gerados pelo Azure Monitor para o Log Analytics, Hubs de Eventos ou Armazenamento do Microsoft Azure para processamento personalizado. As configurações de diagnóstico e métricas do Azure Monitor oferecem a visibilidade sobre o desempenho de seus recursos. Continue lendo este artigo para saber como [Usar o Azure Monitor](#use-azure-monitor) com o Hub IoT. 
+
+> [!IMPORTANT]
+> Não há garantia de que os eventos emitidos pelo serviço Hub IoT usando logs de diagnóstico do Azure Monitor sejam confiáveis ou ordenados. Alguns eventos podem ser perdidos ou entregues fora de ordem. Os logs de diagnóstico também não devem ser em tempo real, e pode levar vários minutos para que os eventos sejam registrados na sua opção de destino.
 
 O Azure Resource Health ajuda você a diagnosticar e a obter suporte quando um problema com o Azure afeta seus recursos. Um painel personalizado fornece o status de integridade atual e anterior de seus Hubs IoT. Continue lendo este artigo para saber como [Usar o Azure Resource Health](#use-azure-resource-health) com o Hub IoT. 
 
@@ -47,7 +44,7 @@ O Azure Monitor controla diferentes operações que ocorrem no Hub IoT. Cada cat
 
 #### <a name="connections"></a>conexões
 
-A categoria de conexões rastreia erros que ocorrem quando os dispositivos se conectam a um Hub IoT ou se desconectam dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
+O dispositivo de faixas de categoria conexões conecta e desconecta eventos um hub IoT, bem como erros. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 
 ```json
 {

@@ -3,7 +3,7 @@ title: Guia de introdução para operadores de TI do Azure | Microsoft Docs
 description: Guia de introdução para operadores de TI do Azure
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099486"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -60,7 +61,7 @@ SaaS é um software que é hospedado e gerenciado centralmente. É normalmente b
 
 O Microsoft Office 365 é um bom exemplo de uma oferta de SaaS. Os assinantes pagam uma taxa de assinatura mensal ou anual e obtêm Microsoft Exchange, Microsoft OneDrive e o restante do pacote do Microsoft Office como um serviço. Os assinantes sempre obtêm a versão mais recente e o servidor Exchange é gerenciado para você. Em comparação instalar e atualizar o Office todo ano, isso é menos dispendioso e requer menos esforço.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como serviço 
+#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como serviço
 
 Com PaaS, você implanta seu aplicativo em um ambiente oferecido pelo fornecedor do serviço de nuvem. O fornecedor faz todo o gerenciamento de infraestrutura, de modo que pode se concentrar no desenvolvimento de aplicativos.
 
@@ -380,11 +381,11 @@ Contas de armazenamento do Azure podem ser configuradas com diferentes níveis d
 
 -   O **armazenamento com redundância geográfica com acesso de leitura** é o armazenamento com redundância geográfica e a capacidade de ler os dados na região secundária. Essa capacidade o torna adequado para a recuperação de desastre parcial. Se há um problema com a região primária, você pode alterar seu aplicativo para ter acesso somente leitura à região emparelhada.
 
-### <a name="use-cases"></a>Casos de uso 
+### <a name="use-cases"></a>Casos de uso
 
 Cada tipo de armazenamento tem um caso de uso diferente.
 
-**Armazenamento de Blobs** 
+**Armazenamento de Blobs**
 
 A palavra *blob* é um acrônimo para *objeto binário grande*. Blobs são arquivos não estruturados como aqueles que você armazena em seu computador. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. O Armazenamento de Blobs do Azure também contém discos de dados de Máquinas Virtuais do Azure.
 
@@ -444,7 +445,7 @@ Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azur
 
 ### <a name="access-and-security-for-azure-storage"></a>Acesso e segurança para o Armazenamento do Azure
 
-O Armazenamento do Azure é acessado de várias maneiras, incluindo o Portal do Azure, durante a operação e a criação da VM e de bibliotecas de cliente de armazenamento. 
+O Armazenamento do Azure é acessado de várias maneiras, incluindo o Portal do Azure, durante a operação e a criação da VM e de bibliotecas de cliente de armazenamento.
 
 **Discos de máquina virtual**
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746243"
 ---
 Ao criar uma VM (máquina virtual) do Azure, você deve criar uma [VNet](../articles/virtual-network/virtual-networks-overview.md) (rede virtual) ou usar uma VNet existente. Você também precisa decidir como suas VMs devem ser acessadas na VNet. É importante [planejar antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e compreender os [limites de recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -109,7 +110,7 @@ Esta tabela lista os métodos que você pode usar para criar um grupo de seguran
 
 | Método | DESCRIÇÃO |
 | ------ | ----------- |
-| [Portal do Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Quando você cria uma VM no portal do Azure, um NSG é criado e associado automaticamente à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e **-nsg**. Este NSG contém uma regra de entrada com uma prioridade de 1000, o serviço definido como RDP, o protocolo definido como TCP, a porta configurada para 3389 e as ações definidas para Permitir. Se quiser permitir qualquer outro tráfego de entrada para a VM, você deverá incluir regras adicionais para o NSG. |
+| [Portal do Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Quando você cria uma VM no portal do Azure, um NSG é criado e associado automaticamente à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e **-nsg**. Este NSG contém uma regra de entrada com uma prioridade de 1000, o serviço definido como RDP, o protocolo definido como TCP, a porta configurada para 3389 e as ações definidas para Permitir. Se quiser permitir qualquer outro tráfego de entrada para a VM, você deverá incluir regras adicionais para o NSG. |
 | [PowerShell do Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) e forneça as informações de regra necessárias. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) para criar o NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) para configurar o NSG da sub-rede. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para adicionar o NSG à rede virtual. |
 | [CLI do Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) para criar inicialmente o NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) para adicionar regras para o NSG. Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) para adicionar o NSG à sub-rede. |
 | [Modelo](../articles/virtual-network/template-samples.md) | Use [Criar um grupo de segurança de rede](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) como um guia para a implantação de um grupo de segurança de rede usando um modelo. |
@@ -170,4 +171,4 @@ Também existem tutoriais sobre como balancear a carga de VMs e criar aplicativo
 
 - Saiba como configurar [rotas definidas pelo usuário e encaminhamento IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Saiba como configurar [conexões de VNet para VNet](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Saiba como [Solucionar problemas de rotas](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Saiba como [Solucionar problemas de rotas](../articles/virtual-network/diagnose-network-routing-problem.md).

@@ -1,30 +1,25 @@
 ---
-title: Recuperar dados de um Servidor de Backup do Azure | Microsoft Docs
-description: "Recupere os dados que você protegeu em um cofre dos Serviços de Recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre."
+title: Recuperar dados de um Servidor de Backup do Azure
+description: Recupere os dados que você protegeu em um cofre dos Serviços de Recuperação de qualquer Servidor de Backup do Azure registrado nesse cofre.
 services: backup
-documentationcenter: 
 author: nkolli1
 manager: shreeshd
-editor: 
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604396"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Servidor de Backup do Azure
 Você pode usar o Servidor de Backup do Azure para recuperar os dados de que fez backup em um cofre dos Serviços de Recuperação. O processo para fazer isso é integrado ao console de gerenciamento do Servidor de Backup do Azure e é semelhante ao fluxo de trabalho de recuperação para outros componentes do Backup do Azure.
 
 > [!NOTE]
-> Este artigo se aplica ao [System Center Data Protection Manager R2 2012 com UR7 ou posterior] (https://support.microsoft.com/en-us/kb/3065246) combinado ao [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent).
+> Este artigo se aplica ao [System Center Data Protection Manager R2 2012 com UR7 ou posterior] (https://support.microsoft.com/en-us/kb/3065246)) combinado ao [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent).
 >
 >
 

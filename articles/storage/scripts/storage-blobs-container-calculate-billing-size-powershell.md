@@ -1,12 +1,12 @@
 ---
-title: "Amostra de script do Azure PowerShell – calcular o tamanho total de cobrança de um contêiner de blobs | Microsoft Docs"
-description: "Calcule o tamanho total de um contêiner no armazenamento de Blobs do Azure para fins de cobrança."
+title: Amostra de script do Azure PowerShell – calcular o tamanho total de cobrança de um contêiner de blobs | Microsoft Docs
+description: Calcule o tamanho total de um contêiner no armazenamento de Blobs do Azure para fins de cobrança.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368537"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de cobrança de um contêiner de blob
 

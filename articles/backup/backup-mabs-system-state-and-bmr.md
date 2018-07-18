@@ -1,24 +1,20 @@
 ---
-title: Servidor de Backup do Azure protege o estado do sistema e restaura para o bare-metal | Microsoft Docs
-description: "Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR)."
+title: Servidor de Backup do Azure protege o estado do sistema e restaura para o bare-metal
+description: Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607201"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup de estado do sistema e restaurar bare-metal com o servidor de Backup do Azure
 
@@ -38,7 +34,7 @@ A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter i
 |**Dados de arquivo**<br /><br />Backup de dados regular<br /><br />Backup de estado do sistema/BMR|Dados de arquivos perdidos|S|N|N|
 |**Dados de arquivo**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Sistema operacional perdido ou danificado|N|S|S|
 |**Dados de arquivo**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Servidor perdido (volumes de dados intactos)|N|N|S|
-|**Dados de arquivo**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Servidor perdido (volumes de dados intactos)|S|Não|Sim (BMR, seguida de recuperação regular de dados do arquivo de backup)|
+|**Dados de arquivo**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Servidor perdido (volumes de dados intactos)|S|Não |Sim (BMR, seguida de recuperação regular de dados do arquivo de backup)|
 |**Dados do SharePoint**:<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Site perdido, listas, itens de lista, documentos|S|N|N|
 |**Dados do SharePoint**:<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Sistema operacional perdido ou danificado|N|S|S|
 |**Dados do SharePoint**:<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />Backup de estado do sistema/BMR|Recuperação de desastre|N|N|N|
@@ -100,7 +96,7 @@ Quando o backup for concluído, o arquivo é transferido para o computador do Se
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1.  **Implantar o Servidor de Backup do Azure**. Verifique se o Servidor de Backup é implantado corretamente. Para obter mais informações, confira:
+1.  **Implantar o Servidor de Backup do Azure**. Verifique se o Servidor de Backup é implantado corretamente. Para obter mais informações, consulte:
     * [Requisitos de sistema para o Servidor de Backup do Azure](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do Servidor de Backup](backup-mabs-protection-matrix.md)
 

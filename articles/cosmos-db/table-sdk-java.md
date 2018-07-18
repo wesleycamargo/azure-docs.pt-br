@@ -2,24 +2,22 @@
 title: API de tabela do Azure Cosmos DB para Java | Microsoft Docs
 description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
 services: cosmos-db
-documentationcenter: java
 author: yarong
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: java
-ms.topic: article
+ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: ac699f3b0d8e0e352d7701682f832c53074b0238
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 81ed90a3a5dd76c476a161802781dd971cd18e54
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798603"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Java: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -33,7 +31,7 @@ ms.lasthandoff: 04/16/2018
 |---|---|
 |**Baixe o SDK**|[Opções de Download](https://github.com/azure/azure-storage-java#download)|
 |**Documentação da API**|[Documentação de referência de API Java](http://azure.github.io/azure-storage-java/)|
-|**Contribuir para o SDK**|[Github](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
+|**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]
 > Se você criou uma conta da API de Tabela durante a versão prévia, crie uma [nova conta da API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs da API de Tabela disponíveis para o público em geral.

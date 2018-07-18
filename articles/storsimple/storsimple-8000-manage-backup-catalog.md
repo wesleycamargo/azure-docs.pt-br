@@ -1,12 +1,12 @@
 ---
-title: "Gerenciar catálogo de backup do StorSimple | Microsoft Docs"
-description: "Explica como usar a página do catálogo de backup do serviço do Gerenciador de Dispositivos do StorSimple para listar, selecionar e excluir os conjuntos de backup."
+title: Gerenciar catálogo de backup do StorSimple | Microsoft Docs
+description: Explica como usar a página do catálogo de backup do serviço do Gerenciador de Dispositivos do StorSimple para listar, selecionar e excluir os conjuntos de backup.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108374"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para gerenciar o catálogo de backup
 ## <a name="overview"></a>Visão geral

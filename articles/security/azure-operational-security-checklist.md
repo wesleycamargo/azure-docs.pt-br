@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894742"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacional do Azure
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar o aplicativo na nuvem em produção útil para ter uma lista de verificação visando ajudar na avaliação de seu aplicativo mediante uma lista de ações de segurança operacional essenciais e recomendadas a você.

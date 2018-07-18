@@ -3,9 +3,8 @@ title: Introdução ao Apache Kafka - Início Rápido do Azure HDInsight | Micro
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Portal do Azure. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -13,13 +12,14 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/16/2018
+ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342146"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka no cluster HDInsight
 
@@ -34,7 +34,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 >
 > Para saber mais, confira o documento [Conectar ao Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -75,7 +75,7 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
     | Configuração | Valor |
     | --- | --- |
     | Tipo de cluster | Kafka |
-    | Versão | Kafka 0.10.0 (HDI 3.6) |
+    | Versão | Kafka 1.0.0 (HDI 3.6) |
 
     Use o botão **Selecionar** para salvar as configurações do tipo de cluster e retorne a __Básico__.
 
@@ -89,7 +89,7 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
     | Senha de logon do cluster | A senha de logon ao acessar serviços Web ou APIs REST hospedadas no cluster. |
     | Nome de usuário do Secure Shell (SSH) | O logon usado ao acessar o cluster via SSH. Por padrão, a senha é a mesma do logon do cluster. |
     | Grupo de recursos | O grupo de recursos no qual criar o cluster. |
-    | Local padrão | A região do Azure na qual criar o cluster. |
+    | Localização | A região do Azure na qual criar o cluster. |
 
     > [!TIP]
     > Cada região do Azure (local) fornece _domínios de falha_. Um domínio de falha é um agrupamento lógico de hardware subjacente em um data center do Azure. Cada domínio de falha tem um comutador de rede e uma fonte de alimentação em comum. As máquinas virtuais e os discos gerenciados que implementam os nós em um cluster HDInsight são distribuídos entre esses domínios de falha. Essa arquitetura limita o possível impacto de falhas físicas de hardware.
@@ -100,7 +100,7 @@ Para criar um Kafka no cluster do HDInsight, use as seguintes etapas:
 
     Use o botão __Avançar__ para concluir a configuração básica.
 
-5. Em **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento.
+5. Em **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento. Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Definir as configurações de conta de armazenamento do HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -182,10 +182,13 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
     Ao receber a solicitação, insira o nome do cluster Kafka.
 
 3. Para definir uma variável de ambiente com informações de host Zookeeper, use o seguinte comando:
-
+    
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
+
+    > [!TIP]
+    > Este comando consulta diretamente o serviço do Ambari no nó de cabeçalho do cluster. Você também pode acessar o ambari usando o endereço público de `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algumas configurações de rede podem impedir o acesso ao endereço público. Por exemplo, usar NSG (Grupos de Segurança de Rede) para restringir o acesso ao HDInsight em uma rede virtual.
 
     Ao receber a solicitação, insira a senha para a conta de logon do cluster (não da conta de SSH).
 
@@ -205,7 +208,7 @@ Nesta seção, você obtém as informações do host da API REST Ambari no clust
 5. Para definir uma variável de ambiente com informações de host Broker do Kafka, use o seguinte comando:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Ao receber a solicitação, insira a senha para a conta de logon do cluster (não da conta de SSH).
@@ -323,7 +326,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 > [!WARNING]
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
 > 
-> Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
+> A exclusão de um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
 
 ## <a name="next-steps"></a>Próximas etapas
 

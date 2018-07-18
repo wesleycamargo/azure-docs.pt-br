@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235304"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -30,7 +26,7 @@ A camada Standard dos Hubs de Evento do Azure fornece recursos além daqueles di
 * Maior retenção de evento
 * Conexões agenciadas adicionais, com uma taxa excedente para além do número incluído
 * Mais de um único Grupo de consumidores
-* [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Captura](event-hubs-capture-overview.md)
 
 Para obter mais informações sobre tipos de preço, incluindo Hubs de Eventos Dedicados, veja os [Detalhes de preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ Usando o recurso [Inflação automática](event-hubs-auto-inflate.md), você pod
 Sim, contanto que todos os Hubs de Eventos estejam no mesmo namespace.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual é o período de retenção máximo para eventos?
-O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Observe que os Hubs de Eventos não são destinados a funcionarem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes. Se você precisar de retenção de mensagens por mais de 7 dias, a habilitação da [Captura de Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) efetuará pull dos dados do hub de eventos para a conta de armazenamento ou conta de serviço Azure Data Lake de sua escolha. A habilitação da Captura incorrerá em uma cobrança de acordo com a Unidade de Produtividade adquirida.
+O nível Standard dos Hubs de Eventos atualmente dão suporte a um período de retenção máximo de 7 dias. Observe que os Hubs de Eventos não são destinados a funcionarem como um armazenamento de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente repetir um fluxo de eventos nos mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizado de máquina nos dados existentes. Se você precisar de retenção de mensagens por mais de 7 dias, a habilitação da [Captura de Hubs de Eventos](event-hubs-capture-overview.md) efetuará pull dos dados do hub de eventos para a conta de armazenamento ou conta de serviço Azure Data Lake de sua escolha. A habilitação da Captura acarretará uma cobrança com base nas unidades de produtividade compradas.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Onde os Hubs de Eventos do Azure estão disponíveis?
+
 Os Hubs de Eventos do Azure está disponível em todas as regiões do Azure com suporte. Para obter uma lista, visite a página [Regiões do Azure](https://azure.microsoft.com/regions/).  
 
 ## <a name="best-practices"></a>Práticas recomendadas
@@ -101,22 +98,27 @@ A Captura usa uma conta de armazenamento fornecida quando habilitado em um Hub d
 ## <a name="quotas"></a>Cotas
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Existe alguma cota associada aos Hubs de Eventos?
+
 Para obter uma lista de todas as cotas de Hubs de Eventos, consulte [cotas](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>solução de problemas
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelos Hubs de Eventos e suas ações sugeridas?
+
 Para obter uma lista de exceções possíveis dos Hubs de Eventos, confira [Visão geral das exceções](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Logs de diagnóstico
+
 Os Hubs de Eventos dão suporte a dois tipos de [logs de diagnóstico](event-hubs-diagnostic-logs.md) – logs de erro de Captura e logs operacionais – ambos os quais são representados em json e podem ser ativados por meio do Portal do Azure.
 
 ### <a name="support-and-sla"></a>Suporte e SLA
+
 Suporte técnico para os Hubs de Eventos está disponível por meio dos [fóruns da comunidade](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
 
 Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) .
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)

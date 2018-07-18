@@ -5,14 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38727517"
 ---
 ### <a name="supportedclientos"></a>Quais sistemas operacionais de cliente posso usar com ponto a site?
 
@@ -20,7 +21,6 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 
 * Windows 7 (32 bits e 64 bits)
 * Windows Server 2008 R2 (somente 64 bits)
-* Windows 8 (32 bits e 64 bits)
 * Windows 8.1 (32 bits e 64 bits)
 * Windows Server 2012 (somente 64 bits)
 * Windows Server 2012 R2 (somente 64 bits)
@@ -28,6 +28,12 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 * Windows 10
 * Versão do Mac OS X 10.11 (El Capitan)
 * Versão do Mac OS X 10.12 (Sierra)
+* Linux (StrongSwan)
+* iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -55,7 +61,7 @@ Sim. Para o modelo de implantação do Gerenciador de Recursos, você deve ter u
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
 
-Nº Um cliente de Ponto a Site só pode se conectar aos recursos na rede virtual na qual o gateway de rede virtual reside.
+Não. Um cliente de Ponto a Site só pode se conectar aos recursos na rede virtual na qual o gateway de rede virtual reside.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quanta taxa de transferência posso esperar por meio de conexões site a site ou ponto a site?
 
@@ -63,7 +69,7 @@ Nº Um cliente de Ponto a Site só pode se conectar aos recursos na rede virtual
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Posso usar qualquer cliente de VPN de software para Ponto a Site que dê suporte a SSTP e/ou IKEv2?
 
-Nº Você só pode usar o cliente VPN nativo no Windows para SSTP, e o cliente VPN nativo no Mac para IKEv2. Consulte a lista dos sistemas operacionais de cliente com suporte.
+Não. Você só pode usar o cliente VPN nativo no Windows para SSTP, e o cliente VPN nativo no Mac para IKEv2. Consulte a lista dos sistemas operacionais de cliente com suporte.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>O Azure oferece suporte à VPN IKEv2 com o Windows?
 
@@ -87,7 +93,7 @@ Quando você configura o SSTP e IKEv2 em um ambiente misto (composto por disposi
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Além do Windows e Mac, quais outras plataformas possuem suporte Azure para VPN P2S?
 
-O Azure fornece suporta apenas para VPN P2S do Windows e Mac.
+O Azure oferece suporte a Windows, Mac e Linux para VPN P2S.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Eu já tenho um Gateway de VPN do Azure implantado. É possível habilitar RADIUS e/ou IKEv2 VPN nele?
 

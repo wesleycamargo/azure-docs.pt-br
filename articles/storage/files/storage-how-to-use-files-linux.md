@@ -5,23 +5,24 @@ services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: cca0d315a815faca5db07099b8e8e451ef55fad5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839562"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
-[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
+[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
 
 > [!NOTE]  
 > Para montar um compartilhamento de arquivos do Azure fora da região do Azure no qual ele está hospedado, como local ou em uma região diferente do Azure, o sistema operacional deve dar suporte à funcionalidade de criptografia do SMB 3.0.
@@ -42,21 +43,21 @@ ms.lasthandoff: 01/19/2018
 
     Em distribuições **Ubuntu** e **Debian**, use o gerenciador de pacotes do `apt-get`:
 
-    ```
+    ```bash
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
     No **RHEL** e **CentOS**, use o gerenciador de pacotes do `yum`:
 
-    ```
-    sudo yum install samba-client samba-common cifs-utils
+    ```bash
+    sudo yum install cifs-utils
     ```
 
     No **openSUSE**, use o gerenciador de pacotes do `zypper`:
 
-    ```
-    sudo zypper install samba*
+    ```bash
+    sudo zypper install cifs-utils
     ```
 
     Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
@@ -72,7 +73,7 @@ ms.lasthandoff: 01/19/2018
     
     Se a distribuição de Linux não estiver listada aqui, você pode verificar a versão do kernel do Linux com o seguinte comando:
 
-    ```
+    ```bash
     uname -r
     ```
 
@@ -89,13 +90,13 @@ ms.lasthandoff: 01/19/2018
 
 2. **Crie uma pasta para o ponto de montagem**: uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é comum criá-la na pasta `/mnt`. Por exemplo: 
 
-    ```
+    ```bash
     mkdir /mnt/MyAzureFileShare
     ```
 
 3. **Use o comando de montagem para montar o compartilhamento de arquivos do Azure**: lembre-se de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>` e `<mount-point>` pelas informações apropriadas para o seu ambiente. Se a sua distribuição de Linux oferece suporte a SMB 3.0 com criptografia (consulte [Entender os requisitos do cliente SMB](#smb-client-reqs) para obter mais informações), use `3.0` para `<smb-version>`. Para distribuições do Linux que não têm suporte a SMB 3.0 com criptografia, use `2.1` para `<smb-version>`. Observe que um compartilhamento de arquivos do Azure só pode ser montado fora de uma região do Azure (incluindo local ou em uma região diferente do Azure) com SMB 3.0. 
 
-    ```
+    ```bash
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
@@ -107,14 +108,33 @@ ms.lasthandoff: 01/19/2018
 
 2. **Crie uma pasta para o ponto de montagem**: uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é comum criá-la na pasta `/mnt`. Sempre que você criá-lo, observe o caminho absoluto da pasta. Por exemplo, o comando a seguir cria uma nova pasta em `/mnt` (o caminho é um caminho absoluto).
 
-    ```
+    ```bash
     sudo mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Use este comando para acrescentar a linha a seguir a `/etc/fstab`**: lembre-se de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>` e `<mount-point>` pelas informações apropriadas para seu ambiente. Se a sua distribuição de Linux oferece suporte a SMB 3.0 com criptografia (consulte [Entender os requisitos do cliente SMB](#smb-client-reqs) para obter mais informações), use `3.0` para `<smb-version>`. Para distribuições do Linux que não têm suporte a SMB 3.0 com criptografia, use `2.1` para `<smb-version>`. Observe que um compartilhamento de arquivos do Azure só pode ser montado fora de uma região do Azure (incluindo local ou em uma região diferente do Azure) com SMB 3.0. 
+3. **Crie um arquivo de credencial para armazenar o nome de usuário (o nome de conta de armazenamento) e a senha (a chave de conta de armazenamento) para o compartilhamento de arquivos.** Lembre-se de substituir `<storage-account-name>` e `<storage-account-key>` pelas informações apropriadas para o seu ambiente. 
 
+    ```bash
+    if [ -d "/etc/smbcredentials" ]; then
+        sudo mkdir /etc/smbcredentials
+    fi
+
+    if [ ! -f "/etc/smbcredentials/<storage-account-name>.cred" ]; then
+        sudo bash -c 'echo "username=<storage-account-name>" >> /etc/smbcredentials/<storage-account-name>.cred'
+        sudo bash -c 'echo "password=<storage-account-key>" >> /etc/smbcredentials/<storage-account-name>.cred'
+    fi
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+
+4. **Alterar as permissões no arquivo de credenciais para que raiz possa ler ou modificar o arquivo de senha.** Como a chave de conta de armazenamento é essencialmente uma senha de superadministrador para a conta de armazenamento, a definição das permissões no arquivo de modo que somente o root possa acessar é importante para que os usuários com privilégios mais baixos não possam recuperar a chave da conta de armazenamento.   
+
+    ```bash
+    sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
+    ```
+
+5. **Use o comando a seguir para acrescentar a linha a seguir a `/etc/fstab`**: lembre-se de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>` e `<mount-point>` pelas informações apropriadas para seu ambiente. Se a sua distribuição de Linux oferece suporte a SMB 3.0 com criptografia (consulte [Entender os requisitos do cliente SMB](#smb-client-reqs) para obter mais informações), use `3.0` para `<smb-version>`. Para distribuições do Linux que não têm suporte a SMB 3.0 com criptografia, use `2.1` para `<smb-version>`. Observe que um compartilhamento de arquivos do Azure só pode ser montado fora de uma região do Azure (incluindo local ou em uma região diferente do Azure) com SMB 3.0. 
+
+    ```bash
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

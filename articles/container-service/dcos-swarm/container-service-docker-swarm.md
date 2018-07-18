@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o cluster do Azure Swarm com a API do Docker
-description: "Implantar contêineres em um cluster do Docker Swarm no Serviço de Contêiner do Azure"
+description: Implantar contêineres em um cluster do Docker Swarm no Serviço de Contêiner do Azure
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331538"
 ---
 # <a name="container-management-with-docker-swarm"></a>Gerenciamento de contêiner com Docker Swarm
 

@@ -1,11 +1,11 @@
 ---
-title: "Como criar e implantar um serviço de nuvem | Microsoft Docs"
-description: "Saiba como criar e implantar um serviço de nuvem usando o portal do Azure."
+title: Como criar e implantar um serviço de nuvem | Microsoft Docs
+description: Saiba como criar e implantar um serviço de nuvem usando o portal do Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388077"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
 O portal do Azure oferece duas maneiras de criar e implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.

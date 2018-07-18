@@ -3,25 +3,26 @@ title: Ativar funções para recursos do Azure usando Privileged Identity Manage
 description: Descreve como ativar funções no PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151103"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548297"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Ativar funções para recursos do Azure usando Privileged Identity Management
-O Privileged Identity Management (PIM) apresenta uma nova experiência em ativar funções para recursos do Azure. Membros de função qualificados podem agendar a ativação para uma data e hora no futuro. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores). Para obter mais informações, consulte [Como ativar ou desativar funções no Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md).
+O Privileged Identity Management (PIM) apresenta uma nova experiência em ativar funções para recursos do Azure. Membros de função qualificados podem agendar a ativação para uma data e hora no futuro. Eles também podem selecionar uma duração de ativação específica até o valor máximo (configurado pelos administradores). Para obter mais informações, consulte [Como ativar ou desativar funções no Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-roles"></a>Ativar funções
 Navegue até a seção **Minhas funções** no painel esquerdo. Selecione **Ativar** para a função que você deseja ativar.

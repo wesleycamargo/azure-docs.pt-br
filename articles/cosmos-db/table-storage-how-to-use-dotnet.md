@@ -1,42 +1,39 @@
 ---
-title: Introdução ao armazenamento de Tabelas do Azure usando o .NET | Microsoft Docs
-description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
+title: Introdução ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB usando .NET | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360182"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959960"
 ---
-# <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao armazenamento de Tabelas do Azure usando o .NET
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB usando .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados do Armazenamento de Tabelas é rápido e econômico para muitos tipos de aplicativos e normalmente tem um custo mais baixo que o SQL tradicional para volumes de dados semelhantes.
+Você pode usar o Armazenamento de Tabela do Azure ou a API de Tabela do Azure Cosmos DB são serviços que armazenam dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema. Como o armazenamento de Tabelas e a API de Tabela do Azure Cosmos DB não possuem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados do Armazenamento de Tabelas e à API de Tabela do Azure Cosmos DB é rápido e econômico para muitos tipos de aplicativos e normalmente tem um custo mais baixo que o SQL tradicional para volumes de dados semelhantes.
 
-Você pode usar o armazenamento de tabelas para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos ou outros tipos de metadados exigidos pelo serviço. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
+Você pode usar o armazenamento de Tabelas ou à API de Tabela do Azure Cosmos DB para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos ou outros tipos de metadados exigidos pelo serviço. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento ou a API de Tabela pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento ou da conta da API de Tabela.
 
-### <a name="about-this-tutorial"></a>Sobre este tutorial
-Este tutorial mostra como usar a [Biblioteca de Tabelas do Cliente do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) em alguns cenários comuns do Armazenamento de Tabelas do Azure. O nome do pacote indica que é para uso com o Azure Cosmos DB, mas o pacote trabalha com o Azure Cosmos DB e o Armazenamento de Tabelas do Azure, cada serviço possui apenas um ponto de extremidade exclusivo. Esses cenários são explorados usando exemplos em C# que ilustram como:
+### <a name="about-this-sample"></a>Sobre este exemplo
+Este exemplo mostra como usar a [Biblioteca de Tabelas do Cliente do Microsoft Azure CosmosDB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) em alguns cenários comuns do Armazenamento de Tabelas do Azure e de API de Tabela. O nome do pacote indica que é para uso com o Azure Cosmos DB, mas o pacote trabalha com a API de Tabela do Azure Cosmos DB e o Armazenamento de Tabelas do Azure, cada serviço possui apenas um ponto de extremidade exclusivo. Esses cenários são explorados usando exemplos em C# que ilustram como:
 * Criar e excluir tabelas
 * Inserir, atualizar e excluir linhas
 * Consultar tabelas
 
 ## <a name="prerequisites"></a>pré-requisitos
 
-Você precisará do seguinte para concluir este tutorial com sucesso:
+Você precisará do seguinte para concluir este exemplo com sucesso:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca Comum do Armazenamento do Azure para .NET (versão prévia)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Este é um pacote em versão prévia obrigatório com suporte para ambientes de produção. 
@@ -74,12 +71,12 @@ No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seg
 4. No campo **Nome**, insira um nome para seu aplicativo.
 5. Selecione **OK**.
 
-Todos os exemplos de código neste tutorial podem ser adicionados ao método `Main()` no arquivo`Program.cs` do aplicativo de console.
+Todos os exemplos de código neste exemplo podem ser adicionados ao método `Main()` no arquivo`Program.cs` do aplicativo de console.
 
 Você pode usar a Biblioteca de Tabelas do Azure Cosmos DB em qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure, um aplicativo Web do Azure e aplicativos da área de trabalho ou móvel. Neste guia, usamos um aplicativo de console para simplificar.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Use o NuGet para instalar os pacotes necessários
-Há três pacotes recomendados que você precisará referenciar em seu projeto para concluir este tutorial:
+Há três pacotes recomendados que você precisará referenciar em seu projeto para concluir este exemplo:
 
 * [Biblioteca Comum do Armazenamento do Azure para .NET (versão prévia)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
 * [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático aos recursos de dados em sua conta de Armazenamento de Tabelas do Azure ou em sua conta de API de Tabela do Azure Cosmos DB.
@@ -98,7 +95,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 > 
 
 > [!TIP]
-> Os desenvolvedores já familiarizados com o armazenamento de Tabela do Azure podem ter usado o pacote [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) no passado. É recomendável que todos os novos aplicativos de tabela usem a [Biblioteca comum do armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) e a [Biblioteca de tabela do Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), no entanto, ainda há suporte para o pacote do WindowsAzure.Storage. Se você usar a biblioteca do WindowsAzure.Storage, inclua Microsoft.WindowsAzure.Storage.Table nas suas instruções de uso.
+> Os desenvolvedores já familiarizados com o armazenamento de Tabela do Azure podem ter usado o pacote [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) no passado. É recomendável que todos os novos aplicativos de tabela usem a [Biblioteca comum do armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) e a [Biblioteca de tabela do Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), no entanto, ainda há suporte para o pacote do WindowsAzure.Storage. Se você usar a biblioteca do WindowsAzure.Storage, inclua Microsoft.WindowsAzure.Storage.Table nas suas instruções de uso.
 >
 >
 
@@ -112,7 +109,7 @@ Você tem três opções de ambiente para executar os exemplos neste guia:
 Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave de acesso primário para sua conta de armazenamento a partir do portal do Azure. Para saber mais, confira [Exibir e copiar chaves de acesso de armazenamento](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
-> Você pode utilizar o emulador de armazenamento como destino para evitar quaisquer custos associados ao Armazenamento do Azure. Todavia, se você escolher utilizar como destino uma conta de armazenamento do Azure na nuvem, os custos para realização das operações neste tutorial serão insignificantes.
+> Você pode utilizar o emulador de armazenamento como destino para evitar quaisquer custos associados ao Armazenamento do Azure. Todavia, se você escolher utilizar como destino uma conta de armazenamento do Azure na nuvem, os custos para realização das operações neste exemplo serão insignificantes.
 > 
 > 
 
@@ -144,13 +141,13 @@ Para configurar a cadeia de conexão, abra o arquivo `app.config` do Gerenciador
 Por exemplo, se você estiver usando uma Conta de Armazenamento do Azure, as configurações serão semelhantes a:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
 Se você estiver usando uma conta do Azure Cosmos DB, as configurações serão semelhantes a:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 Para direcionar o emulador de armazenamento, você pode usar um atalho que mapeia para o nome de conta e chave bem conhecidos. Nesse caso, a configuração da cadeia de conexão é:

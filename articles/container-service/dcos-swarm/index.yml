@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm"
+title: Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm
 metadata:
   document_id: 
-  title: "Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm - Tutoriais, Referência de API | Microsoft Docs"
+  title: Serviço de Contêiner do Azure com controlador de domínio/sistema operacional e Documentação do Swarm - Tutoriais, Referência de API | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -19,13 +19,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068399"
 abstract:
-  description: "O Serviço de Contêiner do Azure permite implantar rapidamente um controlador de domínio/sistema operacional ou cluster do Docker Swarm pronto para produção. Saiba como usar o Serviço de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos."
+  description: O Serviço de Contêiner do Azure permite implantar rapidamente um controlador de domínio/sistema operacional ou cluster do Docker Swarm pronto para produção. Saiba como usar o Serviço de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.
 sections:
-- title: "Guia de início rápido de 5 minutos"
+- title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: "Saiba como implantar clusters de controlador de domínio/sistema operacional usando o Serviço de Contêiner do Azure:"
+    text: 'Saiba como implantar clusters de controlador de domínio/sistema operacional usando o Serviço de Contêiner do Azure:'
   - type: list
     style: icon48
     items:
@@ -40,14 +41,14 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: "Saiba como implantar, gerenciar e atualizar aplicativos em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure."
+    text: Saiba como implantar, gerenciar e atualizar aplicativos em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-service/container-service-dcos-manage-tutorial\">Criar e gerenciar um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>"
-    - html: "<a href=\"/azure/container-service/container-service-load-balancing\">Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-fileshare\">Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-acr\">Usar o Registro de Contêiner do Azure com um cluster de controlador de domínio/sistema operacional para implantar seu aplicativo</a>"
+    - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Criar e gerenciar um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>
+    - html: <a href="/azure/container-service/container-service-load-balancing">Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure</a>
+    - html: <a href="/azure/container-service/container-service-dcos-fileshare">Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional</a>
+    - html: <a href="/azure/container-service/container-service-dcos-acr">Usar o Registro de Contêiner do Azure com um cluster de controlador de domínio/sistema operacional para implantar seu aplicativo</a>
 - title: Exemplos
   items:
   - type: list
@@ -55,7 +56,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/container-service/cli-samples">CLI do Azure</a>
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards

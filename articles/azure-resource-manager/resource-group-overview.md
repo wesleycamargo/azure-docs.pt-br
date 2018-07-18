@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: bff67bc617a0dfba10b3150aaa8bae92e84304b8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359961"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958809"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
-A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
+A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
+
+## <a name="consistent-management-layer"></a>Camada de gerenciamento consistente
+O Gerenciador de Recursos fornece uma camada de gerenciamento consistente para realizar tarefas por meio do Azure PowerShell, CLI do Azure, portal do Azure, API REST e SDKs de cliente. Todos os recursos que estão disponíveis no portal do Azure também estão disponíveis por meio do Azure PowerShell, CLI do Azure, APIs REST do Azure e SDKs de cliente. A funcionalidade inicialmente lançada por meio de APIs será representada no portal em até 180 dias depois da versão inicial.
+
+Escolha as ferramentas e APIs que funcionam melhor para você – elas têm a mesma funcionalidade e fornecem resultados consistentes.
+
+A imagem a seguir mostra como todas as ferramentas interagem com a mesma API do Azure Resource Manager. A API passa as solicitações para o serviço do Gerenciador de Recursos, que autentica e autoriza as solicitações. O Gerenciador de Recursos, em seguida, encaminha as solicitações para os provedores de recursos apropriado.
+
+![Modelo de solicitação do Gerenciador de Recursos](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>Terminologia
 Se você for um novo usuário do Azure Resource Manager, há alguns termos com os quais talvez você não esteja familiarizado.
@@ -46,13 +55,6 @@ O Gerenciador de Recursos fornece vários benefícios:
 
 O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Se você usou o modelo de implantação anterior e quiser saber mais sobre as alterações, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
-## <a name="consistent-management-layer"></a>Camada de gerenciamento consistente
-O Resource Manager fornece uma camada de gerenciamento consistente para as tarefas executadas por meio do Azure PowerShell, CLI do Azure, portal do Azure, API REST e ferramentas de desenvolvimento. Todas as ferramentas usam um conjunto comum de operações. Use as ferramentas que funcionam melhor para você e possam ser usados alternadamente sem confusão. 
-
-A imagem a seguir mostra como todas as ferramentas interagem com a mesma API do Azure Resource Manager. A API passa as solicitações para o serviço do Gerenciador de Recursos, que autentica e autoriza as solicitações. O Gerenciador de Recursos, em seguida, encaminha as solicitações para os provedores de recursos apropriado.
-
-![Modelo de solicitação do Gerenciador de Recursos](./media/resource-group-overview/consistent-management-layer.png)
-
 ## <a name="guidance"></a>Diretrizes
 As sugestões a seguir ajudarão você a aproveitar ao máximo o Gerenciador de Recursos quando estiver trabalhando com suas soluções.
 
@@ -61,7 +63,7 @@ As sugestões a seguir ajudarão você a aproveitar ao máximo o Gerenciador de 
 3. Execute comandos imperativos para gerenciar os recursos, como iniciar ou interromper um aplicativo ou máquina.
 4. Organize recursos com o mesmo ciclo de vida em um grupo de recursos. Use marcas para as demais organizações de recursos.
 
-Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).
 
 ## <a name="resource-groups"></a>Grupos de recursos
 Existem alguns fatores importantes a considerar ao definir seu grupo de recursos:
@@ -142,7 +144,7 @@ O Azure Resource Manager analisa as dependências para garantir que os recursos 
 
 Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um recurso à sua solução e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um recurso, mas esse recurso já existir, o Azure Resource Manager executará uma atualização em vez de criar um novo ativo. O Azure Resource Manager atualiza o ativo existente para o mesmo estado de um novo.  
 
-O Gerenciador de Recursos do Azure fornece extensões para cenários que precisam de operações adicionais, como a instalação de um software específico que não está incluído na configuração. Se você já estiver usando um serviço de gerenciamento de configuração, como DSC, Chef ou Puppet, poderá continuar trabalhando com esse serviço usando as extensões. Para obter informações sobre extensões de máquina virtual, confira [Sobre recursos e extensões de máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+O Gerenciador de Recursos fornece extensões para cenários que precisam de operações adicionais, como a instalação de um software específico que não está incluído na configuração. Se você já estiver usando um serviço de gerenciamento de configuração, como DSC, Chef ou Puppet, poderá continuar trabalhando com esse serviço usando as extensões. Para obter informações sobre extensões de máquina virtual, confira [Sobre recursos e extensões de máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Finalmente, o modelo se torna parte do código-fonte do seu aplicativo. Você pode adicioná-lo ao repositório de código-fonte e atualizá-lo conforme a evolução de seu aplicativo. Você pode editar o modelo com o Visual Studio.
 
@@ -227,7 +229,7 @@ Em alguns casos, você deseja executar código ou script que acessa recursos, ma
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Logs de atividade
-O Gerenciador de Recursos registra todas as operações que criam, modificam ou excluem um recurso. É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso. Para ver os logs, selecione **Logs de atividade** na folha **Configurações** de um grupo de recursos. Você pode filtrar os logs por muitos valores diferentes, incluindo qual usuário iniciou a operação. Para saber mais sobre como trabalhar com logs de atividade, veja [Exibir logs de atividade para gerenciar recursos do Azure](resource-group-audit.md).
+O Gerenciador de Recursos registra todas as operações que criam, modificam ou excluem um recurso. É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso. Você pode filtrar os logs por muitos valores diferentes, incluindo qual usuário iniciou a operação. Para saber mais sobre como trabalhar com logs de atividade, veja [Exibir logs de atividade para gerenciar recursos do Azure](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Políticas personalizadas
 O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você cria podem incluir diversos cenários. Você pode impor uma convenção de nomenclatura para recursos, limitar os tipos e instâncias de recursos que podem ser implantados ou limitar quais regiões podem hospedar um tipo de recurso. Você pode exigir um valor de marcação nos recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. 
@@ -255,7 +257,7 @@ Há muito mais tipos de políticas que você pode criar. Para saber mais, veja [
 ## <a name="sdks"></a>SDKs
 Os SDKs do Azure estão disponíveis em várias linguagens e plataformas. Cada uma dessas implementações da linguagem está disponível por meio do gerenciador de pacotes do ecossistema e do GitHub.
 
-Aqui estão nossos repositórios do SDK de software livre. Comentários, problemas e solicitações pull são bem-vindos.
+Aqui estão os repositórios do SDK de software livre.
 
 * [SDK do Azure para .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Bibliotecas de Gerenciamento do Azure para Java](https://github.com/Azure/azure-sdk-for-java)

@@ -1,11 +1,11 @@
 ---
-title: "Configurar o método de roteamento de tráfego de desempenho usando o Gerenciador de Tráfego do Azure | Microsoft Docs"
-description: "Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego para o ponto de extremidade com a menor latência"
+title: Configurar o método de roteamento de tráfego de desempenho usando o Gerenciador de Tráfego do Azure | Microsoft Docs
+description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego para o ponto de extremidade com a menor latência
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110654"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurar o método de roteamento de tráfego de desempenho
 

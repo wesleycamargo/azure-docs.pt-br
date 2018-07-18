@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33951497"
 ---
 Estas são as restrições de uso para o serviço Azure Mapas. Para obter informações sobre o custo, consulte [Detalhes de preço do Azure Mapas](https://azure.microsoft.com/pricing/details/azure-maps/). [Entre em contato conosco](https://azure.microsoft.com/overview/sales-number/) para aumentar a taxa de solicitação máxima de sua assinatura.
 

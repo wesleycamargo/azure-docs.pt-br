@@ -2,7 +2,7 @@
 title: Criar fluxos de trabalho automatizados com base em agendados - Aplicativos Lógicos do Azure | Microsoft Docs
 description: Este tutorial mostra como criar um fluxo de trabalho recorrente, automatizado e com base em agendador com os Aplicativos Lógicos do Azure
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300762"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verificar o tráfego com um aplicativo lógico baseado em agendador
 
@@ -53,7 +54,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
 
-1. No portal principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
+1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicativo Lógico**.
 
    ![Criar aplicativo lógico](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 

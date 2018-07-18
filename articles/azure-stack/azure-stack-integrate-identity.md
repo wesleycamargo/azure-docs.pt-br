@@ -10,11 +10,12 @@ ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801466"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
 Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
@@ -86,14 +87,14 @@ Para esse procedimento, use um computador em sua rede de datacenter que pode se 
 
 2. Abra uma sessão do Windows PowerShell com privilégios elevados (Executar como administrador) e conecte-se para o endereço IP do ponto de extremidade com privilégios. Usar as credenciais para **CloudAdmin** para autenticar.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 3. Agora que você está conectado ao ponto de extremidade com privilégios, execute o seguinte comando: 
 
-   ```powershell
+   ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -131,20 +132,20 @@ Para esse procedimento, use um computador que possa se comunicar com o ponto de 
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e conectar-se ao ponto de extremidade com privilégios.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o comando a seguir usando os parâmetros adequados para seu ambiente:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros adequados para seu ambiente:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -169,7 +170,7 @@ Para o procedimento a seguir, você deve usar um computador que tenha conectivid
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando, usando os parâmetros adequados para seu ambiente:
 
-   ```powershell
+   ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -184,20 +185,20 @@ Para esse procedimento, use um computador que possa se comunicar com o ponto de 
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e conectar-se ao ponto de extremidade com privilégios.
 
-   ```powershell
+   ```PowerShell  
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o comando a seguir usando os parâmetros adequados para seu ambiente:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
 3. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros adequados para seu ambiente:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -244,7 +245,7 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
 
 2. Para habilitar a autenticação baseada em formulários do Windows, abra uma sessão do Windows PowerShell como um usuário com privilégios elevados e execute o seguinte comando:
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
@@ -252,13 +253,13 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
 
    **Para o AD FS 2016**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
    **Para o AD FS 2012/2012 R2**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
    ```
 
@@ -270,13 +271,13 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
    > [!note]  
    > Esta etapa não é aplicável ao usar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar esse comando e continuar com a integração.
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. Para habilitar os tokens de atualização, abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando:
+5. Os portais de pilha do Azure e ferramentas (Visual Studio) requerem tokens de atualização. Elas devem ser definidas por depender de parte confiável. Abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando:
 
-   ```powershell
+   ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
@@ -304,14 +305,14 @@ Se ocorrer um erro que deixa o ambiente em um estado em que você não pode aute
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Em seguida, execute o seguinte cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Reset-DatacenterIntegationConfiguration
    ```
 
@@ -320,7 +321,7 @@ Se ocorrer um erro que deixa o ambiente em um estado em que você não pode aute
    > [!IMPORTANT]
    > Você deve configurar o proprietário original da assinatura do provedor padrão
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -330,14 +331,14 @@ Se qualquer um dos cmdlets falhar, você poderá coletar logs adicionais usando 
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Em seguida, execute o seguinte cmdlet:
 
-   ```powershell
+   ```PowerShell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

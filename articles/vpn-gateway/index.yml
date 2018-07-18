@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: pt-BR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779478"
 abstract:
   description: Aprenda a configurar, criar e gerenciar um gateway de VPN do Azure. Crie conexões criptografadas entre locais para sua rede virtual a partir dos locais ou crie conexões criptografadas entre as VNets.
 sections:

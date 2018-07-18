@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6a0f18a47bb50144d0a4d428617e0dc5c7509196
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154283"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442239"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -137,7 +138,7 @@ Esse método também pode ser usado para substituir o servidor de sincronizaçã
 
 ## <a name="multiple-azure-ad-tenants"></a>Vários locatários do Azure AD
 Recomendamos ter um único locatário no Azure AD para uma organização.
-Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../active-directory-administrative-units-management.md). Ele aborda cenários comuns em que você pode usar um único locatário.
+Antes de planejar usar vários locatários do AD do Azure, confira o artigo [Gerenciamento de unidades administrativas no Azure AD](../users-groups-roles/directory-administrative-units.md). Ele aborda cenários comuns em que você pode usar um único locatário.
 
 ![Topologia de várias florestas e vários locatários](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 

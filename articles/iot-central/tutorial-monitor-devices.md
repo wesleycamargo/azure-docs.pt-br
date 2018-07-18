@@ -1,21 +1,22 @@
 ---
 title: Monitorar seus dispositivos no Azure IoT Central | Microsoft Docs
 description: Como um operador, use o seu aplicativo Azure IoT Central para monitorar seus dispositivos.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201380"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235474"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Use o Azure IoT Central para monitorar seus dispositivos
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Use o Azure IoT Central para monitorar seus dispositivos
 
 Este tutorial mostra a você, como um operador, como usar o seu aplicatio Azure IoT Central para monitorar seus dispositivos e alterar as configurações.
 
@@ -50,11 +51,11 @@ A página **Dispositivo** para o dispositivo simulado **Ar-condicionado conectad
 
 Como um operador, você pode ver informações sobre as páginas de **Medidas**, **Configurações**, **Propriedades**, **Regras** e **Painel**. O construtor personalizou o **Painel** para exibir informações importantes sobre um dispositivo de ar-condicionado conectado.
 
-* Escolha o modo de exibição de **Painel** para ver informações sobre o dispositivo:
+Escolha o modo de exibição de **Painel** para ver informações sobre o dispositivo.
 
-    ![Painel do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
+![Painel do dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-    O gráfico no painel mostra um gráfico de temperatura do dispositivo. Você também pode ver a temperatura de destino atual para o dispositivo no bloco **Definir temperatura de destino**. Você decide se a temperatura de destino está muito alta.
+O gráfico no painel mostra um gráfico de temperatura do dispositivo. Você também pode ver a temperatura de destino atual para o dispositivo no bloco **Definir temperatura de destino**. Você decide se a temperatura de destino está muito alta.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 
@@ -64,7 +65,7 @@ Para alterar a temperatura de destino do dispositivo, use a página **Configura�
 
     ![Atualizar configurações](media/tutorial-monitor-devices/change_settings.png)
 
-1. Escolha **Painel** e verifique o novo valor configurado:
+2. Escolha **Painel** e verifique o novo valor configurado:
 
     ![Painel do dispositivo atualizado](media/tutorial-monitor-devices/new_settings.png)
 
@@ -77,4 +78,4 @@ Neste tutorial, você aprendeu como:
 > * Investigar um problema
 > * Resolver um problema
 
-Agora que o seu dispositivo está monitorado a próxima etapa é sugerida é [Adicionar um dispositivo](tutorial-add-device.md).
+Agora que você sabe como monitorar o seu dispositivo, a próxima etapa sugerida é [Adicionar um dispositivo](tutorial-add-device.md).

@@ -3,23 +3,19 @@ title: Programação de JavaScript do lado do servidor para o Azure Cosmos DB | 
 description: Saiba como usar o Azure Cosmos DB para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais.
 keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: aliuy
 manager: kfile
-ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 904a5c3de9ddc8fa8146c4e2c87ab968c31e5d59
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34197986"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221199"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -62,40 +58,45 @@ Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/a
 ### <a name="example-write-a-stored-procedure"></a>Exemplo: escrever um procedimento armazenado
 Vamos começar com um procedimento armazenado simples que retorna uma resposta “Hello World”.
 
-    var helloWorldStoredProc = {
-        id: "helloWorld",
-        serverScript: function () {
-            var context = getContext();
-            var response = context.getResponse();
+```javascript
+var helloWorldStoredProc = {
+    id: "helloWorld",
+    serverScript: function () {
+        var context = getContext();
+        var response = context.getResponse();
 
-            response.setBody("Hello, World");
-        }
+        response.setBody("Hello, World");
     }
-
+}
+```
 
 Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento e anexo presente na coleção. O trecho a seguir mostra como registrar o procedimento armazenado helloWorld com uma coleção. 
 
-    // register the stored procedure
-    var createdStoredProcedure;
-    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
-        .then(function (response) {
-            createdStoredProcedure = response.resource;
-            console.log("Successfully created stored procedure");
-        }, function (error) {
-            console.log("Error", error);
-        });
+
+```javascript
+// register the stored procedure
+var createdStoredProcedure;
+client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
+    .then(function (response) {
+        createdStoredProcedure = response.resource;
+        console.log("Successfully created stored procedure");
+    }, function (error) {
+        console.log("Error", error);
+    });
+```
 
 
 Uma vez que o procedimento armazenado seja registrado, você pode executá-lo em relação à coleção e ler os resultados no cliente. 
 
-    // execute the stored procedure
-    client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
-        .then(function (response) {
-            console.log(response.result); // "Hello, World"
-        }, function (err) {
-            console.log("Error", error);
-        });
-
+```javascript
+// execute the stored procedure
+client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
+    .then(function (response) {
+        console.log(response.result); // "Hello, World"
+    }, function (err) {
+        console.log("Error", error);
+    });
+```
 
 O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
 
@@ -104,50 +105,53 @@ Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco d
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemplo: escrever um procedimento armazenado para criar um documento
 O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Cosmos DB.
 
-    var createDocumentStoredProc = {
-        id: "createMyDocument",
-        serverScript: function createMyDocument(documentToCreate) {
-            var context = getContext();
-            var collection = context.getCollection();
+```javascript
+var createDocumentStoredProc = {
+    id: "createMyDocument",
+    serverScript: function createMyDocument(documentToCreate) {
+        var context = getContext();
+        var collection = context.getCollection();
 
-            var accepted = collection.createDocument(collection.getSelfLink(),
-                  documentToCreate,
-                  function (err, documentCreated) {
-                      if (err) throw new Error('Error' + err.message);
-                      context.getResponse().setBody(documentCreated.id)
-                  });
-            if (!accepted) return;
-        }
+        var accepted = collection.createDocument(collection.getSelfLink(),
+              documentToCreate,
+              function (err, documentCreated) {
+                  if (err) throw new Error('Error' + err.message);
+                  context.getResponse().setBody(documentCreated.id)
+              });
+        if (!accepted) return;
     }
+}
+```
 
 
 Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Azure Cosmos DB gerará um erro.   
 
 No exemplo acima, a chamada de torno lançará um erro se a operação falhar. Caso contrário, ela definirá a ID do documento criada como o corpo da resposta ao cliente. A seguir, mostramos como esse procedimento armazenado é executado com parâmetros de entrada.
 
-    // register the stored procedure
-    client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
-        .then(function (response) {
-            var createdStoredProcedure = response.resource;
-
-            // run stored procedure to create a document
-            var docToCreate = {
-                id: "DocFromSproc",
-                book: "The Hitchhiker’s Guide to the Galaxy",
-                author: "Douglas Adams"
-            };
-
-            return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
-                  docToCreate);
-        }, function (error) {
-            console.log("Error", error);
-        })
+```javascript
+// register the stored procedure
+client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
     .then(function (response) {
-        console.log(response); // "DocFromSproc"
+        var createdStoredProcedure = response.resource;
+
+        // run stored procedure to create a document
+        var docToCreate = {
+            id: "DocFromSproc",
+            book: "The Hitchhiker’s Guide to the Galaxy",
+            author: "Douglas Adams"
+        };
+
+        return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
+              docToCreate);
     }, function (error) {
         console.log("Error", error);
-    });
-
+    })
+.then(function (response) {
+    console.log(response); // "DocFromSproc"
+}, function (error) {
+    console.log("Error", error);
+});
+```
 
 Esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações para criar cada um deles individualmente. Esse procedimento armazenado pode ser usado para implementar um importador em massa eficiente para o Cosmos DB (abordado posteriormente neste tutorial).   
 
@@ -157,7 +161,7 @@ O exemplo descrito demonstra como usar procedimentos armazenados. Em seguida, vo
 
 Ao definir um procedimento armazenado usando o Portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia para o procedimento armazenado. Mesmo se você passar uma matriz de cadeias de caracteres como uma entrada, a matriz será convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para contornar esse problema, é possível definir uma função no procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir é um exemplo para analisar a cadeia de caracteres como uma matriz: 
 
-``` 
+```javascript
 function sample(arr) {
     if (typeof arr === "string") arr = JSON.parse(arr);
     
@@ -175,68 +179,70 @@ Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma tra
 
 No Cosmos DB, o JavaScript é hospedado no mesmo espaço de memória do banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Esse recurso permite que o Cosmos DB garanta ACID para todas as operações que fazem parte de um único procedimento armazenado/gatilho. Considere a seguinte definição de um procedimento armazenado:
 
-    // JavaScript source code
-    var exchangeItemsSproc = {
-        id: "exchangeItems",
-        serverScript: function (playerId1, playerId2) {
-            var context = getContext();
-            var collection = context.getCollection();
-            var response = context.getResponse();
+```javascript
+// JavaScript source code
+var exchangeItemsSproc = {
+    id: "exchangeItems",
+    serverScript: function (playerId1, playerId2) {
+        var context = getContext();
+        var collection = context.getCollection();
+        var response = context.getResponse();
 
-            var player1Document, player2Document;
+        var player1Document, player2Document;
 
-            // query for players
-            var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
-            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
-                function (err, documents, responseOptions) {
-                    if (err) throw new Error("Error" + err.message);
+        // query for players
+        var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery, {},
+            function (err, documents, responseOptions) {
+                if (err) throw new Error("Error" + err.message);
 
-                    if (documents.length != 1) throw "Unable to find both names";
-                    player1Document = documents[0];
+                if (documents.length != 1) throw "Unable to find both names";
+                player1Document = documents[0];
 
-                    var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
-                    var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
-                        function (err2, documents2, responseOptions2) {
-                            if (err2) throw new Error("Error" + err2.message);
-                            if (documents2.length != 1) throw "Unable to find both names";
-                            player2Document = documents2[0];
-                            swapItems(player1Document, player2Document);
-                            return;
+                var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+                var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
+                    function (err2, documents2, responseOptions2) {
+                        if (err2) throw new Error("Error" + err2.message);
+                        if (documents2.length != 1) throw "Unable to find both names";
+                        player2Document = documents2[0];
+                        swapItems(player1Document, player2Document);
+                        return;
+                    });
+                if (!accept2) throw "Unable to read player details, abort ";
+            });
+
+        if (!accept) throw "Unable to read player details, abort ";
+
+        // swap the two players’ items
+        function swapItems(player1, player2) {
+            var player1ItemSave = player1.item;
+            player1.item = player2.item;
+            player2.item = player1ItemSave;
+
+            var accept = collection.replaceDocument(player1._self, player1,
+                function (err, docReplaced) {
+                    if (err) throw "Unable to update player 1, abort ";
+
+                    var accept2 = collection.replaceDocument(player2._self, player2,
+                        function (err2, docReplaced2) {
+                            if (err) throw "Unable to update player 2, abort"
                         });
-                    if (!accept2) throw "Unable to read player details, abort ";
+
+                    if (!accept2) throw "Unable to update player 2, abort";
                 });
 
-            if (!accept) throw "Unable to read player details, abort ";
-
-            // swap the two players’ items
-            function swapItems(player1, player2) {
-                var player1ItemSave = player1.item;
-                player1.item = player2.item;
-                player2.item = player1ItemSave;
-
-                var accept = collection.replaceDocument(player1._self, player1,
-                    function (err, docReplaced) {
-                        if (err) throw "Unable to update player 1, abort ";
-
-                        var accept2 = collection.replaceDocument(player2._self, player2,
-                            function (err2, docReplaced2) {
-                                if (err) throw "Unable to update player 2, abort"
-                            });
-
-                        if (!accept2) throw "Unable to update player 2, abort";
-                    });
-
-                if (!accept) throw "Unable to update player 1, abort";
-            }
+            if (!accept) throw "Unable to update player 1, abort";
         }
     }
+}
 
-    // register the stored procedure in Node.js client
-    client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
-        .then(function (response) {
-            var createdStoredProcedure = response.resource;
-        }
-    );
+// register the stored procedure in Node.js client
+client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
+    .then(function (response) {
+        var createdStoredProcedure = response.resource;
+    }
+);
+```
 
 Esse procedimento armazenado utiliza transações dentro de um aplicativo de jogos para negociar itens entre dois jogadores em uma única operação. O procedimento armazenado tenta ler dois ou mais documentos, cada um correspondente às IDs dos jogadores transmitidos como um argumento. Se os documentos de ambos os jogadores forem encontrados, então, o procedimento armazenado atualizará os documentos trocando seus itens. Se forem encontrados erros pelo caminho, uma exceção JavaScript será lançada, o que aborta implicitamente a transação.
 
@@ -260,193 +266,198 @@ Funções de JavaScript também são vinculadas quanto ao consumo de recursos. C
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemplo: importação de dados em massa em um programa de banco de dados
 Abaixo está um exemplo de um procedimento armazenado gravado para documentos de importação em massa em uma coleção. Observe como o procedimento armazenado lida com a execução vinculada verificando o valor de retorno booliano em createDocument, e depois utiliza a contagem de documentos inserida em cada invocação do procedimento armazenado para rastrear e retomar o progresso nos lotes.
 
-    function bulkImport(docs) {
-        var collection = getContext().getCollection();
-        var collectionLink = collection.getSelfLink();
+```javascript
+function bulkImport(docs) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
 
-        // The count of imported docs, also used as current doc index.
-        var count = 0;
+    // The count of imported docs, also used as current doc index.
+    var count = 0;
 
-        // Validate input.
-        if (!docs) throw new Error("The array is undefined or null.");
+    // Validate input.
+    if (!docs) throw new Error("The array is undefined or null.");
 
-        var docsLength = docs.length;
-        if (docsLength == 0) {
-            getContext().getResponse().setBody(0);
-        }
+    var docsLength = docs.length;
+    if (docsLength == 0) {
+        getContext().getResponse().setBody(0);
+    }
 
-        // Call the create API to create a document.
-        tryCreate(docs[count], callback);
+    // Call the create API to create a document.
+    tryCreate(docs[count], callback);
 
-        // Note that there are 2 exit conditions:
-        // 1) The createDocument request was not accepted. 
-        //    In this case the callback will not be called, we just call setBody and we are done.
-        // 2) The callback was called docs.length times.
-        //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
-        function tryCreate(doc, callback) {
-            var isAccepted = collection.createDocument(collectionLink, doc, callback);
+    // Note that there are 2 exit conditions:
+    // 1) The createDocument request was not accepted. 
+    //    In this case the callback will not be called, we just call setBody and we are done.
+    // 2) The callback was called docs.length times.
+    //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
+    function tryCreate(doc, callback) {
+        var isAccepted = collection.createDocument(collectionLink, doc, callback);
 
-            // If the request was accepted, callback will be called.
-            // Otherwise report current count back to the client, 
-            // which will call the script again with remaining set of docs.
-            if (!isAccepted) getContext().getResponse().setBody(count);
-        }
+        // If the request was accepted, callback will be called.
+        // Otherwise report current count back to the client, 
+        // which will call the script again with remaining set of docs.
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
 
-        // This is called when collection.createDocument is done in order to process the result.
-        function callback(err, doc, options) {
-            if (err) throw err;
+    // This is called when collection.createDocument is done in order to process the result.
+    function callback(err, doc, options) {
+        if (err) throw err;
 
-            // One more document has been inserted, increment the count.
-            count++;
+        // One more document has been inserted, increment the count.
+        count++;
 
-            if (count >= docsLength) {
-                // If we created all documents, we are done. Just set the response.
-                getContext().getResponse().setBody(count);
-            } else {
-                // Create next document.
-                tryCreate(docs[count], callback);
-            }
+        if (count >= docsLength) {
+            // If we created all documents, we are done. Just set the response.
+            getContext().getResponse().setBody(count);
+        } else {
+            // Create next document.
+            tryCreate(docs[count], callback);
         }
     }
+}
+```
 
 ## <a id="trigger"></a> Gatilhos de banco de dados
 ### <a name="database-pre-triggers"></a>Pré-gatilhos de banco de dados
 O Cosmos DB oferece gatilhos que são executados ou disparados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. O seguinte exemplo mostra como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
-    var validateDocumentContentsTrigger = {
-        id: "validateDocumentContents",
-        serverScript: function validate() {
-            var context = getContext();
-            var request = context.getRequest();
+```javascript
+var validateDocumentContentsTrigger = {
+    id: "validateDocumentContents",
+    serverScript: function validate() {
+        var context = getContext();
+        var request = context.getRequest();
 
-            // document to be created in the current operation
-            var documentToCreate = request.getBody();
+        // document to be created in the current operation
+        var documentToCreate = request.getBody();
 
-            // validate properties
-            if (!("timestamp" in documentToCreate)) {
-                var ts = new Date();
-                documentToCreate["my timestamp"] = ts.getTime();
-            }
+        // validate properties
+        if (!("timestamp" in documentToCreate)) {
+            var ts = new Date();
+            documentToCreate["my timestamp"] = ts.getTime();
+        }
 
-            // update the document that will be created
-            request.setBody(documentToCreate);
-        },
-        triggerType: TriggerType.Pre,
-        triggerOperation: TriggerOperation.Create
-    }
-
+        // update the document that will be created
+        request.setBody(documentToCreate);
+    },
+    triggerType: TriggerType.Pre,
+    triggerOperation: TriggerOperation.Create
+}
+```
 
 E o código de registro do lado do cliente do Node.js para o gatilho:
 
-    // register pre-trigger
-    client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
-        .then(function (response) {
-            console.log("Created", response.resource);
-            var docToCreate = {
-                id: "DocWithTrigger",
-                event: "Error",
-                source: "Network outage"
-            };
-
-            // run trigger while creating above document 
-            var options = { preTriggerInclude: "validateDocumentContents" };
-
-            return client.createDocumentAsync(collection.self,
-                  docToCreate, options);
-        }, function (error) {
-            console.log("Error", error);
-        })
+```javascript
+// register pre-trigger
+client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
     .then(function (response) {
-        console.log(response.resource); // document with timestamp property added
+        console.log("Created", response.resource);
+        var docToCreate = {
+            id: "DocWithTrigger",
+            event: "Error",
+            source: "Network outage"
+        };
+
+        // run trigger while creating above document 
+        var options = { preTriggerInclude: "validateDocumentContents" };
+
+        return client.createDocumentAsync(collection.self,
+              docToCreate, options);
     }, function (error) {
         console.log("Error", error);
-    });
-
+    })
+.then(function (response) {
+    console.log(response.resource); // document with timestamp property added
+}, function (error) {
+    console.log("Error", error);
+});
+```
 
 Pré-gatilhos não podem ter parâmetros de entrada. O objeto de solicitação pode ser usado para manipular a mensagem de solicitação associada à operação. Aqui, o pré-gatilho está sendo executado com a criação de um documento, e o corpo da mensagem de solicitação contém o documento a ser criado no formato JSON.   
 
 Quando os gatilhos são registrados, os usuários podem especificar as operações com as quais eles podem ser executados. Esse gatilho foi criado com TriggerOperation.Create, o que significa que não é permitido usar o disparador em uma operação de substituição, conforme mostrado no código a seguir.
 
-    var options = { preTriggerInclude: "validateDocumentContents" };
+```javascript
+var options = { preTriggerInclude: "validateDocumentContents" };
 
-    client.replaceDocumentAsync(docToReplace.self,
-                  newDocBody, options)
-    .then(function (response) {
-        console.log(response.resource);
-    }, function (error) {
-        console.log("Error", error);
-    });
+client.replaceDocumentAsync(docToReplace.self,
+              newDocBody, options)
+.then(function (response) {
+    console.log(response.resource);
+}, function (error) {
+    console.log("Error", error);
+});
 
-    // Fails, can’t use a create trigger in a replace operation
+// Fails, can’t use a create trigger in a replace operation
 
-### <a name="database-post-triggers"></a>Pós-gatilhos de banco de dados
-Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um documento e não assumem parâmetros de entrada. Eles são executados **após** a operação ter sido concluída, e possuem acesso à mensagem de resposta que é enviada ao cliente.   
+### Database post-triggers
+Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
 
-O exemplo a seguir mostra pós-gatilhos em ação:
+The following example shows post-triggers in action:
 
-    var updateMetadataTrigger = {
-        id: "updateMetadata",
-        serverScript: function updateMetadata() {
-            var context = getContext();
-            var collection = context.getCollection();
-            var response = context.getResponse();
+var updateMetadataTrigger = {
+    id: "updateMetadata",
+    serverScript: function updateMetadata() {
+        var context = getContext();
+        var collection = context.getCollection();
+        var response = context.getResponse();
 
-            // document that was created
-            var createdDocument = response.getBody();
+        // document that was created
+        var createdDocument = response.getBody();
 
-            // query for metadata document
-            var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
-            var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
-                updateMetadataCallback);
-            if(!accept) throw "Unable to update metadata, abort";
+        // query for metadata document
+        var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
+        var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
+            updateMetadataCallback);
+        if(!accept) throw "Unable to update metadata, abort";
 
-            function updateMetadataCallback(err, documents, responseOptions) {
-                if(err) throw new Error("Error" + err.message);
-                         if(documents.length != 1) throw 'Unable to find metadata document';
+        function updateMetadataCallback(err, documents, responseOptions) {
+            if(err) throw new Error("Error" + err.message);
+                     if(documents.length != 1) throw 'Unable to find metadata document';
 
-                         var metadataDocument = documents[0];
+                     var metadataDocument = documents[0];
 
-                         // update metadata
-                         metadataDocument.createdDocuments += 1;
-                         metadataDocument.createdNames += " " + createdDocument.id;
-                         var accept = collection.replaceDocument(metadataDocument._self,
-                               metadataDocument, function(err, docReplaced) {
-                                      if(err) throw "Unable to update metadata, abort";
-                               });
-                         if(!accept) throw "Unable to update metadata, abort";
-                         return;                    
-            }                                                                                            
-        },
-        triggerType: TriggerType.Post,
-        triggerOperation: TriggerOperation.All
-    }
+                     // update metadata
+                     metadataDocument.createdDocuments += 1;
+                     metadataDocument.createdNames += " " + createdDocument.id;
+                     var accept = collection.replaceDocument(metadataDocument._self,
+                           metadataDocument, function(err, docReplaced) {
+                                  if(err) throw "Unable to update metadata, abort";
+                           });
+                     if(!accept) throw "Unable to update metadata, abort";
+                     return;                    
+        }                                                                                            
+    },
+    triggerType: TriggerType.Post,
+    triggerOperation: TriggerOperation.All
+}
 
 
-O gatilho pode ser registrado como mostrado na amostra a seguir.
+The trigger can be registered as shown in the following sample.
 
-    // register post-trigger
-    client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
-        .then(function(createdTrigger) { 
-            var docToCreate = { 
-                name: "artist_profile_1023",
-                artist: "The Band",
-                albums: ["Hellujah", "Rotators", "Spinning Top"]
-            };
+// register post-trigger
+client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
+    .then(function(createdTrigger) { 
+        var docToCreate = { 
+            name: "artist_profile_1023",
+            artist: "The Band",
+            albums: ["Hellujah", "Rotators", "Spinning Top"]
+        };
 
-            // run trigger while creating above document 
-            var options = { postTriggerInclude: "updateMetadata" };
+        // run trigger while creating above document 
+        var options = { postTriggerInclude: "updateMetadata" };
 
-            return client.createDocumentAsync(collection.self,
-                  docToCreate, options);
-        }, function(error) {
-            console.log("Error" , error);
-        })
-    .then(function(response) {
-        console.log(response.resource); 
+        return client.createDocumentAsync(collection.self,
+              docToCreate, options);
     }, function(error) {
         console.log("Error" , error);
-    });
-
+    })
+.then(function(response) {
+    console.log(response.resource); 
+}, function(error) {
+    console.log("Error" , error);
+});
+```
 
 Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.  
 
@@ -457,42 +468,45 @@ UDFs (funções definidas pelo usuário) são usadas para estender a gramática 
 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
 
-    var taxUdf = {
-        id: "tax",
-        serverScript: function tax(income) {
+```javascript
+var taxUdf = {
+    id: "tax",
+    serverScript: function tax(income) {
 
-            if(income == undefined) 
-                throw 'no input';
+        if(income == undefined) 
+            throw 'no input';
 
-            if (income < 1000) 
-                return income * 0.1;
-            else if (income < 10000) 
-                return income * 0.2;
-            else
-                return income * 0.4;
-        }
+        if (income < 1000) 
+            return income * 0.1;
+        else if (income < 10000) 
+            return income * 0.2;
+        else
+            return income * 0.4;
     }
-
+}
+```
 
 A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 
-    // register UDF
-    client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
-        .then(function(response) { 
-            console.log("Created", response.resource);
+```javascript
+// register UDF
+client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
+    .then(function(response) { 
+        console.log("Created", response.resource);
 
-            var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-            return client.queryDocuments('dbs/testdb/colls/testColl',
-                   query).toArrayAsync();
-        }, function(error) {
-            console.log("Error" , error);
-        })
-    .then(function(response) {
-        var documents = response.feed;
-        console.log(response.resource); 
+        var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
+        return client.queryDocuments('dbs/testdb/colls/testColl',
+               query).toArrayAsync();
     }, function(error) {
         console.log("Error" , error);
-    });
+    })
+.then(function(response) {
+    var documents = response.feed;
+    console.log(response.resource); 
+}, function(error) {
+    console.log("Error" , error);
+});
+```
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Azure Cosmos DB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como Lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
@@ -582,57 +596,59 @@ Para saber mais, consulte [Server-Side JSDocs](http://azure.github.io/azure-docu
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
 O exemplo de código a seguir mostra como a API de Consulta JavaScript pode ser usada no contexto de um procedimento armazenado. O procedimento armazenado insere um documento, fornecido por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()` com minSize, maxSize e totalSize baseados na propriedade de tamanho do documento de entrada.
 
-    /**
-     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
-     */
-    function insertDocumentAndUpdateMetadata(doc) {
-      // HTTP error codes sent to our callback funciton by DocDB server.
-      var ErrorCode = {
-        RETRY_WITH: 449,
-      }
+```javascript
+/**
+ * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+ */
+function insertDocumentAndUpdateMetadata(doc) {
+  // HTTP error codes sent to our callback funciton by DocDB server.
+  var ErrorCode = {
+    RETRY_WITH: 449,
+  }
 
-      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+  var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+    if (err) throw err;
+
+    // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+    if (!doc.isMetadata && doc.size > 0) {
+      // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+      var result = __.filter(function(x) {
+        return x.isMetadata === true
+      }, function(err, feed, options) {
         if (err) throw err;
 
-        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
-        if (!doc.isMetadata && doc.size > 0) {
-          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
-          var result = __.filter(function(x) {
-            return x.isMetadata === true
-          }, function(err, feed, options) {
-            if (err) throw err;
+        // We assume that metadata doc was pre-created and must exist when this script is called.
+        if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
 
-            // We assume that metadata doc was pre-created and must exist when this script is called.
-            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+        // The metadata document.
+        var metaDoc = feed[0];
 
-            // The metadata document.
-            var metaDoc = feed[0];
+        // Update metaDoc.minSize:
+        // for 1st document use doc.Size, for all the rest see if it's less than last min.
+        if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+        else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
 
-            // Update metaDoc.minSize:
-            // for 1st document use doc.Size, for all the rest see if it's less than last min.
-            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
-            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+        // Update metaDoc.maxSize.
+        metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
 
-            // Update metaDoc.maxSize.
-            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+        // Update metaDoc.totalSize.
+        metaDoc.totalSize += doc.size;
 
-            // Update metaDoc.totalSize.
-            metaDoc.totalSize += doc.size;
-
-            // Update/replace the metadata document in the store.
-            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
-              if (err) throw err;
-              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
-              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
-              //       We have to take care of that on the client side.
-            });
-            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
-          });
-          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
-        }
+        // Update/replace the metadata document in the store.
+        var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+          if (err) throw err;
+          // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+          //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+          //       We have to take care of that on the client side.
+        });
+        if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
       });
-      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+      if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
     }
+  });
+  if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+}
+```
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>Folha de respostas rápidas do SQL para Javascript
 A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript correspondentes.
@@ -669,74 +685,78 @@ Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitament
 ## <a name="client-sdk-support"></a>Suporte de SDK de cliente
 Além da API [Node.js](sql-api-sdk-node.md) do Azure Cosmos DB, o Azure Cosmos DB tem SDKs do [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) também para a API do SQL. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
-    var markAntiquesSproc = new StoredProcedure
-    {
-        Id = "ValidateDocumentAge",
-        Body = @"
-                function(docToCreate, antiqueYear) {
-                    var collection = getContext().getCollection();    
-                    var response = getContext().getResponse();    
+```javascript
+var markAntiquesSproc = new StoredProcedure
+{
+    Id = "ValidateDocumentAge",
+    Body = @"
+            function(docToCreate, antiqueYear) {
+                var collection = getContext().getCollection();    
+                var response = getContext().getResponse();    
 
-                    if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
-                        docToCreate.antique = true;
-                    }
+                if(docToCreate.Year != undefined && docToCreate.Year < antiqueYear){
+                    docToCreate.antique = true;
+                }
 
-                    collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
-                        function(err, docCreated, options) { 
-                            if(err) throw new Error('Error while creating document: ' + err.message);                              
-                            if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
-                            response.setBody(docCreated);
-                    });
-             }"
-    };
+                collection.createDocument(collection.getSelfLink(), docToCreate, {}, 
+                    function(err, docCreated, options) { 
+                        if(err) throw new Error('Error while creating document: ' + err.message);                              
+                        if(options.maxCollectionSizeInMb == 0) throw 'max collection size not found'; 
+                        response.setBody(docCreated);
+                });
+         }"
+};
 
-    // register stored procedure
-    StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
-    dynamic document = new Document() { Id = "Borges_112" };
-    document.Title = "Aleph";
-    document.Year = 1949;
+// register stored procedure
+StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
+dynamic document = new Document() { Id = "Borges_112" };
+document.Title = "Aleph";
+document.Year = 1949;
 
-    // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
-
+// execute stored procedure
+Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
+```
 
 Esse exemplo mostra como usar a [API do .NET do SQL](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para criar um pré-gatilho e criar um documento com o gatilho habilitado. 
 
-    Trigger preTrigger = new Trigger()
+```javascript
+Trigger preTrigger = new Trigger()
+{
+    Id = "CapitalizeName",
+    Body = @"function() {
+        var item = getContext().getRequest().getBody();
+        item.id = item.id.toUpperCase();
+        getContext().getRequest().setBody(item);
+    }",
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+};
+
+Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
+    new RequestOptions
     {
-        Id = "CapitalizeName",
-        Body = @"function() {
-            var item = getContext().getRequest().getBody();
-            item.id = item.id.toUpperCase();
-            getContext().getRequest().setBody(item);
-        }",
-        TriggerOperation = TriggerOperation.Create,
-        TriggerType = TriggerType.Pre
-    };
-
-    Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
-        new RequestOptions
-        {
-            PreTriggerInclude = new List<string> { "CapitalizeName" },
-        });
-
+        PreTriggerInclude = new List<string> { "CapitalizeName" },
+    });
+```
 
 E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF) e utilizá-la em uma [consulta SQL](sql-api-sql-query.md).
 
-    UserDefinedFunction function = new UserDefinedFunction()
+```javascript
+UserDefinedFunction function = new UserDefinedFunction()
+{
+    Id = "LOWER",
+    Body = @"function(input) 
     {
-        Id = "LOWER",
-        Body = @"function(input) 
-        {
-            return input.toLowerCase();
-        }"
-    };
+        return input.toLowerCase();
+    }"
+};
 
-    foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
-        "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
-    {
-        Console.WriteLine("Read {0} from query", book);
-    }
+foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
+    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
+{
+    Console.WriteLine("Read {0} from query", book);
+}
+```
 
 ## <a name="rest-api"></a>API REST
 Todas as operações do Azure Cosmos DB podem ser realizadas de maneira RESTful. Procedimentos armazenados, gatilhos e funções definidas pelo usuário podem ser registrados em uma coleção usando HTTP POST. O exemplo a seguir mostra como registrar um procedimento armazenado:
@@ -779,12 +799,12 @@ Aqui, a entrada para o procedimento armazenado é transmitida no corpo de solici
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
@@ -797,12 +817,11 @@ Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executado
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 

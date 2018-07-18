@@ -1,25 +1,20 @@
 ---
-title: Fazer backup de estado do sistema para o Windows Azure | Microsoft Docs
+title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema do Windows Server e/ou de computadores Windows para o Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: como fazer backup; como fazer backup; backup de arquivos e pastas
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606062"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. É um tutorial que pretende explicar os conceitos básicos.
@@ -175,6 +170,11 @@ O backup inicial inclui duas tarefas:
 * Fazer backup do Estado do Sistema pela primeira vez
 
 Para concluir o backup inicial, use o agente dos Serviços de Recuperação do Microsoft Azure.
+
+> [!NOTE]
+> Você pode fazer backup do Estado do Sistema no Windows Server 2008 R2 por meio do Windows Server 2016. O Backup do Estado do Sistema não tem suporte em SKUs do cliente. O Estado do Sistema não é mostrado como uma opção para clientes do Windows ou máquinas do Windows Server 2008 SP2.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>Para agendar o trabalho de backup
 

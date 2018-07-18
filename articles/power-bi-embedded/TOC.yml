@@ -1,0 +1,68 @@
+- name: Documentação do Power BI Embedded
+  href: index.md
+- name: Visão geral
+  items:
+    - name: O que é o Power BI Embedded
+      href: what-is-power-bi-embedded.md
+- name: Tutoriais
+  items:
+    - name: Inserir o conteúdo de exemplo de clientes
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Conceitos
+  items:
+    - name: Introdução ao Power BI Embedded
+      href: get-started.md
+- name: Como
+  items:
+    - name: Gerenciar a capacidade
+      items:
+        - name: Criar a capacidade
+          href: create-capacity.md
+        - name: Dimensionar a capacidade
+          href: scale-capacity.md
+        - name: Pausar e iniciar a capacidade
+          href: pause-start.md
+    - name: Registrar um aplicativo do Azure AD
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
+    - name: Inserir o conteúdo do Power BI
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
+    - name: Migrar
+      items:
+        - name: Como migrar de Coleções de Espaços de Trabalho do Power BI
+          href: migrate-from-power-bi-workspace-collections.md
+        - name: Ferramenta de migração
+          href: migrate-tool.md
+        - name: Trechos de código de migração
+          href: migrate-code-snippets.md
+- name: Exemplos
+  items:
+    - name: Exemplos de código
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
+    - name: Passo a passo de exemplo
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+    - name: Amostra de inserção de JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+- name: Referência
+  items:
+    - name: APIs
+      items:
+        - name: APIs REST de Gerenciamento de Recursos do Azure
+          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
+        - name: APIs REST do Power BI
+          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+- name: Recursos
+  items:
+    - name: Comunidade do Power BI
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: Download do SDK do .NET
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
+    - name: Download do SDK do JavaScript
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Repositório GitHub
+      items:
+        - name: .NET para o Power BI
+          href: 'https://github.com/Microsoft/PowerBI-CSharp'
+        - name: JavaScript para o Power BI
+          href: 'https://github.com/Microsoft/PowerBI-JavaScript'

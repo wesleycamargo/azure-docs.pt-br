@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29939001"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovação por meio do programa de certificação do Microsoft Azure
 Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified para que você possa publicar sua solução no Azure Marketplace e ser elegível para receber benefícios de marketing. Para obter uma visão geral detalhada do programa de certificação do Microsoft Azure e seus benefícios, visite [http://azure.com/certified](http://azure.com/certified).

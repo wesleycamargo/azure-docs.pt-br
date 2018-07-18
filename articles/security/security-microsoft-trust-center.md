@@ -1,6 +1,6 @@
 ---
-title: "Informações de segurança do Microsoft Trust Center e do Azure | Microsoft Docs"
-description: "A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura."
+title: Informações de segurança do Microsoft Trust Center e do Azure | Microsoft Docs
+description: A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541563"
 ---
 # <a name="microsoft-trust-center"></a>Central de Confiabilidade da Microsoft
 O site de Informações de Segurança do Azure em Azure.com fornece as informações que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança. Com a Central de Confiança da Microsoft, você também tem as informações necessárias para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.

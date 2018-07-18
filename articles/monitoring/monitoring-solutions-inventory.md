@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112177"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes da coleta de dados para soluções de gerenciamento no Azure
 Este artigo inclui uma lista de [soluções de gerenciamento](monitoring-solutions.md) disponíveis na Microsoft com links para a documentação detalhada.  Fornece também informações sobre o método e a frequência de coleta de dados no Log Analytics.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. 
@@ -64,9 +65,6 @@ As explicações das colunas são as seguintes:
 | [Monitor de Desempenho de Rede](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Handshakes TCP a cada cinco segundos; dados enviados a cada três minutos |
 | [Análise do Office 365 (versão prévia)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |após a notificação |
 | **Solução de gerenciamento** | **Plataforma** | **Microsoft Monitoring Agent** | **Agente do Operations Manager** | **Armazenamento do Azure** | **O Operations Manager é necessário?** | **Dados do agente do Operations Manager enviados por meio do grupo de gerenciamento** | **Frequência de coleta** |
-| [Segurança e Auditoria](../operations-management-suite/oms-security-getting-started.md) (Syslog) | Linux | &#8226; | | |  |  | na chegada |
-| [Segurança e Auditoria](../operations-management-suite/oms-security-getting-started.md) (Logs de eventos de segurança) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | na chegada |
-| [Segurança e Auditoria](../operations-management-suite/oms-security-getting-started.md) (Logs de Firewall) |Windows |&#8226; |&#8226; |  |  |  |na chegada |
 | [Análise do Service Fabric (visualização)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minutos |
 | [Mapa do Serviço](../operations-management-suite/operations-management-suite-service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 15 s |
 | [Avaliação do SQL](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6f755754097336fc97678940ea1fa0aa28315fab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868597"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869000"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -154,6 +154,8 @@ As perguntas de segurança personalizadas não são localizadas para localidades
 
 O tamanho máximo de uma pergunta de segurança personalizada é de 200 caracteres.
 
+Para exibir o portal e as perguntas de redefinição de senha em um idioma localizado diferente, acrescente "?mkt=<Locale>" ao final da URL de redefinição de senha. O exemplo a seguir altera o idioma localizado para espanhol [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+
 ### <a name="security-question-requirements"></a>Requisitos das perguntas de segurança
 
 * O limite mínimo para a resposta é de três caracteres.
@@ -233,14 +235,13 @@ Esse controle designa se os usuários que visitam o portal de redefinição de s
 A reinicialização e a mudança de senha são totalmente suportadas em todas as configurações B2B (entre empresas). A reinicialização da senha do usuário B2B tem suporte nos três casos a seguir:
 
    * **Usuários de uma organização de parceiros com um locatário existente do Azure Active Directory**: se a organização com a qual você está fazendo uma parceria tiver um locatário existente do Azure Active Directory, *respeitaremos todas as políticas de redefinição de senha habilitadas no locatário*. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para os clientes do Office 365, e ela pode ser habilitada seguindo as etapas em nosso guia [Introdução ao gerenciamento de senha](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Usuários que se inscreveram usando a inscrição de autoatendimento**: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../active-directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
+   * **Usuários que se inscreveram usando a inscrição de autoatendimento**: se a organização com a qual você está fazendo parceria usou o recurso [inscrição para autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitiremos que redefinam a senha com o email com a qual se registraram.
    * **Usuários B2B**: os novos usuários B2B criados com as novas [funcionalidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email com o qual se registraram durante o processo de convite.
 
 Para testar este cenário, acesse http://passwordreset.microsoftonline.com com um desses usuários parceiros. Se eles possuem um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
 
 > [!NOTE]
-> As contas da Microsoft que receberam o acesso de convidado para seu locatário do Azure Active Directory, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do 
-Azure Active Directory. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+> Contas Microsoft que receberam acesso de convidado a seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do Azure AD. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021712"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: restringir o acesso à rede de recursos de PaaS com pontos de extremidade de serviço de rede virtual usando o Portal do Azure
 
@@ -65,6 +65,8 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 ## <a name="enable-a-service-endpoint"></a>Habilitar um ponto de extremidade de serviço
 
+Pontos de extremidade de serviço são habilitados por serviço, por sub-rede. Criar uma sub-rede e habilitar um ponto de extremidade de serviço para a sub-rede.
+
 1. Na caixa **Pesquisar recursos, serviços e documentos** na parte superior do portal, digite *myVirtualNetwork.* Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o.
 2. Adicione uma sub-rede à rede virtual. Em **CONFIGURAÇÕES**, selecione **Sub-redes** e, em seguida, selecione **+ Sub-rede**, conforme mostrado na seguinte imagem:
 
@@ -78,11 +80,16 @@ Faça logon no Portal do Azure em http://portal.azure.com.
     |Intervalo de endereços| 10.0.1.0/24|
     |Pontos de extremidade de serviço| Selecione **Microsoft.Storage** em **Serviços**|
 
+> [!CAUTION]
+> Antes de habilitar um ponto de extremidade de serviço para uma sub-rede existente que tenha recursos nela, consulte [Alterar as configurações de sub-rede](virtual-network-manage-subnet.md#change-subnet-settings).
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede de uma sub-rede
+
+Por padrão, todas as VMs em uma sub-rede podem se comunicar com todos os recursos. Você pode limitar a comunicação com todos os recursos em uma sub-rede, criando um grupo de segurança de rede e o associando à sub-rede.
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 2. Selecione **Rede** e **Grupo de segurança de rede**.
-Em **Criar um grupo de segurança de rede**, insira ou selecione as seguintes informações e selecione **Criar**:
+3. Em **Criar um grupo de segurança de rede**, insira ou selecione as seguintes informações e selecione **Criar**:
 
     |Configuração|Valor|
     |----|----|
@@ -94,7 +101,7 @@ Em **Criar um grupo de segurança de rede**, insira ou selecione as seguintes in
 4. Depois que o grupo de segurança de rede for criado, digite *myNsgPrivate*, na caixa **Pesquisar recursos, serviços e documentos** na parte superior do portal. Quando **myNsgPrivate** for exibido nos resultados da pesquisa, selecione-o.
 5. Em **CONFIGURAÇÕES**, selecione **Regras de segurança de saída**.
 6. Selecione **+ Adicionar**.
-7. Crie uma regra que permita o acesso de saída para os endereços IP públicos atribuídos ao serviço de Armazenamento do Microsoft Azure. Insira ou selecione as seguintes informações e selecione **OK**:
+7. Crie uma regra que permita a comunicação de saída para o serviço de Armazenamento do Azure. Insira ou selecione as seguintes informações e selecione **OK**:
 
     |Configuração|Valor|
     |----|----|
@@ -107,7 +114,8 @@ Em **Criar um grupo de segurança de rede**, insira ou selecione as seguintes in
     |Ação|PERMITIR|
     |Prioridade|100|
     |NOME|Allow-Storage-All|
-8. Crie uma regra que substitua uma regra de segurança padrão que permite o acesso de saída para todos os endereços IP públicos. Conclua as etapas 6 e 7 novamente, usando os seguintes valores:
+    
+8. Crie uma regra que nega a comunicação de saída à Internet. Essa regra substitui uma regra padrão em todos os grupos de segurança de rede que permite a comunicação de saída à Internet. Conclua as etapas 6 e 7 novamente, usando os seguintes valores:
 
     |Configuração|Valor|
     |----|----|
@@ -171,9 +179,9 @@ As etapas necessárias para restringir o acesso de rede a recursos criados por m
 4. Digite *my-file-share* em **Nome** e selecione **OK**.
 5. Feche a caixa **Serviço de arquivo**.
 
-### <a name="enable-network-access-from-a-subnet"></a>Habilitar o acesso de rede de uma sub-rede
+### <a name="restrict-network-access-to-a-subnet"></a>Restringir o acesso à rede para uma sub-rede
 
-Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Para permitir o acesso somente de uma sub-rede específica e negar o acesso à rede de todas as outras redes, conclua as seguintes etapas:
+Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede, incluindo a Internet. Negar acesso à rede da Internet e a todas as outras sub-redes em todas as redes virtuais, exceto para a sub-rede *Privada* na rede virtual *myVirtualNetwork*.
 
 1. Em **CONFIGURAÇÕES** para a conta de armazenamento, selecione **Firewalls e redes virtuais**.
 2. Em **Redes virtuais**, selecione **Redes selecionadas**.
@@ -188,7 +196,7 @@ Por padrão, as contas de armazenamento aceitam conexões de clientes em qualque
 
     ![Firewalls e redes virtuais](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png) 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Feche a caixa **Firewalls e redes virtuais**.
 7. Em **CONFIGURAÇÕES** para a conta de armazenamento, selecione **Chaves de acesso**, conforme mostrado na seguinte figura:
 
@@ -256,13 +264,13 @@ A VM demora alguns minutos para implantar. Não prossiga para a próxima etapa a
 
     O compartilhamento de arquivos do Azure foi mapeado com êxito para a unidade Z.
 
-7. Confirme que a VM não tem conectividade de saída com outros endereços IP públicos em um prompt de comando:
+7. Confirme que a VM não tem conectividade de saída com a Internet em um prompt de comando:
 
     ```
     ping bing.com
     ```
     
-    Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede *Privada* não permite acesso de saída para endereços IP públicos que não sejam os endereços atribuídos ao serviço de Armazenamento do Microsoft Azure.
+    Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede *Privada* não permite acesso de saída para a Internet.
 
 8. Feche a sessão da área de trabalho remota para a VM *myVmPrivate*.
 
@@ -272,7 +280,7 @@ A VM demora alguns minutos para implantar. Não prossiga para a próxima etapa a
 2. Quando **myVmPublic** for exibido nos resultados da pesquisa, selecione-o.
 3. Conclua as etapas 1 a 6 em [Confirmar acesso à conta de armazenamento](#confirm-access-to-storage-account) para a VM *myVmPublic*.
 
-    Acesso negado. Você receberá um erro `New-PSDrive : Access is denied`. O acesso é negado porque a VM *myVmPublic* é implantada na sub-rede *Pública*. A sub-rede *Pública* não tem um ponto de extremidade de serviço habilitado para o Armazenamento do Microsoft Azure, e a conta de armazenamento só permite o acesso à rede por meio da sub-rede *Privada*, não da sub-rede *Pública*.
+    Acesso negado. Você receberá um erro `New-PSDrive : Access is denied`. O acesso é negado porque a VM *myVmPublic* é implantada na sub-rede *Pública*. A sub-rede *Pública* não tem um ponto de extremidade de serviço habilitado para Armazenamento do Azure. A conta de armazenamento só permite o acesso à rede a partir da sub-rede *Privada*, não da sub-rede *Pública*.
 
 4. Feche a sessão da área de trabalho remota para a VM *myVmPublic*.
 
@@ -295,7 +303,7 @@ Quando não for mais necessário, exclua o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você habilitou um ponto de extremidade de serviço para uma sub-rede de rede virtual. Você aprendeu que pontos de extremidade de serviço podem ser habilitados para os recursos implantados com vários serviços do Azure. Você criou uma conta de Armazenamento do Microsoft Azure e acesso limitado à rede para a conta de armazenamento apenas para os recursos em uma sub-rede de rede virtual. Para saber mais sobre pontos de extremidade de serviços, consulte [Visão geral de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md) e [Gerenciar sub-redes](virtual-network-manage-subnet.md).
+Neste tutorial, você habilitou um ponto de extremidade de serviço para uma sub-rede de rede virtual. Você aprendeu que pode habilitar pontos de extremidade de serviço para recursos implantados a partir de vários serviços do Azure. Você criou uma conta de Armazenamento do Azure e acesso restrito à rede para a conta de armazenamento apenas para os recursos em uma sub-rede de rede virtual. Para saber mais sobre pontos de extremidade de serviços, consulte [Visão geral de pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md) e [Gerenciar sub-redes](virtual-network-manage-subnet.md).
 
 Se você tem várias redes virtuais na conta, convém conectar duas redes virtuais em conjunto para que os recursos de cada rede virtual possam se comunicar uns com os outros. Para saber mais sobre como conectar redes virtuais, siga para o próximo tutorial.
 

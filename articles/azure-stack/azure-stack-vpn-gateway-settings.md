@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849742"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração de gateway VPN para a pilha do Azure
 
@@ -157,7 +158,10 @@ Ao contrário do Azure, que oferece suporte a várias ofertas como um iniciador 
 |Versão IKE |IKEv2 |
 |(Criptografia) de algoritmos de hash e de criptografia     | GCMAES256|
 |(Autenticação) de algoritmos de hash e de criptografia | GCMAES256|
-|Tempo de vida da SA (Tempo)  | 27.000 segundos |
-|Tempo de vida da SA (Bytes) | 819,200       |
+|Tempo de vida da SA (Tempo)  | segundos 27.000<sup>veja a Observação 1</sup> |
+|Tempo de vida da SA (Bytes) | 33,553,408<sup>veja a Observação 2</sup>     |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Detecção de par inativo | Com suporte|  
+
+*Observação 1:* antes da versão 1803, pilha do Azure usa o valor de 14.400 para o tempo de vida do SA (hora). 
+*Observação 2:* antes da versão 1803, pilha do Azure usa o valor de 819,200 para o tempo de vida do SA (Bytes).

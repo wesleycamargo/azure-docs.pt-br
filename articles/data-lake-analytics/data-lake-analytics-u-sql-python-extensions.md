@@ -1,28 +1,25 @@
 ---
-title: Estender scripts U-SQL com Python no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como executar o código Python em Scripts U-SQL"
+title: Estender scripts U-SQL com Python no Azure Data Lake Analytics
+description: Saiba como executar código Python em scripts U-SQL usando o Azure Data Lake Analytics
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625073"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Tutorial: introdução à extensão do U-SQL com o Python
+# <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python no Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, certifique-se de que as extensões de Python estejam instaladas na sua conta do Azure Data Lake Analytics.
 

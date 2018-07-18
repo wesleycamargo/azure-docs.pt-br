@@ -1,6 +1,6 @@
 ---
-title: "Arquivo de inclusão"
-description: "Arquivo de inclusão"
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -9,10 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740522"
 ---
 As [Políticas do Azure](/azure/azure-policy/) ajudam a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Utilize as políticas para reduzir os custos, restringindo as opções de implantação apenas a esses tipos de recursos e SKUs aprovados. Você define as regras e ações para os recursos e essas regras serão aplicadas automaticamente durante a implantação. Por exemplo, você poderá controlar os tipos de recursos que serão implantados. Ou, poderá restringir os locais aprovados para recursos. Algumas políticas negam uma ação e, algumas políticas configuram auditoria de uma ação.
 

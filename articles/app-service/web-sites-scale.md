@@ -1,8 +1,8 @@
 ---
 title: Escalar verticalmente um aplicativo no Azure | Microsoft Docs
-description: "Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure a fim de adicionar capacidade e recursos."
+description: Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure a fim de adicionar capacidade e recursos.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306426"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Dimensionar um aplicativo no Azure
 
@@ -50,7 +51,7 @@ Para obter informações sobre os preços e recursos de planos individuais do Se
 2. Na página do aplicativo do Serviço de Aplicativo, clique em **Todas as configurações** e em **Expandir**.
    
     ![Navegue para escalar verticalmente seu aplicativo do Azure.][ChooseWHP]
-3. Escolha seu tipo e depois clique em **Selecionar**.
+3. Escolha sua camada e, em seguida, clique em **aplicar**.
    
     A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 
@@ -97,7 +98,7 @@ Para uma tabela de limites de serviço, cotas, restrições e recursos com supor
   
     [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
   
-* Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Para assistir a vídeos sobre o dimensionamento de aplicativos do Serviço de Aplicativo, consulte os seguintes recursos:
   
   * [Quando dimensionar Sites do Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ Para uma tabela de limites de serviço, cotas, restrições e recursos com supor
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

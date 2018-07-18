@@ -5,21 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d3cda9bdc75709d46f952309375e82098b6ae0d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a3242c9402d738d580f4abf5f1a0bb64f2fa7728
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894408"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919896"
 ---
 # <a name="about-site-recovery"></a>Sobre o Azure Site Recovery
 
 Bem-vindo ao Azure Site Recovery! Este artigo fornece uma visão geral rápida do serviço.
 
-Como uma organização, você precisa adotar uma estratégia de continuidade de negócios e recuperação de desastre (BCDR) que mantenha seus dados seguros e seus aplicativos e cargas de trabalho funcionando quando ocorrerem interrupções planejadas e não planejadas.
+Como uma organização, você precisa adotar uma estratégia de BCDR (continuidade de negócios e recuperação de desastre) que mantenha seus dados seguros e seus aplicativos e cargas de trabalho funcionando quando ocorrerem interrupções planejadas e não planejadas.
 
 Os Serviços de Recuperação do Azure contribuem para sua estratégia BCDR:
 

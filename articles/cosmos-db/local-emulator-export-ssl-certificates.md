@@ -2,25 +2,22 @@
 title: Exportar os certificados do Emulador do Azure Cosmos DB | Microsoft Docs
 description: Ao desenvolver em linguagens e em tempos de execução que não usam o Repositório de Certificados do Windows, você precisará exportar e gerenciar os certificados SSL. Esta postagem fornece instruções passo a passo.
 services: cosmos-db
-documentationcenter: ''
 keywords: Emulador do Azure Cosmos DB
 author: voellm
 manager: kfile
 editor: ''
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082094"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados do Emulador do Azure Cosmos DB para uso com Java, Python e Node.js
 
@@ -102,7 +99,7 @@ Neste tutorial, você fez o seguinte:
 > * Exportou o certificado SSL
 > * Aprendeu a usar o certificado no Java, Python e Node.js
 
-Você pode continuar a criar um gatilho de HTTP de Azure Functions com um tutorial de associação de entrada do Azure Cosmos DB.
+Agora você pode seguir para a seção Conceitos para saber mais sobre o Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Criar uma função do Azure com entrada do Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Níveis ajustáveis de consistência de dados no Azure Cosmos DB](../cosmos-db/consistency-levels.md)

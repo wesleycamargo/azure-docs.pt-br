@@ -1,34 +1,36 @@
 ---
-title: "Azure Active Directory Domain Services: sincronização nos domínios gerenciados | Microsoft Docs"
-description: "Compreender a sincronização em um domínio gerenciado do Azure Active Directory Domain Services"
+title: 'Azure Active Directory Domain Services: sincronização nos domínios gerenciados | Microsoft Docs'
+description: Compreender a sincronização em um domínio gerenciado do Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 463113731d1c4b4d7dfb5b81d429a8b7ffb74b1b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218853"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização em um domínio gerenciado dos Serviços de Domínio do Azure AD
 O diagrama a seguir ilustra o funcionamento da sincronização nos domínios gerenciados dos Serviços de Domínio do Azure AD.
 
-![Topologia de sincronização nos Serviços de Domínio do Azure AD](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Sincronização no Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Sincronização do diretório local para seu locatário do Azure AD
 A sincronização do Azure AD Connect é usada para sincronizar contas de usuário, associações de grupo e hashes de credencial para seu locatário do Azure AD. Os atributos de contas de usuário, como o UPN e o SID (identificador de segurança) local são sincronizados. Se você usar os Serviços de Domínio do Azure AD, os hashes de credencial herdados necessários para a autenticação NTLM e Kerberos também serão sincronizados com seu locatário do Azure AD.
 
-Se você configurar o write-back, as alterações que ocorrem em seu diretório do Azure AD serão sincronizadas com o Active Directory local. Por exemplo, se você alterar sua senha usando a funcionalidade de alteração de senha de autoatendimento do Azure AD, a senha alterada é atualizada em seu local de domínio do AD.
+Se você configurar o write-back, as alterações que ocorrem em seu diretório do Azure AD serão sincronizadas com o Active Directory local. Por exemplo, se você alterar sua senha usando o gerenciamento de senha de autoatendimento do Azure AD, a senha alterada será atualizada em seu domínio do AD local.
 
 > [!NOTE]
 > Sempre use a versão mais recente do Azure AD Connect para garantir que você tenha correções para todos os bugs conhecidos.
@@ -36,21 +38,21 @@ Se você configurar o write-back, as alterações que ocorrem em seu diretório 
 >
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Sincronização do seu locatário do Azure AD para seu domínio gerenciado
-As contas de usuário, as associações de grupo e os hashes de credenciais são sincronizados do seu locatário do Azure AD para seu domínio gerenciado dos Serviços de Domínio do Azure AD. Esse processo de sincronização é automático. Você não precisa configurar, monitorar ou gerenciar esse processo de sincronização. Após a conclusão da sincronização inicial do seu diretório, que só ocorre uma vez, geralmente demora cerca de 20 minutos para que as alterações feitas ao Azure AD sejam refletidas em seu domínio gerenciado. Esse intervalo de sincronização aplica-se a alterações de senha ou alterações em atributos feitos no Azure AD.
+As contas de usuário, as associações de grupo e os hashes de credenciais são sincronizados do seu locatário do Azure AD para seu domínio gerenciado dos Serviços de Domínio do Azure AD. Esse processo de sincronização é automático. Você não precisa configurar, monitorar ou gerenciar esse processo de sincronização. A sincronização inicial pode levar de algumas horas a alguns dias, dependendo do número de objetos em seu diretório do Azure AD. Após a conclusão da sincronização inicial, leva cerca de 20 a 30 minutos para que as alterações feitas ao Azure AD sejam atualizadas em seu domínio gerenciado. Esse intervalo de sincronização aplica-se a alterações de senha ou alterações em atributos feitos no Azure AD.
 
 O processo de sincronização também é unidirecional por natureza. O domínio gerenciado é basicamente somente leitura, exceto qualquer OUs personalizadas que você criar. Portanto, você não pode fazer alterações em atributos de usuário, senhas de usuário ou associações de grupo do domínio gerenciado. Como resultado, não há nenhuma sincronização reversa de alterações do seu domínio gerenciado de volta para seu locatário do Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronização de um ambiente de várias florestas locais
 Muitas organizações têm uma infraestrutura de identidade local bastante complexa que consiste em várias florestas de contas. O Azure AD Connect oferece suporte à sincronização de usuários, de grupos e de hashes de credencial de ambientes de várias florestas para seu locatário do Azure AD.
 
-Por outro lado, o seu locatário do Azure AD é um namespace muito mais simples. Para permitir aos usuários acessar aplicativos protegidos pelo Azure AD de forma confiável, resolva os conflitos de UPN entre contas de usuário em diferentes florestas. Seu domínio gerenciado dos Serviços de Domínio do Azure AD é ligeiramente parecido com o seu locatário do Azure AD. Portanto, você verá uma estrutura de UO simples em seu domínio gerenciado. Todos os usuários e grupos são armazenados no contêiner 'Usuários AADDC', independentemente do domínio local ou da floresta na qual eles foram sincronizados. Talvez você tenha configurado uma estrutura de UO hierárquica local. No entanto, o domínio gerenciado ainda tem uma estrutura de UO simples.
+Por outro lado, o seu locatário do Azure AD é um namespace muito mais simples. Para permitir aos usuários acessar aplicativos protegidos pelo Azure AD de forma confiável, resolva os conflitos de UPN entre contas de usuário em diferentes florestas. Seu domínio gerenciado dos Serviços de Domínio do Azure AD é ligeiramente parecido com o seu locatário do Azure AD. Você verá uma estrutura de UO simples em seu domínio gerenciado. Todas as contas de usuário e grupos são armazenados no contêiner 'Usuários AADDC', apesar de estarem sendo sincronizadas de florestas ou domínios locais diferentes. Talvez você tenha configurado uma estrutura de UO hierárquica local. O domínio gerenciado ainda tem uma estrutura de UO simples.
 
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusões - o que não é sincronizado com o domínio gerenciado
 Os seguintes atributos ou objetos não são sincronizados para seu locatário do Azure AD ou para seu domínio gerenciado:
 
 * **Atributos excluídos:** você pode optar por excluir determinados atributos da sincronização para seu locatário do Azure AD do seu domínio local usando o Azure AD Connect. Esses atributos excluídos não estão disponíveis no seu domínio gerenciado.
 * **Políticas de Grupo:** as políticas de grupo configuradas em seu domínio local não são sincronizadas com o domínio gerenciado.
-* **Compartilhamento SYSVOL:** da mesma forma, o conteúdo do compartilhamento SYSVOL no domínio local não é sincronizado com o domínio gerenciado.
+* **Compartilhamento Sysvol:** da mesma forma, o conteúdo do compartilhamento Sysvol no domínio local não é sincronizado com o domínio gerenciado.
 * **Objetos de computador:** objetos de computador dos computadores associados ao seu domínio local não são sincronizados com o seu domínio gerenciado. Esses computadores não têm uma relação de confiança com o domínio gerenciado e pertencem ao domínio local apenas. Em seu domínio gerenciado, você encontrará os objetos de computador somente para computadores que você ingressou explicitamente no domínio gerenciado.
 * **Atributos SIDHistory para usuários e grupos:** os SIDs do usuário principal e do grupo primário do seu domínio local são sincronizados com seu domínio gerenciado. No entanto, os atributos SidHistory existentes para usuários e grupos não são sincronizados do seu domínio local para seu domínio gerenciado.
 * **Estruturas de unidades organizacionais (UO):** as unidades organizacionais definidas em seu domínio local não serão sincronizadas ao seu domínio gerenciado. Há duas UOs internas em seu domínio gerenciado. Por padrão, o domínio gerenciado tem uma estrutura de UO simples. No entanto, você pode optar por [criar uma UO personalizada em seu domínio gerenciado](active-directory-ds-admin-guide-create-ou.md).
@@ -112,6 +114,15 @@ A tabela a seguir ilustra como os atributos específicos de objetos de grupo em 
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
+
+## <a name="password-hash-synchronization-and-security-considerations"></a>Considerações de segurança e sincronização de hash de senha
+Quando você habilita o Azure AD Domain Services, seu diretório do Azure AD gera e armazena hashes de senha em formatos compatíveis com NTLM e Kerberos. 
+
+Para contas de usuário de nuvem existentes, como o Azure AD nunca armazena suas senhas de texto não criptografado, esses hashes não podem ser gerados automaticamente. Portanto, a Microsoft exige que os [usuários de nuvem redefinam/alterem as senhas](active-directory-ds-getting-started-password-sync.md) para que seus hashes de senha possam ser gerados e armazenados no Azure AD. Para qualquer conta de usuário de nuvem criada no Azure AD depois de habilitar o Azure AD Domain Services, os hashes de senha são gerados e armazenados nos formatos compatíveis com NTLM e Kerberos. 
+
+Para contas de usuário sincronizadas do AD local usando o Sincronização do Azure AD Connect, é necessário [configurar o Azure AD Connect para sincronizar os hashes de senha nos formatos compatíveis com Kerberos e NTLM](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+
+Os hashes de senha compatíveis com Kerberos e NTLM são sempre armazenados de forma criptografada no Azure AD. Esses hashes são criptografados, de modo que somente o Azure AD Domain Services tem acesso às chaves de descriptografia. Nenhum outro serviço ou componente no Azure AD tem acesso às chaves de descriptografia. As chaves de criptografia são exclusivas por locatário do Azure AD. O Azure AD Domain Services sincroniza os hashes de senha nos controladores de domínio para seu domínio gerenciado. Esses hashes de senha são armazenados e protegidos nesses controladores de domínio semelhantes a como as senhas são armazenadas e protegidas em controladores de domínio do AD do Windows Server. Os discos para esses controladores de domínio gerenciado são criptografados em repouso.
 
 ## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Objetos que não são sincronizados com seu locatário do Azure AD do seu domínio gerenciado
 Conforme descrito em uma seção anterior deste artigo, há uma sincronização de seu domínio gerenciado para seu locatário do Azure AD. Você pode optar por [criar uma UO (unidade organizacional) personalizada](active-directory-ds-admin-guide-create-ou.md) em seu domínio gerenciado. Além disso, você pode criar outras OUs, usuários, grupos ou contas de serviço nessas OUs personalizadas. Nenhum dos objetos criados em OUs personalizadas é sincronizado de volta para seu locatário do Azure AD. Esses objetos estão disponíveis para uso somente dentro de seu domínio gerenciado. Portanto, esses objetos não são visíveis usando cmdlets do PowerShell do Azure AD, a API do Graph do Azure AD ou usando o interface do usuário de gerenciamento do Azure AD.

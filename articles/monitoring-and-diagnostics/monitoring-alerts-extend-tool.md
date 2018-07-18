@@ -1,76 +1,64 @@
 ---
-title: Como estender (copiar) alertas do Portal do OMS para o Azure | Microsoft Docs
-description: Ferramentas e API pelas quais os alertas estendidos da OMS para o Azure Alerts podem ser feitos por clientes voluntariamente.
+title: Estender alertas do Log Analytics para o Azure
+description: Este artigo descreve as ferramentas e a API pelas quais você pode estender alertas do Log Analytics para os Alertas do Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: vinagara
-ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.component: alerts
+ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166175"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301024"
 ---
-# <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Como estender (copiar) alertas do OMS para o Azure
-A partir de **14 de maio de 2018**, todos os clientes que usam alertas que estão configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) serão estendidos para o Azure. Os alertas que são estendidos para o Azure comportam-se da mesma maneira que no OMS. O monitoramento de recursos permanece intacto. Estender os alertas criados no OMS para o Azure fornece muitos benefícios. Para saber mais sobre as vantagens e o processo de estender alertas do OMS para o Azure, veja [Estender alertas do OMS para o Azure](monitoring-alerts-extend.md).
+# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
+O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas do Azure. Como parte dessa transição, os alertas que você configurou originalmente no Log Analytics serão estendidos para o Azure. Caso não queira aguardar até que os alertas sejam movidos automaticamente para o Azure, você poderá iniciar o processo:
+
+- Manualmente do portal do Microsoft Operations Management Suite. 
+- Programaticamente usando a API AlertsVersion.  
 
 > [!NOTE]
-> A partir de 14 de maio de 2018 a Microsoft iniciará o processo de estender automaticamente os alertas para o Azure. Nem todos os espaços de trabalho e alertas serão estendidos nesse dia; em vez disso, a Microsoft começará a estender alertas automaticamente em partes nas próximas semanas. Portanto, alertas no portal do OMS não serão estendidos automaticamente no Azure imediatamente em 14 de maio de 2018, e o usuário poderá ainda estender manualmente seus alertas usando as opções detalhadas abaixo.
+> A Microsoft estenderá automaticamente alertas criados no Log Analytics para os Alertas do Azure, a partir de 14 de maio de 2018, em uma série recorrente até que seja concluída. A Microsoft agenda a migração dos alertas para o Azure e, durante essa transição, os alertas poderão ser gerenciados no portal do Microsoft Operations Management Suite e no portal do Azure. Esse processo não é destrutivo nem interruptivo.  
 
-Os clientes que desejam mover seus alertas do OMS para o Azure imediatamente podem fazer isso usando uma das opções indicadas.
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opção 1: iniciar a partir do conjunto do portal do Operations Management Suite
+As etapas a seguir descrevem como estender alertas para o espaço de trabalho do portal do Operations Management Suite.  
 
-## <a name="option-1---using-oms-portal"></a>Opção 1: Uso do portal do OMS
-Para iniciar voluntariamente a extensão de alertas do Portal OMS para o Azure, siga as etapas listadas abaixo.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+2. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e, em seguida, selecione o bloco **Portal do OMS**.
+![Captura de tela do painel de assinaturas do Log Analytics, com o bloco do portal do OMS realçado](./media/monitor-alerts-extend/azure-portal-01.png) 
+3. Depois que for redirecionado para o portal do Operations Management Suite, selecione o ícone **Configurações**.
+![Captura de tela do portal do Operations Management Suite, com o ícone Configurações realçado](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+4. Na página **Configurações**, selecione **Alertas**.  
+5. Selecione **Estender para o Azure**.
+![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com Estender para o Azure realçado](./media/monitor-alerts-extend/ExtendInto.png)
+6. Um assistente de três etapas é exibido no painel **Alertas**. Leia a visão geral e selecione **Avançar**.
+![Captura de tela da etapa 1 do assistente](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. Na segunda etapa, você verá um resumo das alterações propostas, listando [grupos de ações](monitoring-action-groups.md) para os alertas. Se ações semelhantes forem vistas em mais de um alerta, o assistente propõe associar um único grupo de ação a todos eles.  A convenção de nomenclatura é a seguinte: *WorkspaceName_AG_#Number*. Para continuar, selecione **Avançar**.
+![Captura de tela da etapa 2 do assistente](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. Na última etapa do assistente, selecione **Concluir** e, quando solicitado, confirme para iniciar o processo. Opcionalmente, é possível fornecer um endereço de email para ser notificado quando o processo for concluído e todos os alertas tiverem sido movidos com êxito para os Alertas do Azure.
+![Captura de tela da etapa 3 do assistente](./media/monitor-alerts-extend/ExtendStep3.png)
 
-1. Na página Visão geral do Portal OMS, vá até Configurações e, em seguida, na seção Alertas. Clique no botão "Estender no Azure", como destacado na ilustração a seguir.
-
-    ![Página de configurações de alerta do Portal OMS com a opção de extensão](./media/monitor-alerts-extend/ExtendInto.png)
-
-2. Depois que o botão é clicado, um Assistente de 3 etapas será mostrado, com a primeira etapa fornecendo detalhes do processo. Pressione Avançar para continuar.
-
-    ![Estender Alertas do Portal do OMS para o Azure – Etapa 1](./media/monitor-alerts-extend/ExtendStep1.png)
-
-3. Na segunda etapa, o sistema mostrará um resumo da alteração proposta listando os [Grupos de Ação](monitoring-action-groups.md) apropriados para os alertas do Portal do OMS. Se ações semelhantes forem vistas em mais de um alerta, o sistema proporá associar a todos eles um único grupo de ação.  O grupo de ação proposto segue a convenção de nomenclatura: *Espaçodetrabalho_GrupodeAção_Número*. Para continuar, clique em Avançar.
-Uma tela de exemplo abaixo.
-
-    ![Estender Alertas do Portal do OMS para o Azure – Etapa 2](./media/monitor-alerts-extend/ExtendStep2.png)
-
-
-4. Na última etapa do assistente, você pode pedir para o Portal do OMS agendar a extensão de todos os alertas no Azure criando novos grupos de ação e associá-los a alertas, conforme mostrado na imagem anterior. Para prosseguir, clique em Concluir e confirme o aviso para iniciar o processo. Opcionalmente, os clientes também podem fornecer endereços de email para os quais eles gostariam que o Portal do OMS enviasse um relatório para terminar o processamento.
-
-    ![Estender Alertas do Portal do OMS para o Azure – Etapa 3](./media/monitor-alerts-extend/ExtendStep3.png)
-
-5. Depois que o assistente for concluído, o controle retornará para a página de configurações de alerta e a opção "Estender no Azure" será removida. Em segundo plano, o Portal do OMS agendará alertas no Log Analytics para serem estendidos para o Azure. Isso pode levar algum tempo e quando a operação é iniciada por um breve período, os alertas do Portal do OMS não estarão disponíveis para modificação. O status atual será mostrado por meio de faixa e, se os endereços de email tiverem sido fornecidos durante a etapa 4, eles serão informados quando o processo em segundo plano conseguir estender todos os alertas para o Azure. 
-
-6. Os alertas continuarão a ser listados no Portal do OMS, mesmo depois de serem estendidos para o Azure.
-
-    ![Depois de estender alertas do Portal do OMS para o Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Quando o assistente for concluído, na página **Configurações de Alerta**, a opção de estender alertas para o Azure será removida. Em segundo plano, seus alertas serão movidos para o Azure e isso poderá demorar algum tempo. Durante a operação, não será possível fazer alterações nos alertas do portal do Operations Management Suite. Você poderá ver o status atual da faixa na parte superior do portal. Se você forneceu um endereço de email anteriormente, receberá um email quando o processo for concluído com êxito.  
 
 
-## <a name="option-2---using-api"></a>Opção 2: Uso da API
-Para os clientes que quiserem controlar ou automatizar programaticamente o processo de estender alertas do Portal do OMS para o Azure, a Microsoft forneceu uma nova API AlertsVersion no Log Analytics.
+Os alertas continuarão sendo listados no portal do Operations Management Suite, mesmo após terem sido movidos com êxito para o Azure.
+![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite](./media/monitor-alerts-extend/PostExtendList.png)
 
-A API AlertsVersion do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API. A API produzirá resultados no formato JSON, permitindo o uso dos resultados da pesquisa de diferentes maneiras por meio de programação.
 
-Ao usar GET na API, será possível obter nos resultados o resumo da alteração proposta, como lista dos [Grupos de Ação](monitoring-action-groups.md) apropriados para os alertas no Portal do OMS, em formato JSON. Se ações semelhantes forem vistas em mais de um alerta, o sistema proporá criar associação de todos eles a um único grupo de ação.  O grupo de ação proposto segue a convenção de nomenclatura: *Espaçodetrabalho_GrupodeAção_Número*.
+## <a name="option-2-use-the-alertsversion-api"></a>Opção 2: usar a API AlertsVersion
+É possível usar a API do Log Analytics AlertsVersion para estender alertas do Log Analytics para os Alertas do Azure de qualquer cliente que possa chamar a API REST. Você pode acessar a API do PowerShell usando [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre. É possível gerar os resultados em JSON.  
+
+Para usar a API, primeiro você cria uma solicitação GET. Isso avalia e retorna ao resumo das alterações propostas, antes de tentar realmente estender para o Azure usando uma solicitação POST. Os resultados listam os alertas e uma lista proposta dos [grupos de ações](monitoring-action-groups.md), no formato JSON. Se ações semelhantes forem vistas em mais de um alerta, o serviço proporá associá-las a um único grupo de ações. A convenção de nomenclatura é a seguinte: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-> [!NOTE]
-> A chamada de GET à API não fará os alertas do Portal do OMS serem estendidos para o Azure. Ele apenas fornecerá como resposta o resumo das alterações propostas. Para confirmar que essas alterações serão feitas para estender os alertas no Azure, uma chamada POST precisa ser feita para a API.
-
-Se a chamada GET para a API for bem-sucedida, junto com 200 respostas de OK, será fornecida uma lista JSON de alertas com os grupos de ação propostos. Veja abaixo uma resposta de exemplo:
+Se a solicitação GET tiver êxito, um código de status HTTP 200 será retornado, junto com uma lista de alertas e grupos de ações propostos nos dados JSON. A seguir, um exemplo de resposta:
 
 ```json
 {
@@ -127,7 +115,7 @@ Se a chamada GET para a API for bem-sucedida, junto com 200 respostas de OK, ser
 }
 
 ```
-No caso, não há alertas no espaço de trabalho especificado, junto com 200 respostas OK para a operação GET, o JSON seria:
+Se o espaço de trabalho especificado não tiver nenhuma regra de alerta definida, os dados JSON retornarão o seguinte:
 
 ```json
 {
@@ -136,14 +124,15 @@ No caso, não há alertas no espaço de trabalho especificado, junto com 200 res
 }
 ```
 
-Se todos os alertas no espaço de trabalho especificado já tiverem sido estendidos para o Azure, a resposta para a chamada GET seria:
+Se todas as regras de alerta no espaço de trabalho especificado já tiverem sido estendidas ao Azure, a resposta à solicitação GET será:
+
 ```json
 {
     "version": 2
 }
 ```
 
-Para iniciar o agendamento da extensão dos alertas no Portal do OMS para o Azure, inicie um POST para a API. Fazer essa chamada/comando confirma a intenção do usuário, bem como a aceitação para que seus alertas no Portal do OMS sejam estendidos para o Azure e que as alterações sejam executadas conforme o indicado na resposta da chamada GET para a API. Opcionalmente, o usuário pode fornecer uma lista de endereços de email para o qual o Portal do OMS enviará um relatório, quando o processo em segundo plano agendado de estender os alertas no OMS para o Azure for concluído com êxito.
+Para iniciar a migração dos alertas para o Azure, inicie a resposta POST. A resposta do POST confirma a intenção, bem como a aceitação, de ter alertas estendidos do Log Analytics para os Alertas do Azure. A atividade é agendada e os alertas são processados conforme indicado, com base nos resultados quando você executou a resposta GET anteriormente. Opcionalmente, é possível fornecer uma lista de endereços de email para os quais o Log Analytics enviará um relatório quando o processo agendado de migração dos alertas for concluído com êxito. Você pode usar o exemplo de solicitação a seguir:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -151,17 +140,17 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> O resultado de estender alertas do Portal do OMS para o Azure pode variar do resumo fornecido por GET devido a qualquer alteração feita no sistema. Depois do agendamento, os alertas do Portal do OMS estarão temporariamente indisponíveis para edição/modificação embora novos alertas possam ser criados. 
+> O resultado da migração de alertas para os Alertas do Azure pode variar com base no resumo fornecido pela resposta GET. Quando agendados, os alertas no Log Analytics ficam temporariamente indisponíveis para modificação no portal do Operations Management Suite. No entanto, é possível criar novos alertas. 
 
-Se o POST for bem-sucedido, ele deverá retornar 200 respostas OK juntamente com:
+Se a solicitação POST tiver êxito, ela retornará um status HTTP 200 OK, junto com a resposta a seguir:
+
 ```json
 {
     "version": 2
 }
 ```
-Indicação de que os alertas foram estendidos para o Azure, conforme indicado pela versão 2. Esta versão é apenas para verificar se os alertas foram estendidos para o Azure e não tem nenhuma diferença de uso com a [API de pesquisa do Log Analytics](../log-analytics/log-analytics-api-alerts.md). Depois que os alertas são estendidos para o Azure com êxito, todos os endereços de email fornecido durante o GET receberão um relatório com os detalhes das alterações feitas.
 
-E, finalmente, se todos os alertas no espaço de trabalho especificado já estiverem programados para serem estendidos para o Azure, a resposta para POST será 403 Proibido. Para exibir qualquer mensagem de erro ou entender se o processo de extensão está travado, o usuário pode realizar uma chamada GET e mensagem de erro caso algum vá ser retornado junto com o resumo.
+Essa resposta indica que os alertas foram estendidos com êxito para os Alertas do Azure. A propriedade de versão serve apenas para verificar se os alertas foram estendidos para o Azure e não têm relação com a [API de Pesquisa do Log Analytics](../log-analytics/log-analytics-api-alerts.md). Quando os alertas são estendidos ao Azure com êxito, todos os endereços de email fornecidos com a solicitação POST serão enviados para o relatório. Se todos os alertas no espaço de trabalho especificado já estiverem agendados para serem estendidos, a resposta à solicitação POST será de que a tentativa foi proibida (para o código de status 403). Para exibir qualquer mensagem de erro ou reconhecer se o processo está paralisado, você poderá enviar para a solicitação GET. Se houver uma mensagem de erro, ela será retornada junto com as informações de resumo.
 
 ```json
 {
@@ -224,35 +213,271 @@ E, finalmente, se todos os alertas no espaço de trabalho especificado já estiv
 
 ```
 
+
+## <a name="option-3-use-a-custom-powershell-script"></a>Opção 3: usar um script do PowerShell personalizado
+ Se a Microsoft não tiver estendido com êxito os alertas do portal do Operations Management Suite para o Azure, você poderá fazê-lo manualmente até 5 de julho de 2018. As duas opções de extensão manual são abordadas nas duas seções anteriores.
+
+Após 5 de julho de 2018, todos os alertas do portal do Operations Management Suite serão estendidos para o Azure. Os usuários que não realizarem as [etapas de correção necessárias sugeridas ](#troubleshooting) terão seus alertas em execução sem ações de acionamento ou notificações devido à falta de [grupos de ações](monitoring-action-groups.md) associados. 
+
+Para criar manualmente [grupos de ações](monitoring-action-groups.md) para alertas no Log Analytics, use o script de exemplo a seguir:
+```PowerShell
+########## Input Parameters Begin ###########
+
+
+$subscriptionId = ""
+$resourceGroup = ""
+$workspaceName = "" 
+
+
+########## Input Parameters End ###########
+
+armclient login
+
+try
+{
+    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
+    $workspaceId = $workspace.properties.customerId
+    $resourceLocation = $workspace.location
+}
+catch
+{
+    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
+    exit
+}
+
+# Get Extend Summary of the Alerts
+"`nGetting Extend Summary of Alerts for the workspace...`n"
+try
+{
+
+    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
+
+    "Extend preview summary"
+    "=========================`n"
+
+    $value
+
+    $result = $value | ConvertFrom-Json
+}
+catch
+{
+
+    $ErrorMessage = $_.Exception.Message
+    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    exit 
+}
+
+if ($result.version -eq 2)
+{
+    "`nThe alerts in this workspace have already been extended to Azure."
+    exit
+}
+
+$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
+
+if ($in.ToLower() -ne "y")
+{
+    exit
+} 
+
+
+# Check for resource provider registration
+try
+{
+    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
+    if ($val.registrationState -eq "NotRegistered")
+    {
+        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
+    }
+}
+catch
+{
+    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
+    exit
+}
+
+$actionGroupsMap = @{}
+try
+{
+    "`nCreating new action groups for alerts extension...`n"
+    foreach ($actionGroup in $result.migrationSummary.actionGroups)
+    {
+        $actionGroupName = $actionGroup.actionGroupName
+        $actions = $actionGroup.actions
+        if ($actionGroupsMap.ContainsKey($actionGroupName))
+        {
+            continue
+        } 
+        
+        # Create action group payload
+        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
+        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
+        $emailReceivers = New-Object Object[] $actions.emailIds.Count
+        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
+        
+        $count = 0
+        foreach ($email in $actions.emailIds)
+        {
+            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
+            $count++
+        }
+
+        $count = 0
+        foreach ($webhook in $actions.webhookActions)
+        {
+            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
+            $count++
+        }
+
+        $itsmAction = $actions.itsmAction
+        if ($itsmAction.connectionId -ne $null)
+        {
+            $val = @{
+            "name" = "ITSM"
+            "workspaceId" = "$subscriptionId|$workspaceId"
+            "connectionId" = "$($itsmAction.connectionId)"
+            "ticketConfiguration" = $itsmAction.templateInfo
+            "region" = "$resourceLocation"
+            }
+            $properties["itsmReceivers"] = @($val)  
+        }
+
+        $properties["emailReceivers"] = @($emailReceivers)
+        $properties["webhookReceivers"] = @($webhookReceivers)
+        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
+
+    
+        # Azure Resource Manager call to create action group
+        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
+
+        "Created Action Group with name $actionGroupName" 
+        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
+        $index++
+    }
+
+    "`nSuccessfully created all action groups!!"
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message
+
+    #Delete all action groups in case of failure
+    "`nDeleting newly created action groups if any as some error happened..."
+    
+    foreach ($actionGroup in $actionGroupsMap.Keys)
+    {
+        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+    }
+
+    "`nError: $ErrorMessage"
+    "`nExiting..."
+    exit
+}
+
+# Update all alerts configuration to the new version
+"`nExtending OMS alerts to Azure...`n"
+
+try
+{
+    $index = 1
+    foreach ($alert in $result.migrationSummary.alerts)
+    {
+        $uri = $alert.alertId + "?api-version=2015-03-20"
+        $config = armclient get $uri | ConvertFrom-Json
+        $aznsNotification = @{
+            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
+        }
+        if ($alert.customWebhookPayload)
+        {
+            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
+        }
+        if ($alert.customEmailSubject)
+        {
+            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
+        }      
+
+        # Update alert version
+        $config.properties.Version = 2
+
+        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
+        $payload = $config | ConvertTo-Json -Depth 4
+        $response = $payload | armclient put $uri
+    
+        "Extended alert with name $($alert.alertName)"
+        $index++
+    }
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message   
+    if ($index -eq 1)
+    {
+        "`nDeleting all newly created action groups as no alerts got extended..."
+        foreach ($actionGroup in $actionGroupsMap.Keys)
+        {
+            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+        }
+        "`nDeleted all action groups."  
+    }
+    
+    "`nError: $ErrorMessage"
+    "`nPlease resolve the issue and try extending again!!"
+    "`nExiting..."
+    exit
+}
+
+"`nSuccessfully extended all OMS alerts to Azure!!" 
+
+# Update version of workspace to indicate extension
+"`nUpdating alert version information in OMS workspace..." 
+
+$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
+
+"`nExtension complete!!"
+```
+
+
+### <a name="about-the-custom-powershell-script"></a>Sobre o script do PowerShell personalizado 
+A seguir, informações importantes sobre o uso do script:
+- Um pré-requisito é a instalação do [ARMclient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager.
+- Para executar o script, é necessário ter uma função de colaborador ou proprietário na assinatura do Azure.
+- Você deverá fornecer os parâmetros a seguir:
+    - $subscriptionId: a ID de Assinatura do Azure associada ao espaço de trabalho do Log Analytics do Operations Management Suite.
+    - $resourceGroup: o espaço de trabalho do Grupo de Recursos do Azure para o espaço de trabalho do Log Analytics do Operations Management Suite.
+    - $workspaceName: o nome do espaço de trabalho do Log Analytics do Operations Management Suite.
+
+### <a name="output-of-the-custom-powershell-script"></a>Saída do script do PowerShell personalizado
+O script é detalhado e emite as etapas conforme é executado: 
+- Também exibe o resumo, contendo informações sobre os alertas existentes do Log Analytics do Operations Management Suite no espaço de trabalho. O resumo também contém informações sobre os grupos de ações do Azure a serem criados para as ações associadas a eles. 
+- Você será solicitado a prosseguir com a extensão ou sair após visualizar o resumo.
+- Se você prosseguir com a extensão, novos grupos de ações do Azure serão criados e todos os alertas existentes serão associados a eles. 
+- O script sai exibindo a mensagem "Extensão concluída!" Em caso de falhas intermediárias, o script exibirá erros subsequentes.
+
 ## <a name="troubleshooting"></a>solução de problemas 
-Durante o processo de estender alertas do OMS no Azure, pode haver problemas ocasionais que impedem que o sistema crie [Grupos de Ação](monitoring-action-groups.md) necessários. Nesses casos, uma mensagem de erro será mostrada no portal do OMS por meio de um banner na seção Alerta e na chamada GET feita à API.
+Durante o processo de extensão de alertas, os problemas podem impedir que o sistema crie os [grupos de ações](monitoring-action-groups.md). Nesses casos, você vê uma mensagem de erro em uma faixa na seção **Alerta** do portal do Operations Management Suite ou na chamada GET feita para a API.
 
-As etapas de correção para cada erro são listadas abaixo:
-1. **Erro: a assinatura não está registrada para usar o namespace 'microsoft.insights'**:  ![Página de Configurações de Alerta do portal do OMS com a mensagem de erro de registro](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+> [!IMPORTANT]
+> Se você não executar as etapas de correção a seguir antes de 5 de julho de 2018, os alertas serão executados no Azure, mas não acionarão nenhuma ação ou notificação. Para receber notificações de alertas, será necessário editar manualmente e adicionar [grupos de ações](monitoring-action-groups.md) ou usar o script do [ PowerShell personalizado](#option-3---using-custom-powershell-script).
 
-    a. A assinatura associada ao seu espaço de trabalho do OMS - não foi registrado para usar a funcionalidade do Azure Monitor (microsoft.insights); devido ao OMS não poder estender alertas ao Azure Monitor e Alertas.
-    
-    b. Para resolver, registre o uso de microsoft.insights (Azure Monitor e Alertas) na sua assinatura usando o Powershell, a CLI do Azure ou o Portal do Azure. Para saber mais, veja o artigo em [Resolvendo erros de registro do provedor de recursos](../azure-resource-manager/resource-manager-register-provider-errors.md)
-    
-    c. Depois de resolvidos de acordo com as etapas ilustradas no artigo, o OMS estenderá seus alertas ao Azure na execução agendada do dia seguinte; sem a necessidade de qualquer ação ou o iniciação.
-2. **Erro: o Bloqueio de Escopo está presente no nível do grupo de recursos/assinatura para operações de gravação**: ![Página de Configurações de Alerta do portal do OMS com a mensagem de erro ScopeLock](./media/monitor-alerts-extend/ErrorScopeLock.png)
+A seguir são apresentadas as etapas de correção para cada erro:
+- **Erro: o bloqueio de escopo está presente no nível de grupo de recursos/assinatura para operações de gravação**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com a mensagem de erro Bloqueio de Escopo realçada](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. Quando o Bloqueio de Escopo está habilitado, restringindo qualquer alteração na assinatura ou grupo de recursos que contenha o espaço de trabalho do Log Analytics (OMS); o sistema não consegue estender (copiar) alertas ao Azure e criar grupos de ações necessários.
+    Quando o Bloqueio de Escopo estiver habilitado, o recurso restringirá qualquer alteração na assinatura ou no grupo de recursos que contém o espaço de trabalho Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
     
-    b. Para resolver, exclua o bloqueio *ReadOnly* na sua assinatura ou grupo de recursos que contenha o espaço de trabalho; usando o Portal do Azure, o Powershell, a CLI do Azure ou a API. Para saber mais, veja o artigo sobre o [uso do bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md). 
+    Para resolver, exclua o bloqueio *ReadOnly* na assinatura ou grupo de recursos que contém o espaço de trabalho. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Para saber mais, consulte [uso de bloqueio de recurso](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. Depois de resolvidos de acordo com as etapas ilustradas no artigo, o OMS estenderá seus alertas ao Azure na execução agendada do dia seguinte; sem a necessidade de qualquer ação ou o iniciação.
+    Quando você resolve o erro usando as etapas ilustradas no artigo, o Operations Management Suite estenderá os alertas para o Azure na execução agendada do dia seguinte. Não será necessário tomar mais nenhuma ação nem iniciar nada.
 
-3. **Erro: a política está presente no nível do grupo de recursos/assinatura**: ![Página de Configurações de Alerta do portal do OMS com a mensagem de Erro Política](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Erro: Policy está presente no nível de grupo de recursos/assinatura**:   ![Captura de tela da página Configurações de Alerta do portal do Operations Management Suite, com mensagem de erro de Policy realçada](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. Quando a [Azure Policy](../azure-policy/azure-policy-introduction.md) é aplicada, restringindo qualquer novo recurso na assinatura ou grupo de recursos que contenha o espaço de trabalho do Log Analytics (OMS), o sistema não consegue estender (copiar) alertas para o Azure e criar grupos de ações necessários.
+    Quando o [Azure Policy](../azure-policy/azure-policy-introduction.md) for aplicado restringirá qualquer novo recurso em um grupo de recursos ou assinatura que contenha o espaço de trabalho do Log Analytics (Operations Management Suite). O sistema não pode estender alertas para o Azure e criar grupos de ações necessários.
     
-    b. Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, que evita a criação de novos recursos em sua assinatura ou grupo de recursos contendo o espaço de trabalho. Usando o Portal do Azure, o Powershell, a CLI do Azure ou uma API, é possível auditar ações para localizar a política apropriada que está causando a falha. Para saber mais, exiba o artigo em [exibindo logs de atividades para auditar as ações](../azure-resource-manager/resource-group-audit.md). 
+    Para resolver, edite a política que está causando o erro *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, o que impede a criação de novos recursos no grupo de recursos ou assinatura que contém o espaço de trabalho. É possível fazer isso usando o portal do Azure, o PowerShell, a CLI do Azure ou a API. Você pode auditar ações para localizar a política apropriada que está causando falhas. Para saber mais, consulte [visualizando logs de atividades para auditar ações](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Depois de resolvidos de acordo com as etapas ilustradas no artigo, o OMS estenderá seus alertas ao Azure na execução agendada do dia seguinte; sem a necessidade de qualquer ação ou o iniciação.
+    Quando você resolve o erro usando as etapas ilustradas no artigo, o Operations Management Suite estenderá os alertas para o Azure na execução agendada do dia seguinte. Não será necessário tomar mais nenhuma ação nem iniciar nada.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a nova [experiência de alertas do Azure](monitoring-overview-unified-alerts.md).
+* Saiba mais sobre a nova [experiência de Alertas do Azure](monitoring-overview-unified-alerts.md).
 * Saiba mais sobre os [Alertas de log nos Alertas do Azure](monitor-alerts-unified-log.md).

@@ -2,17 +2,18 @@
 title: Usar Discos do Azure com AKS
 description: Usar discos do Azure com AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: iainfou
+ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095919"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumes persistentes com discos do Azure
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Declarações de volume persistentes são especificadas em GiB, mas os discos gerenciados do Azure são cobrados por SKU para um tamanho específico. Essas SKUs variam de 32GiB para discos S4 ou P4 discos a 4TiB para discos S50 ou P50. Além disso, a taxa de transferência e o desempenho de IOPS de um disco gerenciado Premium depende da SKU e do tamanho da instância dos nós no cluster do AKS. Confira [Preços e desempenho do Managed Disks][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Criar declaração de volume persistente
 
 Um PVC (declaração de volume persistente) é usado para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar uma das classes de armazenamento pré-criadas para criar um disco gerenciado standard ou premium do Azure.
 
-Crie um arquivo chamado `azure-premimum.yaml` e copie-o para o manifesto a seguir.
+Crie um arquivo chamado `azure-premium.yaml` e copie-o para o manifesto a seguir.
 
 Observe que a classe de armazenamento `managed-premium` é especificada na anotação e a declaração solicita um disco de `5GB` com acesso `ReadWriteOnce`.
 
@@ -63,7 +67,7 @@ spec:
 Crie a declaração de volume persistente com o comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Usando o volume persistente
@@ -103,16 +107,17 @@ Agora você tem um pod em execução com o disco do Azure montado no diretório 
 Saiba mais sobre volumes persistentes Kubernetes usando os discos do Azure.
 
 > [!div class="nextstepaction"]
-> [Plug-in do Kubernetes para discos do Azure][kubernetes-disk]
+> [Plug-in do Kubernetes para discos do Azure][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

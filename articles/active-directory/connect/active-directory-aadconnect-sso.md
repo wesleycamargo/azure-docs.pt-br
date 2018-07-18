@@ -4,7 +4,7 @@ description: Este tópico descreve o Logon Único Contínuo do Azure AD (Azure A
 services: active-directory
 keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916159"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -60,7 +62,7 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|sim|Não|sim|Sim\*|N/D
+|Windows 10|sim|Não |sim|Sim\*|N/D
 |Windows 8.1|sim|N/D|sim|Sim\*|N/D
 |Windows 8|sim|N/D|sim|Sim\*|N/D
 |Windows 7|sim|N/D|sim|Sim\*|N/D

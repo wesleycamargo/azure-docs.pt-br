@@ -1,13 +1,13 @@
 ---
-title: "Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure | Microsoft Docs"
-description: "Alta disponibilidade de vários SIDs para instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure"
+title: Alta disponibilidade de vários SIDs da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure | Microsoft Docs
+description: Alta disponibilidade de vários SIDs para instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656723"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -224,7 +225,7 @@ Este artigo aborda como passar de uma instalação ASCS/SCS única para uma conf
 
 Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Você já configurou um cluster WSFC utilizado para uma instância SAP ASCS/SCS usando o **compartilhamento de arquivos**, conforme mostrado neste diagrama.
 

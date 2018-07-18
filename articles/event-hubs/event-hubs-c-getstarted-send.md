@@ -14,18 +14,19 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807808"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Enviar eventos para Hubs de Eventos do Azure usando C
 
 ## <a name="introduction"></a>Introdução
 Os Hubs de Eventos são um sistema de ingestão altamente escalonável que pode ingerir milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em um hub de eventos, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
-Para mais informações, consulte [Visão geral de Hubs de Eventos](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
+Para mais informações, consulte [Visão geral de Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
 Este tutorial descreve como enviar eventos para um hub de eventos usando um aplicativo de console em C. Para saber mais sobre o recebimento de eventos, clique na linguagem de recebimento apropriada no sumário à esquerda.
 

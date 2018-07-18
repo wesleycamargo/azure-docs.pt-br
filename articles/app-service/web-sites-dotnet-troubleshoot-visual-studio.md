@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30266131"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo Web no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -683,7 +684,7 @@ Além disso, você não precisa usar ASP.NET ou `System.Diagnostics` rastreament
 Para obter mais informações sobre como analisar logs de servidor web, consulte os seguintes recursos:
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Uma ferramenta para exibir dados em logs de servidor Web (arquivos*.log* ).
+  Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log* ).
 * [Solução de problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

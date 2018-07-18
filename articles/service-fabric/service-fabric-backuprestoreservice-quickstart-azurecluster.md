@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236113"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e restauração periódicos do Azure Service Fabric (Versão Prévia)
 > [!div class="op_single_selector"]
@@ -117,13 +118,13 @@ Vamos percorrer as etapas para habilitar o backup periódico do serviço confiá
 
 A primeira etapa é criar a política de backup que descreve a agenda de backup, o armazenamento de destino para os dados de backup, o nome da política e o máximo de backups incrementais permitidos antes de disparar o backup completo. 
 
-Para armazenamento de backup, use a conta de Armazenamento do Azure criada acima. Este exemplo supõe a existência de uma conta de Armazenamento do Azure com o nome `sfbackupstore`. O contêiner `backup-container` está configurado para armazenar os backups; o contêiner com esse nome será criado, se ainda não existir, durante o upload do backup. Popule `ConnectionString` com a cadeia de conexão válida para a conta de Armazenamento do Azure.
+Para armazenamento de backup, use a conta de Armazenamento do Azure criada acima. O contêiner `backup-container` está configurado para armazenar backups. Um contêiner com esse nome é criado, caso ainda não exista, durante o carregamento de backup. Preencha `ConnectionString` com uma cadeia de conexão válida para a conta de Armazenamento do Azure, substituindo `account-name` por seu nome de conta de armazenamento, e `account-key` por sua chave de conta de armazenamento.
 
-Execute o seguinte script do PowerShell para invocar a API REST necessária para criar nova política.
+Execute o seguinte script do PowerShell para invocar a API REST necessária para criar nova política. Substitua `account-name` pelo nome da sua conta de armazenamento, e `account-key` pela sua chave de conta de armazenamento.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

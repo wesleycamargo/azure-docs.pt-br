@@ -1,27 +1,25 @@
 ---
-title: Limites de Cota do Azure Data Lake Analytics
-description: Saiba como ajustar e aumentar os limites de cota nas contas do ADLA (Azure Data Lake Analytics).
+title: Ajustar cotas e limites no Azure Data Lake Analytics
+description: Saiba como ajustar e aumentar cotas e limites em contas do ADLA (Azure Data Lake Analytics).
 services: data-lake-analytics
-keywords: Análise Azure Data Lake
-documentationcenter: ''
-author: omidm1
-editor: omidm1
-ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.topic: article
-ms.workload: big-data
-ms.date: 03/15/2018
+author: omidm1
 ms.author: omidm
-ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+editor: jasonwhowell
+manager: kfile
+ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
+ms.topic: conceptual
+ms.date: 03/15/2018
+ms.openlocfilehash: e493c45ef49d370bbf7d007e039b4102aaa3cdf0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199017"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623971"
 ---
-# <a name="azure-data-lake-analytics-quota-limits"></a>Limites de Cota do Azure Data Lake Analytics
+# <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar cotas e limites no Azure Data Lake Analytics
 
-Saiba como ajustar e aumentar os limites de cota nas contas do ADLA (Azure Data Lake Analytics). Conhecer esses limites pode ajudar você a entender o comportamento do seu trabalho U-SQL. Todos os limites de cota são flexíveis, portanto, é possível aumentar os limites máximos, contatando o suporte do Azure.
+Saiba como ajustar e aumentar as cotas e os limites em contas do ADLA (Azure Data Lake Analytics). Conhecer esses limites pode ajudar você a entender o comportamento do seu trabalho U-SQL. Todos os limites de cota são flexíveis, portanto, é possível aumentar os limites máximos, contatando o suporte do Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limites das assinaturas do Azure
 

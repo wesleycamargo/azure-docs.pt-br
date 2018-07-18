@@ -14,6 +14,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34056254"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Criar um runbook de Automação do Azure
 

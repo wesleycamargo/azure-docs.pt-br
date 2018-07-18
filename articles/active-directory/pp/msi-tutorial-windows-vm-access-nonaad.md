@@ -1,8 +1,8 @@
 ---
 title: Use um MSI de VM do Windows para acessar o Azure Key Vault
-description: "Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciado (MSI) de VM do Windows para acessar o Azure Key Vault."
+description: Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciado (MSI) de VM do Windows para acessar o Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 151a0a1fee72c7bd7adcda8e23ebb06d96e822ae
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f135d8560db8fc81c50bd63380751ac9d22580e9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610230"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usar o MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o Azure Key Vault 
 
@@ -42,7 +43,7 @@ Você aprenderá como:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 

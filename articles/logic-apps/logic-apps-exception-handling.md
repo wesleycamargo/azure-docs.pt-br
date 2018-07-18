@@ -4,7 +4,7 @@ description: Padrões para tratamento de erros e exceções em Aplicativos Lógi
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300055"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos
 
@@ -224,7 +225,7 @@ Aqui, está um passo a passo detalhado que descreve o que acontece nesse exemplo
 
 1. Para obter o resultado de todas as ações em “My_Scope”, a ação **Filtrar Matriz** filtra **@result('My_Scope')**.
 
-2. A condição de **Filtrar Matriz** é qualquer item **@result()**que tenha um status igual a **Com Falha**. Essa condição filtra a matriz de todos os resultados de ação de “My_Scope”, para uma matriz com apenas resultados de ação com falha.
+2. A condição de **Filtrar Matriz** é qualquer item **@result()** que tenha um status igual a **Com Falha**. Essa condição filtra a matriz de todos os resultados de ação de “My_Scope”, para uma matriz com apenas resultados de ação com falha.
 
 3. Execute uma ação de loop **For Each** nas saídas *matriz filtrada*. Esta etapa executa uma ação *para cada* resultado de ação com falha que foi filtrado anteriormente.
 

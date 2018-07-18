@@ -1,15 +1,15 @@
 ---
 title: Montar armazenamento de arquivos do Azure com base em uma VM do Windows Azure | Microsoft Docs
-description: "Armazene o arquivo na nuvem com o armazenamento de arquivos do Azure e monte o compartilhamento de arquivos de nuvem de uma VM (máquina virtual) do Azure."
-documentationcenter: 
+description: Armazene o arquivo na nuvem com o armazenamento de arquivos do Azure e monte o compartilhamento de arquivos de nuvem de uma VM (máquina virtual) do Azure.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577544"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Usar compartilhamentos de arquivos do Azure com VMs do Windows 
 

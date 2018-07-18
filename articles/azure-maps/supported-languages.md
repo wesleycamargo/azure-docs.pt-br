@@ -1,22 +1,19 @@
 ---
 title: Idiomas com suporte nosMapas do Azure | Microsoft Docs
 description: Saiba mais sobre idiomas com suporte para os serviços nos Mapas do Azure
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600231"
 ---
 # <a name="azure-maps-supported-languages"></a>Idiomas com suporte nos Mapas do Azure
 Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços.  A tabela a seguir fornece os códigos de idioma com suporte para cada serviço.  
@@ -56,7 +53,7 @@ Os Mapas do Azure foram traduzidos para variedade de idiomas nos serviços.  A t
 | lv-LV      | Letão                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | Malaio (latino)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Norueguês (Bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| nb-NO      | Norueguês bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Polonês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Português (Brasil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Português (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676079"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Criar um balanceador de carga interno para balancear cargas de VMs usando a CLI do Azure 2.0
 
@@ -46,7 +47,7 @@ Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *m
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -107,36 +108,9 @@ Uma regra de balanceador de carga define a configuração de IP de front-end par
 
 Antes de implantar algumas VMs e poder testar o balanceador de carga, crie os recursos de suporte de rede virtual.
 
-###  <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
-Crie um grupo de segurança de rede para definir conexões de entrada para sua rede virtual.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>Criar uma regra de grupo de segurança de rede
-
-Crie uma regra de grupo de segurança de rede para permitir conexões de entrada pela porta 80.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>Criar NICs
 
-Crie duas interfaces de rede com [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associe-as com o endereço IP privado e o grupo de segurança de rede. 
+Crie duas interfaces de rede com [az network nic create](/cli/azure/network/nic#az_network_nic_create) e associe-as com o endereço IP privado. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -145,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -248,7 +221,7 @@ Para obter o endereço IP do balanceador de carga, use [az network lb show](/cli
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![Testar o balanceador de carga](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

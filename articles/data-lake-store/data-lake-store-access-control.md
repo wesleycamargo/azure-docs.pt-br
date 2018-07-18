@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336934"
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controle de acesso no Azure Data Lake Store
 
@@ -279,7 +278,7 @@ Aqui estão algumas perguntas que surgem com frequência sobre ACLs no Data Lake
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Nº O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Store.
+Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Store.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente uma pasta e seu conteúdo?
 
@@ -326,7 +325,7 @@ Não, mas ACLs padrão pode ser usado para definir as ACLs de arquivos filho e r
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso saber mais sobre o modelo de controle de acesso do POSIX?
 
-* [Listas de controle de acesso POSIX no Linux](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [Listas de controle de acesso POSIX no Linux](https://www.linux.com/news/posix-acls-linux)
 
 * [Guia de permissão do HDFS](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 

@@ -3,7 +3,7 @@ title: Esquema de linguagem de definição de fluxo de trabalho - Aplicativo Ló
 description: Escreva definições de fluxo de trabalho personalizadas para os Aplicativos Lógicos do Azure usando a Linguagem de Definição de Fluxo de Trabalho
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775274"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300174"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definições de fluxo de trabalho dos Aplicativos Lógicos com o esquema de Linguagem de Definição de Fluxo de Trabalho
 
@@ -154,8 +154,8 @@ Estes exemplos mostram como as expressões são avaliadas:
 |------------|--------| 
 | "Sophia Owen" | Retornar estes caracteres: 'Sophia Owen' |
 | "array[1]" | Retornar estes caracteres: 'array[1]' |
-| "\@@\" | Retornar estes caracteres como uma cadeia de caracteres com um caractere: '@' |   
-| \" \@\" | Retornar estes caracteres como uma cadeia de caracteres com dois caracteres: ' @' |
+| "\@@\" | Retornar estes caracteres como uma cadeia de caracteres com um caractere: \'\@\' |   
+| \" \@\" | Retornar estes caracteres como uma cadeia de caracteres com dois caracteres: \' \@\' |
 |||
 
 Para esses exemplos, suponha que você defina "myBirthMonth" como "January" e "myAge" igual ao número 42:  
@@ -220,7 +220,8 @@ No caso de [expressões](#expressions) e [funções](#functions), os operadores 
 
 ## <a name="functions"></a>Funções
 
-Algumas expressões obtêm seus valores de ações de tempo de execução que podem ainda não existir quando o aplicativo lógico começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar *funções*. Por exemplo, é possível usar funções matemáticas para fazer cálculos, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que retorna a soma de números inteiros ou floats. 
+Algumas expressões obtêm seus valores de ações de tempo de execução que podem ainda não existir quando o aplicativo lógico começa a ser executado. Para referenciar ou trabalhar com esses valores em expressões, você pode usar [*funções*](../logic-apps/workflow-definition-language-functions-reference.md). Por exemplo, é possível usar funções matemáticas para fazer cálculos, como a função [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que retorna a soma de números inteiros ou floats. Para obter informações detalhadas sobre cada função, veja o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+Ou continue aprendendo sobre as funções e seu uso geral.
 
 Estas são apenas algumas tarefas de exemplo que podem ser executadas com funções: 
 

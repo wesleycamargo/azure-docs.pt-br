@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Um [Banco de Dados SQL](../articles/sql-database/sql-database-get-started.md) com suas informações de conexão, incluindo o nome do servidor, nome do banco de dados e nome de usuário e senha. Essas informações estão incluídas na cadeia de conexão do Banco de Dados SQL:
-  
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  
-    Saiba mais sobre o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database).
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678163"
+---
+* Se você estiver usando o banco de dados do SQL do Microsoft Azure, siga as etapas em [Conectar-se ao Banco de Dados SQL do Microsoft Azure](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Quando você cria um banco de dados SQL do Azure, também pode criar os bancos de dados de exemplo incluídos no SQL. 
-> 
-> 
+* Se você estiver usando o SQL Server, siga as etapas em [Conectar ao SQL Server](#connect-sql-server).
 
-Antes de usar o Banco de Dados SQL do Azure em um aplicativo lógico, conecte-se ao Banco de Dados SQL. Você pode fazer isso de forma fácil usando seu aplicativo lógico no portal do Azure.  
+<a name="connect-azure-sql-db"></a>
 
-Conecte ao seu Banco de Dados SQL do Azure usando as seguintes etapas:  
+### <a name="connect-to-azure-sql-database"></a>Conectar-se ao Banco de Dados SQL do Azure
 
-1. Crie um aplicativo lógico. No designer de Aplicativos Lógicos, adicione um gatilho e, em seguida, uma ação. Selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e digite "sql" na caixa de pesquisa. Selecione uma das ações:  
-   
-    ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Se ainda não tiver criado conexões com o Banco de Dados SQL, você deverá fornecer os detalhes de conexão:  
-   
-    ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Insira os detalhes do Banco de Dados SQL. As propriedades com um asterisco são obrigatórias.
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Conectar-se Usando Gateway |Deixe desmarcada. Essa propriedade é usada na conexão com um SQL Server local. |
-   | Nome da Conexão * |Digite um nome para a conexão. |
-   | Nome do SQL Server * |Insira o nome do servidor, que é algo como *servername.database.windows.net*. O nome do servidor é exibido nas propriedades do Banco de Dados SQL no portal do Azure e também na cadeia de conexão. |
-   | Nome do Banco de Dados SQL * |Insira o nome que você deu a seu Banco de Dados SQL. Ele está listado nas propriedades do Banco de Dados SQL na cadeia de conexão: Initial Catalog=*yoursqldbname*. |
-   | Nome de Usuário * |Insira o nome de usuário que você criou quando o Banco de Dados SQL foi criado. Ele está listado nas propriedades do Banco de Dados SQL no portal do Azure. |
-   | Senha * |Insira a senha que você criou quando o Banco de Dados SQL foi criado. |
-   
-    Essas credenciais são usadas para autorizar o aplicativo lógico a se conectar e acessar dados do SQL. Uma vez concluída, os detalhes da conexão se parecerão com estes:  
-   
-    ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Selecione **Criar**. 
-5. Observe que a conexão foi criada. Agora, continue com as outras etapas no seu aplicativo lógico: 
-   
-    ![Etapa de criação da conexão com o SQL Azure](./media/connectors-create-api-sqlazure/table.png)
+1. Quando o gatilho SQL ou a ação solicitar informações de conexão, siga estas etapas:
 
+   1. Forneça um nome para a sua conexão.
+
+   2. Selecione seu servidor SQL, em seguida, selecione seu banco de dados. 
+
+      A lista de banco de dados é exibida somente depois que você selecionar o SQL Server.
+ 
+   3. Forneça o nome de usuário e a senha de sua conta do Microsoft Azure.
+
+      Você pode encontrar essas informações no portal do Microsoft Azure em suas propriedades de banco de dados SQL ou em sua cadeia de conexão: 
+      
+      "ID de usuário = <*seunomedeusuário*>"
+      <br>
+      "Senha = <*sua senha*>"
+
+   Este exemplo mostra as informações de conexão para um gatilho, mas essas etapas também funcionam para as ações.
+
+   ![Ciar a conexão do Banco de Dados SQL do Microsoft Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Asteriscos (*) indicam valores necessários.
+
+   | Propriedade | Valor | Detalhes | 
+   |----------|-------|---------| 
+   | Nome da Conexão | <*my-sql-connection*> | O nome para a sua conexão | 
+   | Nome do SQL Server | <*my-sql-server*> | O nome para o seu SQL Server |
+   | Nome do Banco de Dados SQL | <*my-sql-database*>  | O nome para o seu banco de dados SQL | 
+   | Nome de Usuário | <*my-sql-username*> | Nome de usuário para acessar o banco de dados |
+   | Senha | <*my-sql-password*> | Senha para acessar o banco de dados | 
+   |||| 
+
+2. Quando terminar, escolha **Criar**.
+
+3. Depois de criar sua conexão, continue com [Adicionar gatilho SQL](#add-sql-trigger) ou [Adicionar ação SQL](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Conectar-se ao SQL Server
+
+Antes de selecionar seu gateway, verifique se você já [configurou seu gateway de dados](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Dessa forma, o gateway aparece na lista de gateways quando você criar sua conexão.
+
+1. Quando o gatilho SQL ou a ação solicitar informações de conexão, siga estas etapas:
+
+   1. No gatilho ou ação, selecione **Conectar por meio do gateway de dados locais** para que sejam exibidas as opções do SQL Server.
+
+   2. Forneça um nome para a sua conexão.
+
+   3. Forneça o endereço para o SQL Server e forneça o nome do banco de dados.
+   
+      Você pode encontrar essas informações em sua cadeia de conexão: 
+      
+      * "Server = <*yourServerAddress*>"
+      * "Database=<*yourDatabaseName*>"
+
+   4. Forneça o nome de usuário e a senha de sua conta do Microsoft Azure.
+
+      Você pode encontrar essas informações em sua cadeia de conexão: 
+      
+      * "ID de usuário = <*seunomedeusuário*>"
+      * "Senha = <*sua senha*>"
+
+   5. Se o SQL Server usa a autenticação básica ou do Windows, selecione o tipo de autenticação.
+
+   6. Selecione o nome do seu gateway de dados local que você criou anteriormente.
+   
+      Se o seu gateway não aparecer na lista, verifique se você configurou [corretamente seu gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   Este exemplo mostra as informações de conexão para um gatilho, mas essas etapas também funcionam para as ações.
+
+   ![Criar conexão do SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Asteriscos (*) indicam valores necessários.
+
+   | Propriedade | Valor | Detalhes | 
+   |----------|-------|---------| 
+   | Conectar-se por meio do gateway de dados local | Selecione essa opção primeiro para as configurações do SQL Server. | | 
+   | Nome da Conexão | <*my-sql-connection*> | O nome para a sua conexão | 
+   | Nome do SQL Server | <*my-sql-server*> | O nome para o seu SQL Server |
+   | Nome do Banco de Dados SQL | <*my-sql-database*>  | O nome para o seu banco de dados SQL |
+   | Nome de Usuário | <*my-sql-username*> | Nome de usuário para acessar o banco de dados |
+   | Senha | <*my-sql-password*> | Senha para acessar o banco de dados | 
+   | Tipo de autenticação | Windows ou Basic | Opcional: O tipo de autenticação usado pelo seu SQL Server | 
+   | Gateways | <*my-data-gateway*> | O nome do seu gateway de dados local | 
+   |||| 
+
+2. Quando terminar, escolha **Criar**. 
+
+3. Depois de criar sua conexão, continue com [Adicionar gatilho SQL](#add-sql-trigger) ou [Adicionar ação SQL](#add-sql-action).

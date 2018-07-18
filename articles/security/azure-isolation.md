@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010873"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018396"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -121,7 +121,7 @@ Os serviços comerciais com certificações auditadas como ISO/IEC 27001 são ve
 
 Se você excluir quaisquer dados, o Microsoft Azure excluirá os dados, incluindo qualquer cópia em cache ou de backup. Para serviços em escopo, essa exclusão ocorrerá em até 90 dias após o término do período de retenção. (Os serviços no escopo são definidos na seção Termos do processamento de dados de nossos [Termos de Serviços Online](http://aka.ms/Online-Services-Terms).)
 
-Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, ela será [apagada ou destruída](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) com segurança antes de a Microsoft retorná-la para o fabricante para reparo ou substituição. Os dados no disco são substituídos para garantir que não possam ser recuperados por qualquer meio.
+Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, ela será [apagada ou destruída](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) com segurança antes de a Microsoft retorná-la para o fabricante para reparo ou substituição. Os dados no disco são substituídos para garantir que não possam ser recuperados por qualquer meio.
 
 ## <a name="compute-isolation"></a>Isolamento de computação
 O Microsoft Azure fornece vários serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa. Essas instâncias e serviços de computação oferecem isolamento em vários níveis a fim de proteger os dados sem sacrificar a flexibilidade de configuração exigida pelos clientes.

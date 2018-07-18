@@ -41,7 +41,7 @@
             - name: Usar uma identidade do Azure AD com CLI ou PowerShell
               href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorizar com Chave Compartilhada
-          href: /rest/api/storageservices/authenticate-with-shared-key
+          href: /rest/api/storageservices/authorize-with-shared-key
         - name: Autorizar com SAS
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Como
@@ -96,6 +96,10 @@
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurar firewalls e redes virtuais
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
+          href: ../common/storage-security-tls.md
+        - name: Ofertas de conformidade
+          href: ../common/storage-compliance-offerings.md
         - name: Criptografia do cliente
           items:
             - name: .NET
@@ -107,7 +111,7 @@
         - name: Criptografia para dados em repouso
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autenticação de chave compartilhada
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: SAS (Assinaturas de Acesso Compartilhado)
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Requer transferência segura
@@ -139,17 +143,17 @@
     - name: .NET
       items:
         - name: 'Blobs, Filas, Tabelas e Arquivos'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Movimentação de dados
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
         - name: Gerenciador de Recursos
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
       items:
         - name: 'Blobs, Filas, Tabelas e Arquivos'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
         - name: Gerenciador de Recursos
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby

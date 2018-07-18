@@ -1,11 +1,11 @@
 ---
-title: "Configurar a alta disponibilidade para máquinas virtuais do Azure Resource Manager | Microsoft Docs"
-description: "Este tutorial mostra como criar um grupo de disponibilidade Always On com as máquinas virtuais do Azure no modo do Azure Resource Manager."
+title: Configurar a alta disponibilidade para máquinas virtuais do Azure Resource Manager | Microsoft Docs
+description: Este tutorial mostra como criar um grupo de disponibilidade Always On com as máquinas virtuais do Azure no modo do Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401014"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure automaticamente: Resource Manager
 

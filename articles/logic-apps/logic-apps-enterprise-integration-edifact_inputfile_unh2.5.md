@@ -1,11 +1,11 @@
 ---
-title: "Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5 – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5"
+title: Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Decodificação de edifact B2B dos Aplicativos Lógicos resolve UNH2.5
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e04e7515a8ddfe512ba2efbbd45c3d1b571c1fd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297940"
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Como tratar documentos EDIFACT tendo o segmento UNH2.5
 Quando está presente no documento EDIFACT, UNH2.5 está sendo usado para pesquisa de esquema. 

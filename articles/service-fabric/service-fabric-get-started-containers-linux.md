@@ -9,16 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: ba4e5996a87596c88822d96faf3e80e8243ad78b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213117"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -96,7 +97,7 @@ Execute o comando `docker build` para criar a imagem que executa o seu aplicativ
 docker build -t helloworldapp .
 ```
 
-Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (-t marcação) a imagem `helloworldapp`. Para criar uma imagem de contêiner, primeiro a imagem base é baixada do Hub do Docker ao qual o aplicativo foi adicionado. 
+Esse comando cria a nova imagem usando as instruções no seu Dockerfile de nomeando (marcação -t) a imagem `helloworldapp`. Para criar uma imagem de contêiner, primeiro a imagem base é baixada do Hub do Docker ao qual o aplicativo foi adicionado. 
 
 Depois de concluir o comando de compilação, execute o comando `docker images` para ver informações sobre a nova imagem:
 
@@ -170,26 +171,12 @@ Como essa imagem tem um ponto de entrada de carga de trabalho-ponto definido, n�
 
 Especifique a contagem de instâncias como "1".
 
+Especifique o mapeamento de porta no formato apropriado. Para este artigo, você precisa fornecer ```80:4000``` como o mapeamento de porta. Ao fazer isso, você configurou que quaisquer solicitações recebidas chegando à porta 4000 na máquina host serão redirecionadas para a porta 80 no contêiner.
+
 ![Gerador de Yeoman do Service Fabric para contêineres][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configurar a autenticação de repositório de contêiner e o mapeamento de porta
-O serviço em contêineres precisa de um ponto de extremidade para comunicação. Agora, você pode adicionar o protocolo, a porta e o tipo a um `Endpoint` no arquivo ServiceManifest.xml, sob a marca ‘Resources’. Para este artigo, o serviço em contêineres escuta na porta 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Ao fornecer `UriScheme`, o ponto de extremidade do contêiner é registrado automaticamente no serviço de Nomenclatura do Service Fabric para capacidade de descoberta. Um arquivo de exemplo servicemanifest. XML completo é fornecido no final deste artigo. 
-
-Configure o mapeamento de porta, da porta para o host, do contêiner especificando uma política `PortBinding` no `ContainerHostPolicies` do arquivo ApplicationManifest.xml. Para este artigo, `ContainerPort` é 80 (o contêiner expõe a porta 80, conforme especificado no Dockerfile) e `EndpointRef` é "myServiceTypeEndpoint" (o ponto de extremidade definido no manifesto do serviço). As solicitações de entrada para o serviço na porta 4000 são mapeadas para a porta 80 no contêiner. Se o seu contêiner precisar autenticar com um repositório privado, adicione `RepositoryCredentials`. Para este artigo, adicione o nome da conta e a senha para o registro de contêiner de myregistry.azurecr.io. Certifique-se de que a política é adicionada sob a marca 'ServiceManifestImport' correspondente ao pacote de serviço certo.
+## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contêiner
+ Se o seu contêiner precisar autenticar com um repositório privado, adicione `RepositoryCredentials`. Para este artigo, adicione o nome da conta e a senha para o registro de contêiner de myregistry.azurecr.io. Certifique-se de que a política é adicionada sob a marca 'ServiceManifestImport' correspondente ao pacote de serviço certo.
 
 ```xml
    <ServiceManifestImport>
@@ -226,14 +213,6 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
 Por padrão, o *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true** e o *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**. Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
 Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
-
-## <a name="build-and-package-the-service-fabric-application"></a>Compilar e empacotar o aplicativo do Service Fabric
-Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usado para compilar o aplicativo no terminal. Para compilar e empacotar o aplicativo, execute o seguinte:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Service Fabric.

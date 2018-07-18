@@ -1,12 +1,12 @@
 ---
-title: "Implantar o dispositivo StorSimple da série 8000 no Portal Governamental | Microsoft Docs"
-description: "Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple da série 8000 que executa a Atualização 3 e posterior e o serviço no Portal do Azure Governamental."
+title: Implantar o dispositivo StorSimple da série 8000 no Portal Governamental | Microsoft Docs
+description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple da série 8000 que executa a Atualização 3 e posterior e o serviço no Portal do Azure Governamental.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681529"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
 
@@ -33,13 +34,13 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, vá para: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez seja necessário concluir durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
-| Etapa | Descrição |
+| Etapa | DESCRIÇÃO |
 | --- | --- |
 | **PRÉ-REQUISITOS** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |

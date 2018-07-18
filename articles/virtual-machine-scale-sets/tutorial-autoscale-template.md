@@ -3,7 +3,7 @@ title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento c
 description: Saiba como usar modelos do Azure Resource Manager para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme aumentam e diminuem as demandas de CPU
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7ca037a6aec8516d9656b3389da67b9b02a906d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723112"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -45,7 +46,7 @@ Defina um perfil de dimensionamento automático em um modelo do Azure com o prov
 {
 "type": "Microsoft.insights/autoscalesettings",
 "name": "Autoscale",
-"apiVersion": "2014-04-01",
+"apiVersion": "2015-04-01",
 "location": "[variables('location')]",
 "scale": null,
 "properties": {

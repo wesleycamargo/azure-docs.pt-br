@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356266"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602885"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Restringir o tráfego da web com um firewall do aplicativo Web usando o Azure PowerShell
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar firewall do aplicativo Web usando o Azure PowerShell
 
 Você pode restringir tráfego em um [gateway de aplicativo](overview.md) com um [firewall de aplicativo de web](waf-overview.md) (WAF). O WAF usa as regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger o seu aplicativo. Essas regras incluem proteção contra ataques, como injeção de SQL, ataques de script entre sites e sequestros de sessão. 
 
@@ -31,6 +31,8 @@ Neste tutorial, você aprenderá como:
 > * Criar uma conta de armazenamento e configurar diagnósticos
 
 ![Exemplo de Firewall do aplicativo Web](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-restrict-web-traffic-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722772"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Classificar Iris – criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -386,13 +388,13 @@ Opcionalmente, você pode fazer experiências com a execução de scripts em um 
 1. Na janela da CLI, execute novamente o script do Python, **iris_sklearn.py**, usando um ambiente de execução do Docker (se você tiver o Docker instalado no seu computador).
 
    + Se seu contêiner estiver no Windows: 
-     |Execução<br/>Ambiente|Comando do Windows|
+     |Execução<br/>environment|Comando do Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
 
    + Se seu contêiner estiver no MacOS: 
-     |Execução<br/>Ambiente|Comando do Windows|
+     |Execução<br/>environment|Comando do Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|

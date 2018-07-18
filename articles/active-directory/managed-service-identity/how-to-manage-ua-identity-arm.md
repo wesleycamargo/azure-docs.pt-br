@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: e5c5ff74ee94f8df03ceb5b469ad635bd80d5a11
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931020"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931507"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Criar, listar e excluir uma identidade atribuída pelo usuário usando o Azure Resource Manager
 
@@ -53,8 +53,7 @@ Assim como com o portal do Azure e o script, os modelos do Azure Resource Manage
 
 Para criar uma identidade atribuída pelo usuário, use o modelo a seguir. Substitua o valor `<USER ASSIGNED IDENTITY NAME>` por seus próprios valores:
 
-> [!IMPORTANT]
-> A criação de identidades atribuídas pelo usuário oferece suporte somente a caracteres alfanuméricos e hífen (0-9 ou a-z ou A-Z ou -). Além disso, o nome deve ter um limite de 24 caracteres para que a atribuição a VM/VMSS funcione corretamente. Procure novamente por atualizações. Para obter mais informações, consulte [Perguntas frequentes e problemas conhecidos](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {
@@ -71,7 +70,7 @@ Para criar uma identidade atribuída pelo usuário, use o modelo a seguir. Subst
   "resources": [
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "name": "[parameters('<USER ASSIGNED IDENTITY NAME>')]",
+      "name": "[parameters('resourceName')]",
       "apiVersion": "2015-08-31-PREVIEW",
       "location": "[resourceGroup().location]"
     }
@@ -79,7 +78,7 @@ Para criar uma identidade atribuída pelo usuário, use o modelo a seguir. Subst
   "outputs": {
       "identityName": {
           "type": "string",
-          "value": "[parameters('<USER ASSIGNED IDENTITY NAME>')]"
+          "value": "[parameters('resourceName')]"
       }
   }
 }

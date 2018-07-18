@@ -1,11 +1,11 @@
 ---
-title: "Roteamento assimétrico | Microsoft Docs"
-description: "Este artigo aborda os problemas que um cliente pode enfrentar no roteamento assimétrico em uma rede que tem vários links para um destino."
+title: Roteamento assimétrico | Microsoft Docs
+description: Este artigo aborda os problemas que um cliente pode enfrentar no roteamento assimétrico em uma rede que tem vários links para um destino.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710007"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
 Este artigo explica como o encaminhamento e o retorno do tráfego de rede podem adotar rotas diferentes quando há vários caminhos disponíveis entre a origem e o destino da rede.

@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo .NET do Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo .NET no Service Fabric no Azure | Microsoft Docs
 description: Neste guia de início rápido, você cria um aplicativo .NET para o Azure usando o aplicativo de exemplo dos serviços confiáveis do Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -15,15 +15,16 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207199"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110075"
 ---
-# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Início Rápido: Criar um aplicativo .NET do Service Fabric no Azure
-O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo de serviços confiáveis do .NET no Service Fabric
+
+O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis.
 
 Este guia de início rápido mostra como implantar seu primeiro aplicativo .NET no Service Fabric. Quando terminar, você terá um aplicativo de votação com um front-end da Web do ASP.NET Core que salva os resultados da votação em um serviço de back-end com estado do cluster.
 
@@ -39,8 +40,10 @@ Com esse aplicativo, você aprenderá a:
 * Expandir o aplicativo para vários nós
 * Executar um upgrade sem interrupção do aplicativo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este guia de início rápido:
+
 1. [Instale o Visual Studio 2017](https://www.visualstudio.com/) com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
 2. [Instalar o Git](https://git-scm.com/)
 3. [Instalar o SDK do Microsoft Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -54,15 +57,18 @@ Para concluir este guia de início rápido:
 >
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
+
 Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
-```
+
+```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
+
 Clique com o botão direito do mouse no ícone do Visual Studio no Menu Iniciar e escolha **Executar como administrador**. Para anexar o depurador aos serviços, você precisa executar o Visual Studio como administrador.
 
-Abra a solução **Voting.sln** do Visual Studio no repositório clonado.  
+Abra a solução **Voting.sln** do Visual Studio no repositório clonado.
 
 Por padrão, o aplicativo de votação é definido para escutar na porta 8080.  A porta do aplicativo é definida no arquivo */VotingWeb/PackageRoot/ServiceManifest.xml*.  Você pode alterar a porta do aplicativo, atualizando o atributo **port** do elemento **Endpoint**.  Para implantar e executar o aplicativo localmente, a porta do aplicativo deve estar aberta e disponível no seu computador.  Se você alterar a porta do aplicativo, substitua "8080" pelo novo valor da porta do aplicativo durante a leitura deste artigo.
 
@@ -78,13 +84,16 @@ Quando a implantação for concluída, inicie um navegador e abra esta página: 
 Agora, você pode adicionar um conjunto de opções de votação e começar a votar. O aplicativo é executado e armazena todos os dados no cluster do Service Fabric, sem a necessidade de um banco de dados separado.
 
 ## <a name="walk-through-the-voting-sample-application"></a>Percorrer o aplicativo de exemplo de votação
+
 O aplicativo de votação consiste em dois serviços:
-- Serviço de front-end da Web (VotingWeb) – um serviço de front-end da Web do ASP.NET Core, que fornece a página da Web e expõe APIs Web para se comunicar com o serviço de back-end.
-- Serviço de back-end (VotingData) – um serviço Web do ASP.NET Core, que expõe uma API para armazenar os resultados da votação em um dicionário confiável persistido em disco.
+
+* Serviço de front-end da Web (VotingWeb) – um serviço de front-end da Web do ASP.NET Core, que fornece a página da Web e expõe APIs Web para se comunicar com o serviço de back-end.
+* Serviço de back-end (VotingData) – um serviço Web do ASP.NET Core, que expõe uma API para armazenar os resultados da votação em um dicionário confiável persistido em disco.
 
 ![Diagrama de aplicativo](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
 Quando você vota no aplicativo, os seguintes eventos ocorrem:
+
 1. Um JavaScript envia a solicitação de votação para a API Web no serviço de front-end da Web como uma solicitação HTTP PUT.
 
 2. O serviço de front-end da Web usa um proxy para localizar e encaminhar uma solicitação HTTP PUT para o serviço de back-end.
@@ -96,46 +105,48 @@ Quando você vota no aplicativo, os seguintes eventos ocorrem:
 O aplicativo deve executar sem problemas, mas você pode usar o depurador para ver como as principais partes dele funcionam. Ao depurar o aplicativo no Visual Studio, você está usando um cluster de desenvolvimento local do Service Fabric. Você tem a opção de ajustar sua experiência de depuração para seu cenário. Neste aplicativo, os dados são armazenados no serviço de back-end usando um dicionário confiável. O Visual Studio remove o aplicativo por padrão quando você interrompe o depurador. A remoção do aplicativo faz com que os dados no serviço de back-end também sejam removidos. Para persistir os dados entre as sessões de depuração, altere o **Modo de Depuração de Aplicativo** como uma propriedade no projeto **Votação** do Visual Studio.
 
 Para ver o que acontece no código, conclua as seguintes etapas:
+
 1. Abra o arquivo **/VotingWeb/Controllers/VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 69) – É possível pesquisar o arquivo no Gerenciador de Soluções no Visual Studio.
 
 2. Abra o arquivo **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** nesta API Web (linha 54).
 
 3. Volte para o navegador e clique em uma opção de votação ou adicione uma nova opção de votação. Você chegou ao primeiro ponto de interrupção no controlador de API do front-end da Web.
-    - Esse é o local em que o JavaScript no navegador envia uma solicitação para o controlador da API Web no serviço de front-end.
-    
+    * Esse é o local em que o JavaScript no navegador envia uma solicitação para o controlador da API Web no serviço de front-end.
+
     ![Adicionar Serviço de Front-end de Voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Primeiro, construa a URL para o ReverseProxy para nosso serviço de back-end **(1)**.
-    - Em seguida, envie a solicitação PUT HTTP para o ReverseProxy **(2)**.
-    - Por fim, retorne a resposta do serviço de back-end para o cliente **(3)**.
+    * Primeiro, construa a URL para o ReverseProxy para nosso serviço de back-end **(1)**.
+    * Em seguida, envie a solicitação PUT HTTP para o ReverseProxy **(2)**.
+    * Por fim, retorne a resposta do serviço de back-end para o cliente **(3)**.
 
 4. Pressione **F5** para continuar
     - Se solicitado pelo navegador, conceda ao grupo ServiceFabricAllowedUsers permissões de leitura e execução para o modo de depuração.
     - Agora você está no ponto de interrupção no serviço de back-end.
-    
+
     ![Adicionar Serviço de Back-End de Voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - Na primeira linha no método **(1)**, o `StateManager` obtém ou adiciona um dicionário confiável chamado `counts`.
-    - Todas as interações com valores em um dicionário confiável exigem uma transação e, portanto, o uso da instrução **(2)** cria essa transação.
-    - Na transação, atualize o valor da chave relevante para a opção de votação e confirme a operação **(3)**. Depois que o método de confirmação for retornado, os dados serão atualizados no dicionário e replicados em outros nós no cluster. Os dados agora estão armazenados com segurança no cluster e o serviço de back-end pode fazer failover para outros nós, ainda tendo os dados disponíveis.
+    * Na primeira linha no método **(1)**, o `StateManager` obtém ou adiciona um dicionário confiável chamado `counts`.
+    * Todas as interações com valores em um dicionário confiável exigem uma transação e, portanto, o uso da instrução **(2)** cria essa transação.
+    * Na transação, atualize o valor da chave relevante para a opção de votação e confirme a operação **(3)**. Depois que o método de confirmação for retornado, os dados serão atualizados no dicionário e replicados em outros nós no cluster. Os dados agora estão armazenados com segurança no cluster e o serviço de back-end pode fazer failover para outros nós, ainda tendo os dados disponíveis.
 5. Pressione **F5** para continuar
 
 Para interromper a sessão de depuração, pressione **Shift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
-Para implantar o aplicativo no Azure, você precisa de um cluster do Service Fabric que execute o aplicativo. 
 
-### <a name="join-a-party-cluster"></a>Ingressar em um Party cluster
-Os Party clusters são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. O cluster usa um único certificado autoassinado para nó-a-nó, bem como segurança de cliente para nó. 
+Para implantar o aplicativo no Azure, você precisa de um cluster do Service Fabric que execute o aplicativo.
 
-Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Como se conectar a um party cluster seguro?** e copie a senha do certificado. O certificado, senha do certificado e os valores de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
+### <a name="join-a-party-cluster"></a>Ingressar em um cluster Party
+
+Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. O cluster usa um único certificado autoassinado para nó-a-nó, bem como segurança de cliente para nó.
+
+Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Baixe o certificado PFX em seu computador clicando no link **PFX**. Clique no link **Como se conectar a um cluster de equipe seguro?** e copie a senha do certificado. O certificado, senha do certificado e os valores de **Ponto de extremidade de conexão** são utilizados nas etapas a seguir.
 
 ![PFX e ponto de extremidade de conexão](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
 > Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de equipe, você poderá aguardar um período e tentar novamente, ou você pode seguir estas etapas no tutorial [Implantar um aplicativo .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster do Service Fabric em sua assinatura do Azure e implantar o aplicativo nele. Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de implantar e verificar o aplicativo em seu cluster, pule para [Dimensionar aplicativos e serviços em um cluster](#scale-applications-and-services-in-a-cluster) deste guia de início rápido.
 >
-
 
 No computador com Windows, instale o PFX no repositório de certificados *CurrentUser\My*.
 
@@ -157,12 +168,12 @@ Lembre-se da impressão digital para uma etapa posterior.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Implantar o aplicativo usando o Visual Studio
+
 Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diretamente por meio do Visual Studio.
 
 1. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**. A caixa de diálogo Publicar será exibida.
 
-
-2. Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de conexão avançados** e certifique-se de que os valores *FindValue* e *ServerCertThumbprint* devem coincidir com a impressão digital do certificado instalado em uma etapa anterior. 
+2. Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de conexão avançados** e certifique-se de que os valores *FindValue* e *ServerCertThumbprint* devem coincidir com a impressão digital do certificado instalado em uma etapa anterior.
 
     ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -175,9 +186,10 @@ Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diret
     ![Front-end do aplicativo](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
+
 Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster para acomodar uma alteração na carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster. Você tem vários modos de dimensionar seus serviços usando scripts ou comandos do PowerShell ou a CLI do Service Fabric (sfctl). Neste exemplo, use o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acessado em um navegador, navegando para a porta de gerenciamento HTTP dos de clusters (19080), por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
 
 Você pode receber um aviso do navegador de que o local não é confiável. Isso porque o certificado é autoassinado. Você pode optar por ignorar o aviso e continuar.
 1. Quando receber a solicitação do navegador, selecione o certificado instalado para se conectar. O certificado de party cluster selecionado na lista deve corresponder ao party cluster que você está tentando acessar. Por exemplo, win243uja6w62r.westus.cloudapp.azure.com.
@@ -185,7 +197,8 @@ Você pode receber um aviso do navegador de que o local não é confiável. Isso
 
 Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
-1. Abra o Service Fabric Explorer no cluster – por exemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
+
 2. Na exibição de árvore, expanda **Aplicativos**->**VotingType**->**fabric:/Voting**. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -202,6 +215,7 @@ Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 Com essa simples tarefa de gerenciamento, os recursos disponíveis são dobrados para o serviço de front-end processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric garantirá que uma nova instância de serviço seja executada no cluster.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Executar um upgrade sem interrupção do aplicativo
+
 Ao implantar novas atualizações no aplicativo, o Service Fabric distribui a atualização com segurança. As atualizações sem interrupção fornecem tempo de inatividade zero durante a atualização, bem como a reversão automática no caso de erros.
 
 Para fazer upgrade do aplicativo, faça o seguinte:
@@ -226,8 +240,8 @@ Para fazer upgrade do aplicativo, faça o seguinte:
 
     O Service Fabric faz upgrades com segurança, aguardando dois minutos após o upgrade do serviço em cada nó no cluster. Espere que toda a atualização leve aproximadamente oito minutos.
 
-
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste guia de início rápido, você aprendeu a:
 
 * Criar um aplicativo usando o .NET e o Service Fabric

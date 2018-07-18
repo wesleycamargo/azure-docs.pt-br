@@ -1,6 +1,6 @@
 ---
-title: "Autorização - Microsoft Threat Modeling Tool - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na ferramenta de modelagem de ameaças"
+title: Autorização - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9ab106a78aa56b8308207bcadb3db0b5a9714a9d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029485"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/serviço | Artigo |
@@ -311,7 +312,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Etapas** | <p>O sistema usa uma referência de classe fraca, permitindo que um invasor execute código não autorizado. O programa consulta uma classe definida pelo usuário que não é exclusivamente identificada. Quando .NET carrega essa classe de identificação fraca, o carregador do tipo CLR procura a classe nos seguintes locais e na ordem especificada:</p><ol><li>Se o assembly do tipo for conhecido, o carregador pesquisará os locais de redirecionamento do arquivo de configuração, GAC, o assembly atual que está usando as informações de configuração e o diretório base do aplicativo.</li><li>Se o assembly for desconhecido, o carregador pesquisará o assembly atual, mscorlib, e o local retornado pelo manipulador de eventos TypeResolve.</li><li>Essa ordem de pesquisa do CLR pode ser modificada com ganchos, como o mecanismo de encaminhamento de tipo e o evento AppDomain.TypeResolve.</li></ol><p>Se um invasor aproveitar a ordem de pesquisa do CLR para criar uma outra classe com o mesmo nome e colocá-la em um lugar que o CLR carregará primeiro, o CLR poderá acidentalmente executar o código fornecido pelo invasor.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -348,7 +349,7 @@ O elemento `<behaviorExtensions/>` do arquivo de configuração do WCF abaixo so
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
 | **Etapas** | <p>Esse serviço não usa um controle de autorização. Quando um cliente chama um determinado serviço do WCF, o WCF fornece vários esquemas de autorização que verificar se o chamador tem permissão para executar o método de serviço no servidor. Se os controles de autorização não estiverem habilitados para os serviços do WCF, um usuário autenticado pode ter seus privilégios elevados.</p>|
 
 ### <a name="example"></a>Exemplo

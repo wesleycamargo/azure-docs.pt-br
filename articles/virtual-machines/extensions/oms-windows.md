@@ -1,6 +1,6 @@
 ---
-title: Extensão da máquina virtual do OMS Azure para Windows | Microsoft Docs
-description: Implante o agente do OMS na máquina virtual Windows usando uma extensão da máquina virtual.
+title: Extensão da máquina virtual do Log Analytics do Azure para Windows | Microsoft Docs
+description: Implante o agente do Log Analytics na máquina virtual do Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
@@ -15,32 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: c365c43eb5abb975bf77e28ad061ff091f5ec627
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301773"
 ---
-# <a name="oms-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do OMS para Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
-O OMS (Operations Management Suite) fornece recursos de monitoramento, alertas e correção de alertas nos ativos locais e da nuvem. A extensão da máquina virtual do agente do OMS para Windows é publicada e recebe suporte da Microsoft. A extensão instala o agente do OMS em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho OMS existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do OMS para Windows.
+O Log Analytics fornece recursos de monitoramento nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Windows é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do Agente do OMS para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
+A extensão do Agente do Log Analytics para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure provisiona o agente do OMS e conecta-se com o espaço de trabalho do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o espaço de trabalho configurado e interromperia a conexão com a Central de Segurança do Azure.
+A Central de Segurança do Azure provisiona o agente do Log Analytics e conecta-se com o espaço de trabalho do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o espaço de trabalho configurado e interromperia a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
-A extensão do agente do OMS para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
+A extensão do Agente do Log Analytics para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão requer a ID e a chave do espaço de trabalho do OMS de destino, que podem ser encontradas no portal do OMS. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho do espaço de trabalho de destino do Log Analytics. Esses podem ser encontrado nas configurações para o espaço de trabalho no portal do Azure. Como a chave do espaço de trabalho deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -78,11 +79,11 @@ O JSON a seguir mostra o esquema para a extensão do Agente do OMS. A extensão 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do Agente do OMS durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM do Agente do OMS pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do Agente do Log Analytics durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM do Agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-O exemplo a seguir pressupõe que a extensão OMS esteja aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
+O exemplo a seguir pressupõe que a extensão Log Analytics esteja aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json
@@ -137,7 +138,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da máquina virtual do agente do OMS para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell. 
+O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da máquina virtual do agente do Log Analytics para uma máquina virtual existente. Antes de executar o comando, as configurações públicas e privadas precisam ser armazenadas em uma tabela de hash do PowerShell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

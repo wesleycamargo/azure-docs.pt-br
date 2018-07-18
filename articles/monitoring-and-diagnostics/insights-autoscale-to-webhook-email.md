@@ -1,24 +1,19 @@
 ---
-title: "Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook. | Microsoft Docs"
-description: "Consulte como usar ações de escala automática para chamar URLs da web ou enviar notificações por email no Azure Monitor. "
+title: Usar dimensionamento automático para enviar notificações de alerta por email e webhook
+description: 'Consulte como usar ações de escala automática para chamar URLs da web ou enviar notificações por email no Azure Monitor. '
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 65405a6d7f1d49911da1e2a5d26b02098a261c01
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262215"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -64,15 +59,15 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
       }
     ]
 ```
-| Campo | Obrigatório? | Descrição |
+| Campo | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| operation |sim |o valor deve ser "Scale" |
-| sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
-| sendToSubscriptionCoAdministrators |sim |o valor deve ser "true" ou "false" |
-| customEmails |sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
-| Webhooks |sim |o valor pode ser um Uri válido ou nulo |
-| serviceUri |sim |um Uri de https válido |
-| propriedades |sim |o valor deve ser vazio {} ou pode conter pares de chave-valor |
+| operation |Sim |o valor deve ser "Scale" |
+| sendToSubscriptionAdministrator |Sim |o valor deve ser "true" ou "false" |
+| sendToSubscriptionCoAdministrators |Sim |o valor deve ser "true" ou "false" |
+| customEmails |Sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
+| Webhooks |Sim |o valor pode ser um Uri válido ou nulo |
+| serviceUri |Sim |um Uri de https válido |
+| propriedades |Sim |o valor deve ser vazio {} ou pode conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
 O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -107,21 +102,21 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 ```
 
 
-| Campo | Obrigatório? | Descrição |
+| Campo | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| status |sim |O status que indica que uma ação de escala automática foi gerada |
-| operation |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
-| context |sim |O contexto de ação de escala automática |
-| timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
+| status |Sim |O status que indica que uma ação de escala automática foi gerada |
+| operation |Sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
+| context |Sim |O contexto de ação de escala automática |
+| timestamp |Sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
 | ID |sim |ID do Gerenciador de Recursos da configuração de autoescala |
-| name |sim |O nome da configuração de escala automática |
+| Nome |sim |O nome da configuração de escala automática |
 | detalhes |sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
 | subscriptionId |sim |ID da assinatura do recurso de destino que está sendo escalado |
 | resourceGroupName |sim |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
 | resourceName |sim |Nome do recurso de destino que está sendo escalado |
-| resourceType |Sim |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
-| resourceId |sim |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
+| resourceType |sim |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
+| ResourceId |sim |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
 | portalLink |sim |Link do portal do Azure para a página de resumo do recurso de destino |
 | oldCapacity |sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
 | newCapacity |sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
-| propriedades |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
+| propriedades |Não  |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |

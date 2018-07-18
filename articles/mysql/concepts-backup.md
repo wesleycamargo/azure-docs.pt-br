@@ -1,19 +1,20 @@
 ---
-title: "Backup e restauração no Banco de Dados do Azure para MySQL"
-description: "Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor MySQL."
+title: Backup e restauração no Banco de Dados do Azure para MySQL
+description: Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor MySQL.
 services: mysql
 author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1cc2c6ccb4459c5c942297cab46378502b63c5bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264469"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -25,18 +26,18 @@ O Banco de Dados do Azure para MySQL usa backups completos, diferenciais e de lo
 
 ### <a name="backup-frequency"></a>Frequência de backup
 
-Em geral, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes ao dia e os backups de log de transação ocorrerem a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um servidor. O backup inicial pode levar mais tempo em um grande servidor restaurado. O ponto mais anterior para o qual um servidor pode ser restaurado para é o momento da conclusão do backup inicial.
+Em geral, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes ao dia e os backups de log de transação ocorrerem a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um servidor. O backup inicial pode levar mais tempo em um grande servidor restaurado. O ponto mais anterior para o qual um novo servidor pode ser restaurado é o momento da conclusão do backup completo inicial.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
-O Banco de Dados do Azure para MySQL fornece a flexibilidade de escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e Otimizado para Memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são somente armazenados dentro da região em que o servidor está hospedado, mas também replicados em um [datacenter emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece maior proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas o armazenamento de backup de redundância local.
+O Banco de Dados do Azure para MySQL fornece a flexibilidade de escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e Otimizado para Memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são somente armazenados dentro da região em que o servidor está hospedado, mas também replicados em um [datacenter emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece maior proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada Básica oferece apenas o armazenamento de backup de redundância local.
 
 > [!IMPORTANT]
-> A configuração do armazenamento com redundância local ou geográfica para backup só é permitido durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup.
+> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Quando o servidor é provisionado, você não pode alterar a opção de redundância do armazenamento de backup.
 
 ### <a name="backup-storage-cost"></a>Custo do armazenamento de backup
 
-O Banco de Dados do Azure para MySQL fornece até 100% de seu armazenamento de servidor configurado como armazenamento de backup sem custo adicional. Normalmente, isso é adequado para uma retenção de backup de sete dias. O armazenamento de backup a mais usado é cobrado em GB-mês.
+O Banco de Dados do Azure para MySQL fornece até 100% de seu armazenamento de servidor configurado como armazenamento de backup sem custo adicional. Normalmente, isso é adequado para uma retenção de backup de sete dias. O armazenamento de backup adicional que for utilizado será cobrado em GB-mês.
 
 Por exemplo, se você tiver provisionado um servidor com 250 GB, terá 250 GB de armazenamento de backup sem custo adicional. O armazenamento acima dos 250 GB é cobrado.
 
@@ -49,14 +50,14 @@ Há dois tipos de restauração disponíveis:
 - A **Restauração pontual** está disponível em qualquer opção de redundância de backup e cria um novo servidor na mesma região do servidor original.
 - A **Restauração geográfica** está disponível somente se você configurou seu servidor para armazenamento com redundância geográfica; ele permite que você restaure o servidor em uma região diferente.
 
-O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo, o tamanho do banco de dados. Normalmente, o tempo de recuperação é menor do que 12 horas.
+O tempo estimado de recuperação dependerá de vários fatores, incluindo os tamanhos dos bancos de dados, o tamanho do log de transações, a largura de banda de rede e o número total de bancos de dados de recuperação na mesma região e ao mesmo tempo. Normalmente, o tempo de recuperação é menor do que 12 horas.
 
 > [!IMPORTANT]
-> Se você exclui o servidor, todos os bancos de dados que pertencem ao servidor também são excluídos e não podem ser recuperados. Você não pode restaurar um servidor excluído.
+> Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
 
 ### <a name="point-in-time-restore"></a>Restauração pontual
 
-Independentemente de sua opção de redundância de backup, você pode executar uma restauração para qualquer ponto anterior dentro de seu período de retenção de backup. Um novo servidor é criado na mesma região do Azure do servidor original. Ele é criado com a configuração do servidor original para o tipo de preço, a geração de computação, o número de vCores, o tamanho de armazenamento, o período de retenção de backup e a opção de backup de redundância.
+Independentemente de sua opção de redundância de backup, você pode executar uma restauração para qualquer ponto anterior dentro de seu período de retenção de backup. Um novo servidor é criado na mesma região do Azure do servidor original. Ele é criado com a configuração do servidor original para o tipo de preço, a geração de computação, o número de núcleos virtuais, o tamanho do armazenamento, o período de retenção de backup e a opção de redundância de backup.
 
 A Restauração pontual é útil em vários cenários. Por exemplo, quando um usuário exclui dados acidentalmente, descarta uma tabela ou um banco de dados importante, ou se um aplicativo acidentalmente substitui dados bons por dados inválidos devido a um defeito no aplicativo.
 
@@ -64,19 +65,19 @@ Talvez seja necessário aguardar a execução do próximo backup de log de trans
 
 ### <a name="geo-restore"></a>Restauração geográfica
 
-Você pode restaurar um servidor em outra região do Azure onde o serviço está disponível se configurou o servidor para backups com redundância geográfica. A restauração geográfica é a opção de recuperação padrão quando servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
+É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas de pós-restauração
 
-Após uma restauração de um dos mecanismos de recuperação, você deve executar as seguintes tarefas para colocar os usuários e aplicativos novamente em execução:
+Após uma restauração de um dos mecanismos de recuperação, você deve executar as seguintes tarefas para colocar os usuários e os aplicativos novamente em execução:
 
 - Se o novo servidor é usado para substituir o servidor original, redirecione clientes e aplicativos de cliente para o novo servidor
-- Verificar se as regras de firewall no nível do servidor apropriadas estão em vigor para que os usuários se conectem
-- Verificar se os logons e permissões no nível do banco de dados apropriados estão em vigor
+- Verifique se as regras de firewall adequadas no nível do servidor estão em vigor para que os usuários se conectem
+- Verifique se as permissões e os logons adequados no nível do banco de dados estão em vigor
 - Configurar os alertas, conforme apropriado
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre continuidade dos negócios, confira a  [visão geral de continuidade dos negócios](concepts-business-continuity.md).
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
-- Para restaurar para um ponto no tempo usando a CLI do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando a CLI](howto-restore-server-cli.md).
+- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, confira  [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](howto-restore-server-portal.md).
+- Para restaurar para um ponto no tempo usando a CLI do Azure, confira [Restaurar um banco de dados para um ponto no tempo usando a CLI](howto-restore-server-cli.md).

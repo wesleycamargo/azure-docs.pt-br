@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801925"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
-O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este tópico é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
+O objetivo deste documento é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este documento é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros documentos.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 O atributo sourceAnchor é definido como *um atributo imutável durante o tempo de vida de um objeto*. Ele identifica de maneira exclusiva um objeto como sendo o mesmo objeto local e no AD do Azure. O atributo também é chamado de **immutableId** e os dois nomes são usados como sinônimos.
 
-A palavra imutável, ou seja, "que não pode ser alterado", é importante neste tópico. Como o valor desse atributo não pode ser alterado depois de ser definido, é importante escolher um design que dê suporte ao seu cenário.
+A palavra imutável, ou seja, "que não pode ser alterado", é importante neste documento. Como o valor desse atributo não pode ser alterado depois de ser definido, é importante escolher um design que dê suporte ao seu cenário.
 
 O atributo é usado para os seguintes cenários:
 
@@ -40,12 +42,12 @@ Este tópico trata somente de sourceAnchor no que diz respeito aos usuários. As
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Selecionando um bom atributo sourceAnchor
 O valor do atributo deve seguir as regras a seguir:
 
-* Ter menos de 60 caracteres
+* Menos de 60 caracteres
   * Caracteres diferentes de a-z, A-Z ou 0-9 são codificados e contados como 3 caracteres
 * Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Ser globalmente exclusivo
 * Ser uma cadeia de caracteres, um inteiro ou um binário
-* Não deve se basear no nome do usuário, já que isso muda
+* Não deve se basear no nome do usuário, uma vez que ele pode mudar
 * Não diferenciar maiúsculas de minúsculas e evitar valores que podem variar maiúsculas e minúsculas
 * Ser atribuído quando o objeto é criado
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: fda195c03c589361b8a798166b0ae4d93611bcd0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7398e01a46b5d296f26905e2063acdb98383f567
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600354"
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gerenciar recursos do Azure por meio do portal
 
@@ -38,7 +39,7 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 2. Para criar um grupo de recursos vazio, escolha **Adicionar**.
    
     ![adicionar grupo de recursos](./media/resource-group-portal/add-resource-group.png)
-3. Forneça um nome e local para o novo grupo de recursos. Clique em **Criar**.
+3. Forneça um nome e local para o novo grupo de recursos. Selecione **Criar**.
    
     ![criar grupo de recursos](./media/resource-group-portal/create-empty-group.png)
 4. Talvez seja necessário selecionar **Atualizar** para ver o grupo de recursos recém-criado.
@@ -130,5 +131,5 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 * Para exibir detalhes sobre uma implantação, confira [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md).
 * Para gerenciar o acesso aos recursos, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

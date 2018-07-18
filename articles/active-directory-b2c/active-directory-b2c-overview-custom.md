@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Políticas personalizadas | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: Políticas personalizadas do Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 0724227da425eb2faeee9ac4ae8449782e62a241
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32138910"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445928"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Políticas personalizadas
 
@@ -40,16 +39,16 @@ Políticas personalizadas são arquivos de configuração que definem o comporta
 
 ## <a name="policy-files"></a>Arquivos de política
 
-Uma política personalizada é representada como um ou vários arquivos formatados em XML que se referenciam entre si em uma cadeia hierárquica. Os elementos XML definem: esquema de declarações, transformações de declarações, definições de conteúdo, provedores de declarações/perfis técnicos e etapas de orquestração de Userjourney, entre outros elementos.
+Uma política personalizada é representada como um ou vários arquivos formatados em XML que se referenciam entre si em uma cadeia hierárquica. Os elementos XML definem: esquema de declarações, transformações de declarações, definições de conteúdo, provedores de declarações/perfis técnicos e etapas de orquestração de percurso do usuário, entre outros elementos.
 
 Recomendamos o uso de três tipos de arquivos de política:
 
 - **Um arquivo BASE**, que contém a maioria das definições e para a qual o Azure fornece uma amostra completa.  Recomendamos fazer um número mínimo de alterações nesse arquivo para ajudar na solução de problemas e na manutenção de longo prazo das políticas
 - **um arquivo de EXTensões** que contém as alterações de configuração exclusivas para seu locatário
-- **um arquivo RP (Terceira Parte Confiável)** que é o único arquivo centrado na tarefa que é invocado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável).  Leia o artigo sobre definições do arquivo de Política para obter mais informações.  Cada tarefa exclusiva exige seu próprio RP e, dependendo dos requisitos de identidade visual, o número pode ser “total de aplicativos x número total de casos de uso”.
+- **um arquivo RP (Terceira Parte Confiável)** que seja o único arquivo centrado na tarefa invocado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável).  Leia o artigo sobre definições do arquivo de Política para obter mais informações.  Cada tarefa exclusiva exige seu próprio RP e, dependendo dos requisitos de identidade visual, o número pode ser “total de aplicativos X número total de casos de uso”.
 
 
-As políticas internas do Azure AD B2C seguem o padrão de 3 arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo EXTensions.
+As políticas internas do Azure AD B2C seguem o padrão de três arquivos descrito acima, mas o desenvolvedor vê apenas o arquivo RP (Terceira Parte Confiável), enquanto o portal faz alterações em segundo plano no arquivo EXTensions.
 
 ## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceitos fundamentais que você deve saber ao usar políticas personalizadas
 
@@ -59,7 +58,7 @@ Serviço de CIAM (gerenciamento de identidades e acessos do cliente) do Azure. O
 
 1. Um diretório de usuários na forma de um Azure Active Directory de uso especial acessível pelo Microsoft Graph e que mantém os dados de usuário de contas locais e contas federadas 
 2. Acesso à **Estrutura de Experiência de Identidade** que orquestra a relação de confiança entre usuários e entidades e passa as declarações entre eles para concluir uma tarefa de gerenciamento de identidade/acesso 
-3. Um STS (serviço de token de segurança) que emite tokens de ID, tokens de atualização e tokens de acesso (e declarações SAML equivalentes) e valida-os para proteger os recursos.
+3. Um STS (serviço de token de segurança) que emite tokens de ID, tokens de atualização e tokens de acesso (além de declarações SAML equivalentes), e valida-os para proteger os recursos.
 
 O Azure AD B2C interage com provedores de identidade, usuários, outros sistemas e com o diretório de usuários local em sequência para realizar uma tarefa de identidade (por exemplo, logon de um usuário, registro de um novo usuário, redefinição de uma senha). A plataforma subjacente que estabelece a relação de confiança de várias terceiras partes e executa essas etapas é chamada de Estrutura de Experiência de Identidade e uma política (também chamada de um percurso do usuário ou uma política de estrutura confiável) define explicitamente os atores, as ações, os protocolos e a sequência de etapas a serem concluídas.
 
@@ -76,7 +75,7 @@ Arquivos de configuração predefinidos que direcionam o comportamento do Azure 
 
 Arquivos de configuração que definem o comportamento da Estrutura de Experiência de Identidade no seu locatário do Azure AD B2C. Uma política personalizada está acessível como um ou vários arquivos XML (consulte definições de Arquivos de Política) que são executados pela Estrutura de Experiência de Identidade quando invocados por uma terceira parte confiável (por exemplo, um aplicativo). As políticas personalizadas podem ser editadas diretamente por um desenvolvedor de identidade para realizar um número quase ilimitado de tarefas. Os desenvolvedores que configuram as políticas personalizadas devem definir as relações de confiança em detalhes para incluir pontos de extremidade de metadados, definições exatas de troca de declarações e configurar segredos, chaves e certificados, conforme necessário, para cada provedor de identidade.
 
-## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Definições de arquivo de política para Trustframeworks da Estrutura de Experiência de Identidade
+## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>Definições de arquivo de política para estruturas confiáveis da Estrutura de Experiência de Identidade
 
 ### <a name="policy-files"></a>Arquivos de Política
 

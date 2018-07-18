@@ -1,13 +1,14 @@
 ---
 title: Microsoft Graph para o Azure Active Directory Identity Protection | Microsoft Docs
-description: "Saiba como consultar o Microsoft Graph para obter uma lista de eventos de risco e as informações associadas do Azure Active Directory."
+description: Saiba como consultar o Microsoft Graph para obter uma lista de eventos de risco e as informações associadas do Azure Active Directory.
 services: active-directory
-keywords: "azure active directory identity protection, evento de risco, vulnerabilidade, política de segurança, Microsoft Graph"
-documentationcenter: 
+keywords: azure active directory identity protection, evento de risco, vulnerabilidade, política de segurança, Microsoft Graph
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713194"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](active-directory-identityprotection.md). A primeira API, **identityRiskEvents**, permite que você consulte o Microsoft Graph para obter uma lista de [eventos de risco](active-directory-identityprotection-risk-events-types.md) e informações associadas. Este artigo mostra como começar a consultar essa API. Para obter uma introdução detalhada, a documentação completa e acesso ao Explorador do Graph, consulte o [site do Microsoft Graph](https://graph.microsoft.io/).

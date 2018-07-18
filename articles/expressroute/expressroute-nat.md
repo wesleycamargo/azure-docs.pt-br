@@ -1,11 +1,11 @@
 ---
 title: Requisitos de NAT para circuitos da ExpressRoute | Microsoft Docs
-description: "Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos do ExpressRoute."
+description: Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos do ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23409258"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar NATs. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de NAT como um serviço gerenciado. Verifique se seu provedor de conectividade oferece esse serviço. Caso contrário, você deverá atender aos requisitos descritos abaixo. 

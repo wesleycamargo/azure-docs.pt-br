@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 59bc6652a61e0c61188bbfd09251161411923628
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287568"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -38,7 +40,7 @@ Este artigo mostra como configurar os diferentes métodos de filtragem.
 ## <a name="basics-and-important-notes"></a>Noções básicas e observações importantes
 No Azure AD Connect Sync, você pode habilitar a filtragem a qualquer momento. Se você já tiver começado com uma configuração padrão de sincronização de diretório e então configurou a filtragem, os objetos que são filtrados não são mais sincronizados ao AD do Azure. Devido a essa alteração, quaisquer objetos no Azure AD que foram anteriormente sincronizados, mas filtrados depois, serão excluídos do Azure AD.
 
-Antes de começar a fazer alterações na filtragem, [desabilite a tarefa agendada](#disable-scheduled-task) para não fazer acidentalmente alterações de exportação que ainda não tenham sido verificadas como corretas.
+Antes de começar a fazer alterações na filtragem, [desabilite a tarefa agendada](#disable-the-scheduled-task) para não fazer acidentalmente alterações de exportação que ainda não tenham sido verificadas como corretas.
 
 Como a filtragem pode remover muitos objetos ao mesmo tempo, certifique-se de que os novos filtros estejam corretos antes de iniciar a exportação de todas as alterações para o Azure AD. Depois de concluir as etapas de configuração, recomendamos que você siga as [etapas de verificação](#apply-and-verify-changes) antes de fazer alterações e de exportar para o Azure AD.
 

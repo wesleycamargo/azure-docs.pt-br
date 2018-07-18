@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129329"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerenciar o Log Analytics usando o PowerShell
 Você pode usar os [cmdlets do PowerShell do Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para executar várias funções no Log Analytics de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
@@ -199,7 +201,7 @@ Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recu
 | Pool SQL Elástico        |     | sim |
 | Namespace do Hub de Eventos     |     | sim |
 | Hubs IoT                |     | sim |
-| Cofre da Chave               | sim | |
+| Key Vault               | sim | |
 | Balanceadores de Carga          | sim | |
 | Aplicativos Lógicos              | sim | sim |
 | Grupos de segurança de rede | sim | |

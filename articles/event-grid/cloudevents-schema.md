@@ -6,13 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 23187fbc230e384984085d330bfbfbc90cc9f945
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625586"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usar o esquema CloudEvents com a Grade de Eventos
 
@@ -123,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente.
+A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Você precisa usar um gatilho HTTP.
 
 ## <a name="next-steps"></a>Próximas etapas
 

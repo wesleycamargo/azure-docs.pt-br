@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/15/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202840"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920715"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -30,8 +30,12 @@ As Migrações para Azure ajudam você a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - No momento, só é possível avaliar as máquinas virtuais (VMs) VMware locais para migração para VMs do Azure. As VMs VMware devem ser gerenciadas por um vCenter Server (versão 5.5, 6.0 ou 6.5).
-- O suporte para Hyper-V está em nosso roteiro. Enquanto isso, recomendamos que você use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planejar a migração de cargas de trabalho do Hyper-V.
-- Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
+
+> [!NOTE]
+> Suporte para Hyper-V e Servidores Físicos está em nosso roteiro. Enquanto isso, é recomendável que você use o [Planejador de Implantações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planejar a migração de cargas de trabalho do Hyper-V e nossas [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/) para planejar a migração de cargas de trabalho físicas.
+
+
+- Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação. Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - Você só pode criar um projeto de Migrações para Azure nas regiões Centro-Oeste ou Leste dos EUA. No entanto, isso não afeta sua capacidade de planejar a migração para um local de destino diferente do Azure. O local do projeto de migração é usado apenas para armazenar os metadados descobertos no ambiente local.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 
@@ -48,9 +52,12 @@ Uma avaliação ajuda a identificar a adequação do Azure de VMs locais, a obte
 **Propriedade** | **Detalhes**
 --- | ---
 **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. Por padrão, o local de destino é definido como Oeste dos EUA 2.
-**Redundância de armazenamento** | O tipo de [redundância de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-redundancy) que as VMs do Azure usarão após a migração. O armazenamento com redundância local (LRS) é o padrão. Observe que as Migrações para Azure só oferecem suporte a avaliações baseadas em discos gerenciados, e discos gerenciados só oferecem suporte ao LRS, portanto, a propriedade só tem a opção de LRS atualmente.
-**Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para VMs do tamanho certo para o Azure. É possível fazer o dimensionamento com base em *histórico de desempenho* das VMs locais ou dimensionar as VMs *como locais* para o Azure sem considerar o histórico de desempenho. O valor padrão é o dimensionamento baseado em desempenho.
-**Planos de preço** | Para cálculos de custo, uma avaliação leva em consideração se você tem software assurance e se está qualificados para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também leva em consideração as [Ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/) às quais você deve se inscrever, além de permitir que você especifique quaisquer descontos (%) específicos à assinatura, que você pode obter com a oferta.
+**Tipo de armazenamento** | Você pode especificar o tipo dos discos que deseja alocar no Azure. Essa propriedade será aplicável quando o critério de dimensionamento for dimensionamento local. Especifique o tipo de disco de destino como disco gerenciado Premium ou discos gerenciados Standard. O valor padrão é discos gerenciados Premium. Para o dimensionamento com base em desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
+**Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para VMs do tamanho certo para o Azure. É possível fazer o dimensionamento com base em *histórico de desempenho* das VMs locais ou dimensionar as VMs *como locais* para o Azure sem considerar o histórico de desempenho. O valor padrão está como dimensionamento local.
+**Oferta do Azure** | Você pode especificar o [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual está registrado, e as Migrações para Azure estimam o custo adequadamente.
+**Benefício Híbrido do Azure** | É possível especificar se você tem a garantia do software e é qualificado para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) para obter custos com desconto.
+**Instâncias reservadas** |  Você também pode especificar se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure, e as Migrações para Azure estimarão o custo adequadamente.
+**Tempo de atividade da VM** | Se não suas VMs não vão ficar em execução 24x7 no Azure, é possível especificar sua duração de execução no Azure e as estimativas de custo serão feitas adequadamente.
 **Tipo de preços** | É possível especificar o [tipo de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) das VMs de destino do Azure. Por exemplo, se você estiver planejando migrar um ambiente de produção, deve considerar a camada Standard, que fornece VMs com baixa latência, mas pode custar mais. Por outro lado, caso tenha um ambiente de desenvolvimento de teste, talvez você deva considerar a camada Básica, que tem VMs com latência maior e custos mais baixos. Por padrão, o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
 **Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando o histórico de desempenho do último dia, com um valor de percentil de 95%. É possível modificar esses valores nas propriedades de avaliação.
 **Série de VM** | Você pode especificar a série de VM que deseja considerar para o dimensionamento correto. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série e o dimensionamento correto será feito apenas na série selecionada.  
@@ -100,4 +107,6 @@ Após a avaliação das máquinas locais para migração com o serviço de Migra
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Siga um tutorial](tutorial-assessment-vmware.md) para criar uma avaliação para um VM local do VMware.
+
+- [Siga um tutorial](tutorial-assessment-vmware.md) para criar uma avaliação para um VM local do VMware.
+- [Saiba mais](resources-faq.md) sobre as perguntas frequentes sobre o serviço Migrações para Azure

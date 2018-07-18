@@ -2,22 +2,37 @@
 title: SSH nos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 description: Crie uma conexão SSH com um nó de cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f4c70814566a963d86c119044f9ed3ef3238483
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099391"
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH nos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 
-Ocasionalmente, talvez seja necessário acessar um nó do AKS (Serviço de Kubernetes do Azure) para manutenção, coleção de logs ou outras operações de solução de problemas. Os nós do AKS (Serviço de Kubernetes do Azure) não estão expostos à internet. Use as etapas detalhadas neste documento para criar uma conexão SSH com um nó do AKS.
+Ocasionalmente, talvez seja necessário acessar um nó do AKS (Serviço de Kubernetes do Azure) para manutenção, coleção de logs ou outras operações de solução de problemas. Os nós do AKS não estão expostos à internet. Use as etapas detalhadas neste documento para criar uma conexão SSH com um nó do AKS.
+
+## <a name="reset-ssh-keys"></a>Redefinir chaves SSH
+
+Se você implantou um AKS sem as chaves SSH ou não tem acesso às chaves SSH adequadas, elas podem ser redefinidas usando o portal do Azure.
+
+Navegue até seu cluster AKS, selecione um nó AKS (máquina virtual) e selecione **Redefinir senha** para redefinir a chave pública SSH.
+
+![AKS VM com o botão de redefinição de senha](media/aks-ssh/reset-password.png)
+
+Selecione **Redefinir chave pública SSH**, insira o nome de usuário de cluster AKS, que é **azueruser** por padrão e copie em uma chave pública SSH. Selecione **Atualizar** quando estiver pronto.
+
+![Portal AKS VM com o botão de redefinição de senha](media/aks-ssh/reset-password-2.png)
+
+Depois que a chave SSH foi redefinida, você pode criar uma conexão SSH usando a chave privada correspondente.
 
 ## <a name="get-aks-node-address"></a>Obter o endereço do nó AKS
 
@@ -56,7 +71,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copie a chave SSH para o pod, substitua o nome do pod pelo valor adequado.
+Copie a chave SSH privada para o pod, substitua o nome do pod pelo valor adequado.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

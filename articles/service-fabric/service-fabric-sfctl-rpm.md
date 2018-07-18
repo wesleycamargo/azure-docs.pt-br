@@ -3,7 +3,7 @@ title: CLI do Azure Service Fabric - sfctl rpm | Microsoft Docs
 description: Descreve os comandos do sfctl rpm da CLI do Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: Christina-Kang
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,65 +12,92 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 02/22/2018
-ms.author: ryanwi
-ms.openlocfilehash: 34e7693ea40df2bf12fd6e9be2ef627f30748bcd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/23/2018
+ms.author: bikang
+ms.openlocfilehash: 5e7cf1b28e8f38f0539e0084e1f745e0dab4dec3
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763605"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de gerenciador de reparo.
 
 ## <a name="commands"></a>Comandos
+
 |Comando|DESCRIÇÃO|
 | --- | --- |
-|    Aprovar-força| Força a aprovação de determinada tarefa de reparo.|
-|    excluir       | Exclui uma tarefa de reparo concluída.|
-|    list         | Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos.|
+| Aprovar-força | Força a aprovação de determinada tarefa de reparo. |
+| excluir | Exclui uma tarefa de reparo concluída. |
+| list | Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos. |
+
+## <a name="sfctl-rpm-approve-force"></a>sfctl rpm aprovar força
+Força a aprovação de determinada tarefa de reparo.
+
+Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --id da tarefa [obrigatório] | A ID da tarefa de reparo. |
+| --versão | O número da versão atual da tarefa de reparo. Se diferente de zero, a solicitação terá êxito apenas se esse valor corresponde à versão de atual real da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-rpm-delete"></a>excluir sfctl rpm
 Exclui uma tarefa de reparo concluída.
 
-Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. 
+Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
+
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-|    --id da tarefa [obrigatório]| A ID da tarefa de reparo concluída a ser excluída.|
-|    --versão           | O número da versão atual da tarefa de reparo. Se diferente de zero, a solicitação só terá êxito se esse valor corresponder à versão atual da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada.|
+| --id da tarefa [obrigatório] | A ID da tarefa de reparo concluída a ser excluída. |
+| --versão | O número da versão atual da tarefa de reparo. Se diferente de zero, a solicitação terá êxito apenas se esse valor corresponde à versão de atual real da tarefa de reparo. Se for zero, nenhuma verificação de versão será executada. |
 
 ### <a name="global-arguments"></a>Argumentos globais
+
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-|    --debug             | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
-|    --help -h           | Mostrar esta mensagem de ajuda e sair.|
-|    --output -o         | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.
-|    --query             | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
-|    --verbose           | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
-
+| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-rpm-list"></a>lista sfctl rpm
 Obtém uma lista de tarefas de reparo, correspondendo os filtros fornecidos.
 
-Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código. 
+Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser usada diretamente a partir do seu código.
 
 ### <a name="arguments"></a>Argumentos
+
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-|    --filtro do executor| O nome do executor de reparos cujas tarefas declaradas devem ser incluídas na lista.|
-|    -filtro de estado   | Um bitwise OR dos valores a seguir, especificando qual estado de tarefa deve ser incluído na lista de resultados. - 1 - Criado - 2 - Declarado - 4 - Preparando - 8 - Aprovado - 16 - Executando - 32 - Restaurando - 64 - Concluído.|
-|    -filtro de id de tarefa | O prefixo de ID da tarefa de reparo a ser correspondido.|
+| --filtro do executor | O nome do executor de reparos cujas tarefas declaradas devem ser incluídas na lista. |
+| -filtro de estado | Um bitwise OR dos valores a seguir, especificando qual estado de tarefa deve ser incluído na lista de resultados. <br> 1 - criada <br>2 - declarado  <br>4 - preparação  <br>8 - aprovado  <br>16 - em execução  <br>32 - restaurar  <br>64 - concluída |
+| -filtro de id de tarefa | O prefixo de ID da tarefa de reparo a ser correspondido. |
 
 ### <a name="global-arguments"></a>Argumentos globais
+
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-|    --debug          | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
-|    --help -h        | Mostrar esta mensagem de ajuda e sair.|
-|    --output -o      | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão| json.|
-|    --query          | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
-|    --verbose        | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
+| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

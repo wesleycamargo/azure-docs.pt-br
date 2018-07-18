@@ -1,24 +1,21 @@
 ---
-title: Introdução ao Azure Data Lake Analytics usando o Azure PowerShell | Microsoft Docs
-description: 'Use o Azure PowerShell para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando o U-SQL e enviar o trabalho. '
+title: Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
+description: Use o Azure PowerShell para criar uma conta do Azure Data Lake Analytics e envie um trabalho do U-SQL.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/04/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 332b6c90ea51d16a439bfb21222bb753e93a02b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
+ms.topic: get-started-article
+ms.date: 05/04/2017
+ms.openlocfilehash: 70534b050577e749310d81b50c300c7d98e416af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623080"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -99,7 +96,7 @@ OUTPUT @a
 Envie o texto do script com o cmdlet `Submit-AdlJob` e o parâmetro `-Script`.
 
 ```
-$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" �Script $script
 ```
 
 Como alternativa, você pode enviar um arquivo de script usando o parâmetro `-ScriptPath`:
@@ -107,7 +104,7 @@ Como alternativa, você pode enviar um arquivo de script usando o parâmetro `-S
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" �ScriptPath $filename
 ```
 
 Obter o status de um trabalho com `Get-AdlJob`. 

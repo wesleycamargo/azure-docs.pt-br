@@ -2,24 +2,19 @@
 title: Backup e restauração de VMs criptografadas usando o Backup do Azure
 description: Este artigo aborda a experiência de backup e restauração para VMs criptografadas usando o Azure Disk Encryption.
 services: backup
-documentationcenter: ''
-author: JPallavi
+author: sogup
 manager: vijayts
-editor: ''
-ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk; sogup
+ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c788720e046c2efef954ef77f7b52854439b7515
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441124"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e restauração de máquinas virtuais criptografadas usando o Backup do Azure
 Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virtuais) usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.

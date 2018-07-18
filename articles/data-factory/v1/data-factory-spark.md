@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046455"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 04/16/2018
 > * [Atividade personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Se você usar a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Transformar dados usando a atividade do Apache Spark no Data Factory versão 2](../transform-data-using-spark.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Apache Spark no Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
 A atividade do Spark é uma das [atividades de transformação de dados](data-factory-data-transformation-activities.md) compatíveis com o Data Factory. Essa atividade executa o programa do Spark especificado no cluster Spark no Azure HDInsight. 
@@ -267,8 +268,7 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
 
     ![Resultados da consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>solução de problemas
 Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pasta pyFiles no contêiner de blob. O arquivo de log na pasta de log fornece informações adicionais. Esse arquivo de log é especialmente útil quando há um erro. Em um ambiente de produção, recomendamos defini-lo como **Falha**.

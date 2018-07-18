@@ -16,6 +16,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177207"
 ---
 # <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Enviar um fluxo de trabalho usando SAS em vez de chave de conta de armazenamento
 

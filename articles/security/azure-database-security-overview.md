@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365137"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051518"
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
@@ -69,7 +69,7 @@ Você pode adotar várias precauções para ajudar a proteger o banco de dados. 
 
 Uma solução é criptografar os dados confidenciais no banco de dados e proteger as chaves usadas para criptografar os dados com um certificado. Essa solução impede que alguém sem as chaves use os dados, mas esse tipo de proteção deve ser planejado.
 
-Para resolver esse problema, o SQL Server e o Banco de Dados SQL dão suporte a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). A Transparent Data Encryption criptografa os arquivos de dados do SQL Server e do Banco de Dados SQL, conhecidos como dados de criptografia em repouso.
+Para resolver esse problema, o SQL Server e o Banco de Dados SQL dão suporte a [Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). A Transparent Data Encryption criptografa os arquivos de dados do SQL Server e do Banco de Dados SQL, conhecidos como dados de criptografia em repouso.
 
 A Transparent Data Encryption ajuda a proteger contra a ameaça de atividades mal-intencionadas. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo.  
 
