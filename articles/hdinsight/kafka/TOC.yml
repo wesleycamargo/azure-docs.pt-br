@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Usar o Kafka com o Serviço de Contêiner do Azure
           href: apache-kafka-azure-container-services.md
-        - name: Kafka e Azure Functions
-          href: apache-kafka-azure-functions.md
     - name: Desenvolver
       items:
         - name: Usar nós de borda vazios
