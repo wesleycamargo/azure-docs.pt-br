@@ -10,6 +10,8 @@
   items:
     - name: Implantar uma solução de monitoramento remoto
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implantar uma solução de fábrica conectada
+      href: quickstart-connected-factory-deploy.md
     - name: Implantar uma solução de manutenção preditiva
       href: quickstart-predictive-maintenance-deploy.md
     - name: Implantar uma solução de simulação de dispositivo
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Fábrica conectada
       items:
-        - name: Implantar um acelerador de solução
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Usar o painel
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Implantar um gateway
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: Usar publicador OPC

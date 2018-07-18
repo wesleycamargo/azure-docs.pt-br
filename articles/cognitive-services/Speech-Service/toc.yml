@@ -9,14 +9,20 @@
       href: speech-scenarios.md
 - name: Guia de início rápido
   items:
-    - name: Experimente o serviço de fala gratuitamente
+    - name: Experimente o serviço de Fala gratuitamente
       href: get-started.md
-    - name: 'Reconhecer fala no C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Reconhecer fala no C# (.NET no Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Reconhecer fala no C# (.NET Core no Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Reconhecer fala em um aplicativo UWP
+      href: quickstart-csharp-uwp.md
     - name: Reconhecer fala no C++ para Windows
       href: quickstart-cpp-windows.md
     - name: Reconhecer fala no C++ para Linux
       href: quickstart-cpp-linux.md
+    - name: Reconhecer fala no Java para Android
+      href: quickstart-java-android.md
     - name: Introdução ao SDK de dispositivos de fala
       href: speech-devices-sdk-qsg.md
 - name: Guias de instruções
@@ -61,15 +67,15 @@
       href: translation.md
 - name: Conceitos
   items:
-    - name: Conversão de fala em texto
+    - name: Conversão de Fala em Texto
       href: speech-to-text.md
     - name: Texto em fala
       href: text-to-speech.md
-    - name: Tradução de fala
+    - name: Tradução de Fala
       href: speech-translation.md
     - name: SDK de fala
       href: speech-sdk.md
-    - name: SDK de dispositivos de fala
+    - name: SDK de Dispositivos de Fala
       href: speech-devices-sdk.md
 - name: Referência
   items:

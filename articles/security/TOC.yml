@@ -164,6 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: Governança e conformidade
   items:
+    - name: FedRAMP
+      items:
+        - name: Análise de dados
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: Aplicativo Web de infraestrutura como serviço
+          href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: Aplicativo Web PaaS
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: FFIEC
       items:
         - name: Análise de dados
@@ -184,20 +194,10 @@
           href: ./blueprints/gdpr-iaaswa-overview.md
         - name: Aplicativo Web PaaS
           href: ./blueprints/gdpr-paaswa-overview.md
-    - name: FedRAMP
+    - name: HIPAA/HITRUST
       items:
-        - name: Análise de dados
-          href: ./blueprints/fedramp-analytics-overview.md
-        - name: Data warehouse
-          href: ./blueprints/fedramp-datawarehouse-overview.md
-        - name: Aplicativo Web de infraestrutura como serviço
-          href: ./blueprints/fedramp-iaaswa-overview.md
-        - name: Aplicativo Web PaaS
-          href: ./blueprints/fedramp-paaswa-overview.md
-    - name: TIC
-      items:
-        - name: Conexão de Internet Confiável com o Azure
-          href: ./compliance/compliance-tic.md
+        - name: Integridade dos Dados e da IA
+          href: ./blueprints/azure-health.md
     - name: PCI DSS
       items:
         - name: Análise de dados
@@ -208,6 +208,10 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: Aplicativo Web PaaS
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: TIC
+      items:
+        - name: Conexão de Internet Confiável com o Azure
+          href: ./compliance/compliance-tic.md
     - name: UK NHS
       items:
         - name: Análise de dados
@@ -222,8 +226,6 @@
       items:
         - name: Aplicativo Web de infraestrutura como serviço
           href: ./blueprints/ukofficial-iaaswa-overview.md
-    - name: Dados de Integridade HIPAA/HITRUST e IA
-      href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
 - name: Serviços de segurança do Azure

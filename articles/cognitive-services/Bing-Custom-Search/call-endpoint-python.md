@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35364802"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (Python)
 
 Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando Python para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, você precisa de:
 
 - Uma instância de pesquisa personalizada. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).

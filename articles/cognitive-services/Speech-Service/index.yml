@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37045296"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39070103"
 abstract:
   description: O serviço de Fala da Microsoft fornece aos desenvolvedores uma maneira fácil de adicionar recursos avançados de fala a seus aplicativos, incluindo um controle de comando de voz, transcrição, ditado e tradução usando uma <a href="rest-apis">API REST</a> ou <a href="speech-sdk">C#, C++ ou Java SDK</a>.<p>O serviço de Fala permite que você personalize modelos de <a href="how-to-customize-speech-models">Conversão de Fala em Texto</a> para aceitar um vocabulário especializado, ambientes com ruídos e diferentes maneiras de falar. A <a href="https://cris.ai/Home/customvoice">Conversão de Texto em Fala</a> e a <a href="https://www.microsoft.com/translator/customization.aspx">Tradução de Fala</a> personalizadas também estão disponíveis.<p>Para obter mais detalhes, consulte <a href="overview">O que é Serviço de fala?</a>
 sections:
@@ -32,27 +32,63 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/uwp.jpg
+    - image:
         src: media/index/logo_csharp.svg
     - image:
         src: media/index/logo_cplusplus.svg
     - image:
-        src: media/index/logo_java.jpg
+        src: media/index/logo_netcore.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
     rows:
     - title: Windows
       values:
+      - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
     - title: Linux
       values:
       - href: 
+      - href: 
       - href: quickstart-cpp-linux
       - href: 
-    - title: SDK de dispositivos (Android)
+      - href: 
+    - title: SDK do Android
       values:
       - href: 
       - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+    - title: SDK de Dispositivos
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: speech-devices-sdk
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: rest-apis
+      - href: rest-apis
 - title: Exemplos e referências
   items:
   - type: list
@@ -62,10 +98,8 @@ sections:
     - title: Exemplos
       html: <ul><li><a href="speech-to-text-sample.md">Reconhecimento de fala</a></li><li><a href="intent.md">Reconhecimento de intenção</a></li><li><a href="translation.md">Tradução</a></li></ul>
     - title: Referência de API
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API do C#</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API do Java (SDK dos Dispositivos de Fala)</a></li></ul>
-- title: SDK de dispositivos de fala
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API do C# (incluindo UWP e .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API do Java</a> para SDK de Fala<br>e SDK dos Dispositivos de Fala</li></ul>
+- title: SDK de Dispositivos de Fala
   items:
   - type: paragraph
-    text: Com a introdução do serviço de fala unificado, a Microsoft e seus parceiros agora oferecem uma plataforma integrada de hardware/software que é otimizada para o desenvolvimento de dispositivos habilitados para fala&#58; o <b>SDK de dispositivos de fala</b>. Este SDK é adequado para o desenvolvimento de dispositivos de fala inteligentes para todos os tipos de aplicativos.
-  - type: paragraph
-    text: O <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">SDK de dispositivos de fala</a> permite que você crie seus próprios dispositivos de ambiente com uma palavra de ativação personalizada e exclusiva da sua marca, a qual dispara a captação de áudio. Ele também fornece processamento superior de áudio de fontes multicanais para um reconhecimento de fala mais preciso, incluindo a supressão de ruídos, voz de campo distante e beamforming.
+    text: Com a introdução do serviço de fala unificado, a Microsoft e seus parceiros agora oferecem uma plataforma integrada de hardware/software que é otimizada para o desenvolvimento de dispositivos habilitados para fala&#58; o <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>SDK de dispositivos de fala</a>. Adequado para desenvolver dispositivos de ambiente para todos os tipos de aplicativos, esse SDK permite definir uma <I>ativação de palavra</I> personalizada exclusiva para sua marca. O hardware fornece um processamento de áudio superior de fontes com vários canais para ter um reconhecimento de fala mais preciso, incluindo uma supressão de ruídos, voz de campo distante e beamforming.
