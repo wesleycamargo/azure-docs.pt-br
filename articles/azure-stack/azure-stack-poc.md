@@ -42,7 +42,7 @@ O [Kit de Desenvolvimento do Azure Stack (ASDK)](.\asdk\asdk-what-is.md) da Micr
 O ASDK tem as seguintes limitações:
 
 * O ASDK está associado a um único provedor de identidade do Azure Active Directory (Azure AD) ou dos  Serviços de Federação do Active Directory (AD FS). Você pode criar vários usuários nesse diretório e atribuir assinaturas a cada usuário.
-* Como os componentes de pilha do Azure são implantados em um computador host, limitada de recursos físicos estão disponíveis para recursos de locatário. Essa configuração não se destina à avaliação de desempenho ou de escala.
+* Por os componentes do Azure Stack estarem implantados num computador anfitrião, há recursos físicos limitados disponíveis para os recursos do locatário. Essa configuração não se destina à avaliação de desempenho ou de escala.
 * Os cenários de redes estão limitados devido a requisitos de implantação NIC e de anfitrião único.
 
 ## <a name="next-steps"></a>Próximas etapas
