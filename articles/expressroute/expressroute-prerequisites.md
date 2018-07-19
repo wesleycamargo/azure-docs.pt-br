@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265077"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989352"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
@@ -65,6 +65,6 @@ Se você planeja habilitar o Dynamics 365 no ExpressRoute, consulte os documento
 * Localize um provedor de conectividade do ExpressRoute. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 * Consulte os requisitos de [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
 * Configurar sua conexão do ExpressRoute.
-  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Configurar o roteamento](expressroute-howto-routing-classic.md)
-  * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Configurar o roteamento](expressroute-howto-routing-arm.md)
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)

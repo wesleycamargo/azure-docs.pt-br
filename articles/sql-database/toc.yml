@@ -135,7 +135,7 @@
         - name: Backups de banco de dados
           href: sql-database-automated-backups.md
         - name: Retenção de backup de longo prazo
-          itmes:
+          items:
             - name: Retenção de backup de longo prazo
               href: sql-database-long-term-retention.md
             - name: Configurar retenção de backup de longo prazo - Armazenamento do SQL

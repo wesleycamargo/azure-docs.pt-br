@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128581"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114534"
 ---
 # <a name="get-started-with-batch-rendering"></a>Introdução à Renderização de Lote 
 
@@ -123,7 +123,7 @@ Com o 3ds Max, você pode usar:
 
 Os modelos de Batch Labs do 3ds Max permitem processar cenas VRay e Arnold usando a Renderização de Lote. Há duas variações do modelo para VRay e Arnold, uma para cenas padrão e outra para cenas mais complexas que exigem um arquivo de caminho 3ds Max para ativos e texturas (arquivo .mxp). Para saber mais sobre os modelos de BatchLabs do 3ds Max, confira o repositório [Dados do BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) no GitHub.
 
-Além disso, você pode usar o [SDK em Python do Lote](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar a renderização de pipeline existente.
+Além disso, você pode usar o [SDK em Python do Lote](/python/api/overview/azure/batch) para integrar a renderização de pipeline existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Usar o plug-in do Lote para Maya a fim de enviar um trabalho de renderização

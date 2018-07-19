@@ -3,12 +3,12 @@ A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** pa
 
 Cada coluna contém as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
-| type |Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não |
-| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "en-us". |Não |
-| formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. |Não |
+| Nome |Nome da coluna. |SIM |
+| Tipo |Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não  |
+| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "en-us". |Não  |
+| formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. |Não  |
 
 O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem três colunas userid, name e lastlogindate.
 

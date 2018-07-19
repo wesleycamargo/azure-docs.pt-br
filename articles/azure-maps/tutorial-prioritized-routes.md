@@ -1,20 +1,20 @@
 ---
 title: Várias rotas com os Mapas do Azure | Microsoft Docs
 description: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601404"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988962"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
@@ -26,7 +26,7 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o serviço de rote
 > * Criar consultas de rota que declarem o modo de viagem
 > * Exibir várias rotas em seu mapa
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de prosseguir, siga as etapas no primeiro tutorial para [criar sua conta dos Mapas do Azure](./tutorial-search-location.md#createaccount) e [obter a chave de assinatura da conta](./tutorial-search-location.md#getkey). 
 

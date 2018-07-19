@@ -176,7 +176,7 @@
     - name: Solicitações de dados do cliente
       href: iot-dps-customer-data-requests.md
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Ferramenta Device Explorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: ferramenta iothub-diagnostics

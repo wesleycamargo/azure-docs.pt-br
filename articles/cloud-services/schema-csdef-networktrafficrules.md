@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 779d3b42aeab04bb93756439a0482f32ade6557e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 71c791c9ac6f679f0f67b014c8fb5dd915d1a3e3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360029"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004397"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição dos Serviços de Nuvem do Azure
 O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções comunicam-se entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
@@ -76,7 +76,7 @@ O elemento `Destinations` descreve uma coleção de RoleEndpoints com a qual é 
 ##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
 O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função com a qual ele permite comunicações. Será possível especificar vários elementos `RoleEndpoint` se houver mais de um ponto de extremidade na função.
 
-| Atributo      | type     | DESCRIÇÃO |
+| Atributo      | Tipo     | DESCRIÇÃO |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obrigatório. O nome do ponto de extremidade com o qual permitir o tráfego.|
 | `roleName`     | `string` | Obrigatório. O nome da função web com a qual permitir a comunicação.|
@@ -87,14 +87,14 @@ O elemento `AllowAllTraffic` é uma regra que permite que todas as funções se 
 ##  <a name="WhenSource"></a> Elemento WhenSource
 O elemento `WhenSource` descreve uma coleção de funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`.
 
-| Atributo | type     | DESCRIÇÃO |
+| Atributo | Tipo     | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obrigatório. Especifica a regra a ser aplicada ao permitir comunicações. No momento, o único valor válido é `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 O elemento `FromRole` especifica as funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`. Será possível especificar vários elementos `FromRole` se houver mais de uma função que pode se comunicar com os pontos de extremidade.
 
-| Atributo  | type     | DESCRIÇÃO |
+| Atributo  | Tipo     | DESCRIÇÃO |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatório. O nome da função da qual permitir a comunicação.|
 

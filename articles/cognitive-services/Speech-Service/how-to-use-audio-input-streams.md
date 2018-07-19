@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: fmegen
-ms.openlocfilehash: 528356473c4221a815fa68cbec3426866c4cbd23
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0eafa7e88df5d00a67646ca7f82ca027602a40b3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35364958"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071439"
 ---
 # <a name="about-the-audio-input-stream-api"></a>Sobre a API de fluxo de entrada de áudio
 
@@ -142,4 +142,4 @@ Em geral, as etapas a seguir são incluídas ao usar fluxos de entrada de áudio
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-windows.md)
+* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

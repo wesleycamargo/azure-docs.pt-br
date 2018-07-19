@@ -3,7 +3,7 @@ title: Introdução aos Serviços de Nuvem do Azure e ao Python | Microsoft Docs
 description: Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho.
 services: cloud-services
 documentationcenter: python
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 7465d355b31c495049167c652a2a7e1512827d8d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: jeconnoc
+ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111228"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003635"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
 Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio]. Saiba como usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Ferramentas do SDK do Azure para VS 2013][Azure SDK Tools for VS 2013] ou  

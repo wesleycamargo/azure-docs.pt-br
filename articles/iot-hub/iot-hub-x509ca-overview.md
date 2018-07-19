@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 690a58a939e6866bfcdf80d05e52d7bfc7fd3586
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635596"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004346"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -42,7 +42,7 @@ Você também pode criar uma AC X.509 autoassinada para experimentação ou para
 
 Independentemente de como você obtém o certificado de autoridade de certificação X.509, certifique-se de manter sua chave privada correspondente secreta e protegida o tempo todo.  Isso é necessário para a criação de relação de confiança na autenticação da AC X.509. 
 
-Saiba como [criar um certificado de autoridade de certificação autoassinado](iot-hub-security-x509-create-certificates.md#createcerts), que você pode usar para experimentação em toda esta descrição do recurso.
+Saiba como [criar um certificado de autoridade de certificação autoassinado](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que você pode usar para experimentação em toda esta descrição do recurso.
 
 ## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>Inscrever dispositivos em uma cadeia de certificados de confiança
 
@@ -50,7 +50,7 @@ O proprietário de um certificado de autoridade de certificação X.509 pode ass
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Saiba mais aqui como [criar uma cadeia de certificados](iot-hub-security-x509-create-certificates.md#createcertchain) como feito durante a assinatura de dispositivos.
+Saiba mais aqui como [criar uma cadeia de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) como feito durante a assinatura de dispositivos.
 
 ## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>Como registrar seu certificado de autoridade de certificação X.509 no Hub IoT
 

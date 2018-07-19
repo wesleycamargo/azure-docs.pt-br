@@ -3,7 +3,7 @@ title: Guia de introdução para operadores de TI do Azure | Microsoft Docs
 description: Guia de introdução para operadores de TI do Azure
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
-ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099486"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072327"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
@@ -141,13 +141,11 @@ Para obter documentação detalhada sobre os serviços do Azure, consulte [Docum
 
 ### <a name="datacenters-and-regions"></a>Datacenters e regiões
 
-
 O Azure é uma plataforma de nuvem global que geralmente está disponível em muitas regiões em todo o mundo. Quando você provisiona um serviço, aplicativo ou VM no Azure, é solicitado que você selecione uma região. A região selecionada representa um datacenter específico em que seu aplicativo é executado. Para obter mais informações, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 Um dos benefícios de utilizar o Azure é que você pode implantar seus aplicativos em vários datacenters em todo o mundo. A região que você escolher poderá afetar o desempenho do aplicativo. É melhor escolher uma região que esteja mais próxima da maioria dos seus clientes para reduzir a latência nas solicitações de rede. Você também pode selecionar sua região visando cumprir os requisitos legais para distribuir seu aplicativo em determinados países.
 
 ### <a name="azure-portal"></a>Portal do Azure
-
 
 O portal do Azure é um aplicativo baseado na Web que você pode utilizar para criar, gerenciar e remover recursos e serviços do Azure. O portal do Azure está localizado em https://portal.azure.com. Ele inclui um painel personalizável e ferramentas para gerenciar recursos do Azure. Ele também fornece informações de cobrança e de assinatura. Para obter mais informações, consulte [Visão geral do portal do Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gerenciar Recursos do Azure por meio do Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -165,7 +163,6 @@ Um modelo do Azure Resource Manager é um arquivo JSON (JavaScript Object Notati
 
 ### <a name="automation"></a>Automação
 
-
 Além de criar, gerenciar e excluir recursos usando o portal do Azure, você pode automatizar essas atividades usando PowerShell ou a CLI (interface de linha de comando) do Azure.
 
 **PowerShell do Azure**
@@ -178,9 +175,7 @@ A interface de linha de comando do Azure é uma ferramenta que você pode usar p
 
 **APIs REST** O Azure é desenvolvido em um conjunto de APIs REST que dão suporte à interface do usuário do Portal do Azure. A maioria dessas APIs REST também tem suporte para permitir que você gerencie e provisione programaticamente seus recursos e aplicativos do Azure por meio de qualquer dispositivo habilitado para Internet. Para obter mais informações, consulte a [Referência de SDK REST do Azure](https://docs.microsoft.com/rest/api/index).
 
-
 ## <a name="azure-subscriptions"></a>Assinaturas do Azure
-
 
 Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um administrador da conta (que tem controle total sobre a assinatura) e um administrador de serviços (que tem controle sobre todos os serviços na assinatura). Além dos administradores, é possível conceder controle detalhado de recursos do Azure por meio de RBAC a contas individuais.
 
@@ -200,10 +195,7 @@ Se você exceder a quantidade de crédito, seu serviço ficará desabilitado at�
 
 **Contratos Enterprise**: com um Contrato Enterprise, você confirma usando um determinado número de serviços no Azure no próximo ano e você pagará essa quantidade antecipadamente. O compromisso que você assume é consumido ao longo do ano. Se você exceder o valor do compromisso, você poderá pagar o excedente em atraso. Dependendo do valor do compromisso, você obtém um desconto nos serviços do Azure.
 
-
-
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura do Azure
-
 
 Várias funções de administrador da conta estão disponíveis e podem ser alteradas a qualquer momento. Duas funções principais são:
 
@@ -215,13 +207,11 @@ Para saber mais, confira [Como adicionar ou alterar as funções de administrado
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Exibir informações de cobrança no portal do Azure
 
-
 Um componente importante de usar o Azure é a capacidade de exibir informações de cobrança. O portal do Azure fornece insights detalhados sobre as informações de cobrança do Azure.
 
 Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obter informações de cobrança de APIs de cobrança
-
 
 Além de exibir a cobrança no portal, você pode acessar as informações de cobrança usando um script ou programa por meio de APIs REST de Cobrança do Azure:
 
@@ -262,7 +252,6 @@ O Gerenciador de Recursos fornece vários benefícios:
 -   Você pode esclarecer a cobrança da sua organização exibindo os custos para um grupo de recursos que compartilha a mesma marcação.
 
 ### <a name="tips-for-creating-resource-groups"></a>Dicas para a criação de grupos de recursos
-
 
 Quando você estiver fazendo decisões sobre os grupos de recursos, considere estas dicas:
 
@@ -347,7 +336,6 @@ Você pode implantar máquinas virtuais do Azure usando o portal do Azure, usand
 Implantar uma máquina virtual usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode selecionar muitas imagens diferentes do sistema operacional com configurações diferentes. Todos os requisitos de armazenamento e de rede são configurados durante a implantação. Para obter mais informações, consulte "Criar uma máquina virtual no portal do Azure" para [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 
 **PowerShell**
 

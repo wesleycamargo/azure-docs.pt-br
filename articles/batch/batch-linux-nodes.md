@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128804"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113504"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -324,10 +324,7 @@ O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquin
 Se você implantar aplicativos para os nós do Lote usando [pacotes de aplicativos](batch-application-packages.md), você também será cobrado pelos recursos de Armazenamento do Azure que consomem seus pacotes de aplicativos. Em geral, os custos de Armazenamento do Azure são mínimos. 
 
 ## <a name="next-steps"></a>Próximas etapas
-### <a name="batch-python-tutorial"></a>Tutorial do Python do Lote
-Para obter um tutorial mais detalhado sobre como trabalhar com o Lote usando o Python, confira [Introdução ao cliente Python do Lote do Azure](batch-python-tutorial.md). Seu [exemplo de código][github_samples_pyclient] complementar inclui uma função auxiliar, `get_vm_config_for_distro`, que mostra outra técnica para obter uma configuração de máquina virtual.
 
-### <a name="batch-python-code-samples"></a>Exemplos de código do Python do Lote
 Os [exemplos de código Python][github_samples_py] no repositório [azure-batch-samples][github_samples] no GitHub contêm scripts que mostram como executar as operações comuns do Lote como criação de pool, trabalho e tarefa. O [LEIAME][github_py_readme] que acompanha os exemplos do Python apresenta detalhes sobre como instalar os pacotes necessários.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

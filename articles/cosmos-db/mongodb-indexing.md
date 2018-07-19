@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: 3979c2a10707936c54c0d55ebcc85c470cabc3aa
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294523"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989502"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexação no Azure Cosmos DB: API MongoDB
 
@@ -101,4 +101,3 @@ Atualmente, a criação de índices exclusivos é possível apenas quando a cole
 ## <a name="next-steps"></a>Próximas etapas
 * [Como o Azure Cosmos DB indexa dados?](../cosmos-db/indexing-policies.md)
 * [Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil](../cosmos-db/time-to-live.md)
-* [Expirar dados na API do MongoDB do Azure Cosmos DB](../cosmos-db/mongodb-ttl.md)
