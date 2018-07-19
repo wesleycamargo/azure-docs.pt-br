@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: fb6e4ebd635d8afa8e679ee5bb0f5646f28f887b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311400"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126418"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usar o T-SQL (Transact-SQL) para criar e gerenciar trabalhos de Banco de Dados Elástico
 
@@ -80,7 +80,7 @@ Conecte-se ao [*banco de dados de trabalhos*](elastic-jobs-overview.md#job-datab
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group = N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup'
 GO
 
 -- Add a server target member

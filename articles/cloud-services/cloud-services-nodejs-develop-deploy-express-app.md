@@ -3,7 +3,7 @@ title: Criar e implantar um aplicativo Node.js Express para Serviços de Nuvem d
 description: Criar e implantar um aplicativo Express.js para Serviços de Nuvem do Microsoft Azure
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: ac62baae2ececf257d22f8220d472c1bcb5ee082
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010101"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012174"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
@@ -119,7 +119,7 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 ![Um navegador da web exibindo a página do Express. A URL indica que agora a página está hospedada no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest).
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/

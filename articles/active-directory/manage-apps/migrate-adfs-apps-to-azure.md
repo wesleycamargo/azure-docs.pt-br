@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 71fa305c0151ba2ff319694cdd3df55bf351e0c5
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946256"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044361"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
 
@@ -202,7 +202,7 @@ Para atribuir usuários no portal do Azure AD, navegue até a página do aplicat
 
 ![Painel “Adicionar Atribuição”](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Para verificar o acesso, os usuários poderão ver o aplicativo SaaS em seus [painéis de acesso](../active-directory-saas-access-panel-introduction.md) quando entrarem. Eles podem encontrar o painel de acesso em http://myapps.microsoft.com. Neste exemplo, o usuário recebeu acesso ao Salesforce e ao ServiceNow com êxito.
+Para verificar o acesso, os usuários poderão ver o aplicativo SaaS em seus [painéis de acesso](../user-help/active-directory-saas-access-panel-introduction.md) quando entrarem. Eles podem encontrar o painel de acesso em http://myapps.microsoft.com. Neste exemplo, o usuário recebeu acesso ao Salesforce e ao ServiceNow com êxito.
 
 ![Painel de acesso de exemplo com os aplicativos Salesforce e ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd59e7956855de52750614c800a46e6bf817cd14
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098865"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054770"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -79,7 +79,7 @@ Quando a extensão NPS para o Azure é integrada ao NPS, há um fluxo de autenti
 
 8. O usuário tem acesso à porta virtual no servidor VPN e estabelece um túnel VPN criptografado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Esta seção apresenta detalhes sobre os pré-requisitos que devem ser concluídos antes que você possa integrar MFA ao Gateway de Área de Trabalho Remota. Antes de começar, você deverá ter os seguintes pré-requisitos em vigor:
 
 * Infraestrutura de VPN
@@ -305,7 +305,7 @@ Para solucionar esses problemas, o ideal é começar analisando os logs de Event
  
 ## <a name="configure-multi-factor-authentication"></a>Configurar Autenticação Multifator
 
-Para obter assistência para configurar usuários para Autenticação Multifator, consulte os artigos [Como exigir a verificação em duas etapas para um usuário ou grupo](howto-mfa-userstates.md) e [Configurar minha conta para verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-first-time.md)
+Para obter assistência para configurar usuários para Autenticação Multifator, consulte os artigos [Como exigir a verificação em duas etapas para um usuário ou grupo](howto-mfa-userstates.md) e [Configurar minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Instalar e configurar a extensão do NPS
 

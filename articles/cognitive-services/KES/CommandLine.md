@@ -9,12 +9,12 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: ffa42ac73b42a8271004d2d45d7a80f3307ef059
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363491"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136348"
 ---
 # <a name="command-line-interface"></a>Interface de Linha de Comando
 A interface de linha de comando KES fornece a capacidade de criar arquivos de índice e a gramática de dados estruturados e implantá-los como serviços web.  Ela usa a sintaxe geral: `kes.exe <command> <required_args> [<optional_args>]`.  Você pode executar `kes.exe` sem argumentos para exibir uma lista de comandos, ou `kes.exe <command>` para exibir uma lista de argumentos disponíveis para o comando especificado.  Abaixo está uma lista de comandos disponíveis:
@@ -26,7 +26,9 @@ A interface de linha de comando KES fornece a capacidade de criar arquivos de í
 * describe_grammar
 
 <a name="build_index-command"></a>
+
 ## <a name="buildindex-command"></a>Comando build_index
+
 O comando **build_index** cria um arquivo de índice binário de um arquivo de definição de esquema e um arquivo de dados de objetos a serem indexados.  O arquivo de índice resultante pode ser usado para avaliar as expressões de consulta estruturada, ou para gerar interpretações de consultas em linguagem natural em conjunto com um arquivo de gramática compilados.
 
 `kes.exe build_index <schemaFile> <dataFile> <indexFile> [options]`
@@ -49,7 +51,9 @@ Por padrão, o índice é criado no computador local.  Fora do ambiente do Azure
 > Para compilações mais rápidas, classifique previamente os objetos no arquivo de dados, diminuindo a probabilidade de log.
 
 <a name="build_grammar-command"></a>
+
 ## <a name="buildgrammar-command"></a>Comando build_grammar
+
 O comando **build_grammar** compila uma gramática especificada em XML para um arquivo de gramática binária.  O arquivo de gramática resultante pode ser usado em conjunto com um arquivo de índice para gerar interpretações de consultas em linguagem natural.
 
 `kes.exe build_grammar <xmlFile> <grammarFile>`
@@ -62,7 +66,9 @@ O comando **build_grammar** compila uma gramática especificada em XML para um a
 Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos de URL para blobs do Azure.  A especificação de gramática descreve o conjunto de expressões de linguagem natural ponderada e suas interpretações semânticas (consulte [Formato de gramática](GrammarFormat.md)).  Quando a compilação é bem-sucedida, o arquivo de gramática de saída contém uma representação binária da especificação de gramática para habilitar a decodificação rápida.
 
 <a name="host_service-command"/>
+
 ## <a name="hostservice-command"></a>Comando host_service
+
 O comando **host_service** hospeda uma instância do serviço KES no computador local.
 
 `kes.exe host_service <grammarFile> <indexFile> [options]`
@@ -78,7 +84,9 @@ Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos
 Fora do ambiente do Azure, os serviços hospedados localmente são limitados aos arquivos de índice de até 1 MB em tamanho, 10 solicitações por segundo e total de 1000 chamadas.  Para superar essas limitações, execute **host_service** dentro de uma VM do Azure, ou implantar um serviço de nuvem do Azure usando **deploy_service**.
 
 <a name="deploy_service-command"/>
+
 ## <a name="deployservice-command"></a>Comando deploy_service
+
 O comando **deploy_service** implanta uma instância do serviço KES para um serviço de nuvem do Azure.
 
 `kes.exe deploy_service <grammarFile> <indexFile> <serviceName> <vmSize>[options]`
@@ -96,7 +104,9 @@ Esses arquivos podem ser especificados por caminhos de arquivo local ou caminhos
 Por padrão, o serviço é implantado no ambiente de preparação, opcionalmente, substituído por meio do parâmetro --slot.  Consulte [APIs da Web](WebAPI.md) para obter uma lista de operações com suporte.
 
 <a name="describe_index-command"/>
+
 ## <a name="describeindex-command"></a>Comando describe_index
+
 O comando **describe_index** gera informações sobre um arquivo de índice, inclusive o esquema e a descrição.
 
 `kes.exe describe_index <indexFile>`
@@ -108,7 +118,9 @@ O comando **describe_index** gera informações sobre um arquivo de índice, inc
 Esse arquivo pode ser especificado por um caminho de arquivo local ou um caminho de URL para um blob do Azure.  A cadeia de caracteres de descrição de saída pode ser especificada usando o parâmetro --descrição do comando **build_index**.
 
 <a name="describe_grammar-command"/>
+
 ## <a name="describegrammar-command"></a>Comando describe_grammar
+
 O comando **describe_grammar** gera a especificação de gramática original usada para construir a gramática binária.
 
 `kes.exe describe_grammar <grammarFile>`

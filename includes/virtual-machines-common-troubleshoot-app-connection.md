@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313506"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38764715"
 ---
 Há vários motivos pelos quais não é possível iniciar ou conectar-se a um aplicativo em execução em uma VM (máquina virtual) do Azure. Entre eles estão o aplicativo não estar em execução ou não estar escutando nas portas esperadas, a porta de escuta estar bloqueada ou as regras de rede não passarem corretamente o tráfego para o aplicativo. Este artigo descreve uma abordagem metódica para localizar e corrigir o problema.
 

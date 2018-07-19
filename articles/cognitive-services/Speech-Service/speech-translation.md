@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364763"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069186"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de Tradução de Fala
 
@@ -42,5 +42,5 @@ As diferenças entre os modelos são internas ao mecanismo de tradução. Os usu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-windows.md)
+* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

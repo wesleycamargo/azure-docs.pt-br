@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866976"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048944"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -86,8 +86,8 @@ Você deve [preencher os dados de autenticação de seus usuários](howto-sspr-a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md)
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política com SSPR?](concept-sspr-policy.md)

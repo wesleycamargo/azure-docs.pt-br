@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6470bb5b7b5b8404683d1ae6fd4f16f0436982ef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364585"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126551"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar um token de insights para obter insights sobre uma imagem
 
@@ -62,10 +62,11 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 Para exemplos que usam o token de insights, consulte [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python).
 
-<a name="csharp" />
+<a name="using-csharp" />
+
 ## <a name="using-c"></a>Usando C#
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter esse código em execução no Windows. (O Community Edition gratuito funcionará.)
 
@@ -237,12 +238,11 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-
-
+<a name="using-java" />
 
 ## <a name="using-java"></a>Usando Java
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você poderá usar um Java IDE, se tiver um favorito, mas um editor de texto é suficiente.
 
@@ -357,9 +357,10 @@ public class InsightsToken {
 
 
 <a name="using-nodejs" />
+
 ## <a name="using-nodejs"></a>Usando o Node.js
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [Node.js 6](https://nodejs.org/en/download/) para executar esse código.
 
@@ -422,12 +423,12 @@ function requestCallback(err, res, body) {
 ```
 
 
-
+<a name="using-python" />
 
 ## <a name="using-python"></a>Usando Python
 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa do [Python 3](https://www.python.org/) para executar esse código.
 

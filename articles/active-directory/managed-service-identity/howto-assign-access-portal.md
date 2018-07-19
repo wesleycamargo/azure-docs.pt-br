@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929765"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036438"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de Identidade de Serviço Gerenciado a um recurso usando o portal do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "33929765"
 
 Depois de configurar um recurso do Azure com uma MSI (Identidade do Serviço Gerenciado), você pode conceder acesso à MSI a outro recurso, assim como qualquer entidade de segurança. Este artigo mostra como conceder acesso de MSI de uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais a uma conta de armazenamento do Azure, usando o Portal do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,20 +41,20 @@ Após habilitar a MSI em um recurso do Azure, como uma [VM do Azure](qs-configur
 
 3. Para uma máquina virtual do Azure, selecione a página **IAM (Controle de acesso)** do recurso e selecione **+ Adicionar**. Então especifique a **Função**, **Atribuir acesso à Máquina Virtual** e especifique a **Assinatura** e o **Grupo de Recursos** correspondentes no qual o recurso reside. Na área de critérios de pesquisa, você verá o recurso. Selecione o recurso e selecione **Salvar**. 
 
-   ![Captura de tela do IAM (Controle de acesso)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Captura de tela do IAM (Controle de acesso)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    Para um conjunto de dimensionamento de máquinas virtuais do Azure, selecione a página **IAM (Controle de acesso)** do recurso e selecione **+ Adicionar**. Em seguida, especifique o **Função**, **Atribuir acesso a**. Na área de critérios de pesquisa, pesquise o conjunto de dimensionamento de máquinas virtuais. Selecione o recurso e selecione **Salvar**.
    
-   ![Captura de tela de controle de acesso (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Captura de tela de controle de acesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. Você será levado de volta à página principal de **Controle de Acesso (IAM)**, na qual você verá uma nova entrada para a MSI do recurso.
 
     Máquina virtual do Azure:
 
-   ![Captura de tela de controle de acesso (IAM)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Captura de tela de controle de acesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Conjunto de dimensionamento de máquinas virtuais do Azure:
 
-    ![Captura de tela de controle de acesso (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Captura de tela de controle de acesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>solução de problemas
 

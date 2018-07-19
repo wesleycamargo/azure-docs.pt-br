@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 146a86058adc73626e532f33e9fdbc83d9cf27e8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097872"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048979"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
 A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relatório | Local padrão | DESCRIÇÃO |
+| Relatório | Localização | DESCRIÇÃO |
 |:--- |:--- |:--- |
 | Histórico de usuário bloqueado | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
@@ -49,5 +49,5 @@ Identifique os usuários que não se registraram para MFA usando o PowerShell a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Para usuários](end-user/current/multi-factor-authentication-end-user.md)
+* [Para usuários](../user-help/multi-factor-authentication-end-user.md)
 * [Onde implantar](concept-mfa-whichversion.md)

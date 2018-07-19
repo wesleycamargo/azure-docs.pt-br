@@ -3,31 +3,31 @@ title: Segurança de senha em camadas do Azure AD | Microsoft Docs
 description: Explica como o Azure AD impõe senhas fortes e protege as senhas dos usuários contra os cibercriminosos.
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586367"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056912"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas à segurança de senha do Azure AD
 
 Este artigo discute algumas práticas recomendadas que você pode seguir como um usuário ou como um administrador para proteger sua Conta da Microsoft ou do Azure AD (Azure Active Directory).
 
  > [!NOTE]
- > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Em caso afirmativo, [veja como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+ > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Em caso afirmativo, [veja como alterar e redefinir sua senha](user-help/active-directory-passwords-update-your-own-password.md).
  >
- > Os administradores do Azure AD podem redefinir senhas de usuário usando as diretrizes neste artigo [Redefinir a senha de um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Os administradores do Azure AD podem redefinir senhas de usuário usando as diretrizes neste artigo [Redefinir a senha de um usuário no Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## <a name="password-requirements"></a>Requisitos de senha
@@ -38,7 +38,7 @@ O Azure AD inclui as seguintes abordagens comuns para proteger senhas:
 * Requisitos de complexidade de senha
 * Expiração de senha regular e periódica
 
-Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
+Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](user-help/active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
 
 ## <a name="azure-ad-password-protections"></a>Proteções de senha do Azure AD
 
@@ -75,7 +75,7 @@ Para outras contas da Microsoft, a tela é semelhante à abaixo:
 
   ![Bloqueado em uma conta da Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
+Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](user-help/active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
 
   >[!NOTE]
   >Se você é administrador do Azure AD, convém usar o [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que os usuários criem senhas tradicionais.
@@ -83,6 +83,6 @@ Para obter informações sobre a redefinição de senha no Azure Active Director
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
+* [Como atualizar sua própria senha](user-help/active-directory-passwords-update-your-own-password.md)
 * [Os fundamentos do gerenciamento de identidades do Azure](fundamentals-identity.md)
 * [Relatório de atividade de registro de redefinição de senha](authentication/howto-sspr-reporting.md)

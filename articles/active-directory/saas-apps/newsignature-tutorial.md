@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 72cfc470dde29033dfce50aa3e815507c03b3857
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8ea156f09f79d2e2718b0aeb1a6a9e870828c32d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215929"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integração do Azure Active Directory com o Cloud Management Portal for Microsoft Azure
 
@@ -33,7 +33,7 @@ A Integração do Cloud Management Portal for Microsoft Azure com o Azure AD ofe
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Cloud Management Portal for Microsoft Azure, você precisará dos seguintes itens:
 
@@ -225,7 +225,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 Quando você clicar no bloco Cloud Management Portal for Microsoft Azure no Painel de Acesso, deverá fazer logon automaticamente no aplicativo do Cloud Management Portal for Microsoft Azure.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

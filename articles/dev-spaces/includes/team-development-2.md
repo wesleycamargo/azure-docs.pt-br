@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936390"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39063121"
 ---
 ### <a name="run-the-service"></a>Executar o serviço
 
 1. Pressione F5 (ou digite `azds up` na Janela do Terminal) para executar o serviço. O serviço será executado automaticamente no espaço `default/scott` recém-selecionado. 
-1. Confirme se o serviço está sendo executado em seu próprio espaço executando `azds list` novamente. Primeiro, você observará que uma instância de `mywebapi` agora está em execução no espaço `default/scott` (a versão em execução no `default` ainda está em execução, mas não está listada). Em segundo lugar, a URL de ponto de acesso de `webfrontend` é prefixada com o texto "scott.s.". Essa URL é exclusiva para o espaço `default/scott`. A URL especial significa que solicitações enviadas para a "URL de scott" tentarão primeiro ser encaminhadas para os serviços do espaço `default/scott`, mas, em caso de falha, recorrerão aos serviços do espaço `default`.
+1. Confirme se o serviço está sendo executado em seu próprio espaço executando `azds list-up` novamente. Primeiro, você observará que uma instância de `mywebapi` agora está em execução no espaço `default/scott` (a versão em execução no `default` ainda está em execução, mas não está listada). Em segundo lugar, a URL de ponto de acesso de `webfrontend` é prefixada com o texto "scott.s.". Essa URL é exclusiva para o espaço `default/scott`. A URL especial significa que solicitações enviadas para a "URL de scott" tentarão primeiro ser encaminhadas para os serviços do espaço `default/scott`, mas, em caso de falha, recorrerão aos serviços do espaço `default`.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

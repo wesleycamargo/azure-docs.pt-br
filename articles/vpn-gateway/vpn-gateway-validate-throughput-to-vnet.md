@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754055"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035611"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -88,7 +88,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
     ```CMD
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
-    </br>
+     
     **Linux do Azure:** as imagens do Linux do Azure têm firewalls permissivos. Se houver um aplicativo escutando em uma porta, o tráfego será permitido. Imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. Os firewalls da camada de OS do Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
 
 3. No nó de servidor, altere para o diretório onde o iperf3.exe é extraído. Em seguida, execute o iPerf no modo de servidor e configure-o para escutar na porta 5001, de acordo com os seguintes comandos:

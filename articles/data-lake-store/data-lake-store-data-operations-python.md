@@ -8,16 +8,15 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: fa1c42a7bb9a06b2ea790e883ec7da6caa41d6b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011954"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Operações de filesystem no Azure Data Lake Store usando Python
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 Neste artigo, você aprenderá a usar o SDK do Python para executar operações de sistema de arquivos no Azure Data Lake Store. Para obter instruções sobre como executar operações de gerenciamento de conta no Data Lake Store usando o Python, veja [Operações de gerenciamento de conta no Data Lake Store usando o Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Python**. Você pode baixar o Python [aqui](https://www.python.org/downloads/). Este artigo usa o Python 3.6.2.
 
@@ -131,6 +130,6 @@ O trecho de código a seguir primeiro cria o cliente de conta do Data Lake Store
 * [Operações de gerenciamento de contas no Data Lake Store usando o Python](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>Consulte também
-* [Referência de Python do Azure Data Lake Store (Gerenciamento de contas)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Referência de Python do Azure Data Lake Store (Filesystem)](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Aplicativos de Big Data de software livre compatíveis com o Repositório Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)

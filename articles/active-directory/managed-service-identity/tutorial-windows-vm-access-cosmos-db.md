@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904264"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005638"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: Usar um MSI de VM do Windows para acessar o Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Este tutorial mostra como criar e usar um MSI de VM do Windows para acessar o Co
 > * Obter um token de acesso usando a MSI e da VM do Windows para chamar o Azure Resource Manager
 > * Obter chaves de acesso do Azure Resource Manager para realizar chamadas do Cosmos DB
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 5. Para selecionar um novo **Grupo de Recursos** no qual será criada a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
 6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na página Configurações, mantenha os padrões e clique em **OK**.
 
-   ![Texto Alt da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM 
 
@@ -66,7 +66,7 @@ Um MSI de máquina virtual permite obter tokens de acesso do Microsoft Azure Act
 2. Na barra de navegação à esquerda, clique em **Configuração**. 
 3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não. 
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.  
-   ![Texto Alt da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
 

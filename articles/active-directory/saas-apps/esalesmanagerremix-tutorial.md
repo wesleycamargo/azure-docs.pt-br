@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 07cbc047179c3de19d6f648d0342d47970c81dbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231365"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052662"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -34,7 +34,7 @@ Ao integrar o E Sales Manager Remix ao Microsoft Azure Active Directory, você o
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao E Sales Manager Remix, você precisará dos seguintes itens:
 
@@ -267,7 +267,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar no bloco do E Sales Manager Remix no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo E Sales Manager Remix.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: fb67d1eea588d96129c4b58a8c1b2f569c9663bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904400"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049330"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma Identidade Gerenciada da VM do Linux para acessar o Armazenamento do Azure 
 
@@ -38,7 +38,7 @@ Este tutorial mostra como criar e usar uma Identidade Gerenciada da VM Linux par
 > [!NOTE]
 > A autenticação do Azure Active Directory para Armazenamento do Azure está em versão prévia.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com) antes de continuar.
 
@@ -61,7 +61,7 @@ Nesta seção, você cria uma VM do Linux que, depois, receberá uma Identidade 
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Insira as informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública SSH** ou **Senha**. As credenciais criadas permitirão que você faça logon na máquina virtual.
 
-   ![Painel “Básico” para a criação de uma máquina virtual](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Painel “Básico” para a criação de uma máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Na lista **Assinatura**, selecione uma assinatura para a máquina virtual.
 5. Para selecionar um novo grupo de recursos no qual você deseja criar a máquina virtual, selecione **Grupo de recursos** > **Criar novo**. Quando terminar, selecione **OK**.
@@ -87,7 +87,7 @@ Nesta seção, você criará uma conta de armazenamento.
 5. Verifique se a **Assinatura** e o **Grupo de Recursos** correspondem ao que você especificou quando criou sua VM na etapa anterior.
 6. Clique em **Criar**.
 
-    ![Criar nova conta de armazenamento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Criar nova conta de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Criar um contêiner de blob e carregar um arquivo na conta de armazenamento
 
@@ -98,14 +98,14 @@ Arquivos exigem armazenamento de blobs, então é preciso criar um contêiner de
 3. No topo da página, clique em **+ Contêiner**.
 4. Em **Novo contêiner**, insira um nome para o contêiner e, sob **Nível de acesso público**, mantenha o valor padrão.
 
-    ![Criar um contêiner de armazenamento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Criar um contêiner de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Usando um editor de sua escolha, crie um arquivo denominado *hello world.txt* em seu computador local.  Abra o arquivo e adicione o texto (sem as aspas) "Hello world! :)" e salve-o. 
 
 6. Carregue o arquivo no contêiner recém-criado clicando no nome do contêiner, depois em **Carregar**
 7. No painel **Carregar blob**, em **Arquivos**, clique no ícone de pasta e navegue até o arquivo **hello_world.txt** em seu computador local, selecione-o e clique em **Carregar**.
 
-    ![Carregar arquivo de texto](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Carregar arquivo de texto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder à sua VM acesso a um contêiner do Armazenamento do Azure 
 

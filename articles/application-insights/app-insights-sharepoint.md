@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992034"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
 O Azure Application Insights monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
@@ -33,7 +34,7 @@ A folha que será aberta é onde você verá os dados de uso e desempenho do seu
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ Os primeiros eventos aparecerão na Pesquisa.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
-
-Na folha visão geral, clique em **análises de uso** para ver gráficos de usuários, sessões e modos de exibição de página:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Clique em qualquer gráfico para ver mais detalhes - exibições de página por exemplo:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Ou Usuários:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Capturando a ID de usuário
 O trecho de código de página da Web padrão não captura a ID de usuário do SharePoint, mas você pode fazer isso com uma pequena modificação.

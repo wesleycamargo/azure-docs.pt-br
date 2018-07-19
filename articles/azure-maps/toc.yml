@@ -22,8 +22,16 @@
   items:
     - name: Níveis de zoom e grade lado a lado
       href: zoom-levels-and-tile-grid.md
-    - name: Categorias de pesquisa com suporte
-      href: supported-search-categories.md
+    - name: Cobertura do serviço
+      items:
+        - name: Geocodificação
+          href: geocoding-coverage.md
+        - name: Tráfego
+          href: traffic-coverage.md
+        - name: Renderizar
+          href: render-coverage.md
+        - name: Roteamento
+          href: routing-coverage.md
     - name: Idiomas com suporte
       href: supported-languages.md
 - name: Guias de instruções
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: Referência
   items:
-    - name: Cobertura do serviço
-      items:
-        - name: Geocodificação
-          href: geocoding-coverage.md
-        - name: Tráfego
-          href: traffic-coverage.md
-        - name: Renderizar
-          href: render-coverage.md
-        - name: Roteamento
-          href: routing-coverage.md
     - name: Extensões de API e parâmetro
       items:
         - name: Modelo de consumo do veículo
           href: consumption-model.md
         - name: Estender formato GeoJSON
           href: extend-geojson.md
+        - name: Categorias de pesquisa com suporte
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: Serviço de Renderização
@@ -129,7 +129,7 @@
     - name: Centro de Desenvolvedores do IoT do Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Preços

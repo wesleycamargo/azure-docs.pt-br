@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345117"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069032"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -144,5 +144,5 @@ Agora você verá uma nova entrada na tabela de modelos acústicos correspondent
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Obtenha sua assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/)
-- [Como reconhecer fala no C#](quickstart-csharp-windows.md)
+- [Como reconhecer fala no C#](quickstart-csharp-dotnet-windows.md)
 - [Dados de exemplo do Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

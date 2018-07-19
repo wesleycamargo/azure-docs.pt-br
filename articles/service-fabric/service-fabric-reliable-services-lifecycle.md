@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 42833323cbebf25ce2ca14e6ab7ec4fa5adbfd15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206937"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044570"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -79,7 +79,10 @@ Serviços com estado têm um padrão semelhante aos serviços sem monitoração 
     - Se o serviço for Primário no momento, o método `StatefulServiceBase.RunAsync()` do serviço será chamado.
 4. Depois que todas as chamadas `OpenAsync()` do ouvinte da réplica forem concluídas e `RunAsync()` for chamado, `StatefulServiceBase.OnChangeRoleAsync()` será chamado. Essa chamada não costuma ser substituída no serviço.
 
-Semelhante aos serviços sem monitoração de estado, não há coordenação entre a ordem em que os ouvintes são criados e abertos e quando **RunAsync** é chamado. Se você precisar de coordenação, as soluções são muito parecidas. Há um caso adicional para o serviço com estado. Digamos que as chamadas que chegam aos ouvintes de comunicação precisem de informações mantidas dentro de algumas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). Como os ouvintes de comunicação podem ser abertos antes que as coleções confiáveis fiquem legíveis ou graváveis e antes de **RunAsync** ser iniciado, é necessário realizar a coordenação. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.
+Semelhante aos serviços sem monitoração de estado, não há coordenação entre a ordem em que os ouvintes são criados e abertos e quando **RunAsync** é chamado. Se você precisar de coordenação, as soluções são muito parecidas. Há um caso adicional para o serviço com estado. Digamos que as chamadas que chegam aos ouvintes de comunicação precisem de informações mantidas dentro de algumas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md).
+
+   > [!NOTE]  
+   > Como os ouvintes de comunicação podem ser abertos antes que as coleções confiáveis fiquem legíveis ou graváveis e antes de **RunAsync** ser iniciado, é necessário realizar a coordenação. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.
 
 ## <a name="stateful-service-shutdown"></a>Desligamento de serviço com estado
 Da mesma forma que os serviços sem monitoração de estado, os eventos de ciclo de vida durante o desligamento são os mesmos que durante a inicialização, porém invertidos. Quando um serviço com estado está sendo desligado, ocorrem os seguintes eventos:

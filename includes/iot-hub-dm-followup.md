@@ -18,6 +18,6 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 
 Para continuar a introdução ao Hub IoT, confira [Introdução ao IoT Edge][lnk-iot-edge].
 
-[lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
 [lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md

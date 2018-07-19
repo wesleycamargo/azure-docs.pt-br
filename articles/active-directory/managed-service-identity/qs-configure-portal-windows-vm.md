@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901350"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035934"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma Identidade do Serviço Gerenciado (MSI) da VM usando a CLI do Azure
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a habilitar e a desabilitar a identidade atribuí
 > [!NOTE]
 > No momento, não há suporte para operações de identidade atribuída pelo usuário por meio do Portal do Azure. Procure novamente por atualizações. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md).
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -59,7 +59,7 @@ Para habilitar a identidade atribuída pelo sistema em uma VM que foi originalme
     > [!NOTE]
     > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
 
-   ![Captura de tela da página de configuração](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Remova a Identidade de Serviço Gerenciada de uma VM do Azure
 
@@ -74,7 +74,7 @@ Se você tiver uma Máquina Virtual que não precisa mais da identidade atribuí
     > [!NOTE]
     > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
 
-   ![Captura de tela da página de configuração](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

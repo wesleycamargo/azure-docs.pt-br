@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1d5e7683050c5e1e4216b81e23554724f12d45f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097488"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054702"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -292,7 +292,7 @@ Por padrão, os usuários não podem criar senhas de aplicativo. O recurso de se
 
 Os usuários podem criar senhas de aplicativo durante o registro inicial. O usuário tem a opção de criar senhas de aplicativo no final do processo de registro.
 
-Os usuários também podem criar senhas de aplicativo após o registro. As senhas de aplicativo podem ser alteradas por meio das configurações no Portal do Azure ou no portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
+Os usuários também podem criar senhas de aplicativo após o registro. As senhas de aplicativo podem ser alteradas por meio das configurações no Portal do Azure ou no portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Lembrar a Autenticação Multifator para dispositivos confiáveis
@@ -301,7 +301,7 @@ O recurso _Lembrar a Autenticação Multifator_ para dispositivos e navegadores 
 >[!IMPORTANT]
 >Se um dispositivo ou uma conta for comprometida, a lembrança da Autenticação Multifator para dispositivos confiáveis poderá afetar a segurança. Caso uma conta corporativa seja comprometida ou um dispositivo confiável seja perdido ou roubado, você deve [restaurar a Autenticação Multifator em todos os dispositivos](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->A ação de restaurar revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a Autenticação Multifator em seus próprios dispositivos com as instruções disponíveis em [Gerenciar as configurações da verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>A ação de restaurar revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a Autenticação Multifator em seus próprios dispositivos com as instruções disponíveis em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Como o recurso funciona
@@ -341,7 +341,7 @@ Depois de habilitar o recurso Lembrar a Autenticação Multifator, os usuários 
 
 Você pode escolher os métodos de verificação que estarão disponíveis para os usuários usando o recurso _métodos de verificação selecionáveis_. A tabela a seguir fornece uma visão geral dos métodos.
 
-Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro são fornecidas em [Configurar minha conta para verificação em duas etapas](end-user/current/multi-factor-authentication-end-user-first-time.md).
+Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro são fornecidas em [Configurar minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 | Método | DESCRIÇÃO |
 |:--- |:--- |

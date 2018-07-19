@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24994492"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036281"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Excluir um gateway de rede virtual usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Este artigo ajuda você a excluir um gateway de VPN no modelo de implantação c
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os cmdlets mais recentes do PowerShell.
 
-Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview):
+Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conectar-se à sua conta do Azure. 
 
@@ -195,3 +195,4 @@ Se for bem-sucedido, o retorno mostrará algo semelhante a este exemplo:
 OperationDescription        OperationId                      OperationStatus                                                
 --------------------        -----------                      ---------------                                           
 Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded
+```

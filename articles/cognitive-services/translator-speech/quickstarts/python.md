@@ -7,27 +7,27 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363621"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124819"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Início rápido da API de Tradução de Fala da Microsoft com Python 
 <a name="HOLTop"></a>
 
 Este artigo mostra como usar a API de Tradução de Fala da Microsoft para traduzir palavras faladas em um arquivo .wav.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará do [Python 3.x](https://www.python.org/downloads/) para executar esse código.
 
 Você precisará instalar o [pacote de cliente do websocket](https://pypi.python.org/pypi/websocket-client) para Python.
 
-É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono. É possível obter esse arquivo .wav pela [API de Tradução de Texto](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+É necessário ter um arquivo .wav chamado "speak.wav" na mesma pasta do executável que você compila a partir do código abaixo. Este arquivo .wav deve estar no padrão PCM, 16 bits, 16kHz, formato mono.
 
 É necessário ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de Tradução de Fala da Microsoft**. Você precisará de uma chave de assinatura paga no [painel do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

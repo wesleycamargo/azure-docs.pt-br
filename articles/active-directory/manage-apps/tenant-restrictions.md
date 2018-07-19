@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: dd86ad6b9a60c8a44dd73b31d908838d9c213fd1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301923"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126653"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar Restrições de Locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -60,7 +60,7 @@ Para usar Restrições de Locatário, seus clientes devem ser capazes de se cone
 
 A configuração a seguir é necessária para habilitar as Restrições de Locatário por meio de sua infraestrutura de proxy. Essa diretriz é genérica, você deverá consultar a documentação do seu fornecedor de proxy para encontrar as etapas de implementação específicas.
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 - O proxy deve ser capaz de realizar a interceptação de SSL, a inserção de cabeçalho HTTP e a filtragem de destinos usando FQDNs/URLs. 
 
@@ -116,7 +116,7 @@ As Restrições de Locatário no momento têm suporte pelos aplicativos baseados
 
 Clientes Skype for Business e Outlook que dão suporte à autenticação moderna ainda podem usar protocolos herdados em locatários em que a autenticação moderna não está habilitada, ignorando efetivamente as Restrições de Locatário. Aplicativos que usam protocolos herdados podem ser bloqueados pelas Restrições de Locatário se contatarem login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
 
-Para o Outlook no Windows, os clientes podem optar por implementar restrições que impedem que os usuários finais adicionem contas de email não aprovadas aos seus perfis. Por exemplo, consulte a configuração da política de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir a adição de contas do Exchange não padrão). No momento, não há suporte completo para Restrições de Locatário para o Outlook em plataformas não Windows e para Skype for Business em nenhuma plataforma.
+Para o Outlook no Windows, os clientes podem optar por implementar restrições que impedem que os usuários finais adicionem contas de email não aprovadas aos seus perfis. Por exemplo, consulte a configuração da política de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir a adição de contas do Exchange não padrão).
 
 ## <a name="testing"></a>Testando
 

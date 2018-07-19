@@ -3,7 +3,7 @@ title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
 description: Saiba como gerenciar Serviços de Nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: e60bf5c82e68d49abaa44d80ac9fafba2d8265da
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121188"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005750"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:

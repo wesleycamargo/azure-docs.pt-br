@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866661"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049014"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Redefinição de senha de autoatendimento no Azure AD para o profissional de TI
 
@@ -65,5 +65,5 @@ Mais detalhes sobre preços, licenciamento e planos futuros podem ser encontrado
 
 * Você está pronto para começar a usar a SSPR? [Redefinição da senha de autoatendimento do Azure AD](quickstart-sspr.md).
 * Planeje uma implantação de SSPR bem-sucedida para seus usuários usando as diretrizes encontradas em nosso [guia distribuição](howto-sspr-deployment.md).
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md).
-* [Registro para redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md).
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registro para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md).

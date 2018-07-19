@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939139"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39063097"
 ---
 Até agora, você executou o código do aplicativo como se fosse o único desenvolvedor trabalhando no aplicativo. Nesta seção, você aprenderá como o Azure Dev Spaces simplifica o desenvolvimento em equipe:
 * Habilite uma equipe de desenvolvedores para trabalhar no mesmo ambiente, trabalhando em um espaço de desenvolvimento compartilhado ou em espaços de desenvolvimento distintos, conforme o necessário.
@@ -45,7 +45,7 @@ Com o Azure Dev Spaces, você pode configurar um espaço de desenvolvimento *com
 > [!Note]
 > Antes de continuar, feche todas as janelas do VS Code de ambos os serviços e, em seguida, execute `azds up -d` em cada uma das pastas raiz do serviço. (Essa é uma limitação da Versão Prévia.)
 
-Vamos examinar mais detalhadamente em que local os serviços estão em execução no momento. Execute o comando `azds list` e você verá uma saída semelhante à seguinte:
+Vamos examinar mais detalhadamente em que local os serviços estão em execução no momento. Execute o comando `azds list-up` e você verá uma saída semelhante à seguinte:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points

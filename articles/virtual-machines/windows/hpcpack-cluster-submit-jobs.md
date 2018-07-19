@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166362"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036482"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC implantado no Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Configure um computador cliente local para enviar trabalhos para um cluster de [
 
 ![Enviar um trabalho para um cluster no Azure][jobsubmit]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Nó de cabeçalho do HPC Pack implantado em uma VM do Azure** – Recomendamos o uso de ferramentas automatizadas como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) para implantar o nó de cabeçalho e o cluster. Você precisa do nome DNS do nó principal e as credenciais de um administrador de cluster para concluir as etapas neste artigo.
 * **Computador cliente** – você precisa de um computador Windows Client ou Windows Server que possa executar utilitários de cliente do Pacote HPC (consulte os [requisitos do sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se você quiser usar a API REST ou o portal da Web do Pacote HPC para enviar trabalhos, poderá usar qualquer computador cliente de sua escolha.
 * **Mídia de instalação do Pacote HPC** - Para instalar os utilitários de cliente do Pacote HPC, o pacote de instalação gratuita para a versão mais recente do Pacote HPC está disponível no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Confira se você baixou a mesma versão do Pacote HPC que está instalada na VM do nó principal.
@@ -90,7 +90,7 @@ Para usar as ferramentas clientes Pacote HPC para enviar trabalhos para a VM do 
 
 1. No nó principal, adicione o snap-in de Certificados ao Console de Gerenciamento Microsoft para a conta do computador local. Para obter as etapas para adicionar o snap-in, consulte [Adicionar o Snap-in de Certificados a um MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. Na árvore de console, expanda **Certificados – Computador Local** > **Pessoal** e clique em **Certificados**.
-3. Localize o certificado que você configurou para os componentes Web do Pacote HPC na [Etapa 1: Instalar e configurar os componentes Web no nó principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por exemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Localize o certificado que você configurou para os componentes Web do Pacote HPC na [Etapa 1: Instalar e configurar os componentes Web no nó principal](#step-1-install-and-configure-the-web-components-on-the-head-node) (por exemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. Clique com o botão direito do mouse no certificado e selecione **Todas as Tarefas** > **Exportar**.
 5. No Assistente de Exportação de Certificados, clique em **Avançar** e escolha a opção **Não, não exporte a chave particular**.
 6. Siga as etapas restantes do Assistente para exportar o certificado no formato DER binário X.509 codificado (.CER).

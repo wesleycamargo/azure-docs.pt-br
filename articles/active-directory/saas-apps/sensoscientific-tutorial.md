@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: de46f3ded72b8f4444426b8754b1c1a14863321f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293006"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific
 
@@ -33,7 +33,7 @@ A integração do Sistema de Monitoramento de Temperatura Sem Fio SensoScientifi
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific, você precisa dos seguintes itens:
 
@@ -214,7 +214,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso. Clique no bloco Sistema de Monitoramento de Temperatura Sem Fio SensoScientific no Painel de Acesso e você será automaticamente conectado ao aplicativo Sistema de Monitoramento de Temperatura Sem Fio SensoScientific. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso. Clique no bloco Sistema de Monitoramento de Temperatura Sem Fio SensoScientific no Painel de Acesso e você será automaticamente conectado ao aplicativo Sistema de Monitoramento de Temperatura Sem Fio SensoScientific. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

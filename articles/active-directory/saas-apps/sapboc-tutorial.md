@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308292"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: integração do Azure Active Directory ao SAP Business Object Cloud
 
@@ -34,7 +34,7 @@ Você obtém os seguintes benefícios quando integra o SAP Business Object Cloud
 
 Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao SAP Business Object Cloud, você precisa dos seguintes itens:
 
@@ -278,7 +278,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar o bloco do SAP Business Object Cloud no painel de acesso, você deve ser conectado automaticamente ao aplicativo SAP Business Object Cloud.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

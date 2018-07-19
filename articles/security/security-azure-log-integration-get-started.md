@@ -15,18 +15,18 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235739"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036795"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de Logs do Azure com logs do Diagnóstico do Azure e encaminhamento de eventos do Windows
 
 
 >[!IMPORTANT]
-> O recurso Integração de log do Azure será substituído em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Você só deverá usar a integração de log do Azure se um conector do [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) não estiver disponível de seu fornecedor de SIEM (Gerenciamento de Eventos e Informações de Segurança).
 
@@ -229,6 +229,7 @@ O Log de Atividades do Azure é um log de assinatura que fornece informações s
     ```Azlog.exe authorize subscriptionId``` Exemplo:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.  Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Auditoria do Azure Active Directory são criados nelas:
     - C:\Usuários\azlog\AzureResourceManagerJson
     - C:\Usuários\azlog\AzureResourceManagerJsonLD

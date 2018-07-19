@@ -15,19 +15,19 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0192b2d89b5e97c7f23b5394106853ddf83ddaf4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751387"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044002"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
 Saiba como localizar e corrigir problemas de [logon único](../manage-apps/what-is-single-sign-on.md) em aplicativos no Azure AD (Azure Active Directory) compatíveis com o [SAML (Security Assertion Markup Language) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
 ## <a name="before-you-begin"></a>Antes de começar
-É recomendado instalar a [My Apps Secure Sign-in Extension](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Essa extensão do navegador facilita a coleta de informações de solicitação e de resposta SAML que você precisa para resolver problemas de logon único. Caso você não possa instalar a extensão, este artigo mostrará como resolver problemas com e sem a extensão instalada.
+É recomendado instalar a [My Apps Secure Sign-in Extension](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Essa extensão do navegador facilita a coleta de informações de solicitação e de resposta SAML que você precisa para resolver problemas de logon único. Caso você não possa instalar a extensão, este artigo mostrará como resolver problemas com e sem a extensão instalada.
 
 Para baixar e instalar a My Apps Secure Sign-in Extension, use um dos links a seguir.
 

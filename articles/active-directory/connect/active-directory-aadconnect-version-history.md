@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261773"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049510"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -209,7 +209,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-type     | NOME                          | Access               | Aplica-se A
+Tipo     | NOME                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 PERMITIR    | SYSTEM                        | Controle Total         | Este objeto  |
 PERMITIR    | Administradores Corporativos             | Controle Total         | Este objeto  |
@@ -917,7 +917,7 @@ Lançamento: novembro de 2015
 **Novos recursos de visualização:**
 
 * [Azure AD Connect Health para sincronização](../connect-health/active-directory-aadconnect-health-sync.md).
-* Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](../active-directory-passwords-update-your-own-password.md) .
+* Suporte para sincronização de senha dos [Serviços de Domínio do AD do Azure](../user-help/active-directory-passwords-update-your-own-password.md) .
 
 **Novo cenário com suporte:**
 

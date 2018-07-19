@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a296c1e358bffa70ed88ba40380266e8731afd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211580"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046664"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrar o Azure Active Directory ao Palo Alto Networks - Admin UI
 
@@ -34,7 +34,7 @@ Ao integrar o Azure AD ao Palo Alto Networks - Admin UI, você obtém os seguint
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Palo Alto Networks – Admin UI, você precisa dos seguintes itens:
 
@@ -309,7 +309,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Quando você clicar no bloco Palo Alto Networks - Admin UI no painel de acesso, seu logon deve ser realizado automaticamente no seu aplicativo Palo Alto Networks - Admin UI.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

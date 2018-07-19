@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870015"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057354"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, consulte [Preciso de ajuda, esqueci minha senha do Azure AD](../active-directory-passwords-update-your-own-password.md).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, consulte [Preciso de ajuda, esqueci minha senha do Azure AD](../user-help/active-directory-passwords-update-your-own-password.md).
 
 A redefinição da senha de autoatendimento (SSPR) oferece um meio simples para os administradores de TI a capacitar os usuários a redefinir ou desbloquear suas contas ou senhas. O sistema inclui relatórios detalhados que acompanham quando os usuários acessam o sistema junto com as notificações para alertá-lo para uso indevido ou um abuso.
 
-Este guia pressupõe que você já tem um locatário do Azure Active Directory (Azure AD) de trabalho licenciado ou de avaliação. Se precisar de ajuda para configurar o Azure AD, consulte [Introdução ao Azure AD](../get-started-azure-ad.md).
+Este guia pressupõe que você já tem um locatário do Azure Active Directory (Azure AD) de trabalho licenciado ou de avaliação. Se precisar de ajuda para configurar o Azure AD, consulte [Introdução ao Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitar SSPR para seu locatário do Azure AD
 
@@ -62,7 +62,7 @@ Este guia pressupõe que você já tem um locatário do Azure Active Directory (
    * Notificar os usuários sobre as redefinições de senha.
    * Notificar todos os administradores quando outros administradores redefinirem suas próprias senhas.
 
-Neste ponto, você configurou a SSPR para o seu locatário do Azure AD. Os usuários agora podem usar as instruções encontradas nos artigos [Registrar para redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md) e [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md) para atualizar a senha sem a intervenção do administrador. Você pode parar aqui se usa apenas a nuvem. Ou você pode continuar para a próxima seção para configurar a sincronização de senhas para um domínio do Active Directory local.
+Neste ponto, você configurou a SSPR para o seu locatário do Azure AD. Os usuários agora podem usar as instruções encontradas nos artigos [Registrar para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md) e [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md) para atualizar a senha sem a intervenção do administrador. Você pode parar aqui se usa apenas a nuvem. Ou você pode continuar para a próxima seção para configurar a sincronização de senhas para um domínio do Active Directory local.
 
 > [!TIP]
 > Teste a SSPR com um usuário e não como um administrador, pois a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso artigo de [política de senha](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ Essa configuração de segurança determina o período de tempo, em dias, que um
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md)
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)

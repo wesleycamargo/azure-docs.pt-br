@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128683"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049404"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -118,7 +118,7 @@ O Azure Active Directory é necessário para o modelo de licença porque as lice
 
 Espero que todos os usuários configuraram mais de um método de verificação. Peça que ele tente entrar novamente, mas selecione um método de verificação diferente na página de entrada.
 
-Você pode apontar os usuários a [guia de solução de problemas do usuário final](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
+Você pode apontar os usuários a [guia de solução de problemas do usuário final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **P: o que devo fazer se um dos meus usuários não é possível obter sua conta?**
@@ -131,7 +131,7 @@ Para evitar acesso não autorizado, exclua as senhas do todos os usuários aplic
 
 **P: E se um usuário não conseguir entrar em aplicativos que não são acessados por navegador?**
 
-Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-mfasettings.md#app-passwords), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
+Se sua organização usa ainda clientes herdados e você [permitido o uso de senhas de aplicativo](howto-mfa-mfasettings.md#app-passwords), em seguida, os usuários não conseguem entrar nesses clientes herdados com seu nome de usuário e senha. Em vez disso, eles precisam [configurar senhas de aplicativo](../user-help/multi-factor-authentication-end-user-app-passwords.md). Os usuários devem limpar (excluir) suas informações de logon, reinicie o aplicativo e entre com seu nome de usuário e *senha de aplicativo* em vez de regulares de senha.
 
 Se sua organização não tiver clientes herdados, você não deve permitir que os usuários criem senhas de aplicativo.
 
