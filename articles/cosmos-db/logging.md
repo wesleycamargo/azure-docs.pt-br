@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612207"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857092"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Neste artigo, vamos nos concentrar no Log de Atividades do Azure, nos Logs de Di
 
 O Log de Atividades do Azure é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. O Log de Atividades relata eventos do plano de controle para suas assinaturas na categoria Administrativa. Você pode usar o Log de Atividades para determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, DELETE) nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. 
 
-O Log de Atividades difere dos Logs de Diagnóstico. O Log de Atividades fornece dados sobre as operações em um recurso externo (o _plano de controle_). No contexto do Microsoft Azure Cosmos DB, as operações do plano de controle incluem criar coleção, listar chaves, excluir chaves, listar banco de dados etc. Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso (o _plano de dados_). Alguns exemplos das operações do plano de dados no log de diagnóstico são Excluir, Inserir e ReadFeed.
+O Log de Atividades difere dos Logs de Diagnóstico. O Log de Atividades fornece dados sobre as operações em um recurso externo (o _plano de controle_). No contexto do Azure Cosmos DB, as operações do plano de controle incluem criar contêiner, listar chaves, excluir chaves, listar banco de dados e assim por diante. Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso (o _plano de dados_). Alguns exemplos das operações do plano de dados no log de diagnóstico são Excluir, Inserir e ReadFeed.
 
 Os Logs de Atividades (operações do plano de controle) podem ser muito mais completos e incluir endereço de email completo do chamador, endereço IP do chamador, nome do recurso, nome da operação, TenantId etc. O Log de Atividades contém várias [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para obter todos os detalhes sobre o esquema dessas categorias, veja o [esquema de eventos de Log de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, Logs de Diagnóstico podem ser restritivos, pois dados pessoais geralmente são retirados deles. Você pode ter o endereço IP do chamador, mas o último octant é removido.
 
@@ -354,7 +354,7 @@ Os logs de diagnóstico são disponibilizados em sua conta duas horas após a ho
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Exibir logs no Log Analytics
 
-Se você tiver selecionado a opção **Enviar para Log Analytics** ao ativar o registro em log de diagnóstico, dados da sua coleção serão encaminhados para o Log Analytics dentro de duas horas. Quando observar o Log Analytics logo depois de ativar o registro em log, você não verá nenhum dado. Apenas aguarde duas horas e tente novamente. 
+Se selecionar a opção **Enviar ao Log Analytics** ao habilitar o registro em log de diagnósticos, os dados de diagnóstico do contêiner serão encaminhados para o Log Analytics em até duas horas. Quando observar o Log Analytics logo depois de ativar o registro em log, você não verá nenhum dado. Apenas aguarde duas horas e tente novamente. 
 
 Antes de exibir os logs, verifique se o espaço de trabalho do Log Analytics foi atualizado para usar a nova linguagem de consulta do Log Analytics. Para verificar, abra o [Portal do Azure](https://portal.azure.com), selecione **Log Analytics** no lado esquerdo e, em seguida, selecione o nome do espaço de trabalho conforme mostrado na imagem a seguir. A página **Espaço de Trabalho do OMS** é exibida:
 
@@ -446,7 +446,7 @@ A tabela a seguir descreve o conteúdo de cada entrada de log.
 | **properties** | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |
 | **activityId** | **activityId_g** | O GUID exclusivo da operação registrada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente do usuário cliente que executa a solicitação. O formato é {nome do agente do usuário}/{versão}.|
-| **resourceType** | **ResourceType** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
+| **resourceType** | **ResourceType** | O tipo do recurso acessado. Esse valor pode ser um dos seguintes tipos de recursos: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction ou Offer. |
 | **statusCode** | **statusCode_s** | O status da resposta da operação. |
 | **requestResourceId** | **ResourceId** | O resourceId referente à solicitação. O valor pode apontar para databaseRid, collectionRid ou documentRid, dependendo da operação executada.|
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |

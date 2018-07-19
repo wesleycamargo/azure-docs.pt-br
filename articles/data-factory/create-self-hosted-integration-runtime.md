@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048781"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341572"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -140,6 +140,7 @@ Nomes de domínio | Portas | DESCRIÇÃO
 *.servicebus.windows.net | 443, 80 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
 *.core.windows.net | 443 | Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)
 *.frontend.clouddatahub.net | 443 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
+download.microsoft.com | 443 | Usado para baixar as atualizações
 
 No nível do **Firewall do Windows** (nível do computador), essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do Integration Runtime auto-hospedado.
 

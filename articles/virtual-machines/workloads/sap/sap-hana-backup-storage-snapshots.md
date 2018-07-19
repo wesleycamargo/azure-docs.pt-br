@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 819888800b9663f9b920fbaf11b30ad28287a0b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658716"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902292"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup do SAP HANA com base em instantâneos de armazenamento
 
@@ -28,9 +28,9 @@ Este artigo faz parte de uma série dividida em três partes com artigos relacio
 
 Ao usar um recurso de backup de VM para um sistema de demonstração do all-in-one de instância única, um considere fazer um backup VM em vez de gerenciar backups HANA no nível do sistema operacional. Uma alternativa é tirar instantâneos de blob do Azure para criar cópias de discos virtuais individuais, que são anexados a uma máquina virtual, e manter os arquivos de dados do HANA. Mas um ponto crítico é a consistência do aplicativo ao criar um instantâneo de backup ou disco VM enquanto o sistema está ligado e em execução. Veja _Consistência de dados do SAP HANA ao gerar instantâneos de armazenamento_  no artigo relacionado [Guia de backup do SAP HANA nas Máquinas Virtuais Azure](sap-hana-backup-guide.md). O SAP HANA tem um recurso que oferece suporte a esses tipos de instantâneos de armazenamento.
 
-## <a name="sap-hana-snapshots"></a>Instantâneos do SAP HANA
+## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>Instantâneos do SAP HANA como a parte central dos backups consistentes com aplicativos
 
-Há um recurso no SAP HANA que oferece suporte a tirar um instantâneo do armazenamento. No entanto, a partir de dezembro de 2016, há uma restrição para sistemas de único contêiner. As configurações de contêiner multilocatário não dão suporte a esse tipo de instantâneo de banco de dados (veja [Criar um instantâneo de armazenamento (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)).
+Há uma funcionalidade no SAP HANA que dá suporte para obter instantâneos de armazenamento. Há uma restrição para sistemas com um único contêiner. Os cenários de MCS do SAP HANA único com mais de um locatário não dão suporte a esse tipo de instantâneo de banco de dados do SAP HANA [confira [Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)] [Criar um instantâneo de armazenamento (SAP HANA Studio)].
 
 Ele funciona da seguinte maneira:
 
@@ -59,7 +59,9 @@ Depois da conclusão do instantâneo de armazenamento, é essencial confirmar o 
 
 ## <a name="hana-vm-backup-via-azure-backup-service"></a>Backup da VM do HANA por meio do serviço de Backup do Azure
 
-A partir de dezembro de 2016, o agente de backup do serviço de Backup do Azure não está disponível para VMs do Linux. Para fazer uso de backup do Azure no nível de arquivo/diretório, copie os arquivos de backup do SAP HANA para uma VM do Windows e use o agente de backup. Caso contrário, apenas um backup completo de VM do Linux é possível por meio do serviço de Backup do Azure. Veja [Visão geral dos recursos do Backup do Azure](../../../backup/backup-introduction-to-azure-backup.md) para saber mais.
+O agente de backup do serviço de Backup do Azure não está disponível para VMs do Linux. Além disso, o Linux não tem uma funcionalidade semelhante à do Windows em relação ao VSS.  Para fazer uso de backup do Azure no nível de arquivo/diretório, copie os arquivos de backup do SAP HANA para uma VM do Windows e use o agente de backup. 
+
+Caso contrário, apenas um backup completo de VM do Linux é possível por meio do serviço de Backup do Azure. Veja [Visão geral dos recursos do Backup do Azure](../../../backup/backup-introduction-to-azure-backup.md) para saber mais.
 
 O serviço de Backup do Azure oferece uma opção para fazer backup e restaurar uma máquina virtual. Para saber mais sobre esse serviço e como ele funciona, veja o artigo [Planejar sua infraestrutura de backup de VM no Azure](../../../backup/backup-azure-vms-introduction.md).
 
@@ -75,52 +77,32 @@ O artigo declara:
 
 _&quot;É altamente recomendável para confirmar ou abandonar um instantâneo de armazenamento assim que possível após ele ter sido criado. Enquanto o instantâneo de armazenamento está sendo preparado ou criado, os dados relevantes de instantâneo estão congelados. Enquanto os dados relevantes de instantâneo permanecem congelados, alterações ainda podem ser feitas no banco de dados. Essas alterações não fará com que os dados de instantâneo relevantes congelados a ser alterado. Em vez disso, as alterações são gravadas para posições na área de dados que são separadas do instantâneo do armazenamento. As alterações também são gravadas no log. No entanto, mais os dados relevantes de instantâneo são mantidos congelados, mais o volume de dados pode crescer.&quot;_
 
-O Backup do Azure cuida da consistência do sistema de arquivos por meio de extensões de VM do Azure. Essas extensões não são autônomos disponíveis e funcionam somente em conjunto com o serviço de Backup do Azure. No entanto, ainda é um requisito para gerenciar um instantâneo do SAP HANA para garantir a consistência do aplicativo.
+O Backup do Azure cuida da consistência do sistema de arquivos por meio de extensões de VM do Azure. Essas extensões não são autônomos disponíveis e funcionam somente em conjunto com o serviço de Backup do Azure. No entanto, ainda é um requisito fornecer scripts para criar e excluir um instantâneo do SAP HANA para assegurar a consistência do aplicativo.
 
-O Backup do Azure tem duas fases principais:
+O Backup do Azure tem quatro fases principais:
 
+- Executar script de preparação – o script precisa criar um instantâneo do SAP HANA
 - Tirar instantâneo
+- Executar script pós-instantâneo – o script precisa excluir o SAP HANA criado pelo script de preparação
 - Transferir os dados para o cofre
 
-Você pode confirmar o instantâneo do SAP HANA quando a fase de serviço de Backup do Azure de tirar um instantâneo é concluída. Ele pode levar vários minutos para ver no portal do Azure.
+Para obter detalhes de onde copiar esses scripts e detalhes de como o Backup do Azure funciona exatamente, confira os seguintes artigos:
 
-![Esta figura mostra parte da lista de trabalho de backup de um serviço de Backup do Azure](media/sap-hana-backup-storage-snapshots/image014.png)
+- [Planejar sua infraestrutura de backup de VM no Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
+- [Backup consistente com o aplicativo de VMs Linux do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
 
-Esta figura mostra parte da lista de trabalho de backup de um serviço de Backup do Azure, que era usado para fazer backup da VM do HANA de teste.
 
-![Para mostrar os detalhes do trabalho, clique no trabalho de backup no portal do Azure](media/sap-hana-backup-storage-snapshots/image015.png)
 
-Para mostrar os detalhes do trabalho, clique no trabalho de backup no portal do Azure. Aqui, é possível ver as duas fases. Pode levar alguns minutos até que ele mostra a fase de instantâneo como concluídos. A maioria do tempo é gasto na fase de transferência de dados.
+Neste momento, a Microsoft ainda não publicou scripts de preparação e scripts pós-instantâneo para o SAP HANA. Você, como cliente ou integrador de sistemas precisaria criar esses scripts e configurar o procedimento com base na documentação mencionada acima.
 
-## <a name="hana-vm-backup-automation-via-azure-backup-service"></a>Automação de backups HANA VM por meio do serviço de Backup do Azure
 
-Você pode confirmar manualmente o instantâneo SAP HANA após a fase de instantâneo de Backup do Azure é concluída, conforme descrito anteriormente, mas vale a pena considerar a automação porque um administrador não pode monitorar a lista de trabalhos de backup no portal do Azure.
+## <a name="restore-from-application-consistent-backup-against-a-vm"></a>Restaurar do backup consistente com o aplicativo em relação a uma VM
+O processo de restauração de um backup consistente com o aplicativo obtido pelo Backup do Azure está documentado no artigo [Recuperar arquivos de um backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
-Aqui está uma explicação de como isso pode ser obtido por meio de cmdlets do Azure PowerShell.
+> [!IMPORTANT]
+> No artigo [Recuperar arquivos de um backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) há uma lista de exceções e as etapas listadas ao usar conjuntos de distribuição de disco. Os discos distribuídos são provavelmente a configuração regular de VMs para o SAP HANA. Portanto, é essencial ler o artigo e testar o processo de restauração para esses casos listados no artigo. 
 
-![Um serviço de Backup do Azure foi criado com o nome hana--Cofre de backup](media/sap-hana-backup-storage-snapshots/image016.png)
 
-Um serviço de Backup do Azure foi criado com o nome &quot;hana Cofre de backup.&quot; O comando PS **AzureRmRecoveryServicesVault de Get-nome do Cofre de backup hana** recupera o objeto correspondente. Em seguida, esse objeto é usado para definir o contexto de backup, como mostrado na figura a seguir.
-
-![É possível verificar para o trabalho de backup em andamento](media/sap-hana-backup-storage-snapshots/image017.png)
-
-Depois de definir o contexto correto, um pode verificar o trabalho de backup está em andamento e procure os detalhes do trabalho. A lista de subtarefa mostra se a fase de instantâneo do trabalho de backup do Azure já está concluída:
-
-```
-$ars = Get-AzureRmRecoveryServicesVault -Name hana-backup-vault
-Set-AzureRmRecoveryServicesVaultContext -Vault $ars
-$jid = Get-AzureRmRecoveryServicesBackupJob -Status InProgress | select -ExpandProperty jobid
-Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-```
-
-![O valor em um loop de sondagem até se tornar como concluída](media/sap-hana-backup-storage-snapshots/image018.png)
-
-Depois que os detalhes do trabalho são armazenados em uma variável, é simplesmente a sintaxe PS para ir para a primeira entrada de matriz e recuperar o valor de status. Para concluir o script de automação, sondar o valor em um loop até que ele se transforme &quot;concluído.&quot;
-
-```
-$st = Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-$st[0] | select -ExpandProperty status
-```
 
 ## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>Restaurar a chave de licença do HANA e VM por meio do serviço de Backup do Azure
 
@@ -144,7 +126,7 @@ Em vez de usar o serviço de Backup do Azure, um pode configurar uma solução d
 
 Ele oferece mais flexibilidade, mas não resolve os problemas explicados neste documento:
 
-- Você ainda deve se certificar de que o SAP HANA está em um estado consistente
+- Você ainda precisa verificar se o SAP HANA está em um estado consistente criando um instantâneo do SAP HANA
 - O disco do sistema operacional não pode ser substituído, mesmo que a VM seja desalocada devido a um erro informando que há uma concessão. Ele funciona somente após a exclusão de VM, que poderia levar a uma nova ID exclusiva da VM e a necessidade de instalar uma nova licença SAP.
 
 ![É possível restaurar apenas os discos de dados de uma VM do Azure](media/sap-hana-backup-storage-snapshots/image021.png)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f3c3c8db93ae638cfc0bf82ee26ff2e26646d49
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220267"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Active Directory do Azure com a SAP Cloud Platform
 
@@ -34,14 +34,14 @@ A integração da SAP Cloud Platform ao Azure AD oferece os seguintes benefício
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD à SAP Cloud Platform, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único da SAP Cloud Platform
 
-Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu à SAP Cloud Platform poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD que você atribuiu à SAP Cloud Platform poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 >[!IMPORTANT]
 >Você precisa implantar seu próprio aplicativo ou assinar um aplicativo em sua conta da SAP Cloud Platform para testar o logon único. Neste tutorial, um aplicativo é implantado na conta.

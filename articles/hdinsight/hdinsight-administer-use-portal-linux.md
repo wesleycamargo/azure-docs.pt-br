@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627016"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097777"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop no HDInsight Usando o portal do Azure
 
@@ -105,7 +105,7 @@ Se você receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionR
     * **Monitoramento**: monitore o cluster no Azure Log Analytics.
     * **Propriedades**: exiba as propriedades do cluster.
     * **Contas de armazenamento**: exibir as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.
-    * **Acesso ao Data Lake Store**: configurar o acesso ao Data Lake Store.  Consulte [Criar clusters do HDInsight com o Data Lake Store usando o portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Acesso ao Data Lake Store**: configurar o acesso ao Data Lake Store.  Consulte [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource Health**: consulte [Visão geral do Azure Resource Health](../service-health/resource-health-overview.md).
     * **Nova solicitação de suporte**: permite que você crie um tíquete de suporte com o suporte da Microsoft.
     
@@ -280,7 +280,7 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
 
    | Campo | Valor |
    | --- | --- |
-   | NOME |Alterar senha SSH |
+   | Nome |Alterar senha SSH |
    | URI do script Bash |O URI do arquivo changepassword.sh |
    | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) |✓ para todos os tipos de nó listados |
    | parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |
@@ -290,7 +290,7 @@ Em seguida, o Ambari altera a senha em todos os nós no cluster.
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBC
+* ODBCODBC
 * JDBC
 * Ambari
 * Oozie
@@ -305,7 +305,7 @@ Por padrão, esses serviços são concedidos para acesso. Você pode revogar/con
 1. Conecte-se no [Portal][azure-portal].
 2. Clique em **Assinaturas**. Cada assinatura tem um nome e uma ID.
 
-Cada cluster é vinculado a uma assinatura do Azure. A ID da assinatura é mostrada no bloco **Fundamentos** do cluster. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+Cada cluster é vinculado a uma assinatura do Azure. A ID da assinatura é mostrada no bloco **Fundamentos** do cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 ## <a name="find-the-resource-group"></a>Encontrar o grupo de recursos
 No modo Azure Resource Manager, cada cluster HDInsight é criado com um grupo do Azure Resource Manager. O grupo do Resource Manager ao qual um cluster pertence aparece em:
@@ -353,7 +353,7 @@ Usando o portal do Azure, você pode procurar conteúdos do contêiner padrão.
 8. Clique no nome de contêiner padrão.
 
 ## <a name="monitor-cluster-usage"></a>Monitorar o uso do cluster
-A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Consulte [Listar e mostrar clusters](#list-and-show-clusters).
+A seção **Uso** da folha do cluster do HDInsight exibe informações sobre o número de núcleos disponíveis para sua assinatura para uso com o HDInsight, bem como o número de núcleos alocados para esse cluster e como eles são alocados para os nós presentes no cluster. Confira [Listar e mostrar clusters](#list-and-show-clusters).
 
 > [!IMPORTANT]
 > Para monitorar os serviços fornecidos pelo cluster HDInsight, você deve usar o Ambari Web ou a API REST do Ambari. Para saber mais sobre como usar o Ambari, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)

@@ -7,16 +7,16 @@ manager: shivamg
 keywords: servidor de backup do Azure; proteger cargas de trabalho; fazer backup de cargas de trabalho
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/14/2018
+ms.date: 7/10/2018
 ms.author: adigan
-ms.openlocfilehash: 13b3a5f8530c9f91ca23072c320513b8107df061
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605800"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38546010"
 ---
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparação para fazer backup de cargas de trabalho usando o Servidor de Backup do Azure
+# <a name="install-and-configure-azure-backup-server"></a>Instalar e configurar o Servidor de Backup do Azure
 > [!div class="op_single_selector"]
 > * [Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -224,7 +224,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, precisará incluir os seguintes endereços de domínio na lista de permissões no perfil do firewall/proxy:
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com

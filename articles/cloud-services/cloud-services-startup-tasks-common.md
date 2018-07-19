@@ -3,7 +3,7 @@ title: Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Doc
 description: Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 0737738bfd0ab27898631263f57302d15ee11d53
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999161"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006539"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
 Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
@@ -31,7 +31,7 @@ Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionam
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis de ambiente antes de iniciar uma função
-Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Environment] dentro do elemento [Task].
+Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Ambiente] dentro do elemento [Tarefa].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -73,7 +73,7 @@ O errorlevel retornado por *AppCmd.exe* é listado no arquivo winerror.h e tamb�
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gerenciamento de nível de erro
 Este exemplo adiciona uma seção e uma entrada de compactação para JSON para o arquivo *Web.config* , com tratamento de erros e registro em log.
 
-As seções relevantes do arquivo [Servicedefinition] são mostradas aqui, o que inclui a definição do atributo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) como `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as configurações no arquivo *Web.config*:
+As seções relevantes do arquivo [ServiceDefinition.csdef] são mostradas aqui, o que inclui a definição do atributo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) como `elevated` para dar a *AppCmd.exe* permissões suficientes para alterar as configurações no arquivo *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -125,13 +125,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [EndPoints] no arquivo [Servicedefinition].
+No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [EndPoints] no arquivo [ServiceDefinition.csdef].
 
 O segundo firewall controla conexões entre a máquina virtual e os processos dessa máquina virtual. Esse firewall pode ser controlada pela ferramenta de linha de comando `netsh advfirewall firewall`.
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [Servicedefinition] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -161,7 +161,7 @@ Você pode restringir um acesso de função Web do Azure para um conjunto de end
 
 Para desbloquear a seção **ipSecurity** do arquivo **applicationHost. config**, crie um arquivo de comando que é executado no início da função. Crie uma pasta no nível raiz da sua função Web chamada **startup** e, nessa pasta, crie um arquivo em lotes chamado **startup.cmd**. Adicione esse arquivo ao projeto do Visual Studio e defina as propriedades como **Copiar Sempre** para garantir que ele seja incluído no pacote.
 
-Adicione a seguinte tarefa de inicialização ao arquivo [Servicedefinition] .
+Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -219,7 +219,7 @@ Esta configuração de exemplo **nega** que todos os IPs acessem o servidor, exc
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Criar uma tarefa de inicialização do PowerShell
-Os scripts do Windows PowerShell não podem ser chamados diretamente do arquivo [Servicedefinition] , mas podem ser chamados de um arquivo em lotes de inicialização.
+Os scripts do Windows PowerShell não podem ser chamados diretamente do arquivo [ServiceDefinition.csdef] , mas podem ser chamados de um arquivo em lotes de inicialização.
 
 O PowerShell (por padrão) não executa scripts não assinados. A menos que você assine seu script, precisará configurar o PowerShell para executar scripts não assinados. Para executar scripts não assinados, **ExecutionPolicy** deve ser definido como **Irrestrito**. A configuração **ExecutionPolicy** que você usa baseia-se na versão do Windows PowerShell.
 
@@ -250,7 +250,7 @@ EXIT /B %errorlevel%
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Criar arquivos no armazenamento local de uma tarefa de inicialização
 Você pode usar um recurso de armazenamento local para armazenar os arquivos criados pela tarefa de inicialização que será acessada posteriormente por seu aplicativo.
 
-Para criar o recurso de armazenamento local, adicione uma seção [LocalResources] ao arquivo [Servicedefinition] e adicione o elemento filho [LocalStorage]. Dê ao recurso de armazenamento local um nome exclusivo e um tamanho adequado para sua tarefa de inicialização.
+Para criar o recurso de armazenamento local, adicione uma seção [LocalResources] ao arquivo [ServiceDefinition.csdef] e adicione o elemento filho [LocalStorage]. Dê ao recurso de armazenamento local um nome exclusivo e um tamanho adequado para sua tarefa de inicialização.
 
 Para usar um recurso de armazenamento local em sua tarefa de inicialização, será necessário criar uma variável de ambiente para fazer referência ao local do recurso de armazenamento local. Em seguida, a tarefa de Inicialização e o aplicativo podem ler e gravar arquivos no recurso de armazenamento local.
 
@@ -304,7 +304,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Executar no emulador ou na nuvem
 Você pode fazer com que sua tarefa de inicialização execute etapas diferentes quando estiver funcionando na nuvem em comparação a quando estiver no emulador de computação. Por exemplo, convém usar uma cópia atualizada dos dados SQL somente durante a execução no emulador. Ou você talvez queira fazer alguma otimização de desempenho para a nuvem que não seja necessária na execução no emulador.
 
-Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [Servicedefinition]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
+Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [ServiceDefinition.csdef]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
 Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
 
@@ -472,12 +472,12 @@ Exemplo de saída no arquivo **Startuplog**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir executionContext adequadamente para tarefas de inicialização
 Definir privilégios adequadamente para a tarefa de inicialização. Às vezes, as tarefas de inicialização devem ser executadas com privilégios elevados, mesmo que a função seja executada com privilégios normais.
 
-A ferramenta de linha de comando [executionContext][Task] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
+A ferramenta de linha de comando [executionContext][tarefa] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
 
 Um exemplo de uma tarefa de inicialização que exija privilégios elevados é uma tarefa de inicialização que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usar o taskType adequado
-A ferramenta de linha de comando [taskType][Task] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
+A ferramenta de linha de comando [taskType][tarefa] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
 
 Com as tarefas de inicialização **simples**, você pode definir a ordem na qual as tarefas são executadas pela ordem na qual as tarefas são listadas no arquivo ServiceDefinition.csdef. Se uma tarefa **simples** terminar com um código de saída diferente de zero, o procedimento de inicialização será interrompido e a função não será iniciada.
 
@@ -506,11 +506,11 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 
 [Crie e implante](cloud-services-how-to-create-deploy-portal.md) seu pacote de serviço de nuvem.
 
-[Servicedefinition]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

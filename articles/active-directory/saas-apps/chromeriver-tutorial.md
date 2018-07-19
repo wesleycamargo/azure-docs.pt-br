@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: e91bf648a7113b95ac5ff55f2c287b7e2c20dacb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1c93f0dccceffa0b5d3389732aa108a47e5c8af7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217190"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Tutorial: Integração do Active Directory do Azure ao Chromeriver
 
@@ -33,7 +33,7 @@ A integração do Chromeriver ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Chromeriver, você precisa dos seguintes itens:
 
@@ -209,7 +209,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco Chromeriver no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo Chromeriver. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Quando você clicar no bloco Chromeriver no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo Chromeriver. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

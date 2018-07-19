@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8649b96c9cf95e4a25b24dedf447aef133ef299a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833342"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865396"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -52,7 +52,7 @@ Se o espaço de trabalho selecionado não tiver as soluções de Gerenciamento d
 
 * **MicrosoftDefaultScopeConfig-Updates**
 
-Se o espaço de trabalho selecionado já tiver solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
+Quando o espaço de trabalho selecionado já tem a solução. A solução não é reimplantada, e a configuração de escopo não é adicionada a isso.
 
 ## <a name="saved-searches"></a>Pesquisas salvas
 

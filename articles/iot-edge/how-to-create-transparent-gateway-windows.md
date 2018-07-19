@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: edc44f0ab2d2cc737807dd8ad543997cdd75bd43
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034181"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344293"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge Windows que atua como um gateway transparente
 
@@ -27,7 +27,7 @@ Este artigo fornece instruções detalhadas sobre o uso de um dispositivo do IoT
 
 A parte difícil de criar um gateway transparente é conectar de forma segura o gateway aos dispositivos downstream. Azure IoT Edge permite que você use a infraestrutura de PKI para configurar conexões seguras de TLS entre esses dispositivos. Neste caso, nós estamos permitindo um dispositivo downstream conectar-se a um dispositivo IoT Edge atuando como um gateway transparente.  Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo Edge como você deseja apenas os dispositivos que se conectar a seus gateways e não um gateway potencialmente mal-intencionados.
 
-Você pode criar qualquer infraestrutura de certificado que permite a relação de confiança necessária para sua topologia de dispositivo/gateway. Neste artigo, pressupomos a mesma configuração de certificado que você usará para habilitar a [segurança de AC X.509][lnk-iothub-x509] no Hub IoT, que envolve um certificado de Autoridade de Certificação X.509 associado a um hub IoT específico (a {0}AC proprietária do hub IoT{0}) e uma série de certificados, assinados com essa AC, e um AC para os dispositivos do IoT Edge.
+Você pode criar qualquer infraestrutura de certificado que permite a relação de confiança necessária para sua topologia de dispositivo/gateway. Neste artigo, pressupomos a mesma configuração de certificado que você usará para habilitar a [segurança de AC X.509][lnk-iothub-x509] no Hub IoT, que envolve um certificado de Autoridade de Certificação X.509 associado a um hub IoT específico (a AC proprietária do hub IoT) e uma série de certificados, assinados com essa AC, e um AC para os dispositivos do IoT Edge.
 
 ![Instalação do gateway][1]
 
@@ -38,46 +38,56 @@ As etapas a seguir o orientará no processo de criação de certificados e insta
 ## <a name="prerequisites"></a>pré-requisitos
 1.  [Instale o tempo de execução do Azure IoT Edge][lnk-install-windows-x64] em um dispositivo de Windows que você deseja usar como o gateway transparente.
 
-1. Obter OpenSSL para Windows. Há muitas maneiras que você pode instalar o OpenSSL. As instruções aqui usam vcpkg para fazer isso.
-   1. Faça o download e instale o vcpkg com os seguintes comandos executados de um administrador do PowerShell. Navegue para um diretório onde você deseja instalar o OpenSSL, chamaremos ele de `$VCPKGDIR`.
+1. Obter OpenSSL para Windows. Há muitas maneiras de instalar o OpenSSL:
 
-   ```PowerShell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg integrate install
-   .\vcpkg install openssl:x64-windows
-   ```
+   >[!NOTE]
+   >Se já tiver o OpenSSL instalado em seu dispositivo Windows, você pode ignorar esta etapa, mas verifique se `openssl.exe` está disponível na variável de ambiente `%PATH%`.
 
-   1. Definir variável de ambiente `OPENSSL_ROOT_DIR` para `$VCPKGDIR\vcpkg\packages\openssl_x64-windows` e também adicionar `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` para sua `PATH` variável de ambiente.
+   * Faça o download e instale todos os [binários do OpenSSL de terceiros](https://wiki.openssl.org/index.php/Binaries), por exemplo, [este projeto no SourceForge](https://sourceforge.net/projects/openssl/).
+   
+   * Faça o download do código-fonte do OpenSSL e crie você mesmo os binários em seu computador ou faça isso por meio do [vcpkg](https://github.com/Microsoft/vcpkg). As instruções a seguir usam o vcpkg para fazer o download do código-fonte, compilar e instalar o OpenSSL em seu computador Windows em etapas muito fáceis de usar.
+
+      1. Navegue para um diretório onde você deseja instalar vcpkg. Daqui em diante chamaremos isso de $VCPKGDIR. Siga as instruções para fazer o download e instalar o [vcpkg](https://github.com/Microsoft/vcpkg).
+   
+      1. Quando o vcpkg estiver instalado, em um prompt do powershell, execute o seguinte comando para instalar o pacote OpenSSL para Windows x64. Isso geralmente leva cerca de 5 minutos para ser concluído.
+
+         ```PowerShell
+         .\vcpkg install openssl:x64-windows
+         ```
+      1. Adicione `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` à variável de ambiente `PATH` para que o arquivo `openssl.exe` fique disponível para invocação.
+
+1. Navegue até o diretório no qual você deseja trabalhar. Daqui em diante será chamamos isso $WRKDIR.  Todos os arquivos serão criados neste diretório.
+   
+   cd $WRKDIR
 
 1.  Obter os scripts para gerar os certificados necessários de não produção com o comando a seguir. Esses scripts ajudam você a criar os certificados necessários para configurar um gateway transparente.
 
-   ```PowerShell
-   git clone https://github.com/Azure/azure-iot-sdk-c.git
-   ```
+      ```PowerShell
+      git clone https://github.com/Azure/azure-iot-sdk-c.git
+      ```
 
-1. Navegue até o diretório no qual você deseja trabalhar. Daqui em diante será chamamos isso $WRKDIR.  Todos os arquivos serão criados neste diretório.
+1. Copie os arquivos de configuração e script em seu diretório de trabalho. Além disso, configure a variável de env OPENSSL_CONF para usar o arquivo de configuração openssl_root_ca.cnf.
 
-   cd $WRKDIR
-
-1. Copie os arquivos de script e de configuração em seu diretório de trabalho.
    ```PowerShell
    copy azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
+   $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
    ```
 
 1. Habilitar o PowerShell para executar os scripts, executando o seguinte comando
+
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
 1. Colocar as funções, usadas por scripts, no espaço para nome global do PowerShell por dot sourcing com o seguinte comando
+   
    ```PowerShell
    . .\ca-certs.ps1
    ```
 
-1. Verificar se OpenSSL foi instalado corretamente e certifique-se de não haver colisões de nome com certificados existentes, executando o comando a seguir.
+1. Verificar se OpenSSL foi instalado corretamente e certifique-se de não haver colisões de nome com certificados existentes, executando o comando a seguir. Se houver problemas, o script deve descrever como corrigi-los em seu sistema.
+
    ```PowerShell
    Test-CACertsPrerequisites
    ```
@@ -85,30 +95,18 @@ As etapas a seguir o orientará no processo de criação de certificados e insta
 ## <a name="certificate-creation"></a>Criação de certificado
 1.  Crie o certificado de AC do proprietário e um certificado intermediário. Estes estão todos colocados em `$WRKDIR`.
 
-   ```PowerShell
-   New-CACertsCertChain rsa
-   ```
-
-   As saídas da execução do script são os seguintes certificados e chaves:
-   * Certificados
-      * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
-   * simétricas
-      * `$WRKDIR\private\azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR\private\azure-iot-test-only.intermediate.key.pem`
+      ```PowerShell
+      New-CACertsCertChain rsa
+      ```
 
 1.  Crie uma chave privada e o certificado de AC de dispositivo Edge com o comando a seguir.
 
    >[!NOTE]
    > **NÃO** usar um nome que seja o mesmo nome de host DNS do gateway. Isso fará com que a certificação do cliente em relação a esses certificados falhe.
 
-      ```PowerShell
-      New-CACertsEdgeDevice "<gateway device name>"
-      ```
-
-   As saídas da execução do script são os seguintes certificados e chave:
-   * `$WRKDIR\certs\new-edge-device.*`
-   * `$WRKDIR\private\new-edge-device.key.pem`
+   ```PowerShell
+   New-CACertsEdgeDevice "<gateway device name>"
+   ```
 
 ## <a name="certificate-chain-creation"></a>Criação de cadeia de certificados
 Crie uma cadeia de certificados de AC de certificação do proprietário, o certificado intermediário e certificado de AC de dispositivo Edge com o comando a seguir. Colocá-lo em um arquivo de cadeia permite facilmente instalá-lo em seu dispositivo Edge atuando como um gateway transparente.
@@ -116,6 +114,11 @@ Crie uma cadeia de certificados de AC de certificação do proprietário, o cert
    ```PowerShell
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
+
+   As saídas da execução do script são os seguintes certificados e chave:
+   * `$WRKDIR\certs\new-edge-device.*`
+   * `$WRKDIR\private\new-edge-device.key.pem`
+   * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>Instalação no gateway
 1.  Copie os seguintes arquivos de $WRKDIR em qualquer lugar no seu dispositivo Edge, serão considerados que $CERTDIR. Se você gerou os certificados no seu dispositivo Edge, ignore esta etapa.
@@ -128,9 +131,9 @@ Crie uma cadeia de certificados de AC de certificação do proprietário, o cert
 
 ```yaml
 certificates:
-  device_ca_cert: "$CERTDIR\certs\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR\private\new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem"
+  device_ca_cert: "$CERTDIR\\certs\\new-edge-device-full-chain.cert.pem"
+  device_ca_pk: "$CERTDIR\\private\\new-edge-device.key.pem"
+  trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
 ## <a name="deploy-edgehub-to-the-gateway"></a>Implantar EdgeHub para o gateway
 Um dos principais recursos do Azure IoT Edge é a possibilidade de implantar módulos em seus dispositivos IoT Edge na nuvem. Esta seção apresenta a você criar uma implantação aparentemente vazia; No entanto o Hub Edge é automaticamente adicionada a todas as implantações, mesmo se não houver nenhum módulo presente. Hub Edge é o módulo somente que necessário em um dispositivo Edge para que ele atue como um gateway transparente, para que criar uma implantação vazia é suficiente. 
@@ -146,7 +149,7 @@ Um dos principais recursos do Azure IoT Edge é a possibilidade de implantar mó
        }
    }
    ```
-6. Na etapa **Revisar Modelo**, selecione {0}Enviar{0}.
+6. Na etapa Revisar Modelo, selecione **Enviar**.
 
 ## <a name="installation-on-the-downstream-device"></a>Instalação do dispositivo downstream
 Um dispositivo downstream pode ser qualquer aplicativo que usa o [SDK do dispositivo IoT do Azure][lnk-devicesdk], como o aplicativo simples descrito em [Conectar seu dispositivo ao hub IoT usando o .NET][lnk-iothub-getstarted]. Um aplicativo de dispositivo downstream precisa confiar no certificado de **Autoridade de Certificação proprietária** para validar as conexões TLS com os dispositivos de gateway. Essa etapa pode ser executada normalmente de duas maneiras: no nível do sistema operacional ou (para algumas linguagens) no nível do aplicativo.
@@ -163,7 +166,11 @@ Instalar este certificado no repositório de certificados do sistema operacional
  
     Você deve ver uma mensagem dizendo, "Atualizando certificados no /etc/ssl/certs... 1 adicionado, removido 0; feito."
 
-* Windows - [Este](https://msdn.microsoft.com/en-us/library/cc750534.aspx) artigo fornece detalhes sobre como fazer isso em um dispositivo Windows usando o Assistente de importação de certificado.
+* Windows - aqui está um exemplo de como instalar um certificado de autoridade de certificação em um host do Windows.
+  * No menu Iniciar, digite “Gerenciar certificados de computador”. Isso deve abrir um utilitário chamado `certlm`.
+  * Navegue para Certificados de computador Local --> Certificados raiz confiáveis --> Certificados --> clique com o botão direito --> Todas as tarefas --> Importar para iniciar o assistente para importação de certificados.
+  * Siga as etapas conforme indicado e importe o arquivo de certificado $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Quando concluído, você verá uma mensagem "Importada com êxito".
 
 ### <a name="application-level"></a>Nível de aplicativo
 Para aplicativos .NET, você pode adicionar o trecho a seguir para confiar em um certificado no formato PEM. Inicializar a variável `certPath` com `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem`.

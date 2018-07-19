@@ -11,23 +11,35 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 183075f7407b0a0ca6ea53871e239ab8c2d89490
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261047"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098613"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.CredentialsCombo
 Um grupo de controles com validação interna para chaves públicas SSH e senhas Windows e Linux.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+Para Windows, usuários veem:
+
+![Windows Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+Para o Linux com a senha selecionada, os usuários veem:
+
+![senha Linux Microsoft.Compute.CredentialsCombo ](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+Para o Linux com a chave pública de SSH selecionado, os usuários veem:
+
+![Chave Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Esquema
-Se `osPlatform` é **Windows**, o seguinte esquema é usado:
+Para Windows, use o esquema a seguir:
+
 ```json
 {
   "name": "element1",
@@ -52,7 +64,8 @@ Se `osPlatform` é **Windows**, o seguinte esquema é usado:
 }
 ```
 
-Se `osPlatform` é **Linux**, o seguinte esquema é usado:
+Para **Linux**, use o esquema a seguir:
+
 ```json
 {
   "name": "element1",
@@ -90,7 +103,7 @@ Se `osPlatform` é **Linux**, o seguinte esquema é usado:
 - Outras restrições sobre as senhas permitidas podem ser implementadas usando a propriedade `customPasswordRegex`. A cadeia de caracteres em `customValidationMessage` é exibida quando uma senha falha a validação personalizada. O valor padrão para ambas as propriedades é **null**.
 
 ## <a name="sample-output"></a>Saída de exemplo
-Se `osPlatform` é **Windows**, ou o usuário forneceu uma senha em vez de uma chave pública SSH,a seguinte saída é esperada:
+Se `osPlatform` é **Windows**, ou `osPlatform` é **Linux** e o usuário forneceu uma senha em vez de uma chave pública SSH, o controle retorna a seguinte saída:
 
 ```json
 {
@@ -99,7 +112,8 @@ Se `osPlatform` é **Windows**, ou o usuário forneceu uma senha em vez de uma c
 }
 ```
 
-Se o usuário forneceu uma chave pública SSH, a seguinte saída é esperada:
+Se `osPlatform` é **Linux**, e o usuário forneceuuma chave pública SSH, o controle retorna a seguinte saída:
+
 ```json
 {
   "authenticationType": "sshPublicKey",

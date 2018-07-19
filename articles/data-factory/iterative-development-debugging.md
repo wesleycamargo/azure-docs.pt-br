@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: ef30958ed0a88853b20278e6d628639ffc0cea34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619466"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865158"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 
@@ -58,7 +58,7 @@ Para definir um ponto de interrupção, selecione um elemento na tela do pipelin
 
 ![Antes de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image5.png)
 
-Depois de selecionar a opção *Depurar Até*, ele é alterado para um círculo vermelho para indicar se o ponto de interrupção está habilitado.
+Depois de selecionar a opção *Depurar Até*, ele é alterado para um círculo vermelho preenchido para indicar que o ponto de interrupção está habilitado.
 
 ![Depois de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
 

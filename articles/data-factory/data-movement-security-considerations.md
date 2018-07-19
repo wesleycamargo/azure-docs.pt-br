@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053248"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342395"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -144,8 +144,9 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 | Nomes de domínio                  | Portas de saída | DESCRIÇÃO                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte aos serviços de movimentação de dados no Data Factory. |
-| `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à conta de armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Necessárias para que o tempo de execução de integração auto-hospedado se conecte ao serviço do Data Factory. |
+| `download.microsoft.com`    | 443            | Exigido pelo tempo de execução da integração auto-hospedada para fazer o download das atualizações. Se tiver desabilitado a atualização automática, você pode ignorar isso. |
+| `*.core.windows.net`          | 443            | Usada pelo tempo de execução de integração auto-hospedado para se conectar à conta de armazenamento do Azure ao usar o recurso [cópia em etapas](copy-activity-performance.md#staged-copy). |
 | `*.database.windows.net`      | 1433           | (Opcional) Necessária ao copiar de ou para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure. Use o recurso de cópia em etapas para copiar dados para o Banco de Dados SQL do Azure ou SQL Data Warehouse do Azure sem abrir a porta 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Opcional) Necessária ao copiar de ou para o  Azure Data Lake Store. |
 

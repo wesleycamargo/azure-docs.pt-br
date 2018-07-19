@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d1a15617830f7b517210c7e86146a88d38ae8343
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286238"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: integração do Azure Active Directory com o Learning Seat LMS
 
@@ -33,7 +33,7 @@ A integração do Learning Seat LMS ao Azure AD oferece os seguintes benefícios
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte. [O que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Learning Seat LMS, você precisará dos seguintes itens:
 
@@ -207,7 +207,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso. 
 
-Clique no bloco Learning Seat LMS no Painel de Acesso e você será conectado automaticamente ao seu aplicativo Learning Seat LMS. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Clique no bloco Learning Seat LMS no Painel de Acesso e você será conectado automaticamente ao seu aplicativo Learning Seat LMS. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,6 +1,6 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
-description: Use o recurso ExpressRoute Manager no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Microsoft Azure ExpressRoute.
+description: Use a funcionalidade ExpressRoute Monitor no Monitor de Desempenho de Rede para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131121"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633342"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
-Use o recurso do Azure ExpressRoute Manager no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute. As principais vantagens são: 
+Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md) para monitorar a conectividade de ponta a ponta e o desempenho entre as filiais e o Azure, por meio do Azure ExpressRoute. As principais vantagens são: 
 
 - Detecção automática de circuitos ExpressRoute associados à sua assinatura.
 - Acompanhamento de utilização de largura de banda, perda e latência no circuito, emparelhamento e nível da Rede Virtual do Azure para ExpressRoute.

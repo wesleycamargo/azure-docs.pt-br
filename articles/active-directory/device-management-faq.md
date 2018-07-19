@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311110"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901129"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -86,11 +86,18 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**P: Como fazer para desassociar um dispositivo associado do Azure AD localmente no dispositivo?
+**P: Como cancelar a associação de um dispositivo ingressado no Azure AD localmente no dispositivo?**
+
 **R:** 
 - Para dispositivos associados do Azure AD híbrido, desative o registro automático para que a tarefa agendada não registre o dispositivo novamente. Agora, abra um prompt de comando como Administrador e digite `dsregcmd.exe /debug /leave`. Como alternativa, este comando pode ser executado como um script em vários dispositivos para cancelar a associação em massa.
 
 - Para dispositivos Azure AD simplesmente associados, verifique se você tem uma conta de administrador local offline ou crie uma, pois você não poderá entrar com as credenciais de usuário do Azure AD. Em seguida, acesse **Configurações** > **Contas** > **Acessar corporativo ou de estudante**. Selecione sua conta e clique em **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
+
+---
+
+**P: Meus usuários não conseguem procurar impressoras em dispositivos ingressados no Azure AD. Como habilitar a impressão usando dispositivos ingressados no Azure AD?**
+
+**R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
 
 ---
 
@@ -124,6 +131,11 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
+**P: Por que alguns dos meus usuários não recebem prompts de MFA em dispositivos ingressados no Azure AD?**
+
+**R:** Se o usuário ingressar ou registrar um dispositivo no Azure AD usando a autenticação multifator, o próprio dispositivo se tornará um segundo fator confiável para esse usuário específico. Em seguida, sempre que o mesmo usuário entrar no dispositivo e acessar um aplicativo, o Azure AD considerará o dispositivo como um segundo fator e permitirá que o usuário acesse diretamente os aplicativos sem prompts de MFA adicionais. Esse comportamento não se aplica a nenhum outro usuário que entra no dispositivo, portanto, todos os outros usuários que acessarem esse dispositivo receberão um prompt com um desafio de MFA antes de acessar aplicativos que exigem MFA.
+
+---
 
 **P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no dispositivo. Estou configurado corretamente para usar o acesso condicional?**
 
@@ -173,5 +185,6 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 - [Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

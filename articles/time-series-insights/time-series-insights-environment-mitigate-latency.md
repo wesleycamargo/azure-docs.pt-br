@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: bbd5e7d91e982a3dce320ea10a7fe8da435ff212
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293767"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130573"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 Quando a quantidade de dados de entrada excede a configuração do ambiente, você pode enfrentar latência ou limitação no Azure Time Series Insights.
@@ -52,15 +52,15 @@ Nessa opção, você pode configurar alertas usando as seguintes métricas:
 |**Mensagens de Entrada Recebidas**   | Contagem de mensagens lidas de todas as origens de evento dos Hubs de Eventos ou Hubs IoT.        |
 |**Bytes de Entrada Armazenados**     | Tamanho total de eventos armazenados e disponíveis para consulta. O tamanho é calculado apenas no valor da propriedade.        |
 |**Eventos de Entrada Armazenados**     |   Contagem de eventos nivelados armazenados e disponíveis para consulta.      |
-|**Retardo de tempo de mensagens recebidas de entrada**    |  Diferença entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
-|**Retardo de contagem de mensagens recebidas de entrada**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição da origem do evento e número de sequência da mensagem que está sendo processada na entrada.      |
+|**Tempo de atraso das mensagens de entrada recebidas**    |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
+|**Atraso na contagem das mensagens de entrada recebidas**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição da origem do evento e número de sequência da mensagem que está sendo processada na entrada.      |
 
 
 ![Latency](media/environment-mitigate-latency/latency.png)
 
-Se você está sendo limitado, verá um valor para o *Retardo de tempo de mensagens recebidas de entrada*, informando quantos minutos atrasados o TSI está em relação ao tempo real em que a mensagem alcança a origem do evento (excluindo o tempo de indexação de cerca de 30-60 segundos).  *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
+Se você está sendo limitado, verá um valor para o *Retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos atrasados o TSI está em relação ao tempo real em que a mensagem alcança a origem do evento (excluindo o tempo de indexação de cerca de 30-60 segundos).  *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
 
-Por exemplo, se você tiver um ambiente S1 de unidade única e vir que há um atraso de cinco milhões de mensagens, você pode aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para alcançar.  Você pode aumentar ainda mais para alcançar mais rapidamente.  Isso é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
+Por exemplo, se você tiver um ambiente S1 de unidade única e vir que há um atraso de cinco milhões de mensagens, você pode aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para alcançar.  Você pode aumentar ainda mais para alcançar mais rapidamente.  O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente ao se conectar a uma origem de evento que já tenha eventos nela ou quando você carrega em massa grandes quantidades de dados históricos.
 
 Outra técnica é definir um alerta **Eventos de Entrada Armazenados** >= um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência.  
 

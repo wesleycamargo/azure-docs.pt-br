@@ -59,6 +59,9 @@
 #### [Código personalizado](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Depuração e execução local](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Agendar trabalhos U-SQL
+### [Agendar trabalhos usando o SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## Integração e implantação contínuas
 ### [Visão geral](data-lake-analytics-cicd-overview.md)
 ### [Configurar testes](data-lake-analytics-cicd-test.md)

@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: cd517d7e652b38c7ecf28a17657936698416413a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034178"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435466"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Linux
 
-O tempo de execução do Azure IoT Edge é implantado em todos os dispositivos do IoT Edge. Há três componentes. O **daemon de segurança do IoT Edge** fornece e mantém padrões de segurança no dispositivo do Edge. O daemon inicia em cada inicialização e inicializa o dispositivo, iniciando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo do Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é implantado em todos os dispositivos do IoT Edge. Tem três componentes. O daemon de segurança **IoT Edge** fornece e mantém padrões de segurança no dispositivo Edge. O daemon inicia em cada inicialização e inicializa o dispositivo iniciando o agente IoT Edge. O **agente IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo Edge, incluindo o hub IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
 
 Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no sistema Windows x64 (AMD/Intel). Atualmente, o suporte do Windows está em versão prévia.
 
@@ -85,19 +85,41 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurar o daemon de segurança do Azure IoT Edge
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurar o Daemon de segurança de borda de IoT do Azure
 
-O daemon pode ser configurado usando o arquivo de configuração em `C:\ProgramData\iotedge\config.yaml` O dispositivo de borda pode ser configurado <!--[automatically via Device Provisioning Service][lnk-dps] or--> manualmente usando uma [cadeia de conexão de dispositivo][lnk-dcs].
+O daemon pode ser configurado usando o arquivo de configuração no `C:\ProgramData\iotedge\config.yaml`.
 
-Para configuração manual, insira a cadeia de conexão do dispositivo na seção **provisionamento** do **config.yaml**
+O dispositivo de borda pode ser configurado manualmente usando um [cadeia de conexão do dispositivo][lnk-dcs] ou [automaticamente por meio do serviço de provisionamento de dispositivo][lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* Para configuração manual, remova o modo de provisionamento **manual**. Atualizar o valor de **device_connection_string** com a cadeia de caracteres de conexão do dispositivo IoT Edge.
 
-Obtenha o nome do dispositivo de borda usando o comando `hostname` no PowerShell e configure-o como o valor para **hostname:** no yaml de configuração. Por exemplo: 
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Para configuração automática, remova o modo de provisionamento **dps**. Atualize os valores de **scope_id** e **registration_id** com os valores da sua instância de DPS do Hub IoT e o dispositivo do IoT Edge com o TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
+
+Obtenha o nome do dispositivo de borda usando o comando `hostname` no PowerShell e configure-o como o valor para **hostname:** no yaml de configuração. Por exemplo:
 
 ```yaml
   ###############################################################################
@@ -112,30 +134,38 @@ Obtenha o nome do dispositivo de borda usando o comando `hostname` no PowerShell
   hostname: "edgedevice-1"
 ```
 
-Em seguida, será necessário fornecer o endereço IP e a porta para **workload_uri** e **management_uri** na seção **connect:** da configuração.
+Em seguida, forneça o endereço IP e a porta para **workload_uri** e **management_uri** nas seções **connect:** e **listen:** da configuração.
 
-Para o endereço IP, insira `ipconfig` na janela do PowerShell e selecione o endereço IP da interface **vEthernet (DockerNAT)** conforme mostrado no exemplo abaixo (o endereço IP do sistema pode ser diferente):
+Para recuperar seu endereço IP, digite `ipconfig` na janela do PowerShell. Copie o endereço IP da interface **vEthernet (DockerNAT)** conforme mostrado no exemplo a seguir (o endereço IP do sistema pode ser diferente):
 
 ![DockerNat][img-docker-nat]
 
+Atualizar o **workload_uri** e **management_uri** no **conectar-se:** seção do arquivo de configuração. Substitua **\<GATEWAY_ADDRESS\>** com o endereço IP que você copiou. 
+
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Insira os mesmos endereços na seção **listen:** da configuração. Por exemplo: 
+Insira os mesmos endereços na seção **listen:** de configuração, usando seu endereço IP como o endereço do gateway.
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Na janela do PowerShell, crie uma variável de ambiente **IOTEDGE_HOST** com o endereço **management_uri**, por exemplo:
+Na janela do PowerShell, crie uma variável de ambiente **IOTEDGE_HOST** com o endereço **management_uri**.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+Persista a variável de ambiente entre as reinicializações.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 Por fim, assegure-se de que a configuração **network:** em **moby_runtime:** está sem marca de comentário e definida para **azure-iot-edge**
@@ -154,7 +184,10 @@ sleep 5
 Start-Service iotedge
 ```
 
-## <a name="verify-successful-installation"></a>Verificar instalação com êxito
+## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
+
+Se você tiver usado as etapas de **configuração manual** na seção anterior, o tempo de execução do IoT Edge deve ser provisionado e em execução no seu dispositivo com êxito. Se você tiver usado as etapas de **configuração automática**, você precisará concluir algumas etapas adicionais para que o tempo de execução pode registrar seu dispositivo no hub IoT em seu nome. Para as próximas etapas, consulte [criar e provisionar um dispositivo de borda do TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 
 É possível verificar o status do serviço do IoT Edge por: 
 
@@ -175,7 +208,7 @@ Get-WinEvent -ea SilentlyContinue `
   sort-object @{Expression="TimeCreated";Descending=$false}
 ```
 
-E, liste os módulos em execução com:
+Além disso, lista de módulos com em execução:
 
 ```powershell
 iotedge list
@@ -183,7 +216,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver tendo problemas com o tempo de execução do Edge instalado corretamente, verifique a página de [solução de problemas][lnk-trouble].
+Se você estiver tendo problemas com o tempo de execução de borda instalado corretamente, check-out de [solução de problemas][lnk-trouble] página.
 
 
 <!-- Images -->
@@ -191,8 +224,8 @@ Se você estiver tendo problemas com o tempo de execução do Edge instalado cor
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

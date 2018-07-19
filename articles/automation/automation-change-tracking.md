@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258253"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867946"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -57,6 +57,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
 > [!NOTE]
 > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
@@ -75,6 +76,13 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
 |Inserir o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+
+## <a name="configure-file-content-tracking"></a>Configurar o controle de conteúdo do arquivo
+
+Você pode exibir o conteúdo antes e após uma alteração de um arquivo com Controle de Alterações de conteúdo do arquivo. Isso está disponível para arquivos do Windows e Linux, para cada alteração no arquivo, o conteúdo do arquivo é armazenado em uma conta de armazenamento e mostra o arquivo antes e após a alteração, embutido ou lado a lado. Para obter mais informações, confira [Exibir o conteúdo de um arquivo controlado](change-tracking-file-contents.md).
+
+![exibir alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurar chaves do Registro do Windows para rastrear
 
@@ -125,11 +133,22 @@ A tabela a seguir mostra a frequência da coleta de dados para os tipos de alter
 | Registro do Windows | 50 minutos |
 | Arquivo do Windows | 30 minutos |
 | Arquivo Linux | 15 minutos |
-| Serviços do Windows | 30 minutos |
+| Serviços do Windows | 10 segundos a 30 minutos</br> Padrão: 30 minutos |
 | Daemons Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software Linux | 5 minutos |
 
+### <a name="windows-service-tracking"></a>Rastreamento de serviço do Windows
+
+A frequência da coleta padrão para os serviços do Windows é de 30 minutos. Para configurar a frequência, acesse **Controle de Alterações**. Em **Editar Configurações** na guia **Serviços do Windows**, há um controle deslizante que permite alterar a frequência de coleta para os serviços do Windows de 10 segundos para até 30 minutos. Mova o controle deslizante para a frequência desejada e ele a salvará automaticamente.
+
+![Controle deslizante de serviços do Windows](./media/automation-change-tracking/windowservices.png)
+
+O agente controla somente as alterações e isso otimiza o desempenho do agente. Se um limite muito alto for definido, as alterações poderão ser perdidas se o serviço for revertido para o estado original. Definir a frequência para um valor menor permite capturar alterações que poderiam ser perdidas de outra forma.
+
+> [!NOTE]
+> Embora o agente possa controlar as alterações em um intervalo de apenas 10 segundos, os dados ainda demoram alguns minutos para serem exibido no portal. As alterações durante o tempo de exibição no portal do ainda são controladas e registradas.
+  
 ### <a name="registry-key-change-tracking"></a>Controle de alterações de chave do Registro
 
 O objetivo de monitorar alterações às chaves do registro é identificar os pontos de extensibilidade em que código de terceiros e o malware podem ser ativados. A lista a seguir mostra a lista de chaves do Registro pré-configuradas. Essas chaves estão configuradas, mas não habilitadas. Para controlar essas chaves do Registro, é necessário habilitar cada uma delas.

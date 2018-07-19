@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867888"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Introdução a um exemplo do Apache HBase no HDInsight
 
@@ -34,7 +35,7 @@ Antes de começar este tutorial do HBase, você deverá ter os seguintes itens:
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Nome do cluster HBase
-O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cluster do HBase e a conta de Armazenamento do Azure padrão dependente. Para compreender os parâmetros usados no procedimento e em outros métodos de criação de cluster, consulte [Criar clusters Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cluster do HBase e a conta de Armazenamento do Azure padrão dependente. Para compreender os parâmetros usados no procedimento e em outros métodos de criação de cluster, consulte [Criar clusters Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar o Data Lake Storage Gen2, consulte o [Guia de início rápido: configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Clique na imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
    
@@ -42,7 +43,7 @@ O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cl
 2. Na folha **Implantação personalizada**, insira os seguintes valores:
    
    * **Assinatura**: Selecione sua assinatura do Azure que é usada para criar o cluster.
-   * **Grupo de recursos**: Crie um grupo de Gerenciamento de Recursos do Azure ou use um existente.
+   * **Grupo de recursos**: crie um grupo de gerenciamento de recursos do Azure ou use um existente.
    * **Local**: especifique o local do grupo de recursos. 
    * **ClusterName**: Insira um nome para o cluster HBase.
    * **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.

@@ -4,27 +4,34 @@ description: Mostra como transmitir um segredo de um cofre da chave como um par�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359087"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598400"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
-Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Você não precisa inserir manualmente o valor para o segredo toda vez que implanta os recursos. O cofre de chaves pode existir em uma assinatura diferente que o grupo de recursos que está sendo implantado. Ao fazer referência ao Key Vault, inclua a ID da assinatura.
+Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. O cofre de chaves pode existir em uma assinatura diferente que o grupo de recursos que está sendo implantado.
 
-Ao criar o cofre de chaves, defina a propriedade *enabledForTemplateDeployment* para *true*. Ao definir esse valor como true, você permite o acesso a partir de modelos do Resource Manager durante a implantação.
+## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
+
+Há duas condições importantes que precisam existir para acessar um cofre de chaves durante a implantação de modelo:
+
+1. A propriedade do cofre de chaves `enabledForTemplateDeployment` precisa ser `true`.
+2. O usuário que implanta o modelo precisa ter acesso ao segredo. O usuário precisa ter a permissão `Microsoft.KeyVault/vaults/deploy/action` para o cofre de chaves. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso.
+
+Ao usar um Key Vault com o modelo para um [Aplicativo Gerenciado](../managed-applications/overview.md), você precisa permitir acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. Para obter mais informações, confira [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md) (Acessar segredo do Key Vault durante a implantação de Aplicativos Gerenciados do Azure).
+
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implantar um cofre da chave e segredo
 
@@ -60,10 +67,6 @@ New-AzureRmKeyVault `
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
-
-## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
-
-Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso.
 
 ## <a name="reference-a-secret-with-static-id"></a>Fazer referência a um segredo com ID estática
 

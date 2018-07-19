@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75fb07120c78c45d422ee5017eac0afcf0e80859
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 591d8ea7670bf9b29450695ee7cbee5fa39baaac
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060811"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344701"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
-A Visualização do Gen2 do Data Storage do Azure Data permite que você gerencie e acesse os dados da mesma forma que faria com um [ Sistema de Arquivos Distribuídos Hadoop (HDFS) ](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se você tiver um cluster do HDInsight conectado ou executar uma tarefa do Apache Spark usando Azure Databricks para executar análises em dados armazenados no Azure Data Lake Storage Gen2, poderá usar a interface da linha de comandos (CLI) para recuperar e manipular os dados carregados. O restante do artigo descreve as opções que você tem enquanto a equipe do [ Azure Storage está trabalhando para adicionar suporte ao Azure Storage Explorer e ao portal do Azure ](https://azure.microsoft.com/roadmap/) - divirta-se!
+A Visualização do Gen2 do Data Storage do Azure Data permite que você gerencie e acesse os dados da mesma forma que faria com um [ Sistema de Arquivos Distribuídos Hadoop (HDFS) ](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se você tiver um cluster do HDInsight conectado ou executar uma tarefa do Apache Spark usando Azure Databricks para executar análises em dados armazenados no Azure Data Lake Storage Gen2, poderá usar a interface da linha de comandos (CLI) para recuperar e manipular os dados carregados. O restante do artigo descreve as opções que você tem enquanto a equipe do [Azure Storage está trabalhando para adicionar suporte ao Azure Storage Explorer e ao portal do Azure](https://azure.microsoft.com/roadmap/).
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI com HDInsight
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157710"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869079"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 e o protocolo OpenID Connect
 O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que você pode usar para assinar com segurança em um usuário a um aplicativo Web. Quando você usa a implementação do ponto de extremidade v2.0 do OpenID Connect, você pode adicionar entrada e acesso à API aos seus aplicativos baseados na Web. Neste artigo, mostraremos como fazer isso independentemente do idioma. Descreveremos como enviar e receber mensagens HTTP sem usar qualquer uma das bibliotecas de software livre da Microsoft.
@@ -85,7 +85,7 @@ Quando o aplicativo Web precisa autenticar o usuário, ele pode direcionar o usu
 * A solicitação deve incluir o parâmetro `nonce` .
 
 > [!IMPORTANT]
-> Em ordem com êxito solicitar um token de ID, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) deve ter o **[concessão implícita](active-directory-v2-protocols-implicit.md)** habilitado para o cliente da Web. Se não estiver habilitado, um `unsupported_response` será retornado o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
+> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter a **[Concessão implícita](active-directory-v2-protocols-implicit.md)** habilitada para o cliente Web. Se não estiver habilitado, um `unsupported_response` será retornado o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
 
 Por exemplo: 
 

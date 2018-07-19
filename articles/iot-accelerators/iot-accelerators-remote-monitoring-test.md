@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628252"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088383"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -191,15 +191,15 @@ No tutorial, você trabalha com a solução do Visual Studio que se conecta aos 
 
 Quando você modificar o serviço de simulação de dispositivo, execute-o localmente para testar as alterações. Antes de executar o serviço de simulação de dispositivo localmente, você precisa interromper a instância em execução na máquina virtual da seguinte maneira:
 
-1. Para encontrar a **ID DE CONTÊINER** do serviço de **device-simulation**, execute o seguinte comando na sessão SSH conectada à máquina virtual:
+1. Para encontrar a **ID DE CONTÊINER** do serviço de **device-simulation-dotnet**, execute o seguinte comando na sessão SSH conectada à máquina virtual:
 
     ```sh
     docker ps
     ```
 
-    Anote a ID do contêiner do serviço de **device-simulation**.
+    Anote a ID do contêiner do serviço de **device-simulation-dotnet**.
 
-1. Para interromper o contêiner de **device-simulation**, execute o seguinte comando:
+1. Para interromper o contêiner de **device-simulation-dotnet**, execute o seguinte comando:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Agora você tem tudo implementado e está pronto para começar a adicionar um no
 ## <a name="create-a-simulated-device-type"></a>Criar um tipo de dispositivo simulado
 
 A maneira mais fácil de criar um novo tipo de dispositivo no serviço de simulação de dispositivo é copiar e modificar um tipo existente. As etapas a seguir mostram como copiar o dispositivo **Resfriador** interno para criar um novo dispositivo **Lâmpada**:
-
-1. No Visual Studio, abra o arquivo de solução **device-simulation.sln** no clone local do repositório **device-simulation**.
-
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SimulationAgent**, escolha **Propriedades** e, em seguida, **Depurar**.
-
-1. Na seção **Variáveis de ambiente**, edite o valor da variável **PCS\_IOTHUB\_CONNSTRING** para que ela seja a cadeia de conexão do Hub IoT que você anotou anteriormente. Em seguida, salve as alterações.
 
 1. No Gerenciador de Soluções, clique com botão direito do mouse no projeto **WebService**, escolha **Propriedades** e, em seguida, **Depurar**.
 
@@ -385,18 +379,21 @@ O arquivo **scripts/lightbulb-01-state.js** define o comportamento de simulaçã
 1. Edite a função **main** para implementar o comportamento, conforme é mostrado no trecho a seguir:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ As etapas a seguir pressupõem que você tenha um repositório chamado **lightbu
 
     Os scripts adicionaram a marcação **testing** à imagem.
 
-1. Use o SSH para se conectar à máquina virtual da solução no Azure. Em seguida, procure a pasta **App** e edite o arquivo **docker-compose.yaml**:
+1. Use o SSH para se conectar à máquina virtual da solução no Azure. Em seguida, procure a pasta **App** e edite o arquivo **docker-compose.yml**:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Edite a entrada do serviço de simulação de dispositivo para usar a imagem do Docker:
@@ -605,7 +602,7 @@ Esta seção descreve como modificar um tipo de dispositivo simulado existente p
 
 As etapas a seguir mostram como localizar os arquivos que definem o dispositivo **Resfriador** interno:
 
-1. Se você ainda não tiver feito isso, use o seguinte comando para clonar o repositório **device-simulation** do GitHub para o computador local:
+1. Se você ainda não tiver feito isso, use o seguinte comando para clonar o repositório **device-simulation-dotnet** do GitHub para o computador local:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ As etapas a seguir mostram como adicionar um novo tipo **Temperatura Interna** n
 
 ### <a name="test-the-chiller-device-type"></a>Testar o tipo de dispositivo Resfriador
 
-Para testar o tipo de dispositivo **Resfriador** atualizado, primeiro execute uma cópia local do serviço **device-simulation** para testar se o tipo de dispositivo se comporta como esperado. Depois de testar e depurar o tipo de dispositivo atualizado localmente, você poderá recriar o contêiner e reimplantar o serviço **device-simulation** no Azure.
+Para testar o tipo de dispositivo **Resfriador** atualizado, primeiro execute uma cópia local do serviço **device-simulation-dotnet** para testar se o tipo de dispositivo se comporta como esperado. Depois de testar e depurar o tipo de dispositivo atualizado localmente, você poderá recriar o contêiner e reimplantar o serviço **device-simulation-dotnet** no Azure.
 
-Quando você executa o serviço **device-simulation** localmente, ele envia a telemetria para a solução de Monitoramento Remoto. Na página **Dispositivos**, você pode provisionar instâncias de seu tipo atualizado.
+Quando você executa o serviço **device-simulation-dotnet** localmente, ele envia a telemetria para a solução de Monitoramento Remoto. Na página **Dispositivos**, você pode provisionar instâncias de seu tipo atualizado.
 
 Para testar e depurar as alterações localmente, consulte a seção anterior [Testar o tipo de dispositivo Lâmpada localmente](#test-the-lightbulb-device-type-locally).
 

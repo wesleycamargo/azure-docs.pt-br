@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235406"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302815"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Fazer backup do banco de dados SQL Server no Azure
 
-Os bancos de dados SQL Server são cargas de trabalho críticas que exigem baixo Objetivo de Ponto de Recuperação (RPO) e retenção de longo prazo. O Backup do Azure fornece uma solução de backup do SQL Server que não exige infraestrutura, ou seja, sem servidor de backup complexo, sem agente de gerenciamento ou armazenamento de backup para gerenciar. O Backup do Azure fornece gerenciamento centralizado para seus backups em todos os servidores SQL ou até mesmo diferentes cargas de trabalho.
+Os bancos de dados SQL Server são cargas de trabalho críticas que exigem baixo Objetivo de Ponto de Recuperação (RPO) e retenção de longo prazo. O Backup do Azure fornece uma solução de backup do SQL Server que não exige infraestrutura, ou seja, sem servidor de backup complexo, sem agente de gerenciamento nem armazenamento de backup para gerenciar. O Backup do Azure fornece gerenciamento centralizado para seus backups em todos os servidores SQL ou até mesmo diferentes cargas de trabalho.
 
  Neste artigo, você aprende:
 
@@ -52,7 +52,7 @@ Os itens a seguir são as limitações conhecidas para a Visualização Pública
 
 - Sudeste da Austrália (ASE) 
 - Sul do Brasil (BRS)
-- Central do Canadá (CNC)
+- Canadá Central (CNC)
 - Leste do Canadá (CE)
 - Central dos EUA (CUS)
 - Ásia Oriental (EA)
@@ -78,7 +78,7 @@ Os itens a seguir são as limitações conhecidas para a Visualização Pública
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Sistemas operacionais com suporte e versões do SQL server
 
-Os seguintes sistemas operacionais e versões do SQL Server aplicam-se a máquinas virtuais do marketplace do SQL do Azure e máquinas virtuais que não são do marketplace (onde o SQL Server é instalado manualmente).
+Há suporte para os sistemas operacionais a seguir. Há suporte para máquinas virtuais do Azure no marketplace do SQL e para máquinas virtuais não pertencentes ao marketplace (no qual o SQL Server é instalado manualmente).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
@@ -131,7 +131,7 @@ As compensações entre as opções são: capacidade de gerenciamento, controle 
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para VMs do SQL que não são do marketplace
 
-Para fazer backup de uma máquina virtual, o Backup do Azure requer a extensão **AzureBackupWindowsWorkload** instalada. Se você estiver usando máquinas virtuais do marketplace do Azure, vá até [Descobrir bancos de dados SQL](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que hospeda os bancos de dados SQL não tiver sido criada no marketplace do Azure, conclua a seção a seguir para instalar a extensão e definir as permissões apropriadas. Além da extensão **AzureBackupWindowsWorkload**, o Backup do Azure requer privilégios de sysadmin do SQL para proteger bancos de dados SQL. Ao descobrir bancos de dados na máquina virtual, o Backup do Azure cria uma conta, NT Service\AzureWLBackupPluginSvc. Para Backup do Windows Azure para descobrir bancos de dados SQL, a conta NT Service\AzureWLBackupPluginSvc deve ter permissões de sysadmin do SQL e de login do SQL. O procedimento a seguir explica como fornecer essas permissões.
+Para fazer backup de uma máquina virtual, o Backup do Azure requer a extensão **AzureBackupWindowsWorkload** instalada. Se você estiver usando máquinas virtuais do marketplace do Azure, vá até [Descobrir bancos de dados SQL](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que hospeda os bancos de dados SQL não tiver sido criada no marketplace do Azure, conclua a seção a seguir para instalar a extensão e definir as permissões apropriadas. Além da extensão **AzureBackupWindowsWorkload**, o Backup do Azure requer privilégios de sysadmin do SQL para proteger bancos de dados SQL. Ao descobrir bancos de dados na máquina virtual, o Backup do Azure cria uma conta, NT Service\AzureWLBackupPluginSvc. Para que o Backup do Azure descubra bancos de dados SQL, a conta NT Service\AzureWLBackupPluginSvc precisa ter o SQL e permissões de sysadmin do SQL. O procedimento a seguir explica como fornecer essas permissões.
 
 Para configurar permissões:
 
@@ -168,13 +168,13 @@ Depois de associar o banco de dados com o cofre de Serviços de Recuperação, a
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>Como corrigir permissões de sysadmin do SQL
 
-Durante o processo de instalação, se você vir o erro **UserErrorSQLNoSysadminMembership**, entre no SQL Server Management Studio (SSMS) com uma conta que tenha permissão de sysadmin do SQL. A menos que você exija permissões especiais, você poderá usar a autenticação do Windows para reconhecer a conta.
+Durante o processo de instalação, caso receba o erro **UserErrorSQLNoSysadminMembership**, use uma conta com permissões de sysadmin do SQL para entrar no SSMS (SQL Server Management Studio). A menos que você precise de permissões de acesso especiais, a autenticação do Windows deverá funcionar.
 
 1. No SQL Server, abra a pasta **Segurança/Logons**.
 
     ![Abrir as pastas do SQL Server e segurança e logon para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Na pasta de logons, clique com o botão direito do mouse e selecione **Novo Logon** e, na caixa de diálogo Logon - Novo, clique em **Pesquisar**
+2. Na pasta Logons, clique com o botão direito do mouse e selecione **Novo Logon** e, na caixa de diálogo Logon – Novo, clique em **Pesquisar**
 
     ![Abrir Pesquisar na caixa de diálogo Logon - Novo](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -190,7 +190,7 @@ Durante o processo de instalação, se você vir o erro **UserErrorSQLNoSysadmin
 
     As permissões necessárias agora devem existir.
 
-6. Embora você tenha corrigido o erro de permissões, ainda precisará associar o banco de dados com o cofre de Serviços de Recuperação. No Portal do Azure, na lista **Servidores Protegidos**, clique com o botão direito do mouse no servidor no erro e selecione **Redescobrir Bancos de Dados**.
+6. Embora você tenha corrigido o erro de permissões, ainda precisará associar o banco de dados com o cofre de Serviços de Recuperação. Na lista **Servidores Protegidos** do portal do Azure, clique com o botão direito do mouse no servidor que apresenta o erro e selecione **Redescobrir BDs**.
 
     ![Verifique se o servidor tem as permissões apropriadas](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -251,7 +251,7 @@ Quando você usa a ferramenta **Descobrir Bancos de Dados**, o Backup do Azure e
 
 - instala a extensão **AzureBackupWindowsWorkload** na máquina virtual. Fazer backup de um banco de dados SQL é uma solução sem agente, ou seja, com a extensão instalada na máquina virtual, nenhum agente está instalado no banco de dados SQL.
 
-- cria a conta de serviço, **NT Service\AzureWLBackupPluginSvc**, na máquina virtual. Todas as operações de backup e restauração usam a conta de serviço. **NT Server\AzureWLBackupPluginSvc** precisa de permissões de sysadmin do SQL. Todas as máquinas virtuais do Marketplace do SQL vêm com o SqlIaaSExtension instalado e AzureBackupWindowsWorkload usa SQLIaaSExtension para obter automaticamente as permissões necessárias. Se sua máquina virtual não tem SqlIaaSExtension instalado, a operação de banco de dados de descoberta falhará e você receberá a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Para adicionar a permissão de sysadmin para backup, siga as instruções em [Como definir as permissões de Backup do Azure para VMs do SQL que não são do marketplace](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
+- cria a conta de serviço, **NT Service\AzureWLBackupPluginSvc**, na máquina virtual. Todas as operações de backup e restauração usam a conta de serviço. **NT Service\AzureWLBackupPluginSvc** precisa de permissões de sysadmin do SQL. Todas as máquinas virtuais do Marketplace do SQL vêm com o SqlIaaSExtension instalado e AzureBackupWindowsWorkload usa SQLIaaSExtension para obter automaticamente as permissões necessárias. Se sua máquina virtual não tem SqlIaaSExtension instalado, a operação de banco de dados de descoberta falhará e você receberá a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Para adicionar a permissão de sysadmin para backup, siga as instruções em [Como definir as permissões de Backup do Azure para VMs do SQL que não são do marketplace](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms).
 
     ![selecionar a vm e o banco de dados](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -286,7 +286,7 @@ Para configurar a proteção para o banco de dados SQL:
     O serviço de Backup do Azure exibe todas as instâncias do SQL com bancos de dados autônomos, bem como grupos de disponibilidade AlwaysOn do SQL. Para exibir os bancos de dados autônomos na instância do SQL, clique na divisa ao lado do nome de instância para exibir os bancos de dados. As imagens a seguir mostram exemplos de uma instância autônoma e um grupo de disponibilidade AlwaysOn.
 
     > [!NOTE]
-    > Os backups completos e diferenciais ocorrem no nó principal, porque a plataforma do SQL tem essa limitação. O backup de log pode ocorrer com base em sua preferência de backup. Devido a essa limitação, o nó primário deve ser registrado.
+    > No caso de um Grupo de Disponibilidade Always On do SQL, respeitamos a preferência de backup do SQL. Mas, devido a uma limitação da plataforma SQL, os backups completos e diferenciais precisam ocorrer no nó primário. O backup de log pode ocorrer com base em sua preferência de backup. Devido a essa limitação, o nó primário precisa sempre ser registrado para Grupos de Disponibilidade.
     >
 
     ![Lista de bancos de dados na instância do SQL](./media/backup-azure-sql-database/discovered-databases.png)
@@ -394,13 +394,16 @@ Para criar uma política de backup
 
 8. Quando todas as edições tiverem sido feitas para a política de Backup, clique em **OK**. 
 
-   ![período de retenção diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![aceitar a nova política](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurar um Banco de Dados SQL
 
 O Backup do Azure fornece funcionalidade para restaurar bancos de dados individuais para uma data e hora específicas, até um determinado segundo, usando backups de log de transações. Com base nos tempos de restauração que você fornecer, o Backup do Azure determinará automaticamente os backups apropriados completo, diferencial e a cadeia de log necessários para restaurar seus dados.
 
 Como alternativa, você pode selecionar um backup Completo ou Diferencial específico para restaurar para um ponto de recuperação específico em vez de um momento específico.
+ > [!Note]
+ > Antes de disparar a restauração do banco de dados “mestre”, inicie o SQL Server no modo de usuário único com a opção de inicialização “-m AzureWorkloadBackup”. O argumento para -m é o nome do cliente; somente esse cliente poderá abrir a conexão. Em todos os bancos de dados do sistema (model, master, msdb), interrompa o serviço SQL Agent antes de disparar a restauração. Feche os aplicativos que podem tentar roubar uma conexão com um desses BDs.
+>
 
 Para restaurar um banco de dados
 
@@ -442,6 +445,10 @@ Para restaurar um banco de dados
 ### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
 
 Esse procedimento orienta a restauração de dados para um local alternativo. Se você deseja substituir o banco de dados ao restaurar, vá para a seção [Restaurar e substituir o banco de dados](backup-azure-sql-database.md#restore-and-overwrite-the-database). Este procedimento pressupõe que você abriu seu cofre de Serviços de Recuperação e está no menu Configuração de Restauração. Se não estiver, inicie com a seção [Restaurar um banco de dados SQL](backup-azure-sql-database.md#restore-a-sql-database).
+
+> [!NOTE]
+> Você pode restaurar o banco de dados para um SQL Server na mesma região do Azure e o servidor de destino precisa ser registrado no Cofre dos Serviços de Recuperação. 
+>
 
 O menu suspenso **Servidor** mostra apenas os servidores SQL registrados com o cofre de Serviços de Recuperação. Se o servidor que você deseja não está na lista **Servidor**, veja a seção [Descobrir bancos de dados de servidor SQL](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de banco de dados de descoberta, novos servidores são registrados no cofre de Serviços de Recuperação.
 
@@ -607,10 +614,40 @@ Esta seção fornece informações sobre as várias operações de gerenciamento
 * Cancelar o registro de um servidor SQL
 
 ### <a name="monitor-jobs"></a>Monitorar trabalhos
+Sendo uma solução Empresarial, o Backup do Azure fornece notificação e alertas de Backup avançados de todas as falhas (veja a seção Alertas de backup abaixo). Caso ainda deseje monitorar trabalhos específicos, use uma das seguintes opções de acordo com seus requisitos:
 
-O Backup do Azure usa APIs nativas do SQL para todas as operações de backup. Usando as APIs nativas, você pode buscar todas as informações de trabalho da [tabela de conjunto de backup do SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) no banco de dados msdb. Além disso, o Backup do Azure mostra todos os trabalhos acionados manualmente ou ad hoc no portal de trabalhos de backup. Os trabalhos disponíveis no portal incluem: todas as operações de configuração de backup, as operações de restauração, operações de registro e descoberta de banco de dados e operações de interrupção de backup. Todos os trabalhos agendados também podem ser monitorados com análise de logs do OMS. Usar a análise de log remove a desordem de trabalhos e fornece flexibilidade granular para monitoramento ou filtragem de trabalhos específicos.
-
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Usar o portal do Azure para todas as operações ad hoc
+O Backup do Azure mostra todos os trabalhos disparados manualmente ou ad hoc no portal de trabalhos de Backup. Os trabalhos disponíveis no portal incluem: todas as operações de configuração de backup, operações de gatilho manual de backup, operações de restauração, operações de registro e descoberta de banco de dados e operações de interrupção de backup. 
 ![menu de configuração avançada](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> Todos os trabalhos de backup agendados incluindo o Backup Completo, Diferencial e de Log não serão mostrados no portal e podem ser monitorados usando o SQL Server Management Studio, conforme descrito abaixo.
+>
+
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Usar o SQL Server Management Studio para trabalhos de backup
+O Backup do Azure usa APIs nativas do SQL para todas as operações de backup. Com APIs nativas, você pode buscar todas as informações de trabalho na [tabela de conjunto de backup do SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) no banco de dados msdb.
+
+O exemplo a seguir é uma consulta para buscar todos os trabalhos de backup de um banco de dados chamado **DB1**. Personalize a consulta para obter um monitoramento mais avançado.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>Alertas de Backup
 
@@ -711,6 +748,42 @@ Para cancelar o registro de um servidor SQL após a remoção da proteção, mas
 5. No menu Servidores Protegidos, clique com o botão direito do mouse no servidor protegido e selecione **Excluir**. 
 
    ![retomar a proteção do banco de dados](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>Perguntas frequentes sobre o backup do Banco de Dados SQL
+
+A seção a seguir fornece mais informações sobre o backup do Banco de Dados SQL.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Posso limitar a velocidade da política de backup do SQL para que ela minimize o impacto sobre o SQL Server?
+
+Sim, você pode limitar a taxa na qual a política de backup é executada. Para alterar a configuração:
+
+1. No SQL Server, na pasta `C:\Program Files\Azure Workload Backup\bin`, abra **TaskThrottlerSettings.json**.
+
+2. No arquivo **TaskThrottlerSettings.json**, altere **DefaultBackupTasksThreshold** para um valor mais baixo, por exemplo, 5.
+
+3. Salve a alteração e feche o arquivo.
+
+4. No SQL Server, abra o Gerenciador de Tarefas e reinicie o **Serviço Coordenador de Carga de Trabalho do Backup do Azure**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso executar um backup completo em uma réplica secundária?
+
+Não. Não há suporte para esse recurso.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de backup bem-sucedidos criam alertas?
+
+Não. Os trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Os detalhes do trabalho de backup agendado são mostrados no menu Trabalhos?
+
+Não. O menu Trabalhos mostra detalhes do trabalho ad hoc, mas não mostra os trabalhos de backup agendados. Se um trabalho de backup agendado falhar, você poderá encontrar todos os detalhes nos alertas de trabalho com falha. Caso deseje monitorar todos os trabalhos de backup ad hoc e agendados, [use o SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Se eu selecionar um SQL Server, os bancos de dados futuros serão adicionados automaticamente?
+
+Não. Ao configurar a proteção para um SQL Server, se você marcar a caixa de seleção no nível do servidor, ela adicionará todos os bancos de dados. No entanto, se você adicionar bancos de dados ao SQL Server depois de configurar a proteção, precisará adicionar manualmente os novos bancos de dados para protegê-los. Os bancos de dados não são incluídos automaticamente na proteção configurada.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Se eu altero o modelo de recuperação, como fazer para reiniciar a proteção?
+
+Se você alterar o modelo de recuperação, dispare um backup completo e os backups de log serão iniciados, conforme esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

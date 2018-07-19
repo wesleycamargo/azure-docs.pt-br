@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 2ede88d3717a224e2db5ffb8828609c26deddedc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c466e811d868403c59d6615882422996442d792a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221165"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: integração do Azure Active Directory com o SAP HANA
 
@@ -34,7 +34,7 @@ Quando você integra SAP HANA com Azure Active Directory, você obtém os seguin
 
 Para obter mais informações sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao SAP HANA, você precisa dos seguintes itens:
 
@@ -273,7 +273,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao selecionar SAP HANA no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo SAP HANA.
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

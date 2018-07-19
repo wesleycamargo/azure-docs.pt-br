@@ -6,18 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8675223162527cc5b2bc45dc5521aac07edaf36c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906332"
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial (versão prévia) na Automação do Azure
 
-A solução Iniciar/Parar VMs fora do horário comercial inicia e para as máquinas virtuais do Azure de acordo com agendamentos definidos pelo usuário, fornece informações por meio de Log Analytics do Azure e envia emails opcionais utilizando o [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). A solução dá suporte ao Azure Resource Manager e VMs clássicas na maioria dos cenários.
+A solução Iniciar/Parar VMs fora do horário comercial inicia e para as máquinas virtuais do Azure de acordo com agendamentos definidos pelo usuário, fornece insights por meio do Log Analytics do Azure e envia emails opcionais usando [grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md). A solução dá suporte ao Azure Resource Manager e VMs clássicas na maioria dos cenários.
 
 Essa solução oferece uma opção de automação descentralizada para usuários que desejam reduzir custos usando recursos de baixo custo sem servidor. Com essa solução, você pode:
 
@@ -33,16 +34,6 @@ Essa solução oferece uma opção de automação descentralizada para usuários
 
   > [!NOTE]
   > Os runbooks que gerenciam o agendamento de VMs podem direcionar para VMs em qualquer região.
-
-* Para enviar notificações por email após o encerramento dos runbooks de inicialização e parada de VMs, durante a integração no Azure Marketplace, selecione **Sim** para implantar o SendGrid.
-
-  > [!IMPORTANT]
-  > O SendGrid é um serviço de terceiros. Para obter suporte, entre em contato com [SendGrid](https://sendgrid.com/contact/).
-
-  As limitações com SendGrid são:
-
-  * O máximo de uma conta do SendGrid por usuário por assinatura.
-  * O máximo de duas contas do SendGrid por assinatura.
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
@@ -78,8 +69,8 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
    Aqui, você será solicitado a:
    * Especificar os **Nomes do ResourceGroup de destino**. Esses são os nomes de grupos de recursos que contêm VMs a serem gerenciadas por essa solução. Você pode inserir mais de um nome e separá-los por vírgula (os valores não diferenciam maiúsculas de minúsculas). O uso de um caractere curinga tem suporte para selecionar VMs em todos os grupos de recursos na assinatura. Esse valor é armazenado nas variáveis **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames**.
    * Especifique a **Lista de exclusão de VM (cadeia de caracteres)**. Ela é o nome de uma ou mais máquinas virtuais do grupo de recursos de destino. Você pode inserir mais de um nome e separá-los por vírgula (os valores não diferenciam maiúsculas de minúsculas). O uso de caracteres curingas é aceito. Esse valor é armazenado na variável **External_ExcludeVMNames**.
-   * Selecione um **Agendamento**. Este agendamento é uma data e hora recorrentes para iniciar e parar as VMs no grupo de recursos de destino. Por padrão, o agendamento está configurado de acordo com o fuso horário UTC. A seleção de uma região diferente não está disponível. Para configurar o agendamento de acordo com seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modify-the-startup-and-shutdown-schedule).
-   * Para receber **Notificações por Email** do SendGrid, aceite o valor padrão de **Sim** e forneça um endereço de email válido. Se você selecionar **Não** mas decidir posteriormente que deseja receber notificações por email, poderá atualizar a variável **External_EmailToAddress** com endereços de email válidos separados por vírgula e, em seguida, modificar a variável **External_IsSendEmail** com o valor **Sim**.
+   * Selecione um **Agendamento**. Este agendamento é uma data e hora recorrentes para iniciar e parar as VMs no grupo de recursos de destino. Por padrão, o agendamento é configurado para 30 minutos a partir de agora. A seleção de uma região diferente não está disponível. Para configurar o agendamento de acordo com seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modify-the-startup-and-shutdown-schedule).
+   * Para receber **Notificações por email** de um grupo de ações, aceite o valor padrão **Sim** e forneça um endereço de email válido. Se você selecionar **Não**, mas decidir mais tarde que deseja receber notificações por email, atualize o [grupo de ações](../monitoring-and-diagnostics/monitoring-action-groups.md) que foi criado, com endereços de email válidos separados por vírgula.
 
     > [!IMPORTANT]
     > O valor padrão para **Nomes do ResourceGroup de destino** é um **&ast;**. Isso direciona todas as VMs em uma assinatura. Se você não quiser que a solução direcione todas as VMs em sua assinatura, esse valor precisará ser atualizado para uma lista de nomes de grupos de recursos antes de habilitar os agendamentos.
@@ -133,7 +124,7 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 2. Execute o runbook **SequencedStartStop_Parent** com o parâmetro ACTION definido como **iniciar**, adicione uma lista de VMs separadas por vírgula no parâmetro *VMList* e defina o parâmetro WHATIF como **True**. Visualize as alterações.
 3. Configure o parâmetro **External_ExcludeVMNames** com uma lista de VMs separadas por vírgula (VM1,VM2,VM3).
 4. Esse cenário não segue as variáveis **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupnames**. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agendamento de runbooks na Automação do Azure](../automation/automation-schedules.md).
-5. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute o runbook manualmente com o parâmetro definido como **False** ou permita que os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** da Automação sejam executados automaticamente de acordo com o agendamento prescrito.
+5. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute o runbook monitoring-and-diagnostics/monitoring-action-groups manualmente com o parâmetro definido como **False** ou permita que a Automação agende a execução de **Sequenced-StartVM** e de **Sequenced-StopVM** automaticamente após o agendamento prescrito.
 
 ### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>Cenário 3: Iniciar/parar automaticamente com base na utilização da CPU
 
@@ -162,8 +153,8 @@ Você pode habilitar o direcionamento da ação a uma assinatura e um grupo de r
 
 Agora que você tem um agendamento para parar VMs com base na utilização da CPU, é preciso habilitar um dos agendamento abaixo para iniciá-las.
 
-* Direcione a ação de início por assinatura e grupo de recursos. Consulte as etapas no [Cenário 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) para testar e habilitar agendamentos **Scheduled-StartVM**.
-* Direcionar ação de início por assinatura, grupo de recursos e marca. Consulte as etapas em [Cenário 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) para testar e habilitar agendamentos **Sequenced-StartVM**.
+* Direcione a ação de início por assinatura e grupo de recursos. Consulte as etapas no [Cenário 1](#scenario-1-startstop-vms-on-a-schedule) para testar e habilitar agendamentos **Scheduled-StartVM**.
+* Direcionar ação de início por assinatura, grupo de recursos e marca. Consulte as etapas em [Cenário 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) para testar e habilitar agendamentos **Sequenced-StartVM**.
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -201,19 +192,13 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Você
 |External_AutoStop_Threshold | O limite para a regra de alerta do Azure especificada na variável *External_AutoStop_MetricName*. Os valores percentuais podem variar de 1 a 100.|
 |External_AutoStop_TimeAggregationOperator | O operador de agregação de tempo que é aplicado ao tamanho de janela selecionado para avaliar a condição. Os valores aceitáveis são **Médio**, **Mínimo**, **Máximo**, **Total** e **Último**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa a métrica selecionada para disparar um alerta. Esse parâmetro aceita a entrada no formato Intervalo de tempo. Os valores possíveis são de 5 minutos até 6 horas.|
-|External_EmailFromAddress | Especifica o remetente do email.|
-|External_EmailSubject | Especifica o texto da linha de assunto do email.|
-|External_EmailToAddress | Especifica os destinatários do email. Separe os nomes usando vírgula.|
 |External_ExcludeVMNames | Insira os nomes das VMs a serem excluídas, separando-os por vírgula, sem espaços.|
-|External_IsSendEmail | Especifica a opção para enviar notificações por email após a conclusão. Especifique **Sim** ou **Não** para enviar emails. Esta opção deve ser **Não** se você não habilitou as notificações por email durante a implantação inicial.|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de iniciar.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, separando os valores por vírgula, direcionados a ações de parar.|
 |Internal_AutomationAccountName | Especifica o nome da conta de Automação.|
 |Internal_AutoSnooze_WebhookUri | Especifica o URI do Webhook chamado para o cenário AutoStop.|
 |Internal_AzureSubscriptionId | Especifica a ID da Assinatura do Azure.|
 |Internal_ResourceGroupName | Especifica o nome do grupo de recursos da conta da Automação.|
-|Internal_SendGridAccountName | Especifica o nome da conta do SendGrid.|
-|Internal_SendGridPassword | Especifica a senha da conta do SendGrid.|
 
 Em todos os cenários, as variáveis **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames** e **External_ExcludeVMNames** são necessárias para direcionar VMs, com exceção da disponibilização de uma lista de VMs separadas por vírgula para os runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** e **ScheduledStartStop_Parent**. Em outras palavras, suas VMs devem residir em grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona semelhante à política do Azure, isto é, você pode direcionar a assinatura ou o grupo de recursos e fazer com que as ações sejam herdadas por VMs recém-criadas. Com essa abordagem, não é necessário ter um agendamento distinto para cada VM nem gerenciar as ações iniciar e parar em escala.
 
@@ -298,11 +283,21 @@ Daqui, você pode executar outras análises dos registros de trabalho clicando n
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
-Para configurar notificações por email após a implantação da solução, modifique estas três variáveis:
+Para alterar as notificações por email depois que a solução for implantada, modifique o grupo de ações que foi criado durante a implantação.  
 
-* External_EmailFromAddress: especificar o endereço de email do remetente.
-* External_EmailToAddress: especificar uma lista de endereços de email separados por vírgula (user@hotmail.com, user@outlook.com) para receber emails de notificação.
-* External_IsSendEmail: definir como **Sim** para receber emails. Para desabilitar notificações por email, defina o valor como **Não**.
+No portal do Azure, navegue até Monitorar -> grupos de ações. Selecione o grupo de ações intitulado **StartStop_VM_Notication**.
+
+![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/azure-monitor.png)
+
+Na página **StartStop_VM_Notification**, clique em **Editar detalhes** em **Detalhes**. Isso abre a página **Email/SMS/Push/Voz**. Atualize o endereço de email e clique em **OK** para salvar suas alterações.
+
+![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/change-email.png)
+
+Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md)
+
+A seguir está um email de exemplo que é enviado quando a solução desliga as máquinas virtuais.
+
+![Página da solução Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/email.png)
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificar as agendas de inicialização e desligamento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbb61b8612418fbec37769ee56907ff99d5214a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9355af15ed8156fee5f4b3584aa3342ea40c0628
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228757"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA
 
@@ -258,7 +258,7 @@ Para permitir que os usuários do Azure AD façam logon no JIRA, eles devem ser 
 
 **Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Faça logon no servidor local do JIRA como administrador.
+1. Faça logon no JIRA no servidor local como administrador.
 
 2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 

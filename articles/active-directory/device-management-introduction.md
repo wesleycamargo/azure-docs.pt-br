@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850001"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970893"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
 
@@ -75,8 +75,8 @@ A meta dos dispositivos adicionados ao Azure AD é simplificar:
 ![Dispositivos registrados no Azure AD](./media/device-management-introduction/02.png)
 
 O Ingresso no Azure AD pode ser implantado usando um destes métodos: 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Implantação em massa](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implantação em massa](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Experiência de autoatendimento](device-management-azuread-joined-devices-frx.md) 
 
 O **Ingresso no Azure AD** foi desenvolvido para organizações que priorizam a nuvem (ou seja, que usam principalmente serviços de nuvem, com a meta de reduzir o uso de uma infraestrutura local) ou somente em nuvem (sem infraestrutura local). Não há restrições de tamanho ou tipo de organizações que podem implantar o Ingresso no Azure AD. O Ingresso no Azure AD funciona bem até mesmo em um ambiente híbrido, permitindo acesso aos recursos e aplicativos locais e de nuvem.
@@ -93,7 +93,7 @@ A implementação de dispositivos adicionados ao Azure AD proporciona os seguint
 
 - **Restrição de acesso** a aplicativos somente de dispositivos que atendem à política de conformidade.
 
-- **Acesso direto aos recursos locais** quando o dispositivo tenha a linha de visão para o controlador de domínio local. 
+- **Acesso direto aos recursos locais** quando o dispositivo tem a linha de visão para o controlador de domínio local. 
 
 
 Embora a adição ao Azure AD se destine basicamente às organizações que não têm uma infraestrutura do Active Directory local para Windows Server, você certamente pode usá-la em cenários em que:

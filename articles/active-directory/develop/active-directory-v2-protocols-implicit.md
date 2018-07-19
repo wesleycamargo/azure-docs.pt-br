@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07fbda30cdc76e5e4e82b79954d0b0a56e032b50
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 676e23f3136836975616865a9b9dc97605a97929
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158380"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866246"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 Com o ponto de extremidade v2.0, você pode autenticar usuários em seus aplicativos de página única com contas pessoais e corporativas/de estudante da Microsoft. Aplicativos de página única e outros aplicativos JavaScript executados principalmente em um navegador enfrentam desafios interessantes quando o assunto é autenticação:
@@ -51,7 +51,7 @@ O fluxo completo de entrada implícita é semelhante a este. Cada uma das etapas
 Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](active-directory-v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v 2.0:
 
 > [!IMPORTANT]
-> Em ordem com êxito solicitar um token de ID, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) deve ter o **[concessão implícita](active-directory-v2-protocols-implicit.md)** habilitado para o cliente da Web. Se não estiver habilitado, um `unsupported_response` será retornado o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
+> Para solicitar um token de ID com êxito, o registro do aplicativo no [portal de registro](https://apps.dev.microsoft.com) precisa ter a **[Concessão implícita](active-directory-v2-protocols-implicit.md)** habilitada para o cliente Web. Se não estiver habilitado, um `unsupported_response` será retornado o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
 
 ```
 // Line breaks for legibility only

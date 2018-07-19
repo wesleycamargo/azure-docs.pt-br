@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5627d0fa99cee4f289787e3fccf83a4c6fa228e0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221260"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: integração do Microsoft Azure Active Directory com o Vodeclic
 
@@ -34,7 +34,7 @@ A integração do Vodeclic ao Microsoft Azure AD oferece os seguintes benefício
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Microsoft Azure AD com o Vodeclic, você precisará dos seguintes itens:
 
@@ -211,7 +211,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar Vodeclic no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Vodeclic.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

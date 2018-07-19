@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613958"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858799"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -27,8 +27,8 @@ Com a integração nativa entre o [Azure Cosmos DB](https://azure.microsoft.com/
 O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplicativos sem servidor das seguintes maneiras:
 
 * Crie um **gatilho do Azure Cosmos DB** controlado por evento em um Azure Function. Esse gatilho depende de fluxos do [feed de alterações](change-feed.md) para monitorar o contêiner do Azure Cosmos DB em busca de alterações. Quando alterações forem feitas em um contêiner, o fluxo do feed de alterações é enviado para o gatilho, que invoca o Azure Function.
-* Como alternativa, associe um Azure Function a uma coleção do Azure Cosmos DB usando uma **associação de entrada**. As associações de entrada leem dados de um contêiner quando uma função é executada.
-* Associe uma função a uma coleção do Azure Cosmos DB usando uma **associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
+* Como alternativa, associe um Azure Function a um contêiner do Azure Cosmos DB usando uma **associação de entrada**. As associações de entrada leem dados de um contêiner quando uma função é executada.
+* Associe uma função a um contêiner do Azure Cosmos DB usando uma **associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
 
 > [!NOTE]
 > Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
@@ -58,7 +58,7 @@ Em implementações de IoT, você pode invocar uma função quando a luz do meca
 4. O gatilho é invocado em cada alteração de dados para a coleta de dados do sensor, pois todas as alterações são transmitidas por meio do feed de alterações.
 5. Uma condição de limite é usada na função para enviar os dados do sensor para o departamento de garantia.
 6. Se a temperatura também estiver acima de determinado valor, um alerta também será enviado para o proprietário.
-7. A **associação de saída** na função atualiza o registro do carro em outra coleção do Azure Cosmos DB para armazenar informações sobre o evento de mecanismo de verificação.
+7. A **associação de saída** na função atualiza o registro do carro em outro contêiner do Azure Cosmos DB para armazenar informações sobre o evento do mecanismo de verificação.
 
 A imagem a seguir mostra o código gravado no portal do Azure para esse gatilho.
 
@@ -95,7 +95,7 @@ Em jogos, quando um novo usuário é criado, você pode pesquisar outros usuári
 
 Em implementações de varejo, quando um usuário adiciona um item à sua cesta agora você tem a flexibilidade de criar e invocar funções para componentes de pipeline de negócios opcionais.
 
-**Implementação:** vários gatilhos do Azure Cosmos DB escutando uma coleção
+**Implementação:** vários gatilhos do Azure Cosmos DB escutando um contêiner
 
 1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre coleções de concessão, consulte [Noções básicas sobre a biblioteca de processador do Feed de alterações](change-feed.md#understand-cf).
 2. Sempre que um novo item é adicionado ao carrinho de compras de um usuário, cada função é invocada de forma independente pelo feed de alterações do contêiner de carrinho de compras.
@@ -130,7 +130,7 @@ O Azure Cosmos DB é o banco de dados recomendado para a arquitetura de computa�
 
 * **Sem esquema**. O Azure Cosmos DB é sem esquema e, portanto, pode exclusivamente manipular qualquer saída de dados de um Azure Function. Essa abordagem de “manipular qualquer coisa” facilita a criação de uma variedade de Funções que serão todas geradas para o Azure Cosmos DB.
 
-* **Taxa de transferência escalonável**. A taxa de transferência pode ser escalada e reduzida verticalmente de forma instantânea no Azure Cosmos DB. Caso você tenha centenas ou milhares de Funções consultando e gravando na mesma coleção, expanda as [RU/s](request-units.md) para manipular a carga. Todas as funções podem trabalhar em paralelo usando as RU/s alocadas e seus dados têm a garantia de serem [consistentes](consistency-levels.md).
+* **Taxa de transferência escalonável**. A taxa de transferência pode ser escalada e reduzida verticalmente de forma instantânea no Azure Cosmos DB. Caso você tenha centenas ou milhares de Funções consultando e gravando no mesmo contêiner, expanda as [RU/s](request-units.md) para lidar com a carga. Todas as funções podem trabalhar em paralelo usando as RU/s alocadas e seus dados têm a garantia de serem [consistentes](consistency-levels.md).
 
 * **Replicação global**. Replique dados do Azure Cosmos DB [em todo o mundo](distribute-data-globally.md) para reduzir a latência, localizando os dados na geografia mais próxima a onde os usuários se encontram. Assim como ocorre com todas as consultas do Azure Cosmos DB, os dados de gatilhos controlados por evento são dados lidos do Azure Cosmos DB mais próximo ao usuário.
 

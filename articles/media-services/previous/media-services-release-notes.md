@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018531"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671418"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão para os Serviços de Mídia do Azure resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -366,7 +366,7 @@ As seguintes correções de erro foram feitas ao Empacotador e Criptografador do
 
 ## <a id="may_changes_14"></a>Versão de maio de 2014
 ### <a id="may_14_changes"></a>Atualizações gerais dos Serviços de Mídia
-Agora é possível usar o [empacotamento dinâmico] para transmitir HLS versão 3. Para transmitir HLS versão 3, adicione o seguinte formato para o caminho do localizador de origem: * .ism/manifest(format=m3u8-aapl-v3). Para saber mais, confira [este blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+Agora é possível usar o [empacotamento dinâmico] para transmitir HLS versão 3. Para transmitir HLS versão 3, adicione o seguinte formato para o caminho do localizador de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, confira [este fórum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 O empacotamento dinâmico agora também é compatível com a entrega de HLS (versões 3 e 4) criptografado com PlayReady com base em Smooth Streaming estaticamente criptografado com PlayReady. Para obter informações sobre como criptografar Smooth Streaming com PlayReady, consulte [Proteger Smooth Streaming com PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 
@@ -396,7 +396,7 @@ As alterações em 3.0.0.1 e 3.0.0.2 incluem:
 * Foram corrigidos problemas relacionados ao uso de consultas LINQ com declarações OrderBy.
 * As soluções de teste em [GitHub] foram divididas em testes baseados em unidade e testes baseados em cenário.
 
-Para saber mais sobre as alterações, confira: [Versões 3.0.0.1 e 3.0.0.2 do SDK do .NET dos Serviços de Mídia](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+Para saber mais sobre as alterações, confira: [Versões 3.0.0.1 e 3.0.0.2 do SDK do .NET dos Serviços de Mídia](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
 As seguintes alterações foram feitas na versão 3.0.0.3:
 

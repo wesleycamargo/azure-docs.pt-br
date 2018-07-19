@@ -2,18 +2,18 @@
 title: Práticas Recomendadas para a Sincronização de Dados SQL do Azure | Microsoft Docs
 description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025051"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445153"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
@@ -85,6 +85,7 @@ A Sincronização de Dados SQL tem as seguintes limitações em provisionamento 
 -   Restrições CHECK não são provisionadas.  
 -   Os gatilhos existentes nas tabelas de origem não são provisionados.  
 -   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
+-   EM UPDATE CASCADE e ON DELETE CASCADE ações em restrições de chave estrangeira não são recriadas nas tabelas de destino.
 
 #### <a name="recommendations"></a>Recomendações
 

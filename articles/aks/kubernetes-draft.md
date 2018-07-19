@@ -2,19 +2,19 @@
 title: Usar o Rascunho com AKS e Registro de Contêiner do Azure
 description: Usar o Rascunho com AKS e Registro de Contêiner do Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257308"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130236"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
@@ -58,11 +58,11 @@ O Rascunho compila as imagens de contêiner localmente e, em seguida, implanta-a
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>Criar confiança entre o cluster do AKS e o ACR
 
-Para estabelecer confiança entre um cluster do AKS e um registro do ACR, você modifica a Entidade de Serviço do Azure Active Directory usado com o AKS, adicionando a função de Colaborador a ela com o escopo do repositório do ACR. Para fazer isso, execute os comandos a seguir, substituindo _&lt;aks-rg-name&gt;_ e _&lt;aks-cluster-name&gt;_ com o grupo de recursos e o nome do cluster do AKS e _&lt;acr-rg-nam&gt;_ e _&lt;acr-repo-name&gt;_ com o grupo de recursos e o nome do repositório do repositório do ACR com o qual você deseja criar confiança.
+Para estabelecer confiança entre um cluster do AKS e um registro do ACR, você modifica a Entidade de Serviço do Azure Active Directory usado com o AKS, adicionando a função de Colaborador a ela com o escopo do registro do ACR. Para fazer isso, execute os comandos a seguir, substituindo _&lt;aks-rg-name&gt;_ e _&lt;aks-cluster-name&gt;_ com o grupo de recursos e o nome do cluster do AKS e _&lt;acr-rg-nam&gt;_ e _&lt;acr-registry-name&gt;_ com o grupo de recursos e o nome do registro do registro do ACR com o qual você deseja criar confiança.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

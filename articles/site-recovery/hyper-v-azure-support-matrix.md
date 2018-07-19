@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266954"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923464"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V no Azure
 
@@ -33,7 +33,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (executando sem Virtual Machine Manager) | Windows Server 2016, Windows Server 2012 R2 com as atualizações mais recentes | Quando você configura um site do Hyper-V no Site Recovery, a mistura de hosts que executam o Windows Server 2016 e o 2012 R2 não tem suporte.<br/><br/> Para VMs localizadas em um host executando o Windows Server 2016, a recuperação para um local alternativo não tem suporte.
+Hyper-V (executando sem Virtual Machine Manager) | Windows Server 2016 (incluindo a instalação Server Core), Windows Server 2012 R2 com as últimas atualizações | Quando você configura um site do Hyper-V no Site Recovery, a mistura de hosts que executam o Windows Server 2016 e o 2012 R2 não tem suporte.<br/><br/> Para VMs localizadas em um host executando o Windows Server 2016, a recuperação para um local alternativo não tem suporte.
 Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se o Virtual Machine Manager for usado, os hosts Windows Server 2016 devem ser gerenciadas no Virtual Machine Manager 2016.<br/><br/> No momento, uma nuvem de Virtual Machine Manager que misturam hosts Hyper-V executados no Windows Server 2016 e no 2012 R2 não são compatíveis.<br/><br/> Ambientes que incluem uma atualização de um servidor 2012 R2 existente do Virtual Machine Manager para o 2016 não são compatíveis.
 
 

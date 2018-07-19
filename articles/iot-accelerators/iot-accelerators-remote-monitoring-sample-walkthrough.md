@@ -1,6 +1,6 @@
 ---
-title: Arquitetura da solução de monitoramento remota – Azure | Microsoft Docs
-description: Um passo a passo sobre a arquitetura do acelerador de solução de monitoramento remoto.
+title: Visão geral do acelerador de solução de monitoramento remoto | Microsoft Docs
+description: Implantar o acelerador da solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757426"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084517"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitetura do acelerador de solução de monitoramento remoto
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Monitoramento Remoto
 
 O [acelerador de solução](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de Monitoramento Remoto implementa uma solução de monitoramento de ponta a ponta para vários computadores em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica de cenário de negócios. Você pode usar a solução como um ponto de partida para sua própria implementação e [personalizá-la](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) para atender às suas próprias necessidades de negócios específicas.
 

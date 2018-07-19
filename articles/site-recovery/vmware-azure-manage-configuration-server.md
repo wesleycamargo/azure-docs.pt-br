@@ -3,15 +3,15 @@ title: Gerenciar o servidor de configuração para a recuperação após desastr
 description: Este artigo descreve como gerenciar um servidor de configuração existente de recuperação de desastre do VMware para o Azure com o Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287398"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916903"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerenciar o servidor de configuração para VMs VMware
 
@@ -27,7 +27,7 @@ Você pode acessar o servidor de configuração da seguinte maneira:
    
 ### <a name="modify-vmware-server-settings"></a>Modifique as configurações do servidor VMware
 
-1. Para associar um servidor VMware diferente ao servidor de configuração, após o login, selecione **Adicionar servidor vCenter Server / vSphere ESXi**.
+1. Para associar outro servidor VMware ao servidor de configuração, após a entrada, selecione **Adicionar vCenter Server/servidor vSphere ESXi**.
 2. Digite os detalhes e, em seguida, selecione **OK**.
 
 
@@ -59,7 +59,7 @@ Modificar as configurações de proxy usadas pela máquina do servidor de config
 
 O modelo Open Virtualization Format (OVF) implanta a VM do servidor de configuração com um único adaptador de rede.
 
-- Você pode [ adicionar um adaptador adicional à VM) ](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas deve adicioná-lo antes de registrar o servidor de configuração no vault.
+- Você pode [adicionar outro adaptador à VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas precisa adicioná-lo antes de registrar o servidor de configuração no cofre.
 - Para adicionar um adaptador depois de registrar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Então você precisa registrar novamente o servidor no cofre.
 
 
@@ -96,21 +96,18 @@ Atualize o servidor da seguinte maneira:
 
 1. No cofre, vá para **Gerenciar**  >  **Infraestrutura de Recuperação do Site**  >  **Servidores de Configuração**.
 2. Se uma atualização estiver disponível, aparecerá um link no **versão do agente** > coluna.
-
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. Baixe o arquivo instalador da atualização no servidor de configuração.
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
+3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
     ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
-2. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização. 
-3. Quando a atualização for concluída valida a configuração do servidor.
+5. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização.
+6. Quando a atualização for concluída valida a configuração do servidor.
 
     ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. Clique em **Finish** para fechar o instalador.
-
+    
+7. Clique em **Finish** para fechar o instalador.
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Excluir ou cancelar o registro de um Servidor de Configuração
 
@@ -150,7 +147,12 @@ Opcionalmente, você pode excluir o servidor de configuração usando o PowerShe
 > [!NOTE]
 > Você pode usar a opção **-Force** em RRemove-AzureRmSiteRecoveryFabric para exclusão forçada do servidor de configuração.
  
+## <a name="generate-configuration-server-passphrase"></a>Gerar a Frase secreta do servidor de configuração
 
+1. Entre no servidor de configuração e, em seguida, abra uma janela do prompt de comando como administrador.
+2. Para alterar o diretório para a pasta bin, execute o comando **cd %ProgramData%\ASR\home\svsystems\bin**
+3. Para gerar o arquivo de frase secreta, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. A frase secreta será armazenada no arquivo localizado em **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
 

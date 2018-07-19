@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a0f9e54b920ee2c16a141ee62d22784f75c0af6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224142"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: integração do Azure Active Directory com o Cisco Cloud
 
@@ -101,7 +101,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. Na seção **URLs e Domínio do Cisco Cloud**, se desejar configurar o aplicativo em modo iniciado pelo **IDP**, siga as etapas abaixo:
@@ -117,19 +117,45 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     ![Informações de logon único em Domínio e URLs do Cisco Cloud](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL: `https://<subdomain>.cloudapps.cisco.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Cisco Cloud](mailto:cpr-ops@cisco.com) para obter esses valores.
 
-5. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
+5. O aplicativo Cisco Cloud espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção **Atributos de Usuário** na página de integração de aplicativos.
+ A captura de tela a seguir mostra um exemplo disso.
+
+    ![Configurar o logon único](./media/ciscocloud-tutorial/attribute.png)
+
+6. Clique na caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** para expandir os atributos. Realize as seguintes etapas em cada um dos atributos exibidos:
+
+    | Nome do atributo | Valor do atributo |
+    | ---------------| ----------------|
+    | country      |user.country |
+    | company      |user.companyname |
+
+    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+
+    ![Configurar o logon único](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar o logon único](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+
+    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+
+    d. Deixe o valor de **Namespace** como um espaço em branco.
+
+    e. Clique em **OK**.
+
+7. Na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar a **URL de metadados de federação do aplicativo** e cole-a no bloco de notas.
 
     ![O link de download do Certificado](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. Clique no botão **Salvar** .
+8. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. Para configurar logon único no **Cisco Cloud** é necessário enviar a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do Cisco Cloud](mailto:cpr-ops@cisco.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+9. Para configurar logon único no **Cisco Cloud** é necessário enviar a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do Cisco Cloud](mailto:cpr-ops@cisco.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

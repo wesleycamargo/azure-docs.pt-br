@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4c0f5d0c5ed3814495a68d7fd49d41cec521bbd7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763758"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114551"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura e conectividade para o SAP HANA (instâncias grandes) no Azure 
 
 Algumas definições prévias antes de ler este guia. Em [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), apresentamos duas classes diferentes de unidades de Instância Grande do HANA com:
 
-- S72, S72m, S144, S144m, S192, S192m e S192xm, que chamamos de “Classe do Tipo I” de SKUs.
+- S72, S72m, S144, S144m, S192, S192m e S192xm, que chamamos 'Type, classe' de SKUs.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que chamamos de "Classe do Tipo II" de SKUs.
 
 Os especificadores de classe serão usados em toda a documentação da Instância Grande do HANA para, em última análise, se referirem a diferentes funcionalidades e requisitos de acordo com os SKUs da Instância Grande do HANA.
@@ -131,7 +131,7 @@ Já apresentamos alguns intervalos de endereços IP necessários para implantar 
 
 - **Intervalo de endereços para conectividade do ER-P2P:** esse intervalo é o intervalo de IP da conexão P2P do ER (ExpressRoute) da Instância Grande do SAP HANA. Este intervalo de endereços IP deve ser um intervalo de endereços IP CIDR /29. Esse intervalo não deve sobrepor seu local ou outros intervalos de endereços IP do Azure. Esse intervalo de endereços IP é usado para configurar a conectividade do ER do Gateway do ExpressRoute da VNet do Azure com os servidores da Instância Grande do SAP HANA. Como obter esse intervalo de endereços IP? A equipe de rede corporativa ou o provedor de serviço deve fornecer um Intervalo de Endereços IP que não estejam sendo usados atualmente na rede. **Esse intervalo é um intervalo de endereços IP, que precisa ser enviado à Microsoft quando uma implantação inicial é solicitada**
   
-- **O intervalo de endereços do Pool do IP do servidor:** este intervalo de endereços IP é usado para atribuir o endereço IP individual para servidores de instância grande HANA. O tamanho recomendado de sub-rede é um /24 CIDR bloquear - mas se necessária pode ser menor em um mínimo de fornecimento de 64 endereços IP. Nesse intervalo, os 30 primeiros endereços IP são reservados para uso pela Microsoft. Verifique se esse fato é considerado ao escolher o tamanho do intervalo. Esse intervalo não deve sobrepor seu local ou outro IP Azure endereços. Como obter esse intervalo de endereços IP? Seu provedor de serviço ou de equipe de rede corporativa deve fornecer um intervalo de endereços IP que não estejam em uso em sua rede. Um bloco CIDR /24 (recomendado) exclusivo para ser usado para atribuir os endereços IP específicos necessários ao SAP HANA no Azure (Instâncias Grandes). **Esse intervalo é um intervalo de endereços IP, que precisa ser enviado à Microsoft quando uma implantação inicial é solicitada**
+- **O intervalo de endereços do Pool do IP do servidor:** este intervalo de endereços IP é usado para atribuir o endereço IP individual para servidores de instância grande HANA. O tamanho recomendado de sub-rede é um /24 CIDR bloquear - mas se necessária pode ser menor em um mínimo de fornecimento de 64 endereços IP. Nesse intervalo, os 30 primeiros endereços IP são reservados para uso pela Microsoft. Verifique se esse fato é considerado ao escolher o tamanho do intervalo. Esse intervalo não deve sobrepor seu local ou outros intervalos de endereços IP do Azure. Como obter esse intervalo de endereços IP? Seu provedor de serviço ou de equipe de rede corporativa deve fornecer um intervalo de endereços IP que não estejam em uso em sua rede. Um bloco CIDR /24 (recomendado) exclusivo para ser usado para atribuir os endereços IP específicos necessários ao SAP HANA no Azure (Instâncias Grandes). **Esse intervalo é um intervalo de endereços IP, que precisa ser enviado à Microsoft quando uma implantação inicial é solicitada**
  
 Embora você precise definir e planejar os intervalos de endereços IP acima, nem todos eles precisam ser transmitidos à Microsoft. Para resumir o acima, os intervalos de endereços IP que é necessário nomear à Microsoft são:
 

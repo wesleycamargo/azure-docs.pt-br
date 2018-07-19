@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318238"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865447"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integração do Azure Active Directory ao The Cloud Security Fabric
 
@@ -182,7 +182,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 2. Na lista de aplicativos, selecione **The Cloud Security Fabric** .
 
-    ![Link para o The Cloud Security Fabric na lista de aplicativos](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+    ![O link do Cloud Security Fabric na lista de aplicativos](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
@@ -202,7 +202,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco The Cloud Security Fabric no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo The Cloud Security Fabric.
+Ao clicar no bloco The Cloud Security Fabric no Painel de Acesso, você entrará automaticamente no aplicativo The Cloud Security Fabric.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais

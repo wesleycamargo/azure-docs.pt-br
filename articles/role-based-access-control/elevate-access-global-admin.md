@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266492"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445204"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de um Administrador global no Azure Active Directory
 
-Caso você seja um [Administrador global](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) no Azure Active Directory (Azure AD), pode haver momentos em que você deseje fazer o seguinte:
+Caso você seja um [Administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) no Azure Active Directory (Azure AD), pode haver momentos em que você deseje fazer o seguinte:
 
 - Recuperar o acesso a uma assinatura do Azure quando um usuário tiver perdido o acesso
 - Conceder que acesso a uma assinatura do Azure a outro usuário ou a si mesmo
@@ -90,7 +90,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Elevar o acesso de um Administrador global usando a API REST
 
-Use as etapas básicas a seguir para elevar o acesso de um Administrador global usando a API REST
+Use as etapas básicas a seguir para elevar o acesso de um Administrador global usando a API REST.
 
 1. Usando a REST, chame `elevateAccess`, que lhe concede a função de Administrador de Acesso do Usuário no escopo raiz (`/`).
 
@@ -220,4 +220,5 @@ Ao chamar `elevateAccess`, você cria uma atribuição de função para si mesmo
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Controle de acesso baseado em função com REST](role-assignments-rest.md)
-- [Gerenciar atribuições de acesso](role-assignments-users.md)
+- [Gerenciar acesso aos recursos do Azure com Privileged Identity Management](pim-azure-resource.md)
+- [Gerenciar o acesso ao gerenciamento do Azure com acesso condicional](conditional-access-azure-management.md)

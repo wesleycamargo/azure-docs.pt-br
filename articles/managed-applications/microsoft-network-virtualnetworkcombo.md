@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260587"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110058"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.VirtualNetworkCombo
 Um grupo de controles para selecionar uma rede virtual nova ou existente.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Quando o usuário selecionar uma nova rede virtual, o usuário pode personalizar cada nome e prefixo de endereço da sub-rede. Configurar sub-redes é opcional.
 
-- No wireframe superior, o usuário selecionou uma nova rede virtual e pode personalizar o prefixo de nome e endereço de cada sub-rede. Configurar sub-redes, nesse caso, é opcional.
-- No wireframe inferior, o usuário escolheu uma rede virtual existente e deve mapear cada sub-rede requerida pelo modelo de implantação para uma sub-rede existente. Configurar sub-redes, nesse caso, é necessário.
+![Novo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Quando o usuário escolher uma rede virtual existente, deve mapear cada sub-rede requerida pelo modelo de implantação para uma sub-rede existente. Configurar sub-redes, nesse caso, é necessário.
+
+![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -88,12 +91,12 @@ Um grupo de controles para selecionar uma rede virtual nova ou existente.
 - `constraints.minAddressPrefixSize`deve ser especificado. Todas as redes virtuais existentes com um espaço de endereço menor do que o valor especificado estarão indisponíveis para seleção.
 - `subnets`deve ser especificado e `constraints.minAddressPrefixSize` deve ser especificado para cada sub-rede.
 - Ao criar uma nova rede virtual, cada prefixo de endereço de sub-rede será calculado automaticamente com base no prefixo de endereço da rede virtual e os respectivos `addressPrefixSize`.
-- Ao usar uma rede virtual existente, todas as sub-redes menores que os respectivos `constraints.minAddressPrefixSize` ficarão indisponíveis para seleção. Além disso, se especificado, as sub-redes que não contêm pelo menos `minAddressCount` endereços disponíveis ficam indisponíveis para seleção.
-O valor padrão é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **true** para `requireContiguousAddresses`. O valor padrão é **true**.
+- Ao usar uma rede virtual existente, todas as sub-redes menores que os respectivos `constraints.minAddressPrefixSize` ficarão indisponíveis para seleção. Além disso, se especificado, as sub-redes que não contêm pelo menos `minAddressCount` endereços disponíveis ficam indisponíveis para seleção. O valor padrão é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **true** para `requireContiguousAddresses`. O valor padrão é **true**.
 - Não há suporte para a criação de sub-redes em uma rede virtual existente.
 - Se `options.hideExisting` é **true**, o usuário não pode escolher uma rede virtual existente. O valor padrão é **false**.
 
 ## <a name="sample-output"></a>Saída de exemplo
+
 ```json
 {
   "name": "vnet01",

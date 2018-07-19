@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 5cc8db11e61eba1c5a366ac9816a472e8b692360
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab3ccd981514225a003b07bafbb73db11aaa21e2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654208"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903723"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
@@ -28,9 +28,11 @@ ms.locfileid: "34654208"
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
+## <a name="supported-operating-systems-and-drivers"></a>Sistemas operacionais e drivers com suporte
 
-Para etapas de verificação e instalação do driver, consulte [Instalação do driver na série N para Windows](n-series-driver-setup.md).
+Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows, instale os drivers de GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como modelos do Azure PowerShell ou do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](../extensions/overview.md).
+
+Se você optar por instalar os drivers de GPU NVIDIA manualmente, confira [Instalação do driver de GPU da série N para Windows](n-series-driver-setup.md) para saber quais são os sistemas operacionais e os drivers com suporte e as etapas de instalação e verificação.
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 

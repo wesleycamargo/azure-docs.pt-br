@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724108"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448749"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início Rápido: Exigir MFA para aplicativos específicos com acesso condicional ao Azure Active Directory 
 
@@ -42,8 +42,18 @@ Para concluir o cenário deste início rápido, você precisa de:
 
 - **Acesso a uma edição do Azure AD Premium** – o acesso condicional ao Azure AD é um recurso do Azure AD Premium. 
 
-- **Uma conta de teste chamada Isabella Simonsen** – caso não saiba como criar uma conta de teste, consulte [Adicionar usuários baseados em nuvem](add-users-azure-active-directory.md#add-cloud-based-users).
+- **Uma conta de teste chamada Isabella Simonsen** – caso não saiba como criar uma conta de teste, consulte [Adicionar usuários baseados em nuvem](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## <a name="test-your-sign-in"></a>Teste seu logon
+
+O objetivo desta etapa é obter uma impressão da experiência de logon sem uma política de acesso condicional.
+
+**Para inicializar seu ambiente:**
+
+1. Entre no Portal do Azure como Isabella Simonsen.
+
+2. Saia.
 
 
 ## <a name="create-your-conditional-access-policy"></a>Criar sua política de acesso condicional 
@@ -69,7 +79,7 @@ Em sua política, defina:
 
 **Para configurar sua política de acesso condicional:**
 
-1. Entre no seu [portal do Azure](https://portal.azure.com) como administrador global.
+1. Faça login no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 
 2. No portal do Azure, na barra de navegação à esquerda, clique em **Azure Active Directory**. 
 
@@ -179,7 +189,7 @@ Para inicializar a ferramenta de avaliação de política “What If”, defina:
 
     c. Clique em **Selecionar**.
 
-    d. Na página **Selecionar**, selecione Gerenciamento do Microsoft Azure*** e clique em **Selecionar**.
+    d. Na página **Selecionar**, selecione **Microsoft Azure** e clique em **Selecionar**.
 
     e. Na página de aplicativos de nuvem, clique em **Concluído**.
 
@@ -199,7 +209,7 @@ Para testar sua política, tente entrar no seu [portal do Azure](https://portal.
 
 Quando não for mais necessário, exclua o usuário de teste e a política de acesso condicional:
 
-- Caso não saiba como excluir um usuário do Azure AD, consulte [Excluir usuários do Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Caso não saiba como excluir um usuário do Azure AD, consulte [Excluir usuários do Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - Para excluir sua política, selecione-a e clique em **Excluir** na barra de ferramentas de acesso rápido.
 
@@ -208,5 +218,6 @@ Quando não for mais necessário, exclua o usuário de teste e a política de ac
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber mais sobre o acesso condicional, veja [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Exigir termos de uso para serem aceitos](./active-directory-conditional-access-tou.md)
+> [bloquear o acesso quando é detectado um risco de sessão](./active-directory-conditional-access-app-sign-in-risk.md)

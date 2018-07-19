@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334866"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342684"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -36,6 +36,7 @@ A seguir há uma lista de restrições que estão presentes ao usar o recurso Ex
 * Scripts que solicitam informações (modo interativo) não têm suporte.
 * Não é possível cancelar um script em execução
 * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite
+* A conectividade de saída da VM é necessária para retornar os resultados do script.
 
 ## <a name="azure-cli"></a>CLI do Azure
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: b98b8c947fb34b60c7bd27b006672e0e9d923d3b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918142"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436473"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mover uma VM Windows para outra assinatura ou outro grupo de recursos do Azure
 Este artigo explica como mover uma VM Windows entre grupos de recursos ou assinaturas. A movimentação entre assinaturas poderá ser útil se você tiver originalmente criado uma VM em uma assinatura pessoal e agora deseja movê-la para a assinatura da sua empresa a fim de continuar seu trabalho.
@@ -36,13 +36,13 @@ Este artigo explica como mover uma VM Windows entre grupos de recursos ou assina
 
 ## <a name="use-powershell-to-move-a-vm"></a>Usar o Powershell para mover uma VM
 
-Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de também mover todos os recursos dependentes. Para usar o cmdlet Move-AzureRMResource, você precisa do ResourceId de cada um dos recursos. Você pode obter uma lista do ResourceId usando o cmdlet [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource).
+Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de também mover todos os recursos dependentes. Para usar o cmdlet Move-AzureRMResource, você precisa do ResourceId de cada um dos recursos. Você pode obter uma lista do ResourceId usando o cmdlet [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource).
 
 ```azurepowershell-interactive
- Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Para mover uma VM, precisamos mover vários recursos. Podemos usar a saída de Find-AzureRMResource para criar uma lista separada por vírgulas de ResourceIds e passá-la para [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) para movê-la para o destino. 
+Para mover uma VM, precisamos mover vários recursos. Podemos usar a saída de Get-AzureRMResource para criar uma lista separada por vírgulas de ResourceIds e passá-la para [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) para movê-la para o destino. 
 
 ```azurepowershell-interactive
 

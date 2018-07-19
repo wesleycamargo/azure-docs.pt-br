@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c9a1d605f6cf2ef9dae3a5549e3848931d508394
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723245"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082736"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 
@@ -56,7 +56,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     ![Página Propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra o [Explorador do Graph do Azure AD](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
+6. Abra o [Explorador do Graph do Microsoft](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
 
     a. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 

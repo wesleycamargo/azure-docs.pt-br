@@ -11,18 +11,18 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526511"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857937"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
 Há suporte para a virtualização aninhada nas séries Dv3 e Ev3 de máquinas virtuais do Azure. Essa funcionalidade proporciona uma grande flexibilidade no suporte a cenários como ambientes de desenvolvimento, teste, treinamento e demonstração. 
 
-Este artigo explica como habilitar a virtualização aninhada em uma VM do Azure e configurar a conectividade com a Internet a essa máquina virtual convidada.
+Todas as máquinas virtuais da série Dv3 e Ev3 dão suporte à virtualização aninhada sem nenhuma configuração adicional.  Este artigo demonstra como habilitar o Hyper-V em uma VM do Azure e configurar a conectividade de Internet com essa máquina virtual convidada.
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Criar uma VM do Azure das séries Dv3 ou Ev3
 

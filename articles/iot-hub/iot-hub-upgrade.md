@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637269"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903057"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como fazer upgrade do Hub IoT
 
@@ -45,7 +45,7 @@ Esses exemplos destinam-se a ajudá-lo a reconhecer como ajustar o Hub IoT na me
 4. Para alterar o número de unidades no hub, insira um novo valor em **Unidades do Hub IoT**. 
 5. Selecione **Salvar** para salvar as alterações. 
 
-O Hub IoT agora está ajustado e as configurações permanecem inalteradas. 
+O Hub IoT agora está ajustado e as configurações permanecem inalteradas. Observe que o limite de partições para a camada Básica do Hub IoT é 8. Esse limite permanecerá inalterado quando você migrar da camada Básica para a camada Standard.
 
 ## <a name="next-steps"></a>Próximas etapas
 

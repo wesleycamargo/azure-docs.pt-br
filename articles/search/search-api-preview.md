@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 05/17/2018
+ms.date: 06/28/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b5cb60bf16a4c904c9a6060113eba8b4d3a671ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658893"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112595"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Versão da API REST do Serviço Azure Search 2017-11-11-Versão prévia
 Este artigo descreve a versão `api-version=2017-11-11-Preview` da API REST do serviço Azure Search, oferecendo recursos experimentais ainda não disponíveis.
@@ -27,11 +27,11 @@ Este artigo descreve a versão `api-version=2017-11-11-Preview` da API REST do s
 
 ## <a name="new-in-2017-11-11-preview"></a>Novidades na versão prévia 2017-11-11
 
-A [pesquisa cognitiva](cognitive-search-concept-intro.md), uma nova funcionalidade de enriquecimento no Azure Search encontra informações latentes em fontes que não são de texto e em textos não diferenciados, transformando-as em um conteúdo pesquisável de texto completo no Azure Search.
+[**O preenchimento automático** ](search-autocomplete-tutorial.md) une a [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) para adicionar experiências de complementar preenchimento automático para a barra de pesquisa. O preenchimento automático retorna candidato em termos de consulta, um usuário pode escolher como a cadeia de caracteres de consulta para uma pesquisa subsequente. Sugestões retorna documentos reais em resposta às entradas parciais: resultados da pesquisa são imediatos e alteram dinamicamente à medida que a entrada de termo de pesquisa aumenta em tamanho e a especificidade.
 
-Os recursos a seguir são introduzidos ou modificados na API REST de versão prévia. Todas as outras APIs REST são as mesmas, independentemente de você chamar a versão disponível ou de versão prévia.
+A [**pesquisa cognitiva**](cognitive-search-concept-intro.md), uma nova funcionalidade de enriquecimento no Azure Search encontra informações latentes em fontes que não são de texto e em textos não diferenciados, transformando-as em um conteúdo pesquisável de texto completo no Azure Search. Os recursos a seguir são introduzidos ou modificados na API REST de versão prévia. Todas as outras APIs REST são as mesmas, independentemente de você chamar a versão disponível ou de versão prévia.
 
-+ [Criar conjunto de qualificações (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Operações de conjunto de qualificações (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [Criar Indexador (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

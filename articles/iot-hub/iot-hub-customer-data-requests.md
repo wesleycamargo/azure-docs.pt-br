@@ -8,12 +8,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0197b8f0cceab575aa5e830d094ddd2fb6b6b01
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634916"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436288"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -37,17 +37,17 @@ Se você usar o recurso de integração do Azure Monitor do serviço Hub IoT do 
 
 Os administradores de locatários podem usar a folha de dispositivos de IoT da extensão do Hub IoT do Azure no portal do Azure para excluir um dispositivo, o que exclui os dados associados a esse dispositivo.
 
-Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [API de dispositivo - excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice).
+Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
 Os administradores de locatários podem usar copiar e colar na folha de dispositivos de IoT da extensão do Hub IoT do Azure no portal do Azure para exportar dados associados a um dispositivo.
 
-Também é possível executar operações de exportação para dispositivos usando APIs REST. Para saber mais, veja [API de dispositivo - obter dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice).
+Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice).
 
 > [!NOTE]
 > Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Hub IoT do Azure não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-A documentação completa das APIs de Dispositivo do Hub IoT do Azure está localizada em [https://docs.microsoft.com/rest/api/iothub/deviceapi](https://docs.microsoft.com/rest/api/iothub/deviceapi).
+A documentação completa das APIs de Serviço do Hub IoT do Azure está localizada em [https://docs.microsoft.com/rest/api/iothub/service](https://docs.microsoft.com/rest/api/iothub/service).

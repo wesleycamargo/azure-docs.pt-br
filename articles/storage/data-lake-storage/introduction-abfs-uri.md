@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060052"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114285"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Usar o Azure Data Lake armazenamento Gen2 URI
 
@@ -25,15 +25,7 @@ O [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver é compatíve
 
 A sintaxe URI para o Data Lake armazenamento Gen2 depende se ou não sua conta de armazenamento é configurada para ter dados Lake armazenamento Gen2 como o sistema de arquivos padrão.
 
-Se a conta de capaz de Data Lake armazenamento Gen2 que deseja endereço é definida como o sistema de arquivos padrão durante a criação da conta, é a abreviação de sintaxe do URI:
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **Caminho**: uma barra invertida delimitada (`/`) representação da estrutura de diretório.
-
-2. **Nome do arquivo**: O nome do arquivo individual.
-
-Se a conta capaz de Data Lake armazenamento Gen2 desejar endereço *não* o sistema de arquivos padrão, a sintaxe URI é:
+Se a conta de capaz de Data Lake armazenamento Gen2 que deseja endereço **não** é definida como o sistema de arquivos padrão durante a criação da conta, é a abreviação de sintaxe do URI:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Se a conta capaz de Data Lake armazenamento Gen2 desejar endereço *não* o sist
 4. **Caminhos**: uma barra invertida delimitada (`/`) representação da estrutura de diretório.
 
 5. **Nome do arquivo**: O nome do arquivo individual. Esse parâmetro é opcional se você está abordando um diretório.
+
+Porém, se a conta que deseja endereço não for definida como o sistema de arquivos padrão durante a criação da conta, é a abreviação de sintaxe do URI:
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **Caminho**: uma barra invertida delimitada (`/`) representação da estrutura de diretório.
+
+2. **Nome do arquivo**: O nome do arquivo individual.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

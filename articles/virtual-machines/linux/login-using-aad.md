@@ -3,7 +3,7 @@ title: Fazer logon em uma VM do Linux com as credenciais do Azure Active Directo
 description: Nessas instruções, você aprenderá a criar e configurar uma VM do Linux para usar a autenticação do Azure Active Directory para logons de usuário
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
-ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/17/2018
+ms.author: cynthn
+ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652865"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933948"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Fazer logon em uma máquina virtual do Linux no Azure usando a autenticação do Azure Active Directory (versão prévia)
 
@@ -46,8 +46,9 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 | Distribuição | Versão |
 | --- | --- |
 | CentOS | CentOS 6.9 e CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 17.10 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 e Ubuntu Server 18.04 |
 
 No momento, há suporte para as seguintes regiões do Azure durante a versão prévia desse recurso:
 
@@ -178,4 +179,4 @@ Compartilhe seus comentários sobre este recurso de visualização ou informe pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/active-directory-whatis.md) e [Introdução ao Azure Active Directory](../../active-directory/get-started-azure-ad.md)
+Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) e [Introdução ao Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)

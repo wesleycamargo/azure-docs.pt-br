@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064199"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929342"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -204,6 +204,20 @@ Um runbook pode ser suspenso por vários motivos. As suspensões acontecem princ
 #### <a name="resolution"></a>Resolução
 
 A solução documentada para evitar esse problema é usar pontos de verificação em um fluxo de trabalho. Para saber mais, consulte [Noções Básicas dos Fluxos de Trabalho do PowerShell](../automation-powershell-workflow.md#checkpoints). Veja uma explicação mais detalhada sobre a “Fração Justa” e sobre o Ponto de Verificação neste artigo de blog: [Uso de Pontos de Verificação em Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+
+### <a name="long-running-runbook"></a>Cenário: falha de conclusão de um runbook de execução longa
+
+#### <a name="issue"></a>Problema
+
+Esse comportamento ocorre por design em áreas restritas do Azure devido ao monitoramento de "Fração Justa" de processos na Automação do Azure, que suspende automaticamente um runbook se ele é executado por mais de três horas.
+
+#### <a name="cause"></a>Causa
+
+O runbook foi executado acima do limite de 3 horas permitido pela fração justa em uma Área Restrita do Azure
+
+#### <a name="resolution"></a>Resolução
+
+A solução recomendada é executar o runbook em um [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Os Hybrid Workers não são limitados pelo limite de runbook de 3 horas da [fração justa](../automation-runbook-execution.md#fair-share) como as áreas restritas do Azure.
 
 ## <a name="common-errors-when-importing-modules"></a>Erros comuns durante a importação de módulos
 

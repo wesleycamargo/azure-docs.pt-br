@@ -6,13 +6,14 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448724"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 
@@ -40,7 +41,7 @@ Para exibir as configurações da Criptografia do Serviço de Armazenamento, ent
 
 **P: Tenho uma conta de armazenamento clássico. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**
 
-R: A Criptografia do Serviço de Armazenamento está habilitada por padrão para todas as contas de armazenamento (clássico e Resource Manager).
+R: A Criptografia do Serviço de Armazenamento está habilitada por padrão para todas as contas de armazenamento – clássico e Resource Manager.
 
 **P: Como posso criptografar os dados em minha conta de armazenamento clássica?**
 
@@ -92,7 +93,11 @@ R: A criptografia está habilitada por padrão e não há nenhuma provisão para
 
 **P: A Criptografia do Serviço de Armazenamento é permitida apenas em regiões específicas?**
 
-R: A Criptografia do Serviço de Armazenamento está disponível em todas as regiões para todos os serviços. 
+R: A Criptografia do Serviço de Armazenamento está disponível em todas as regiões para todos os serviços.
+
+**P: é compatível com a criptografia do serviço de armazenamento FIPS 140-2?**
+
+R: Sim, é compatível com a criptografia do serviço de armazenamento FIPS 140-2.
 
 **P: Como fazer para contatar alguém caso eu tenha problemas ou deseje enviar comentários?**
 

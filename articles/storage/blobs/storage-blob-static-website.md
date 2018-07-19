@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025044"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131602"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hospedagem de site estático no armazenamento do Azure (visualização)
 Armazenamento do Azure agora oferece um site estático hospedando (visualização), fornecendo uma solução econômica e dimensionável para hospedar aplicativos web modernos. Em um site estático, páginas da Web contém conteúdo estático e o JavaScript ou outro código do lado do cliente. Por outro lado, os sites dinâmicos dependem de código do lado do servidor e podem ser hospedados usando [aplicativos Web do Azure](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Para começar a hospedar seu aplicativo Web no Armazenamento do Azure, você pod
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Faça o upload de seus recursos da web para o contêiner "$web" que foi criado como parte da ativação estática do site. Você pode fazer isso diretamente no Portal do Azure ou pode aproveitar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para carregar estruturas de diretórios inteiras. Tenha certeza de incluir um documento de índice com o nome que você configurou. Neste exemplo, o nome do documento é "index.html".
+
+> [!NOTE]
+> O nome do documento diferencia maiúsculas de minúsculas e, portanto, precisa corresponder exatamente ao nome do arquivo no armazenamento.
 
 Finalmente, navegue até seu ponto de extremidade de web para testar seu website.
 

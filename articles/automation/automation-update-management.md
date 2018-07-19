@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063503"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345375"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -35,9 +35,9 @@ O diagrama a seguir mostra uma exibição conceitual do comportamento e do fluxo
 
 ![Fluxo do processo de Gerenciamento de Atualizações](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Depois que um computador executa uma verificação de conformidade da atualização, o agente encaminha as informações em massa ao Log Analytics do Azure. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão. 
+Depois que um computador executa uma verificação de conformidade da atualização, o agente encaminha as informações em massa ao Log Analytics do Azure. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
 
-Além do agendamento da verificação, a verificação de conformidade de atualização será iniciada em 15 minutos se o MMA for reiniciado antes da instalação da atualização e após a instalação da atualização. 
+Além do agendamento da verificação, a verificação de conformidade de atualização será iniciada em 15 minutos se o MMA for reiniciado antes da instalação da atualização e após a instalação da atualização.
 
 Para um computador Linux, a verificação de conformidade é executada a cada 3 horas por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade é iniciada dentro de 15 minutos.
 
@@ -86,7 +86,7 @@ Os agentes do Windows devem ser configurados para comunicarem-se com um servidor
 
 #### <a name="linux"></a>Linux
 
-Para Linux, a máquina deve ter acesso a um repositório de atualização. O repositório de atualização pode ser público ou privado. Um Agente do OMS (Operations Management Suite) para Linux configurado para gerar relatórios em vários espaços de trabalho do Log Analytics não tem suporte com esta solução.
+Para Linux, a máquina deve ter acesso a um repositório de atualização. O repositório de atualização pode ser público ou privado. TLS 1.1 ou TLS 1.2 é necessário para interagir com o gerenciamento de atualizações. Um Agente do OMS (Operations Management Suite) para Linux configurado para gerar relatórios em vários espaços de trabalho do Log Analytics não tem suporte com esta solução.
 
 Para obter informações sobre como instalar o agente do OMS para Linux e fazer o download da versão mais recente, consulte [Agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Agente do OMS para Windows, consulte [Operations Management Suite Agent para Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -115,6 +115,9 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 * MP de Implantação de Atualizações
 
 Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+> [!NOTE]
+> Para sistemas com o agente do Operations Manager, para poder ser totalmente gerenciado pelo gerenciamento de atualizações, o agente precisa ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, consulte [como atualizar um agente do Operations Manager](/system-center/scom/deploy-upgrade-agents.md).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmar se computadores não Azure estão integrados
 
@@ -157,11 +160,11 @@ Para confirmar se um grupo de gerenciamento do Operations Manager está se comun
 
 A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução:
 
-| Fonte conectada | Com suporte | DESCRIÇÃO |
+| Fonte conectada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
-| Agentes do Linux |sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/>Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
+| Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/>Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
@@ -208,9 +211,9 @@ Selecione a guia **Atualizar Implantações** para exibir a lista das implantaç
 
 Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. O painel **Nova implantação de atualizações** é aberto. Insira os valores para as propriedades descritas na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
-|NOME |Nome exclusivo para identificar a Implantação de Atualizações. |
+|Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Selecione **Linux** ou **Windows**.|
 |Computadores para atualizar |Selecione uma pesquisa salva ou escolha **Computador** no menu suspenso e selecione computadores individuais. |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
@@ -223,7 +226,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="windows"></a>Windows
 
-|classificação  |DESCRIÇÃO  |
+|classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
@@ -236,7 +239,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="linux"></a>Linux
 
-|classificação  |DESCRIÇÃO  |
+|classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas em atualizações de segurança ou de natureza.        |
@@ -260,6 +263,8 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 Para obter mais informações sobre as portas que exige o Hybrid Runbook Worker, consulte [portas de função do Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+É recomendável usar os endereços listados ao definir exceções. Para endereços IP, você pode baixar a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP, é postado semanalmente.
 
 ## <a name="search-logs"></a>Pesquisa da logs
 

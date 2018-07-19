@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 05859187a5734d982b750e287c3ecd375ed1da2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723738"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969197"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -101,16 +101,68 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
 
    ![Captura de tela do modelo após a atualização](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Desabilitar uma identidade atribuída pelo sistema de um VM do Azure
+### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Atribuir uma função à identidade atribuída pelo sistema da VM
 
-> [!NOTE]
-> Atualmente, não há suporte para desabilitar a Identidade de Serviço Gerenciada de uma de máquina virtual. Enquanto isso, você pode alternar entre usar identidades atribuídas pelo sistema ou pelo usuário.
+Depois que você habilitar a identidade atribuída pelo sistema na VM, recomendamos conceder uma função a ela, como o acesso de **Leitor** ao grupo de recursos no qual ele foi criado.
+
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Garanta também que sua conta pertença a uma função que concede permissões de gravação na VM (por exemplo, a função “Colaborador da Máquina Virtual”).
+ 
+2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e adicione as informações a seguir para conceder o acesso de **Leitor** na VM ao grupo de recursos no qual ela foi criada.  A estrutura do modelo pode variar conforme o editor e o modelo de implantação escolhido.
+   
+   Na seção `parameters`, adicione o seguinte:
+
+    ```JSON
+    "builtInRoleType": {
+          "type": "string",
+          "defaultValue": "Reader"
+        },
+        "rbacGuid": {
+          "type": "string"
+        }
+    ```
+
+    Na seção `variables`, adicione o seguinte:
+
+    ```JSON
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    ```
+
+    Na seção `resources`, adicione o seguinte:
+
+    ```JSON
+    {
+        "apiVersion": "2017-09-01",
+         "type": "Microsoft.Authorization/roleAssignments",
+         "name": "[parameters('rbacGuid')]",
+         "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+                "scope": "[resourceGroup().id]"
+          },
+          "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            ]
+    }
+    ```
+
+### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Desabilitar uma identidade atribuída pelo sistema de um VM do Azure
 
 Se você tiver uma VM que não precise mais de uma máquina virtual:
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
 
-2. Altere o tipo de identidade para `UserAssigned`.
+2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Caso tenha uma VM que tem apenas a identidade atribuída pelo sistema, desabilite-a alterando o tipo de identidade para `None`.  Se a VM tiver identidades atribuídas pelo sistema e pelo usuário, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com a matriz `identityIds` de identidades atribuídas pelo usuário.  O exemplo a seguir mostra como remover uma identidade atribuída pelo sistema de uma VM sem nenhuma identidade atribuída pelo usuário:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
 

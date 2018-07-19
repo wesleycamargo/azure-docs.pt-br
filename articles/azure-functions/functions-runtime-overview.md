@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2be04c7037dd26755300cf8b7794678a6a958278
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290217"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488453"
 ---
-# <a name="azure-functions-runtime-overview"></a>Visão geral do Azure Functions Runtime
+# <a name="azure-functions-runtime-overview-preview"></a>Visão geral do Azure Functions Runtime (versão prévia)
 
-O Azure Functions Runtime fornece a você uma nova maneira para aproveitar a simplicidade e a flexibilidade do modelo de programação do Azure Functions local. Compilado sobre as mesmas raízes de código-fonte aberto que o Azure Functions, o Azure Functions Runtime é implantado localmente a fim de fornecer uma experiência de desenvolvimento quase idêntica ao serviço de nuvem.
+O Azure Functions Runtime (versão prévia) fornece a você uma nova maneira para aproveitar a simplicidade e a flexibilidade do modelo de programação do Azure Functions local. Compilado sobre as mesmas raízes de código-fonte aberto que o Azure Functions, o Azure Functions Runtime é implantado localmente a fim de fornecer uma experiência de desenvolvimento quase idêntica ao serviço de nuvem.
 
 ![Portal de visualização do Azure Functions Runtime][1]
 

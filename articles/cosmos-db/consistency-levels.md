@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611816"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857177"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
@@ -58,7 +58,7 @@ O Azure Cosmos DB oferece [SLAs](https://azure.microsoft.com/support/legal/sla/c
 A granularidade da consistência engloba uma única solicitação de usuário. Uma solicitação de gravação pode corresponder a uma transação de inserir, substituir, upsert ou excluir. Assim como nas gravações, uma transação de leitura/consulta também tem como escopo uma única solicitação de usuário. O usuário pode ter que paginar um amplo conjunto de resultados, abrangendo várias partições, mas cada transação de leitura engloba uma única página e é servida de dentro de uma única partição.
 
 ## <a name="consistency-levels"></a>Níveis de consistência
-Você pode configurar um nível de consistência padrão na conta do banco de dados que se aplica a todas as coleções (e os bancos de dados) em sua conta do Cosmos DB. Por padrão, todas as leituras e consultas emitidas para os recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Você pode relaxar o nível de consistência de uma solicitação de leitura/consulta específica usado em cada uma das APIs com suporte. Há suporte para cinco tipos de nível de consistência no protocolo de replicação do Azure Cosmos DB que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
+Você pode configurar um nível de consistência padrão na conta do banco de dados que se aplique a todos os contêineres (e bancos de dados) em sua conta do Cosmos DB. Por padrão, todas as leituras e consultas emitidas para os recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. Você pode relaxar o nível de consistência de uma solicitação de leitura/consulta específica usado em cada uma das APIs com suporte. Há suporte para cinco tipos de nível de consistência no protocolo de replicação do Azure Cosmos DB que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
 
 <a id="strong"></a>
 **Forte**: 
@@ -112,7 +112,7 @@ Você pode configurar um nível de consistência padrão na conta do banco de da
     ![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>Níveis de consistência para consultas
-Por padrão, para recursos definidos pelo usuário, o nível de consistência para consultas é o mesmo nível de consistência para leituras. Por padrão, o índice é atualizado de maneira síncrona em cada inserção, substituição ou exclusão de um item no contêiner do Cosmos DB. Isso permite que as consultas sigam o mesmo nível de consistência que as leituras de ponto. Embora o Azure Cosmos DB seja otimizado para gravação e tenha suporte para volumes constantes de gravações, manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar o próprio índice sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
+Por padrão, para recursos definidos pelo usuário, o nível de consistência para consultas é o mesmo nível de consistência para leituras. Por padrão, o índice é atualizado de maneira síncrona em cada inserção, substituição ou exclusão de um item no contêiner do Cosmos DB. Isso permite que as consultas sigam o mesmo nível de consistência que as leituras de ponto. Embora o Azure Cosmos DB seja otimizado para gravação e dê suporte para volumes constantes de gravações, manutenção síncrona de índice e entrega de consultas consistentes, você pode configurar determinados contêineres para atualizar o próprio índice lentamente. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.  
 
 | Modo de indexação | Leituras | Consultas |
 | --- | --- | --- |

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 52d4297d2e86ad67672d38f1c527041b813f8d61
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6190a8ee90855223779751373bf16ca3db0fe761
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723680"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37870097"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrar uma política clássica que exige autenticação multifator no portal do Azure 
 
@@ -103,8 +103,6 @@ O processo de migração consiste nas seguintes etapas:
 
 6. Na página **Novo**, para abrir a página **Aplicativos de nuvem**, na seção **Atribuição**, clique em **Aplicativos de nuvem**.
 
-    ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
 8. Na página **Aplicativos de nuvem**, execute as seguintes etapas:
 
     ![Acesso condicional](./media/active-directory-conditional-access-migration/08.png)
@@ -151,6 +149,6 @@ Para desabilitar a sua política clássica, clique em **Desabilitar** no modo de
 - Para obter mais informações sobre a migração de política clássica, consulte [Migrar políticas clássicas no portal do Azure](active-directory-conditional-access-migration.md).
 
 
-- Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 

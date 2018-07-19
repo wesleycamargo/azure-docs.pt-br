@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
-ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724723"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723428"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -30,11 +30,11 @@ A Grade de Eventos é um serviço do Azure que envia solicitações HTTP para no
 
 Os *manipuladores* de eventos recebem e processam eventos. O Azure Functions é um dos vários serviços do[Azure que possuem suporte interno para manipular eventos da Grande de Eventos](../event-grid/overview.md#event-handlers). Neste artigo, você aprende a usar um gatilho de Grade de Eventos para invocar uma função quando um evento é recebido da Grade de Eventos.
 
-Se você preferir, é possível utilizar um gatilho HTTP para manipular eventos da Grade de Eventos, consultado [Usar um gatilho HTTP como um gatilho de Grade de Eventos](#use-an-http-trigger-as-an-event-grid-trigger), posteriormente neste artigo.
+Se você preferir, é possível utilizar um gatilho HTTP para manipular eventos da Grade de Eventos, consultado [Usar um gatilho HTTP como um gatilho de Grade de Eventos](#use-an-http-trigger-as-an-event-grid-trigger), posteriormente neste artigo. No momento, não é possível usar um gatilho da Grade de Eventos para um aplicativo do Azure Functions quando o evento é entregue no [esquema CloudEvents](../event-grid/cloudevents-schema.md). Em vez disso, use um gatilho HTTP.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funções 1. x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 O gatilho de grade de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1. x. O código-fonte do pacote está no repositório GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master).
 
@@ -331,45 +331,44 @@ Para obter mais informações, consulte [Chaves de autorização](functions-bind
 
 Como alternativa, você mesmo pode enviar uma HTTP PUT para especificar o valor da chave.
 
-## <a name="local-testing-with-requestbin"></a>Testes locais com RequestBin
-
-> [!NOTE]
-> O site RequestBin não está disponível no momento, mas você pode usar essa abordagem com https://hookbin.com em vez disso. Se esse site estiver inativo, você pode usar [ngrok](#local-testing-with-ngrok).
+## <a name="local-testing-with-viewer-web-app"></a>Teste local com o aplicativo Web visualizador
 
 Para testar um gatilho de Grade de Eventos localmente, você deve receber solicitações HTTP de Grade de Eventos entre suas origens na nuvem para sua máquina local. Uma maneira de fazer isso é capturar solicitações online e manualmente reenviá-las em sua máquina local:
 
-2. [Criar um ponto de extremidade RequestBin](#create-a-RequestBin-endpoint).
-3. [Criar uma assinatura na Grade de Eventos](#create-an-event-grid-subscription) que envia eventos para o ponto de extremidade RequestBin.
-4. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação no site RequestBin.
+2. [Criar um aplicativo Web visualizador](#create-a-viewer-web-app) que captura as mensagens de evento.
+3. [Criar uma assinatura da Grade de Eventos](#create-an-event-grid-subscription) que envia eventos para o aplicativo visualizador.
+4. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação do aplicativo visualizador.
 5. [Postar manualmente a solicitação](#manually-post-the-request) para a URL localhost da sua função de gatilho da Grade de Eventos.
 
 Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
 
-### <a name="create-a-requestbin-endpoint"></a>Criar um ponto de extremidade RequestBin
+### <a name="create-a-viewer-web-app"></a>Criar um aplicativo Web visualizador
 
-RequestBin é uma ferramenta de software livre que aceita solicitações HTTP e mostra o corpo da solicitação. A URL http://requestb.in obtém tratamento especial pela Grade de Eventos do Azure. Para facilitar o teste, a Grade de Eventos envia eventos para a URL RequestBin, sem requerer uma resposta correta às solicitações de validação de assinatura. Outra ferramenta de teste recebe o mesmo tratamento: http://hookbin.com.
+Para simplificar as mensagens de evento de captura, implante um [aplicativo Web predefinido](https://github.com/dbarkol/azure-event-grid-viewer) que exibe as mensagens de evento. A solução implantada inclui um plano do Serviço de Aplicativo, um aplicativo Web do Aplicativo do Serviço de e o código-fonte do GitHub.
 
-RequestBin não se destina a um uso de alta raxa de transferência. Se você efetuar push de mais de um evento por vez, talvez não veja todos os eventos na ferramenta.
+Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-Crie um ponto de extremidade.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-![Criar um ponto de extremidade RequestBin](media/functions-bindings-event-grid/create-requestbin.png)
+A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 
-Copie a URL do ponto de extremidade.
+Você verá o site, mas nenhum evento ainda estará publicado.
 
-![Copiar o ponto de extremidade RequestBin](media/functions-bindings-event-grid/save-requestbin-url.png)
+![Exibir novo site](media/functions-bindings-event-grid/view-site.png)
 
 ### <a name="create-an-event-grid-subscription"></a>Criar uma assinatura na Grade de Eventos
 
-Crie uma assinatura na Grade de Eventos do tipo que deseja testar e forneça o ponto de extremidade RequestBin. Para obter informações sobre como criar uma assinatura, consulte [Criar uma assinatura](#create-a-subscription), posteriormente neste artigo.
+Crie uma assinatura da Grade de Eventos do tipo que você deseja testar e forneça a ela a URL do aplicativo Web como o ponto de extremidade para a notificação de eventos. O ponto de extremidade para seu aplicativo Web deve incluir o sufixo `/api/updates/`. Portanto, a URL completa é `https://<your-site-name>.azurewebsites.net/api/updates`
+
+Para obter mais informações sobre como criar assinaturas usando o portal do Azure, confira [Criar um evento personalizado – portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 
 ### <a name="generate-a-request"></a>Gerar uma solicitação
 
-Dispare um evento que gerará tráfego HTTP para seu ponto de extremidade RequestBin.  Por exemplo, se você criou uma assinatura de armazenamento de Blobs, faça upload ou exclua um blob. Quando uma solicitação aparecer na sua página RequestBin, copie o corpo da solicitação.
+Dispare um evento que gerará tráfego HTTP para o ponto de extremidade do aplicativo Web.  Por exemplo, se você criou uma assinatura de armazenamento de Blobs, faça upload ou exclua um blob. Quando uma solicitação for exibida no aplicativo Web, copie o corpo da solicitação.
 
 A solicitação de validação de assinatura será recebida primeiro. Ignore quaisquer solicitações de validação e copie a solicitação de evento.
 
-![Copiar o corpo da solicitação de RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copiar o corpo da solicitação do aplicativo Web](media/functions-bindings-event-grid/view-results.png)
 
 ### <a name="manually-post-the-request"></a>Postar manualmente a solicitação
 
@@ -467,14 +466,18 @@ A função de gatilho da Grade de Eventos executa e mostra logs semelhantes ao e
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Use um gatilho HTTP como um gatilho de Grade de Eventos
 
-Os eventos da Grade de Eventos são recebidos como solicitações HTTP, para que você possa manipular eventos usando um gatilho HTTP em vez de um gatilho de Grade de Eventos. Um possível motivo para isso é obter mais controle sobre a URL do ponto de extremidade que invoca a função. 
+Os eventos da Grade de Eventos são recebidos como solicitações HTTP, para que você possa manipular eventos usando um gatilho HTTP em vez de um gatilho de Grade de Eventos. Um possível motivo para isso é obter mais controle sobre a URL do ponto de extremidade que invoca a função. Outro motivo é quando você precisa receber eventos no [esquema CloudEvents](../event-grid/cloudevents-schema.md). Atualmente, o gatilho da Grade de Eventos não dá suporte ao esquema CloudEvents. Os exemplos desta seção mostram soluções para o esquema da Grade de Eventos e o esquema CloudEvents.
 
 Se você usar um gatilho HTTP, será necessário gravar o código para o que o gatilho da Grade de Eventos automaticamente:
 
 * Envie uma resposta de validação para [uma solicitação de validação de assinatura](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invoque a função uma vez por elemento da matriz de eventos contida no corpo da solicitação.
 
-O código C# da amostra a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos:
+Para obter informações sobre a URL a ser utilizada para invocar a função localmente ou quando for executada no Azure, consulte a [documentação de referência de associação de gatilho HTTP](functions-bindings-http-webhook.md)
+
+### <a name="event-grid-schema"></a>Esquema da Grade de Eventos
+
+O código C# de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos. Use este exemplo para eventos entregues no esquema da Grade de Eventos.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -512,7 +515,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-O código de exemplo do exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos:
+O código JavaScript de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos. Use este exemplo para eventos entregues no esquema da Grade de Eventos.
 
 ```javascript
 module.exports = function (context, req) {
@@ -522,10 +525,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -540,7 +545,70 @@ module.exports = function (context, req) {
 
 O código de manipulação de eventos está dentro do loop através da matriz `messages`.
 
-Para obter informações sobre a URL a ser utilizada para invocar a função localmente ou quando for executada no Azure, consulte a [documentação de referência de associação de gatilho HTTP](functions-bindings-http-webhook.md) 
+### <a name="cloudevents-schema"></a>Esquema CloudEvents
+
+O código C# de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos.  Use este exemplo para eventos entregues no esquema CloudEvents.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+O código JavaScript de exemplo a seguir para um gatilho HTTP simula o comportamento do gatilho da Grade de Eventos. Use este exemplo para eventos entregues no esquema CloudEvents.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

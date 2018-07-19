@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5a78d6fb8ee52f0daba80a77cc8a5e75c2e5248d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034252"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346052"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge Linux que atua como um gateway transparente
 
@@ -35,7 +35,7 @@ O gateway apresenta o seu certificado AC de dispositivo Edge para o dispositivo 
 
 As etapas a seguir o orientará no processo de criação de certificados e instalá-los nos lugares certos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1.  Instale o tempo de execução do Azure IoT Edge em um dispositivo de Linux que você deseja usar como o gateway transparente.
    * [Linux x64][lnk-install-linux-x64]
    * [Linux ARM32][lnk-install-linux-arm]
@@ -142,7 +142,11 @@ Instalar este certificado no repositório de certificados do sistema operacional
  
     Você deve ver uma mensagem dizendo, "Atualizando certificados no /etc/ssl/certs... 1 adicionado, removido 0; feito."
 
-* Windows - [Este](https://msdn.microsoft.com/en-us/library/cc750534.aspx) artigo fornece detalhes sobre como fazer isso em um dispositivo Windows usando o Assistente de importação de certificado. 
+* Windows - aqui está um exemplo de como instalar um certificado de autoridade de certificação em um host do Windows.
+  * No menu Iniciar, digite “Gerenciar certificados de computador”. Isso deve abrir um utilitário chamado `certlm`.
+  * Navegue para certificados de computador Local--> certificados raiz confiáveis--> certificados--> botão direito--> todas as tarefas--> Importar para iniciar o Assistente para importação de certificados.
+  * Siga as etapas conforme indicado e importe o certificado arquivo $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Quando concluído, você verá uma mensagem "Importada com êxito".
 
 ### <a name="application-level"></a>Nível de aplicativo
 Para aplicativos .NET, você pode adicionar o trecho a seguir para confiar em um certificado no formato PEM. Inicializar a variável `certPath` com `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.

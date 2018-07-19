@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225782"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
 
@@ -67,7 +67,7 @@ Para configurar a integração do Riskware ao Azure AD, você precisa adicionar 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -101,7 +101,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. Na seção **Domínio e URLs do Riskware**, execute as seguintes etapas:
@@ -113,7 +113,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL:
@@ -121,10 +121,10 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente Riskware](mailto:support@pansoftware.com.au) para obter o valor.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
@@ -137,11 +137,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 6. Na seção **Configuração do Riskware**, clique em **Configurar o Riskware** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
-    ![Configuração do Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Configuração do Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. Em outra janela do navegador da Web, faça logon em seu site empresarial do Riskware como um administrador.
+7. Em outra janela do navegador da Web, entre em seu site empresarial do Riskware como um administrador.
 
-8. No canto superior direito, clique em **Manutenção** para abrir a página de manutenção. 
+8. No canto superior direito, clique em **Manutenção** para abrir a página de manutenção.
 
     ![Configurações de manutenção do Riskware](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     c. Na caixa de texto **Descrição**, digite sua descrição como AZURE Configuration for SSO.
 
-    d. Na caixa de texto **Página de Logon Único**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do portal do Azure.
+    d. Na caixa de texto **Página de Logon Único**, cole a **URL do Serviço de Logon Único do SAML** copiado do portal do Azure.
 
-    e. Na caixa de texto **Página de Saída**, cole o valor da **URL de Saída** copiado do portal do Azure.
+    e. Na caixa de texto **Página de Saída**, cole o a **URL de Saída** copiado do portal do Azure.
 
-    f. Na caixa de texto **Campo Postagem do Formulário**, digite o nome do campo presente em Postar Resposta que contém SAML, como SamlRespons
+    f. Na caixa de texto **Campo Postagem do Formulário**, digite o nome do campo presente em Postar Resposta que contém SAML, como SAMLResponse
 
     g. Na caixa de texto **Nome da Marca de Identidade XML**, digite o atributo que contém o identificador exclusivo na resposta SAML, como NameID.
 
     h. Abra o **XML de metadados** baixado do portal do Azure no bloco de notas, copie o certificado do arquivo de metadados e cole-o na caixa de texto **Certificado**
-    
+
     i. Na caixa de texto **URL do Consumidor**, cole o valor da **URL de Resposta**, que você recebe da equipe de suporte.
 
     j. Na caixa de texto **Emissor**, cole o valor do **Identificador**, que você recebe da equipe de suporte.
@@ -176,9 +176,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     > [!Note]
     > Contate a [equipe de suporte ao Cliente Riskware](mailto:support@pansoftware.com.au) para obter esses valores
 
-    k. Selecione **Usar POST** para passar a solicitação SAML como um parâmetro de postagem.
+    k. Selecione a caixa de seleção **Usar POST**.
 
-    l. Selecione **Usar Solicitação SAML** para passar o SSO permite que a Solicitação SAML para SP seja iniciada.
+    l. Selecione a caixa de seleção **Usar solicitação de SAML**.
 
     m. Clique em **Salvar**.
 
@@ -213,14 +213,14 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Criar um usuário de teste Riskware
 
-Para permitir que os usuários do Azure AD façam logon no Riskware, eles devem ser provisionados no Riskware. No Riskware, o provisionamento é uma tarefa manual.
+Para permitir que os usuários do Microsoft Azure Active Directory entre no Riskware, eles devem ser provisionados no Riskware. No Riskware, o provisionamento é uma tarefa manual.
 
 **Para provisionar uma conta de usuário, execute as seguintes etapas:**
 
-1. Faça logon no Riskware como Administrador de Segurança.
+1. Entre no Riskware como Administrador de Segurança.
 
 2. No canto superior direito, clique em **Manutenção** para abrir a página de manutenção. 
 
@@ -231,7 +231,7 @@ Para permitir que os usuários do Azure AD façam logon no Riskware, eles devem 
     ![Configuração Pessoas do Riskware](./media/riskware-tutorial/tutorial_riskware_people.png)
 
 4. Na guia **Detalhes**, execute as seguintes etapas:
-    
+
     ![Detalhes da configuração do Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. Selecione **Tipo de Pessoa**, como Funcionário.
@@ -240,7 +240,7 @@ Para permitir que os usuários do Azure AD façam logon no Riskware, eles devem 
 
     c. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como **Brenda**.
 
-5. Na guia **Segurança** , realize as seguintes etapas:    
+5. Na guia **Segurança** , realize as seguintes etapas:
 
     ![Configuração de segurança do Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -254,8 +254,8 @@ Para permitir que os usuários do Azure AD façam logon no Riskware, eles devem 
 
     ![Configuração da Organização do Riskware](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. Na seção **Organização**, selecione a Organização como organização **Level1**.
-    
+    a. Selecione a opção como organização **Level1**.
+
     b. Na seção **Local de Trabalho Principal da Pessoa**, na caixa de texto **Local**, digite o local.
 
     c. Na seção **Funcionário**, selecione **Status do Funcionário** como Casual.
@@ -266,7 +266,7 @@ Para permitir que os usuários do Azure AD façam logon no Riskware, eles devem 
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Riskware.
 
-![Atribuir a função de usuário][200] 
+![Atribuir a função de usuário][200]
 
 **Para atribuir Brenda Fernandes ao Riskware, execute as seguintes etapas:**
 

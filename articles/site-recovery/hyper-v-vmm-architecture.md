@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da arquitetura para replicaç�
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894289"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919641"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replicação do Hyper-V para um site secundário
 
@@ -37,8 +37,8 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 1. Um [Instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) é tirado quando a replicação inicial é disparada.
 2. Discos rígidos virtuais na VM são replicados individualmente para a localização secundária.
-3. Se alterações nos discos ocorrerem enquanto a replicação inicial estiver em andamento, 
-4. Quando a replicação inicial for concluída, a replicação delta começará. O Rastreador de Replicação de Réplica do Hyper-V acompanha as alterações como logs de replicação do Hyper-V (.hrl). Esses arquivos de log estão localizados na mesma pasta que os discos. Cada disco tem um arquivo .hrl associado que é enviado para a localização secundária. O instantâneo e os arquivos de log consomem recursos de disco durante a replicação inicial.
+3. Se houver alterações no disco durante a replicação inicial, o Rastreador de Replicação de Réplica do Hyper-V mostrará essas alterações como logs de replicação do Hyper-V (.hrl). Esses arquivos de log estão localizados na mesma pasta que os discos. Cada disco tem um arquivo .hrl associado que é enviado para a localização secundária. O instantâneo e os arquivos de log consomem recursos de disco durante a replicação inicial.
+4. Quando a replicação inicial é concluída, o instantâneo da VM é excluído e a replicação delta é iniciada.
 5. As alterações de disco delta no log são sincronizadas e mescladas para o disco pai.
 
 

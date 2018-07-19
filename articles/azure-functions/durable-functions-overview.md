@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764393"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970482"
 ---
 # <a name="durable-functions-overview"></a>Visão geral das Funções Duráveis
 
 As *Funções Duráveis* são uma extensão do [Azure Functions](functions-overview.md) e do [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que permitem que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você.
 
-A extensão permite definir fluxos de trabalho com estado em um novo tipo de função chamada *função orquestradora*. Veja algumas das vantagens das funções de orquestrador:
+A extensão permite definir fluxos de trabalho com estado em um novo tipo de função chamado [*função de orquestrador*](durable-functions-types-features-overview.md#orchestrator-functions). Veja algumas das vantagens das funções orquestradoras:
 
 * Elas definem fluxos de trabalho no código. Não são necessários designers ou esquemas JSON.
 * Elas podem chamar outras funções de forma síncrona e assíncrona. A saída das funções chamadas pode ser salva em variáveis locais.
@@ -340,7 +340,7 @@ As funções de orquestrador mantém seu estado de execução de forma confiáve
 
 O uso do Fornecimento de eventos por esta extensão é transparente. Nos bastidores, o operador `await` de uma função de orquestrador leva o controle do thread do orquestrador de volta para o dispatcher do Framework de Tarefa Durável. O dispatcher, em seguida, confirma novas ações agendadas pela função de orquestrador (como chamar uma ou mais funções filho ou agendar um temporizador durável) no armazenamento. Essa ação de confirmação transparente é acrescentada ao *histórico de execução* da instância de orquestração. O histórico é armazenado na tabela de armazenamento. A ação de confirmação, em seguida, adiciona mensagens a uma fila para agendar o trabalho de fato. Neste ponto, a função de orquestrador pode ser descarregada da memória. A cobrança por ela para se você estiver usando o Plano Consumo do Azure Functions.  Quando há mais trabalho a ser feito, a função é reiniciada e seu estado é reconstruído.
 
-Depois que uma função de orquestração recebe mais trabalho a fazer (por exemplo, uma mensagem de resposta é recebida ou um temporizador durável expira), o orquestrador é ativado novamente e executa mais uma vez a função inteira, desde o início, para reconstruir o estado local. Se, durante essa reprodução, o código tentar chamar uma função (ou qualquer outro tipo de trabalho assíncrono), o Framework de Tarefa Durável consultará o *histórico de execução* da orquestração atual. Se detectar que a função de atividade já foi executada e gerou alguns resultados, ele reproduzirá o resultado da função e o código do orquestrador continuará em execução. Isso continuará acontecendo até que o código da função chegue a um ponto em que seja concluído ou tenha um novo trabalho assíncrono agendado.
+Depois que uma função de orquestração recebe mais trabalho a fazer (por exemplo, uma mensagem de resposta é recebida ou um temporizador durável expira), o orquestrador é ativado novamente e executa mais uma vez a função inteira, desde o início, para reconstruir o estado local. Se, durante essa reprodução, o código tentar chamar uma função (ou qualquer outro tipo de trabalho assíncrono), o Framework de Tarefa Durável consultará o *histórico de execução* da orquestração atual. Se ele detectar que a [função de atividade](durable-functions-types-features-overview.md#activity-functions) já foi executada e gerou alguns resultados, ele reproduzirá o resultado da função e o código do orquestrador continuará em execução. Isso continuará acontecendo até que o código da função chegue a um ponto em que seja concluído ou tenha um novo trabalho assíncrono agendado.
 
 ### <a name="orchestrator-code-constraints"></a>Restrições de código do orquestrador
 
@@ -348,7 +348,7 @@ O comportamento de reprodução cria restrições quanto ao tipo do código que 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Atualmente, C# (Functions v1 e v2) e JavaScript (somente Funções v2) são as únicas linguagens com suporte para Funções Duráveis. Isso inclui funções orquestradoras e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
+Atualmente, o C# (Functions v1 e v2) e o JavaScript (somente Functions v2) são as únicas linguagens compatíveis com Funções Duráveis. Isso inclui funções orquestradoras e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 
@@ -384,7 +384,7 @@ Todos os problemas conhecidos devem estar registrados na lista de [Problemas no 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Continuar lendo a documentação das Funções Duráveis](durable-functions-bindings.md)
+> [Continuar lendo a documentação das Funções Duráveis](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Instalar a extensão de Funções Duráveis e exemplos](durable-functions-install.md)

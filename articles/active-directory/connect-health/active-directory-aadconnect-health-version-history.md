@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319258"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129664"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.
@@ -29,6 +29,13 @@ A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect H
 * Azure AD Connect Health para Sincronização - Diagnosticar e corrigir erros de sincronização de atributos duplicados do portal 
 
 **Atualização do agente:** 
+*  Agente do Azure AD Connect Health para AD DS (versão 3.1.7.0)    
+   1. Hotfix para o problema de CPU alta de monitoramento de agente com as versões do .NET Framework KB
+
+*   Agente do Azure AD Connect Health para AD FS (versão 3.1.7.0)  
+   1. Hotfix para o problema de CPU alta de monitoramento de agente com as versões do .NET Framework KB  
+   2. Correções de resultados de teste no servidor secundário do ADFS Server 2016
+   
 *   Agente do Azure AD Connect Health para AD FS (versão 3.1.2.0)  
    1. Hotfix para o gerenciamento de memória do agente e alertas relacionados especificamente para a versão 3.0.244.0
 

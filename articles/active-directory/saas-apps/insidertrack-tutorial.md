@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 9fdddd1b80fe7d374249b8baf490a9efe8d481f9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 09f0e38dc8eab2042a28e6816155ad14b185a034
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226945"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Tutorial: integração do Azure Active Directory com o Insider Track
 
@@ -34,7 +34,7 @@ A integração do Insider Track ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Insider Track, você precisa dos seguintes itens:
 
@@ -204,7 +204,7 @@ Nesta seção, você concede a Brenda Fernandes acesso ao Insider Track e, assim
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Insider Track no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Insider Track.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

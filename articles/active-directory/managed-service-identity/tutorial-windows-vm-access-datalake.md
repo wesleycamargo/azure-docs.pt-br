@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904281"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007960"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: como usar uma MSI (Identidade do Serviço Gerenciada) de VM Windows para acessar o Azure Data Lake Store
 
@@ -32,7 +32,7 @@ Este tutorial mostra como usar uma MSI (Identidade do Serviço Gerenciado) para 
 > * Conceder acesso a um Azure Data Lake Store à sua VM
 > * Obter um token de acesso usando a identidade da VM e usá-lo para acessar um Azure Data Lake Store
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 5. Para selecionar um novo **Grupo de Recursos** no qual será criada a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
 6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na página Configurações, mantenha os padrões e clique em **OK**.
 
-   ![Texto Alt da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM 
 
@@ -63,11 +63,11 @@ Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de col
 2. Na barra de navegação à esquerda, clique em **Configuração**. 
 3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não. 
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.  
-   ![Texto Alt da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Se você deseja verificar quais as extensões que estão nessa VM, clique em **Extensões**. Se o MSI estiver habilitado, **ManagedIdentityExtensionforWindows** será exibido na lista.
 
-   ![Texto Alt da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso ao Azure Data Lake Store à sua VM
 

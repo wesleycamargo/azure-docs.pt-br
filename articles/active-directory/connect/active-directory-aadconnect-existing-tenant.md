@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725200"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969394"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: quando você tem um locatário existente
 A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você inicie com um novo locatário do Azure AD e que não exista nenhum usuário nem outros objetos. Mas, se você tiver começado com um locatário do Azure AD, o preencheu com usuários e outros objetos, e agora deseja usar o Connect, este tópico é para você.
@@ -48,6 +48,9 @@ Se o Azure AD encontrar um objeto cujos valores de atributo são os mesmos para 
 A seção anterior e o aviso devem ser considerados no planejamento. Se existem muitas alterações no Azure AD que não refletem no AD DS local, planeje como popular o AD DS com os valores atualizados antes de sincronizar seus objetos com o Azure AD Connect.
 
 Se você correspondeu os objetos com uma correspondência flexível, o **sourceAnchor** será adicionado ao objeto no Azure AD para que uma correspondência rígida possa ser usada posteriormente.
+
+>[!IMPORTANT]
+> A Microsoft não recomenda a sincronização de contas de locais com contas administrativas pré-existentes no Azure Active Directory.
 
 ### <a name="hard-match-vs-soft-match"></a>Correspondência rígida x correspondência flexível
 Para uma nova instalação do Connect, não há nenhuma diferença prática entre uma correspondência rígida e uma correspondência flexível. A diferença está em uma situação de recuperação de desastre. Se você tiver perdido o seu servidor com o Azure AD Connect, reinstale uma nova instância para não perder os dados. Um objeto com um sourceAnchor é enviado para o Connect durante a instalação inicial. Então a correspondência poderá ser avaliada pelo cliente (Azure AD Connect), que é muito mais rápido do que fazer o mesmo no Azure AD. Uma correspondência rígida é avaliada pelo Connect e pelo Azure AD. Uma correspondência flexível é avaliada apenas pelo Azure AD.

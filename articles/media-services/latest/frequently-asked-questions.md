@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658875"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110400"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Perguntas frequentes sobre os Serviços de Mídia do Azure v3 (versão prévia)
 
@@ -30,7 +30,7 @@ Ainda não. Você pode usar um dos SDKs com suporte. Consulte os tutoriais e exe
 
 A equipe de Serviços de Mídia está eliminando as RUs na v3. No entanto, o trabalho de serviço necessário não está completo. Até lá, os clientes precisam usar o portal do Azure ou as APIs do AMS v2 para definirem as RUs, (conforme descrito em [Colocação em escala do processamento de mídia](../previous/media-services-scale-media-processing-overview.md). 
 
-RUs S3 são necessárias para as predefinições de **VideoAnalyzerPreset** e **AudioAnalyzerPreset** V3.
+Ao usar **VideoAnalyzerPreset** e/ou **AudioAnalyzerPreset**, configure sua conta de Serviços de Mídia para 10 Unidades Reservadas para Mídia S3.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>O Ativo V3 não possui um conceito AssetFile?
 

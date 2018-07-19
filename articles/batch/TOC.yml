@@ -121,18 +121,14 @@
           href: batch-get-resource-counts.md
         - name: Consultar recursos com eficiência
           href: batch-efficient-list-queries.md
-    - name: Usar ferramentas do desenvolvedor
+    - name: Usar ferramentas de script
       items:
-        - name: Usar .NET em Lotes
-          href: batch-dotnet-get-started.md
-        - name: Usar Python em Lotes
-          href: batch-python-tutorial.md
-        - name: Usar Node.js em Lotes
-          href: batch-nodejs-get-started.md
         - name: Usar cmdlets do PowerShell
           href: batch-powershell-cmdlets-get-started.md
         - name: Usar a CLI do Azure
           href: batch-cli-get-started.md
+    - name: Usar SDK do Node.js em Lotes
+      href: batch-nodejs-get-started.md
 - name: Referência
   items:
     - name: CLI do Azure

@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030372"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096956"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -23,7 +23,7 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
-* Faz com que os [Ink-modules] dos [módulos do IoT Edge] estejam sempre em execução.
+* Faz com que os dos [módulos do IoT Edge][lnk-modules] estejam sempre em execução.
 * Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
 * Facilita a comunicação entre os dispositivos de folha de downstream e o dispositivo IoT Edge.
 * Facilita a comunicação entre os módulos e o dispositivo IoT Edge.
@@ -40,12 +40,12 @@ O agente do Edge e o hub do Edge são módulos, assim como qualquer outro módul
 O hub do Edge é um dos dois módulos que compõem o tempo de execução do Azure IoT Edge. Ele atua como um proxy local para o Hub IoT expondo os mesmos pontos de extremidade de protocolo que o Hub IoT. Essa consistência significa que os clientes (sejam dispositivos ou módulos) podem se conectar no tempo de execução do IoT Edge como faria para no Hub IoT. 
 
 >[!NOTE]
-> Durante a versão prévia pública do Hub do Edge, só há suporte a clientes que se conectam usando MQTT.
+>O hub do Edge dá suporte a clientes que se conectam usando MQTT ou AMQP. Ele não oferece suporte a clientes que usam HTTP. 
 
 O hub do Edge não é uma versão completa do Hub IoT executado localmente. Há algumas coisas que o hub do Edge delega para o Hub IoT silenciosamente. Por exemplo, o hub do Edge encaminha solicitações de autenticação para o Hub IoT quando um dispositivo tenta se conectar. Depois que a primeira conexão é estabelecida, as informações de segurança são armazenadas em cache localmente pelo hub do Edge. São permitidas conexões subsequentes desse dispositivo sem ele precisar se autenticar na nuvem. 
 
 >[!NOTE]
-> Durante a versão prévia pública, o tempo de execução deve ser conectado toda vez que tenta autenticar um dispositivo.
+>O tempo de execução deve ser conectado toda vez que tenta autenticar um dispositivo.
 
 Para reduzir a largura de banda que a solução IoT Edge usa, o hub do Edge otimiza quantas conexões reais são feitas com a nuvem. O hub do Edge usa conexões lógicas de clientes como módulos ou dispositivos de folha e combina-os em uma única conexão física com a nuvem. Os detalhes desse processo são transparentes para o restante da solução. Os clientes pensam que têm sua própria conexão para a nuvem, mesmo que estejam todos sendo enviados pela mesma conexão. 
 

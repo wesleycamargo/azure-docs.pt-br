@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061665"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920807"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
-> Mantenha-se atualizado com as novidades do Azure AD (Azure Active Directory) assinando nosso [![feed](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Receba notificações sobre quando visitar esta página novamente para obter atualizações assinando o [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
--   As versões mais recentes
--   Problemas conhecidos
--   Correções de bug
--   Funcionalidades preteridas
--   Planos de alterações
+- As versões mais recentes
+- Problemas conhecidos
+- Correções de bug
+- Funcionalidades preteridas
+- Planos de alterações
 
 Esta página é atualizada mensalmente; portanto, visite-a regularmente.
 
@@ -40,8 +40,8 @@ Esta página é atualizada mensalmente; portanto, visite-a regularmente.
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de Alteração: correção de segurança para fluxo de autorização delegada para aplicativos usando a API de Logs de Atividades do Azure AD
 
 **Tipo:** plano de alteração  
-**Categoria de serviço:** monitoramento e relatório  
-**Funcionalidade do produto:** relatório
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
 
 Devido a nossa aplicação de segurança mais forte, foi necessário fazer uma alteração nas permissões para aplicativos que usam um fluxo de autorização delegado para acessar [APIs dos Logs de Atividades do Azure AD](https://aka.ms/aadreportsapi). Essa alteração ocorrerá até **26 de junho de 2018**.
 
@@ -64,7 +64,7 @@ Para obter mais informações, consulte a área [ Conceder permissões ](https:/
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Definir configurações de TLS para se conectar aos serviços do Azure AD para conformidade com o PCI DSS
 
 **Tipo:** novo recurso  
-**Categoria de serviço:** novo recurso  
+**Categoria de serviço:** N/A  
 **Funcionalidade do produto:** plataforma
 
 O TLS (Transport Layer Security) é um protocolo que fornece privacidade e integridade de dados entre dois aplicativos de comunicação e é o protocolo de segurança mais utilizado atualmente.
@@ -105,7 +105,7 @@ Os navegadores desatualizados podem não suportar versões mais recentes do TLS,
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
  
 Em junho de 2018, adicionamos esses 15 novos aplicativos com suporte de Federação à nossa galeria de aplicativos:
 
@@ -161,7 +161,7 @@ Para obter mais informações, consulte [Recurso de Termos de Uso do Azure Activ
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** outro  
-**Capacidade do produto:** Segurança e proteção de identidade
+**Funcionalidade do produto:** segurança e proteção da identidade
  
 Lançamos uma nova orientação passo a passo sobre como implantar a Autenticação Multifator do Azure (MFA) em sua organização.
 
@@ -172,7 +172,8 @@ Para visualizar o guia de implantação do MFA, vá para o repositório [Guias d
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>As funções de gerenciamento de aplicativos delegados do Azure AD estão em pré-visualização pública
 
 **Tipo:** novo recurso  
-**Categoria de serviço:** Aplicativos empresariais **Capacidade do produto:** Controle de acesso
+**Categoria de serviço:** aplicativos empresariais  
+**Funcionalidade do produto:** Controle de Acesso
 
 Os administradores agora podem delegar tarefas de gerenciamento de aplicativos sem atribuir a função de administrador global. As novas funções e capacidades são:
 
@@ -268,7 +269,7 @@ Os clientes na Europa exigem que seus dados permaneçam na Europa e não sejam r
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** provisionamento de aplicativos  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
  
 O Azure AD permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos SaaS, como Dropbox, Salesforce, ServiceNow e muito mais. Em maio de 2018, adicionamos suporte ao provisionamento de usuários para os seguintes aplicativos na Galeria de aplicativo do Azure AD:
 
@@ -320,7 +321,7 @@ Os logs de atividade do Azure AD, que incluem Logs de entradas e de auditoria, a
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
  
 Em maio de 2018, adicionamos esses 18 novos aplicativos com suporte de Federação à nossa galeria de aplicativos:
 
@@ -491,7 +492,7 @@ Para obter mais informações, consulte [Permitir ou bloquear convites para usu�
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
 
 Em abril de 2018, adicionamos esses 13 novos aplicativos com suporte de Federação à nossa galeria de aplicativos:
 
@@ -519,7 +520,7 @@ Para obter mais informações, consulte [Conceda aos usuários B2B no acesso do 
 
 **Tipo:** recurso alterado  
 **Categoria de serviço:** outro  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
 
 Se um aplicativo listado no [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) for compatível com o logon único baseado em SAML, clicar em **Obter agora** fornecerá o tutorial de integração associado a esse aplicativo. 
 
@@ -529,7 +530,7 @@ Se um aplicativo listado no [Azure marketplace](https://azuremarketplace.microso
 
 **Tipo:** recurso alterado  
 **Categoria de serviço:** provisionamento de aplicativos  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
  
 Anteriormente, os clientes que usavam os conectores de provisionamento de usuário do Azure Active Directory para aplicativos SaaS (por exemplo, Salesforce, ServiceNow e Box) poderiam ter um desempenho lento se os inquilinos do Azure AD contivessem mais de 100.000 usuários e grupos combinados e estivessem usando atribuições de usuário e grupo determinar quais usuários devem ser provisionados.
 
@@ -658,7 +659,7 @@ Para saber mais, confira [Logon Único Contínuo do Azure Active Directory](http
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
 
 Em março de 2018, adicionamos esses 15 novos aplicativos com suporte de Federação à nossa galeria de aplicativos:
 
@@ -710,7 +711,7 @@ Para saber mais, confira [Solicitar um código de autorização](https://docs.mi
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** provisionamento de aplicativos  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
  
 A visualização pública do provisionamento de entrada do Workday para Active Directory e Azure AD agora dá suporte à capacidade de extrair e provisionar todos os valores de atributo disponíveis na API Workday Get_Workers. Isso inclui suporte a centenas de atributos padrão e personalizados adicionais, além daqueles fornecidos na versão inicial do conector de provisionamento de entrada Workday.
 
@@ -980,7 +981,7 @@ Quando os termos de uso são exibidos, você pode clicar em **Tendo problemas co
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
 
 Em janeiro de 2018, os seguintes novos aplicativos com suporte à federação foram adicionados à galeria de aplicativos:
 
@@ -1158,7 +1159,7 @@ Para obter mais informações, confira [O que é o Privileged Identity Managemen
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicativos empresariais  
-**Capacidade do produto:** Integração de terceiros
+**Funcionalidade do produto:** integração de terceiros
 
 Em dezembro de 2017, adicionamos esses novos aplicativos com suporte de federação à nossa galeria de aplicativos:
 

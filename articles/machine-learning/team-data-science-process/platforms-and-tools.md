@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838469"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951134"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos da equipe de ciência de dados
 
-A Microsoft fornece uma gama completa de dados e serviços de análise e recursos para plataformas na nuvem ou locais. Eles podem ser implantados para tornar a execução de seus projetos de ciência de dados eficiente e escalonável. Diretrizes para equipes que estão implementando projetos de ciência de dados de modo rastreável, com controle de versão e colaborativo são fornecidas pelo TDSP [(Processo de Ciência de Dados de Equipe)](overview.md).  Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).
+A Microsoft fornece uma gama completa de dados e serviços de análise, bem como recursos para plataformas na nuvem ou locais. Eles podem ser implantados para tornar a execução de seus projetos de ciência de dados eficiente e escalonável. Diretrizes para equipes que estão implementando projetos de ciência de dados de modo rastreável, com controle de versão e colaborativo são fornecidas pelo TDSP [(Processo de Ciência de Dados de Equipe)](overview.md).  Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).
 
 Os serviços de análise e dados disponíveis para as equipes de ciência de dados usando o TDSP incluem:
 
@@ -102,9 +102,9 @@ Especialmente útil para projetos de ciência de dados é a capacidade de criar 
 
 Os Serviços de R (no banco de dados) fornecem uma plataforma para desenvolver e implantar aplicativos inteligentes que podem descobrir novos insights. Você pode usar a linguagem avançada e poderosa do R e os vários pacotes fornecidos pela comunidade de R para criar modelos e gerar previsões para seus dados do SQL Server. Como os Serviços de R (no banco de dados) integram a linguagem R com o SQL Server, a análise é mantida próxima aos dados, o que elimina os custos e os riscos de segurança associados à movimentação de dados.
 
-Os Serviços de R (no banco de dados) dão suporte à linguagem R de software livre com um conjunto abrangente de tecnologias e ferramentas do SQL Server. Eles oferecem capacidade de gerenciamento, segurança, confiabilidade e desempenho superiores. Você pode implantar soluções de R usando ferramentas familiares e convenientes. Os aplicativos de produção podem chamar o tempo de execução de R e recuperar previsões e visuais usando Transact-SQL. Você também pode usar as bibliotecas de ScaleR para melhorar a escala e o desempenho de suas soluções de R. Para obter mais informações, consulte [Serviços de R do SQL Server](https://msdn.microsoft.com/library/mt604845.aspx)
+Os Serviços de R (no banco de dados) dão suporte à linguagem R de software livre com um conjunto abrangente de tecnologias e ferramentas do SQL Server. Eles oferecem capacidade de gerenciamento, segurança, confiabilidade e desempenho superiores. Você pode implantar soluções de R usando ferramentas familiares e convenientes. Os aplicativos de produção podem chamar o tempo de execução de R e recuperar previsões e visuais usando Transact-SQL. Você também pode usar as bibliotecas de ScaleR para melhorar a escala e o desempenho de suas soluções de R. Para obter mais informações, confira [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
-A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](https://msdn.microsoft.com/library/mt612857.aspx). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](https://msdn.microsoft.com/library/mt683480.aspx).
+A equipe de TDSP da Microsoft publicou duas orientações de ponta a ponta que mostram como criar soluções de ciência de dados nos Serviços de R do SQL Server 2016: uma para programadores de R e outra para desenvolvedores de SQL. Para **programadores de R**, consulte [Passo a passo de ponta a ponta de Ciência de Dados](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores de SQL**, consulte [Análise avançada no banco de dados para desenvolvedores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix"></a>Apêndice: ferramentas para configurar projetos de ciência de dados

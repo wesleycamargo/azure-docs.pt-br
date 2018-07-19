@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757149"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345698"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de Automação do Azure com um webhook
 
@@ -27,9 +27,9 @@ Você pode comparar os webhooks a outros métodos para iniciar um runbook em [Co
 
 A tabela a seguir descreve as propriedades que devem ser configuradas para um webhook.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
-| NOME |Você pode fornecer qualquer nome que desejar para um webhook já que o mesmo não aparece para o cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. <br> Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
+| Nome |Você pode fornecer qualquer nome que desejar para um webhook já que o mesmo não aparece para o cliente. Ele é usado apenas por você para identificar o runbook na Automação do Azure. <br> Como melhor prática, você deve atribuir ao webhook um nome relacionado ao cliente que o utiliza. |
 | URL |A URL do webhook é o endereço exclusivo que um cliente chama um HTTP POST para iniciar o runbook vinculado ao webhook. Ele é gerado automaticamente quando você cria o webhook. Você não pode especificar uma URL personalizada. <br> <br> A URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, ele deve ser tratado como uma senha. Por motivos de segurança, você pode exibir apenas a URL no Portal do Azure no momento em que o webhook é criado. Anote a URL em um local seguro para uso futuro. |
 | Data de validade |Como um certificado, cada webhook tem uma data de validade após a qual ele não pode mais ser usado. A data de validade pode ser modificada após a criação do webhook. |
 | habilitado |Um webhook é habilitado por padrão quando ele é criado. Se você defini-lo como Desabilitado, nenhum cliente poderá usá-lo. Você pode definir a propriedade **Habilitado** quando você cria o webhook ou a qualquer momento quando ele é criado. |
@@ -44,7 +44,7 @@ Quando um cliente inicia um runbook usando um webhook, ele não pode substituir 
 
 O objeto **$WebhookData** tem as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | WebhookName |O nome do webhook. |
 | RequestHeader |Tabela de hash contendo os cabeçalhos da solicitação de POST de entrada. |
@@ -86,11 +86,11 @@ Outra estratégia é o runbook realizar alguma validação de uma condição ext
 
 Use o procedimento a seguir para criar um novo webhook vinculado a um runbook no Portal do Azure.
 
-1. Na **página de Runbooks** no portal do Azure, clique no runbook que o webhook começa para exibir sua página de detalhes.
-1. Clique em **Webhook** na parte superior da página para abrir a página **Adicionar webhook**.
-1. Clique em **Criar novo webhook** para abrir a **página Criar webhook**.
-1. Especifique um **Nome** e uma **Data de validade** para o webhook e se ele deve ser habilitado. Consulte [Detalhes de um webhook](#details-of-a-webhook) para obter mais informações sobre essas propriedades.
-1. Clique no ícone copiar e pressione Ctrl + C para copiar a URL do webhook. Em seguida, anote-o em um local seguro. **Quando você cria o webhook, não é possível recuperar a URL novamente.**
+1. Na **página de Runbooks** no portal do Azure, clique no runbook que o webhook começa para exibir sua página de detalhes. Verifique se o runbook **Status** é **publicado**.
+2. Clique em **Webhook** na parte superior da página para abrir a página **Adicionar webhook**.
+3. Clique em **Criar novo webhook** para abrir a **página Criar webhook**.
+4. Especifique um **Nome** e uma **Data de validade** para o webhook e se ele deve ser habilitado. Consulte [Detalhes de um webhook](#details-of-a-webhook) para obter mais informações sobre essas propriedades.
+5. Clique no ícone copiar e pressione Ctrl + C para copiar a URL do webhook. Em seguida, anote-o em um local seguro. **Quando você cria o webhook, não é possível recuperar a URL novamente.**
 
    ![URL de Webhook](media/automation-webhooks/copy-webhook-url.png)
 
@@ -107,7 +107,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de retorno da solicitação POST.
 
-| Código | Texto | DESCRIÇÃO |
+| Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceita |A solicitação foi aceita e o runbook foi enfileirado com êxito. |
 | 400 |Solicitação incorreta |A solicitação não foi aceita por um dos motivos a seguir: <ul> <li>O webhook expirou.</li> <li>O webhook está desabilitado.</li> <li>O token na URL é inválido.</li>  </ul> |

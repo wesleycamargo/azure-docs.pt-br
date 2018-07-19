@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
-ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33894306"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113224"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -163,7 +163,7 @@ O projeto inclui um grande conjunto de registros médicos anônimos para demonst
 
 *Email: Alexandre\_SiteAdmin*
 
-O trabalho de Alexandre é avaliar tecnologias que podem reduzir o custo indireto de gerenciamento de uma rede local e reduzir os custos de gerenciamento. Alexandre tem avaliado o Azure há algum tempo, mas tem dificuldades em configurar os serviços necessários para atender aos requisitos de conformidade da HiTrust para armazenar os Dados do Paciente na nuvem. Alexandre selecionou o AI de Integridade do Azure para implementar uma solução de integridade em conformidade, que abordou os requisitos para atender aos requisitos do cliente para HiTrust.
+O trabalho de Alexandre é avaliar tecnologias que podem reduzir o custo indireto do gerenciamento de uma rede local e reduzir os custos de gerenciamento. Alexandre tem avaliado o Azure há algum tempo, mas tem dificuldades em configurar os serviços necessários para atender aos requisitos de conformidade da HiTrust para armazenar os Dados do Paciente na nuvem. Alexandre selecionou o AI de Integridade do Azure para implementar uma solução de integridade em conformidade, que abordou os requisitos para atender aos requisitos do cliente para HiTrust.
 
 **Cientista de dados -- Débora**
 

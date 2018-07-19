@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904298"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004873"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Tutorial: Usar uma Identidade do Serviço Gerenciada para uma VM Linux para acessar o Azure Data Lake Store
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > * Conceder à sua VM acesso ao Azure Data Lake Store.
 > * Obter um token de acesso usando a identidade da VM e usá-lo para acessar o Azure Data Lake Store.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilit
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Insira as informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública SSH** ou **Senha**. As credenciais criadas permitirão que você faça logon na máquina virtual.
 
-   ![Painel “Básico” para a criação de uma máquina virtual](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Painel “Básico” para a criação de uma máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Na lista **Assinatura**, selecione uma assinatura para a máquina virtual.
 5. Para selecionar um novo grupo de recursos no qual você deseja criar a máquina virtual, selecione **Grupo de recursos** > **Criar novo**. Quando terminar, selecione **OK**.
@@ -65,7 +65,7 @@ Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de col
 1. Para **Máquina Virtual**, selecione a máquina virtual na qual você deseja habilitar a MSI.
 2. No painel esquerdo, selecione **Configuração**.
 3. Você verá **Identidade de serviço gerenciado**. Para registrar e habilitar a MSI, selecione **Sim**. Se você quiser desabilitá-la, selecione **Não**.
-   ![Seleção “Registrar com o Azure Active Directory”](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Seleção “Registrar com o Azure Active Directory”](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Clique em **Salvar**.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso ao Azure Data Lake Store à sua VM

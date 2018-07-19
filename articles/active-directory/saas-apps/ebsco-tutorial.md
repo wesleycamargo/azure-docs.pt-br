@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 993d03e05c7d97634b7ed12c50d248643ce9e51d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221277"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Active Directory do Azure com EBSCO
 
@@ -34,7 +34,7 @@ Integrar EBSCO com o Azure AD fornece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com EBSCO, você precisa dos seguintes itens:
 
@@ -243,7 +243,7 @@ Nesta seção, você habilitará Brenda Fernandes para usar logon único do Azur
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 1. Quando você clicar no bloco EBSCO no Painel de acesso, você deve ser conectado automaticamente ao seu aplicativo EBSCO.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 2. Depois que fizer logon no aplicativo, clique no botão **entrar** no canto superior direito.
 

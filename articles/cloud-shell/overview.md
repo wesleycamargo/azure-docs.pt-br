@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 72338a4c168b4d3b7c918fbb16758724f73fefc2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29844098"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856453"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
@@ -49,7 +49,7 @@ Os usuários do Linux podem usar Bash no Cloud Shell, enquanto os usuários do W
 ### <a name="authenticated-and-configured-azure-workstation"></a>Estação de trabalho configurada e autenticada do Azure
 O Cloud Shell é gerenciado pela Microsoft, portanto vem com ferramentas de linha de comando populares e suporte para idiomas. O Cloud Shell também é autenticado de maneira segura e automaticamente para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0 ou de cmdlets do Azure PowerShell.
 
-Exiba a lista completa de ferramentas da [experiência do Bash](features.md#tools) e [experiência do PowerShell (Versão prévia).](features-powershell.md#tools)
+Veja a [lista de ferramentas completa.](features.md#tools)
 
 ### <a name="multiple-access-points"></a>Vários pontos de acesso
 O Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
@@ -94,7 +94,7 @@ No prompt de configuração de armazenamento, clique em “Mostrar configuraçõ
 * O Cloud Shell exige que um compartilhamento de arquivos do Azure seja montado
 * O Cloud Shell usa o mesmo compartilhamento de arquivos para o Bash e o PowerShell
 * É atribuído ao Cloud Shell um computador por conta de usuário
-* Bash persiste $Home usando uma imagem de 5 GB mantida em seu compartilhamento de arquivo
+* O Cloud Shell persiste o $Home usando uma imagem de 5 GB mantida no compartilhamento de arquivos
 * As permissões são definidas da mesma forma que para um usuário normal do Linux em Bash
 
 Saiba mais sobre os recursos em [Bash no Cloud Shell](features.md) e [PowerShell no Cloud Shell (Versão prévia)](features-powershell.md).

@@ -10,17 +10,17 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930979"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906212"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Problemas conhecidos e perguntas frequentes com Identidade do Serviço Gerenciado (MSI) para o Azure Active Directory
 
@@ -60,7 +60,7 @@ Todas as distribuições do Linux com suporte do Azure IaaS podem ser usadas com
 Observação: a extensão de VM do MSI somente oferece suporte às seguintes distribuições do Linux:
 - CoreOS Estável
 - CentOS 7.1
-- Redhat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -128,7 +128,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - O provisionamento da extensão de VM para uma VM pode falhar devido a falhas de pesquisa de DNS. Reinicie a VM e tente novamente. 
 - Adicionar uma identidade atribuída pelo usuário 'não existente' fará com que a VM falhe. 
 - Não há suporte para a criação de uma identidade atribuída pelo usuário com caracteres especiais (isto é, sublinhado) no nome.
-- Nomes de identidades atribuídas pelo usuário são restritos a 24 caracteres para o cenário de ponta a ponta. As identidades atribuídas pelo usuário com nomes com mais de 24 caracteres falharão em serem atribuídas.  
+- Nomes de identidades atribuídas pelo usuário são restritos a 24 caracteres para o cenário de ponta a ponta. As identidades atribuídas pelo usuário com nomes com mais de 24 caracteres falharão em serem atribuídas.
+- Se estiver usando a extensão da máquina virtual de identidade gerenciada, o limite suportado é 32 identidades gerenciadas atribuídas pelo usuário. Sem a extensão da máquina virtual de identidade gerenciada, o limite permitido é de 512.  
 - Ao adicionar uma segunda identidade atribuída pelo usuário, o clientID pode não estar disponível para solicitar tokens para a extensão de VM. Como mitigação, reinicie a extensão de VM da MSI com os dois seguintes comandos bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

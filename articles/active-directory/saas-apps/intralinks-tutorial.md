@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 613c1a0c9998d79961202beae4d7820bdaaf8c93
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fbe3ceb3d26de90bd46ee02263d09c822ee90c29
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227533"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Azure Active Directory com o Intralinks
 
@@ -237,7 +237,7 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
  
     ![Configurar o logon único](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-8. Obtenha a URL de SSO Iniciada pelo SP da [equipe do Intralinks](https://www.intralinks.com/contact-1) para o outro aplicativo Intralinks e insira-a em **Configurar URL de Logon**, conforme mostrado abaixo. 
+8. Obtenha a URL de SSO Iniciada por SP com a [equipe do Intralinks](https://www.intralinks.com/contact-1) para o outro aplicativo Intralinks e insira-a em **Configurar URL de Logon**, conforme é mostrado abaixo. 
     
      ![Configurar o logon único](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

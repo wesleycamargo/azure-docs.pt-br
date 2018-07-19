@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186284"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917526"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Monitoramento e solução de problemas do Azure Site Recovery
 
@@ -146,7 +146,7 @@ Um modo de exibição de infraestrutura com escopo para o contexto de uma única
 **A.** O recurso de modo de exibição de infraestrutura somente está disponível para máquinas virtuais que estão replicando para o Azure. O recurso atualmente não está disponível para máquinas virtuais que estão replicando entre sites locais.
 
 **P.** Por que a contagem de máquinas virtuais no modo de exibição de infraestrutura do cofre é diferente da contagem total mostrada na rosca dos itens replicados?</br>
-**A.** O modo de exibição de infraestrutura do cofre é com escopo por cenários de replicação. Somente máquinas virtuais que participam do cenário de replicação atualmente selecionado estão incluídas na contagem de máquinas virtuais mostradas no modo de exibição de infraestrutura. Além disso, para o cenário selecionado, apenas as máquinas virtuais atualmente configuradas para replicar para o Azure estão incluídas na contagem de máquinas virtuais mostradas no modo de exibição de infraestrutura (por exemplo, máquinas virtuais com failover, e máquinas virtuais replicando de volta para uma site local não estão incluídas no modo de exibição de infraestrutura.)
+**A.** O modo de exibição de infraestrutura do cofre é com escopo por cenários de replicação. Somente máquinas virtuais que participam do cenário de replicação atualmente selecionado estão incluídas na contagem de máquinas virtuais mostradas no modo de exibição de infraestrutura. Além disso, para o cenário selecionado, apenas as máquinas virtuais atualmente configuradas para serem replicadas para o Azure estão incluídas na contagem de máquinas virtuais mostradas na exibição de infraestrutura (por exemplo, máquinas virtuais com failover e máquinas virtuais que são replicadas novamente para um site local não estão incluídas na exibição de infraestrutura).
 
 **P.** Por que a contagem de itens replicados mostrada na gaveta essencial na página de visão geral é diferente da contagem total de itens replicados mostrada no gráfico de rosca no painel de controle?</br>
 **A.** Somente as máquinas virtuais para as quais a replicação inicial foi concluída estão incluídas na contagem mostrada na gaveta essencial. O total de rosca de itens replicados contém todas as máquinas virtuais no cofre, incluindo servidores para os quais a replicação inicial está atualmente em andamento.

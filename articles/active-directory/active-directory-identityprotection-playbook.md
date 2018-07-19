@@ -2,7 +2,7 @@
 title: Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+keywords: azure active directory identity protection, cloud discovery, gerenciando aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c0fd22bb9abb0710b9b4601777a0f0256386af77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714299"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473931"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 
@@ -104,8 +104,8 @@ A entrada aparece no painel de controle Identity Protection dentro de 2 a 4 hora
 Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
 
 * Autenticação Multifator do [Microsoft Azure AD](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+* [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) do Azure AD.
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 
 ## <a name="testing-security-policies"></a>Testar as políticas de segurança

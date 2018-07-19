@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 31461e70e81f0f48a8d67e31b98cfae2dd627a54
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466822"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917465"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
 
@@ -171,8 +171,8 @@ O Planejador de Implantações do Site Recovery pode gerar o relatório de custo
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
 |CAD|Dólar canadense ($)||CHF|Franco suíço (chf)||DKK|Coroa dinamarquesa (kr)|
-|EUR|Euro (€)||GBP|Libras esterlinas (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rúpia da Indonésia (Rp)||INR|Rúpia indiana (₹)||JPY|Iene japonês (¥)|
+|EUR|Euro (€)||GBP|Libra esterlina (£)||HKD|Dólar de Hong Kong (HK$)|
+|IDR|Rúpia da Indonésia (Rp)||INR|Rúpia (Índia) (₹)||JPY|Iene (Japão) (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar neozelandês ($)||RUB|Rublo russo (руб)|
 |SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|

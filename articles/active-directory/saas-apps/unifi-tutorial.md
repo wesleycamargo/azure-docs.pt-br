@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 589366bc3a079cdf1cacc21982cd03a1ff6d74ce
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0aa3ec013e93ddb89cd6982c01a38411f67b34c4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220770"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Tutorial: Integração do Azure Active Directory ao UNIFI
 
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     a. Na caixa de texto **Nome do Provedor**, digite o nome do Provedor de Identidade.
 
-    b. Na caixa de texto **URL do Provedor**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do Portal do Azure.
+    b. Na caixa de texto **URL do provedor** cole o valor da **URL do serviço de logon único SAML**, que você copiou do portal do Azure.
 
     c. Abra o certificado que você baixou do Portal do Azure no bloco de notas, remova a marcação **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e, em seguida, cole o conteúdo restante na caixa de texto **Certificado**.
 

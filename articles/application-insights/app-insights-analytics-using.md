@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295512"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341555"
 ---
 # <a name="using-analytics-in-application-insights"></a>Usando Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -151,7 +151,7 @@ O gráfico fixado no painel é atualizado de forma automática ao executar novam
 
 Certas simplificações são aplicadas a um gráfico quando ele é fixado em um painel.
 
-**Restrição de tempo:** As consultas são limitadas automaticamente aos últimos 14 dias. O efeito é o mesmo que se sua consulta incluísse `where timestamp > ago(14d)`.
+**Restrição de tempo:** As consultas são limitadas automaticamente aos últimos 30 dias. O efeito é o mesmo que se sua consulta incluísse `where timestamp > ago(30d)`.
 
 **Restrição de contagem de compartimentos:** Se você exibir um gráfico que tenha muitos compartimentos distintos (normalmente um gráfico de barras), os compartimentos menos ocupados são automaticamente agrupados em um único compartimento do tipo "outros". Por exemplo, esta consulta:
 

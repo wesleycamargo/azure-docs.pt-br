@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 5e6707e8f537e173a851e575a5c32622951dda99
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 98ddd26bce7a8e2741db4f8e064a1b5bf2b6bed5
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222678"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: Integração do Azure Active Directory ao The Funding Portal
 
@@ -224,7 +224,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco do The Funding Portal no Painel de Acesso, deverá entrar automaticamente no seu aplicativo do The Funding Portal.
+Ao clicar no bloco The Funding Portal no Painel de Acesso, você entrará automaticamente no aplicativo The Funding Portal.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

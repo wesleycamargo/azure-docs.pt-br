@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 612cce99b1a510dfb53ec4a6c1e2a40185367db1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 046673abd2b17118732439f2895e36ca18ad8321
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323621"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Tutorial: Integração do Azure Active Directory ao Innovation Hub
 
@@ -33,7 +33,7 @@ A integração do Innovation Hub ao Azure AD proporciona os seguintes benefício
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Innovation Hub, você precisará dos seguintes itens:
 
@@ -222,7 +222,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do Innovation Hub no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Innovation Hub.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

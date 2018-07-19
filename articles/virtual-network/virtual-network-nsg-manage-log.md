@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757052"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114016"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
@@ -35,11 +35,11 @@ O log de diagnóstico é ativado separadamente para *cada* NSG para o qual você
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
-Você pode usar o [Portal do Azure](#azure-portal), ou [PowerShell](#powershell)para habilitar o log de diagnóstico.
+Você pode usar o [Portal do Azure](#azure-portal), ou [PowerShell](#powershell), ou a [CLI do Azure](#azure-cli) para habilitar o log de diagnóstico.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Faça logon no [portal](https://portal.azure.com).
+1. Entre no [portal](https://portal.azure.com).
 2. Selecione **Todos os serviços** e digite *grupos de segurança de rede*. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione esta opção.
 3. Escolha o NSG para o qual quer habilitar o log.
 4. Em **monitoramento**, selecione **logs de diagnóstico**e, em seguida, selecione **Ativar diagnóstico**, conforme mostrado na figura a seguir:
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Você pode gravar logs de diagnóstico para três tipos de destino. Para mais informações, consulte [ Destinos de registro ](#log-destinations). Neste artigo, os logs são enviados para o destino *Log Analytics*, como um exemplo. Recuperar um espaço de trabalho de análise de Log existente com [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente denominada *myLaWorkspace* em um grupo de recursos denominado *LaWorkspaces*, digite o seguinte comando:
+Você pode gravar logs de diagnóstico para três tipos de destino. Para mais informações, consulte [ Destinos de registro ](#log-destinations). Neste artigo, os logs são enviados para o destino *Log Analytics*, como um exemplo. Recuperar um espaço de trabalho de análise de Log existente com [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Por exemplo, para recuperar um espaço de trabalho existente denominado *myWorkspace* em um grupo de recursos denominado *myWorkspaces*, digite o seguinte comando:
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 Se você não tiver um espaço de trabalho existente, você pode criar uma com [AzureRmOperationalInsightsWorkspace novo](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 Se você quiser registrar dados para uma categoria ou a outra, em vez de ambos, adicione o `-Categories` opção ao comando anterior, seguido por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em outro [destino](#log-destinations) que um espaço de trabalho de análise de Log, use os parâmetros apropriados para um Azure [conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Exibir e analisar os logs. Para obter mais informações, consulte [ Visualizar e analisar registros ](#view-and-analyze-logs).
+
+### <a name="azure-cli"></a>CLI do Azure
+
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI do Azure no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar a CLI do seu computador, você precisa da versão 2.0.38 ou posterior. Execute `az --version` no computador para localizar a versão instalada. Se você precisar atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Se estiver executando o CLI localmente, também precisará executar `az login` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+
+Para habilitar o log de diagnóstico, você precisa da identificação de um NSG existente. Se você não tiver um NSG existente, você pode criar uma com [az network nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
+
+Recuperar o grupo de segurança de rede que você deseja habilitar o log de diagnóstico para com [z network nsg show mostrar](/cli/azure/network/nsg#az-network-nsg-show). Por exemplo recuperar um NSG denominado *myNsg* que existe em um grupo de recursos denominado *myResourceGroup*, digite o seguinte comando:
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+Você pode gravar logs de diagnóstico para três tipos de destino. Para mais informações, consulte [ Destinos de registro ](#log-destinations). Neste artigo, os logs são enviados para o destino *Log Analytics*, como um exemplo. Para mais informações, consulte [ Categorias de log ](#log-categories). 
+
+Habilitar o log de diagnóstico para o NSG com [az monitor diagnostic-settings criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). O exemplo a seguir registra dados de categoria de contador e de eventos para um espaço de trabalho chamado *myWorkspace*, que existe em um grupo de recursos denominado *myWorkspaces*e a ID do NSG que você recuperou anteriormente:
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+Se você não tiver contas de armazenamento, poderá criar uma usando o [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Há duas categorias de log, para que você pode habilitar os logs. 
+
+Se você quiser registrar dados para uma categoria ou outra, remova a categoria que você não quiser registrar dados para o comando anterior. Se você quiser fazer logon em outro [destino](#log-destinations) que um espaço de trabalho de análise de Log, use os parâmetros apropriados para um Azure [conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Exibir e analisar os logs. Para obter mais informações, consulte [ Visualizar e analisar registros ](#view-and-analyze-logs).
 

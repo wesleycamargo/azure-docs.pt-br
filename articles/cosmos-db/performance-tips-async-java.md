@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613975"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101212"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34613975"
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
 O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada à API ou uma chamada ao método do SDK. No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o desempenho máximo ao usar o [SDK do SQL Java Assíncrono](sql-api-sdk-async-java.md).
 
-Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
+Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
 
 ## <a name="networking"></a>Rede
    <a id="same-region"></a>
@@ -49,7 +49,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 3. **Ajustar ConnectionPolicy**
 
-    As solicitações do Azure Cosmos DB são feitas por HTTPS/REST durante o uso do Async Java SDK e estão sujeitas ao tamanho máximo padrão do pool de conexão (1000). O valor padrão deve ser ideal para a maioria dos casos de uso. No entanto, caso tenha uma coleção muito grande com várias partições, você pode definir o tamanho máximo do pool de conexões para um número maior (digamos, 1500) usando setMaxPoolSize.
+    As solicitações do Azure Cosmos DB são feitas por HTTPS/REST durante o uso do Async Java SDK e estão sujeitas ao tamanho máximo padrão do pool de conexão (1000). O valor padrão deve ser ideal para a maioria dos casos de uso. No entanto, caso tenha uma coleção grande com várias partições, você pode definir o tamanho máximo do pool de conexões para um número maior (digamos, 1500) usando setMaxPoolSize.
 
 4. **Ajustar consultas paralelas para coleções particionadas**
 
@@ -79,7 +79,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Ao executar uma leitura em massa dos documentos usando a funcionalidade do feed de leitura (por exemplo, readDocuments) ou ao enviar uma consulta SQL, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
-    Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas dez resultados de uma vez, também será possível diminuir o tamanho da página para dez para reduzir a taxa de transferência consumida pelas leituras e consultas.
+    Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados de uma vez, também será possível diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
     Você também poderá definir o tamanho da página usando o método setMaxItemCount.
     
@@ -132,7 +132,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **Limite de recursos de arquivos abertos do SO** Alguns sistemas Linux (como Redhat) têm um limite superior no número de arquivos abertos e, portanto no número total de conexões. Execute o seguinte para exibir os limites atuais:
+11. **Limite de recursos de arquivos abertos do SO** Alguns sistemas Linux (como Red Hat) têm um limite superior no número de arquivos abertos e, portanto no número total de conexões. Execute o seguinte para exibir os limites atuais:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     </dependency>
     ```
 
-Para outras plataformas (Redhat, Windows, Mac, etc.), consulte estas instruções https://netty.io/wiki/forked-tomcat-native.html
+Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruções https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Política de indexação
  

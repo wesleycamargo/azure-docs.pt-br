@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a1a1f1a1866e5221775d583a9bafe86eef17131
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221216"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory ao Adobe Sign
 
@@ -33,7 +33,7 @@ A integração do Adobe Sign ao Azure AD oferece os seguintes benefícios:
 
 Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Adobe Sign, você precisa:
 
@@ -252,7 +252,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Quando você seleciona o bloco Sinal da Adobe no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Adobe Sign. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Quando você seleciona o bloco Sinal da Adobe no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Adobe Sign. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

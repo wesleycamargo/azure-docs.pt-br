@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: dc62d7a24a53ffa04026c0f1a40b05b18e6db71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231382"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Azure Active Directory com o SAP Cloud Platform Identity Authentication
 
@@ -275,7 +275,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Quando você seleciona o bloco de SAP Cloud Platform Identity Authentication no painel de acesso, seu logon deve ser realizado automaticamente no seu aplicativo de SAP Cloud Platform Identity Authentication.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

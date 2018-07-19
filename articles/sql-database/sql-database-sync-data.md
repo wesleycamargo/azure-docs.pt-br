@@ -7,19 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017428"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342650"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
 Sincronização de Dados SQL é um serviço baseado no Banco de Dados SQL do Azure que lhe permite sincronizar os dados que você selecionar bidirecionalmente em vários bancos de dados SQL e instâncias do SQL Server.
+
+## <a name="architecture-of-sql-data-sync"></a>Arquitetura de Sincronização de Dados SQL
 
 A Sincronização de Dados é baseada em torno do conceito de um Grupo de Sincronização. Um Grupo de Sincronização é um grupo de bancos de dados que você deseja sincronizar.
 
@@ -29,7 +31,7 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 -   A **Direção da Sincronização** pode ser bidirecional ou pode fluir em uma única direção. Ou seja, a Direção da Sincronização pode ser *Hub para Membro* ou *Membro para Hub*, ou ambos.
 
--   O **Intervalo de Sincronização** é a frequência com a qual ocorre a sincronização.
+-   O **Intervalo de Sincronização** descreve a frequência com a qual ocorre a sincronização.
 
 -   A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
 
@@ -39,7 +41,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 -   O **Banco de Dados de Sincronização** contém os metadados e o log de Sincronização de Dados. O Banco de Dados de Sincronização deve ser um Banco de Dados SQL do Azure localizado na mesma região do Banco de Dados Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
 
 > [!NOTE]
-> Se você estiver usando um banco de dados local, precisará [configurar um agente local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+> Se você usando um banco de dados local como um banco de dados de membro, você terá que [instalar e configurar um agente de sincronização local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sincronizar dados entre bancos de dados](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -73,9 +75,27 @@ A Sincronização de Dados não é a melhor solução para os seguintes cenário
     -   Se você selecionar *Hub ganha*, as alterações no hub sempre substituem as alterações no membro.
     -   Se você selecionar *Membro ganha*, as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
 
-## <a name="sync-req-lim"></a> Requisitos e limitações
+## <a name="get-started-with-sql-data-sync"></a>Introdução à Sincronização de Dados SQL
 
-### <a name="general-considerations"></a>Considerações gerais
+### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurar a Sincronização de Dados no Portal do Azure
+
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+
+### <a name="set-up-data-sync-with-powershell"></a>Configurar a Sincronização de Dados com o PowerShell
+
+-   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### <a name="review-the-best-practices-for-data-sync"></a>Revisar as práticas recomendadas para a Sincronização de Dados
+
+-   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+
+### <a name="did-something-go-wrong"></a>Algo deu errado?
+
+-   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
+
+## <a name="consistency-and-performance"></a>Consistência e desempenho
 
 #### <a name="eventual-consistency"></a>Consistência eventual
 Como a Sincronização de Dados é baseada no gatilho, a consistência transacional não é garantida. A Microsoft garante que todas as alterações são feitas, eventualmente, e que a Sincronização de Dados não causa perda de dados.
@@ -84,6 +104,8 @@ Como a Sincronização de Dados é baseada no gatilho, a consistência transacio
 A Sincronização de Dados usa os gatilhos inserir, atualizar e excluir para controlar as alterações. Ela cria tabelas secundárias no banco de dados do usuário para controle de alterações. Essas atividades de controle de alterações têm um impacto sobre sua carga de trabalho do banco de dados. Avalie sua camada de serviço e faça a atualização necessário.
 
 Provisionamento e desprovisionamento durante a criação do grupo de sincronização, atualização e exclusão também podem afetar o desempenho do banco de dados. 
+
+## <a name="sync-req-lim"></a> Requisitos e limitações
 
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -110,6 +132,14 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 -   XMLSchemaCollection (suporte para XML)
 
 -   Cursor, Timestamp, Hierarchyid
+
+#### <a name="unsupported-column-types"></a>Não há suporte para os tipos de coluna
+
+A Sincronização de Dados não pode sincronizar colunas somente leitura ou geradas pelo sistema. Por exemplo: 
+
+-   Colunas computadas.
+
+-   Colunas geradas pelo sistema para tabelas temporais.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitações nas dimensões de serviço e do banco de dados
 
@@ -147,7 +177,8 @@ Sim. É possível sincronizar entre os Bancos de Dados SQL que pertencem a grupo
 -   Se as assinaturas pertencerem ao mesmo locatário e você tiver permissão para todas as assinaturas, será possível configurar o grupo de sincronização no Portal do Azure.
 -   Caso contrário, será necessário usar o PowerShell para adicionar os membros de sincronização que pertencem a assinaturas diferentes.
    
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Posso usar a Sincronização de Dados para propagar dados do meu banco de dados de produção para um banco de dados vazio e mantê-los sincronizados? 
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Posso usar a Sincronização de Dados para propagar dados do meu banco de dados de produção para um banco de dados vazio e sincronizá-los?
+
 Sim. Crie o esquema manualmente no novo banco de dados desenvolvendo o script com base no original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-los sincronizados.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Devo usar a Sincronização de Dados SQL para fazer backup e restaurar meus bancos de dados?
@@ -176,20 +207,30 @@ O Banco de Dados de Raiz da Federação pode ser usado no Serviço da Sincroniza
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a Sincronização de Dados SQL, veja:
+### <a name="update-the-schema-of-a-synced-database"></a>Atualizar o esquema de um banco de dados sincronizado
 
--   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
--   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+Você precisa atualizar o esquema de um banco de dados em um grupo de sincronização? As alterações no esquema não são replicadas automaticamente. Para algumas soluções, consulte os seguintes artigos:
+
+-   [Automatize a replicação de alterações de esquema na Sincronização de Dados SQL Azure](sql-database-update-sync-schema.md)
+
+-   [Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/sql-database-sync-update-schema.md)
+
+### <a name="monitor-and-troubleshoot"></a>Monitorar e solucionar problemas
+
+A Sincronização de Dados SQL está funcionando conforme o esperado? Para monitorar a atividade e solucionar problemas, consulte os seguintes artigos:
+
 -   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
--   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
-    -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+### <a name="learn-more-about-azure-sql-database"></a>Saiba mais sobre o Banco de Dados SQL do Azure
 
--   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-Para saber mais sobre o Banco de Dados SQL, veja:
+Para mais informações sobre Banco de Dados SQL, veja os seguintes artigos:
 
 -   [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
+
 -   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### <a name="developer-reference"></a>Referência do desenvolvedor
+
+-   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

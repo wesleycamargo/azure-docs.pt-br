@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808767"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444388"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -36,13 +36,16 @@ Você deve ter permissões adequadas para acessar qualquer um dos pontos de extr
 Você pode conceder [permissões](#iot-hub-permissions) das seguintes maneiras:
 
 * **Políticas de acesso compartilhado no nível do Hub IoT**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#iot-hub-permissions). Você pode definir políticas no [portal do Azure][lnk-management-portal] ou de forma programática usando as [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis]. Um hub IoT recém-criado tem as seguintes políticas padrão:
+  
+  | Política de acesso compartilhado | Permissões |
+  | -------------------- | ----------- |
+  | iothubowner | Toda Permissão |
+  | propriedade serviço | Permissões **ServiceConnect** |
+  | dispositivo | Permissões **DeviceConnect** |
+  | registryRead | Permissões **RegistryRead** |
+  | registryReadWrite | Permissões **RegistryRead** e **RegistryWrite** |
 
-  * **iothubowner**: política com todas as permissões.
-  * **service**: política com a permissão **ServiceConnect**.
-  * **device**: política com a permissão **DeviceConnect**.
-  * **registryRead**: política com a permissão **RegistryRead**.
-  * **registryReadWrite**: política com as permissões **RegistryRead** e RegistryWrite.
-  * **Credenciais de segurança de acordo com o dispositivo**. Cada Hub IoT contém um [registro de identidade do dispositivo][lnk-identity-registry]. É possível configurar as credenciais de segurança para cada dispositivo nesse Registro de identidade concedendo permissões de **DeviceConnect** com escopo nos pontos de extremidade correspondentes do dispositivo.
+* **Credenciais de segurança de acordo com o dispositivo**. Cada Hub IoT contém um [registro de identidade do dispositivo][lnk-identity-registry]. É possível configurar as credenciais de segurança para cada dispositivo nesse Registro de identidade concedendo permissões de **DeviceConnect** com escopo nos pontos de extremidade correspondentes do dispositivo.
 
 Por exemplo, em uma solução de IoT típica:
 
@@ -462,7 +465,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, consul
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

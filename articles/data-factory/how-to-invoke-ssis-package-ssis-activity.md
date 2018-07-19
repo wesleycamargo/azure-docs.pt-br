@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054714"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951960"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Executar Pacote do SSIS. 
@@ -92,9 +92,11 @@ Nesta etapa, você usa a interface do usuário do Data Factory para criar um pip
 
 ### <a name="optionally-parameterize-the-activity"></a>Opcionalmente, crie parâmetros para a atividade
 
-Opcionalmente, atribua valores, expressões ou funções que podem fazer referência a variáveis do sistema do Data Factory aos parâmetros de projeto ou pacote no formato JSON na guia **Avançado**. Por exemplo, você pode atribuir parâmetros de pipeline do Data Factory ao seu projeto do SSIS ou parâmetros de pacote, conforme mostrado na seguinte captura de tela:
+Opcionalmente, atribua valores, expressões ou funções, que podem se referir a variáveis do sistema do Data Factory, aos parâmetros de projeto ou de pacote no formato JSON usando o botão **Exibir Código-fonte** na parte inferior da caixa da atividade Executar Pacote SSIS ou o botão **Código** no canto superior direito da área do pipeline. Por exemplo, você pode atribuir parâmetros de pipeline do Data Factory ao seu projeto do SSIS ou parâmetros de pacote, conforme mostrado nas seguintes capturas de tela:
 
-![Adicionar parâmetros à atividade Executar Pacote do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![Editar o script JSON para a atividade Executar Pacote SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Adicionar parâmetros à atividade Executar Pacote do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### <a name="run-and-monitor-the-pipeline"></a>Executar e monitorar o pipeline
 Nesta seção, você dispara uma execução do pipeline e, em seguida, faz o monitoramento. 
@@ -174,7 +176,7 @@ Observe os seguintes pontos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure.
-* Atualmente, o Data Factory permite que você crie fábricas de dados apenas nas regiões Leste dos EUA, Leste dos EUA2, Europa Ocidental e Sudeste Asiático. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>Criar um pipeline com uma atividade do SSIS 
 Nesta etapa, você cria um pipeline com a atividade do SSIS. A atividade é executada em seu pacote SSIS. 

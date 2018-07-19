@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441124"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598417"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e restauração de máquinas virtuais criptografadas usando o Backup do Azure
 Este artigo descreve as etapas para fazer backup e restaurar VMs (máquinas virtuais) usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
- * O backup e a restauração de VMs criptografadas têm suporte somente para VMs que usam o modelo de implantação do Azure Resource Manager. Não há suporte para VMs que usam o modelo de implantação clássico. <br>
- * O backup e restauração de VMs criptografadas tem suporte para VMs Windows e Linux que usam o Azure Disk Encryption. O Disk Encryption usa o BitLocker, um recurso do Windows padrão da indústria e o recurso dm-crypt do Linux para fornecer a criptografia de discos. <br>
- 
- A tabela a seguir mostra os cenários com suporte para VMs criptografadas somente por BEK (chave de criptografia BitLocker) e por KEK (chave de criptografia de chave):
- 
- 
+ O backup e a restauração de VMs criptografadas têm suporte somente para VMs que usam o modelo de implantação do Azure Resource Manager. Não há suporte para VMs que usam o modelo de implantação clássico. O backup e a restauração de VMs criptografadas são compatíveis com VMs do Windows e do Linux que usam o Azure Disk Encryption. O Disk Encryption usa o BitLocker, um recurso do Windows padrão da indústria e o recurso dm-crypt do Linux para fornecer a criptografia de discos. A tabela a seguir mostra o tipo de criptografia e o suporte para VMs.
+
    |  | VMs BEK + KEK | VMs somente com BEK |
    | --- | --- | --- |
    | **VMs não gerenciadas**  | sim | sim  |
@@ -137,6 +133,6 @@ Para restaurar uma VM criptografada, primeiro restaure os discos seguindo as eta
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
 |Backup | O backup não tem permissões suficientes para o cofre de chaves para fazer backup de VMs criptografadas. | O backup deve receber essas permissões seguindo [as etapas na seção anterior](#provide-permissions-to-azure-backup). Ou você pode seguir as etapas do PowerShell na seção "Habilitar proteção" da documentação do PowerShell em [Usar os cmdlets AzureRM.RecoveryServices.Backup para fazer backup de máquinas virtuais](backup-azure-vms-automation.md#back-up-azure-vms). |  
-| Restore |Você não poderá restaurar essa VM criptografada pois o cofre de chaves associado a ela não existe. |Crie o cofre de chaves usando [Introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restaurar chave e segredo do cofre de chaves usando o Backup do Azure](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se eles não estiverem presentes. |
-| Restore |Você não poderá restaurar essa VM criptografada pois a chave e o segredo associado a ela não existem. |Consulte [Restaurar chave e segredo do cofre de chaves usando o Backup do Azure](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se eles não estiverem presentes. |
-| Restore |O backup não tem autorização para acessar recursos em sua assinatura. |Conforme mencionado anteriormente, primeiro restaure os discos seguindo as etapas na seção "Restaurar discos com backup" em [Escolha uma configuração de restauração de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, use o PowerShell para [criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+| Restaurar |Você não poderá restaurar essa VM criptografada pois o cofre de chaves associado a ela não existe. |Crie o cofre de chaves usando [Introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte [Restaurar chave e segredo do cofre de chaves usando o Backup do Azure](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se eles não estiverem presentes. |
+| Restaurar |Você não poderá restaurar essa VM criptografada pois a chave e o segredo associado a ela não existem. |Consulte [Restaurar chave e segredo do cofre de chaves usando o Backup do Azure](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se eles não estiverem presentes. |
+| Restaurar |O backup não tem autorização para acessar recursos em sua assinatura. |Conforme mencionado anteriormente, primeiro restaure os discos seguindo as etapas na seção "Restaurar discos com backup" em [Escolha uma configuração de restauração de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, use o PowerShell para [criar uma VM de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

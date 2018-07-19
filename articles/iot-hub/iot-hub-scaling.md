@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030430"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901034"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -31,7 +31,7 @@ Cada camada do Hub IoT está disponível em três tamanhos, com base na quantida
 
 A camada Standard do Hub IoT permite todos os recursos e é necessária para qualquer solução de IoT que pretende usar os recursos de comunicação bidirecional. A camada Básica permite um subconjunto dos recursos e destina-se a soluções de IoT que precisam apenas de comunicação unidirecional dos dispositivos para a nuvem. Ambas as camadas oferecem os mesmos recursos de segurança e autenticação.
 
-Após criar o Hub IoT, será possível atualizar da camada Básica para a camada Standard sem interromper suas operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md).
+Após criar o Hub IoT, será possível atualizar da camada Básica para a camada Standard sem interromper suas operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md). Observe que o limite de partições para a camada Básica do Hub IoT é 8. Esse limite permanecerá inalterado quando você migrar da camada Básica para a camada Standard.
 
 | Recurso | Camada básica | Camada padrão |
 | ---------- | ---------- | ------------- |
@@ -43,7 +43,7 @@ Após criar o Hub IoT, será possível atualizar da camada Básica para a camada
 | [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | sim | sim |
 | [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | sim |
 | [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | sim |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | sim |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | sim |
 
 O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. Ela tem todos os recursos da camada Standard, mas provisões limitadas de mensagens. Não é possível fazer upgrade da camada gratuita para Básica ou Standard. 
 
@@ -59,9 +59,9 @@ A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub
 | Obter módulo | sim | sim |
 | [Obter estatísticas de registro](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | sim | sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | sim | sim |
-| [Criar Ou Atualizar Dispositivo](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | sim | sim |
+| [Implementar dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | sim | sim |
 | Colocar módulo | sim | sim |
-| [Consulta Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | sim | sim |
+| [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | sim | sim |
 | Consultar módulos | sim | sim |
 | [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | sim | sim |
 | [Receber notificação de limite de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | sim | sim |

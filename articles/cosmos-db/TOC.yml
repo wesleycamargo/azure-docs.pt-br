@@ -412,38 +412,50 @@ items:
                 href: cassandra-import-data.md
   - name: Guias de instruções
     items:
-      - name: Chaves e consistência
-        href: manage-account.md
-      - name: Throughput
-        href: set-throughput.md
-      - name: Suporte a firewall
-        href: firewall-support.md
-      - name: Configurar o ponto de extremidade de serviço de rede virtual
-        href: vnet-service-endpoint.md
-      - name: Métricas
-        href: use-metrics.md
-      - name: SLAs do monitor
-        href: monitor-accounts.md
-      - name: Fazer backup e restauração
-        href: online-backup-and-restore.md
-      - name: Failovers regionais
-        href: regional-failover.md
-      - name: Registro em log de diagnóstico
-        href: logging.md
-      - name: 'procedimentos armazenados, gatilhos e UDFs'
-        href: programming.md
-      - name: Visão geral do BulkExecutor
+      - name: Gerenciar
+        items:
+          - name: Gerenciar usando o PowerShell
+            href: manage-account-with-powershell.md
+          - name: Gerenciar usando o Gerenciador de Armazenamento
+            href: storage-explorer.md
+          - name: Gerenciar usando o Data Explorer
+            href: data-explorer.md
+          - name: Gerenciar chaves e níveis de consistência
+            href: manage-account.md
+          - name: Throughput
+            href: set-throughput.md
+          - name: Expirar dados automaticamente
+            href: time-to-live.md
+          - name: Registro em log de diagnóstico
+            href: logging.md
+      - name: Proteger dados
+        items:
+          - name: Suporte a firewall
+            href: firewall-support.md
+          - name: Configurar o ponto de extremidade de serviço de rede virtual
+            href: vnet-service-endpoint.md
+      - name: Monitoramento
+        items:
+          - name: Monitorar com a métrica
+            href: use-metrics.md
+          - name: SLAs do monitor
+            href: monitor-accounts.md
+      - name: Backup e restauração
+        items:
+          - name: Backup online e restauração
+            href: online-backup-and-restore.md
+          - name: Failovers regionais
+            href: regional-failover.md
+      - name: Automatizar
+        items:
+          - name: 'procedimentos armazenados, gatilhos e UDFs'
+            href: programming.md
+          - name: Instalação de vários mestres
+            href: multi-master-workaround.md
+      - name: Biblioteca bulk executor
         href: bulk-executor-overview.md
       - name: Gravações e leituras econômicas
         href: key-value-store-cost.md
-      - name: Expirar dados automaticamente
-        href: time-to-live.md
-      - name: Gerenciar usando o PowerShell
-        href: manage-account-with-powershell.md
-      - name: Gerenciar usando o Gerenciador de Armazenamento
-        href: storage-explorer.md
-      - name: Instalação de vários mestres
-        href: multi-master-workaround.md
   - name: Recursos
     items:
       - name: Roteiro de consulta

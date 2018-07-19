@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420754"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718906"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
@@ -87,7 +87,7 @@ Se você estiver usando Swift, você precisará criar um cabeçalho ponte e impo
 1. Crie um arquivo de cabeçalho `Bridging-Header.h` e adicione a instrução de importação acima.
 2. Vá para a guia *Configurações de Build* e pesquise por *Cabeçalho Ponte do Objective-C*.
 3. Clique duas vezes no campo de *Cabeçalho Ponte do Objective-C* e adicione o caminho para o arquivo de cabeçalho:`ProjectName/Bridging-Header.h`
-4. Compile o projeto (⌘+B) para verificar se o cabeçalho de ponte foi recebido pelo Xcode.
+4. Compile o projeto (⌘+B) para verificar se o cabeçalho ponte foi recebido pelo Xcode.
 5. Comece a usar a biblioteca diretamente em qualquer arquivo Swift, instruções de importação não são necessárias.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

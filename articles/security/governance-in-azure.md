@@ -1,6 +1,6 @@
 ---
 title: Governança no Azure | Microsoft Docs
-description: Aprenda sobre os serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
+description: Saiba mais sobre os serviços de computação baseados em nuvem que podem ser escalados ou reduzidos verticalmente para atender às necessidades de seu aplicativo ou sua empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,181 +14,125 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 579e900ee6616af8fd197e501364acd8e18d3e37
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061489"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970516"
 ---
 # <a name="governance-in-azure"></a>Governança no Azure
 
-Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar sua ampla variedade de ferramentas e recursos de segurança. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure.
+O Azure fornece muitas opções de segurança e a habilidade de controlá-las, de modo que você possa atender aos requisitos exclusivos das implantações de sua organização.
 
-Para ajudar você a entender melhor a matriz de controles de Governança implementada no Microsoft Azure das perspectivas do cliente e das operações da Microsoft, este artigo, “Governança no Azure”, foi elaborado para fornecer uma visão abrangente dos recursos do Governance disponíveis com o Microsoft Azure.
+A governança de nuvem do Azure refere-se aos processos de tomada de decisão, critérios e políticas envolvidos no planejamento, na arquitetura, na aquisição, na implantação, na operação e no gerenciamento da computação em nuvem. A governança de nuvem do Azure fornece uma abordagem de auditoria e consultoria integradas para examinar e fornecer consultoria às organizações sobre seu uso da plataforma Azure. 
 
-## <a name="azure-platform"></a>Plataforma do Azure
+Para criar um plano para a governança de nuvem do Azure, você precisa fazer um exame minucioso sobre as pessoas, os processos e as tecnologias agora em vigor. Em seguida, você pode criar estruturas que facilitam para a TI dar suporte consistente às necessidades de negócios, ao mesmo tempo em que proporciona aos usuários a flexibilidade para usar os recursos do Azure.
 
-O Azure é uma plataforma de serviço de nuvem pública que dá suporte a uma ampla seleção de sistemas operacionais, linguagens de programação, estruturas, ferramentas, bancos de dados e dispositivos. Ele pode executar contêineres do Linux com a integração com o Docker, criar aplicativos com JavaScript, Python, .NET, PHP, Java e Node.js e criar back-ends para dispositivos iOS, Android e Windows. Os serviços de nuvem pública do Azure dão suporte às mesmas tecnologias com as quais milhões de desenvolvedores e profissionais de TI já contam e nas quais confiam.
+## <a name="implementation-of-policies-processes-and-standards"></a>Implementação de políticas, processos e padrões 
 
-Quando você compila ou migra ativos de TI para um provedor de serviços de nuvem pública, você está confiando na capacidade dessa organização de proteger seus aplicativos e dados com os serviços e os controles que ela oferece para gerenciar a segurança de seus ativos baseados em nuvem.
+A gerência estabeleceu funções e responsabilidades para supervisionar a implementação das políticas de segurança da informação e de continuidade operacional no Azure. O gerenciamento do Azure é responsável por supervisionar as práticas de segurança e de continuidade em suas respectivas equipes (incluindo terceiros). Ele também facilita a conformidade com políticas de segurança, processos e padrões.
 
-A infraestrutura do Azure foi projetada desde a instalação até os aplicativos para hospedar milhões de clientes simultaneamente e fornecer uma base confiável com a qual as empresas podem atender aos seus requisitos de segurança. Além disso, o Azure fornece muitas opções de segurança e a habilidade de controlar elas para que você possa personalizar a segurança para satisfazer os requisitos das implantações de sua organização.
+### <a name="account-provisioning"></a>Provisionamento de conta
 
-Este documento ajudará você a entender como as funcionalidades do Governance do Azure podem ajudá-lo a atender a esses requisitos.
+A definição da hierarquia de contas é uma etapa importante para usar e estruturar os serviços do Azure em uma empresa. É a estrutura de governança principal. Os clientes que têm um EA (Contrato Enterprise) podem subdividir o ambiente em departamentos, contas e assinaturas.
 
-## <a name="abstract"></a>Resumo
+![Provisionamento de conta](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-Governança de nuvem do Microsoft Azure fornece uma auditoria integrada e abordagem de consultoria para revisar e aconselhar organizações no uso da plataforma Azure. Governança de nuvem do Microsoft Azure se refere aos processos de tomada de decisão, critérios e políticas envolvidas no planejamento, arquitetura, aquisição, implantação, operação e gerenciamento de uma nuvem de computação.
+Caso não tenha um Contrato Enterprise, considere o uso de [marcas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) no nível da assinatura para definir a hierarquia. Uma assinatura do Azure é a unidade básica que contém todos os recursos. Ela também define vários limites no Azure, como o número de núcleos e recursos. As assinaturas podem conter [grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), que podem conter recursos. Os princípios do [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview) se aplicam nesses três níveis.
 
-Para criar um plano para governança de nuvem do Microsoft Azure, você precisa olhar profundamente para as pessoas, processos e tecnologias atualmente em vigor, e depois criar estruturas que tornam mais fácil para o departamento de TI para consistentemente dar suporte às necessidades de negócios, proporcionando aos usuários finais a flexibilidade para usar os recursos avançados do Microsoft Azure.
+Cada empresa é diferente. Para empresas não corporativas, a hierarquia do uso de marcas do Azure permite a flexibilidade em como o Azure é organizado. Antes de implantar os recursos no Azure, você deve modelar uma hierarquia e entender o impacto na cobrança, o acesso a recursos e a complexidade.
 
-Este documento descreve como você pode obter um nível elevado de governança de recursos de TI no Microsoft Azure. Este documento pode ajudá-lo a entender os recursos de segurança e governança integrados do Microsoft Azure.
+### <a name="subscription-controls"></a>Controles de assinatura
 
-Estes são os principais problemas de governança abordados neste documento:
+As assinaturas determinam como o uso de recursos é relatado e cobrado. Você pode configurar assinaturas para cobrança e pagamento separados. Uma conta do Azure pode ter várias assinaturas. As assinaturas podem ser usadas para determinar o uso de recursos do Azure de vários departamentos em uma empresa.
 
-- Implementação de políticas, processos e procedimentos de acordo com as metas da organização.
-
-- Segurança e conformidade contínua com os padrões da organização
-
-- Monitoramento e alertas
-
-## <a name="implementation-of-policies-processes-and-procedures"></a>Implementação de políticas, processos e procedimentos 
-
-Gerenciamento estabeleceu funções e responsabilidades para acompanhar a implementação de política de segurança de informações e continuidade operacional no Azure. Gerenciamento do Microsoft Azure é responsável por supervisionar a segurança e as práticas de continuidade em suas respectivas equipes (incluindo terceiros) e facilitar a conformidade com padrões, processos e políticas de segurança.
-
-Aqui estão os fatores que evoluíram:
-
-- Provisionamento de conta de usuário
-
-- Controles de assinatura
-
-- Controle de Acesso Baseado em Função
-
-- Gerenciamento de recursos
-
-- Acompanhamento de recursos
-
-- Controle de recursos críticos
-
-- API de Acesso a Informações De Cobrança
-
-- Controles de rede
-
-## <a name="account-provisioning"></a>Provisionamento de conta
-
-Definição de hierarquia de contas é uma etapa importante para usar e a estruturar os serviços do Azure dentro de uma empresa e é a estrutura de governança central. Em caso de clientes com contrato empresarial, os clientes podem subdividir o ambiente em departamentos, contas e, por fim, em assinaturas.
-
-![Provisionamento de conta de usuário](./media/governance-in-azure/security-governance-in-azure-fig1.png)
-
-Se você não tiver um contrato empresarial, considere o uso de [marcas Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) no nível de assinatura para definir a hierarquia. Uma assinatura do Azure é a unidade básica onde todos os recursos estão contidos. Ela também define vários limites dentro do Azure, como o número de núcleos, recursos, etc. As assinaturas podem conter [Grupos de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), que podem conter Recursos. Princípios [RBAC](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control) se aplicam nesses três níveis.
-
-Cada empresa é diferente e a hierarquia usando Marcas Azure em caso de clientes não empresariais permite flexibilidade significativa em como o Azure é organizado dentro da empresa. Antes de implantar os recursos do Microsoft Azure, você deve modelar a hierarquia e entender o impacto na cobrança, o acesso a recursos e a complexidade.
-
-## <a name="subscription-controls"></a>Controles de assinatura
-
-Assinatura controla como o uso de recursos é relatado e cobrado. As assinaturas podem ser configuradas para cobrança e pagamento separados. Como mencionado anteriormente, em uma conta do Azure pode haver várias assinaturas. As assinaturas podem ser usadas para determinar o uso de recursos do Azure de vários departamentos em uma empresa.
-
-Por exemplo, se uma empresa tiver departamentos de RH, TI e de Marketing e esses departamentos têm diferentes projetos em execução. Com base no uso de recursos do Azure como máquinas virtuais para cada departamento, eles podem ser cobrados de acordo. Por isso podemos controlar as finanças de cada departamento.
+Por exemplo, uma empresa tem departamentos de TI, RH e Marketing, e esses departamentos estão executando diferentes projetos. A empresa pode basear sua cobrança no uso de cada departamento dos recursos do Azure, como máquinas virtuais. A empresa pode então controlar as finanças de cada departamento.
 
 As assinaturas do Azure estabelecem três parâmetros:
 
-- uma ID exclusiva do assinante
+- ID exclusiva do assinante
 
-- um local de cobrança
+- Local de cobrança
 
 - Conjunto de recursos disponíveis
 
-De um indivíduo, que inclui uma ID de conta da Microsoft, um número de cartão de crédito e o conjunto completo de serviços do Azure – embora, Microsoft impõe limites de consumo, dependendo do tipo de assinatura.
+Para um indivíduo, esses parâmetros incluem uma ID de conta Microsoft, um número de cartão de crédito e o pacote completo de serviços do Azure. A Microsoft impõe limites de consumo, dependendo do tipo de assinatura.
 
-Hierarquias de registro do Azure definem como os serviços são estruturados dentro de um Contrato Empresarial. O Portal da Empresa permite aos clientes dividir o acesso aos recursos do Azure associados com um Contrato Empresarial com base em hierarquias flexíveis personalizáveis às necessidades exclusivas de uma organização. O padrão de hierarquia deve corresponder o gerenciamento e a estrutura geográfica de uma organização para que o acesso de recursos e de cobrança associados possam ser contabilizados com precisão.
+Hierarquias de registro do Azure definem como os serviços são estruturados dentro de um Contrato Empresarial. O portal do Contrato Enterprise permite aos clientes dividir o acesso aos recursos do Azure associados a um Contrato Enterprise com base em hierarquias flexíveis que são personalizáveis de acordo com as necessidades de uma organização. O padrão de hierarquia deve corresponder à estrutura geográfica e de gerenciamento de uma organização para levar em conta o acesso de recursos e de cobrança associados.
 
-Os três padrões de alto nível são unidades funcionais e comerciais, e geográficas, usando departamentos como uma construção administrativa para agrupamentos de conta. Dentro de cada departamento, contas podem ter assinaturas atribuídas, as quais criam silos de cobrança e vários limites de chave no Azure (por exemplo, o número de VMs, contas de armazenamento, etc.).
+Os três padrões de hierarquia de alto nível são funcional, unidade de negócios e geográfico. Os departamentos são um constructo administrativo para agrupamentos de contas. Em cada departamento, as contas podem receber assinaturas, as quais criam silos de cobrança e vários limites de chave no Azure (por exemplo, número de VMs e contas de armazenamento).
 
 ![Controles de assinatura](./media/governance-in-azure/security-governance-in-azure-fig2.png)
 
 
 Para organizações com um Acordo Empresarial, as assinaturas do Azure seguem uma hierarquia de quatro níveis:
 
-- administrador de registro corporativo
+1. Administrador de registro corporativo
 
-- administrador de departamento
+2. Administrador de departamento
 
-- proprietário da conta
+3. Proprietário da conta
 
-- Administrador de serviço
+4. Administrador de serviço
 
 Essa hierarquia rege o seguinte:
 
-- Relação de cobrança
+- Relação de cobrança.
 
-- Administração de conta
+- Administração de conta.
 
-- Controle de Acesso Baseado em Função (RBAC) para artefatos
+- Acesso aos recursos por meio do RBAC.
 
-- Limites/limites
-
-- Limites
+- Limites:
 
   - Uso e cobrança (cartão de taxa baseada nos números de oferta)
 
   - limites
 
-  - Rede Virtual
+  - Rede virtual
 
-- Anexado a 1 AAD (1 AAD pode ser associado a várias assinaturas)
+- Anexo ao Azure AD (Azure Active Directory). Uma instância do Azure AD pode ser associada a muitas assinaturas.
 
-- Associado a uma conta de registro da empresa
+- Associação a uma conta com Registro Enterprise.
 
-## <a name="role-based-access-controls"></a>Controle de acesso baseado em função
+### <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Quando o Azure foi inicialmente lançado, os controles de acesso para uma assinatura eram básicos: Administrador ou Coadministrador. O acesso a uma assinatura no modelo Clássico implicava acesso a todos os recursos no portal. Essa falta de um controle refinado levou à proliferação de assinaturas para fornecer um nível de controle de acesso razoável para uma Inscrição no Azure.
+O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) permite o gerenciamento de acesso detalhado de recursos no Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso de que os usuários precisam para realizar seus trabalhos. As empresas devem se concentrar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. 
 
-![Controle de acesso baseado em função](./media/governance-in-azure/security-governance-in-azure-fig3.png)
+Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações. Por exemplo, use o RBAC para permitir que um funcionário gerencie as máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL na mesma assinatura.
 
-Essa proliferação de assinaturas não é mais necessária. Com o controle de acesso baseado em função, você pode atribuir usuários às funções padrão (como tipos de função comuns "leitor" e "gravador"). Você também pode definir funções personalizadas.
+Para conceder acesso, você pode atribuir funções a usuários, grupos ou aplicativos em determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Uma função atribuída a um escopo pai também concede acesso aos filhos contidos nele. Por exemplo, um usuário com acesso a um grupo de recursos pode gerenciar todos os recursos que ele contém, como sites, máquinas virtuais e sub-redes. Em cada assinatura, você pode criar até 2.000 atribuições de função.
 
-O [Controle De Acesso Baseado Em Função do Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. As empresas direcionadas a segurança devem focar em fornecer aos funcionários as permissões exatas necessárias. Muitas permissões expõem uma conta a ataques. Permissões insuficientes fazem com que os funcionários não consigam trabalhar com eficiência. O RBAC (controle de acesso baseado em função) do Azure ajuda a resolver esse problema ao oferecer o gerenciamento de acesso refinado para o Azure. O RBAC te ajuda a separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações.
+Uma função é uma coleção de permissões, e o RBAC tem várias funções internas. As seguintes funções internas se aplicam a todos os tipos de recurso:
 
-Por exemplo, use o RBAC para permitir que um funcionário gerencie máquinas virtuais em uma assinatura, enquanto outro pode gerenciar bancos de dados SQL dentro da mesma assinatura.
-
-O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recurso:
-
-- **proprietário** tem acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários.
+- O **Proprietário** tem acesso completo a todos os recursos, incluindo o direito de delegar acesso a outros usuários.
 
 - **Colaborador** pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 
-- **leitor** pode exibir os recursos existentes do Azure.
+- A permissão **Leitor** pode exibir todos os recursos do Azure.
 
-As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não lhes concede acesso à rede virtual ou à sub-rede com qual a máquina virtual se conecta.
+As demais funções internas do Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Para obter uma lista de todas as funções internas e suas operações, consulte [Funções RBAC internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-[Funções internas RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) lista as funções disponíveis no Azure. Ela especifica as operações e o escopo que cada função interna concede aos usuários.
+O RBAC dá suporte às operações de gerenciamento dos recursos do Azure no portal do Azure e nas APIs do Azure Resource Manager. Na maioria dos casos, o RBAC não pode autorizar operações no nível dos dados para recursos do Azure. Para obter informações sobre como o RBAC está sendo estendido para operações de dados, confira [Noções básicas sobre definições de função](https://docs.microsoft.com/azure/role-based-access-control/role-definitions).
 
-Conceda acesso ao atribuir a função RBAC apropriada a usuários, grupos e aplicativos em determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso. Uma função atribuída a um escopo pai também concede acesso aos filhos contidos nele.
+Se as funções internas não atenderem às suas necessidades específicas de acesso, [crie uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e no escopo do recurso. Crie funções personalizadas usando o [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), a [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) e a [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
-Por exemplo, um usuário com acesso a um grupo de recursos pode gerenciar todos os recursos que ele contém, como sites, máquinas virtuais e sub-redes.
+### <a name="resource-management"></a>Gerenciamento de recursos
 
-O RBAC do Azure tem suporte somente para as operações de gerenciamento dos recursos do Azure no Portal do Azure e nas APIs do Azure Resource Manager. Ele não pode autorizar todas as operações no nível de dados para os recursos do Azure. Por exemplo, você pode autorizar alguém para gerenciar Contas de Armazenamento, mas não para blobs ou tabelas em uma Conta de Armazenamento. Da mesma forma, um banco de dados SQL pode ser gerenciado, mas não as tabelas dentro dele.
+O Azure fornece dois modelos de implantação: [clássico](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) e o Azure Resource Manager.
 
-Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/overview).
+No modelo clássico, cada recurso existe de maneira independente. Não há nenhuma maneira de agrupar recursos relacionados. Você precisa acompanhar manualmente quais recursos estavam incluídos na solução ou no aplicativo e se lembrar de gerenciá-los em uma abordagem coordenada. A unidade básica de gerenciamento é a assinatura. É difícil dividir os recursos em uma assinatura, o que leva à criação de um grande número de assinaturas.
 
-Você pode também [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) no Controle de Acesso Baseado em Função do Azure (RBAC) se nenhuma das funções internas atender às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), a [interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) e a [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
+O modelo de implantação do Resource Manager inclui o conceito de um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Um grupo de recursos é um contêiner de recursos que compartilham um ciclo de vida comum. Ele pode incluir todos os recursos da solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
 
-Dentro de cada assinatura, você pode conceder até 2000 atribuições de função.
-
-## <a name="resource-management"></a>Gerenciamento de recursos
-
-Originalmente, o Azure fornecia o modelo de implantação clássico. Nesse modelo, cada recurso existia independentemente; não havia uma maneira de agrupar recursos relacionados. Em vez disso, era necessário controlar manualmente quais recursos compunham sua solução ou aplicativo, e lembrar-se de gerenciá-los em uma abordagem coordenada.
-
-Para implantar uma solução, você precisava criar cada recurso individualmente por meio do portal do Azure ou criar um script que implantava todos os recursos na ordem correta. Para excluir uma solução, você precisava excluir cada recurso individualmente. Não era possível aplicar e atualizar facilmente políticas de controle de acesso para recursos relacionados. Por fim, você não podia aplicar marcas aos recursos para rotulá-los com os termos que ajudariam a monitorar seus recursos e gerenciar a cobrança.
-
-Em 2014, o Azure introduziu o Resource Manager, que adicionou o conceito de um grupo de recursos. Um grupo de recursos é um contêiner de recursos que compartilham um ciclo de vida comum. O modelo de implantação do Gerenciador de Recursos fornece vários benefícios:
+O modelo de implantação do Gerenciador de Recursos fornece vários benefícios:
 
 - Você pode implantar, gerenciar e monitorar todos os serviços da sua solução como um grupo, em vez de tratá-los individualmente.
 
-- Você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente.
+- Você pode implantar a solução repetidamente em todo o seu ciclo de vida e com a certeza de que seus recursos serão implantados em um estado consistente.
 
-- Você pode aplicar o controle de acesso a todos os recursos em seu grupo de recursos, e essas políticas são aplicadas automaticamente aos novos recursos adicionados ao grupo de recursos.
+- Você pode aplicar o controle de acesso a todos os recursos do grupo de recursos. Essas políticas são aplicadas automaticamente quando novos recursos são adicionados ao grupo de recursos.
 
 - Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 
@@ -196,44 +140,31 @@ Em 2014, o Azure introduziu o Resource Manager, que adicionou o conceito de um g
 
 - Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
 
-![Gerenciamento de recursos](./media/governance-in-azure/security-governance-in-azure-fig4.png)
-
-O Resource Manager permite colocar recursos em grupos significativos para gerenciamento, cobrança ou afinidade natural. Conforme mencionado anteriormente, o Azure tem dois modelos de implantação. No [modelo Clássico](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) mais antigo, a unidade básica de gerenciamento era a assinatura. Era difícil dividir recursos em uma assinatura, o que levou à criação de um grande número de assinaturas. Com o modelo do Resource Manager, vimos a introdução dos grupos de recursos.
-
-Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. [O grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
+![Gerenciador de Recursos](./media/governance-in-azure/security-governance-in-azure-fig4.png)
 
 Para recomendações sobre modelos, consulte [Práticas recomendadas para criar modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-O Azure Resource Manager analisa as dependências para garantir que os recursos sejam criados na ordem correta. Se um recurso depende de um valor de outro recurso (como uma máquina virtual que precisa de uma conta de armazenamento para discos), você pode definir uma dependência.
+O Azure Resource Manager analisa as dependências para ajudar a garantir que os recursos sejam criados na ordem correta. Se um recurso depender de um valor de outro recurso (como uma máquina virtual que precisa de uma conta de armazenamento para discos), [defina uma dependência](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies) no modelo.
 
->[!Note]
->Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies).
+Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um recurso à sua solução e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um recurso, mas esse recurso já existir, o Resource Manager fará uma atualização em vez de criar um ativo. O Resource Manager atualiza o ativo existente para o mesmo estado de um novo.
 
-Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um recurso à sua solução e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um recurso, mas esse recurso já existir, o Azure Resource Manager executará uma atualização em vez de criar um novo ativo. O Azure Resource Manager atualiza o ativo existente para o mesmo estado de um novo.
+O Resource Manager fornece extensões para cenários em que você precisa de mais operações, como a instalação de um software que não está incluído na instalação.
 
-O Gerenciador de Recursos fornece extensões para cenários quando você precisar de operações adicionais, como a instalação de um software específico que não está incluído na configuração.
+### <a name="resource-tracking"></a>Acompanhamento de recursos
 
-## <a name="resource-tracking"></a>Acompanhamento de recursos
+Conforme os usuários na organização adicionam recursos à assinatura, torna-se cada vez mais importante associar recursos ao departamento, ao cliente e ao ambiente apropriados. Você pode anexar metadados a recursos por meio de [marcações](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags). Você pode usar marcações para fornecer informações sobre o recurso ou o proprietário. As marcas permitem que você não somente agregue e agrupe recursos de diversas maneiras, mas também use esses dados com o propósito de estorno.
 
-Conforme os usuários em sua organização adicionam recursos à assinatura, torna-se cada vez mais importante associar recursos ao departamento, cliente e ambiente apropriados. Você pode anexar metadados a recursos por meio de marcações. Você pode usar [marcações](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) para fornecer informações sobre o recurso ou o proprietário. Marcações permitem que você não somente agregue e agrupe recursos de diversas maneiras, mas também usar esses dados com o propósito de estorno.
+Use marcações quando você tiver uma coleção complexa de recursos e de grupos de recursos e precisar visualizar os ativos da maneira que fizer mais sentido para você. Por exemplo, marque os recursos que desempenham uma função semelhante em sua organização ou que pertencem ao mesmo departamento.
 
-Use as marcas quando você tiver um conjunto complexo de grupos de recursos e recursos e precisar visualizar os ativos da maneira que fizer mais sentido. Por exemplo, você pode marcar os recursos que servem para uma função semelhante em sua organização ou pertencem ao mesmo departamento.
+Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser difíceis de serem identificados e gerenciados mais tarde. Por exemplo, você pode desejar excluir todos os recursos de um projeto. Se esses recursos não estão marcados para o projeto, você precisa encontrá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura.
 
-Sem marcas, os usuários de sua organização podem criar vários recursos que podem ser difíceis de identificar e gerenciar mais tarde. Por exemplo, você pode querer excluir todos os recursos de um projeto. Se esses recursos não estão marcados para o projeto, você precisa encontrá-los manualmente. A marcação pode ser uma maneira importante de reduzir custos desnecessários em sua assinatura.
-
-Recursos não precisam residir no mesmo grupo de recursos para compartilhar uma marca. Você pode criar sua própria taxonomia de marca para garantir que todos os usuários na sua organização usem marcas comuns em vez de aplicarem marcas ligeiramente diferentes inadvertidamente (como por exemplo, "Dept" em vez de "Departamento").
+Os recursos não precisam residir no mesmo grupo de recursos para compartilharem uma marcação. Você pode criar sua própria taxonomia de marcação para garantir que todos os usuários de sua organização usem marcas comuns, em vez de aplicarem marcações ligeiramente diferentes inadvertidamente (como "dept" em vez de "departamento").
 
 Políticas de recursos permitem que você crie regras padrão para sua organização. Você pode criar políticas que garantem que os recursos sejam marcados com os valores apropriados.
 
-> [!Note]
-> Para obter mais informações, confira [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md).
+Você também pode exibir os recursos marcados por meio do portal do Azure. O [relatório de uso](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) de sua assinatura inclui nomes de marcações e valores, o que possibilita o detalhamento dos custos por marcações.
 
-Você também pode exibir os recursos marcados por meio do portal do Azure.
-
-O [relatório de uso](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) para sua assinatura inclui nomes de marca e valores, o que o habilita a dividir os custos por marcas.
-
-> [!Note]
-> Para obter mais informações sobre marcas, confira [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md).
+Para obter mais informações sobre marcas, confira [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md).
 
 As seguintes limitações se aplicam a marcas:
 
@@ -247,248 +178,227 @@ As seguintes limitações se aplicam a marcas:
 
 Se você tiver mais de 15 valores que você precisa associar a um recurso, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter vários valores que são aplicados a uma única chave de marca.
 
-### <a name="tags-and-billing"></a>Marcas e cobrança
+#### <a name="tags-for-billing"></a>Marcas para cobrança
 
-Marcas permitem que você agrupe os dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use as marcas para a utilização do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
+Marcas permitem que você agrupe os dados de cobrança. Por exemplo, se estiver executando várias VMs para organizações diferentes, use marcas para agrupar o uso por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
 Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) ou do arquivo de uso CSV (com valores separados por vírgula). Baixe o arquivo de uso no [portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com/).
 
->[!Note]
-> Para saber mais sobre o acesso programático às informações de cobrança, confira [Obter informações sobre o consumo de recursos do Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Para saber mais sobre o acesso programático às informações de cobrança, confira [Obter informações sobre o consumo de recursos do Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Quando você baixa o CSV de uso para serviços que dão suporte a marcações com cobrança, as marcações aparecerão na coluna Marcações.
 
-## <a name="critical-resource-controls"></a>Controle de recursos críticos
+### <a name="critical-resource-controls"></a>Controle de recursos críticos
 
-À medida que sua organização adiciona serviços principais à assinatura, torna-se cada vez mais importante garantir que esses serviços estejam disponíveis para evitar interrupção nos negócios. Os [Bloqueios de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) permitem restringir operações nos recursos de alto valor, onde sua modificação ou exclusão teria um impacto significativo nos aplicativos ou na infraestrutura da nuvem. Você pode aplicar bloqueios a uma assinatura, um grupo de recursos ou um recurso. Normalmente, você aplica bloqueios a recursos fundamentais, como redes virtuais, gateways e contas de armazenamento.
+À medida que sua organização adiciona serviços essenciais à assinatura, torna-se cada vez mais importante garantir que esses serviços estejam disponíveis para evitar a interrupção dos negócios. Os [Bloqueios de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) permitem restringir operações nos recursos de alto valor, onde sua modificação ou exclusão teria um impacto significativo nos aplicativos ou na infraestrutura da nuvem. Você pode aplicar bloqueios a uma assinatura, um grupo de recursos ou um recurso. Normalmente, você aplica bloqueios a recursos fundamentais, como redes virtuais, gateways e contas de armazenamento.
 
-Atualmente, os Bloqueios de recursos aceitam dois valores: CanNotDelete e ReadOnly. CanNotDelete significa que os usuários (com os direitos apropriados) ainda podem ler ou modificar um recurso, mas não podem excluí-lo. ReadOnly significa que usuários autorizados não podem excluir nem modificar um recurso.
+Atualmente, os bloqueios de recursos dão suporte a dois valores: **CanNotDelete** e **ReadOnly**. **CanNotDelete** significa que os usuários (com os direitos apropriados) ainda podem ler ou modificar um recurso, mas não podem excluí-lo. **ReadOnly** significa que usuários autorizados não podem excluir nem modificar um recurso.
 
-Bloqueios do Gerenciador de Recursos se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para <https://management.azure.com>. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio ReadOnly em um Banco de Dados SQL impede que você exclua ou modifique o banco de dados, mas ele não impede que você crie, atualize ou exclua dados no banco de dados.
+Os bloqueios de recurso se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para <https://management.azure.com>. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio **ReadOnly** em um Banco de Dados SQL impede que você exclua ou modifique o banco de dados, mas não impede que você crie, atualize ou exclua dados no banco de dados.
 
-A aplicação de **ReadOnly** pode gerar resultados inesperados, pois algumas operações que parecem operações de leitura exigem ações adicionais. Por exemplo, aplicar um bloqueio **ReadOnly** em uma conta de armazenamento impedirá que todos os usuários listem as chaves. A operação de lista de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
+A aplicação de **ReadOnly** pode gerar resultados inesperados, pois algumas operações que parecem operações de leitura exigem ações adicionais. Por exemplo, aplicar um bloqueio **ReadOnly** em uma conta de armazenamento impedirá que todos os usuários listem as chaves. A operação de listagem de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
 
-![Controle de Recursos Críticos](./media/governance-in-azure/security-governance-in-azure-fig5.png)
+![Controle de recursos críticos](./media/governance-in-azure/security-governance-in-azure-fig5.png)
 
-Em outro exemplo, a aplicação de um bloqueio ReadOnly em um recurso do Serviço de Aplicativo impedirá o Visual Studio Server Explorer de exibir os arquivos para o recurso, pois essa interação exige acesso de gravação.
+Para outro exemplo, a aplicação de um bloqueio **ReadOnly** em um recurso do Serviço de Aplicativo do Azure impede que o Gerenciador de Servidores do Visual Studio Server Explorer exiba os arquivos para o recurso, pois essa interação exige o acesso de gravação.
 
-Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como configurar permissões para usuários e funções, veja [Controle de Acesso Baseado em Função do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como configurar permissões, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam o mesmo bloqueio. Até mesmo os recursos que você adiciona posteriormente herdam o bloqueio do pai. O bloqueio mais restritivo na herança terá precedência.
 
-Para criar ou excluir os bloqueios de gerenciamento, você deve ter acesso às ações Microsoft.Authorization/ _ou Microsoft.Authorization/locks/_. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem essas ações.
+Para criar ou excluir bloqueios de gerenciamento, é necessário ter acesso às ações Microsoft.Authorization/ ou Microsoft.Authorization/locks/. Das funções internas, somente Proprietário e Administrador do Acesso de Usuário recebem essas ações.
 
-## <a name="api-access-to-billing-information"></a>API de Acesso a Informações De Cobrança
+### <a name="api-access-to-billing-information"></a>API de Acesso a Informações De Cobrança
 
-Use APIs de cobrança do Azure para efetuar pull de dados de uso e de recurso em suas ferramentas de análise de dados preferidas. As APIs RateCard e de Uso de Recursos do Azure e podem ajudá-lo a prever e gerenciar seus custos com precisão. As APIs são implementadas como um Provedor de Recursos e como parte da família de APIs expostas pelo Azure Resource Manager.
+Use APIs de cobrança do Azure para efetuar pull de dados de uso e de recurso em suas ferramentas de análise de dados preferidas. As APIs RateCard e de Uso de Recursos do Azure e podem ajudá-lo a prever e gerenciar seus custos com precisão. As APIs são implementadas como um provedor de recursos e como parte da família de APIs expostas pelo Azure Resource Manager.
 
-### <a name="azure-resource-usage-api-preview"></a>API de uso de recursos do Azure (visualização)
+#### <a name="resource-usage-api-preview"></a>API de Uso de Recursos (versão prévia)
 
 Use as [API de Uso de Recursos](https://msdn.microsoft.com/library/azure/mt219003) do Azure para obter seus dados de consumo estimado do Azure. A API inclui:
 
-- **Controle de Acesso baseado em Funções do Azure** – configure suas políticas de acesso no [Portal do Azure](https://portal.azure.com/) ou através dos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
+- **RBAC**: configure as políticas de acesso no [portal do Azure](https://portal.azure.com/) ou por meio dos [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar quais usuários ou aplicativos podem obter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor de Fatura, Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 
-- **Agregações diárias ou por hora** - os chamadores podem especificar se eles desejam seus dados de uso do Azure em buckets por hora ou buckets diários. O padrão é diário.
+- **Agregações diárias ou por hora**: os chamadores podem especificar se desejam obter seus dados de uso do Azure em incrementos diários ou por hora. O padrão é diário.
 
-- **Metadados da instância (inclui as marcas do recurso)** – obtenha detalhes no nível da instância, como o URI de recurso totalmente qualificado (/subscriptions/{subscription-id}/..), as informações do grupo de recursos e marcas do recurso. Esses metadados ajudam você a alocar de forma determinista e programática o uso por marcas, para casos de uso como cobrança cruzada.
+- **Metadados de instância (inclui marcas de recurso)**: obtenha detalhes no nível da instância como o URI de recurso totalmente qualificado (/subscriptions/{subscription-id} /..), as informações do grupo de recursos e marcas de recurso. Esses metadados ajudam você a alocar de forma determinista e programática o uso pelas marcas, para casos de uso como cobrança cruzada.
 
-- **Metadados de recurso** – detalhes de recurso como nome do medidor, categoria do medidor, subcategoria do medidor, unidade e região proporcionam ao chamador um melhor entendimento do que foi consumido. Também estamos trabalhando para alinhar a terminologia de metadados de recursos entre o portal do Azure, o CSV de uso do Azure, o CSV de cobrança EA e outras experiências públicas, para permitir que você correlacione dados entre as experiências.
+- **Metadados de recurso**: detalhes de recurso como nome do medidor, categoria do medidor, subcategoria do medidor, unidade e região proporcionam ao chamador um melhor entendimento do que foi consumido. Também estamos trabalhando para alinhar a terminologia de metadados de recurso entre o portal do Azure, o CSV de uso do Azure, o CSV de cobrança do EA e outras experiências públicas, para ajudar você a correlacionar os dados entre as experiências.
 
-- **Uso para todos os tipos de oferta** – os dados de uso estão disponíveis para todos os tipos de oferta, assim como pré-pago, MSDN, investimento e crédito monetário e EA.
+- **Uso para todos os tipos de oferta**: os dados de uso estão disponíveis para todos os tipos de oferta, incluindo Pagamento Conforme o Uso, MSDN, Compromisso Monetário, Crédito Monetário e EA.
 
-**API RateCard de Recursos do Azure (visualização)**
+#### <a name="resource-ratecard-api"></a>API de RateCard de Recursos
 
 Use a API RateCard de Recursos do Azure para obter a lista de recursos do Azure disponíveis, juntamente com as informações estimadas de preço para cada um deles. A API inclui:
 
-- **Controle de Acesso baseado em Funções do Azure** – configure suas políticas de acesso no Portal do Azure ou através dos cmdlets do Azure PowerShell para especificar quais usuários ou aplicativos podem ter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura particular do Azure.
+- **RBAC**: configure as políticas de acesso no portal do Azure ou por meio dos cmdlets do Azure PowerShell para especificar quais usuários ou aplicativos podem obter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Azure Active Directory para autenticação. Adicione o chamador à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma assinatura específica do Azure.
 
-- **Suporte para pré-pago, MSDN, ofertas de investimento e crédito monetário (EA não tem suporte)** – Esta API fornece informações de taxa no nível da oferta do Azure. O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso. Já que as ofertas de EA têm taxas personalizadas por registro, não seremos capazes de fornecer as taxas de EA neste momento. Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e RateCard:
+- **Suporte para ofertas de Pagamento Conforme o Uso, MSDN, Compromisso Monetário e Crédito Monetário (exceto EA)**: essa API fornece informações de taxa no nível da oferta do Azure. O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso. Atualmente, não há suporte para o EA porque as ofertas do EA têm taxas personalizadas por registro. 
 
-- **Gasto do Azure durante o mês** – use a combinação das APIs RateCard e de uso para obter melhores informações sobre o seu gasto com nuvem durante o mês. Você pode analisar os buckets horários e diários de uso e as estimativas de custo.
+#### <a name="scenarios"></a>Cenários
 
-- **Configurar alertas** – use as APIs RateCard e de uso para obter o consumo de nuvem e encargos estimados e configurar alertas com base em recursos ou em valores financeiros.
+A combinação das APIs de Uso e de RateCard possibilita estes cenários:
 
-- **Previsão de fatura** – obtenha seu consumo estimado e gasto de nuvem e aplicar algoritmos de aprendizado de máquina para prever qual seria sua fatura no final do ciclo de cobrança.
+- **Entender os gastos com o Azure durante o mês**: use a combinação das APIs de Uso e de RateCard para obter melhores insights sobre seus gastos com a nuvem durante o mês. Analise as estimativas de uso e encargo diário e por hora.
 
-- **Análise de custo de pré-consumo** – usar a API RateCard para prever quanto sua fatura seria para seu uso esperado ao mover suas cargas de trabalho para o Azure. Se você tem cargas de trabalho existentes em outras nuvens ou nuvens privadas, você também pode mapear seu uso com as taxas do Azure para obter uma melhor estimativa do seu gasto com o Azure. Essa estimativa fornece a você a capacidade de dinamizar a oferta e comparar entre os tipos diferentes de oferta além do pré-pago, tais como o compromisso monetário e o crédito monetário. A API também oferece a capacidade de ver as diferenças de custo por região e permite que você faça uma análise hipotética do custo para lhe ajudar a tomar decisões de implantação.
+- **Configurar alertas**: use as APIs de Uso e de RateCard para obter estimativas de consumo e encargos de nuvem e configurar alertas baseados em recursos ou em crédito monetário.
 
-- **Análise E-Se** - Você pode determinar se é mais econômico executar suas cargas de trabalho em outra região ou em outra configuração do recurso do Azure. Os custos de recursos do Azure podem mudar com base na região do Azure que você está usando.
+- **Previsão de fatura**: obtenha a estimativa de consumo e de gastos com a nuvem e aplique algoritmos de aprendizado de máquina para prever qual será sua fatura ao final do ciclo de cobrança.
 
-- Você também pode determinar se outro tipo de oferta do Azure oferece uma melhor taxa em um recurso do Azure.
+- **Realizar uma análise de custo de pré-consumo**: use a API de RateCard para prever o valor da fatura para seu uso esperado ao mover suas cargas de trabalho para o Azure. Se você tem cargas de trabalho existentes em outras nuvens ou nuvens privadas, você também pode mapear seu uso com as taxas do Azure para obter uma melhor estimativa do seu gasto com o Azure. Essa estimativa fornece a você a capacidade de dinamizar a oferta e comparar entre os diferentes tipos de oferta, além do Pagamento Conforme o Uso, como o Compromisso Monetário e o Crédito Monetário.
 
-## <a name="networking-controls"></a>Controles de rede
+- **Realizar uma análise de hipóteses**: determine se é mais econômico executar cargas de trabalho em outra região ou em outra configuração do recurso do Azure. Os custos dos recursos do Azure podem variar de acordo com a região do Azure que você está usando. Você também pode determinar se outro tipo de oferta do Azure oferece uma melhor taxa em um recurso do Azure.
 
-O acesso a recursos pode ser interno (dentro da rede da empresa) ou externo (por meio da Internet). É fácil para os usuários em sua organização colocar recursos inadvertidamente no ponto errado e potencialmente abri-los para o acesso mal-intencionado. Assim como acontece com dispositivos locais, as empresas devem adicionar os controles adequados para garantir que os usuários do Azure tomam as decisões certas.
+### <a name="networking-controls"></a>Controles de rede
+
+O acesso a recursos pode ser interno (dentro da rede da empresa) ou externo (por meio da Internet). É fácil para os usuários em sua organização colocar recursos inadvertidamente no lugar errado e, potencialmente, abri-los para o acesso mal-intencionado. Assim como acontece com dispositivos locais, as empresas devem adicionar os controles adequados para garantir que os usuários do Azure tomam as decisões certas.
 
 ![Controles de rede](./media/governance-in-azure/security-governance-in-azure-fig6.png)
 
-Para governança da assinatura, identificamos recursos principais que fornecem controle básico de acesso. Os principais recursos consistem em:
+Para a governança da assinatura, os recursos principais a seguir fornecem um controle básico de acesso.
 
-### <a name="network-connectivity"></a>Conectividade de rede
+#### <a name="network-connectivity"></a>Conectividade de rede
 
-[Redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) são objetos de contêiner para sub-redes. Embora não sejam estritamente necessárias, geralmente elas são usadas ao conectar aplicativos aos recursos corporativos internos. O serviço de Rede Virtual do Azure permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets).
+[Redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) são objetos de contêiner para sub-redes. Embora não seja estritamente necessária, uma rede virtual geralmente é usada ao conectar aplicativos aos recursos corporativos internos. O serviço Rede Virtual do Azure permite que você conecte com segurança os recursos do Azure com redes virtuais.
 
-Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da nuvem do Azure dedicada à sua assinatura. Você também pode conectar VNets à sua rede local.
+Uma rede virtual é uma representação da sua própria rede na nuvem. Uma rede virtual é um isolamento lógico da nuvem do Azure dedicada à sua assinatura. Você também pode conectar redes virtuais à sua rede local.
 
-Os seguintes são os recursos para redes virtuais do Azure:
+Estas são as funcionalidades para as redes virtuais do Azure:
 
-- **Isolamento**: as VNets são isoladas umas das outras. Crie VNets separadas para desenvolvimento, teste e produção que usem os mesmos blocos de endereços CIDR. Por outro lado, você pode criar várias VNets que usam blocos de endereço CIDR diferentes e conectam as redes. Você pode segmentar uma VNet em várias sub-redes. O Azure fornece resolução de nome interna para instâncias de função de VMs e Serviços de Nuvem conectadas a uma rede virtual. Opcionalmente, configure uma VNet para usar seus próprios servidores DNS, em vez de usar a resolução de nome interna do Azure.
+- **Isolamento**: as redes virtuais são isoladas entre si. Crie redes virtuais separadas para desenvolvimento, teste e produção que usam os mesmos blocos de endereço CIDR. Por outro lado, crie várias redes virtuais que usam blocos de endereço CIDR diferentes e conectam as redes. É possível segmentar uma rede virtual em várias sub-redes. O Azure fornece uma resolução de nomes interna para VMs e instâncias de função dos Serviços de Nuvem do Azure conectadas a uma rede virtual. Outra opção é configurar uma rede virtual para usar seus próprios servidores DNS, em vez de usar a resolução de nome interna do Azure.
 
-- **Conectividade com a Internet**: Por padrão, todas as instâncias de função de Serviços de Nuvem e Máquinas Virtuais (VM) do Azure são conectadas a uma VNet que tem acesso à Internet. Você também pode habilitar o acesso de entrada a recursos específicos, conforme o necessário.
+- **Conectividade com a Internet**: todas as máquinas virtuais do Azure e instâncias de função dos Serviços de Nuvem conectadas a uma rede virtual têm acesso à Internet, por padrão. Você também pode habilitar o acesso de entrada a recursos específicos, conforme o necessário.
 
-- **Conectividade de recursos do Azure**: Recursos do Azure, como Serviços de Nuvem e VMs, podem ser conectados à mesma VNet. Os recursos podem se conectar usando endereços IP privados, mesmo se estiverem em sub-redes diferentes. O Azure fornece roteamento padrão entre sub-redes, VNets e redes locais, portanto você não precisa configurar e gerenciar rotas.
+- **Conectividade de recursos do Azure**: conecte recursos do Azure, como Serviços de Nuvem e VMs, à mesma rede virtual. Os recursos podem se conectar usando endereços IP privados, mesmo se estão em sub-redes diferentes. O Azure fornece roteamento padrão entre sub-redes, redes virtuais e redes locais e, portanto, você não precisa configurar e gerenciar rotas.
 
-- **Conectividade de VNet**: as VNets podem ser conectadas entre si, permitindo que os recursos conectados a qualquer VNet se comuniquem com recursos de outra VNet.
+- **Conectividade de rede virtual**: conecte redes virtuais entre si. Os recursos que estão conectados a qualquer rede virtual podem, em seguida, se comunicar com recursos de qualquer outra rede virtual.
 
-- **Conectividade local**: as VNets podem ser conectadas a redes locais por meio de conexões de rede privada entre a sua rede e o Azure, ou por uma conexão de VPN site a site pela Internet.
+- **Conectividade local**: conecte redes virtuais a redes locais por meio de conexões de rede privada entre a rede e o Azure, ou por uma conexão VPN (rede virtual privada) site a site na Internet.
 
-- **Filtragem de tráfego**: o tráfego de rede de instâncias de função de VMs e do Serviços de Nuvem pode ser filtrado na entrada e na saída pelo endereço IP e porta de origem, endereço IP e porta de destino e protocolo.
+- **Filtragem de tráfego**: filtre o tráfego de rede (de entrada e saída) de máquinas virtuais e de Serviços de Nuvem por porta e endereço IP de origem, porta e endereço IP de destino e protocolo.
 
 - **Roteamento**: opcionalmente, você pode substituir o roteamento padrão do Azure configurando suas próprias rotas ou usando rotas BGP por meio de um gateway de rede.
 
-## <a name="network-access-controls"></a>Controles de acesso de rede
+#### <a name="network-access-controls"></a>Controles de acesso à rede
 
-Os [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) são semelhantes a um firewall e fornecem regras de como um recurso pode "falar" pela rede. Eles fornecem controle granular sobre como/se uma sub-rede (ou máquina virtual) pode se conectar à Internet ou a outras sub-redes na mesma rede virtual.
+Os [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (grupos de segurança de rede) são semelhantes a um firewall e fornecem regras de como um recurso pode "se comunicar" pela rede. Eles fornecem controle sobre como uma sub-rede (ou uma máquina virtual) pode se conectar à Internet ou a outras sub-redes na mesma rede virtual.
 
-Um NSG (grupo de segurança de rede) contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos conectados a VNets (redes virtuais) do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou interfaces de rede individuais (NIC) anexadas a VMs (Resource Manager).
+Um grupo de segurança de rede contém uma lista das regras de segurança que permitem ou negam o tráfego de rede aos recursos conectados às redes virtuais do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou NICs (adaptadores de rede) individuais anexadas a VMs (Resource Manager).
 
-Quando um NSG está associado a uma sub-rede, as regras se aplicam a todos os recursos conectados à sub-rede. O tráfego pode ser restritao também associando um NSG a uma VM ou NIC.
+Quando um NSG é associado a uma sub-rede, as regras se aplicam a todos os recursos conectados à sub-rede. Você pode restringir ainda mais o tráfego associando um NSG a uma VM ou uma NIC.
 
-## <a name="security-and-continuous-compliance-with-organizational-standards"></a>Segurança e conformidade contínua com os padrões da organização
+## <a name="security-and-compliance-with-organizational-standards"></a>Segurança e conformidade com padrões organizacionais
 
-Cada empresa tem diferentes necessidades e todo negócio obterá distintos benefícios das soluções de nuvem. Ainda assim, clientes de todos os tipos têm as mesmas preocupações básicas sobre como mover para a nuvem. Eles desejam manter o controle de seus dados e desejam que os dados sejam mantidos seguros e privados, tudo isso mantendo transparência e conformidade.
+Cada empresa tem diferentes necessidades e obterá benefícios distintos das soluções de nuvem. Ainda assim, clientes de todos os tipos têm as mesmas preocupações básicas sobre como mover para a nuvem. O que os clientes desejam de provedores de nuvem é:
 
-O que os clientes desejam de provedores de nuvem é:
+- **Proteger nossos dados**: os líderes de TI reconhecem que a nuvem pode fornecer uma maior segurança de dados e controle administrativo. Mas eles ainda estão preocupados que a migração para a nuvem os deixará mais vulneráveis a hackers do que suas soluções internas atuais.
 
-- **Proteger nossos dados** enquanto confirmam que a nuvem pode proporcionar maior segurança de dados e controle administrativo, líderes de TI ainda se preocupam se migrar para a nuvem irá deixá-los mais vulneráveis a hackers que suas soluções internas atuais.
+- **Manter particulares nossos dados**: os serviços de nuvem geram desafios de privacidade únicos. Como as empresas olham para a nuvem para economizar nos custos de infraestrutura e melhorar sua flexibilidade, elas também se preocupar sobre perder o controle de onde seus dados estão armazenados, quem os está acessando e como é usado.
 
-- **Manter nossos dados** serviços de Nuvem privados aumentam desafios de privacidade única para empresas. Como as empresas olham para a nuvem para economizar nos custos de infraestrutura e melhorar sua flexibilidade, elas também se preocupar sobre perder o controle de onde seus dados estão armazenados, quem os está acessando e como é usado.
+- **Fornecer controle**: mesmo que as empresas aproveitem a nuvem para implantar soluções mais inovadoras, elas estão preocupadas em perder o controle de seus dados. As recentes divulgações de agências governamentais acessando os dados dos clientes, por meios legais e extralegais, fez alguns CIOs ficarem atentos sobre o armazenamento de seus dados na nuvem.
 
-- **Fornecer controle** mesmo que eles tirem proveito da nuvem para implantar soluções mais inovadoras, as empresas são muito preocupadas em perder o controle de seus dados. As recentes divulgações de agências governamentais acessando os dados dos clientes, tanto por meios legais e ilegais, fez alguns CIOs ficarem atentos sobre armazenarem seus dados na nuvem.
+- **Promover a transparência**: os tomadores de decisões de negócios entendem a importância da segurança, da privacidade e do controle. Mas eles também desejam ter a capacidade de verificar de forma independente como seus dados são armazenados, acessados e protegidos.
 
-- **Promover a transparência** Enquanto o controle, privacidade e segurança são importantes para decisões, eles também querem a capacidade de verificar de forma independente como os seus dados estão armazenados, acessados e protegidos.
+- **Manter a conformidade**: conforme as empresas expandem seu uso de tecnologias de nuvem, a complexidade e o escopo dos padrões e dos regulamentos continuam evoluindo. As empresas precisam saber que seus padrões de conformidade serão atendidos.
 
-- **Manter a conformidade** como as empresas ampliam o uso de tecnologias de nuvem, a complexidade e o escopo dos padrões e normas continuam a evoluir. As empresas precisam saber que seus padrões de conformidade serão atendidos e essa conformidade evoluirá conforme os regulamentos se alterem ao longo do tempo.
+## <a name="security-configuration-for-monitoring-logging-and-auditing"></a>Configuração de segurança para monitoramento, log e auditoria
 
-## <a name="security-configuration-monitoring-and-alerting"></a>Configuração de segurança, monitoramento e alertas
+Os assinantes do Azure podem gerenciar seus ambientes de nuvem em vários dispositivos. Esses dispositivos podem incluir estações de trabalho de gerenciamento, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que tenham permissões específicas da tarefa. 
 
-Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o Portal do Azure. Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
+Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o Portal do Azure. Em outros casos, pode haver conexões diretas com o Azure de sistemas locais por meio de VPNs, Serviços de Terminal, protocolos de aplicativos cliente ou (de forma programática) a SMAPI (API de Gerenciamento de Serviços) do Azure. Além disso, os pontos de extremidade do cliente podem ser ingressados no domínio ou isolados e não gerenciados, como tablets ou smartphones.
 
-Embora vários recursos de gerenciamento e acesso forneçam um conjunto avançado de opções, essa variação pode adicionar um risco significativo para uma implantação de nuvem. Pode ser difícil gerenciar, controlar e auditar as ações administrativas. Essa variação também pode introduzir ameaças de segurança por meio do acesso não regulado a pontos de extremidade do cliente que são usados para gerenciar serviços de nuvem. O uso de estações de trabalho pessoais ou gerais para desenvolvimento e gerenciamento de infraestrutura abre vetores de ameaça imprevisíveis, como navegação na Web (por exemplo, ataques do tipo "watering hole") ou email (por exemplo, engenharia social e phishing).
+Essa variação pode adicionar um risco significativo para uma implantação de nuvem. Pode ser difícil gerenciar, acompanhar e auditar ações administrativas. Essa variação também pode introduzir ameaças à segurança por meio do acesso não regulado aos pontos de extremidade do cliente que são usados para gerenciar os serviços de nuvem. O uso de estações de trabalho pessoais ou gerais para desenvolvimento e gerenciamento de infraestrutura abre vetores de ameaça imprevisíveis, como navegação na Web (por exemplo, ataques do tipo "watering hole") ou email (por exemplo, engenharia social e phishing).
 
-O monitoramento, o registro em log e a auditoria fornecem uma base para acompanhar e entender atividades administrativas, mas nem sempre é viável auditar completamente todas as ações, devido à quantidade de dados gerados. No entanto, a auditoria da eficácia das políticas de gerenciamento é uma prática recomendada.
+O monitoramento, o log e a auditoria fornecem uma base para acompanhar e entender as atividades administrativas. A auditoria de todas as ações em detalhes completos nem sempre pode ser viável devido à quantidade de dados gerados. No entanto, a auditoria da eficácia das políticas de gerenciamento é uma melhor prática.
 
-Governança de segurança do Azure para AD DS GPOs para controlar todas as interfaces do Windows dos administradores, tal como o compartilhamento de arquivos. Inclua as estações de trabalho de gerenciamento em processos de auditoria, monitoramento e registro em log. Acompanhe todo o acesso e uso de administradores e desenvolvedores.
+A governança de segurança do Azure dos GPOs do AD DS (Azure Active Directory Domain Services) pode ajudar você a controlar as interfaces do Windows de todos os administradores, como compartilhamento de arquivos. Inclua estações de trabalho de gerenciamento em processos de monitoramento, log e auditoria. Acompanhe todo o acesso e uso de administradores e desenvolvedores.
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) fornece uma visão central do status de segurança dos recursos nas assinaturas, além de recomendações que ajudam a evitar recursos comprometidos. Ela pode permitir políticas mais granulares (por exemplo, aplicar políticas a grupos de recursos específicos que permitem à empresa adaptar sua postura ao risco que está enfrentando).
+A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) fornece uma exibição central do status de segurança dos recursos nas assinaturas. Ela fornece recomendações que ajudam a prevenir o comprometimento de recursos. Ela pode permitir políticas mais detalhadas – por exemplo, aplicar políticas a grupos de recursos específicos que permitem à empresa adaptar sua postura ao risco que está enfrentando.
 
 ![Central de Segurança do Azure](./media/governance-in-azure/security-governance-in-azure-fig7.png)
 
 O Centro de Segurança permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança. Depois de habilitar as [políticas de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente.
 
-Central de Segurança do Azure representa uma combinação de análise de melhor prática e gerenciamento de política de segurança para todos os recursos dentro de uma assinatura do Azure. Esta ferramenta poderosa e fácil de usar permite equipes de segurança e funcionários de risco prevenirem, detectarem e responderem a ameaças de segurança, pois ela automaticamente analisa e colecta dados de segurança dos seus recursos do Azure, da rede, e soluções de parceiro como programas e firewalls anti-malware.
+Central de Segurança do Azure representa uma combinação de análise de melhor prática e gerenciamento de política de segurança para todos os recursos dentro de uma assinatura do Azure. Ela permite às equipes de segurança e aos diretores de risco prevenir, detectar e responder a ameaças de segurança, pois coleta e analisa automaticamente dados de segurança dos recursos do Azure, da rede e de soluções de parceiros como firewalls e programas antimalware.
 
-Além disso, a Central de Segurança do Azure usa análises avançadas, incluindo aprendizagem de máquina e análise de comportamento enquanto aproveita a inteligência de ameaça global dos produtos e serviços Microsoft, o Microsoft Digital Crimes Unit (DCU), o Microsoft Security Response Center (MSRC), e feeds externos. [Governança de segurança](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) pode ser usada amplamente no nível de assinatura ou restringida a requisitos granulares e específicos aplicados a recursos individuais por meio de definição de política.
+Além disso, a Central de Segurança do Azure aplica a análise avançada, incluindo aprendizado de máquina e análise comportamental. Usa as ameaças globais de inteligência de produtos e serviços da Microsoft, a DCU (Unidade de Crimes Digitais da Microsoft), o MSRC (Microsoft Security Response Center) e feeds externos. Aplique a [governança de segurança](https://www.credera.com/blog/credera-site/azure-governance-part-4-other-tools-in-the-toolbox/) amplamente no nível da assinatura. Se preferir, você pode restringi-la a requisitos específicos e aplicá-los a recursos individuais por meio da definição de política.
 
-Finalmente, Central de segurança do Azure analisa a integridade dos recursos de segurança com base nessas políticas e a utiliza para fornecer criteriosos painéis e alertas de eventos, como detecção de malware ou conexão de IP mal-intencionado tentativas.
-
->[!Note]
-> Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
-
-A Central de Segurança coleta dados das máquinas virtuais para avaliar seu estado de segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusá-la [desabilitando a coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-faq) na política da Central de Segurança.
-
-Por fim, a Central de Segurança do Azure é uma plataforma aberta que permite aos parceiros da Microsoft e fornecedores de software independentes criar software que se conecte à Central de Segurança do Azure para aprimorar seus recursos.
+Por fim, a Central de Segurança do Azure analisa a integridade da segurança dos recursos com base nessas políticas e usa essas informações para fornecer painéis e alertas repletos de insights para eventos como detecção de malware ou tentativas de conexão de IP mal-intencionada. Para obter mais informações sobre como aplicar recomendações, confira [Implementando as recomendações de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
-- Máquinas virtuais (VMs) (incluindo os Serviços de Nuvem)
+- VMs (máquinas virtuais) (incluindo serviços de nuvem)
 
-- Redes Virtuais do Azure
+- Redes virtuais
 
-- Serviço do SQL Azure
+- Bancos de dados SQL
 
-- Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
+- Soluções de parceiros integradas à sua assinatura do Azure, como um Firewall do Aplicativo Web em VMs e no [Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme)
+
+Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. Recomendamos que você mantenha a coleta de dados habilitada, mas você pode [desabilitá-la](https://docs.microsoft.com/azure/security-center/security-center-faq) na política da Central de Segurança.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-O desenvolvimento do software Log Analytics e o serviço de segurança da informação da equipe e o [programa de governança](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) dão suporte aos requisitos do negócio e aderem a leis e regulamentos como descrito na [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/) e na [Central de Conformidade da Microsoft](https://microsoft.com/en-us/trustcenter/compliance). Como o Log Analytics estabelece os requisitos de segurança, identifica os controles de segurança, gerencia e monitora os riscos também são descritos lá. Anualmente, revisamos as políticas, padrões, procedimentos e diretrizes.
+O [programa de governança](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) e segurança de informações da equipe de serviço e desenvolvimento de software do Azure Log Analytics dá suporte a seus requisitos de negócios. Ele cumpre leis e regulamentos, conforme descrito em [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/) e [Conformidade da Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Como o Log Analytics estabelece os requisitos de segurança, identifica os controles de segurança, gerencia e monitora os riscos também são descritos. Anualmente, a equipe examina políticas, padrões, procedimentos e diretrizes.
 
-Cada membro de equipe de desenvolvimento do Log Analytics recebe treinamento formal sobre a segurança de aplicativo. Internamente, usamos um sistema de controle de versão para o desenvolvimento de software. Cada projeto de software é protegido pelo sistema de controle de versão.
+Cada membro de equipe de desenvolvimento do Log Analytics recebe treinamento formal sobre a segurança de aplicativo. Um sistema de controle de versão ajuda a proteger cada projeto de software em desenvolvimento.
 
-A Microsoft tem uma equipe de segurança e conformidade que monitora e analisa todos os serviços na Microsoft. Os responsáveis pela segurança de informações compõem a equipe e eles não são associados aos departamentos de engenharia que desenvolvem o Log Analytics. Os responsáveis pela segurança têm sua própria cadeia de gerenciamento e realizaram avaliações independentes dos produtos e serviços para garantir a segurança e a conformidade.
-
-O Azure fornece um conjunto de serviços de gerenciamento que foram criados na nuvem desde o início. Em vez de implantar e gerenciar recursos locais, esses componentes estão totalmente hospedados no Azure. A configuração é mínima e você pode ter tudo funcionando literalmente em questão de minutos.
-
-![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig8.png)
-
-Só porque os serviços do Log Analytics são executados na nuvem não significa que eles não possam gerenciar efetivamente seu ambiente local.
-
-Coloque um agente em qualquer computador Windows ou Linux no seu data center e ele enviará dados para o Log Analytics, onde poderão ser analisados junto com todos os outros dados coletados de serviços na nuvem ou locais. Use o Backup do Azure e o Azure Site Recovery para aproveitar a nuvem como backup e alta disponibilidade de recursos locais.
-
-Os runbooks na nuvem normalmente não podem acessar os recursos locais, mas você pode instalar um agente em um ou mais computadores para hospedar runbooks em seu data center. Quando você inicia um runbook, basta simplesmente especificar se deseja que ele seja executado na nuvem ou em um local de trabalho.
+A Microsoft tem uma equipe de segurança e conformidade que monitora e analisa todos os serviços na Microsoft. Os diretores de segurança da informação compõem a equipe e não estão associados aos departamentos de engenharia que desenvolvem o Log Analytics. Os diretores de segurança têm sua própria cadeia de gerenciamento. Eles conduziram avaliações independentes de produtos e serviços para ajudar a garantir a segurança e a conformidade.
 
 A principal funcionalidade do Log Analytics é oferecida por um conjunto de serviços que são executados no Azure. Cada serviço fornece uma função de gerenciamento específico, e você pode combinar serviços para obter cenários de gerenciamento diferentes.
 
-![Pacote do Operations Manager](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Serviços do Azure para gerenciamento](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Gerenciador de operação do Azure estende suas funcionalidades fornecendo soluções de gerenciamento. [Soluções de gerenciamento](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento específico utilizando um ou mais serviços de gerenciamento.
+Esses serviços de gerenciamento foram criados na nuvem. Eles são totalmente hospedados no Azure, para que não envolvam a implantação e o gerenciamento de recursos locais. A configuração é mínima e você pode ter tudo funcionando em questão de minutos.
 
-![Gerenciamento de operação do Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+Coloque um agente em qualquer computador Windows ou Linux em seu datacenter, e ele enviará dados para o Log Analytics. Nele, eles podem ser analisados junto com todos os outros dados coletados de serviços de nuvem ou locais. Use o Backup do Azure e o Azure Site Recovery para aproveitar a nuvem para backup e alta disponibilidade de recursos locais.
 
-Existem soluções diferentes disponibilizadas pela Microsoft e por parceiros que você pode adicionar facilmente à assinatura do Azure para aumentar o valor de seu investimento no Log Analytics.
+![Serviços de gerenciamento no painel do Azure](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-Como parceiro, você pode criar suas próprias soluções para dar suporte a seus aplicativos e serviços e oferecê-las aos usuários por meio do Azure Marketplace ou como Modelos de Início Rápido.
+Os runbooks na nuvem normalmente não podem acessar os recursos locais, mas você pode instalar um agente em um ou mais computadores que hospedarão os runbooks no datacenter. Ao iniciar um runbook, especifique se deseja que ele seja executado na nuvem ou em um trabalho local.
+
+Diferentes soluções estão disponíveis na Microsoft e em parceiros que você pode adicionar à sua assinatura do Azure para aumentar o valor de seu investimento no Log Analytics. Por exemplo, o Azure oferece [soluções de gerenciamento](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) – conjuntos de lógica pré-empacotados que implementam um cenário de gerenciamento usando um ou mais serviços de gerenciamento.
+
+![Galeria de soluções de gerenciamento no Azure](./media/governance-in-azure/security-governance-in-azure-fig10.png)
+
+Como parceiro, você pode criar suas próprias soluções para dar suporte a seus aplicativos e serviços e oferecê-las aos usuários por meio do Azure Marketplace ou como modelos de Início Rápido.
 
 ## <a name="performance-alerting-and-monitoring"></a>Desempenho do monitoramento e alertas
 
 ### <a name="alerting"></a>Alertas
 
-Os alertas são um método para monitorar as métricas do recurso do Azure, eventos ou logs, e ser notificado quando uma condição especificada é atendida.
+Os alertas são um método de monitoramento de logs, eventos ou métricas de recursos do Azure. Eles notificam você quando uma condição que você especificou é atendida.
 
-**Alertas nos diferentes serviços do Azure**
+Os alertas estão disponíveis em vários serviços, incluindo:
 
-Os alertas estão disponíveis em diferentes serviços, incluindo:
+- **Azure Application Insights**: permite alertas de teste na Web e de métrica. Para obter mais informações, confira [Definir alertas no Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) e [Monitorar a disponibilidade e a capacidade de resposta de qualquer site](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Application Insights: Permite os alertas de teste da Web e métrica.
+- **Log Analytics**: permite o roteamento de logs de atividades e de diagnóstico para o Log Analytics. Permite métrica, log e outros tipos de alerta. Para obter mais informações, consulte [Alertas no Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
 
->[!Note]
-> Consulte [Definir Alertas no Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) e [Monitorar a disponibilidade e a capacidade de resposta de qualquer site](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
-
-- Log Analytics: Habilita o roteamento de Atividade e Logs de Diagnóstico para o Log Analytics e permite alertas como de métrica, log e outros tipos.
-
->[!Note]
-> Para obter mais informações, consulte Alertas no [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).
-
-- Azure Monitor: Permite alertas com base nos valores das métricas e nos eventos do log de atividades. Você pode usar a [API REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx) para gerenciar alertas.
-
->[!Note]
-> Para obter mais informações, consulte [Using the Azure portal, PowerShell, or the command-line interface to create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
+- **Azure Monitor**: permite alertas com base nos valores das métricas e nos eventos do log de atividades. Você pode usar a [API REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx) para gerenciar alertas. Para obter mais informações, consulte [Using the Azure portal, PowerShell, or the command-line interface to create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 ### <a name="monitoring"></a>Monitoramento
 
-Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. Com diversos componentes interconectados e frequentes lançamentos, degradações podem ocorrer a qualquer momento. E se você estiver desenvolvendo um aplicativo, seus usuários normalmente descobrirão problemas que você não encontrou durante os testes. Você precisa tomar conhecimento dessas questões imediatamente e precisa ter ferramentas para diagnosticar e corrigir problemas. O Microsoft Azure tem uma variedade de ferramentas para identificar esses problemas.
+Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. Com diversos componentes interconectados e frequentes lançamentos, degradações podem ocorrer a qualquer momento. Além disso, se você estiver desenvolvendo um aplicativo, seus usuários normalmente descobrirão problemas que você não encontrou durante os testes. Você precisa tomar conhecimento desses problemas imediatamente e ter ferramentas para diagnosticar e corrigi-los.
 
-**Como posso monitorar meus aplicativos de nuvem do Azure?**
-
-Há uma variedade de ferramentas para monitorar serviços e aplicativos do Azure. Alguns de seus recursos se sobrepõem. Isso se deve em parte a razões históricas e, em parte, à fusão entre o desenvolvimento e a operação de um aplicativo.
+Há uma variedade de ferramentas para monitorar serviços e aplicativos do Azure. Alguns de seus recursos se sobrepõem. Isso se deve em parte à fusão entre o desenvolvimento e a operação de um aplicativo.
 
 Estas são as ferramentas de entidade de serviço:
 
-- O **Azure Monitor** é uma ferramenta básica para monitorar serviços em execução no Azure. Ele fornece dados de nível da infraestrutura sobre a taxa de transferência de um serviço e o ambiente em redor. Se você estiver gerenciando todos os seus aplicativos no Azure ou decidindo se deseja expandir ou reduzir recursos, o Azure Monitor oferece o que você usa para iniciar.
+- O **Azure Monitor** é uma ferramenta básica para monitorar os serviços em execução no Azure. Ele fornece dados de nível da infraestrutura sobre a taxa de transferência de um serviço e o ambiente em redor. Se você está gerenciando todos os seus aplicativos no Azure e está decidindo se deseja escalar ou reduzir verticalmente os recursos, o Azure Monitor pode ajudá-lo a começar.
 
-- O **Application Insights** pode ser usado para desenvolvimento e como uma solução de monitoramento de produção. Ele funciona instalando um pacote em seu aplicativo e, assim, fornecendo uma exibição mais interna do que está acontecendo. Seus dados incluem tempos de resposta de dependências, rastreamentos de exceção, instantâneos de depuração, perfis de execução. Ele fornece poderosas ferramentas inteligentes para analisar toda essa telemetria, tanto para ajudá-lo a depurar um aplicativo quanto para ajudá-lo a entender o que os usuários estão fazendo com ele. Você pode discernir se um pico no tempo de resposta se deve a algo em um aplicativo ou a algum problema de obtenção de recursos externo. Se você usar o Visual Studio e o aplicativo estiver apresentando falhas, você poderá ser levado diretamente para as linhas do código com o problema para que possa corrigi-lo.
+- O **Application Insights** pode ser usado para desenvolvimento e como uma solução de monitoramento de produção. Ele funciona pela instalação de um pacote no aplicativo e, portanto, fornecer uma exibição mais interna do que está acontecendo. Seus dados incluem tempos de resposta de dependências, rastreamentos de exceção, instantâneos de depuração e perfis de execução. Ele fornece ferramentas para analisar toda essa telemetria, para ajudá-lo a depurar um aplicativo e a entender o que os usuários estão fazendo com ele. Você pode discernir se um pico nos tempos de resposta se deve a algo em um aplicativo ou a algum problema externo de alocação de recursos. Se você usar o Visual Studio e o aplicativo apresentar falhas, vá diretamente para a linha de código com o problema para corrigi-la.
 
-- O **Log Analytics** é voltado para pessoas que precisam ajustar o desempenho e planejar a manutenção de aplicativos em execução na produção. Ele se baseia no Azure. Ele coleta e agrega dados de várias fontes, embora haja um atraso de 10 a 15 minutos. Ele fornece uma solução holística de gerenciamento de TI para a infraestrutura baseada em nuvem de terceiros (como o Amazon Web Services), do Azure e local. Ele fornece ferramentas mais sofisticadas para analisar dados de mais origens, permite consultas complexas em todos os logs e pode alertar proativamente sobre condições especificadas. Você pode até mesmo coletar dados personalizados em seu repositório central para que possa consultar e visualizá-los.
+- O **Log Analytics** é voltado para pessoas que precisam ajustar o desempenho e planejar a manutenção de aplicativos em execução na produção. Ele coleta e agrega dados de muitas fontes, com um atraso de 10 a 15 minutos. Ele fornece uma solução holística de gerenciamento de TI para a infraestrutura baseada em nuvem de terceiros (como o Amazon Web Services), do Azure e local. Ele fornece ferramentas para analisar os dados entre fontes, permite consultas complexas em todos os logs e pode alertar de forma proativa sobre condições especificadas. Você pode até mesmo coletar dados personalizados em seu repositório central e, em seguida, consultar e visualizar esses dados.
 
-- O **SCOM (System Center Operations Manager)** é voltado ao gerenciamento e monitoramento de grandes instalações de nuvem. Você pode já estar familiarizado como ele como uma ferramenta de gerenciamento para nuvens baseadas em Hyper-V e Windows Server local, mas ele também pode se integrar e gerenciar aplicativos do Azure. Entre outras coisas, ele pode instalar o Application Insights em aplicativos ativos existentes. Se um aplicativo falhar, ele lhe informa em segundos.
+- O **System Center Operations Manager** é voltado ao gerenciamento e monitoramento de instalações de nuvem de grande porte. Você pode já estar familiarizado com ele como uma ferramenta de gerenciamento para nuvens baseadas no Hyper-V e no Windows Server local, mas ele também pode ser integrado aos aplicativos do Azure e gerenciá-los. Entre outras coisas, ele pode instalar o Application Insights em aplicativos ativos existentes. Se um aplicativo ficar inativo, o Operations Manager informará você em poucos segundos.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Melhores práticas para criação de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
+- [Práticas recomendadas para criação de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)
 
-- [Exemplos de implementação da governança de assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Exemplos de implementação da governança de assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples)
 
-- [Governo do Microsoft Azure](https://docs.microsoft.com/azure/azure-government/).
+- [Microsoft Azure Governamental](https://docs.microsoft.com/azure/azure-government/)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284770"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341306"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de alerta personalizadas na Central de Segurança do Azure (versão prévia)
 Este documento ajuda você a criar regras de alerta personalizadas na Central de Segurança do Azure.
@@ -31,7 +31,7 @@ A Central de Segurança tem um conjunto predefinido de [alertas de segurança](h
 As regras de alerta personalizadas na Central de Segurança permitem que você defina novos alertas de segurança com base nos dados que já são coletados do seu ambiente. Você pode criar consultas e o resultado das consultas pode ser usado como critério para a regra personalizada; quando esse critério for atendido, a regra será executada. Você pode usar os eventos de segurança de computadores, logs de solução de segurança de parceiros ou dados ingeridos usando APIs para criar consultas personalizadas.
 
 > [!NOTE]
-> É necessário ter permissão de gravação no espaço de trabalho que você selecionou para armazenar o alerta personalizado.
+> [Alertas personalizados não têm suporte no recurso de ](security-center-investigation.md)investigação da Central de segurança.
 >
 >
 
@@ -52,7 +52,14 @@ Abra o painel **Central de Segurança** e execute as seguintes etapas para criar
 5.  Digite uma breve descrição que reflete a intenção da regra no campo **Descrição**.
 6.  Selecione o nível de gravidade (Alto, Médio, Baixo) de acordo com suas necessidades no campo **Gravidade**.
 7.  Selecione a assinatura à qual esta regra é aplicável no campo **Assinatura**.
-8.  Selecione o espaço de trabalho que você quer monitorar com essa regra no campo **Espaço de Trabalho** e, no campo **Consulta de Pesquisa**, a consulta que você quer usar para obter os resultados. É necessário ter permissão de gravação no espaço de trabalho que você selecionou para armazenar o alerta personalizado. O resultado da consulta dispara o alerta. Observe que, quando você digita uma consulta válida, a marca de seleção verde é exibida no canto direito deste campo:
+8.  Selecione o espaço de trabalho que você quer monitorar com essa regra no campo **Espaço de Trabalho** e, no campo **Consulta de Pesquisa**, a consulta que você quer usar para obter os resultados.
+
+    > [!NOTE]
+    > É necessário ter permissão de gravação no espaço de trabalho que você selecionou para armazenar o alerta personalizado.
+    >
+    >
+
+    O resultado da consulta dispara o alerta. Observe que, quando você digita uma consulta válida, a marca de seleção verde é exibida no canto direito deste campo:
 
     ![Consultar](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

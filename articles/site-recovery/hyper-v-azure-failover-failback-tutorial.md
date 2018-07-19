@@ -1,18 +1,18 @@
 ---
-title: Fazer failover e failback de VMs do Hyper-V replicadas no Azure com o Site Recovery | Microsoft Docs
-description: Saiba como fazer failover de VMs do Hyper-V no Azure e failback no site local com o Azure Site Recovery
+title: Executar failover e failback de VMs do Hyper-V replicadas no Azure com o Site Recovery | Microsoft Docs
+description: Saiba como executar failover de VMs do Hyper-V no Azure e failback no site local com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6a34187a87c6ecda461357a1c2fc8747ddf4b056
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294285"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919539"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Fazer failover e failback em VMs do Hyper-V replicadas no Azure
 
@@ -20,7 +20,7 @@ Este tutorial descreve como fazer failover de uma VM do Hyper-V no Azure. Após 
 
 > [!div class="checklist"]
 > * Verificar as propriedades da VM Hyper-V para saber se elas estão em conformidade com os requisitos do Azure
-> * Fazer um failover para o Azure
+> * Executar um failover para o Azure
 > * Failback do Azure para o local
 > * Faça replicação inversa de VMs locais para iniciar a replicação para o Azure novamente
 
@@ -38,23 +38,27 @@ Certifique-se de que não haja instantâneos na VM e que a VM local esteja desat
 O failover e o failback têm três estágios:
 
 1. **Failover para Azure**: fazer failover de VMs do Hyper-V do site local para Azure.
-2. **Failback para local**: fazer failover de VMs do Azure para o site local, quando disponível. Ele começa a replicar as VMs de volta para as VMs do Hyper-V locais. Após a sincronização inicial de dados, execute failover de VMs do Azure para o site local.  
-3. **Replicação inversa de VMs locais**: após o failback dos dados, replique inversamente as VMs locais para começar a replicá-las para o Azure.
+2. **Failback para local**: fazer failover de VMs do Azure para o site local, quando disponível. Ele inicia a sincronização de dados do Azure para o local e, após a conclusão, ele abre as VMs localmente.  
+3. **Replicação inversa de VMs locais**: após o failback local, replique inversamente as VMs locais para começar a replicá-las no Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
 Antes do failover, verifique as propriedades da VM e verifique se a VM atende aos [requisitos do Azure](hyper-v-azure-support-matrix.md#replicated-vms).
 
-1. Em **Itens Protegidos**, clique em **Itens Replicados** > <nome da VM>.
+Em **Itens Protegidos**, clique em **Itens Replicados** > VM.
 
-2. No painel **Item Replicado**, examine as informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
-     - Em **Computação e Rede**, é possível modificar as configurações de VM e de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após o failover e o endereço IP que será atribuído a ela. Os discos gerenciados não são compatíveis com failback do Azure para Hyper-V.
-      - Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
+2. No painel **Item Replicado**, há um resumo das informações da VM, o status de integridade e os últimos pontos de recuperação disponíveis. Clique em **Propriedades** para exibir mais detalhes.
+
+3. Em **Computação e Rede**, você pode modificar o nome do Azure, o grupo de recursos, o tamanho do destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as configurações de disco gerenciado.
+
+4. Você pode exibir ou modificar as configurações de rede, incluindo a rede/sub-rede na qual a VM do Azure estará localizada após o failover e o endereço IP que será atribuído a ela.
+
+5. Em **Discos**, é possível visualizar as informações sobre o sistema operacional e os discos de dados na VM.
 
 ## <a name="failover-to-azure"></a>Failover para o Azure
 
-1. Em **Configurações** > **Itens replicados** clique em VM > **Failover**.
-2. Em **Failover**, selecione o ponto de recuperação **Mais recente**. 
+1. Em **Configurações** > **Itens replicados**, clique na VM > **Failover**.
+2. Em **Failover**, selecione o **Último** ponto de recuperação. 
 3. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tenta desligar as VMs de origem antes de acionar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 4. Depois de verificar o failover, clique em **Confirmar**. Exclui todos os pontos de recuperação disponíveis.
 

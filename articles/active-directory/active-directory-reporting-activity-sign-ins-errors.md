@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231833"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971067"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory
 
@@ -75,9 +75,10 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |50008|A instrução de declaração SAML está ausente ou foi configurada incorretamente no token. Entre em contato com seu provedor de federação.|
 |50010|Falha na validação do URI de audiência para o aplicativo pois nenhuma audiência do token foi configurada. Entre em contato com o proprietário do aplicativo|
 |50011|O endereço de resposta está ausente, foi configurado incorretamente ou não coincide com os endereços de resposta configurados para o aplicativo. Teste a resolução listada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se ainda houver problemas, entre em contato com o proprietário ou o administrador do aplicativo|
+|50012| Essa é uma mensagem de erro genérica que indica a falha da autenticação. Isso pode ocorrer por motivos como credenciais ou declarações ausentes ou inválidas na solicitação. Garanta que a solicitação seja enviada com as credenciais e as declarações corretas. |
 |50013|A asserção é inválida devido a vários motivos: – O emissor do token não coincide com a versão da API dentro de seu intervalo de tempo válido -expired -malformed; – O token de atualização na asserção não é um token de atualização principal.|
 |50017|Falha na validação de certificação pelos seguintes motivos:<ul><li>Não é possível localizar o certificado de emissão na lista de certificados confiáveis</li><li>Não é possível localizar o CrlSegment esperado</li><li>Não é possível localizar o certificado de emissão na lista de certificados confiáveis</li><li>Ponto de distribuição de CRL delta é configurado sem um ponto de distribuição de CRL correspondente</li><li>Não é possível recuperar segmentos CRL válidos devido a um problema de tempo limite</li><li>Não é possível baixar o CRL</li></ul>Entre em contato com o administrador de locatário.|
-|50020|Usuário não autorizado – não é possível emitir tokens devido a um problema de versão – o nome do emissor não for especificado – problemas com o nome do emissor (nulo – comprimento máximo). Entre em contato com o proprietário do aplicativo|
+|50020|O usuário não está autorizado por um dos motivos a seguir.<ul><li>O usuário está tentando fazer logon com uma conta do MSA com o ponto de extremidade v1</li><li>O usuário não existe no locatário.</li></ul> Entre em contato com o proprietário do aplicativo.|
 |50027|Token JWT inválido pelos seguintes motivos:<ul><li>não contém declaração nonce, subdeclaração</li><li>incompatibilidade do identificador do assunto</li><li>declaração duplicada nas declarações de idToken</li><li>emissor inesperado</li><li>audiência inesperada</li><li>não está dentro de seu intervalo de tempo válido </li><li>o formato do token não é apropriado</li><li>falha na verificação de assinatura do token de ID externa do emissor.</li></ul>Entre em contato com o proprietário do aplicativo|
 |50029|URI inválida – o nome de domínio contém caracteres inválidos. Entre em contato com o administrador de locatário.|
 |50034|O usuário não existe no diretório. Entre em contato com seu administrador de locatário.|
@@ -99,7 +100,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |50089|O token de fluxo expirou – Falha na autenticação. Faça com que o usuário tente entrar novamente com o nome de usuário-senha|
 |50097|Autenticação de dispositivo necessária – As declarações DeviceId e DeviceAltSecId são nulas OU não existe nenhum dispositivo que corresponda ao identificador de dispositivo|
 |50099|A assinatura JWT do pacote é inválida. Entre em contato com o proprietário do aplicativo.|
-|50105|O usuário conectado não está atribuído a uma função para o aplicativo conectado. Atribuir o usuário ao aplicativo. Para obter mais informações: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|O usuário conectado não está atribuído a uma função para o aplicativo conectado. Atribuir o usuário ao aplicativo. Para obter mais informações: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|O objeto de realm de federação solicitado não existe. Entre em contato com o administrador de locatário.|
 |50120|Problema com o cabeçalho do JWT. Entre em contato com o administrador de locatário.|
 |50124|A transformação de declarações contém parâmetros de entrada inválidos. Entre em contato com o administrador de locatário para atualizar a política.|
@@ -173,7 +174,10 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |81001|O tíquete Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
 |81005|Pacote de autenticação sem suporte|
 |81007|O locatário não está habilitado para SSO contínuo|
-
+|90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação não compatível (apenas o método POST é compatível) ou não há suporte para o algoritmo de autenticação de tokens solicitado. Contate o desenvolvedor do aplicativo.|
+|90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
+|90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
+|90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: fb57ab0f746fcad702c18032b9da1a9ec820b809
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308135"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: integração do Azure Active Directory ao Gerenciador de Senhas Protetor e Cofre Digital
 
@@ -33,7 +33,7 @@ Integrar do Gerenciador de Senhas Protetor e do Cofre Digital ao Azure AD oferec
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Gerenciador de Senhas Protetor e Cofre Digital, você precisa dos seguintes itens:
 
@@ -208,7 +208,7 @@ Nesta seção, você habilita Brenda Fernandes a usar logon único do Azure conc
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Quando você clicar no bloco Gerenciador de Senhas Protetor e Cofre Digital no Painel de Acesso, deverá obter a página de logon do aplicativo Gerenciador de Senhas Protetor e Cofre Digital. Após a autenticação bem-sucedida, você deverá entrar no aplicativo. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando você clicar no bloco Gerenciador de Senhas Protetor e Cofre Digital no Painel de Acesso, deverá obter a página de logon do aplicativo Gerenciador de Senhas Protetor e Cofre Digital. Após a autenticação bem-sucedida, você deverá entrar no aplicativo. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

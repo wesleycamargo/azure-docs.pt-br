@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064195"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110721"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 
@@ -100,7 +100,7 @@ Em que SID = a ID do Sistema da instância do HANA
 
 E locatário = uma enumeração interna das operações durante a implantação de um locatário.
 
-Como você pode ver, o HANA compartilhado e usr/sap estão compartilhando o mesmo volume. A nomenclatura dos pontos de montagem inclui a ID do Sistema das instâncias do HANA, bem como o número de montagem. Em implantações escaláveis, há somente uma montagem, como mnt00001. Ao contrário da implantação escalável, em que você verá o mesmo número de montagens que os nós de trabalho e mestre. Para o ambiente escalável, os dados, o log e os volumes de backup de log são compartilhados e anexados a cada nó na configuração escalável. Para configurações que executam várias instâncias do SAP, um conjunto diferente de volumes é criado e anexado à unidade de Instância Grande do HANA. Consulte os [ cenários suportados pela HLI ](hana-supported-scenario.md) para obter detalhes do layout de armazenamento para seu cenário.
+Como você pode ver, o HANA compartilhado e usr/sap estão compartilhando o mesmo volume. A nomenclatura dos pontos de montagem inclui a ID do Sistema das instâncias do HANA, bem como o número de montagem. Em implantações escaláveis, há somente uma montagem, como mnt00001. Ao contrário da implantação escalável, em que você verá o mesmo número de montagens que os nós de trabalho e mestre. Para o ambiente escalável, os dados, o log e os volumes de backup de log são compartilhados e anexados a cada nó na configuração escalável. Para configurações que executam várias instâncias do SAP, um conjunto diferente de volumes é criado e anexado à unidade de Instância Grande do HANA. Consulte os [cenários suportados pela HLI](hana-supported-scenario.md) para obter detalhes do layout de armazenamento para seu cenário.
 
 Conforme você lê o documento e examina uma unidade de Instância Grande do HANA, descobrirá que as unidades são fornecidas com um volume de disco bem generoso para HANA/data e que temos um HANA/log/backup. O motivo pelo qual dimensionamos HANA/data para um tamanho tão grande é que os instantâneos de armazenamento que oferecemos para você, como cliente, estão usando o mesmo volume de disco. Isso significa que quanto mais instantâneos de armazenamento são tirados, mais espaço é consumido pelos instantâneos nos volumes de armazenamento atribuídos. O volume de HANA/log/backup não é considerado como sendo o volume no qual colocar os backups de banco de dados. Ele é dimensionado para ser usado como volume de backup para os backups de log de transações do HANA. Em versões futuras do autoatendimento de instantâneos de armazenamento, direcionaremos esse volume específico para que ele tenha instantâneos mais frequentes. E com isso, replicações mais frequentes no site de recuperação de desastre, caso você deseje aceitar a funcionalidade de recuperação de desastre fornecida pela infraestrutura de Instância Grande do HANA. Consulte os detalhes em [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 

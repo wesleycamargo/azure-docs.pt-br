@@ -11,14 +11,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/26/2018
+  ms.date: 07/17/2018
   ms.author: ryanwi
-  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
-  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+  ms.openlocfilehash: d2f0a847bdc0d26ff44013e3dbe1c2c6acd0c54d
+  ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39090036"
+  ms.lasthandoff: 07/18/2018
+  ms.locfileid: "39124857"
 abstract:
   description: A Malha do Azure Service Fabric é um serviço totalmente gerenciado que permite que os desenvolvedores compilem e implantem aplicativos críticos sem gerenciar nenhuma infraestrutura.  Use a Malha do Service Fabric para compilar e executar aplicativos de microsserviços seguros e distribuídos que se dimensionam sob demanda. Saiba como usar a Malha do Service Fabric com nossos guias de início rápido e tutoriais.  Para saber mais, leia a <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">visão geral da Malha do Service Fabric</a>.
 sections:
@@ -35,13 +35,13 @@ sections:
       href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
     - image:
         src: https://docs.microsoft.com/media/logos/logo_netcore.svg
-      text: Criar e implantar um aplicativo Web
+      text: Criar e implantar um aplicativo Web na Malha do Service Fabric
       href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Saiba como criar, depurar e implantar um aplicativo de Malha do Azure Service Fabric.
+    text: Saiba como criar, depurar e implantar um aplicativo de Malha de vários serviços do Azure Service Fabric.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Implantar um aplicativo .NET Core</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Criar, depurar e implantar um aplicativo Web de vários serviços na Malha de serviço de malha</a>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298783"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441525"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solucionar problemas e diagnosticar falhas nos aplicativos lógicos
 
@@ -105,15 +105,15 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
 ## <a name="perform-runtime-debugging"></a>Realizar depuração de tempo de execução
 
-Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, bem como examinar os históricos de gatilho e de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [RequestBin](http://requestb.in) para poder inspecionar solicitações HTTP e determinar seu tamanho, forma e formato exatos.
+Para ajudar na depuração, você pode adicionar etapas de diagnóstico a um fluxo de trabalho, bem como examinar os históricos de gatilho e de execuções. Por exemplo, você pode adicionar etapas que usam o serviço [Webhook Tester](https://webhook.site/) para poder inspecionar solicitações HTTP e determinar seu tamanho, forma e formato exatos.
 
-1. Crie um RequestBin, que poderá ser privado e visualizável apenas no seu navegador.
+1. Visite [Webhook testador](https://webhook.site/) e copie a URL exclusiva criada
 
 2. No seu aplicativo lógico, adicione uma ação HTTP POST com o conteúdo do corpo que você deseja testar, como por exemplo, uma expressão ou outra saída da etapa.
 
-3. Cole a URL para o RequestBin na ação HTTP POST.
+3. Cole a URL para o Webhook Tester na ação HTTP POST.
 
-4. Para examinar como a solicitação é formada quando é gerada pelo mecanismo de Aplicativos Lógicos, execute o aplicativo lógico e atualize seu RequestBin.
+4. Para examinar como a solicitação é formada quando é gerada pelo mecanismo de Aplicativos Lógicos, execute o aplicativo lógico e atualize seu Webhook Tester.
 
 ## <a name="next-steps"></a>Próximas etapas
 

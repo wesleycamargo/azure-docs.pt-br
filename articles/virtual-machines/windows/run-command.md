@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332707"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342701"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell em sua VM Windows com o recurso Executar Comando
 
@@ -35,8 +35,7 @@ As seguintes considerações se aplicam ao usar o recurso Executar Comando:
 * É possível executar um script por vez
 * Não é possível cancelar um script em execução
 * O tempo máximo que um script pode ser executado é 90 minutos. Após esse tempo, ele atingirá o tempo limite
-
-**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
+* A conectividade de saída da VM é necessária para retornar os resultados do script.
 
 ## <a name="run-a-command"></a>Executar um comando
 

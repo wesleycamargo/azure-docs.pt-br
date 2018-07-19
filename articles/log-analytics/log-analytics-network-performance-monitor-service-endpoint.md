@@ -1,6 +1,6 @@
 ---
 title: Solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
-description: Use recurso de Gerenciador de Ponto de Extremidade de Serviço no Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta.
+description: Use o recurso Monitor de Conectividade de Serviço em Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tem uma porta TCP aberta.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030702"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434912"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -78,7 +79,7 @@ Comece criando os testes para monitorar a conectividade de rede aos pontos de ex
 10. Escolha as condições de monitoramento. Você pode definir limites personalizados para geração de eventos de integridade digitando os valores de limite. Sempre que o valor da condição ultrapassar o limite selecionado para o par de rede ou sub-rede selecionado, será gerado um evento de integridade. 
 11. Selecione **Salvar** para salvar a configuração. 
 
-    ![Configurações de teste do Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configurações de teste do Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ Comece criando os testes para monitorar a conectividade de rede aos pontos de ex
 
 Vá até a visualização do painel do Monitor de Desempenho de Rede. Para obter um resumo da integridade de testes diferentes que você criou, consulte a página **Monitor de Conectividade de Serviço**. 
 
-![Página Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Página de Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 Selecione o bloco para visualizar detalhes dos testes na página de **Testes**. Na tabela à esquerda, você pode exibir a integridade de point-in-time e o valor do tempo de resposta do serviço, latência de rede e perda de pacotes para todos os testes. Use o controle de Gravador de Estado da Rede para exibir o instantâneo de rede em outro momento no passado. Selecione o teste na tabela que você deseja investigar. Nos gráficos no painel à direita, você pode exibir as tendências históricas de valores de perda, latência e tempo de resposta. Selecione o link Clique **Detalhes de Teste** para exibir o desempenho de cada nó.
 
-![Testes de Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Testes do Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 No modo de exibição **nós de teste**, você pode observar a conectividade de rede de cada nó. Selecione o nó que tem a degradação do desempenho. Este é o nó em que o aplicativo é observado em execução lenta.
 
@@ -98,17 +99,17 @@ Determine se o desempenho insatisfatório do aplicativo é devido à rede ou dev
 
 * **Problema de aplicativo:** um aumento no tempo de resposta, mas a latência de rede é sugere que a rede está funcionando corretamente e o problema é devido a um problema no final do aplicativo. 
 
-    ![Problema de aplicativo do Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Emita o aplicativo de Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **Problema de Rede:** um aumento no tempo de resposta é acompanhado de um aumento correspondente na latência de rede que o aumento no tempo de resposta é devido a um aumento na latência de rede. 
 
-    ![Problema de Rede de Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Emita a rede de Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 Depois de determinar que o problema é devido à rede, selecione a exibição **Topologia** para identificar o salto problemático no mapa de topologia. Um exemplo é mostrado na imagem a seguir. Fora dos 105ms de latência total entre o nó e o ponto de extremidade do aplicativo, 96ms é devido ao salto marcado em vermelho. Depois de identificar o salto problemático, você pode adotar uma ação corretiva. 
 
-![Testes de Monitor de Ponto de Extremidade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Testes do Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnostics 
+## <a name="diagnostics"></a>Diagnósticos 
 
 Se você observar uma anormalidade, siga estas etapas:
 

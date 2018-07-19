@@ -8,15 +8,19 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263439"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932190"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas novos](monitoring-near-real-time-metric-alerts.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+> [!IMPORTANT]
+> O modelo do Resource Manager especificado para o alerta de métrica não funcionará para o tipo de recurso Microsoft.OperationalInsights/workspaces, pois o suporte para métricas do Log Analytics está em versão prévia. Os usuários interessados em usar a funcionalidade de versão prévia com o modelo de recurso podem entrar em contato por meio dos [Comentários de Alertas do Azure](mailto:azurealertsfeedback@microsoft.com)
+
 
 Estas são as etapas básicas:
 

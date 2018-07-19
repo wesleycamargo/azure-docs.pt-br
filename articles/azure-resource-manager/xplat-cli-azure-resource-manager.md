@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4111d1d990f3e9efb78fae0476b027d5bae013af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd111c33cbd348a05ed0f0c04f7325347612e54d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603238"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38506376"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure
 
@@ -35,7 +35,7 @@ Este artigo mostra como implantar um modelo do Resource Manager à sua assinatur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli).
+Para instalar e usar a CLI localmente, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="set-subscription"></a>Configurar assinatura
 

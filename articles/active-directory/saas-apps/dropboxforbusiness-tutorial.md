@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a0481b2eb688b70d5e56b2b6793b026d6b4c96a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3423f723b3f4857db44c609cd0e2143b6b04653e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219992"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: integração do Active Directory do Azure ao Dropbox for Business
 
@@ -158,7 +158,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     a. Clique em **Obrigatório**.
    
-    b. Na caixa de texto **URL de entrada**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
+    b. Na caixa de texto **URL de entrada**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     c. Clique em **Escolher certificado** e, depois, procure o **arquivo de certificado codificado em Base64**.
 

@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297746"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133227"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 Obrigado por usar o portal do OMS. Nos sentimos motivados pelo seu suporte e continuamos a investir pesadamente em nossos serviços de gerenciamento e monitoramento. Uma parte dos comentários ouvida repetidamente de clientes é a necessidade de uma única experiência de usuário monitorar e gerenciar tanto as cargas de trabalho do Azure quanto as locais. Provavelmente você sabe que o portal do Azure é o hub para todos os serviços do Azure e oferece uma rica experiência de gestão, com funcionalidades como painéis para fixação de recursos, pesquisa inteligente para localização de recursos e marcação para gerenciamento de recursos. Para consolidar e simplificar o fluxo de trabalho de monitoramento e gerenciamento, começamos adicionando as funcionalidades do portal do OMS ao portal do Azure. Estamos felizes em anunciar que a maioria dos recursos do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, como o Gerenciador de Tráfego, só estão disponíveis no portal do Azure. Há apenas algumas poucas coisas faltando, sendo que as de maior impacto são cinco soluções que ainda estão em processo de serem movidas para o portal do Azure. Se não estiver usando esses recursos, você poderá fazer tudo o que você estava fazendo no portal do OMS com o portal do Azure e muito mais. Se você ainda não fez isso, recomendamos que comece a usar o portal do Azure hoje mesmo! 
@@ -94,7 +95,7 @@ Com o suporte de [consultas entre recursos](log-analytics-cross-workspace-search
 
 
 ## <a name="azure-network-security-group-analytics"></a>Análise de Grupo de Segurança de Rede do Azure
-A [solução de Análise do Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) será substituída pela recém-lançada [Análise de Tráfego](../network-watcher/traffic-analytics.md) que fornece visibilidade sobre a atividade de usuário e do aplicativo em redes de nuvem. A Análise de Tráfego ajuda você a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade. 
+A [solução de Análise do Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) será substituída pela recém-lançada [Análise de Tráfego](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) que fornece visibilidade sobre a atividade de usuário e do aplicativo em redes de nuvem. A Análise de Tráfego ajuda você a auditar a atividade de rede de sua organização, proteger aplicativos e dados, otimizar o desempenho da carga de trabalho e permanecer em conformidade. 
 
 Esta solução analisa logs de fluxo NSG e fornece insights sobre os elementos a seguir.
 
@@ -105,7 +106,7 @@ Esta solução analisa logs de fluxo NSG e fornece insights sobre os elementos a
 - Segurança, incluindo tráfego malicioso, portas abertas para a Internet, aplicativos ou VMs que tentam acessar a Internet.
 - Utilização de capacidade, que lhe ajuda a eliminar problemas de sobreprovisionamento ou subutilização.
 
-Você pode continuar a contar com as Configurações de Diagnóstico para enviar logs de NSG para o Log Analytics para que suas pesquisas salvas, alertas e painéis existentes continuem a funcionar. Os clientes que já instalaram a solução podem continuar a usá-la até nova ordem. A partir de 20 de junho, a solução NSG será removida do Marketplace e disponibilizada por meio da comunidade como um [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+Você pode continuar a contar com as Configurações de Diagnóstico para enviar logs de NSG para o Log Analytics para que suas pesquisas salvas, alertas e painéis existentes continuem a funcionar. Os clientes que já instalaram a solução podem continuar a usá-la até nova ordem. A partir de 20 de junho, a solução Grupo de Segurança de Rede Analítica será removida do Marketplace e disponibilizada por meio da comunidade como um [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [Perguntas comuns para a transição do portal do OMS para o portal do Azure para usuários do Log Analytics](log-analytics-oms-portal-faq.md) para obter diretrizes sobre como fazer a transição do portal do OMS para o portal do Azure.

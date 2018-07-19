@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318112"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718950"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
 
@@ -99,8 +99,10 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 1. No assistente de gerenciamento do servidor de configuração, selecione **Configurar conectividade** e, em seguida, selecione a NIC que será usada pelo servidor de processo para receber o tráfego de replicação das VMs. Em seguida, selecione **Salvar**. Não é possível alterar essa configuração depois de ela ter sido definida.
 2. Em **Selecionar cofre de Serviços de Recuperação**, entre no Microsoft Azure, selecione sua assinatura do Azure e o grupo de recursos e o cofre relevantes.
-    >[!NOTE]
+
+    > [!NOTE]
     > Uma vez registrado, não há flexibilidade para alterar o cofre de serviços de recuperação.
+    
 3. Em **Instalar software de terceiros**,
 
     |Cenário   |Etapas a serem executadas  |
@@ -117,11 +119,27 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 ## <a name="faq"></a>Perguntas frequentes
 
-1. Posso usar a VM em que o servidor de configuração está instalado para outros fins? **Não**, o servidor de configuração deve ser um servidor de finalidade única, e não há suporte para seu uso como um servidor compartilhado.
-2. Posso trocar o cofre já registrado no servidor de configuração por um cofre recém-criado? **Não**, uma vez que um cofre é registrado no servidor de configuração, ele não pode ser alterado.
-3. Posso usar o mesmo servidor de configuração para proteger máquinas físicas e virtuais? **Sim**, o mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, não há suporte para a realização de failback para um computador físico.
-4. Onde o servidor de Configuração será usado? Confira nossa arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e suas funcionalidades.
-5. Onde obter a última versão do servidor de Configuração? Você pode baixá-lo diretamente do [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver). Confira o artigo sobre as etapas para atualizar o servidor de configuração [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+1. Posso usar a VM na qual o servidor de Configuração está instalado para outros fins?
+
+    **Não**. Recomendamos que você use a VM para a única finalidade do servidor de configuração. Siga todas as especificações mencionadas na [seção anterior](vmware-azure-deploy-configuration-server.md#Prerequisites) para um gerenciamento eficiente da recuperação de desastre.
+2. Posso trocar o cofre já registrado no servidor de configuração por um cofre recém-criado?
+
+    **Não**, uma vez que um cofre é registrado no servidor de configuração, ele não pode ser alterado.
+3. Posso usar o mesmo servidor de configuração para proteger máquinas físicas e virtuais?
+
+    **Sim**, o mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, o computador físico pode ter failback somente para uma VM do VMware.
+4. Qual é a finalidade de um Servidor de configuração e em que local ele é usado?
+
+    Confira nossa arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e suas funcionalidades.
+5. Onde obter a última versão do servidor de Configuração?
+
+    Veja o artigo sobre as etapas usadas para atualizar o servidor de configuração [por meio do portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Baixe-o diretamente no [Centro de Download da Microsoft](https://aka.ms/asrconfigurationserver).
+6. Em que local posso baixar a frase secreta para o servidor de configuração?
+
+    Veja [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para baixar a frase secreta.
+7. Em que local posso baixar as chaves de registro do cofre?
+
+    No **Cofre dos Serviços de Recuperação**, **Gerenciar** > **Infraestrutura do Site Recovery** > **Servidores de Configuração**. Em Servidores, selecione **Baixar chave de registro** para baixar o arquivo de credenciais do cofre.
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 

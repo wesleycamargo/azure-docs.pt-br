@@ -1,6 +1,6 @@
 ---
 title: Compreender as definições de função no RBAC do Azure | Microsoft Docs
-description: Saiba mais sobre as definições RBAC (controle de acesso baseado em função) e como definir funções personalizadas para o gerenciamento de acesso refinado de recursos no Azure.
+description: Saiba mais sobre as definições de regra no controle de acesso baseado em função (RBAC) e como definir funções personalizadas para o gerenciamento de acesso refinado de recursos no Microsoft Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,19 +8,19 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1d594b91b85a1bad3bbaa69bc27e62a4829a5661
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266849"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438258"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -47,7 +47,7 @@ type
 
 Operações são especificadas com cadeias de caracteres que têm o seguinte formato:
 
-- `Microsoft.{ProviderName}/{ChildResourceType}/{action}`
+- `{Company}.{ProviderName}/{resourceType}/{action}`
 
 A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo de operações que você pode executar em um tipo de recurso. Por exemplo, você verá as seguintes subcadeias de caracteres em `{action}`:
 
@@ -94,7 +94,7 @@ Aqui está a definição da função [Colaborador](built-in-roles.md#contributor
 
 ## <a name="management-and-data-operations-preview"></a>Gerenciamento e operações de dados (visualização)
 
-O controle de acesso baseado em função para operações de gerenciamento é especificado nas seções `actions` e `notActions` de uma definição de função. Aqui estão alguns exemplos de operações de gerenciamento no Azure:
+O controle de acesso baseado em função para operações de gerenciamento é especificado nas propriedades `actions` e `notActions` de uma definição de função. Aqui estão alguns exemplos de operações de gerenciamento no Azure:
 
 - Gerenciar o acesso a uma conta de armazenamento
 - Criar, atualizar ou excluir um contêiner de blob
@@ -104,13 +104,13 @@ O acesso de gerenciamento não é herdado para seus dados. Essa separação impe
 
 Anteriormente, o controle de acesso baseado em função não foi usado para operações de dados. Autorização para operações de dados variadas em provedores de recursos. O mesmo modelo de autorização de controle de acesso baseado em função usado para operações de gerenciamento foi estendido para operações de dados (atualmente na visualização).
 
-Para dar suporte a operações de dados, novas seções de dados foram adicionadas à estrutura de definição de função. Operações de dados são especificadas no `dataActions` e `notDataActions` seções. Adicionando essas seções de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atual com curingas (`*`) de repente ter acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `dataActions` e `notDataActions`:
+Para dar suporte a operações de dados, novas propriedades de dados foram adicionadas à estrutura de definição de função. Operações de dados são especificadas no `dataActions` e `notDataActions` propriedades. Adicionando essas propriedades de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atual com curingas (`*`) de repente ter acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `dataActions` e `notDataActions`:
 
 - Leia uma lista de blobs em um contêiner
 - Gravar um blob de armazenamento em um contêiner
 - Deletar uma mensagem em uma fila
 
-Aqui está a [ definição de função do Leitor de Dados de Blob de Armazenamento (Visualização) ](built-in-roles.md#storage-blob-data-reader-preview), que inclui operações nas seções `actions` e `dataActions`. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
+Aqui está a [ definição de função do Leitor de Dados de Blob de Armazenamento (Visualização) ](built-in-roles.md#storage-blob-data-reader-preview), que inclui operações nas propriedades `actions` e `dataActions`. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
 
 ```json
 [
@@ -142,7 +142,7 @@ Aqui está a [ definição de função do Leitor de Dados de Blob de Armazenamen
 ]
 ```
 
-Apenas operações de dados podem ser adicionadas para o `dataActions` e `notDataActions` seções. Provedores de recursos identificam quais operações são operações de dados, definindo o `isDataAction` propriedade `true`. Para ver uma lista das operações em que `isDataAction` é `true`, consulte [ Operações do provedor de recursos ](resource-provider-operations.md). Funções que não têm as operações de dados não precisam ter `dataActions` e `notDataActions` seções dentro da definição de função.
+Apenas operações de dados podem ser adicionadas para o `dataActions` e `notDataActions` propriedades. Provedores de recursos identificam quais operações são operações de dados, definindo o `isDataAction` propriedade `true`. Para ver uma lista das operações em que `isDataAction` é `true`, consulte [ Operações do provedor de recursos ](resource-provider-operations.md). Funções que não têm as operações de dados não precisam ter `dataActions` e `notDataActions` propriedades dentro da definição de função.
 
 Autorização para todas as chamadas de API de operação de gerenciamento é tratada pelo Gerenciador de recursos do Azure. A autorização para chamadas de API de operação de dados é tratada por um provedor de recursos ou o Gerenciador de recursos do Azure.
 
@@ -190,7 +190,7 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 
 ## <a name="actions"></a>Ações
 
-A permissão `actions` especifica as operações de gerenciamento às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Aqui estão alguns exemplos de operações de gerenciamento que podem ser usadas no `actions`.
+Uma permissão `actions`especifica as operações de gerenciamento permitidas pela função a ser realizada. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Aqui estão alguns exemplos de operações de gerenciamento que podem ser usadas no `actions`.
 
 | Cadeia de caracteres da operação    | DESCRIÇÃO         |
 | ------------------- | ------------------- |
@@ -210,7 +210,7 @@ A permissão `notActions` especifica as operações de gerenciamento que são ex
 
 ## <a name="dataactions-preview"></a>dataActions (visualização)
 
-O `dataActions` permissão especifica as operações de dados ao qual a função concede acesso aos seus dados dentro desse objeto. Por exemplo, se um usuário tem acesso de leitura blob dados para uma conta de armazenamento, eles podem ler blobs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usados em `dataActions`.
+Uma permissão `dataActions` que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Por exemplo, se um usuário tem acesso de leitura blob dados para uma conta de armazenamento, eles podem ler blobs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usados em `dataActions`.
 
 | Cadeia de caracteres da operação    | DESCRIÇÃO         |
 | ------------------- | ------------------- |
@@ -229,11 +229,9 @@ O `notDataActions` permissão especifica as operações de dados que são exclu�
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-A seção `assignableScopes` especifica os escopos (grupos de gerenciamento (atualmente na versão prévia), assinaturas, grupos de recursos ou recursos) em que a função está disponível para atribuição. Você pode disponibilizar a função para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
+A propriedade `assignableScopes` especifica os escopos (grupos de gerenciamento (atualmente na versão prévia), assinaturas, grupos de recursos ou recursos) em que a função está disponível para atribuição. Você pode disponibilizar a função para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
 
-As funções internas têm `assignableScopes` definido como o escopo raiz (`"/"`). O escopo raiz indica que a função está disponível para atribuição em todos os escopos. Você não pode usar o escopo raiz em suas próprias funções personalizadas. Se você tentar, receberá um erro de autorização.
-
-Exemplos de escopos válidos que podem ser atribuídos incluem:
+As funções internas têm `assignableScopes` definido como o escopo raiz (`"/"`). O escopo raiz indica que a função está disponível para atribuição em todos os escopos. Exemplos de escopos válidos que podem ser atribuídos incluem:
 
 | Cenário | Exemplo |
 |----------|---------|
@@ -242,86 +240,9 @@ Exemplos de escopos válidos que podem ser atribuídos incluem:
 | A função está disponível para atribuição apenas no grupo de recursos de rede | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | A função está disponível para atribuição em todos os escopos | `"/"` |
 
-## <a name="assignablescopes-and-custom-roles"></a>assignableScopes e funções personalizadas
+Para obter informações sobre `assignableScopes` para funções personalizadas, consulte [funções personalizadas](custom-roles.md).
 
-A seção `assignableScopes` de uma função personalizada também controla quem pode criar, excluir, modificar ou exibir a função personalizada.
-
-| Tarefa | Operação | DESCRIÇÃO |
-| --- | --- | --- |
-| Criar/excluir uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os usuários que recebem essa operação em todos os `assignableScopes` da função personalizada podem criar (ou excluir) funções personalizadas para uso nesses escopos. Por exemplo, os [Proprietários](built-in-roles.md#owner) e os [Administradores de Acesso do Usuário](built-in-roles.md#user-access-administrator) das assinaturas, grupos de recursos e recursos. |
-| Modificar uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os usuários que recebem essa operação em todos os `assignableScopes` da função personalizada podem modificar as funções personalizadas nesses escopos. Por exemplo, os [Proprietários](built-in-roles.md#owner) e os [Administradores de Acesso do Usuário](built-in-roles.md#user-access-administrator) das assinaturas, grupos de recursos e recursos. |
-| Exibir uma função personalizada | `Microsoft.Authorization/ roleDefinition/read` | Os usuários que recebem essa operação em um escopo podem exibir as funções personalizadas que estão disponíveis para atribuição nesse escopo. Todas as funções internas permitem que funções personalizadas estejam disponíveis para atribuição. |
-
-## <a name="role-definition-examples"></a>Exemplos de definição de função
-
-A exemplo a seguir mostra a definição da função [Leitor](built-in-roles.md#reader) conforme exibido usando a CLI do Azure:
-
-```json
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you view everything, but not make any changes.",
-    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "permissions": [
-      {
-        "actions": [
-          "*/read"
-        ],
-        "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Reader",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-O exemplo a seguir mostra uma função personalizada para monitoramento e reinicialização de máquinas virtuais conforme mostrado usando o Azure PowerShell:
-
-```json
-{
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
-  ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
-}
-```
-
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 * [Funções internas](built-in-roles.md)
 * [Funções personalizadas](custom-roles.md)

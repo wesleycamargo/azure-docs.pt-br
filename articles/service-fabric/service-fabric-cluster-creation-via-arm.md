@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701345"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444354"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -115,6 +115,10 @@ O modelo usado está disponível nos [Exemplos de modelos do Azure Service Fabri
 
 Os comandos abaixo funcionam para criação de clusters do Windows e Linux, basta especificar o sistema operacional adequadamente. Os comandos do PowerShell / CLI também exibem o certificado no CertificateOutputFolder especificado; no entanto, verifique se a pasta de certificados já foi criada. O comando aceita outros parâmetros como VM SKU.
 
+> [!NOTE]
+> O comando do Powershell abaixo só funciona com o Azure Resource Manager PowerShell versão > 6.1. Para verificar a versão atual do PowerShell do Azure Resource Manager, execute o seguinte comando do PowerShell "Get-Module AzureRM". Siga este link para atualizar sua versão do PowerShell do Azure Resource Manager. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+>
+>
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"

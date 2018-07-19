@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751036"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081448"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 A auditoria do banco de dados SQL do Azure acompanha eventos do banco de dados e grava-os em um log de auditoria em sua conta de armazenamento do Azure. A auditoria também:
@@ -62,20 +62,18 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
-2. Acesse a folha **Configurações** do banco de dados SQL/SQL Server que você deseja auditar. Na folha **Configurações**, selecione **Auditoria e Detecção de ameaças**.
+2. Navegue até **auditoria** sob o título de segurança no seu painel de servidor/banco de dados SQL.
 
     <a id="auditing-screenshot"></a> ![Painel de navegação][1]
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na folha de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados nesse servidor.
 
     ![Painel de navegação][2]
-4. Se preferir habilitar a auditoria de blob no nível do banco de dados, em **Auditoria**, selecione **ATIVADO** e, em **Tipo de auditoria**, selecione **Blob**.
+4. Se você preferir habilitar a auditoria no nível do banco de dados, alterne **Auditoria** para **LIGADO**.
 
-    Se a auditoria de blob do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria de blob do servidor.
+    Se a auditoria do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria do servidor.
 
     ![Painel de navegação][3]
 5. Para abrir a folha **Armazenamento de Logs de Auditoria**, selecione **Detalhes de Armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Os logs antigos serão excluídos. Em seguida, clique em **OK**.
-    >[!TIP]
-    >Para aproveitar ao máximo os modelos de relatórios de auditoria, use a mesma conta de armazenamento para todos os bancos de dados auditados.
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
 6. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
@@ -102,7 +100,8 @@ Há vários métodos que podem ser usados para exibir os logs de auditoria de bl
     Uma folha **Registros de auditoria** será aberta, na qual você poderá exibir os logs.
 
     - Exiba datas específicas clicando em **Filtro** na parte superior da folha **Registros de auditoria**.
-    - Alterne entre os registros de auditoria que foram criados por uma auditoria da política de servidor ou da política de banco de dados.
+    - Você pode alternar entre os registros de auditoria que foram criados pela *política de auditoria de servidor* e o *política de auditoria de banco de dados* ativando/desativando **origem auditoria**.
+    - Você pode exibir apenas os registros de auditoria relacionados de injeção de SQL clicando na caixa de seleção **Mostrar apenas registros das injeções de SQL de auditoria**.
 
        ![Painel de navegação][8]
 
@@ -147,8 +146,8 @@ Com bancos de dados com replicação geográfica, quando você habilitar a audit
 * Nível do servidor (**recomendado**): ative a auditoria do **servidor primário** e do **servidor secundário** – os bancos de dados primário e secundário serão auditados independentemente, com base em sua respectiva política no nível do servidor.
 
 * Nível de banco de dados: a auditoria de nível de banco de dados para bancos de dados secundários só pode ser configurada nas configurações de auditoria do banco de dados primário.
-   * A auditoria de blob precisa estar habilitada no *banco de dados primário*, não no servidor.
-   * Depois que a auditoria de blob estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
+   * A auditoria precisa estar habilitada no *banco de dados primário*, não no servidor.
+   * Depois que a auditoria estiver habilitada no banco de dados primário, ela também será habilitada no banco de dados secundário.
 
     >[!IMPORTANT]
     >Com a auditoria de nível de banco de dados, as configurações de armazenamento do banco de dados secundário serão idênticas às do banco de dados primário, causando um tráfego entre regiões. Recomendamos habilitar somente a auditoria no nível do servidor e deixar a auditoria no nível do banco de dados desabilitada para todos os bancos de dados.
@@ -204,7 +203,6 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
 * [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate) (Criar ou atualizar uma política de auditoria de blob de servidor)
 * [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get) (Obter a política de auditoria de blob do banco de dados)
 * [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get) (Obter a política de auditoria de blob do servidor)
-* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx) (Obter o resultado da operação de auditoria do blob do servidor)
 
 Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 * [Criar ou Atualizar *Política* de Auditoria de Blob de Bando de Dados Estendido](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

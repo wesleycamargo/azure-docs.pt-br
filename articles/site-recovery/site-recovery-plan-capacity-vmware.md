@@ -4,15 +4,15 @@ description: Use este artigo para planejar a capacidade e a escala ao replicar V
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287347"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920790"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planejar capacidade e dimensionamento para replicação VMware com o Azure Site Recovery
 
@@ -107,24 +107,10 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
 
 ## <a name="deploy-additional-process-servers"></a>Implantar servidores de processo adicionais
 
-Se for necessário escalar horizontalmente sua implantação para além de 200 computadores de origem ou se você tiver uma taxa de rotatividade diária total acima de 2 TB, serão necessários servidores de processo adicionais para lidar com o volume do tráfego. Siga estas instruções para configurar o servidor de processo. Depois de configurar o servidor, você migrará os computadores de origem para usá-lo.
-
-1. Nos **servidores do Site Recovery**, clique no servidor de configuração e em **Servidor de Processo**.
-
-    ![Captura de tela da opção de servidores do Site Recovery para adicionar um servidor de processo](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. Em **Tipo de servidor**, clique em **Servidor de processo (local)**.
-
-    ![Captura de tela da caixa de diálogo Servidor de Processo](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. Baixe o arquivo de Instalação Unificada do Site Recovery e execute-o para instalar o servidor de processo. Isso também o registra no cofre.
-4. Em **Antes de começar**, selecione **Adicionar servidores em processo adicionais para escalar horizontalmente a implantação**.
-5. Conclua o assistente da mesma forma que fez ao [configurar](#step-2-set-up-the-source-environment) o servidor de configuração.
-
-    ![Captura de tela do assistente de Instalação Unificada do Azure Site Recovery](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. Em **Detalhes do Servidor de Configuração**, especifique o endereço IP do servidor de configuração e a frase secreta. Para obter a frase secreta, execute: **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** no servidor de configuração.
-
-    ![Captura de tela da página Detalhes do Servidor de Configuração](./media/site-recovery-vmware-to-azure/add-ps2.png)
+Se for necessário escalar horizontalmente sua implantação para além de 200 computadores de origem ou se você tiver uma taxa de rotatividade diária total acima de 2 TB, serão necessários servidores de processo adicionais para lidar com o volume do tráfego. Siga as instruções fornecidas [neste artigo](vmware-azure-set-up-process-server-scale.md) para configurar o servidor de processo. Depois de configurar o servidor, migre os computadores de origem para usá-lo.
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar computadores para usar o novo servidor de processo
+
 1. Em **Configurações** > **Servidores do Site Recovery**, clique no servidor de configuração e expanda **Servidores em processo**.
 
     ![Captura de tela da caixa de diálogo Servidor de Processo](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
@@ -133,6 +119,30 @@ Se for necessário escalar horizontalmente sua implantação para além de 200 c
     ![Captura de tela da caixa de diálogo Servidor de configuração](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. Em **Selecionar servidor do processo de destino**, selecione o novo servidor de processo que quer usar e as máquinas virtuais que serão manipuladas pelo servidor. Clique no ícone de informações para obter informações sobre o servidor. Para ajudá-lo a tomar decisões de carregamento, o espaço médio necessário para replicar cada máquina virtual selecionada no novo servidor de processo será exibido. Clique na marca de seleção para começar a replicar no novo servidor de processo.
 
+## <a name="deploy-additional-master-target-servers"></a>Implantar servidores de destino mestre adicionais
+
+Você precisará de um servidor de destino mestre adicional durante os seguintes cenários
+
+1. Se estiver tentando proteger uma máquina virtual baseada no Linux.
+2. Se o servidor de destino mestre disponível no servidor de configuração não tiver acesso ao armazenamento de dados da VM.
+3. Se o número total de discos no servidor de destino mestre (nº de discos locais no servidor + discos a serem protegidos) exceder 60 discos.
+
+Para adicionar um novo servidor de destino mestre a uma **máquina virtual baseada no Linux**, [clique aqui](vmware-azure-install-linux-master-target.md).
+
+Para uma **máquina virtual baseada no Windows**, siga as instruções fornecidas abaixo.
+
+1. Navegue para **Cofre dos Serviços de Recuperação** > **Infraestrutura do Site Recovery** > **Servidores de configuração**.
+2. Clique no servidor de configuração necessário > **+Servidor de Destino Mestre**.![add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. Baixe a instalação unificada e execute-a na VM para configurar o servidor de destino mestre.
+4. Escolher **Instalar destino mestre** > **Avançar**. ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. Escolha o local de instalação padrão > clique em **Instalar**. ![MT-installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. Clique em **Avançar para a configuração** para registrar o destino mestre no servidor de configuração. ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. Insira o endereço IP do servidor de configuração e a frase secreta. [Clique aqui](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para saber como gerar a frase secreta.![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. Clique em **Registrar** e, após o registro, clique em **Concluir**.
+9. Após o registro bem-sucedido, esse servidor será listado no portal, em **Cofre dos Serviços de Recuperação** > **Infraestrutura do Site Recovery** > **Servidores de configuração** > servidores de destino mestre do servidor de configuração relevante.
+
+ >[!NOTE]
+ >Baixe também a última versão da instalação unificada do Servidor de destino mestre para o Windows [aqui](https://aka.ms/latestmobsvc).
 
 ## <a name="next-steps"></a>Próximas etapas
 

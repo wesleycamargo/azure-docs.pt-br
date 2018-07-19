@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/23/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309572"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859928"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço, recursos de E/S, armazenamento, memória e computação de vCore
 
@@ -25,8 +25,8 @@ A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 ||**Uso geral**|**Comercialmente Crítico**|
 |---|---|---|
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
-|Computação|1 a 80 vCores, Gerações 4 e 5 |1 a 80 vCores, Gerações 4 e 5|
-|Memória|7 GB por núcleo |7 GB por núcleo |
+|Computação|1 a 80 vCores, Gen4 e Gen5 |1 a 80 vCores, Gen4 e Gen5|
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo |
 |Armazenamento|Armazenamento remoto Premium, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 4 TB|
 |Taxa de transferência de E/S (aproximada)|500 IOPS por vCore com máximo de 7.000 IOPS|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplica, 1 [escala de leitura](sql-database-read-scale-out.md), HA com redundância de zona|

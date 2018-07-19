@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f49d841cc9d6d799b1cd047454acaa2c618af73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2c571ebc45875167373b592abc720b045d1835bd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211308"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
 
@@ -34,7 +34,7 @@ A integração da Área de Trabalho Central ao Azure AD oferece os seguintes ben
 
 Para obter mais detalhes sobre a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD à Área de Trabalho Central, você precisa dos seguintes itens:
 
@@ -265,7 +265,7 @@ Nesta seção, você permitirá que o usuário Brenda Fernandes use o logon úni
 Nesta seção, teste a configuração de logon único do seu Azure AD usando o painel de acesso.
 
 Quando você seleciona o bloco Área de Trabalho Central no painel de acesso, você entra automaticamente em seu aplicativo da Área de Trabalho Central.
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

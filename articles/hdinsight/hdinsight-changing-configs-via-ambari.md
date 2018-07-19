@@ -1,23 +1,20 @@
 ---
 title: Otimizar configurações de cluster com Ambari – Azure HDInsight | Microsoft Docs
 description: Use a interface do usuário da Web do Ambari para configurar e otimizar clusters do HDInsight.
-documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406175"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951209"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Ambari para otimizar as configurações de cluster do HDInsight
 
@@ -245,9 +242,9 @@ O Hive permite criar partições dinâmicas ao inserir registros em uma tabela s
 
 2. Altere o modo de partição dinâmica para *estrito*. No modo estrito, pelo menos uma partição deve ser estática. Isso impede consultas sem o filtro de partição na cláusula WHERE, ou seja, *estrito* impede consultas que examinam todas as partições. Navegue até a guia **Configurações** do Hive e, em seguida, defina `hive.exec.dynamic.partition.mode` como **estrito**. O valor padrão é **não estrito**.
  
-3. Para limitar o número de partições dinâmicas a serem criadas, modifique o parâmetro "hive.exec.max.dynamic.partitions". O valor padrão é 5,000.
+3. Para limitar o número de partições dinâmicas a serem criadas, modifique o parâmetro `hive.exec.max.dynamic.partitions`. O valor padrão é 5.000.
  
-4. Para limitar o número total de partições dinâmicas por nó, modifique `hive.exec.max.dynamic.partitions.pernode`. O valor padrão é 2,000.
+4. Para limitar o número total de partições dinâmicas por nó, modifique `hive.exec.max.dynamic.partitions.pernode`. O valor padrão é 2.000.
 
 ### <a name="enable-local-mode"></a>Habilitar modo local
 

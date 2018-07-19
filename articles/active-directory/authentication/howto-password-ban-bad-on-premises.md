@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231823"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902020"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Visualizar: implantar a proteção de senha do Azure AD
 
@@ -103,7 +103,7 @@ Há dois instaladores necessários para a proteção de senha do Azure AD que po
          O exemplo só funciona se o usuário conectado no momento também for um administrador de domínio do Active Directory para o domínio raiz. Uma alternativa é fornecer as credenciais de domínio necessárias por meio do parâmetro -ForestCredential.
 
          > [!NOTE]
-         > Se vários servidores proxy estiverem instalados em seu ambiente, não importa qual servidor proxy específico o procedimento acima seja executado.
+         > Quando vários servidores proxy estão instalados no ambiente, não importa qual servidor proxy é especificado no procedimento acima.
 
          > [!TIP]
          > Pode haver um atraso considerável (muitos segundos) na primeira vez que esse cmdlet for executado para um determinado locatário do Azure antes que o cmdlet conclua a execução. A menos que uma falha seja relatada, esse atraso não deve ser considerado alarmante.

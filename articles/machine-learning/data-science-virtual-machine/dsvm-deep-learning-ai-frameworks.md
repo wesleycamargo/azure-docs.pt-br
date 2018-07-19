@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160743"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952817"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Estruturas de Aprendizado Profundo e de AI
 A DSVM ([Máquina Virtual de Ciência de Dados](http://aka.ms/dsvm)) e a [VM de Aprendizado Profundo](http://aka.ms/dsvm/deeplearning) dão suporte a várias estruturas de aprendizado profundo para ajudar a criar aplicativos de AI (Inteligência Artificial) com funcionalidades cognitivas e análise preditiva como entendimento de imagem e linguagem. 
@@ -66,7 +66,7 @@ Aqui estão os detalhes sobre todas as estruturas de aprendizado profundo sobre 
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Estrutura de aprendizado profundo      |
+| O que é?   | API de aprendizado profundo de alto nível      |
 | Edições do DSVM com suporte      | Windows, Linux     |
 | Como é configurado/instalado no DSVM?  | O TensorFlow está instalado em Python 3.5 no [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e Python 3.6 no [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links para exemplos      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -121,7 +121,7 @@ A versão instalada do Caffe requer Python 2.7 e não funcionará com o Python 3
 | Como é configurado/instalado no DSVM?  | O Chainer é instalado em [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL e ChainerCV também são instalados.   |
 | Links para exemplos      | Exemplos de blocos de anotações estão incluídos no JupyterHub. |
 | Ferramentas relacionadas ao DSVM      | Caffe      |
-| Como usar/executar?  | * No terminal: ative o ambiente [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition), execute _python_, em seguida, importar o Chainer. <br/>
+| Como usar/executar?  | * No terminal: ative o ambiente [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition), execute _python_ e, em seguida, importe o Chainer. <br/>
 * No JupyterHub: [conecte-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), em seguida, navegue até o diretório Chainer para localizar os blocos de anotações de exemplo.
 
 
@@ -178,7 +178,7 @@ O serviço demora aproximadamente um minuto para iniciar. Abra um navegador da W
 
 
 
-## <a name="nvdia-smi"></a>nvidia-smi
+## <a name="nvidia-smi"></a>nvidia-smi
 
 |    |           |
 | ------------- | ------------- |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d6642231bf9d012b0015902c82d2bfde3b86285c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112254"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342413"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solucionar problemas de implantação do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -69,7 +69,7 @@ As tabelas a seguir listam os erros comuns que podem ser encontrados quando voc�
 * Registre o dispositivo.
 
 ## <a name="errors-during-the-required-network-settings"></a>Erros durante as configurações de rede necessárias
-| Nº | Mensagem de erro | Possíveis causas | Ação recomendada |
+| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard: esse comando só pode ser executado no controlador ativo. |A configuração estava sendo executada no controlador passivo. |Execute esse comando do controlador ativo. Para saber mais, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | 2 |Invoke-HcsSetupWizard: o dispositivo não está pronto. |Há problemas com a conectividade de rede em DADOS 0. |Verifique a conectividade de rede física em DADOS 0. |
@@ -103,7 +103,7 @@ Para obter mais informações sobre a senha de administrador do dispositivo, vá
 
 Você pode encontrar um ou mais dos seguintes erros ao configurar as senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple.
 
-| Nº | Mensagem de erro | Ação recomendada |
+| Não. | Mensagem de erro | Ação recomendada |
 | --- | --- | --- |
 | 1 |A senha excede o comprimento máximo. |A senha de administrador do dispositivo deve ter entre 8 e 15 caracteres. |
 | 2 |A senha não atende ao comprimento necessário. |A senha de administrador do dispositivo deve ter entre 8 e 15 caracteres.|
@@ -126,7 +126,7 @@ Você pode redefinir a senha no portal do Azure por meio do serviço do Gerencia
 ## <a name="errors-during-device-registration"></a>Erros durante o registro de dispositivo
 Use o serviço Gerenciador de Dispositivos StorSimple em execução no Microsoft Azure para registrar o dispositivo. Você pode encontrar um ou mais dos problemas a seguir durante o registro do dispositivo.
 
-| Nº | Mensagem de erro | Possíveis causas | Ação recomendada |
+| Não. | Mensagem de erro | Possíveis causas | Ação recomendada |
 | --- | --- | --- | --- |
 | 1 |Erro 350027: falha ao registrar o dispositivo no Gerenciador de Dispositivos StorSimple. | |Aguarde alguns minutos e repita a operação. Se o problema persistir, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md). |
 | 2 |Erro 350013: ocorreu um erro no registro do dispositivo. Isso pode ser causado por uma chave de registro do serviço incorreta. | |Registre o dispositivo novamente com a chave de registro do serviço correta. Para obter mais informações, consulte [Obter a chave de registro do serviço.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
@@ -189,7 +189,7 @@ Quando você configura as interfaces de rede para uma implantação de dispositi
    * Se a interface estiver íntegra, mas não habilitada, o status **ifIndex** será mostrado como **NotPresent**.
    * Se a interface não existir, ele não aparecerá na lista. A interface do usuário do serviço Gerenciador de Dispositivos StorSimple ainda mostrará essa interface em estado de falha.
 
-Para obter mais informações sobre como usar esse cmdlet, vá até [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) na referência do cmdlet do Windows PowerShell.
+Para obter mais informações sobre como usar esse cmdlet, vá até [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) na referência do cmdlet do Windows PowerShell.
 
 As seções a seguir mostram exemplos de saída do cmdlet `Get-NetAdapter` .
 

@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 07/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f0705f2fb14bc44a7738f38bc3ef53a6359dfb4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6ffa8e15762710907db92710c3fad61c5f7189bd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657764"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857507"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -338,7 +338,7 @@ Atualização: julho de 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
 Título: Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
 
-Resumo: a HA (Alta Disponibilidade) e a DR (Recuperação de Desastre) são aspectos importantes da execução de servidores críticos do SAP HANA no Azure (Instâncias Grandes). É importante trabalhar com a SAP, o integrador de sistema e/ou a Microsoft, a fim de arquitetar e implementar adequadamente a estratégia de HA/DR certa para você. Deve-se levar em conta considerações importantes como RPO (Objetivo de Ponto de Recuperação) e RTO (Objetivo de Tempo de Recuperação), específicas ao ambiente.  Este documento explica as opções para habilitar o nível preferencial de HA e DR.
+Resumo: a HA (Alta Disponibilidade) e a DR (Recuperação de Desastre) são aspectos importantes da execução de servidores críticos do SAP HANA no Azure (Instâncias Grandes). É importante trabalhar com a SAP, com seu integrador de sistema e/ou com a Microsoft para arquitetar e implementar corretamente a estratégia de HA/DR certa para você. Deve-se levar em conta considerações importantes como RPO (Objetivo de Ponto de Recuperação) e RTO (Objetivo de Tempo de Recuperação), específicas ao ambiente.  Este documento explica as opções para habilitar o nível preferencial de HA e DR.
 
 Atualização: Outubro de 2017
 
@@ -480,7 +480,7 @@ Atualização: junho de 2017
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Usando o Azure Site Recovery para carga de trabalho SAP
 Título: SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery
 
-Resumo: este documento descreve como os serviços do Azure Site Recovery podem ser usados para tratar cenários de recuperação de desastre. Casos em que o Azure é usado como local de recuperação de desastre para uma paisagem SAP local usando os Serviços do Azure Site Recovery. Outro cenário descrito no documento é o caso de recuperação de desastre A2A (Aure para Azure) e como ele é gerenciado com o Azure Site Recovery.  
+Resumo: este documento descreve como os serviços do Azure Site Recovery podem ser usados para tratar cenários de recuperação de desastre. Casos em que o Azure é usado como local de recuperação de desastre para um cenário do SAP local usando os serviços do Azure Site Recovery. Outro cenário descrito no documento é o caso de recuperação de desastre A2A (Aure para Azure) e como ele é gerenciado com o Azure Site Recovery.  
 
 Atualização: agosto de 2017
 

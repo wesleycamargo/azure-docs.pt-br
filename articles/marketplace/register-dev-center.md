@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ff8a19519d232145395229e02e6b43593a8363db
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 43fadadc92e9562e1e9abe6d971f85d37a9825c2
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825748"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437075"
 ---
 # <a name="register-in-dev-center"></a>Registrar no Centro de Desenvolvimento  
 Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima do Chrome para garantir que você não tenha se conectado em uma conta pessoal.  
@@ -102,7 +102,57 @@ Se você tiver problemas com o registro no Centro de Desenvolvimento, execute es
 2.  Preencha os detalhes do problema.  
 3.  Para enviar o tíquete, clique no botão Enviar. 
 
+## <a name="frequently-asked-questions"></a>Perguntas Frequentes: 
+
+*   **Quais publicadores exigem um registro de conta do Centro de Desenvolvimento?** 
+> O publicador que está publicando em um tipo de listagem de Transact: VM, aplicativos do Azure: modelos de solução e aplicativos gerenciados.  
+
+*   **Por que a conta do Centro de Desenvolvimento é necessária?**
+> A conta do Centro de Desenvolvimento é necessária para permitir que a Microsoft cobre pelo tipo de listagem de Transact em nome do cliente. O registro da conta do Centro de Desenvolvimento permite que a Microsoft valide as informações jurídicas, fiscais e bancárias da sua empresa. Para saber mais, [clique aqui.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+
+*   **Como começar com o registro do Centro de Desenvolvimento?**
+> Para evitar duplicação, verifique se sua empresa já não tem uma conta do Centro de Desenvolvimento registrada. Você deve estar conectado com a conta da Microsoft que deseja associar à sua conta de desenvolvedor. Se ainda não tem uma conta da Microsoft, você pode criar uma nova [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) Para entrar e registrar, vá para https://dev.windows.com/en-us/registration?accountProgram=Azure
+<br>Para saber mais sobre o processo de registro, clique [aqui.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+
+*   **Devo escolher tipo de conta 'Individual' ou 'Empresa'?**
+> Para publicar uma oferta de transação no Marketplace, você precisa selecionar a conta Empresa ao se registrar na conta do Centro de Desenvolvimento.
+
+*   **Posso alterar meu tipo de conta de 'Individual' para 'Empresa' após a criação da conta?**
+> Não, o tipo de conta não pode ser atualizado depois que a conta é criada.
+
+*   **Por que recebo uma mensagem de erro 'A cidade é obrigatória' embora eu tenha inserido a cidade corretamente?**
+> Verifique se que o código postal também foi inserido corretamente. Há uma validação de cidade e código postal.
+
+*   **Como obter um código promocional?**
+> Complete o formulário de [Registro do Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) para receber um código promocional do Centro de Desenvolvimento.
+ 
+*   **O que devo esperar após concluir o registro?**
+> Procure por um email de verify@microsoft.com com linha de assunto "Ação necessária: verifique sua conta de email com a Microsoft". Clique no link de verificação sensível a tempo para concluir o registro. *Se você não tiver recebido um email dentro de 24 horas, verifique a pasta de spam.*
+
+*   **Quais são as próximas etapas após a verificação do Centro de Desenvolvimento?**
+> Vá para "Seus programas" https://developer.microsoft.com/en-us/dashboard/Account/Programs) e efetue logon na conta do Centro de Desenvolvimento. Você deve ver uma seção intitulada "Programas recomendados para você" e, ali, Azure. Você clicará em "Introdução" e percorrerá o processo de configuração de uma conta do Azure.
+
+*   **Por que meu aplicativo do Centro de Desenvolvimento é rejeitado?**
+> A empresa de verificação de terceiros (Duns & Bradstreet) não pôde entrar em contato com você pelo número de telefone fornecido. Entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para reiniciar o processo de verificação
+
+> ou o
+
+> O registro da conta foi rejeitado com base em problemas geográficos. As empresas com subsidiárias baseadas em locais diferentes da sede precisarão de apenas uma conta do Centro de Desenvolvimento.
+ 
+*   **O que devo fazer se o nome da empresa que eu quero usar já existir no Centro de Desenvolvimento?**
+> Atribua um nome de empresa temporário, entre em contato com o suporte em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e forneça a eles seus documentos de registro comercial.
+
+*   **Como adicionar minhas informações de impostos e pagamento?**
+> Você não poderá publicar ofertas de transação sem preencher as informações fiscais e bancárias em sua conta do Centro de Desenvolvimento.  Para saber mais sobre como adicionar informações de conta, visite [Como adicionar informações bancárias e fiscais](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
+
+*   **Posso alterar a conta de logon da Microsoft do Centro de Desenvolvimento?**
+> Não. Depois de criar um Centro de Desenvolvimento, a conta do proprietário não pode ser alterada. Você teria que começar com uma conta totalmente nova do Centro de Desenvolvimento com a conta da Microsoft desejada.
+
+*   **Onde devo contatar o suporte sobre problemas com relação ao registro do Centro de Desenvolvimento?**
+Para acessar o suporte, visite a página de suporte de desenvolvedor do Windows localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+
+
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do AppSource Publisher e Azure Marketplace](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
 ---  

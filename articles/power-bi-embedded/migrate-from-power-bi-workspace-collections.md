@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: maghan
-ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de20d532112ca73f34f7cb603d043579c28179d6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419083"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071225"
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Como migrar o conteúdo da Coleção de Espaços de Trabalho do Power BI para o Power BI Embedded
 
@@ -118,17 +118,17 @@ Os conjuntos de dados armazenados em cache referem-se a arquivos PBIX que tinham
 
 **Fluxo**
 
-1. Chame GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources e salve a cadeia de conexão recebida.
+1. Chame GET `https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources` e salve a cadeia de conexão recebida.
 2. Chame a API Baixar PBIX do espaço de trabalho da Coleção de Espaços de Trabalho do Power BI.
 3. Salve o PBIX.
 4. Chame Importar PBIX para seu espaço de trabalho do Power BI Embedded.
-5. Atualize a cadeia de conexão chamando - POST  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
-6. Obtenha a ID do GW e a ID da fonte de dados chamando - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
-7. Atualize as credenciais do usuário chamando - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
+5. Atualize a cadeia de conexão chamando - POST  `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections`
+6. Obtenha a ID do GW e a ID da fonte de dados chamando - GET `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources`
+7. Atualize as credenciais do usuário chamando - PATCH `https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}`
 
 #### <a name="old-dataset-and-reports"></a>Relatórios e conjunto de dados antigos
 
-Os relatórios carregados antes de outubro de 2016 não dão suporte ao recurso de Baixar PBIX.
+Os relatórios carregados antes de outubro de 2016 não dão suporte ao recurso de Baixar PBIX. 
 
 **Fluxo**
 

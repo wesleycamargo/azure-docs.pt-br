@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750944"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345699"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Visão geral dos Limites de recursos do Banco de Dados SQL do Azure 
 
@@ -26,11 +26,12 @@ Este artigo fornece uma visão geral do recurso de banco de dados SQL limita e f
 | :--- | :--- |
 | Bancos de dados por servidor | 5.000 |
 | Número padrão de servidores por assinatura por região | 20 |
-| Número máximo de servidores por assinatura por região | 200 |
+| Número máximo padrão de servidores por assinatura por região | 200 |
+| DTU / cota de eDTU por servidor | 54.000 |
 |||
 
 > [!NOTE]
-> Para obter mais cota do servidor que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota".
+> Para obter mais cota DTU/eDTU ou mais servidores que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor. 
 
 > [!IMPORTANT]
 > Conforme o número de bancos de dados vai se aproximando do limite por servidor, pode ocorrer o seguinte:

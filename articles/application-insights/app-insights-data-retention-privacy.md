@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 06/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 897671ef592ac691402a4e452f7a0baa04aa228a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294059"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129050"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
@@ -104,7 +104,7 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Isso significa que o aplicativo deve ser hospedado nos EUA, Europa ou Sudeste Asiático?
-* Nº Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na Nuvem.
+* Não. Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na Nuvem.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros meus dados estão?
 O Application Insights é um serviço do Azure. Políticas de segurança são descritas no [white paper de segurança, privacidade e conformidade do Azure](http://go.microsoft.com/fwlink/?linkid=392408).
@@ -126,32 +126,57 @@ Não dentro dos servidores no momento.
 Todos os dados são criptografados conforme se movem entre datacenters.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são criptografados em trânsito do meu aplicativo para servidores do Application Insights?
-Sim, podemos usar https para enviar dados para o portal de quase todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web em HTTPS. A única exceção é que os dados enviados de páginas da Web em HTTP simples. 
+Sim, podemos usar https para enviar dados para o portal de quase todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web em HTTPS. A única exceção é que os dados enviados de páginas da Web em HTTP simples.
 
-## <a name="personally-identifiable-information"></a>Informações pessoalmente identificáveis
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>Podem ser enviadas informações pessoalmente identificáveis (PII) para o Application Insights?
-Sim, é possível. 
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Como enviar dados ao Application Insights usando o TLS 1.2?
 
-Como orientação geral:
+Para garantir a segurança dos dados em trânsito para os pontos de extremidade do Application Insights, incentivamos os clientes para configurar seu aplicativo para usar pelo menos segurança de camada de transporte (TLS) 1.2. Versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto ele ainda estiver atualmente trabalham para permitir a compatibilidade com versões anteriores, eles são **não recomendáveis**, e o setor está se movendo rapidamente para abandonar o suporte para esses protocolos mais antigos. 
 
-* A telemetria mais padrão (ou seja, telemetria enviada sem que você escreva nenhum código) não inclui PII explícitas. No entanto, é possível identificar indivíduos por inferência de uma coleção de eventos.
-* Mensagens de exceção e rastreamento podem conter informações de identificação pessoal
-* Telemetria personalizada - ou seja, chamadas como TrackEvent que você escreve em código usando a API ou os rastreamentos de log - podem conter qualquer dado que você escolher.
+O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) tem definido um [prazo para 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desabilitar as versões mais antigas do TLS/SSL e atualizar para proteger mais os protocolos. Depois que o Azure tiver descartado o suporte antigo, se seus clientes/aplicativos não conseguirem se comunicar mais com pelo menos TLS 1.2 você não conseguirá enviar dados para o Application Insights. A abordagem de testar e validar o suporte do TLS do seu aplicativo irá variar dependendo da sistema operacional/plataforma, bem como a linguagem/estrutura que seu aplicativo usa.
 
-A tabela ao final deste documento contém descrições mais detalhadas dos dados coletados.
+Não é recomendável definir explicitamente seu aplicativo para usar somente o TLS 1.2, a menos que absolutamente necessário, pois isso pode separar os recursos de segurança em nível de plataforma que permitem que você detecte e tirar proveito dos mais recentes protocolos mais seguros, assim que estiverem automaticamente disponível como TLS 1.3. É recomendável realizar uma auditoria completa de código do seu aplicativo para verificar se há codificar de versões específicas do TLS/SSL.
 
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>Eu sou responsável por manter a conformidade com as leis e regulamentações relativas às informações de identificação pessoal?
-Sim. É sua responsabilidade assegurar que a coleta e uso de dados estejam em conformidade com as leis e normas e também com os termos do Microsoft Online Services.
+### <a name="platformlanguage-specific-guidance"></a>Diretrizes específicas da plataforma/linguagem
 
-Você deve informar os clientes adequadamente quanto aos dados que seu aplicativo coleta e como tais dados são usados.
+|Plataforma/linguagem | Suporte | Mais informações |
+| --- | --- | --- |
+| Serviços de Aplicativo do Azure  | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Aplicativos de Funções do Azure | Configuração com suporte pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+|.NET | Configuração com suporte varia de acordo com a versão. | Para obter informações de configuração detalhadas para .NET 4.7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Monitor de status | Configuração com suporte exigida | Monitor de status depende [configuração do sistema operacional](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte ao TLS 1.2.
+|Node.js |  Configuração com suporte no v10.5.0 pode ser necessária. | Use o [documentação oficial do Node. js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
+|Java | Com suporte, foi adicionado suporte do JDK para o TLS 1.2 no [atualização do JDK 6 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 usa [TLS 1.2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
+| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
+| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
+|Windows Vista | Sem suporte. | N/D
+
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual versão do OpenSSL sua distribuição do Linux está em execução
+
+Para verificar qual versão do OpenSSL que você tiver instalado, abra o terminal e execute:
+
+```terminal
+openssl version -a
+```
+
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Executar um teste de transação do TLS 1.2 no Linux
+
+Para executar um teste básico preliminar para ver se o seu sistema Linux pode se comunicar por TLS 1.2. Abra o terminal e execute:
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
+
+## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados no Application Insights
+
+Nossos [artigo de dados pessoais do Application Insights](app-insights-customer-data.md) aborda esse problema detalhado.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Meus usuários podem desativar o Application Insights?
 Não diretamente. Não fornecemos um comutador que os usuários possam operar para desativar o Application Insights.
 
 No entanto, você pode implementar tal recurso em seu aplicativo. Todos os SDKs incluem uma configuração de API que desativa a coleta da telemetria. 
-
-#### <a name="my-application-is-unintentionally-collecting-sensitive-information-can-application-insights-scrub-this-data-so-it-isnt-retained"></a>Meu aplicativo está coletando informações confidenciais acidentalmente. O Application Insights pode eliminar esses dados para que eles não sejam retidos?
-O Application Insights não filtra nem exclui seus dados. Você deve gerenciar os dados adequadamente e evitar enviar esses dados para o Application Insights.
 
 ## <a name="data-sent-by-application-insights"></a>Dados enviados pelo Application Insights
 Os SDKs variam entre diferentes plataformas, e há vários componentes que você pode instalar. (Consulte [Application Insights - visão geral][start].) Cada componente envia dados diferentes.

@@ -6,25 +6,27 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.workload: Active
-ms.date: 04/04/2018
+ms.date: 05/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189061"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "35630743"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
-O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-GRS (armazenamento com redundância geográfica de acesso de leitura) do Azure para fornecer redundância geográfica. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que isso ocorra. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se você desejar manter backups em seu próprio contêiner de armazenamento, configure uma política de retenção de backup de longo prazo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-GRS (armazenamento com redundância geográfica de acesso de leitura) do Azure para fornecer redundância geográfica. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que isso ocorra. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se as regras de segurança exigem que os backups fiquem disponíveis por um longo período de tempo, configure uma política de retenção de backup de longo prazo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?
 
-O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](http://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 
 Use esses backups para:
@@ -32,61 +34,104 @@ Use esses backups para:
 * Restaurar um banco de dados para um ponto no tempo dentro do período de retenção. Essa operação criará um novo banco de dados no mesmo servidor do banco de dados original.
 * Restaure um banco de dados excluído para a hora em que ele foi excluído ou em qualquer momento dentro do período de retenção. O banco de dados excluído pode ser restaurado apenas no mesmo servidor em que o banco de dados original foi criado.
 * Restaure um banco de dados para outra região geográfica. Isso permite a recuperação de um desastre geográfico quando você não consegue acessar o servidor nem o banco de dados. Ele cria um novo banco de dados em qualquer servidor existente do mundo. 
-* Restaure um banco de dados de um backup de longo prazo específico se o banco de dados tiver sido configurado com uma política de retenção de longo prazo. Isso permite restaurar uma versão antiga do banco de dados para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+* Se um banco de dados tiver sido configurado com uma política de LTR (retenção de longo prazo), restaure-o do backup de longo prazo específico. Isso permite restaurar uma versão antiga do banco de dados para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 * Para executar uma restauração, consulte [Restaurar um banco de dados de backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
-> No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
+> No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. *Replicação de banco de dados* do SQL significa manter vários bancos de dados secundários sincronizados com um banco de dados primário. 
 > 
 
-## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
-Os backups de banco de dados completos ocorrem semanalmente, os backups de banco de dados diferenciais geralmente ocorrem em horários determinados e os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema. 
+## <a name="how-long-are-backups-kept"></a>Por quanto tempo os backups são mantidos?
+Cada backup de Banco de Dados SQL tem um período de retenção padrão baseado na camada de serviço do banco de dados e difere entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). Você pode atualizar o período de retenção de backup de um banco de dados. Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
 
-A replicação geográfica do armazenamento de backup ocorre com base no agendamento de replicação do Armazenamento do Azure.
+Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 
-## <a name="how-long-do-you-keep-my-backups"></a>Por quanto tempo meus backups são armazenados?
-Cada backup de Banco de Dados SQL tem um período de retenção com base na camada de serviço do banco de dados e faz a diferenciação entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
-
-
-### <a name="database-retention-for-dtu-based-purchasing-model"></a>Retenção de banco de dados para o modelo de compra baseado em DTU.
-O período de retenção para um banco de dados no modelo de compra baseado em DTU depende da camada de serviço. O período de retenção para um banco de dados para a:
-
-* A camada de serviço Básico é de 7 dias.
-* Camada de serviço Standard é de 35 dias.
-* Camada de serviço Premium é de 35 dias.
-* A camada de uso geral é configurável com um máximo de 35 dias (7 dias por padrão)*
-* A camada Comercialmente Crítico (versão prévia) é configurável com um máximo de 35 dias (7 dias por padrão)*
-
-\* Durante a versão prévia, o período de retenção de backups não é configurável e é fixado em 7 dias.
-
-Se você converter um banco de dados com retenção de backups mais longa em um banco de dados com retenção mais curta, todos os backups existentes mais antigos que o período de retenção da camada de destino não estarão mais disponíveis.
-
-Se você fizer upgrade de um banco de dados com um período de retenção mais curto para um banco de dados com um período mais longo, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido. 
-
-Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que faria para um banco de dados online. Por exemplo, vamos supor que você exclui um banco de dados Básico que tenha um período de retenção de sete dias. Um backup com quatro dias será salvo por mais três dias.
+Se você precisar manter os backups por mais tempo que o período máximo de retenção de PITR, modifique as propriedades de backup para adicionar um ou mais períodos retenção de longo prazo para o banco de dados. Veja [Retenção de backup de longo prazo](sql-database-long-term-retention.md) para obter mais detalhes.
 
 > [!IMPORTANT]
-> Se você excluir o SQL Server do Azure que hospeda Bancos de Dados SQL, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
+> Se você excluir o SQL Server do Azure que hospeda os bancos de dados SQL, todos os pools elásticos e bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído. Mas, se você tiver configurado a retenção de longo prazo, os backups dos bancos de dados com LTR não serão excluídos e esses bancos de dados poderão ser restaurados.
 
-### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Retenção de banco de dados para o modelo de compra baseado em vCore (versão prévia)
+### <a name="pitr-retention-for-dtu-based-service-tiers"></a>Retenção de PITR para camadas de serviço baseadas em DTU
+O período de retenção padrão para um banco de dados criado usando o modelo de compra baseado em DTU depende da camada de serviço:
 
-O armazenamento para backups de banco de dados é alocado para dar suporte aos recursos PITR (Recuperação Pontual) e LTR (Retenção em Longo Prazo) do Banco de Dados SQL. Esse armazenamento é alocado separadamente para cada banco de dados e cobrado como dois encargos separados por banco de dados. 
+* A camada de serviço Básica é de uma semana.
+* A camada de serviço Standard é de cinco semanas.
+* A camada de serviço Premium é de cinco semanas.
 
-- **PITR**: os backups de banco de dados individuais são copiados para o armazenamento RA-GRS automaticamente. O tamanho do armazenamento aumenta dinamicamente conforme os novos backups são criados.  O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor de armazenamento mínimo igual a 1x de tamanho de dados é fornecido sem nenhum custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups. Para obter mais informações, consulte [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
-- **LTR**: o Banco de Dados SQL oferece a opção de configurar a retenção em longo prazo de backups completos por até 10 anos. Se a política de LTR estiver habilitada, esses backups serão armazenados no armazenamento RA-GRS automaticamente, mas você poderá controlar com que frequência os backups serão copiados. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. Essa configuração definirá quanto armazenamento será usado para os backups de LTR. É possível usar a calculadora de preços de LTR para estimar o custo do armazenamento LTR. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+Se você reduzir o período de retenção de PITR atual, os backups existentes mais antigos que o novo período de retenção não estarão mais disponíveis. 
 
-## <a name="how-to-extend-the-backup-retention-period"></a>Como estender o período de retenção de backup?
+Se você aumentar o período de retenção de PITR atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
 
-Se o aplicativo exigir que os backups estejam disponíveis por um período de tempo maior que o período máximo de retenção de backup do PITR, você poderá configurar uma política de retenção de backup de longo prazo para bancos de dados individuais (política LTR). Isso permite que você estenda o período de retenção interno de no máximo 35 dias para até 10 anos. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Retenção de PITR para as camadas de serviço baseadas em vCore (versão prévia)
 
-Depois de adicionar a política LTR a um banco de dados usando API ou Portal do Azure, os backups semanais completos do banco de dados serão automaticamente copiados para um contêiner de armazenamento RA-GRS separado para retenção de longo prazo (armazenamento LTR). Caso seu banco de dados esteja criptografado com TDE, os backups serão criptografados automaticamente em repouso. O Banco de Dados SQL excluirá automaticamente os backups expirados com base no carimbo de data/hora e na política LTR. Depois que a política estiver configurada, não será necessário gerenciar o agendamento de backup nem preocupar-se com a limpeza dos arquivos antigos. Você pode usar o Portal do Azure ou PowerShell para exibir, restaurar ou excluir esses backups.
+Durante a versão prévia, o período de retenção de PITR para os bancos de dados criados usando o modelo de compra baseado em vCore é definido como sete dias. O armazenamento associado é incluído gratuitamente.    
+
+
+## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
+### <a name="backups-for-point-in-time-restore"></a>Backups para a Recuperação Pontual
+O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Os backups completos do banco de dados são criados semanalmente, os backups diferenciais do banco de dados são criados em intervalos de algumas horas e os backups de log de transações são criados a cada cinco a dez minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema.
+
+Os backups de PITR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
+Para obter mais informações, consulte [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+
+### <a name="backups-for-long-term-retention"></a>Backups de retenção de longo prazo
+O Banco de Dados SQL oferece a opção de configuração de LTR (retenção de longo prazo) de backups completos por até dez anos. Quando a política de LTR está habilitada, os backups completos semanais são copiados automaticamente para um contêiner de armazenamento de RA-GRS diferente. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. O consumo do armazenamento depende da frequência selecionada para os backups e dos períodos de retenção. Você pode usar a [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento de LTR. 
+
+Como o PITR, os backups de LTR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
+
+Para obter mais informações, confira [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="are-backups-encrypted"></a>Os backups são criptografados?
 
-Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups também são criptografados. Todos os novos bancos de dados SQL do Azure são configurados com TDE habilitada por padrão. Para obter mais informações sobre a TDE, confira [Transparent Data Encryption com o Banco de Dados SQL do Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Quando o banco de dados é criptografado com TDE, os backups são criptografados automaticamente em repouso, incluindo os backups de LTR. Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups também são criptografados. Todos os novos bancos de dados SQL do Azure são configurados com TDE habilitada por padrão. Para obter mais informações sobre a TDE, confira [Transparent Data Encryption com o Banco de Dados SQL do Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>Os backups automáticos são compatíveis com GDPR?
-Se o backup contiver dados pessoais, que estão sujeitos ao GDPR (Regulamento Geral sobre a Proteção de Dados), você deverá aplicar medidas de segurança aprimoradas para proteger os dados contra acesso não autorizado. Para estar em conformidade com o GDPR, é necessário ter uma maneira de gerenciar as solicitações de dados dos proprietários de dados sem precisar acessar os backups.  Para backups de curto prazo, uma solução pode ser reduzir a janela de backup para menos de 30 dias, que é o tempo permitido para concluir as solicitações de acesso a dados.  Se backups de longo prazo forem necessários, é recomendável armazenar apenas dados "pseudônimos" em backups. Por exemplo, se os dados sobre uma pessoa precisarem ser excluídos ou atualizados, não será necessário excluir ou atualizar os backups existentes. Você pode encontrar mais informações sobre as melhores práticas do GDPR em [Governança de dados para conformidade com GDPR](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
+## <a name="how-do-automated-backups-impact-my-compliance"></a>Como os backups automatizados afetam minha conformidade?
+
+Quando você migra o banco de dados de uma camada de serviço baseada em DTU, com a retenção de PITR padrão de 35 dias, para uma camada de serviço baseada em vCore, a retenção de PITR é preservada para garantir que a política de recuperação de dados do aplicativo não seja comprometida. Se a retenção padrão não atender aos seus requisitos de conformidade, você poderá alterar o período de retenção de PITR usando o PowerShell ou a API REST. Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="how-to-change-backup-retention-period"></a>Como alterar o período de retenção de backup
+Você pode alterar a retenção padrão usando a API REST ou o PowerShell. Os valores permitidos são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias. 
+
+> [!NOTE]
+> As APIs afetarão somente o período de retenção de PITR. Se você tiver configurado a LTR para o banco de dados, ela não será afetada. Veja [Retenção de backup de longo prazo](sql-database-long-term-retention.md) para obter detalhes de como alterar os períodos de retenção de LTR.
+
+### <a name="change-pitr-backup-retention-period-using-powershell"></a>Alterar o período de retenção de backup de PITR usando o PowerShell
+```powershell
+Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
+> [!IMPORTANT]
+> Essa API está incluída no módulo para PowerShell AzureRM.Sql começando com a versão [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview). 
+
+### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção de PITR usando a API REST
+**Solicitação de exemplo**
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+**Corpo da solicitação**
+```json
+{
+  "properties":{  
+      "retentionDays":28
+   }
+}
+```
+**Resposta de exemplo**
+
+Código de status: 200
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+Veja [API REST de retenção de backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337294"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446870"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server 
 
@@ -398,9 +398,12 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 Cada Instância Gerenciada tem até 35 TB de armazenamento reservado para o espaço em Disco Premium do Azure e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna. 
 
-Por exemplo, uma Instância Gerenciada pode ter um arquivo com tamanho de 1,2 TB que usa um disco de 4 TB e 248 arquivos com 1 GB cada que são colocados em 248 discos com tamanho de 128 GB. Nesse exemplo, o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB. No entanto, o tamanho total de instâncias reservadas para bancos de dados é de 1 x 1,2 TB + 248 GB x 1 = 1,4 TB. Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição muito específica de arquivos, uma Instância Gerenciada pode alcançar o limite de armazenamento do Disco Premium do Azure onde você não esperaria. 
+Por exemplo, uma instância gerenciada pode ter um arquivo de 1,2 TB de tamanho que é colocado em um disco de 4 TB e 248 arquivos ins um tamanho 1 GB que são colocados em discos separados de 128 GB. Neste exemplo, 
+* o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição muito específica de arquivos, uma Instância Gerenciada pode alcançar os 35TB reservados para o Disco Premium do Azure onde você não esperaria. 
 
-Não deve haver nenhum erro em bancos de dados existentes e eles podem crescer sem problemas se os novos arquivos não são adicionados, mas novos bancos de dados não podem ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todos os bancos de dados não alcance o limite de tamanho de instância. O erro retornado nesse caso não é claro.
+Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuração incorreta da chave SAS durante a restauração do banco de dados
 

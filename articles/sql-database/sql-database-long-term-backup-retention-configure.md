@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649220"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969180"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -83,8 +83,10 @@ Exiba os backups que são mantidos para um banco de dados específico com uma po
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, exibir backups no armazenamento do SQL do Azure e restaurar a partir de um backup no armazenamento do SQL do Azure.
 
 > [!IMPORTANT]
-> Você precisa usar o powershell do AzureRM mais recente para configurar diretivas LTR V2. A versão atual é [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), esta é uma versão de visualização, use esse comando para instalá-lo: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Para obter orientação sobre como instalar a versão de pré-lançamento, consulte o módulo [ Obter PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). A versão de maio de 2018 do powershell AzureRM estará disponível em alguns dias (deve ser 18/5/2018), você pode ignorar a opção - AllowPrelease ao instalar a versão de lançamento quando estiver disponível e use o seguinte comando" `Install-Module -Name AzureRM.Sql -Force`.
+> Há suporte para a API de LTR V2 nas seguintes versões do PowerShell:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
+> 
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política LTR
 

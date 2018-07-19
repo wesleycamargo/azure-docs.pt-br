@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061213"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114360"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espaço de nomes hierárquico de visualização do Gen2 do Windows Lake Data Storage
 
@@ -27,7 +27,7 @@ Um mecanismo chave que permite que o Pré-visualização do Azure Data Lake Stor
 
 Os benefícios a seguir estão associados a sistemas de arquivos que implementam um namespace hierárquico em dados de blob:
 
-- **Manipulação de Diretório Atômico:** Armazenamentos de objetos aproximam uma hierarquia de diretórios ao adotar uma convenção de barras de incorporação (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione satisfatoriamente para organizar objetos, a convenção não fornece assistência para ações como mover, renomear ou excluir diretórios. Sem diretórios reais, os aplicativos devem processar potencialmente milhões de blobs individuais para obter tarefas em nível de diretório. Por outro lado, o espaço de nomes hierárquico processa essas tarefas atualizando uma única entrada (o diretório pai). 
+- **Manipulação de Diretório Atômico:** Armazenamentos de objetos aproximam uma hierarquia de diretórios ao adotar uma convenção de barras de incorporação (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar objetos, a convenção não fornece assistência para ações como mover, renomear ou excluir diretórios. Sem diretórios reais, os aplicativos devem processar potencialmente milhões de blobs individuais para obter tarefas em nível de diretório. Por outro lado, o espaço de nomes hierárquico processa essas tarefas atualizando uma única entrada (o diretório pai). 
 
     Essa otimização dramática é especialmente significativa para muitas estruturas de análise de big data. Ferramentas como Hive, Spark, etc. geralmente gravam a saída em locais temporários e depois renomeiam a localização na conclusão da tarefa. Sem o namespace hierárquico, essa renomeação pode demorar mais do que o próprio processo de análise. Uma menor latência de trabalho é igual ao custo total de propriedade (TCO) mais baixo para cargas de trabalho de análise.
 

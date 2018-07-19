@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061736"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112313"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Navegar e gerenciar recursos de armazenamento usando o Gerenciador de Servidores
 
@@ -219,7 +219,7 @@ Você pode personalizar o conjunto de entidades que aparecem em uma tabela, se u
 1. Após criar a consulta, feche a caixa de diálogo. O formulário de texto resultante da consulta aparece em uma caixa de texto como um filtro do WCF Data Services.
 1. Para executar a consulta, selecione o ícone de triângulo verde.
 
-Você também pode filtrar dados de entidade que aparecem no Designer de tabela se inserir uma cadeia de caracteres de filtro do WCF Data Services diretamente na caixa de texto de filtro. Esse tipo de cadeia de caracteres é semelhante a uma cláusula SQL WHERE, mas é enviado ao servidor como uma solicitação HTTP. Para obter informações sobre como construir cadeias de caracteres de filtro, consulte [Construir cadeias de caracteres de filtro para o Designer de tabela](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Você também pode filtrar dados de entidade que aparecem no Designer de tabela se inserir uma cadeia de caracteres de filtro do WCF Data Services diretamente na caixa de texto de filtro. Esse tipo de cadeia de caracteres é semelhante a uma cláusula SQL WHERE, mas é enviado ao servidor como uma solicitação HTTP. Para obter informações sobre como construir cadeias de caracteres de filtro, consulte [Construir cadeias de caracteres de filtro para o Designer de tabela](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 A ilustração a seguir mostra um exemplo de uma cadeia de caracteres de filtro válida:
 

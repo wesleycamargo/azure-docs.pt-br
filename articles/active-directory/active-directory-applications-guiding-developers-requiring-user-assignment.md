@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: b02460435edca336325e472ea910b73e7895c948
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4519681d9b91383d27c00a992f85b0cb5d74f235
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26598823"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859455"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD e aplicativos: exigir atribuição de usuário
 ## <a name="requiring-user-assignment"></a>Exigindo atribuição do usuário
 1. Faça logon no Portal do Azure com uma conta de administrador.
-2. Clique no item **Todos os Itens** no menu principal.
+2. Clique no item **Todos os serviços** no menu principal.
 3. Escolha o diretório que você está usando para o aplicativo.
-4. Clique na guia **APLICATIVOS** .
+4. Clique na guia **Aplicativos empresariais**.
 5. Selecione o aplicativo na lista de aplicativos associada ao diretório.
-6. Clique na guia **CONFIGURAR** .
-7. Altere **Atribuição do usuário necessária para acessar o aplicativo** para Sim.
-8. Clique no botão **Salvar** na parte inferior da tela.
+6. Clique no guia **Propriedades**.
+7. Altere a opção **Atribuição de usuário necessária?** para Sim.
+8. Clique no botão **Salvar** na parte superior da tela.
 
 Agora, você precisará atribuir usuários e/ou grupos ao aplicativo. Consulte [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) e [Atribuir grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md).
 

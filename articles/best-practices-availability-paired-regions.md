@@ -1,20 +1,17 @@
 ---
 title: 'BCDR (continuidade dos negócios e recuperação de desastre): regiões emparelhadas do Azure | Microsoft Docs'
 description: Saiba mais sobre os pares regionais do Azure, que garantem que os aplicativos sejam resilientes durante falhas de data centers.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302671"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436902"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -32,8 +29,8 @@ Figura 1 – Pares regionais do Azure
 |:--- |:--- |:--- |
 | Ásia |Ásia Oriental |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
-| Austrália |Austrália Central |Austrália Central (2) |
-| Brasil |Sul do Brasil (2) |Centro-Sul dos Estados Unidos |
+| Austrália |Austrália Central |Austrália Central 2 |
+| Brasil |Sul do Brasil 2 |Centro-Sul dos Estados Unidos |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | Europa |Norte da Europa |Europa Ocidental |

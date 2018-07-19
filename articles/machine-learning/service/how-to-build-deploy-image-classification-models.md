@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637728"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888425"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implantar modelos de classificação de imagem com o Azure Machine Learning
 
@@ -34,7 +34,7 @@ Ao compilar e implantar esse modelo com o AMLPCV, percorra as etapas abaixo:
 7. Implantação do serviço Web
 8. Teste de carga do serviço Web
 
-O [CNTK](https://www.microsoft.com/cognitive-toolkit/) é usado como a estrutura de aprendizado profundo, o treinamento é realizado localmente em um computador com GPU, como a ([VM de ciência de dados de aprendizado profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) e a implantação usa a CLI de operacionalização do Azure ML.
+O [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) é usado como a estrutura de aprendizado profundo, o treinamento é realizado localmente em um computador com GPU, como a ([VM de ciência de dados de aprendizado profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)) e a implantação usa a CLI de operacionalização do Azure ML.
 
 Consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para ver a referência detalhada de cada módulo e classe.
 
@@ -66,12 +66,6 @@ O exemplo a seguir usa um conjunto de dados que consiste em 63 imagens de utens�
 
 ![Conjunto de dados do Azure Machine Learning](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-## <a name="storage-context"></a>Contexto de armazenamento
-
-O contexto de armazenamento é usado para determinar onde vários arquivos de saída, como imagens aumentadas ou arquivos de modelo DNN, serão armazenados. Para saber mais sobre os contextos de armazenamento, confira a [documentação StorageContext](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Normalmente, o conteúdo de armazenamento não precisa ser definido explicitamente. No entanto, para evitar o limite de 25 MB de tamanho de projeto imposto pelo Azure Machine Learning Workbench, defina o diretório de saídas do Pacote do Azure Machine Learning para Pesquisa Visual Computacional como um local fora do projeto do Azure Machine Learning ("../../../../cvtk_output"). Remova o diretório "cvtk_output" quando ele não for mais necessário.
-
 
 ```python
 import warnings
@@ -84,29 +78,19 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
@@ -125,8 +109,8 @@ O treinamento de um modelo de classificação de imagem para um conjunto de dado
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -182,7 +166,6 @@ Se você receber o erro "Widget Javascript não detectado", execute este comando
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
@@ -407,7 +390,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -420,7 +402,6 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```

@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285766"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444252"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
-Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. Quando você provisiona a produtividade para um conjunto de contêineres, todos esses contêineres compartilham a produtividade provisionada. O provisionamento da produtividade para contêineres individuais garantirá a reserva de produtividade para esse contêiner específico. Por outro lado, o provisionamento da produtividade para um banco de dados permite compartilhar a produtividade entre todos os contêineres que pertencem a esse banco de dados. Dentro de um banco de dados do Azure Cosmos DB, você pode ter um conjunto de contêineres que compartilham a produtividade, bem como contêineres, que têm produtividade dedicada. 
+Você pode definir a produtividade de um contêiner do Azure Cosmos DB ou de um conjunto de contêineres usando o portal do Azure ou usando os SDKs do cliente. 
 
-Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam.
+**Taxa de transferência da provisão para um contêiner individual:** Quando você provisiona a produtividade para um conjunto de contêineres, todos esses contêineres compartilham a produtividade provisionada. O provisionamento da produtividade para contêineres individuais garantirá a reserva de produtividade para esse contêiner específico. Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
 
-Ao atribuir RU/s no nível do contêiner individual, os contêineres podem ser criados como *fixos* ou *ilimitados*. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que seu contêiner/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
+**Taxa de transferência de provisionamento para uma definição de contêineres ou um banco de dados:** o provisionamento da produtividade para um banco de dados permite compartilhar a produtividade entre todos os contêineres que pertencem a esse banco de dados. Dentro de um banco de dados do Azure Cosmos DB, você pode ter um conjunto de contêineres que compartilham a produtividade, bem como contêineres, que têm produtividade dedicada. Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
 
-Ao atribuir RU/s em um conjunto de contêineres, os contêineres pertencentes a esse conjunto são tratados como contêineres *ilimitados* e devem especificar uma chave de partição.
+Com base na produtividade provisionada, o Azure Cosmos DB alocará partições físicas para hospedar seu(s) contêiner(es) e divide/redistribui os dados entre partições conforme eles aumentam. O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou uma nova coleção e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). A imagem a seguir ilustra o provisionamento de taxa de transferência em níveis diferentes:
 
 ![Unidades de solicitação de provisionamento para contêineres individuais e conjunto de contêineres](./media/request-units/provisioning_set_containers.png)
 
-Este artigo orienta você pelas etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Azure Cosmos DB. 
+Nas próximas seções, você apenderá as etapas necessárias para configurar a produtividade em diferentes níveis de uma conta do Microsoft Azure Cosmos DB. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Provisionar a produtividade usando o portal do Azure
 
@@ -88,6 +88,8 @@ Este artigo orienta você pelas etapas necessárias para configurar a produtivid
 
 Abaixo estão algumas considerações para ajudá-lo a decidir sobre a estratégia de reserva de produtividade.
 
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considerações ao provisionamento de produtividade no nível de banco de dados
+
 Considere provisionar a produtividade no nível de banco de dados (ou seja, para o conjunto de contêineres) nos seguintes casos:
 
 * Se você tiver uma dúzia ou mais de contêineres que podem compartilhar a produtividade em alguns ou todos eles.  
@@ -97,6 +99,8 @@ Considere provisionar a produtividade no nível de banco de dados (ou seja, para
 * Se você quiser considerar picos não planejados de cargas de trabalho usando a produtividade em pool no nível do banco de dados.  
 
 * Em vez configurar a produtividade em um contêiner individual, você está interessado em obter a produtividade agregada em um conjunto de contêineres no banco de dados.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considerações ao provisionamento de produtividade no nível de contêiner
 
 Considere provisionar a produtividade em um contêiner individual nos seguintes casos:
 
@@ -135,6 +139,7 @@ A tabela a seguir lista a produtividade disponível para cada contêiner:
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Definir a produtividade usando a API do SQL do .NET
 
+### <a name="set-throughput-at-the-container-level"></a>Definir a taxa de transferência no nível do contêiner
 Segue um trecho de código para criar um contêiner com 3.000 unidades de solicitação por segundo para um contêiner individual usando SDK do .NET da API do SQL:
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Definir a taxa de transferência para um conjunto de contêineres ou no nível do banco de dados
 
 Segue um trecho de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
 

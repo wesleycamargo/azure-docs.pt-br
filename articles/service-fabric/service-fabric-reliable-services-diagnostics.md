@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
+ms.date: 6/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212629"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110865"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado
 A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está funcionando e ajudar a solucionar problemas.
@@ -53,13 +53,16 @@ O tempo de execução dos Reliable Services define as categorias de contador de 
 | Categoria | DESCRIÇÃO |
 | --- | --- |
 | Replicador Transacional do Service Fabric |Contadores específicos para o Replicador Transacional do Azure Service Fabric |
+| Service Fabric TStore |Contadores específicos para o Replicador Transacional |
 
-O replicador transacional do Service Fabric é usado pelo [Gerenciador de estado confiável](service-fabric-reliable-services-reliable-collections-internals.md) para replicar as transações em um determinado conjunto de [réplicas](service-fabric-concepts-replica-lifecycle.md). 
+O replicador transacional do Service Fabric é usado pelo [Gerenciador de estado confiável](service-fabric-reliable-services-reliable-collections-internals.md) para replicar as transações em um determinado conjunto de [réplicas](service-fabric-concepts-replica-lifecycle.md).
+
+O Service Fabric TStore é um componente usado nas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections-internals.md) para armazenar e recuperar pares de valor de chave.
 
 O aplicativo [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) está disponível por padrão no sistema operacional Windows e pode ser usado para coletar e exibir dados do contador de desempenho. [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para coletar dados do contador de desempenho e carregá-los nas tabelas do Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomes da instância do contador de desempenho
-Um cluster que tem um grande número de serviços confiáveis ou partições de serviço confiáveis terá um grande número de instâncias do contador de desempenho do replicador transacional. Os nomes da instância do contador de desempenho podem ajudar a identificar a [partição](service-fabric-concepts-partitioning.md) e a réplica do serviço que a instância do contador de desempenho está associada.
+Um cluster que tem um grande número de serviços confiáveis ou partições de serviço confiáveis terá um grande número de instâncias do contador de desempenho do replicador transacional. Isso também é o caso para os contadores TStore contadores de desempenho, mas também é multiplicado pelo número de dicionários confiáveis e filas confiáveis usadas. Os nomes da instância do contador de desempenho podem ajudar a identificar a réplica de [partição](service-fabric-concepts-partitioning.md) específica e o fornecedor de estado no caso de TStore que a instância do contador de desempenho está associada.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Categoria do Replicador Transacional do Service Fabric
 Para a categoria `Service Fabric Transactional Replicator`, os nomes da instância do contador estão no seguinte formato:
@@ -76,6 +79,25 @@ O seguinte nome de instância do contador é típico para um contador na `Servic
 
 No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cadeia de caracteres da ID da partição do Service Fabrica, e `131652217797162571` é a ID de réplica.
 
+#### <a name="service-fabric-tstore-category"></a>Categoria do Service Fabric TStore
+Para a categoria `Service Fabric TStore`, os nomes da instância do contador estão no seguinte formato:
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+
+*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID e sua representação da cadeia de caracteres é gerada por meio do [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+
+O *ServiceFabricReplicaId* é a ID associada a uma determinada réplica de um serviço confiável. A ID de Réplica está incluida no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outras instâncias do contador de desempenho. Mais detalhes sobre réplicas e sua função de serviços confiáveis podem ser encontrados [aqui](service-fabric-concepts-replica-lifecycle.md).
+
+*ServiceFabricStateProviderId* é a ID associada a um provedor de estado dentro de um serviço confiável. O ID do provedor de estado está incluído no nome de instância do contador de desempenho para diferenciar um TStore de outro.
+
+*PerformanceCounterInstanceDifferentiator* é uma ID de diferenciação associada a uma instância do contador de desempenho dentro de um provedor de estado. Este diferenciador está incluido no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outras instâncias do contador geradas pelo mesmo fornecedor de estado.
+
+O seguinte nome de instância do contador é típico para um contador na `Service Fabric TStore` categoria:
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+
+No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação de cadeia de caracteres da ID da partição do Service Fabric `131652217797162571` é a ID de réplica `142652217797162571` é a ID do provedor de estado, e `1337` é o diferenciador de instância do contador de desempenho.
+
 ### <a name="transactional-replicator-performance-counters"></a>Contadores de desempenho de replicador transacional
 
 O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Service Fabric Transactional Replicator` categoria
@@ -88,6 +110,14 @@ O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Ser
 | Operações Limitadas/s | O número de operações rejeitadas a cada segundo pelo Replicador Transacional devido à limitação. |
 | Média Transação em ms/confirmação | Latência de confirmação média por transação em milissegundos |
 | Média Latência Média de Liberação (ms) | Duração média das operações de limpeza de disco iniciada pelo Replicador Transacional em milissegundos |
+
+### <a name="tstore-performance-counters"></a>Contadores de desempenho TStore
+
+O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Service Fabric TStore` categoria
+
+ Nome do contador | DESCRIÇÃO |
+| --- | --- |
+| Contagem de Itens | Número de chaves no repositório.|
 
 ## <a name="next-steps"></a>Próximas etapas
 [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 3c3fde3aefe02dd3919378d39afeff7cded763fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215555"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
 
@@ -60,14 +60,14 @@ Para configurar a integração do Coupa ao Microsoft Azure AD, você precisa adi
 
 **Para adicionar o Coupa por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -103,21 +103,33 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. Na seção **URLs e Domínio do Coupa**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Coupa](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `http://<companyname>.Coupa.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.coupahost.com`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<companyname>.coupahost.com`
+    > [!NOTE]
+    > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Coupa](https://success.coupa.com/Support/Contact_Us?) para obter esses valores.
 
-    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.coupahost.com/sp/ACS.saml2`
+    b. Na caixa de texto **Identificador**, digite a URL:
 
-    > [!NOTE] 
-    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Coupa](https://success.coupa.com/Support/Contact_Us?) para obter esses valores. Você obterá o valor de URL de resposta de metadados, que é explicado posteriormente no tutorial.
+    | Ambiente  | URL |
+    |:-------------|----|
+    | Área restrita | `devsso35.coupahost.com`|
+    | Produção | `prdsso40.coupahost.com`|
+    | | |
+
+    c. Na caixa de texto **URL de resposta**, digite a URL:
+
+    | Ambiente | URL |
+    |------------- |----|
+    | Área restrita | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | Produção | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -130,24 +142,18 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 6. Faça logon em seu site de empresa do Coupa como administrador.
 
 7. Vá para **Configuração \> Controle de Segurança**.
-   
+
    ![Controles de Segurança](./media/coupa-tutorial/ic791900.png "Controles de Segurança")
 
 8. Na seção **Fazer Logon usando as credenciais do Coupa** , realize as seguintes etapas:
 
     ![Metadados SP do Coupa](./media/coupa-tutorial/ic791901.png "Metadados SP do Coupa")
-    
-    a. Selecione **Fazer logon usando o SAML**.
-    
-    b. Para baixar o arquivo de metadados do Coupa no computador, clique em **Baixar e importar metadados do SP**. abra os metadados e copie o valor **índice/URL de AssertionConsumerService**, cole-o na caixa de texto **URL de resposta** na seção **Domínio e URLs do Coupa**. 
-    
-    c. Clique em **Procurar** para carregar os metadados baixados a partir do portal do Azure.
-    
-    d. Clique em **Salvar**.
 
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Selecione **Fazer logon usando o SAML**.
+
+    b. Clique em **Procurar** para carregar os metadados baixados a partir do portal do Azure.
+
+    c. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -180,7 +186,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-coupa-test-user"></a>Criar um usuário de teste do Coupa
 
 Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser provisionados no Coupa.  
@@ -192,39 +198,39 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 1. Faça logon em seu site de empresa do **Coupa** como administrador.
 
 2. No menu na parte superior, clique em **Configuração** e em **Usuários**.
-   
+
    ![Usuários](./media/coupa-tutorial/ic791908.png "Usuários")
 
 3. Clique em **Criar**.
-   
+
    ![Criar Usuários](./media/coupa-tutorial/ic791909.png "Criar Usuários")
 
 4. Na seção **Criação de Usuário** , realize as seguintes etapas:
-   
+
    ![Detalhes do Usuário](./media/coupa-tutorial/ic791910.png "Detalhes do Usuário")
-   
+
    a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
-   b. Clique em **Criar**.   
-   
+   b. Clique em **Criar**.
+
    >[!NOTE]
-   >O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa. 
-   > 
+   >O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+   >
 
 >[!NOTE]
->É possível usar qualquer outra ferramenta de criação da conta de usuário do Coupa ou as APIs fornecidas pelo Coupa para provisionar as contas de usuário do AAD. 
+>É possível usar qualquer outra ferramenta de criação da conta de usuário do Coupa ou as APIs fornecidas pelo Coupa para provisionar as contas de usuário do AAD.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Coupa.
 
-![Atribuir a função de usuário][200] 
+![Atribuir a função de usuário][200]
 
 **Para atribuir Brenda Fernandes ao Coupa, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 
 2. Na lista de aplicativos, escolha **Coupa**.
 
@@ -243,13 +249,13 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Coupa no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo do Coupa.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -269,4 +275,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-

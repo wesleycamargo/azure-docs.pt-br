@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018448"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901544"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -46,7 +46,7 @@ public static void Run(
 
 ### <a name="versions-2x-and-3x"></a>Versões 2.x e 3.x
 
-As instruções informam como criar um projeto WebJobs SDK versão 2.x, com notas sobre o que é diferente para 3.x (em visualização). A principal mudança introduzida por 3.x é o uso do .NET Core em vez do .NET Framework.
+As instruções descrevem como criar um projeto do WebJobs SDK versão 2.x. A versão mais recente do WebJobs SDK é a 3.x, mas ele está atualmente na versão prévia e este artigo ainda não tem instruções para essa versão. A principal mudança introduzida pela versão 3.x é o uso do .NET Core em vez do .NET Framework.
 
 ### <a name="azure-functions"></a>Funções do Azure
 
@@ -65,18 +65,13 @@ Este artigo pressupõe que você tenha [uma conta do Azure](https://azure.micros
 
 2. Selecione **Área de Trabalho Clássica do Windows > Aplicativo de Console (.NET Framework)**.
 
-   Para criar um projeto de 3.x, selecione **.NET Core > Aplicativo de Console (.NET Framework)**.
-   
-   > [!NOTE]
-   > 3.x ainda está em versão prévia e está em desenvolvimento. As intruções 3.x neste artigo estão incompletas; para as últimas informações, consulte os problemas do GitHub no final da página.
-
 3. Nomeie o projeto *WebJobsSDKSample* e, em seguida, selecione **OK**.
 
    ![Caixa de diálogo Novo Projeto](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>Adicionar pacote WebJobs NuGet
 
-1. Instale a versão 2.x estável mais recente do pacote NuGet `Microsoft.Azure.WebJobs`. (Para o WebJobs SDK 3.x, você escolheria a versão 3.x mais recente.)
+1. Instale a versão 2.x estável mais recente do pacote NuGet `Microsoft.Azure.WebJobs`.
  
    Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 2.2.0:
 
@@ -353,7 +348,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 ### <a name="add-application-insights-logging-provider"></a>Adicionar provedor de registro em log do Application Insights
 
-1. Instale a versão 2.x estável mais recente do pacote NuGet para o provedor de registro em log do Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`. (Para o WebJobs SDK 3.x, escolha a versão 3.x mais recente do pacote.)
+1. Instale a versão 2.x estável mais recente do pacote NuGet para o provedor de registro em log do Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
    Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 2.2.0:
 

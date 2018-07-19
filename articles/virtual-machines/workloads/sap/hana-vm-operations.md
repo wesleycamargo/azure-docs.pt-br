@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2480ad464f2fc716cf68672387a189aeb92f5737
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809668"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918825"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA no guia de operações do Azure
 Este guia fornece orientações para a operação de sistemas SAP HANA que foram implantados em máquinas virtuais nativas do Azure. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -79,7 +79,7 @@ Para obter uma lista de tipos de armazenamento e os respectivos SLAs em IOPS e t
 
 ### <a name="configuring-the-storage-for-azure-virtual-machines"></a>Configurar o armazenamento para máquinas virtuais do Azure
 
-Até o momento, você comprou dispositivos do SAP HANA para local e nunca precisou preocupar-se com os subsistemas de E/S e seus recursos porque o fornecedor do dispositivo precisa certificar-se de que os requisitos mínimos de armazenamento são atendidos para o SAP HANA. Como você mesmo compila a infraestrutura do Azure, também deve estar ciente de alguns desses requisitos para também reconhecer os requisitos de configuração que serão recomendados nas seções a seguir. Ou para casos em que você esteja configurando as Máquinas Virtuais nas quais deseja executar o SAP HANA. Algumas das características solicitadas resultam na necessidade de:
+Até o momento, você comprou dispositivos do SAP HANA para o local e nunca precisou se preocupar com os subsistemas de E/S e suas funcionalidades, porque o fornecedor do dispositivo precisa garantir que os requisitos mínimos de armazenamento sejam atendidos para o SAP HANA. Como você mesmo compila a infraestrutura do Azure, também deve estar ciente de alguns desses requisitos para também reconhecer os requisitos de configuração que serão recomendados nas seções a seguir. Ou para casos em que você esteja configurando as Máquinas Virtuais nas quais deseja executar o SAP HANA. Algumas das características solicitadas resultam na necessidade de:
 
 - Habilitar o volume de gravação/leitura em /hana/log de no mínimo 250 MB/s com tamanhos de E/S de 1 MB
 - Habilitar a atividade de leitura de pelo menos 400MB/seg para /hana/data para tamanhos de E/S de 16 MB e 64 MB
@@ -95,7 +95,20 @@ Como a baixa latência de armazenamento é crítica para sistemas DBMS, mesmo aq
 
 A acumulação de vários VHDs do Azure sob um RAID é cumulativa de um lado de taxa de transferência de IOPS e armazenamento. Portanto, se você colocar um RAID 0 em discos de Armazenamento Premium do Azure de 3 x P30, ele deverá fornecer três vezes a IOPS e três vezes a taxa de transferência de armazenamento de um único disco P30 do Armazenamento Premium do Azure.
 
-Não configure o cache do Armazenamento Premium nos discos usados para /hana/data e /hana/log. Todos os discos que compilam esses volumes devem ter o cache desses discos definidos como 'Nenhum'.
+As recomendações de cache abaixo pressupõem que as características de E/S para o SAP HANA sejam listadas como:
+
+- Praticamente, não há nenhuma carga de trabalho de leitura nos arquivos de dados do HANA. As exceções são E/Ss grandes após a reinicialização da instância do HANA ou a reinicialização da VM do Azure quando os dados são carregados no HANA. Outro caso de E/Ss de leitura maiores em arquivos de dados podem ser backups de banco de dados do HANA. Como resultado, em grande parte, o cache de leitura não faz sentido pois, na maioria dos casos, todos os volumes de arquivos de dados precisam ser lidos na íntegra.
+- A gravação nos arquivos de dados está ocorrendo em intermitências com base nos pontos de salvamento e na recuperação de pane do HANA. Os pontos de salvamento de gravação são assíncronos e não impedem nenhuma transação de usuário. A gravação de dados durante a recuperação de pane é crítica para o desempenho para que o sistema responda com rapidez novamente. No entanto, a recuperação de pane devem ser situações excepcionais
+- Praticamente, não há nenhuma leitura dos arquivos de refazer do HANA. As exceções são E/Ss grandes ao executar backups de log de transações, recuperação de pane ou na fase de reinicialização de uma instância do HANA.  
+- A carga principal no arquivo de log de refazer do SAP HANA são gravações. Dependendo da natureza da carga de trabalho, você pode ter E/Ss pequenas de 4 KB ou, em outros casos, tamanhos de E/S iguais ou superiores a 1 MB. A latência de gravação no log de refazer do SAP HANA é crítica para o desempenho.
+- Todas as gravações precisam ser persistidas em disco de forma confiável
+
+Como resultado desses padrões de E/S observados pelo SAP HANA, o cache dos diferentes volumes usando o Armazenamento Premium do Azure deve ser definido como:
+
+- /hana/data – sem cache
+- /hana/log – sem cache – exceção para a série M (confira mais adiante neste documento)
+- /hana/shared – cache de leitura
+
 
 Considere a taxa de transferência de E/S geral ao dimensionar ou escolher uma VM. A taxa de transferência de armazenamento de VM geral está documentada no artigo [Tamanhos da máquina virtual otimizada para memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 

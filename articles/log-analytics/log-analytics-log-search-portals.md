@@ -1,23 +1,25 @@
 ---
 title: Portais para criar e editar consultas de log no Azure Log Analytics | Microsoft Docs
-description: "Este artigo descreve os portais que você pode usar no Azure Log Analytics para criar e editar pesquisas de logs."
+description: Este artigo descreve os portais que você pode usar no Azure Log Analytics para criar e editar pesquisas de logs.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133188"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portais para criar e editar consultas de log no Azure Log Analytics
 
@@ -37,9 +39,16 @@ O portal Análise Avançada é um portal dedicado que fornece funcionalidade ava
 ![Portal Análise Avançada](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Devido a seus recursos avançados, normalmente você usará o portal Análise Avançada como a principal ferramenta para criar e editar consultas.  Depois de determinar se a consulta funciona conforme o esperado, copie-a e cole-a em outro lugar, como a página Pesquisa de Logs ou o Designer de Exibição.  No entanto, já que o portal Análise Avançada dá suporte a consultas com várias linhas, você precisa levar em consideração o exposto a seguir ao copiar uma consulta desse portal.
+Devido a seus recursos avançados, normalmente você usará o portal Análise Avançada como a principal ferramenta para criar e editar consultas.  Depois de determinar se a consulta funciona conforme o esperado, copie-a e cole-a em outro lugar, como a página Pesquisa de Logs ou o Designer de Exibição.  
 
-- Comentários devem ser removidos da consulta antes que ele seja copiada e colada em outro local.  Você pode comentar uma linha, precedendo-a de duas barras (//).  Quando você cola uma consulta de várias linhas em uma única linha, quebras de linha são removidas.  Se os comentários forem incluídos, todos os caracteres após o primeiro comentário serão considerados parte do comentário.
+### <a name="firewall-requirements"></a>Requisitos de firewall
+Seu navegador requer acesso aos endereços a seguir para acessar o portal de Advanced Analytics.  Se seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
+
+| Uri | IP | Portas |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinâmico | 80.443 |
+| api.loganalytics.io    | Dinâmico | 80.443 |
+| docs.loganalytics.io   | Dinâmico | 80.443 |
 
 
 ## <a name="next-steps"></a>Próximas etapas

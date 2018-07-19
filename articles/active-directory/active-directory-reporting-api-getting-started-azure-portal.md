@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 842e4d8413544a303b656a8e4a05bdf58a7c8164
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223834"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442076"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatórios do Microsoft Azure Active Directory
 
@@ -47,6 +47,13 @@ Para acessar a API de relatório, mesmo se estiver planejando acessar a API usan
  
 Para obter instruções detalhadas, consulte, [pré-requisitos para acessar a API de relatório do Microsoft Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md).
 
+## <a name="apis-with-graph-explorer"></a>APIs com Microsoft Azure Graph
+
+Você pode usar o [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) para verificar sua entrada e dados da API de auditoria. Certifique-se de entrar em sua conta usando ambos os botões de entrar na interface do usuário do Graph Explorer e defina as permissões **Tasks. ReadWrite** e **Directory.ReadAll** para seu locatário, conforme mostrado.   
+
+![Explorador do Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+
+![Modificar a interface do usuário de permissões](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>Recomendações 
 

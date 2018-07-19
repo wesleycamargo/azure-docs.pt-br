@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/09/2018
 ms.author: jeedes
-ms.openlocfilehash: eb79001f6c74526ec2470612adaf290230d2a017
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227557"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Active Directory do Azure ao AppDynamics
 
@@ -49,7 +48,8 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o AppDynamics por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -66,7 +66,7 @@ Para configurar a integração do AppDynamics ao Azure AD, você precisa adicion
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
@@ -105,7 +105,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
 
 3. Na seção **Domínio e URLs do AppDynamics**, realize as seguintes etapas:
@@ -116,12 +116,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.saas.appdynamics.com/controller`
 
-    > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do AppDynamics](https://www.appdynamics.com/support/) para obter esses valores. 
- 
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do AppDynamics](https://www.appdynamics.com/support/) para obter esses valores.
+
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png) 
+    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_certificate.png)
 
 5. Clique no botão **Salvar** .
 
@@ -129,36 +129,31 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 6. Na seção **Configuração do AppDynamics**, clique em **Configurar o AppDynamics** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
-    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png) 
+    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
 
 7. Em outra janela do navegador da Web, faça logon em seu site de empresa do AppDynamics como administrador.
 
 8. Na barra de ferramentas na parte superior, clique em **Configurações** e em **Administração**.
-   
+
     ![Administração](./media/appdynamics-tutorial/ic790216.png "Administração")
 
 9. Clique na guia **Provedor de Autenticação** .
-   
+
     ![Provedor de Autenticação](./media/appdynamics-tutorial/ic790224.png "Provedor de Autenticação")
 
 10. Na seção **Provedor de Autenticação** , realize as seguintes etapas:
-   
-    ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "configuração SAML")   
+
+    ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "configuração SAML")
 
     a. Como **Provedor de Autenticação**, selecione **SAML**.
 
     b. Na caixa de texto **URL de Logon**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     c. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
-       
+
     d. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
 
     e. Clique em **Salvar**.
-
-     ![Salvar](./media/appdynamics-tutorial/ic777673.png "Salvar")
-
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -169,19 +164,19 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_01.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_01.png)
 
 2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_02.png) 
+
+    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_02.png)
 
 3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
- 
+
     ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_03.png) 
 
 4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_04.png) 
+
+    ![Criação de um usuário de teste do AD do Azure](./media/appdynamics-tutorial/create_aaduser_04.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
@@ -190,49 +185,32 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     c. Selecione **Mostrar senha** e anote o valor de **senha**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-an-appdynamics-test-user"></a>Criando um usuário de teste do AppDynamics
 
-Para permitir que os usuários do Azure AD façam logon no AppDynamics, eles devem ser provisionados no AppDynamics. No caso do AppDynamics, o provisionamento é uma tarefa manual.
-
-**Para configurar o provisionamento de usuários, execute as seguintes etapas:**
-
-1. Faça logon em seu site de empresa do AppDynamics como administrador.
-
-2. Vá para **Usuários**, e, em seguida, clique em **+** para abrir o diálogo **Criar Usuário**.
-   
-    ![Usuários](./media/appdynamics-tutorial/ic790229.png "Usuários")
-
-3. Na seção **Criar Usuário** , realize as seguintes etapas:
-   
-    ![Criar usuário](./media/appdynamics-tutorial/ic790230.png "Criar usuário")
-   
-    a. Preencha os campos **Nome de usuário**, **Nome**, **Email**, **Nova Senha**, **Repetir Nova Senha** de uma conta válida do AAD que deseja provisionar nas caixas de texto relacionadas.
-
-    b. Clique em **Salvar**.
-
-    >[!NOTE]
-    >Você pode usar qualquer outra ferramenta de criação da conta de usuário do AppDynamics ou as APIs fornecidas pelo AppDynamics para provisionar as contas de usuário do AD do Azure.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no AppDynamics. O AppDynamics dá suporte ao provisionamento Just-In-Time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o AppDynamics, caso ele ainda não exista.
+>[!Note]
+>Caso precise criar um usuário manualmente, contate a [equipe de suporte ao Cliente do AppDynamics](https://www.appdynamics.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao AppDynamics.
 
-![Atribuir usuário][200] 
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao AppDynamics, realize as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 
 2. Na lista de aplicativos, selecione **AppDynamics**.
 
-    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_app.png) 
+    ![Configurar o logon único](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![Atribuir usuário][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
@@ -243,7 +221,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
@@ -254,8 +232,6 @@ Quando você clicar no bloco AppDynamics no Painel de Acesso, deverá ser automa
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -270,4 +246,3 @@ Quando você clicar no bloco AppDynamics no Painel de Acesso, deverá ser automa
 [201]: ./media/appdynamics-tutorial/tutorial_general_201.png
 [202]: ./media/appdynamics-tutorial/tutorial_general_202.png
 [203]: ./media/appdynamics-tutorial/tutorial_general_203.png
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248909"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112979"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
 
@@ -59,7 +59,7 @@ O DNS é um dos mecanismos mais eficientes para desviar o tráfego de rede porqu
 
 É importante compreender alguns conceitos no DNS que são amplamente usados para discutir as soluções fornecidas neste artigo:
 - **Registro A de DNS** – Registros A são ponteiros que apontam um domínio para um endereço IPv4. 
-- **Nome CNAME ou Canonical** - Este tipo de registro é usado para apontar para outro registro de DNS. CNAME não responde com uma resposta IP, mas com o ponteiro para o registro que contém o endereço IP. 
+- **Nome CNAME ou Canonical** - Este tipo de registro é usado para apontar para outro registro de DNS. CNAME não responde com um endereço IP, mas com o ponteiro para o registro que contém o endereço IP. 
 - **Roteamento ponderado** – É possível escolher associar um peso para pontos de extremidade de serviço e, em seguida, distribuir o tráfego com base nos níveis de importância atribuídos. Esse método de roteamento é um dos quatro mecanismos de roteamento de tráfego disponíveis no Gerenciador de Tráfego. Para obter mais informações, consulte [Método de roteamento ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Roteamento prioritário** – O roteamento prioritário é baseado em verificações de integridade de pontos de extremidade. Por padrão, o Gerenciador de Tráfego do Azure envia todo o tráfego para o ponto de extremidade de prioridade mais alta e, após uma falha ou desastre, o Gerenciador de Tráfego roteia o tráfego para o ponto de extremidade secundário. Para obter mais informações, consulte [Método de roteamento prioritário](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

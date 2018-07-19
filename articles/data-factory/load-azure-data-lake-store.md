@@ -1,6 +1,6 @@
 ---
-title: Carregar dados no Azure Data Lake Store usando o Azure Data Factory | Microsoft Docs
-description: Usar o Azure Data Factory para copiar dados para o Azure Data Lake Store
+title: Carregar dados no Azure Data Lake Storage Gen1 usando o Azure Data Factory | Microsoft Docs
+description: Usar o Azure Data Factory para copiar dados no Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055234"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857194"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Store usando o Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen1, usando o Azure Data Factory
 
-O [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados em um único local para análise operacional e exploratória.
+O [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (conhecido anteriormente como Azure Data Lake Store) é um repositório de hiperescala que abrange toda a empresa para cargas de trabalho analíticas de big data. O Azure Data Lake permite capturar dados de qualquer tamanho, tipo e velocidade de ingestão. Os dados são capturados em um único local para análise operacional e exploratória.
 
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem completamente gerenciado. Você pode usar o serviço para preencher o lago com dados do sistema existente e economizar tempo ao criar soluções de análise.
 

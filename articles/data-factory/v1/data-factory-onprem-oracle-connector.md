@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para dentro e fora do Oracle usando o Data Factory | Microsoft Docs
+title: Copiar dados de/para o Oracle usando o Data Factory | Microsoft Docs
 description: Aprenda a copiar dados de/para o banco de dados da Oracle que está no local usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046706"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856834"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar dados para dentro e fora do Oracle local usando o Azure Data Factory
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>Copiar dados de/para o Oracle local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-oracle-connector.md)
 > * [Versão 2 (versão atual)](../connector-oracle.md)
@@ -103,6 +103,10 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | gatewayName | Nome do gateway que é usado para conectar o servidor Oracle local |sim |
 
 **Exemplo: usando o driver da Microsoft:**
+
+>[!TIP]
+>Se aparecer o erro "ORA-01025: parâmetro UPI fora do intervalo" e o Oracle for versão 8i, adicione `WireProtocolMode=1` à cadeia de conexão e tente novamente.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

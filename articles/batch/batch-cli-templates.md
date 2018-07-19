@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608640"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130845"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
 
@@ -258,7 +258,7 @@ Modelos de pool e de trabalho permitem que os arquivos armazenados em grupos de 
 
 Atualmente, o suporte à transferência de arquivo e de modelo foi adicionado somente à CLI do Azure. A meta é expandir o público que pode usar o Lote para usuários que não precisam desenvolver código usando as APIs de Lote, tais como pesquisadores, usuários de TI e assim por diante. Sem codificação, os usuários com conhecimento do Azure, do Lote e dos aplicativos a serem executados pelo Lote podem criar modelos para criação de pools e trabalhos. Com os parâmetros de modelo, os usuários sem conhecimento detalhado do Lote e dos aplicativos podem usar esses modelos.
 
-Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [fórum do Lote do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [repositório da Comunidade do Lote](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Próximas etapas
 

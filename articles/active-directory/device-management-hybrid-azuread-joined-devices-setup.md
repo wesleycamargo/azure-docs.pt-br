@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261178"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868428"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -57,8 +57,8 @@ Para melhorar a legibilidade das descrições, este artigo usa o termo a seguir:
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://aka.ms/hybrid/sso). 
-- O registro de dispositivos de nível inferior do Windows **não** é compatível ao usar a Autenticação de Passagem do Azure AD.
+- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- **Não há** suporte para o registro de dispositivos de nível inferior do Windows ao usar a autenticação de passagem do Azure AD sem logon único contínuo.
 - O registro de dispositivos de nível inferior do Windows **não tem** suporte para dispositivos que utilizam perfis móveis. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
 
 
@@ -92,8 +92,6 @@ Se não tiver feito, o STS da sua organização (para domínios federados) devem
 Se sua organização está planejando usar o SSO contínuo, URLs a seguir precisam estar acessíveis os computadores dentro da sua organização, e eles também devem ser adicionados à zona de intranet local do usuário:
 
 - https://autologon.microsoftazuread-sso.com
-
-- https://aadg.windows.net.nsatc.net
 
 - Além disso, a seguinte configuração deve ser habilitada na zona de intranet do usuário: "Permitir atualizações à barra de status por meio de script".
 
@@ -179,7 +177,6 @@ Em uma configuração de várias florestas, você deve usar o script a seguir pa
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -272,7 +269,7 @@ A definição ajuda você a verificar se os valores estão presentes ou se você
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Emita o objectSID da conta do computador local
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - Essa declaração deve conter o valor do **objectSid** da conta do computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** – essa declaração precisa conter o valor **objectSid** da conta do computador local. No AD FS, você pode adicionar uma regra de transformação de emissão que se parece com o seguinte:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -504,7 +501,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Etapa 3: habilitar dispositivos de nível inferior do Windows
 
-Se alguns dos seus dispositivos associados ao domínio forem dispositivos de nível inferior do Windows, você precisa:
+Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de nível inferior do Windows, será necessário:
 
 - Definir uma política no Azure AD para permitir que os usuários registrem dispositivos.
  
@@ -572,7 +569,7 @@ Quando você tiver concluído as etapas necessárias, os dispositivos adicionado
 
 ### <a name="remarks"></a>Comentários
 
-- Você pode usar um objeto de Política de Grupo para controlar a distribuição de registro automático de computadores associados ao domínio do Windows 10 e do Windows Server 2016. **Se você não quiser que esses dispositivos registrem automaticamente com o Azure AD, ou se quiser controlar o registro**, primeiro implemente a política de grupo desabilitando o registro automático em todos esses dispositivos, antes de iniciar as etapas de configuração. Depois de terminar a configuração, e quando estiver pronto para testar, implemente a política de grupo habilitando o registro automático somente nos dispositivos de teste, e depois em todos os outros dispositivos que você escolher.
+- Você pode usar uma configuração de Objeto de Política de Grupo ou de cliente do System Center Configuration Manager para controlar a distribuição do registro automático de computadores Windows 10 e Windows Server 2016 ingressados no domínio. **Se você não quiser que esses dispositivos sejam registrados automaticamente no Azure AD ou se desejar controlar o registro**, primeiro distribua a política de grupo desabilitando o registro automático em todos esses dispositivos ou, se estiver usando o Configuration Manager, defina as configurações do cliente em “Serviços de Nuvem -> Registrar automaticamente os novos dispositivos Windows 10 ingressados no domínio no Azure Active Directory” como "Não", antes de iniciar as etapas de configuração. Depois de terminar a configuração, e quando estiver pronto para testar, implemente a política de grupo habilitando o registro automático somente nos dispositivos de teste, e depois em todos os outros dispositivos que você escolher.
 
 - Para distribuição dos computadores de nível inferior do Windows, você pode implantar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nos computadores que selecionar.
 

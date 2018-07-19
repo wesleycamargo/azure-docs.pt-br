@@ -4,20 +4,19 @@ description: Recomendações para criar modelos do Azure Resource Manager para i
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807315"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927665"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
 
@@ -96,7 +95,7 @@ Se seu modelo do Resource Manager usar MSDeploy, as mensagens de erro de implant
 
 1. Vá para o [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) do site.
 2. Navegue até a pasta em D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro, você poderá incluí-lo ao solicitar ajuda no fórum.
+3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro, inclua-o ao solicitar ajuda no fórum.
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome de aplicativo Web exclusivo
 
@@ -110,6 +109,30 @@ O nome do seu aplicativo Web deve ser globalmente exclusivo. Você pode usar uma
   ...
 }
 ```
+
+## <a name="deploy-web-app-certificate-from-key-vault"></a>Implantar certificado de aplicativo Web do Key Vault
+
+Se o modelo incluir um recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para associação SSL e o certificado estiver armazenado em um Key Vault, você precisará garantir que a identidade do Serviço de Aplicativo pode acessar o certificado.
+
+No Azure global, a entidade de serviço do Serviço de Aplicativo tem a ID **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para permitir acesso ao Key Vault para a entidade de serviço do Serviço de Aplicativo, use:
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+No Azure Governamental, a entidade de serviço do Serviço de Aplicativo tem a ID **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Use essa ID no exemplo anterior.
+
+No Key Vault, selecione **Certificados** e **Gerar/Importar** para carregar o certificado.
+
+![Importar certificado](media/web-sites-rm-template-guidance/import-certificate.png)
+
+No modelo, forneça o nome do certificado para o `keyVaultSecretName`.
+
+Para obter um modelo de exemplo, confira [Implantar um certificado de aplicativo Web de um segredo do Key Vault e usá-lo para a criação da associação SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
 ## <a name="next-steps"></a>Próximas etapas
 

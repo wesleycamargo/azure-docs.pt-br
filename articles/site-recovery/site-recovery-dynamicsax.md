@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876949"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919556"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar um aplicativo do Dynamics AX de várias camadas usando o Azure Site Recovery
 
@@ -114,7 +114,7 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 
     ![Criar Plano de Recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Selecione o Servidor de Objetos de Aplicativo e as VMs cliente para o plano de recuperação e selecione o ✓.
+4. Selecione o Servidor de Objetos de Aplicativo e as VMs do cliente para o plano de recuperação e selecione o ✓.
 
     ![Selecionar os itens](./media/site-recovery-dynamics-ax/selectvms.png)
 
@@ -164,7 +164,7 @@ Para obter mais informações sobre como executar um failover de teste, consulte
 
 3. Selecione **Failover** e, em seguida, **Failover**.
 
-4. Selecione a rede de destino e **✓** para iniciar o processo de failover.
+4. Selecione a rede de destino e selecione **✓** para iniciar o processo de failover.
 
 Para obter mais informações sobre como fazer um failover, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
