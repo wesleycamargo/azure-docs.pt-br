@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867946"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069440"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
 Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução controla as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
 Alterações no software instalado, nos serviços Windows, nos arquivos e registros do Windows e daemons do Linux nos servidores monitorados são enviadas ao serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+
+## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
+
+Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
+
+* Windows Server 2008 Service Pack 1 (SP1) ou posterior
+* Windows 7 SP1 e posterior.
+
+## <a name="supported-linux-operating-systems"></a>Sistemas operacionais Linux com suporte
+
+As seguintes distribuições Linux têm suporte oficialmente. No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias são compatíveis com cada versão principal listada.  
+
+* Amazon Linux 2012.09 a 2015.09 (x86/x64)
+* CentOS Linux 5, 6 e 7 (x86/x64)  
+* Oracle Linux 5, 6 e 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
+* Debian GNU/Linux 6, 7 e 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 

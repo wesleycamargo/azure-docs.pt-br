@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901034"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126687"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -35,15 +35,15 @@ Após criar o Hub IoT, será possível atualizar da camada Básica para a camada
 
 | Recurso | Camada básica | Camada padrão |
 | ---------- | ---------- | ------------- |
-| [Telemetria de dispositivo para nuvem](iot-hub-devguide-messaging.md) | sim | sim |
-| [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | sim | sim |
-| [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md) e [Integração de Grade de Eventos](iot-hub-event-grid.md) | sim | sim |
-| [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | sim | sim |
-| [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | sim | sim |
-| [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | sim | sim |
-| [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | sim |
-| [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | sim |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | sim |
+| [Telemetria de dispositivo para nuvem](iot-hub-devguide-messaging.md) | SIM | SIM |
+| [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | SIM | SIM |
+| [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md) e [Integração de Grade de Eventos](iot-hub-event-grid.md) | SIM | SIM |
+| [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | SIM | SIM |
+| [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | SIM | SIM |
+| [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | SIM | SIM |
+| [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | SIM |
+| [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | SIM |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | SIM |
 
 O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. Ela tem todos os recursos da camada Standard, mas provisões limitadas de mensagens. Não é possível fazer upgrade da camada gratuita para Básica ou Standard. 
 
@@ -53,34 +53,34 @@ A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub
 
 | API | Camada básica | Camada padrão |
 | --- | ---------- | ------------- |
-| [Excluir dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | sim | sim |
-| [Obter dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | sim | sim |
-| Excluir módulo | sim | sim |
-| Obter módulo | sim | sim |
-| [Obter estatísticas de registro](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | sim | sim |
-| [Obter estatísticas de serviços](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | sim | sim |
-| [Implementar dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | sim | sim |
-| Colocar módulo | sim | sim |
-| [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | sim | sim |
-| Consultar módulos | sim | sim |
-| [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | sim | sim |
-| [Receber notificação de limite de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | sim | sim |
-| [Enviar evento de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | sim | sim |
-| Enviar eventos de módulo | sim | sim |
-| [Atualizar o status de upload de arquivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | sim | sim |
-| [Operação de dispositivo em massa](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Sim, exceto pelos recursos do Azure IoT Edge | sim | 
-| [Limpar fila de comandos](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | sim |
-| [Obter dispositivo gêmeo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | sim |
-| Obter módulo gêmeo |   | sim |
-| [Invocar um método de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | sim |
-| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | sim | 
-| Atualizar módulo gêmeo |   | sim | 
-| [Abandonar notificação de limite de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | sim |
-| [Completar notificação de limite de dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | sim |
-| [Cancelar trabalho](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | sim |
-| [Criar trabalho](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | sim |
-| [Obter Trabalho](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | sim |
-| [Trabalhos de consulta](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | sim |
+| [Excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | SIM | SIM |
+| [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | SIM | SIM |
+| Excluir módulo | SIM | SIM |
+| Obter módulo | SIM | SIM |
+| [Obter estatísticas de registro](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | SIM | SIM |
+| [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | SIM | SIM |
+| [Criar Ou Atualizar Dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | SIM | SIM |
+| Colocar módulo | SIM | SIM |
+| [Consulta Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | SIM | SIM |
+| Consultar módulos | SIM | SIM |
+| [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | SIM | SIM |
+| [Receber notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | SIM | SIM |
+| [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | SIM | SIM |
+| Enviar eventos de módulo | SIM | SIM |
+| [Atualizar o status de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | SIM | SIM |
+| [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Sim, exceto pelos recursos do Azure IoT Edge | SIM | 
+| [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | SIM |
+| [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | SIM |
+| Obter módulo gêmeo |   | SIM |
+| [Invocar um método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | SIM |
+| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | SIM | 
+| Atualizar módulo gêmeo |   | SIM | 
+| [Abandonar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | SIM |
+| [Completar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | SIM |
+| [Cancelar trabalho](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | SIM |
+| [Criar trabalho](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | SIM |
+| [Obter Trabalho](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | SIM |
+| [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | SIM |
 
 ## <a name="message-throughput"></a>Taxa de transferência da mensagem
 

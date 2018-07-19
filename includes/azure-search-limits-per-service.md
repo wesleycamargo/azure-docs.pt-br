@@ -9,17 +9,17 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b4062aab5a453505ef4586f422a124d4bbf715cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844052"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755493"
 ---
 O armazenamento é restrito por espaço em disco ou por um limite rígido no *número máximo* de índices, documentos ou outros recursos de alto nível, o que ocorrer primeiro. A tabela a seguir documenta os limites de armazenamento. Para limites máximos em índices, documentos e outros objetos, consulte [limites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Recurso | Grátis | Básico&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
 | -------- | --- | --- | --- | --- | --- | --- |
-| SLA (Contrato de Nível de Serviço) <sup>3</sup>  |Não  |sim |sim |sim |sim |sim |
+| SLA (Contrato de Nível de Serviço) <sup>3</sup>  |Não  |sim |sim |sim |sim |SIM |
 | Armazenamento por partição |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Partições por serviço |N/D |1 |12 |12 |12 |3 |
 | Tamanho da partição |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |

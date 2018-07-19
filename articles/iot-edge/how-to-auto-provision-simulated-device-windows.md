@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a973b248022cf3c0497f72bc2fcdd45a6527e65
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115250"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090224"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Crie e provisione um dispositivo de borda do TPM simulado no Windows
 
@@ -26,7 +26,7 @@ Este artigo mostra como testar o provisionamento automático em um dispositivo d
 * Crie um registro individual para o dispositivo.
 * Instale o tempo de execução do IoT Edge e conecte o dispositivo ao Hub IoT.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Computador de desenvolvimento do Windows. Este artigo usa Windows 10. 
 * Um Hub IoT ativo. 
@@ -87,12 +87,6 @@ Stop-Service iotedge -NoWait
 sleep 5
 Start-Service iotedge
 ```
-
-Verifique se o tempo de execução do IoT Edge está sendo executado. 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 

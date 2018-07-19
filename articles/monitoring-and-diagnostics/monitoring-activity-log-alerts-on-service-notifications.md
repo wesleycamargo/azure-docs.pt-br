@@ -1,19 +1,19 @@
 ---
 title: Receber alertas do log de atividades nas notificações de serviço do Azure
 description: Seja notificado por SMS, email ou webhook quando um serviço do Azure for executado.
-author: johnkemnetz
+author: shawntabrizi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
-ms.author: johnkem
+ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1e79fee75b2361dd7da8c46c175a5a6532089ad6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437232"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035706"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral

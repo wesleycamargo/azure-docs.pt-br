@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 8b0a591f84dd8ece0f6a8e2de19cddfee21b28e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448732"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054736"
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -93,7 +93,7 @@ Para saber mais, veja [Integrando identidades locais ao Azure Active Directory](
 
 **R:** sim, o Azure AD oferece o [Painel de Acesso do Azure AD](http://myapps.microsoft.com) para o autoatendimento de usuários e o acesso ao aplicativo. Se é cliente do Office 365, você pode encontrar muitos dos mesmos recursos no portal do Office 365.
 
-Para saber mais, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 - - -
 **P: o Azure AD me ajuda a gerenciar a infraestrutura local?**

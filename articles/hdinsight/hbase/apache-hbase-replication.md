@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077319"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951102"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -62,7 +62,7 @@ Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurar duas redes virtuais em duas regiões diferentes
 
-Para criar duas redes virtuais em duas regiões diferentes e a conexão VPN entre VNets, clique na imagem a seguir para criar o. O modelo está armazenado [armazenamento de blob público]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Para usar um modelo que cria duas redes virtuais em duas regiões diferentes e a conexão VPN entre as VNETs, selecione o botão **Implantar no Azure** a seguir. A definição de modelo está armazenada em um [Armazenamento de Blobs público](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -72,7 +72,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Local padrão | Oeste dos EUA |
+| Localização | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -89,7 +89,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Local padrão | Leste dos EUA |
+| Localização | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -301,7 +301,7 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
     >
     > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
 
-6. Clique em **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
+6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
 Argumentos necessários:
 
