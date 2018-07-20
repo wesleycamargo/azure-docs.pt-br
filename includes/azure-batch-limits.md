@@ -3,8 +3,8 @@
 | Contas do Lote por região e assinatura | 1 - 3 |50 |
 | Núcleos dedicados por conta do Lote | 10 - 100 | N/A<sup>1</sup> |
 | Núcleos de baixa prioridade por conta do Lote | 10 - 100 | N/A<sup>2</sup> |
-| Trabalhos ativos e agendas de trabalho<sup>3</sup> por Conta de lote | 20 - 100 | 5.000<sup>4</sup> |
-| Núcleos por conta do Lote | 20 - 100 | 2500 |
+| Trabalhos ativos e agendas de trabalho<sup>3</sup> por Conta de lote | 100 - 300 | 2500<sup>4</sup> |
+| Núcleos por conta do Lote | 20 - 100 | 500 |
 
 > [!NOTE]
 > Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
