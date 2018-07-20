@@ -1,0 +1,208 @@
+- name: Documentação do Azure Resource Manager
+  href: index.md
+- name: Visão geral
+  items:
+    - name: O que é o Gerenciador de Recursos?
+      href: resource-group-overview.md
+    - name: Gerenciador de Recursos e implantação clássica
+      href: resource-manager-deployment-model.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar modelos - portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Criar modelos - Visual Studio Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Criar modelos - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: Conceitos
+  items:
+    - name: Provedores e tipos de recursos
+      href: resource-manager-supported-services.md
+    - name: Grupos de gerenciamento
+      href: management-groups-overview.md
+    - name: Governança de assinatura
+      href: /azure/architecture/cloud-adoption-guide/subscription-governance
+      maintainContext: true
+    - name: Modelos de consistência de nuvem
+      href: templates-cloud-consistency.md
+- name: Como
+  items:
+    - name: Criar modelos
+      items:
+        - name: Seções do modelo
+          href: resource-group-authoring-templates.md
+          items:
+            - name: parâmetros
+              href: resource-manager-templates-parameters.md
+            - name: variáveis
+              href: resource-manager-templates-variables.md
+            - name: Funções
+              href: 'resource-group-authoring-templates.md#functions'
+            - name: Recursos
+              href: resource-manager-templates-resources.md
+            - name: outputs
+              href: resource-manager-templates-outputs.md
+        - name: Modelos vinculados e aninhados
+          href: resource-group-linked-templates.md
+        - name: Definir dependência entre recursos
+          href: resource-group-define-dependencies.md
+        - name: Criar múltiplas instâncias
+          href: resource-group-create-multiple.md
+        - name: Atualizar recurso
+          href: /azure/architecture/building-blocks/extending-templates/update-resource
+    - name: Implantar
+      items:
+        - name: Azure PowerShell
+          items:
+            - name: Implantar modelo
+              href: resource-group-template-deploy.md
+            - name: Implantar o modelo particular com o token SAS
+              href: resource-manager-powershell-sas-token.md
+            - name: Exportar modelo e reimplantar
+              href: resource-manager-export-template-powershell.md
+        - name: CLI do Azure
+          items:
+            - name: Implantar modelo
+              href: resource-group-template-deploy-cli.md
+            - name: Implantar o modelo particular com o token SAS
+              href: resource-manager-cli-sas-token.md
+            - name: Exportar modelo e reimplantar
+              href: resource-manager-export-template-cli.md
+        - name: Portal do Azure
+          items:
+            - name: Implantação de recursos
+              href: resource-group-template-deploy-portal.md
+            - name: Exportar modelo
+              href: resource-manager-export-template.md
+        - name: API REST
+          href: resource-group-template-deploy-rest.md
+        - name: Vários grupos de recursos ou assinaturas
+          href: resource-manager-cross-resource-group-deployment.md
+        - name: Integração contínua com o Visual Studio Team Services
+          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
+          maintainContext: true
+        - name: Transmitir valores seguros durante a implantação
+          href: resource-manager-keyvault-parameter.md
+    - name: Gerenciar
+      items:
+        - name: Azure PowerShell
+          href: powershell-azure-resource-manager.md
+        - name: CLI do Azure
+          href: xplat-cli-azure-resource-manager.md
+        - name: Portal do Azure
+          href: resource-group-portal.md
+        - name: Usar marcações para organizar recursos
+          href: resource-group-using-tags.md
+        - name: Mover recursos para um novo grupo ou assinatura
+          href: resource-group-move-resources.md
+        - name: Criar assinaturas de EA
+          href: programmatically-create-subscription.md
+        - name: Conceder acesso para criar assinaturas de EA
+          href: grant-access-to-create-subscription.md
+        - name: Criar grupos de gerenciamento
+          href: management-groups-create.md
+        - name: Gerenciar seus grupos de gerenciamento
+          href: management-groups-manage.md
+    - name: Controlar Acesso
+      items:
+        - name: Criar uma entidade de serviço
+          items:
+            - name: Azure PowerShell
+              href: resource-group-authenticate-service-principal.md
+            - name: CLI do Azure
+              href: /cli/azure/create-an-azure-service-principal-azure-cli
+              maintainContext: true
+            - name: Portal do Azure
+              href: resource-group-create-service-principal-portal.md
+        - name: API de autenticação para acessar assinaturas
+          href: resource-manager-api-authentication.md
+        - name: Bloquear recursos
+          href: resource-group-lock-resources.md
+    - name: Audit
+      items:
+        - name: Exibir logs de atividade
+          href: resource-group-audit.md
+        - name: Exibir operações de implantação
+          href: resource-manager-deployment-operations.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de erros de implantação
+          href: resource-manager-common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: resource-manager-storage-account-name-errors.md
+        - name: InvalidTemplate
+          href: resource-manager-invalid-template-errors.md
+        - name: Problemas de implantação do Linux
+          href: ../virtual-machines/linux/troubleshoot-deploy-vm.md
+        - name: NoRegisteredProviderFound
+          href: resource-manager-register-provider-errors.md
+        - name: NotFound
+          href: resource-manager-not-found-errors.md
+        - name: ParentResourceNotFound
+          href: resource-manager-parent-resource-errors.md
+        - name: Problemas de provisionamento e alocação do Linux
+          href: ../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+        - name: Problemas de provisionamento e alocação do Windows
+          href: ../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+        - name: RequestDisallowedByPolicy
+          href: resource-manager-policy-requestdisallowedbypolicy-error.md
+        - name: ReservedResourceName
+          href: resource-manager-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: resource-manager-quota-errors.md
+        - name: SkuNotAvailable
+          href: resource-manager-sku-not-available-errors.md
+        - name: Problemas de implantação do Windows
+          href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+- name: Referência
+  items:
+    - name: Referência de modelo
+      href: subtoc/toc.yml
+    - name: Funções de modelo
+      href: resource-group-template-functions.md
+      items:
+        - name: Funções de objeto e matriz
+          href: resource-group-template-functions-array.md
+        - name: Funções de comparação
+          href: resource-group-template-functions-comparison.md
+        - name: Funções de implantação
+          href: resource-group-template-functions-deployment.md
+        - name: Funções lógicas
+          href: resource-group-template-functions-logical.md
+        - name: Funções numéricas
+          href: resource-group-template-functions-numeric.md
+        - name: Funções de recurso
+          href: resource-group-template-functions-resource.md
+        - name: Funções de cadeia de caracteres
+          href: resource-group-template-functions-string.md
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: CLI do Azure
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html'
+    - name: REST
+      href: /rest/api/resources/
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Gerenciar dados pessoais
+      href: resource-manager-personal-data.md
+    - name: Solicitações de limitação
+      href: resource-manager-request-limits.md
+    - name: Rastrear operações assíncronas
+      href: resource-manager-async-operations.md
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

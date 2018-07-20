@@ -82,6 +82,8 @@
           href: supported-search-categories.md
     - name: REST
       items:
+        - name: Serviço de geolocalização
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
         - name: Serviço de Renderização
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Serviço de Roteamento

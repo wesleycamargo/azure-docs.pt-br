@@ -103,7 +103,7 @@
               href: app-insights-profiler.md
             - name: Habilitar o criador de perfil
               href: enable-profiler-compute.md
-            - name: Diagnostics
+            - name: Diagnósticos
               href: app-insights-azure-diagnostics.md
             - name: Visualizações
               href: app-insights-previews.md
@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Serviços de nuvem do Azure
               href: app-insights-proactive-cloud-services.md
+            - name: Gerenciar regras de detecção inteligente
+              href: app-insights-proactive-arm-config.md
         - name: Criar um recurso
           href: app-insights-create-new-resource.md
     - name: Analise

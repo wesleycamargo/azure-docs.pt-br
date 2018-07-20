@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: Guia de início rápido
   items:
-    - name: Implantar uma solução de monitoramento remoto
+    - name: Experimente uma solução de monitoramento remoto
       href: quickstart-remote-monitoring-deploy.md
-    - name: Implantar uma solução de fábrica conectada
+    - name: Experimente uma solução de fábrica conectada
       href: quickstart-connected-factory-deploy.md
-    - name: Implantar uma solução de manutenção preditiva
+    - name: Experimente uma solução de manutenção preditiva
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Implantar uma solução de simulação de dispositivo
+    - name: Experimente uma solução de simulação de dispositivo
       href: quickstart-device-simulation-deploy.md
 - name: Tutoriais
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Informações do dispositivo na solução de Monitoramento Remoto
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Manutenção preditiva
-      items:
-        - name: Implantar um acelerador de solução
-          href: iot-accelerators-predictive-overview.md
     - name: Fábrica conectada
       items:
         - name: Usar o painel
