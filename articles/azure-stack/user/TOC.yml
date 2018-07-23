@@ -23,7 +23,7 @@
   items:
     - name: Implantar aplicativos no Azure Stack e no Azure
       href: azure-stack-solution-pipeline.md
-    - name: Configurar a identidade de nuvem híbrida
+    - name: Configurar identidade de nuvem híbrida
       href: azure-stack-solution-hybrid-identity.md
     - name: Configurar a conectividade de nuvem híbrida
       href: azure-stack-solution-hybrid-connectivity.md
@@ -35,13 +35,13 @@
   items:
     - name: Usar o Portal do Azure Stack
       href: azure-stack-use-portal.md
-    - name: Use a API da pilha do Azure
+    - name: Use o API do Azure Stack
       href: azure-stack-rest-api-use.md
     - name: Segurança e conformidade
       items:
         - name: Use o controle de acesso baseado em função
           href: azure-stack-manage-permissions.md
-        - name: Usa entidades de serviço
+        - name: Usar entidades de serviço
           href: Azure-stack-create-service-principals.md
     - name: Usar os serviços
       items:
@@ -59,7 +59,7 @@
               href: azure-stack-manage-vm-disks.md
             - name: Proteger VMs
               href: azure-stack-manage-vm-protect.md
-            - name: Considerações sobre a VM do SQL Server
+            - name: Considerações de VM do SQL Server
               href: azure-stack-sql-server-vm-considerations.md
         - name: Armazenamento
           items:
@@ -110,14 +110,15 @@
         - name: Configure o ambiente de desenvolvimento
           items:
             - name: Instalar o PowerShell do Azure Stack
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Baixar ferramentas de pilha do Azure
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
+            - name: Baixe as ferramentas do Azure Stack
               href: azure-stack-powershell-download.md
             - name: Configurar o PowerShell - Usuário
               href: azure-stack-powershell-configure-user.md
             - name: Instalar Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Usando perfis de versão de API
+            - name: Usando perfis de versão da API
               href: azure-stack-version-profiles.md
               items:
                 - name: PowerShell
@@ -130,9 +131,9 @@
                   href: azure-stack-version-profiles-ruby.md
                 - name: Python
                   href: azure-stack-version-profiles-python.md
-                - name: APIs com suporte por perfis de provedor de recursos
+                - name: APIs com suporte pelos perfis de provedor de recursos
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Usar o módulo de política de pilha do Azure
+        - name: Usar o módulo de política do Azure Stack
           href: azure-stack-policy-module.md
         - name: Usar modelos
           items:

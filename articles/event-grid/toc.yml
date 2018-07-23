@@ -89,14 +89,6 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
-    - name: Recursos de modelo
-      items:
-        - name: Assinaturas de evento
-          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-        - name: Tópicos
-          href: /azure/templates/microsoft.eventgrid/topics
-    - name: SDKs
-      href: sdk-overview.md
     - name: Esquema da assinatura
       href: subscription-creation-schema.md
     - name: Esquema do evento
@@ -106,6 +98,8 @@
           href: event-schema-subscriptions.md
         - name: Armazenamento de blob
           href: event-schema-blob-storage.md
+        - name: Registro de Contêiner
+          href: event-schema-container-registry.md
         - name: Hubs de Eventos
           href: event-schema-event-hubs.md
         - name: Hub IoT
@@ -116,6 +110,14 @@
           href: event-schema-resource-groups.md
         - name: Barramento de Serviço
           href: event-schema-service-bus.md
+    - name: Recursos de modelo
+      items:
+        - name: Assinaturas de evento
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Tópicos
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: SDKs
+      href: sdk-overview.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Criar aplicativo Java
       href: app-service-web-get-started-java.md
-    - name: Criar aplicativo Python
-      href: app-service-web-get-started-python.md
     - name: Criar site HTML estático
       href: app-service-web-get-started-html.md
 - name: Tutoriais
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java com MySQL
           href: app-service-web-tutorial-java-mysql.md
-        - name: Python com PostgreSQL
-          href: app-service-web-tutorial-python-postgresql.md
     - name: Acessar BD SQL com segurança
       href: app-service-web-tutorial-connect-msi.md
     - name: Hospedar API RESTful
@@ -86,7 +82,7 @@
       href: web-sites-traffic-manager.md
     - name: Cache local
       href: app-service-local-cache-overview.md
-    - name: Diagnostics
+    - name: Diagnósticos
       href: app-service-diagnostics.md
 - name: Guias de Instruções
   items:
