@@ -82,7 +82,7 @@
 
 ## [Gerenciar grupos e membros](fundamentals/active-directory-manage-groups.md)
 ### Gerenciar grupos
-#### [Portal do Azure](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [portal do Azure](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [PowerShell do Azure AD para Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Gerenciar membros do grupo](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +103,7 @@
 ### [Restaurar um grupo excluído do Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Gerenciar configurações de grupo](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Criar regras avançadas
-#### [Portal do Azure](users-groups-roles/groups-dynamic-membership.md)
+#### [portal do Azure](users-groups-roles/groups-dynamic-membership.md)
 ### [Configurar grupos de autoatendimento](users-groups-roles/groups-self-service-management.md)
 ### [Solucionar problemas](users-groups-roles/groups-troubleshooting.md)
 
@@ -140,33 +140,13 @@
 #### [Exemplos de entrada](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Usando certificados](active-directory-reporting-api-with-certificates.md)
 
-## Gerenciar senhas
-### [Visão geral de senhas](authentication/active-directory-passwords-overview.md)
+## Gerenciar senhas(active-directory/authentication/concept-sspr-howitworks.md)
 ### Documentos do usuário
 #### [Redefinir ou alterar sua senha](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
 #### [Registro de redefinição de senha de autoatendimento](user-help/active-directory-passwords-reset-register.md)
-### [Como funciona o SSPR](authentication/concept-sspr-howitworks.md)
-### [Guia de Implantação de SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR e Windows 10](authentication/tutorial-sspr-windows.md)
-### [Políticas de SSPR ](authentication/concept-sspr-policy.md)
-### [Personalização de SSPR](authentication/concept-sspr-customization.md)
-### [Requisitos de dados de SSPR](authentication/howto-sspr-authenticationdata.md)
-### [Relatórios de SSPR](authentication/howto-sspr-reporting.md)
-### [Bloqueio inteligente](authentication/howto-password-smart-lockout.md)
-### [Eliminar senhas fracas](authentication/concept-password-ban-bad.md)
-### [Configurar a lista de senhas proibidas](authentication/howto-password-ban-bad.md)
-### [Integração local](authentication/concept-password-ban-bad-on-premises.md)
-### [Implantar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises.md)
-### [Configurar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitorar proteção de senha do Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administradores de TI: redefinir senhas
-#### [Portal do Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Licença SSPR](authentication/concept-sspr-licensing.md)
-### [Write-back de senha](authentication/howto-sspr-writeback.md)
-### [Solucionar problemas](authentication/active-directory-passwords-troubleshoot.md)
-### [Perguntas frequentes](authentication/active-directory-passwords-faq.md)
-
+#### [portal do Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
 ## Gerenciar dispositivos
 ### [Introdução](device-management-introduction.md)

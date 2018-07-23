@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Com padrões
           href: luis-tutorial-pattern.md
+        - name: Com as funções
+          href: luis-tutorial-pattern-roles.md
+        - name: Com a entidade Pattern.any
+          href: luis-tutorial-pattern-any.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -194,7 +198,7 @@
     - name: Teste
       items:
         - name: Teste interativo
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Teste em lote
           href: luis-how-to-batch-test.md
     - name: Publicar aplicativo
@@ -226,7 +230,7 @@
             - name: Distribuir a cota de ponto de extremidade entre chaves com o Gerenciador de tráfego
               href: luis-traffic-manager.md
     - name: Migrar para API V2
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Encontrar região programaticamente
       items:
         - name: 'Usando C#'

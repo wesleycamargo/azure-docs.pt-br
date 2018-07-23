@@ -2,7 +2,7 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é o aprendiz de conversa?
+    - name: O que é o Conversation Learner?
       href: overview.md
     - name: Idiomas com suporte
       href: languages-supported.md
@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Controle de versão e marcação
       href: tutorials/16-versioning-and-tagging.md
+    - name: Bots híbridos
+      href: tutorials/17-hybrid-bots.md
     - name: Demonstração – Redefinição de senha
       href: tutorials/demo-password-reset.md
     - name: Demonstração – pedido de pizza
