@@ -291,6 +291,8 @@
           items:
             - name: Gerenciar mensagens de dispositivos de nuvem com o iothub-explorer
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: Gerencie as mensagens para os dispositivos na nuvem com o Azure IoT Toolkit para VS Code
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: Salvar mensagens do Hub IoT no armazenamento de Blobs do Azure
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Visualização de dados no Power BI
