@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019272"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090870"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -51,7 +51,7 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
 ### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo do Azure Active Directory
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Usando a assinatura que contém sua instância de serviço do Gerenciamento de API, procure a guia **Registros do aplicativo**.
+2. Usando a assinatura que contém sua instância de serviço de gerenciamento de API, navegue até a guia **registros de Aplicativo** em **Azure Active Directory** (Azure Active Directory > registros de Aplicativo/Gerenciar).
 
     > [!NOTE]
     > Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta.
@@ -112,11 +112,14 @@ Substitua `{tentand id}`, `{application id}` e `{redirect uri}` usando as seguin
 
     ![Pontos de extremidade][api-management-endpoint]
 2. Substitua `{application id}` pelo valor obtido navegando para a página **Configurações**.
-3. Substitua a URL da guia **URIs de Redirecionamento** pelo aplicativo do Azure Active Directory.
+3. Substitua a guia `{redirect uri}` com o valor das **URIs de Redirecionamento** pelo aplicativo do Azure Active Directory.
 
     Depois que os valores são especificados, o exemplo de código deve retornar um token semelhante ao seguinte exemplo:
 
     ![A criptografia do token][api-management-arm-token]
+
+    > [!NOTE]
+    > O token pode expirar após um período determinado. Execute o código de exemplo novamente para gerar um novo token.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chamando as operações de backup e restauração
 
@@ -134,7 +137,7 @@ Para fazer backup de um serviço de Gerenciamento de API, execute a seguinte sol
 onde:
 
 * `subscriptionId` – ID da assinatura que contém o serviço de Gerenciamento de API do qual você está tentando fazer backup
-* `resourceGroupName` – uma cadeia de caracteres no formato 'Api-Default-{service-region}', em que `service-region` identifica a região do Azure onde está hospedado o serviço de Gerenciamento de API do qual você está tentando fazer backup, por exemplo, `North-Central-US`
+* `resourceGroupName` -nome do grupo de recursos do seu serviço de Gerenciamento de API do Azure
 * `serviceName` - o nome do serviço de Gerenciamento de API que você está fazendo um backup em específico, no momento de sua criação
 * `api-version` - substitua por `2014-02-14`
 
@@ -193,8 +196,9 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 > **A SKU** do serviço que está sendo restaurada **precisa corresponder** à SKU do serviço copiado em backup que está sendo restaurada.
 >
 > As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de restauração está em andamento **podem ser substituídas**.
->
->
+
+> [!NOTE]
+> Operações de backup e restauração também podem ser executadas com os comandos Powershell *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*, respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
