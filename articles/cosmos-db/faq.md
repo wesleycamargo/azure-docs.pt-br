@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37859693"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002323"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -120,6 +120,9 @@ Quando você definir uma região, lembre-se de que o Azure Cosmos DB respeita nu
 
 O provisionamento de produtividade no nível do contêiner e no nível do banco de dados são ofertas separadas e mudar entre elas requer a migração de dados de origem para destino. Isso significa que você precisa criar um novo banco de dados ou uma nova coleção e, em seguida, migrar os dados usando a [biblioteca do executor em massa](bulk-executor-overview.md) ou o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
+### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Como fazer para criar uma coleção fixa com a chave de partição
+
+No momento, é possível criar uma coleção com uma taxa de transferência da chave de partição usando o método [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) do SDK do .Net ou usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). No momento, não há suporte para a criação de uma coleção fixa usando o portal do Azure.  
 
 ## <a name="develop-against-the-sql-api"></a>Desenvolver com a API do SQL
 

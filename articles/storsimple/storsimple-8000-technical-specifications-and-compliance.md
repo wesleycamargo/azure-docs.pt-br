@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27785519"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056456"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
 
@@ -41,10 +41,10 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
 | Corrente de entrada máxima |20 A |20 A |
 | Correção de fator de potência |Voltagem de entrada nominal >95% |Voltagem de entrada nominal >95% |
 | Harmônicas |Atende EN61000-3-2 |Atende EN61000-3-2 |
-| Saída |Tensão de espera de 5V @ 2.0 A |Tensão de espera de 5V @ 2.7 A |
-| +5V @ 42 A |+5V @ 40 A | |
-| +12V @ 38 A |+12V @ 38 A | |
-| Conectado com a máquina ligada |Sim |Sim |
+| Saída |Tensão de espera de 5V \@ 2.0 A |Tensão de espera de 5V \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
+| Conectado com a máquina ligada |SIM |SIM |
 | Interruptores e LEDs |Interruptor LIGA/DESLIGA CA e quatro LEDs indicadores de status |Interruptor LIGA/DESLIGA CA e seis LEDs indicadores de status |
 | Refrigeração do compartimento |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |
 
@@ -127,8 +127,8 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 | Fluxo de ar |O ar do sistema flui da frente para a traseira. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. Pressão traseira criada por portas e obstáculos no rack não devem exceder 5 pascals (medidor de água de 0,5 mm). |
 | Altitude, operacional |-30 metros a 3045 metros (-100 pés a 10.000 pés) com a temperatura operacional máxima reduzida em 5°C acima dos 7000 pés. |
 | Altitude, não operacional |-305 metros a 12.192 metros (-1.000 pés a 40.000 pés) |
-| Choque, operacional |Seno de 5g 10 ms ½ |
-| Choque, não operacional |Seno de 30g 10 ms ½ |
+| Choque, operacional |5 g em 10 ms a ½ seno |
+| Choque, não operacional |30 g em 10 ms a ½ seno |
 | Vibração, operacional |0,21g RMS 5-500 Hz aleatório |
 | Vibração, não operacional |1,04g RMS 2-200 Hz aleatório |
 | Vibração, realocação |Seno de 3g 2-200 Hz |

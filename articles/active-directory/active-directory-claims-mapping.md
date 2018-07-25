@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261195"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049306"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapeamento de declarações no Azure Active Directory (visualização pública)
 
@@ -357,7 +357,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. El
 |TransformationMethod|Entrada esperada|Saída esperada|DESCRIÇÃO|
 |-----|-----|-----|-----|
 |Ingressar|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver um @ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
+|ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver um sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
 
 **InputClaims:** use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -420,7 +420,7 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você for um novo usuário do Azure AD, recomendamos que aprenda como obter um locatário do Azure AD antes de prosseguir com estes exemplos. 
 
 Para começar, execute uma destas etapas:

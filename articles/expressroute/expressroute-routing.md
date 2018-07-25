@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930521"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072139"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -221,7 +221,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Suporte à Comunidade de BGP no National Clouds (visualização)
+### <a name="bgp-community-support-in-national-clouds"></a>Suporte à Comunidade de BGP no National Clouds
 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |

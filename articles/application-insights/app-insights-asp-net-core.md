@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6635906b6aae418fa3754f1152fae3e0d8903ffc
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970927"
+ms.locfileid: "38989746"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -26,7 +26,7 @@ Azure Application Insights fornece monitoramento detalhado do seu aplicativo web
 
 Este artigo o orienta pelo processo de criação de um exemplo do aplicativo ASP.NET Core [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) no Visual Studio e como iniciar o monitoramento com o Azure Application Insights.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - SDK do NET Core 2.0.0 ou posterior.
 - Versão do [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 ou superior com a carga de trabalho de desenvolvimento da Web e do ASP.NET. 
@@ -188,7 +188,7 @@ Para automatizar solicitações com relação ao seu aplicativo com transações
 
 1. Executar seu aplicativo clicando em IIS Express ![Captura de tela do ícone IIS Express do Visual Studio](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. Copie a URL da barra de endereços do navegador. Está no formato http://localhost:{random número da porta}
+2. Copie a URL da barra de endereços do navegador. Está no formato `http://localhost:{random port number}`
 
    ![Captura de tela da barra de endereço da URL do navegador](./media/app-insights-asp-net-core/0013-copy-url.png)
 

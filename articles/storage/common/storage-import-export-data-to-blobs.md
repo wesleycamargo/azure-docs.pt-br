@@ -6,30 +6,38 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968925"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112824"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Microsoft Azure para importar com segurança grandes quantidades de dados do Armazenamento de Blobs. Para importar dados para Blobs do Azure, o serviço exige o envio de unidades de disco criptografadas contendo dados para um datacenter do Azure.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de criar um trabalho de importação para transferir dados ao Armazenamento de Blobs, revise cuidadosamente e preencha a seguinte lista de pré-requisitos para esse serviço. Você deve:
 
 - Ter uma assinatura ativa do Azure que pode ser usada para o serviço de Importação/Exportação.
-- Ter pelo menos uma conta do Armazenamento do Azure com um contêiner de armazenamento. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Para obter informações sobre o contêiner de armazenamento, acesse [Criar um contêiner de armazenamento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Ter pelo menos uma conta do Armazenamento do Azure com um contêiner de armazenamento. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). 
+    - Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). 
+    - Para obter informações sobre o contêiner de armazenamento, acesse [Criar um contêiner de armazenamento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Ter o número adequado de discos de [tipos com suporte](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows executando uma [versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems). 
 - Habilite o BitLocker no sistema Windows. Consulte [Como habilitar o BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Baixe o WAImportExport versão 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-
+- Ter uma conta FedEx/DHL.  
+    - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
+    - Gerar um número de controle para o trabalho de exportação.
+    - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
+    - Se você não tiver uma conta de transportadora, vá para:
+        - [Criar uma conta FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Etapa 1: preparar as unidades
 
@@ -107,7 +115,10 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     - Selecione a operadora na lista suspensa.
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
-    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
+    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região. 
+        
+        > [!TIP] 
+        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
     ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Revise as informações do trabalho fornecidas no resumo. Anote o nome do trabalho e o endereço de remessa do datacenter do Azure para enviar os discos de volta ao Azure. Essas informações serão utilizadas posteriormente na etiqueta de remessa.
     - Clique em **OK** para criar o trabalho de importação.
 
-    ![Criar trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![Criar trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Etapa 3: enviar as unidades 
 
@@ -127,6 +138,9 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Etapa 5: verificar upload de dados para Azure
+
+Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, verifique se os dados foram carregados no Azure. Exclua os dados locais somente depois de verificar se o upload foi realizado com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648285"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092775"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 
 Muitos aplicativos têm fins regulamentares, de conformidade ou outros fins comerciais que exigem a retenção dos backups de banco de dados além dos 7 a 35 dias fornecidos pelos [backups automáticos](sql-database-automated-backups.md) do Banco de Dados SQL do Microsoft Azure. Usando o recurso LTR (retenção de longo prazo), é possível armazenar backups completos especificados do Banco de Dados SQL no armazenamento de blobs [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) por até 10 anos. É possível restaurar qualquer backup como um novo banco de dados.
-
-> [!IMPORTANT]
-> A retenção de longo prazo atualmente está em versão prévia. Os backups existentes armazenados no cofre de Serviço de Recuperação de Serviços do Azure como parte da versão prévia anterior desse recurso são migrados para o armazenamento do SQL Azure.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longo prazo do Banco de Dados SQL
 
@@ -34,7 +30,6 @@ Exemplos:
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    O 3º backup completo de cada ano será mantido por 5 anos.
-
 - W=0, M=3, Y=0
 
    O 1º backup completo de cada mês será mantido por 3 meses.
@@ -61,6 +56,14 @@ Se você modificasse a política acima e definisse W=0 (sem backups semanais), a
 1. As cópias LTR são criadas pelo serviço de armazenamento do Azure, de modo que o processo de cópia não cause nenhum impacto de desempenho no banco de dados existente.
 2. A política se aplica aos backups futuros. Por exemplo se a WeekOfYear especificada estiver no passado quando a política for configurada, o primeiro backup LTR será criado no próximo ano. 
 3. Para restaurar um banco de dados do armazenamento LTR, você pode selecionar um backup específico com base no carimbo de data/hora.   O banco de dados pode ser restaurado para qualquer servidor existente sob a mesma assinatura do banco de dados original. 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>Replicação geográfica e retenção de backup de longo prazo
+
+Se estiver usando grupos de failover ou de replicação geográfica ativos como a solução de continuidade de negócios, prepare-se para eventuais failovers e configure a mesma política de LTR no banco de dados geográfico secundário. Isso não aumentará o custo de armazenamento de LTR, pois os backups não serão gerados a partir dos secundários. Somente quando o secundário tornar-se primário, os backups serão criados. Dessa forma, você garantirá a geração não interrompida dos backups de LTR quando o failover for acionado e o primário for movido para a região secundária. 
+
+> [!NOTE]
+Quando o banco de dados primário original recuperar-se da indisponibilidade que causa o failover, ele se tornará um novo secundário. Portanto, a criação de backup não será retomada e a política de LTR existente não terá efeito até que torne-se primário novamente. 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar retenção de backup de longo prazo

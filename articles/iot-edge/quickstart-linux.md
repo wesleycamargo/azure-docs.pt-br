@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482067"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005808"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
@@ -44,7 +44,7 @@ Adicione a extensão do Azure IoT à instância do shell de nuvem.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa um computador Linux como dispositivo do IoT Edge. Se você não tiver um disponível para teste, é possível criar um usando a CLI do Azure. 
 
@@ -76,7 +76,7 @@ O nível gratuito do Hub IoT funciona para este guia de início rápido. Se voc�
 1. Crie um hub IoT em seu novo grupo de recursos. O código a seguir cria um hub **F1** gratuito no grupo de recursos **IoTEdgeResources**. Substitua *{hub_name}* por um nome exclusivo para o Hub IoT.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    Se você receber um erro porque já exsite um hub gratuito na sua assinatura, altere o SKU para **S1**. 
@@ -250,12 +250,11 @@ Se você deseja prosseguir para os tutoriais do IoT Edge, pode usar o dispositiv
 
 Se você tiver criado a sua máquina virtual e o Hub IoT em um novo grupo de recursos, é possível excluir esse grupo e todos os recursos associados. Se houver alguma coisa dentro desse grupo de recursos que você deseje manter, então exclua somente os recursos específicos que você deseja apagar. 
 
-Para remover um grupo de recursos, siga as etapas a seguir: 
+Remova o grupo **IoTEdgeResources**. 
 
-1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
-2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
-3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 ### <a name="remove-the-iot-edge-runtime"></a>Remover o tempo de execução do IoT Edge
 

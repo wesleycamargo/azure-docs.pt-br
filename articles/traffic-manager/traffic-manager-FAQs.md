@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301058"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036914"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -63,9 +63,9 @@ Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manag
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Gerenciador de Tráfego com um nome de domínio raiz?
 
-Nº Os padrões de DNS não permitem que CNAMEs coexistam com outros registros DNS do mesmo nome. O apex (ou raiz) de uma zona DNS sempre contém dois registros DNS já existentes: a SOA e os registros NS autoritativos. Isso significa que um registro CNAME não pode ser criado no apex da zona sem violar os padrões do DNS.
+Não. Os padrões de DNS não permitem que CNAMEs coexistam com outros registros DNS do mesmo nome. O apex (ou raiz) de uma zona DNS sempre contém dois registros DNS já existentes: a SOA e os registros NS autoritativos. Isso significa que um registro CNAME não pode ser criado no apex da zona sem violar os padrões do DNS.
 
-O Gerenciador de Tráfego exige um registro CNAME DNS para mapear o nome DNS intuitivo. Por exemplo, você mapeia www.contoso.com para o nome DNS do perfil do Gerenciador de Tráfego contoso.trafficmanager.net. Além disso, o perfil do Gerenciador de Tráfego retorna um segundo DNS CNAME para indicar a qual ponto de extremidade o cliente deve se conectar.
+O Gerenciador de Tráfego exige um registro CNAME DNS para mapear o nome DNS intuitivo. Por exemplo, você mapeia `www.contoso.com` para o nome DNS de perfil do Gerenciador de Tráfego `contoso.trafficmanager.net`. Além disso, o perfil do Gerenciador de Tráfego retorna um segundo DNS CNAME para indicar a qual ponto de extremidade o cliente deve se conectar.
 
 Para solucionar esse problema, recomendamos o uso de um redirecionamento HTTP para direcionar o tráfego do nome de domínio raiz para uma URL diferente, que então poderá usar o Gerenciador de Tráfego. Por exemplo, o domínio raiz “contoso.com” pode redirecionar os usuários para o CNAME “www.contoso.com” que aponta para o nome DNS do Gerenciador de Tráfego.
 
@@ -370,7 +370,7 @@ Para obter detalhes completos, consulte a [página de preços do Gerenciador de 
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
 
-Nº Não há nenhum impacto no desempenho ao usar perfis aninhados.
+Não. Não há nenhum impacto no desempenho ao usar perfis aninhados.
 
 Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
 

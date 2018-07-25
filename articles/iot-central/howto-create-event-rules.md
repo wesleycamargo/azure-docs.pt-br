@@ -1,23 +1,23 @@
 ---
 title: Criar e gerenciar regras de eventos no aplicativo Azure IoT Central | Microsoft Docs
 description: As regras de eventos do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
+services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
-manager: peterpr
-ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.topic: article
+ms.prod: microsoft-iot-central
+manager: timlt
+ms.openlocfilehash: ede7748b1471136cf792c2b30b7c90e12b0b274a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628361"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006841"
 ---
-# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar notificações no aplicativo Azure IoT Central
+# <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar uma ação no aplicativo Azure IoT Central
 
-É possível usar o Microsoft Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação a ser invocada. Este artigo explica a regra de monitoramento de eventos em detalhes.
+É possível usar o Microsoft Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o fluxo de trabalho no Microsoft Flow quando as condições da regra são atendidas. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação a ser invocada. Este artigo explica a regra de monitoramento de eventos em detalhes.
 
 O Azure IoT Central usa a [medida de evento](howto-set-up-template.md) para capturar dados do dispositivo. Cada tipo de medida possui atributos de chave que definem a medida. É possível criar regras para monitorar cada tipo de medida de dispositivo e gerar alertas quando a regra for disparada. Uma regra de eventos é disparada quando o evento de dispositivo selecionado é relatado pelo dispositivo.
 
@@ -29,15 +29,15 @@ Esta seção mostra como criar uma regra de eventos. Este exemplo usa um disposi
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
-    ![Não há regras](media\howto-create-event-rules\image1.png)
+    ![Não há regras](media/howto-create-event-rules/image1.png)
 
 1. Na guia **Regras**, escolha **+ Nova Regra** para ver os tipos de regras que você pode criar.
 
-    ![Tipos de regras](media\howto-create-event-rules\image2.png)
+    ![Tipos de regras](media/howto-create-event-rules/image2.png)
 
 1. Clique em **Evento** para abrir o formulário para criar a regra.
 
-    ![Regra de eventos](media\howto-create-event-rules\image3.png)
+    ![Regra de eventos](media/howto-create-event-rules/image3.png)
 
 1. Escolha um nome que ajude-o a identificar a regra neste modelo de dispositivo.
 
@@ -53,27 +53,32 @@ Esta seção mostra como adicionar uma condição para monitorar a medida de eve
 
 1. Opcionalmente, também é possível fornecer um valor se você quiser monitorar um valor específico do evento que está sendo relatado pelo dispositivo. Por exemplo, se o dispositivo relatar o mesmo evento com códigos de erro diferentes, fornecer o código de erro como um valor na condição da regra garantirá que a regra seja disparada somente quando o dispositivo enviar esse valor específico como carga do evento. Deixar em branco significa que a regra será disparada sempre que o dispositivo enviar o evento, independentemente do valor do evento.
 
-    ![Adicionar a condição de evento](media\howto-create-event-rules\image4.png)
+    ![Adicionar a condição de evento](media/howto-create-event-rules/image4.png)
 
     > [!NOTE]
     > É necessário selecionar pelo menos uma medida de evento ao definir uma condição de regra de eventos.
 
-### <a name="configure-the-action"></a>Configurar a ação
+1. Clique em **Salvar** para salvar a regra. A regra entra em ação em alguns minutos e começa a monitorar eventos enviados ao aplicativo.
 
-Esta seção mostra como especificar o que a regra faz quando a condição corresponde, adicionando uma ação.
+### <a name="add-an-action"></a>Adicionar uma ação
 
-1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis. Durante a visualização pública, o **Email** é a única ação com suporte.
+Esta seção mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas você também pode [adicionar uma ação do Microsoft Flow](howto-add-microsoft-flow.md) à regra para disparar um fluxo de trabalho no Microsoft Flow quando a regra for disparada.
 
-    ![Adicionar Ação](media\howto-create-event-rules\image5.png)
+> [!NOTE]
+> Somente uma ação pode ser associada a uma única regra neste momento.
+
+1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis.
+
+    ![Adicionar Ação](media/howto-create-event-rules/image5.png)
 
 1. Escolha a ação **Email**, insira um endereço de email válido no campo **Para** e forneça uma observação para aparecer no corpo do email quando a regra for disparada.
 
     > [!NOTE]
     > Os emails serão enviados apenas aos usuários que foram adicionados ao aplicativo e fizeram logon pelo menos uma vez. Saiba mais sobre o [gerenciamento de usuários](howto-administer.md) no Azure IoT Central.
 
-   ![Configurar Ação](media\howto-create-event-rules\image6.png)
+   ![Configurar Ação](media/howto-create-event-rules/image6.png)
 
-1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
+1. Clique em **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
 
 ## <a name="parameterize-the-rule"></a>Parametrizar a regra
 
@@ -96,4 +101,5 @@ Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desab
 Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
 
 > [!div class="nextstepaction"]
-> [Como gerenciar os dispositivos](howto-manage-devices.md).
+> [Como adicionar uma ação do Microsoft Flow a uma regra](howto-add-microsoft-flow.md)
+> [Como gerenciar seus dispositivos](howto-manage-devices.md).

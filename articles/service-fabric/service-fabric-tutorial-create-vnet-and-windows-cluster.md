@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114268"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068896"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Windows do Service Fabric em uma rede virtual do Azure
 
@@ -97,7 +97,7 @@ Um cluster do Windows é implantado com as seguintes características:
 * [proxy reverso](service-fabric-reverseproxy.md) está habilitado
 * [Serviço DNS](service-fabric-dnsservice.md) está habilitado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo)
-* [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo)
+ * [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo)
 * ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo)
 * ponto de extremidade de conexão de cliente: 19080 (configurável nos parâmetros de modelo)
 
@@ -139,9 +139,9 @@ O arquivo de parâmetros [vnet cluster.parameters.json][parameters] declara muit
 
 |Parâmetro|Valor de exemplo|Observações|
 |---|---||
-|adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. |
-|adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster.|
-|clusterName|mysfcluster123| Nome do cluster. |
+|adminUserName|vmadmin| Nome de usuário de administrador para o cluster de VMs.[Requisitos de nome de usuário para a VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster. [Requisitos de senha para VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| Nome do cluster. Pode conter apenas letras e números. O comprimento deve ter entre 3 e 23 caracteres.|
 |location|southcentralus| Localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha o valor da impressão digital do certificado. Por exemplo, "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado. </p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha a URL do certificado. Por exemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|

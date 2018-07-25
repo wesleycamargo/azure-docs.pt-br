@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050119"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069256"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -91,11 +91,11 @@ Para saber mais sobre esse cenário e as etapas de configuração do DMS, consul
 
 A RESTAURAÇÃO de backups nativos (arquivos .bak) obtidos do SQL Server local ou [SQL Server em Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponível no [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), é uma das principais capacidades na Instância Gerenciada do BD SQL que permite migração de banco de dados offline rápida e fácil. 
 
-O diagrama a seguir explica o processo no alto nível:
+O diagrama a seguir fornece uma visão geral de alto nível do processo:
 
 ![fluxo de migração](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-A tabela a seguir fornece mais informações sobre o método que você pode utilizar, dependendo da versão do SQL Server de origem em execução:
+A tabela a seguir fornece mais informações sobre os métodos que podem ser utilizados, dependendo da versão do SQL Server de origem em execução:
 
 |Etapa|Mecanismo SQL e versão|Método de backup/restauração|
 |---|---|---|
@@ -105,7 +105,8 @@ A tabela a seguir fornece mais informações sobre o método que você pode util
 |Restaurar do Armazenamento do Microsoft Azure para a Instância Gerenciada|[RESTORE FROM URL com SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
+> - Ao migrar um banco de dados protegido por [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para Instância Gerenciada do SQL do Azure usando a opção de restauração nativa, o certificado correspondente do local ou do SQL Server de IaaS deverá ser migrado antes da restauração do banco de dados. Para etapas detalhadas, consulte [Migrar o certificado TDE para Instância Gerenciada](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestres ou msdb), é recomendável script e executar scripts T-SQL na instância de destino.
 
 Para um tutorial completo que inclui a restauração de um backup de banco de dados para uma Instância Gerenciada usando uma credencial de SAS, consulte [Restaurar do backup para uma Instância Gerenciada](sql-database-managed-instance-restore-from-backup-tutorial.md).
 

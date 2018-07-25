@@ -7,21 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 630ef13fbd64fac8c2a2a31e4174552e64aaa789
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309207"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092640"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 
 O Banco de Dados SQL do Azure fornece [recomendações](sql-database-advisor.md) que podem ser usadas para melhorar o desempenho do banco de dados ou você pode permitir que o Banco de Dados SQL do Azure [adapte-se ao seu aplicativo automaticamente](sql-database-automatic-tuning.md) e aplique as alterações que melhorarão o desempenho da carga de trabalho.
 
 Se você não tiver nenhuma recomendação aplicável e ainda tiver problemas de desempenho, poderá usar os seguintes métodos para melhorar o desempenho:
-- Aumentar as camadas de serviço no seu [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) para fornecer mais recursos para seu banco de dados.
+- Aumentar as camadas de serviço no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou no [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para fornecer mais recursos ao banco de dados.
 - Ajustar o aplicativo e aplicar algumas melhores práticas que podem melhorar o desempenho. 
 - Ajustar o banco de dados alterando índices e consultas para trabalhar com os dados de forma mais eficiente.
 
@@ -29,7 +29,7 @@ Esses são os métodos manuais, pois você precisa decidir a quantidade de recur
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumentando o nível de desempenho do banco de dados
 
-O [Banco de Dados SQL do Azure ](sql-database-service-tiers-dtu.md) oferece dois modelos de compra, um modelo de compra baseado em DTU e um modelo de compra baseado em [vCore (versão prévia)](sql-database-service-tiers-vcore.md), para você escolher. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
+O [Banco de Dados SQL do Azure ](sql-database-service-tiers-dtu.md) oferece dois modelos de compra, um modelo de compra baseado em DTU e um modelo de compra baseado em [vCore](sql-database-service-tiers-vcore.md) para você escolher. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
 > [!NOTE]
 > Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter as diretrizes de desempenho relacionadas aos pools elásticos, consulte [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool elástico e obter benefícios de desempenho semelhantes.
@@ -40,7 +40,7 @@ O [Banco de Dados SQL do Azure ](sql-database-service-tiers-dtu.md) oferece dois
   * **Você tem um banco de dados com um único usuário**. Aplicativos que associam um único usuário a um banco de dados normalmente não têm requisitos altos em termos de simultaneidade e desempenho. Esses aplicativos são candidatos à camada de serviço Básica.
 * **Standard**: a camada de serviço Standard oferece melhor previsibilidade de desempenho e fornece bom desempenho para bancos de dados que têm várias solicitações simultâneas, como aplicativos Web e de grupo de trabalho. Quando escolhe um banco de dados da camada de serviço Standard, você pode dimensionar seu aplicativo de banco de dados com base em um desempenho previsível, minuto a minuto.
   * **Seu banco de dados tem várias solicitações simultâneas**. Aplicativos que atendem mais de um usuário por vez normalmente precisam de níveis de desempenho mais altos. Por exemplo, aplicativos Web ou de grupo de trabalho que têm requisitos de tráfego de E/S de baixo a médio e que dão suporte a várias consultas simultâneas são bons candidatos para a camada de serviço Standard.
-* **Premium**: a camada de serviço Premium fornece desempenho previsível, segundo a segundo, para cada banco de dados Premium ou Comercialmente Crítico (versão prévia). Quando escolhe a camada de serviço Premium, você pode dimensionar seu aplicativo de banco de dados com base na carga de pico desse banco de dados. O plano remove casos em que a variação de desempenho pode fazer com que pequenas consultas demorem mais do que o esperado em operações sensíveis à latência. Esse modelo pode simplificar muito os ciclos de desenvolvimento e de validação de produtos para aplicativos que precisam criar instruções fortes sobre as necessidades de recursos de pico, a variação de desempenho ou a latência da consulta. A maioria dos casos de uso da camada de serviço Premium tem uma ou mais destas características:
+* **Premium**: a camada de serviço Premium fornece desempenho previsível, segundo a segundo, para cada banco de dados Premium ou Comercialmente Crítico. Quando escolhe a camada de serviço Premium, você pode dimensionar seu aplicativo de banco de dados com base na carga de pico desse banco de dados. O plano remove casos em que a variação de desempenho pode fazer com que pequenas consultas demorem mais do que o esperado em operações sensíveis à latência. Esse modelo pode simplificar muito os ciclos de desenvolvimento e de validação de produtos para aplicativos que precisam criar instruções fortes sobre as necessidades de recursos de pico, a variação de desempenho ou a latência da consulta. A maioria dos casos de uso da camada de serviço Premium tem uma ou mais destas características:
   * **Alta carga de pico**. Um aplicativo que requer CPU, memória ou E/S (entrada/saída) substancial para concluir suas operações requer um nível dedicado e de alto desempenho. Por exemplo, uma operação de banco de dados conhecida por consumir vários núcleos de CPU por um longo período é uma candidata para a camada de serviço Premium.
   * **Muitas solicitações simultâneas**. Alguns aplicativos de banco de dados atendem muitas solicitações simultâneas, por exemplo, ao servir um site com alto volume de tráfego. As camadas de serviço Básica e Standard limitam a quantidade de solicitações simultâneas por banco de dados. Aplicativos que exigem mais conexões precisariam escolher um tamanho de reserva apropriado para lidar com o número máximo de solicitações necessárias.
   * **Baixa latência**. Alguns aplicativos precisam garantir uma resposta do banco de dados em tempo mínimo. Se um procedimento armazenado específico for chamado como parte de uma operação de cliente mais ampla, poderá haver o requisito de ter um retorno daquela chamada em não mais do que 20 milissegundos, 99% do tempo. Esse tipo de aplicativo se beneficia da camada de serviço Premium para certificar-se de que a capacidade de computação exigida esteja disponível.
@@ -272,7 +272,7 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre as camadas de serviço baseadas em DTU, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
-* Para saber mais sobre as camadas de serviço baseadas em vCore, consulte [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
+* Para saber mais sobre as camadas de serviço baseadas em vCore, consulte [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 * Para saber mais sobre pools elásticos, consulte [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre desempenho e pools elásticos, consulte [Quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
 

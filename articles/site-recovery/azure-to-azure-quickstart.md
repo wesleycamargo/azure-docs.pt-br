@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916595"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990856"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure para outra região do Azure
 
@@ -34,7 +34,7 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 1. No Portal do Azure, clique em **Máquinas virtuais** e selecione a VM que você deseja replicar.
 
-2. Em **Configurações**, clique em **Recuperação de desastre**.
+2. Em **Operações**, clique em **Recuperação de desastre**.
 3. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará.
 4. Para este guia de início rápido, aceite as outras configurações padrão.
 5. Clique em **Habilitar a replicação**. Isso inicia um trabalho para habilitar a replicação para a VM.

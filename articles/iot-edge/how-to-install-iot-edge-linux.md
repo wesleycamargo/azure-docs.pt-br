@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344344"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035387"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (x64)
 
@@ -56,9 +56,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>Instale o tempo de execução do contêiner 
 
-O Azure IoT Edge depende de um tempo de execução de contêiner [Compatível com OCI][lnk-oci] (por exemplo, Docker). Se você já tiver o Docker CE/EE instalado no dispositivo de borda, será possível continuar utilizando-o para desenvolvimento e teste com Azure IoT Edge. 
-
-Para cenários de produção, é altamente recomendável utilizar o mecanismo [baseado em Moby][lnk-moby] fornecido abaixo. É o único mecanismo de contêiner oficialmente com suporte do Azure IoT Edge. Imagens de contêiner do docker CE/EE são totalmente compatíveis com o tempo de execução Moby.
+O Azure IoT Edge depende de um tempo de execução de contêiner [compatível com OCI][lnk-oci]. Para cenários de produção, é altamente recomendável utilizar o mecanismo [baseado em Moby][lnk-moby] fornecido abaixo. É o único mecanismo de contêiner oficialmente com suporte do Azure IoT Edge. Imagens de contêiner do docker CE/EE são compatíveis com o tempo de execução Moby.
 
 Atualize o apt-get.
 

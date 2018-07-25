@@ -1,6 +1,6 @@
 ---
-title: Backup e restauração periódicos do Azure Service Fabric (Versão Prévia) | Microsoft Docs
-description: Use o recurso de backup e restauração periódicos do Service Fabric para proteger seus aplicativos contra perda de dados.
+title: Início rápido – Backup e restauração periódicos do Azure Service Fabric (Versão prévia) | Microsoft Docs
+description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113982"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990292"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e restauração periódicos do Azure Service Fabric (Versão Prévia)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Início rápido: backup e restauração periódicos do Azure Service Fabric (Versão prévia)
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters independentes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -57,7 +57,7 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 - Suspender backups temporariamente
 - Gerenciamento de backups de retenção (em breve)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Cluster do Service Fabric com Fabric versão 6.2 e superior. O cluster deve ser configurado no Windows Server. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para ver as etapas para criar um cluster do Service Fabric usando o modelo de recurso do Azure.
 * Certificado X.509 para criptografia de segredos necessária para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-cluster-creation-via-arm.md) para saber como obter ou criar um certificado X.509.
 * Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos voltados para o .Net Core 2.0, o aplicativo deve ser criado usando o SDK do Service Fabric versão 3.1 ou superior.
@@ -223,13 +223,14 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Limitação/advertências da versão prévia
+## <a name="preview-limitation-caveats"></a>Limitação da versão prévia
 - Nenhum cmdlet do PowerShell interno ao Service Fabric.
 - Não há suporte para a CLI do Service Fabric.
-- Não há suporte para a limpeza de backup automatizada. Requer limpeza manual dos backups.
+- Não há suporte para a limpeza de backup automatizada. O [script de retenção de backup](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) pode ser referenciado para configurar a automação externa baseada em script para limpar os backups.
 - Não há suporte para clusters do Service Fabric no Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

@@ -1,29 +1,29 @@
 ---
-title: Acessar dados da versão prévia do Armazenamento do Azure Data Lake Gen2 com DataBricks usando o Spark | Microsoft Docs
-description: Saiba como executar consultas Spark em um cluster DataBricks para acessar dados em uma conta de Armazenamento do Azure Data Lake Gen2.
+title: Acessar dados da versão prévia do Azure Data Lake Storage Gen2 com Azure Databricks usando o Spark | Microsoft Docs
+description: Saiba como executar consultas Spark em um cluster Azure Databricks para acessar dados em uma conta de Azure Data Lake Storage Gen2.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096909"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136396"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Tutorial: Acessar dados da versão prévia do Armazenamento do Azure Data Lake Gen2 com DataBricks usando o Spark
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acessar dados da versão prévia do Azure Data Lake Storage Gen2 com Azure Databricks usando o Spark
 
-Neste tutorial, você aprenderá a executar consultas Spark em um cluster DataBricks para consultar dados na versão prévia da Conta de Armazenamento do Azure Data Lake Gen2.
+Neste tutorial, você aprenderá a executar consultas Spark em um cluster Azure Databricks para consultar dados na versão prévia da Conta de Azure Data Lake Storage Gen2.
 
 > [!div class="checklist"]
-> * Criar um cluster DataBricks
+> * Criar um cluster Databricks
 > * Ingerir dados não estruturados em uma conta de armazenamento
 > * Disparar uma função do Azure para processar dados
 > * Executar a análise em seus dados no armazenamento de blobs
@@ -47,11 +47,11 @@ Para começar, crie uma nova [conta de Armazenamento do Azure Data Lake Gen2](qu
 
 O nome da conta e a chave são necessários para etapas posteriores neste tutorial. Abra um editor de texto e coloque o nome da conta e a chave para referência futura.
 
-## <a name="create-a-databricks-cluster"></a>Criar um cluster DataBricks
+## <a name="create-a-databricks-cluster"></a>Criar um cluster Databricks
 
-A próxima etapa é criar um [cluster DataBricks](https://docs.azuredatabricks.net/) para criar um espaço de trabalho de dados.
+A próxima etapa é criar um [cluster Databricks](https://docs.azuredatabricks.net/) para criar um espaço de trabalho de dados.
 
-1. Crie um [serviço DataBricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) e nomeie-o **myFlightDataService** (marque a caixa de seleção *Fixar no painel* quando criar o serviço).
+1. Crie um [serviço Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) e nomeie-o **myFlightDataService** (marque a caixa de seleção *Fixar no painel* quando criar o serviço).
 2. Clique em **Iniciar Espaço de Trabalho** para abrir o espaço de trabalho em uma nova janela do navegador.
 3. Clique em **Clusters** na barra de navegação esquerda.
 4. Clique em **Criar Cluster**.
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Use o DataBricks Notebook para converter CSV em Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Use o Databricks Notebook para converter CSV em Parquet
 
-Abra novamente o DataBricks no navegador e execute as seguintes etapas:
+Abra novamente o Databricks no navegador e execute as seguintes etapas:
 
 1. Selecione **Azure Databricks** na parte superior esquerda da barra de navegação.
 2. Selecione **Notebook** na seção **Novo** na metade inferior da página.
@@ -116,7 +116,7 @@ Abra novamente o DataBricks no navegador e execute as seguintes etapas:
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Explorar dados usando o Sistema de Arquivos Distribuído Hadoop
 
-Retorne ao espaço de trabalho do DataBricks e clique no ícone **Recentes** na barra de navegação à esquerda.
+Retorne ao espaço de trabalho do Databricks e clique no ícone **Recentes** na barra de navegação à esquerda.
 
 1. Clique no notebook **Análise de Dados de Voo**.
 2. Pressione **Ctrl+Alt+N** para criar uma nova célula.

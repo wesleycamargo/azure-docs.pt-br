@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114394"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091857"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 
@@ -76,7 +76,7 @@ Seja você uma startup sem recursos financeiros ou uma equipe em uma empresa est
 
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de licenciamento e cobrança
 
-Atualmente, o **Banco de Dados SQL** é vendido como um serviço e está disponível em várias camadas de serviço com preços diferentes para recursos, que são todos cobrados por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho escolhido. Com a Instância Gerenciada do Banco de Dados SQL, você também pode usar sua própria licença. Para obter mais informações sobre como utilizar seu próprio licenciamento, consulte [Mobilidade de Licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. Você ajustar as camadas de serviço e os níveis de desempenho dinamicamente para atender às necessidades de produtividade variadas do seu aplicativo. Para obter as informações mais recentes sobre as camadas de serviço atuais com suporte, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos entre as instâncias de banco de dados para reduzir os custos e acomodar os picos de uso.
+Atualmente, o **Banco de Dados SQL** é vendido como um serviço e está disponível em várias camadas de serviço com preços diferentes para recursos, que são todos cobrados por hora a uma taxa fixa com base na camada de serviço e no nível de desempenho escolhido. Com a Instância Gerenciada do Banco de Dados SQL, você também pode usar sua própria licença. Para obter mais informações sobre como utilizar seu próprio licenciamento, consulte [Mobilidade de Licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Além disso, você será cobrado pelo tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/)regulares. Você ajustar as camadas de serviço e os níveis de desempenho dinamicamente para atender às necessidades de produtividade variadas do seu aplicativo. Para obter as informações mais recentes sobre as camadas de serviço atuais com suporte, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Você também pode criar [pools elásticos](sql-database-elastic-pool.md) para compartilhar recursos entre as instâncias de banco de dados para reduzir os custos e acomodar os picos de uso.
 
 Com o **Banco de Dados SQL**, o software de banco de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, seus recursos de [backup interno](sql-database-automated-backups.md) o ajudam a obter economia significativa, principalmente quando você tem um grande número de bancos de dados. 
 

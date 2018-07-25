@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.reviewer: Evgeny.Ternovsky
 ms.author: mbullwin
-ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a59b57c546f18a7d91160f2ae7282af82fc42160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294414"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044706"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>Diretrizes para dados pessoais armazenados no Application Insights
 
@@ -82,7 +82,8 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-Embora a grande maioria das operações de limpeza seja concluída muito mais rapidamente do que o SLA, devido ao grande impacto na plataforma de dados usada pelo Application Insights, o SLA formal para a conclusão das operações de limpeza é definido em 30 dias.
+> [!IMPORTANT]
+>  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, devido a seu grande impacto na plataforma de dados usada pelo Application Insights,  **o SLA formal para a conclusão das operações de limpeza é definido como 30 dias**.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como os dados são coletados, processados e protegidos, consulte [Segurança de dados do Application Insights](app-insights-data-retention-privacy.md).

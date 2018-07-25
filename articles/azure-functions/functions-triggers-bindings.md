@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887463"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004890"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -32,7 +32,7 @@ Um *gatilho* define como uma função é invocada. Uma função deve ter exatame
 
 *Associações* de entrada e saída fornecem uma maneira declarativa de se conectar aos dados de dentro do seu código. Associações são opcionais e uma função pode ter várias associações de entrada e saída. 
 
-Gatilhos e associações permitem evitar que os detalhes dos serviços com os quais você está trabalhando sejam embutidos no código. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função, um parâmetro `out`, ou um [objeto coletor](functions-reference-csharp.md#writing-multiple-output-values).
+Gatilhos e associações permitem evitar que os detalhes dos serviços com os quais você está trabalhando sejam embutidos no código. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem da fila) usando o valor retornado da função. No C# e script C#, formas alternativas de enviar os dados são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
 Quando você desenvolve funções usando o Portal do Azure, gatilhos e associações são configuradas em um arquivo *function.json*. O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente, alterando para o **Editor avançado**.
 
@@ -224,9 +224,11 @@ Em linguagens que têm um valor de retorno, você pode associar uma associação
 * Em uma biblioteca de classe C#, aplique o atributo de associação de saída para o valor de retorno do método.
 * Em outras linguagens, defina a propriedade `name` em *function.json* para `$return`.
 
-Se você precisar gravar mais de um item, use um [objeto coletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se houver várias associações de saída, use o valor de retorno de apenas um deles.
+Se houver várias associações de saída, use o valor de retorno de apenas um deles.
 
-Consulte o exemplo específico a um idioma:
+No C# e script C#, formas alternativas de enviar os dados para uma associação de saída são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
+
+Veja o exemplo específico de uma linguagem que mostra o uso do valor de retorno:
 
 * [C#](#c-example)
 * [Script do C# (.csx)](#c-script-example)

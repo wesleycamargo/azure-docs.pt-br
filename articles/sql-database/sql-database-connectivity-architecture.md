@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644429"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036761"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
@@ -49,6 +49,9 @@ Se você estiver se conectando de dentro do Azure, as conexões têm uma políti
 Se você estiver se conectando de fora do Azure, as conexões têm uma política de conexão de **Proxy** por padrão. Uma política de **Proxy** significa que a sessão TCP é estabelecida por meio do gateway do Banco de Dados SQL do Azure e todos os pacotes subsequentes fluem por meio do gateway. O diagrama a seguir ilustra esse fluxo de tráfego.
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Redirecionar** por padrão. Portanto, para habilitar a conectividade de dentro da rede virtual, você precisa permitir saída para todos os endereços IP de banco de dados SQL do Azure, não apenas para IPs de gateway. Isso pode ser feito com a Ajuda de marcas de serviço do NSG (Grupo de Segurança de Rede) e, se você quer permitir saída apenas para IPs de gateway, altere a configuração para **Proxy**.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
 

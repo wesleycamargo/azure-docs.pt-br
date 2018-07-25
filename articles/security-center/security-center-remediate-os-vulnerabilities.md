@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285909"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990788"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.
@@ -27,11 +27,11 @@ A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) 
 Para obter mais informações sobre as configurações específicas que estão sendo monitoradas, veja a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-A opção “Corrigir configurações de segurança” é apresentada como uma recomendação na Central de Segurança. A recomendação é exibida em **Recomendações** > **Computação**.
+A opção “Corrigir configurações de segurança” é apresentada como uma recomendação na Central de Segurança. A recomendação é exibida em **Recomendações** > **Computação e aplicativos**.
 
-Este exemplo abrange a recomendação “Corrigir configurações de segurança” em **Computação**.
-1. Na Central de Segurança, no painel esquerdo, selecione **Computação**.  
-  A janela **Computação** será aberta.
+Este exemplo abrange a recomendação “Corrigir configurações de segurança” em **Computação e aplicativos**.
+1. Na Central de Segurança, no painel esquerdo, selecione **Computação e aplicativos**.  
+  A janela **Computação e aplicativos** é aberta.
 
    ![Corrigir as configurações de segurança][1]
 

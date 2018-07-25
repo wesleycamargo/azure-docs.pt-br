@@ -3,8 +3,8 @@ title: Autoridades de certificação permitidas para habilitar HTTPS personaliza
 description: Se você estiver usando seu próprio certificado para habilitar HTTPS em um domínio personalizado, deverá usar uma AC (autoridade de certificação) permitida para criá-lo.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
-ms.author: v-deasim
+ms.date: 07/12/2018
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c41ca7e375324ff784bf7bee347bb56400ddfbd
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 28d6d24266c11b1295c57c8ec46c2bd5ec690b28
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237038"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005910"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autoridades de certificação permitidas para habilitar HTTPS personalizado no CDN do Azure
 
@@ -49,10 +49,14 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - DigiCert High Assurance EV Root CA
 - DigiCert SHA2 High Assurance Server CA
 - DigiCert SHA2 Secure Server CA
+- GeoTrust Global CA
+- GeoTrust Primary Certification Authority
+- GeoTrust Primary Certification Authority – G2
 - GlobalSign
 - GlobalSign Extended Validation CA – SHA256 – G2
 - GlobalSign Organization Validation CA – G2
 - GlobalSign Root CA
+- Go Daddy Root Certificate Authority – G2
 - Microsoft Authenticode(tm) Root Authority
 - Microsoft Exchange Services CA 2015
 - Microsoft Internal Corporate Root
@@ -78,6 +82,9 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - Symantec Class 3 EV SSL CA – G3
 - Symantec Class 3 Secure Server CA – G4
 - Symantec Enterprise Mobile Root for Microsoft
+- Thawte Primary Root CA
+- Thawte Primary Root CA – G2
+- Thawte Primary Root CA – G3
 - Thawte Timestamping CA
 - UTN-USERFirst-Object
 - VeriSign Class 3 Extended Validation SSL CA

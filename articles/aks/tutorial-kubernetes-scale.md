@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 7b962ccd8349996cd33cc3960391cba8fce549ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 22f7f9aee791d315300ffdc4dc9f708a80a5baf7
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934353"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127396"
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Tutorial: dimensionar o aplicativo no AKS (Serviço de Kubernetes do Azure)
 
 Se você estiver seguindo os tutoriais, terá um cluster de Kubernetes operacional no AKS e já implantou o aplicativo Azure Voting.
 
-Neste tutorial, parte cinco de oito, você expandirá os pods no aplicativo e experimentará o dimensionamento automático de pod. Você também aprenderá como dimensionar o número de nós da VM do Azure para alterar a capacidade do cluster para hospedagem de cargas de trabalho. As tarefas concluídas incluem:
+Neste tutorial, parte cinco de sete, você escala horizontalmente os pods no aplicativo e experimenta o dimensionamento automático do pod. Você também aprenderá como dimensionar o número de nós da VM do Azure para alterar a capacidade do cluster para hospedagem de cargas de trabalho. As tarefas concluídas incluem:
 
 > [!div class="checklist"]
 > * Dimensionar os nós do Azure no Kubernetes
 > * Dimensionamento manual de pods Kubernetes
 > * Configuração de pods com dimensionamento automático executando o front-end do aplicativo
 
-Nos tutoriais subsequentes, o aplicativo Azure Vote é atualizado e o Log Analytics é configurado para monitorar o cluster Kubernetes.
+Nos tutoriais subsequentes, o aplicativo Azure Vote é atualizado para uma nova versão.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -105,7 +105,12 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Dimensionamento automático de pods
 
-O Kubernetes dá suporte ao [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods em uma implantação, dependendo da utilização da CPU ou de outras métricas selecionadas.
+O Kubernetes dá suporte ao [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods em uma implantação, dependendo da utilização da CPU ou de outras métricas selecionadas. O [Servidor de Métricas][metrics-server] é usado para fornecer a utilização de recursos no Kubernetes. Para instalar o servidor de métricas, clonar o repositório `metrics-server` do GitHub e instalem as definições de recurso de exemplo. Para exibir o conteúdo dessas definições YAML, veja [Servidor de métricas para Kuberenetes 1.8 +][metrics-server-github].
+
+```console
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+kubectl create -f metrics-server/deploy/1.8+/
+```
 
 Para usar o dimensionador automático, seus pods devem ter limites e solicitações de CPU definidos. Na implantação, `azure-vote-front` o contêiner de front-end solicita 0,25 CPU, com um limite de 0,5 CPU. As configurações têm a seguinte aparência:
 
@@ -118,7 +123,6 @@ resources:
 ```
 
 O exemplo a seguir usa o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implantação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionador automático aumenta os pods para um máximo de 10.
-
 
 ```azurecli
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -158,6 +162,8 @@ Avance para o próximo tutorial para saber mais sobre como atualizar um aplicati
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

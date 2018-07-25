@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645204"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092589"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL ou fazer failover para um secundário
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
@@ -27,7 +27,7 @@ O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação
 Para saber mais sobre os cenários de continuidade dos negócios e os recursos com suporte para esses cenários, confira [Continuidade dos negócios](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Se você estiver usando pools ou banco de dados Comercialmente Crítico (versão prévia) ou Premium com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica. 
+> Se você estiver usando pools ou banco de dados Comercialmente Crítico ou Premium com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Prepare-se para o caso de uma interrupção
 Para ter êxito com a recuperação para outra região de dados usando a replicação os grupos de failover ou os backups com redundância geográfica, você precisará preparar um servidor em outra interrupção de data center para que ele se torne o novo servidor primário, caso seja necessário, bem como definir as etapas documentadas e testadas para garantir uma recuperação simples. Essas etapas de preparação incluem:

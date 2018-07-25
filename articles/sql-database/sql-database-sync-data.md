@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342650"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069362"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -24,6 +24,16 @@ Sincronização de Dados SQL é um serviço baseado no Banco de Dados SQL do Azu
 ## <a name="architecture-of-sql-data-sync"></a>Arquitetura de Sincronização de Dados SQL
 
 A Sincronização de Dados é baseada em torno do conceito de um Grupo de Sincronização. Um Grupo de Sincronização é um grupo de bancos de dados que você deseja sincronizar.
+
+A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados. Você define um dos bancos de dados no grupo de sincronização como o Banco de Dados Hub. O restante dos bancos de dados são bancos de dados de membros. A sincronização ocorre apenas entre o Hub e membros individuais.
+-   O **Banco de Dados Hub** deve ser um Banco de Dados SQL do Azure.
+-   Os **bancos de dados de membro** podem ser Bancos de Dados SQL, bancos de dados locais do SQL Server ou instâncias do SQL Server em máquinas virtuais do Azure.
+-   O **Banco de Dados de Sincronização** contém os metadados e o log de Sincronização de Dados. O Banco de Dados de Sincronização deve ser um Banco de Dados SQL do Azure localizado na mesma região do Banco de Dados Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
+
+> [!NOTE]
+> Se você usando um banco de dados local como um banco de dados de membro, você terá que [instalar e configurar um agente de sincronização local](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Sincronizar dados entre bancos de dados](media/sql-database-sync-data/sync-data-overview.png)
 
 Um Grupo de Sincronização tem as seguintes propriedades:
 
@@ -35,16 +45,6 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 
 -   A **Política de Resolução de Conflito** é uma política em nível de grupo, que pode ser *Hub ganha* ou *Membro ganha*.
 
-A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados. Defina um dos bancos de dados no grupo como o Banco de Dados Hub. O restante dos bancos de dados são bancos de dados de membros. A sincronização ocorre apenas entre o Hub e membros individuais.
--   O **Banco de Dados Hub** deve ser um Banco de Dados SQL do Azure.
--   Os **bancos de dados de membro** podem ser Bancos de Dados SQL, bancos de dados locais do SQL Server ou instâncias do SQL Server em máquinas virtuais do Azure.
--   O **Banco de Dados de Sincronização** contém os metadados e o log de Sincronização de Dados. O Banco de Dados de Sincronização deve ser um Banco de Dados SQL do Azure localizado na mesma região do Banco de Dados Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
-
-> [!NOTE]
-> Se você usando um banco de dados local como um banco de dados de membro, você terá que [instalar e configurar um agente de sincronização local](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Sincronizar dados entre bancos de dados](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>Quando usar a Sincronização de Dados
 
 A Sincronização de Dados é útil em casos onde os dados precisam ser atualizados em vários Bancos de Dados SQL do Microsoft Azure ou bancos de dados do Microsoft SQL Server. Estes são os casos de uso principais para Sincronização de Dados:
@@ -55,7 +55,7 @@ A Sincronização de Dados é útil em casos onde os dados precisam ser atualiza
 
 -   **Aplicativos Distribuídos Globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países. Para minimizar a latência de rede, é melhor ter seus dados em uma região perto de você. Com a sincronização de dados, você pode facilmente manter os bancos de dados em regiões de todo o mundo sincronizados.
 
-A Sincronização de Dados não é a melhor solução para os seguintes cenários:
+A Sincronização de Dados não é a solução preferencial para os cenários a seguir:
 
 | Cenário | Algumas soluções recomendadas |
 |----------|----------------------------|

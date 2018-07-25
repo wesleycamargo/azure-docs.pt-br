@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cbe7bf95574ca7a77d666981691da05357ce9a0d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9bc4d25b587b7167601765758a0529868d1c6f15
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467819"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988724"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Criar um aplicativo de funções que se conecta a uma conta de armazenamento do Azure
 
@@ -54,11 +54,9 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Fazer logon no Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com local |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar um novo aplicativo de funções |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpar |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crie um grupo de recursos com local. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

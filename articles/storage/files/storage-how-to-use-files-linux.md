@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d4f77460ea6b0a31ed40286f33aa4296bafc9087
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839562"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007274"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -28,15 +28,28 @@ ms.locfileid: "34839562"
 > Para montar um compartilhamento de arquivos do Azure fora da região do Azure no qual ele está hospedado, como local ou em uma região diferente do Azure, o sistema operacional deve dar suporte à funcionalidade de criptografia do SMB 3.0.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Pré-requisitos para montar um compartilhamento de arquivos do Azure com o Linux e o pacote cifs-utils
-* **Escolha uma distribuição de Linux que pode ter o pacote de utilitários cifs instalado.**  
-    As distribuições de Linux a seguir estão disponíveis para uso na galeria do Azure:
+<a id="smb-client-reqs"></a>
+* **Escolha uma distribuição do Linux para atender às suas necessidades de montagem.**  
+      O Arquivos do Azure podem ser montados por meio do SMB 2.1 e do SMB 3.0. Para conexões de clientes no local ou em outras regiões do Azure, o Arquivos do Azure rejeitará SMB 2.1 (ou SMB 3.0 sem criptografia). Se *transferência segura é necessária* estiver habilitada para uma conta de armazenamento, o Arquivos do Azure só permitirá conexões usando o SMB 3.0 com criptografia.
+    
+    Suporte a criptografia SMB 3.0 foi introduzido na versão 4.11 do kernel do Linux e foi backported para versões mais antigas do kernel para distribuições populares do Linux. No momento da publicação deste documento, as seguintes distribuições da galeria do Azure são compatíveis com a opção de montagem especificada nos cabeçalhos de tabela. 
 
-    * Ubuntu Server 14.04+
-    * RHEL 7+
-    * CentOS 7+
-    * Debian 8+
-    * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12
+* **Versões mínimas recomendadas com capacidades de montagem correspondentes (SMB versão 2.1 vs SMB versão 3.0) **    
+    
+    |   | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de região cruzada e locais) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+    
+    Se a distribuição de Linux não estiver listada aqui, você pode verificar a versão do kernel do Linux com o seguinte comando:    
+
+   ```bash
+   uname -r
+   ```    
 
 * <a id="install-cifs-utils"></a>**O pacote de utilitários cifs está instalado.**  
     O pacote cifs-utils pode ser instalado usando o gerenciador de pacotes na distribuição do Linux escolhida. 
@@ -60,23 +73,8 @@ ms.locfileid: "34839562"
     sudo zypper install cifs-utils
     ```
 
-    Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
-
-* <a id="smb-client-reqs"></a>**Entenda os requisitos do cliente SMB.**  
-    O Arquivos do Azure podem ser montados por meio do SMB 2.1 e do SMB 3.0. Para conexões de clientes no local ou em outras regiões do Azure, o Arquivos do Azure rejeitará SMB 2.1 (ou SMB 3.0 sem criptografia). Se *transferência segura é necessária* estiver habilitada para uma conta de armazenamento, o Arquivos do Azure só permitirá conexões usando o SMB 3.0 com criptografia.
+    Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
     
-    Suporte a criptografia SMB 3.0 foi introduzido na versão 4.11 do kernel do Linux e foi backported para versões mais antigas do kernel para distribuições populares do Linux. No momento da publicação deste documento, as seguintes distribuições da galeria do Azure oferecem suporte a esse recurso:
-
-    - Ubuntu Server 16.04+
-    - openSUSE 42.3+
-    - SUSE Linux Enterprise Server 12 SP3+
-    
-    Se a distribuição de Linux não estiver listada aqui, você pode verificar a versão do kernel do Linux com o seguinte comando:
-
-    ```bash
-    uname -r
-    ```
-
 * **Decida as permissões de diretório/arquivo do compartilhamento montado**: nos exemplos abaixo, é usada a permissão `0777` para conceder as permissões de leitura, gravação e execução para todos os usuários. Você pode substituí-las por outras [permissões chmod](https://en.wikipedia.org/wiki/Chmod) se desejar. 
 
 * **Nome da conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, você precisará do nome da conta de armazenamento.

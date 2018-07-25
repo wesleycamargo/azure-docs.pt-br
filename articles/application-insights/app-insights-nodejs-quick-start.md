@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386530"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991557"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Começar a monitorar o aplicativo Web Node.js
 
@@ -23,14 +23,14 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo W
 
 Este guia de início rápido lhe ajuda a adicionar o SDK do Application Insights versão 0.22 para Node.js a um aplicativo Web Node.js existente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
 - Você precisará de uma assinatura do Azure e de um aplicativo Web Node.js existente.
 
 Se você não tiver um aplicativo Web Node.js, você poderá criar um seguindo o [guia de início rápido Criar um aplicativo Web Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
- 
+
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
@@ -60,7 +60,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Selecione **Visão Geral** > **Essentials** > Copiar a **Chave de Instrumentação** do aplicativo.
 
-   ![Formulário de recursos do Application Insights novo](./media/app-insights-nodejs-quick-start/003-Black.png)
+   ![Formulário de recursos do Application Insights novo](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Adicione o SDK do Application Insights para Node.js ao aplicativo. Da pasta raiz do seu aplicativo, execute:
 
@@ -84,25 +84,25 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Agora você pode reabrir a página **Visão Geral** do Application Insights no Portal do Azure, na qual você recuperou sua chave de instrumentação, para exibir detalhes sobre o seu aplicativo em execução atualmente.
 
-   ![Menu Visão Geral do Application Insights](./media/app-insights-nodejs-quick-start/004-Black.png)
+   ![Menu Visão Geral do Application Insights](./media/app-insights-nodejs-quick-start/overview-001.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo. Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-   ![Mapa de aplicativo](./media/app-insights-nodejs-quick-start/005-Black.png)
+   ![Mapa de aplicativo](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/app-insights-nodejs-quick-start/006.png).  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. Volte para a página **Visão Geral** e examine a **linha do tempo de Visão Geral de Integridade**.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
+4. Volte para a página **Visão geral** e examine os gráficos KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
 
-   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-nodejs-quick-start/overview-perf.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics tools about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

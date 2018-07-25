@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 65e79f492e96c418502e096b60992ba992868dd7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034248"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035662"
 ---
 # <a name="manage-event-grid-delivery-settings"></a>Gerenciar configurações de entrega da Grade de Eventos
 
@@ -36,7 +36,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --event-ttl 720
 ```
 
@@ -47,7 +47,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --max-delivery-attempts 18
 ```
 
@@ -77,11 +77,13 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
 Para usar a Grade de Eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blob de mensagens mortas. Toda vez que seu armazenamento de blob de mensagens mortas recebe um evento não entregue, a Grade de Eventos notifica o manipulador. O manipulador responde com ações que você deseja executar para reconciliar eventos não entregues. 
+
+Para desativar a colocação em fila de mensagens mortas, execute novamente o comando para criar a assinatura de evento, mas não forneça um valor para `deadletter-endpoint`. Você não precisa excluir a assinatura do evento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,7 +14,7 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 
 | Recurso | Limite |
 | --- | --- |
-| Máximo de hubs IoT por assinatura do Azure |10 |
+| Máximo de hubs IoT por assinatura do Azure |50 |
 | Máximo de hubs IoT por assinatura do Azure |1 |
 | Número máximo de caracteres em uma ID de Dispositivo | 128 |
 | Número máximo de identidades de dispositivo<br/> retornadas em uma única chamada |1000 |
@@ -38,7 +38,7 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 
 
 > [!NOTE]
-> Se precisar de mais de 10 Hubs IoT pagos em uma assinatura do Azure, entre em contato com o suporte da Microsoft.
+> Se precisar de mais de 50 Hubs IoT pagos em uma assinatura do Azure, entre em contato com o Suporte da Microsoft.
 
 
 > [!NOTE]

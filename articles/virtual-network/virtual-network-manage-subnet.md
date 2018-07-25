@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702067"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992064"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -44,7 +44,7 @@ A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atrib
 3. Em **CONFIGURAÇÕES**, selecione **Sub-redes**.
 4. Selecione **+Sub-rede**.
 5. Insira os valores dos seguintes parâmetros:
-    - **Nome**: o nome deve ser exclusivo na rede virtual.
+    - **Nome**: o nome deve ser exclusivo na rede virtual. Para obter máxima compatibilidade com outros serviços do Azure, é recomendável usar uma letra como o primeiro caractere do nome. Por exemplo, o Gateway de Aplicativo do Azure não implantará em uma sub-rede cujo nome começa com um número.
     - **Intervalo de endereços**: o intervalo deve ser exclusivo dentro do espaço de endereços para a rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual. O espaço de endereçamento deve ser especificado utilizando a notação CIDR (Roteamento Entre Domínios sem Classes). Por exemplo, em uma rede virtual com espaço de endereçamento 10.0.0.0/16, você pode definir um espaço de endereçamento de sub-rede de 10.0.0.0/24. O menor intervalo que você pode especificar é de /29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade de protocolo. Três endereços adicionais são reservados para uso pelo serviço do Azure. Como resultado, definir uma sub-rede com um intervalo de endereços /29 resulta em três endereços IP utilizáveis na sub-rede. Caso pretenda conectar uma rede virtual a um gateway de VPN, será necessário criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereços específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Sob condições específicas, você pode alterar o intervalo de endereços depois que a sub-rede é adicionada. Para saber como alterar um intervalo de endereços de sub-rede, consulte [Alterar as configurações de sub-rede](#change-subnet-settings).
     - **Grupo de segurança de rede**: é possível associar zero ou um grupo de segurança de rede existente à sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança da rede deve existir na mesma assinatura e local da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).
     - **Tabela de rotas:** você pode associar zero ou uma tabela de rotas existente à sub-rede a controlar o roteamento de tráfego de rede para outras redes. A tabela de rotas deve existir na mesma assinatura e localização da rede virtual. Saiba mais sobre o [Roteamento do Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rotas](tutorial-create-route-table-portal.md)
@@ -68,7 +68,7 @@ A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atrib
 4. Na lista de sub-redes, selecione a sub-rede para a qual deseja alterar as configurações. É possível adicionar ou remover as seguintes configurações:
 
     - **Intervalo de endereços:** se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja mover ou excluir. Consulte as restrições de **Intervalo de endereços** na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
-    - **Usuários**: é possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Utilizar atribuição de função para gerenciar o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
+    - **Usuários**: é possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Utilizar atribuição de função para gerenciar o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
     - **Grupo de segurança de rede** e **Tabela de rotas**: Veja a etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
     - **Pontos de extremidade de serviço**: consulte pontos de extremidade de serviço na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Os pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede do uso da rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo de próximo salto de *Internet*, usando uma nova rota com o endereço prefixos do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*. Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não estará habilitado até que os fluxos de tráfego para o serviço para todas as interfaces de rede sejam atualizadas com a nova rota. Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md).
 5. Clique em **Salvar**.

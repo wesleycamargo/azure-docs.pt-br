@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311024"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091522"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Projetar seu primeiro banco de dados SQL do Azure usando o SSMS
 
@@ -31,9 +31,9 @@ O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Micr
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
    >[!NOTE]
-   > Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
+   > Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 - A versão mais recente do [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
@@ -77,7 +77,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 5. Clique em **Selecionar**.
 
-6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Explore as opções para o número de DTUs/vCores e o armazenamento disponível em cada camada de serviço. Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). 
+6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Explore as opções para o número de DTUs/vCores e o armazenamento disponível em cada camada de serviço. Para fins deste tutorial, estamos usando o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas você tem a opção de escolher o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). 
 
 7. Para este tutorial, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **100 DTUs (S3)** e **400** GB de armazenamento.
 

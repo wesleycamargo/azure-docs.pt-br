@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: cd19c0e51ca1ac7863058d7c3944400719508f9b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213190"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990614"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 O dimensionamento automático é uma funcionalidade adicional do Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso dos recursos. O dimensionamento automático fornece excelente elasticidade e permite o provisionamento de instâncias ou partições adicionais do seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configurar as políticas em um serviço, não é necessário dimensionar as operações de dimensionamento manuais no nível do serviço. O dimensionamento automático pode ser ativado no momento da criação de serviço, ou a qualquer momento, atualizando o serviço.
@@ -135,6 +135,9 @@ Assim como acontece com o mecanismo que usa o dimensionamento adicionando ou rem
 * O _Incremento de Escala_ determina quantas partições serão adicionadas ou removidas quando o mecanismo for disparado.
 * _Número máximo de partições_ define o limite superior para o dimensionamento. Se o número de partições do serviço atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. É possível omitir esse limite especificando o valor de -1 e, nesse caso, o serviço será escalado horizontalmente tanto quanto possível (o limite é a capacidade real do cluster).
 * _Número mínimo de instâncias_ define o limite inferior para escala. Se o número de partições do serviço atingir esse limite, o serviço não será reduzido horizontalmente, independentemente da carga.
+
+> [!WARNING] 
+> Quando AddRemoveIncrementalNamedParitionScalingMechanism for usado com serviços com estado, o Service Fabric adicionará ou removerá partições **sem notificação ou aviso**. O reparticionamento de dados não será executado quando o mecanismo de colocação em escala for disparado. No caso da operação de aumento, novas partições ficarão vazias e, no caso de operação de redução, **a partição será excluída junto com todos os dados contidos nela**.
 
 ## <a name="setting-auto-scaling-policy"></a>Configuração de política de escala automática
 

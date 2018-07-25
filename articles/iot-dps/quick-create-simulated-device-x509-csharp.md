@@ -1,8 +1,8 @@
 ---
 title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando C# | Microsoft Docs
 description: Guia de Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT do Azure
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/18
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 697526b243fad585b8692edd59650661ea60fd62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28e6158a3dcd4cee98c380c53a1a345983bdf4f7
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629714"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090812"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -40,6 +40,14 @@ Se você não estiver familiarizado com o processo de provisionamento automátic
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
+
+Nesta seção, você usará um certificado X.509 autoassinado, é importante ter em mente o seguinte:
+
+* Os certificados autoassinados são somente para teste e não devem ser usado na produção.
+* A data de validade padrão para um certificado autoassinado é de um ano.
+
+Você usará o código de exemplo do [SDK do Azure IoT para .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
+
 
 1. No prompt de comando, altere os diretórios para o diretório do projeto de exemplo de provisionamento do dispositivo X.509.
 

@@ -6,14 +6,14 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: fa933000ee08f16774c821e40d9a3c6fe5dbf353
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35630737"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091724"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para blobs do Armazenamento do Azure
 O Armazenamento do Azure agora oferece a exclusão reversível para objetos de blob para que você possa recuperar os dados mais facilmente quando eles forem modificados ou excluídos erroneamente por outro usuário de conta de armazenamento ou um aplicativo.
@@ -177,6 +177,11 @@ Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+É possível verificar se a exclusão reversível foi ativada usando o comando a seguir:
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+```
 
 Para recuperar os blobs que foram excluídos acidentalmente, chame Restaurar nesses blobs. Lembre-se de que chamar **Restaurar Blob** em blobs ativos e com exclusão reversível restaurará todos os instantâneos com exclusão reversível associados como ativos. O exemplo a seguir chama Restaurar em todos os blobs com exclusão reversível e ativos em um contêiner:
 ```powershell
@@ -190,6 +195,13 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+Para localizar a política de retenção de exclusão reversível atual, use o comando a seguir:
+
+```azurepowershell-interactive
+   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+```
+
 ### <a name="azure-cli"></a>CLI do Azure 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856409"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136648"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso do Azure AD.
@@ -36,7 +36,7 @@ Os Termos de uso do Azure AD permitem que você faça o seguinte:
 - Listar quem aceitou e quem não aceitou seus Termos de uso.
 - Exibir um log de auditoria da atividade dos Termos de uso.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para usar e configurar os Termos de uso do Azure AD, você deve ter:
 
 - Assinatura do Azure AD Premium P1, P2, EMS E3 ou EMS E5.
@@ -86,7 +86,7 @@ Depois de preparar o documento dos Termos de uso, use o procedimento a seguir pa
 
     ![Adicionar Termos de Uso](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Ver quem aceitou e quem recusou
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Exibir relatório de quem aceitou e recusou
 A folha Termos de uso mostra uma contagem de usuários que os aceitaram e recusaram. Essas contas e quem aceitou/recusou ficam armazenados enquanto os Termos de uso estão em vigor.
 
 1. Entre no Azure e navegue até **Termos de uso** em [https://aka.ms/catou](https://aka.ms/catou).
@@ -97,10 +97,10 @@ A folha Termos de uso mostra uma contagem de usuários que os aceitaram e recusa
 
     ![Auditar evento](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Exibir logs de auditoria
+## <a name="view-azure-ad-audit-logs"></a>Exibir logs de auditoria do Azure AD
 Se você quiser exibir outras atividades, os Termos de uso do Azure AD incluem logs de auditoria. Cada consentimento do usuário dispara um evento nos logs de auditoria que ficam armazenados durante 30 dias. Você pode exibir esses logs no portal ou baixá-los como um arquivo .csv.
 
-Para começar a usar os logs de auditoria, use o procedimento a seguir:
+Para começar a usar os logs de auditoria do Microsoft Azure AD, use o procedimento a seguir:
 
 1. Entre no Azure e navegue até **Termos de uso** em [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -167,28 +167,38 @@ As políticas de acesso condicional entram em vigor imediatamente. Quando isso a
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **P: como fazer para ver quando/se um usuário aceitou os Termos de uso?**</br>
-R: Em termos de uso de folha, clique no número em **Aceito**. Você também pode exibir ou pesquisar a atividade de aceitação nos logs de auditoria. Para obter mais informações, confira [Exibir quem aceitou e recusou](#view-who-has-accepted-and-declined) e [Exibir logs de auditoria](#view-audit-logs).
+R: Em termos de uso de folha, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, consulte [Exibir relatório de quem aceitou e recusou](#view-who-has-accepted-and-declined) e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
+ 
+**P: Por quanto tempo as informações ficam armazenadas?**</br>
+R: As contagens de usuário no relatório de Termos de uso e quem aceitou/recusou são armazenadas durante a vigência dos Termos de uso. Os logs de auditoria do Azure AD são armazenados por 30 dias.
 
-**P: se você alterar os Termos de Uso, os usuários precisarão aceitar novamente?**</br>
+**P: Por que vejo um número diferente de consentimentos no relatório de Termos de uso em comparação com os logs de auditoria do Azure AD?**</br>
+R: O relatório de Termos de uso é armazenado durante o período de vigência desses Termos de uso, enquanto os logs de auditoria do Azure AD são armazenados por 30 dias. Além disso, o relatório Termos de uso exibe apenas o estado de consentimento atual dos usuários. Por exemplo, se um usuário recusar e aceitar, o relatório de Termos de uso mostrará apenas a aceitação desse usuário. Se você precisar ver o histórico, poderá usar os logs de auditoria do Azure AD.
+
+**P: Se eu alterar os Termos dos termos de uso, será necessário que os usuários aceitem novamente?**</br>
 R: Sim, o administrador pode alterar os Termos de Uso e isso exige que os usuários aceitem novamente os novos termos.
 
-**P: os Termos de uso possuem suporte para vários idiomas?**</br>
+**P: Se os hiperlinks estiverem no documento PDF dos Termos de uso, os usuários finais poderão clicar neles?**</br>
+R: O PDF é renderizado por padrão como JPEG, portanto, os hiperlinks não são clicáveis. Os usuários têm a opção de selecionar **Você está tendo problemas para exibir? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks têm suporte.
+
+**P: Os Termos de uso possuem suporte para vários idiomas?**</br>
 R: Sim.  Atualmente, há 18 idiomas diferentes que um administrador pode configurar para um mesmo documento de Termos de uso. 
 
-**P: quando os Termos de uso são disparados?**</br>
-R: os Termos de uso são disparados no momento em que o usuário faz o logon.
+**P: Quando os Termos de uso são disparados?**</br>
+R: Os Termos de uso são disparados no momento em que o usuário faz o logon.
 
-**P: em quais aplicativos posso empregar os Termos de uso?**</br>
+**P: Em quais aplicativos posso empregar os Termos de uso?**</br>
 R: Você pode criar uma política de acesso condicional nos aplicativos empresariais usando autenticação moderna.  Para obter mais informações, consulte [aplicativos empresariais](./manage-apps/view-applications-portal.md).
 
-**P: posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**</br>
-R: sim, criando várias políticas de acesso condicional, direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve concordar com os Termos de uso um por um.
+**P: Posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**</br>
+R: Sim, criando várias políticas de acesso condicional, direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve concordar com os Termos de uso um por um.
  
-**P: o que acontece se um usuário recusar os Termos de uso?**</br>
+**P: O que acontece se um usuário recusar os Termos de uso?**</br>
 R: O usuário é impedido de acessar o aplicativo. O usuário precisa entrar novamente e concordar com os termos para obter acesso.
  
 **P: É possível recusar os Termos de Uso que já foram aceitos?**</br>
 R: Você pode [examinar os termos de uso já aceitos](#how-users-can-review-their-terms-of-use), mas atualmente não há nenhuma maneira de recusá-los.
- 
-**P: por quanto tempo as informações ficam armazenadas?**</br>
-R: a conta de usuário e quem aceitou/recusou ficarão armazenados enquanto os Termos de uso estiverem em vigor. Os logs de auditoria ficam armazenados durante 30 dias.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Práticas recomendadas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md)

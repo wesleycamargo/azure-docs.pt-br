@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753086"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049180"
 ---
 # <a name="create-a-logic-app-action"></a>Criar uma ação do aplicativo lógico
 
@@ -133,7 +133,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
     ![Atualizar grupo de ações](media/monitoring-action-groups/update-action-group.png "Atualizar grupo de ações")
 
-Na próxima vez que um alerta chamar o grupo de ações, o Aplicativo Lógico será chamado.
+Na próxima vez que um alerta chamar o grupo de ações, o aplicativo lógico será chamado.
 
 ## <a name="create-a-service-health-alert"></a>Criar um alerta de integridade do serviço
 
@@ -187,10 +187,10 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
 -  As etapas 9 a 10 são as mesmas.
 -  Para as etapas de 11 a 14, use o processo a seguir:
 
-   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para garantir que o aplicativo lógico somente seja executado quando os dados de entrada corresponderem a esses valores
+   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para que o aplicativo lógico seja executado quando os dados de entrada corresponderem aos valores abaixo.  Ao inserir o valor da versão na caixa de texto, coloque aspas ("0.1.1") para certificar-se de que ele seja avaliado como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se você retorna à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       !["Condição de carga da Integridade do Serviço"](media/monitoring-action-groups/service-health-payload-condition.png "Condição de carga da Integridade do Serviço")
 
@@ -275,10 +275,10 @@ O processo para criar o alerta métrico é semelhante para [criar um alerta de r
 - As etapas 9 a 10 são as mesmas.
 - Para as etapas de 11 a 14, use o processo a seguir:
 
-   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para garantir que o aplicativo lógico somente seja executado quando os dados de entrada corresponderem a esses valores
+   1. Selecione **+** **Nova etapa** em seguida, escolha, **Adicionar uma condição**. Defina as condições a seguir para que o aplicativo lógico seja executado quando os dados de entrada corresponderem aos valores abaixo. Ao inserir o valor da versão na caixa de texto, coloque aspas ("2.0") para certificar-se de que ele seja avaliado como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se você retorna à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        !["Condição de carga de alerta de métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condição de carga de alerta de métrica")
 
    1. Na condição **se verdadeiro**, adicione um **Para cada** loop e a ação da Microsoft Teams. Defina a mensagem usando uma combinação de HTML e conteúdo dinâmico.

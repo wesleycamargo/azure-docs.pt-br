@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4410adfd5788b06163b8da18b96d2f8a9c350ac8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713993"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011424"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gerenciar dispositivos usando o portal do Azure
 
@@ -198,6 +198,9 @@ Para exibir ou copiar as chaves do BitLocker, você precisará ser o proprietár
 - Administradores de segurança
 - Leitores de segurança
 - Administradores de serviços do Intune
+
+> [!NOTE]
+> Os dispositivos do Windows 10 ingressados no Azure AD híbrido não têm um proprietário. Portanto, se você está procurando por um dispositivo pelo proprietário e não o encontrou, pesquise pela ID do dispositivo.
 
 
 ## <a name="audit-logs"></a>Logs de auditoria

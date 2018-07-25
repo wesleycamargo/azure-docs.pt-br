@@ -1,20 +1,20 @@
 ---
 title: Serviço do Banco de Dados SQL do Azure | Microsoft Docs
-description: O modelo de compra baseado em vCore (visão prévia) permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço.
+description: O modelo de compra baseado em vCore permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859928"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091485"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço, recursos de E/S, armazenamento, memória e computação de vCore
 
@@ -30,11 +30,9 @@ A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 |Armazenamento|Armazenamento remoto Premium, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 4 TB|
 |Taxa de transferência de E/S (aproximada)|500 IOPS por vCore com máximo de 7.000 IOPS|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplica, 1 [escala de leitura](sql-database-read-scale-out.md), HA com redundância de zona|
-|Backups|RA-GRS, 7-35 dias (7 dias por padrão)|RA-GRS, 7-35 dias (7 dias por padrão)*|
+|Backups|RA-GRS, 7-35 dias (7 dias por padrão)|RA-GRS, 7-35 dias (7 dias por padrão)|
 |Em Memória|N/D|Com suporte|
 |||
-
-\* Durante a versão prévia, o período de retenção de backups não é configurável e é fixado em 7 dias.
 
 > [!IMPORTANT]
 > Se você precisar de menos de um vCore de capacidade de computação, use o modelo de compra baseado em DTU.
@@ -67,7 +65,7 @@ O armazenamento para backups de banco de dados é alocado para dar suporte aos r
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício de Uso do Azure Híbrido
 
-No modelo de compra baseado em vCore (visualização), você pode trocar suas licenças existentes por taxas com desconto no Banco de Dados SQL usando o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esse benefício do Azure permite que você use as licenças locais do SQL Server para economizar até 30% no Banco de Dados SQL do Azure usando as licenças do SQL Server local com Software Assurance.
+No modelo de compra baseado em vCore, é possível trocar suas licenças existentes por tarifas com desconto no Banco de Dados SQL usando o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esse benefício do Azure permite que você use as licenças locais do SQL Server para economizar até 30% no Banco de Dados SQL do Azure usando as licenças do SQL Server local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 

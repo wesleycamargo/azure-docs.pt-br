@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029750"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001500"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -170,7 +170,7 @@ Quando você exclui uma implantação, todos os dispositivos usam sua próxima i
 
 1. Use a caixa de seleção para selecionar a implantação que deseja excluir. 
 1. Selecione **Excluir**.
-1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.  Isso significa que uma implantação com uma prioridade mais baixa será aplicada.  Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se você quiser remover todos os módulos de seu dispositivo, uma implantação com zero módulos e implante-a para os mesmos dispositivos. Escolha **Sim** para continuar. 
+1. Um prompt informará que essa ação excluirá essa implantação e reverterá para o estado anterior de todos os dispositivos.  Isso significa que uma implantação com uma prioridade mais baixa será aplicada.  Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se desejar remover todos os módulos do seu dispositivo, crie uma implantação com zero módulos e implante-a nos mesmos dispositivos. Escolha **Sim** para continuar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

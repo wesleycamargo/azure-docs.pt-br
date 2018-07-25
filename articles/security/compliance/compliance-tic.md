@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969938"
+ms.locfileid: "38990822"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -227,27 +227,26 @@ O acesso ao Microsoft Azure, ao Office 365 e ao Dynamics 365 pode ser configurad
 
 | Categoria | Carga de trabalho | IaaS | Injeção de PaaS/VNET dedicado  | Pontos de extremidade de serviço  |
 |---------|---------|---------|---------|--------|
-| Computação | Máquinas Virtuais do Linux | sim | | |
-| Computação | Máquinas Virtuais do Windows | sim | | |
-| Computação | Conjuntos de Dimensionamento de Máquinas Virtuais | sim | | |
+| Computação | Máquinas Virtuais do Linux | SIM | | |
+| Computação | Máquinas Virtuais do Windows | SIM | | |
+| Computação | Conjuntos de Dimensionamento de Máquinas Virtuais | SIM | | |
 | Computação | Funções do Azure | | por meio do ASE (Ambiente do Serviço de Aplicativo) | |
 | Web e serviços móveis | Aplicativo Web interno | | por meio do ASE (Ambiente do Serviço de Aplicativo) | |
 | Web e serviços móveis | Aplicativo móvel interno | | por meio do ASE (Ambiente do Serviço de Aplicativo) | |
 | Web e serviços móveis | Aplicativos de API | | por meio do ASE (Ambiente do Serviço de Aplicativo) | |
-| Contêineres | ACS (Serviço de Contêiner do Azure) | | | sim |
-| Contêineres | AKS (Serviço de Contêiner do Azure)* | | | sim |
+| Contêineres | ACS (Serviço de Contêiner do Azure) | | | SIM |
+| Contêineres | AKS (Serviço de Contêiner do Azure)* | | | SIM |
 | Banco de dados | Banco de dados SQL | | Instância Gerenciada do Banco de Dados SQL do Azure* | SQL do Azure |
-| Banco de dados | Banco de Dados do Azure para MySQL | | | sim |
-| Banco de dados | Banco de Dados do Azure para PostgreSQL | | | sim |
-| Banco de dados | SQL Data Warehouse | | | sim |
-| Banco de dados | Azure Cosmos DB | | | sim |
-| Banco de dados | Cache Redis | | sim | |
-| Armazenamento | Blobs | sim | | |
-| Armazenamento | Arquivos | sim | | |
-| Armazenamento | Filas | sim | | |
-| Armazenamento | Tabelas | sim | | |
-| Armazenamento | Discos | sim | | |
+| Banco de dados | Banco de Dados do Azure para MySQL | | | SIM |
+| Banco de dados | Banco de Dados do Azure para PostgreSQL | | | SIM |
+| Banco de dados | SQL Data Warehouse | | | SIM |
+| Banco de dados | Azure Cosmos DB | | | SIM |
+| Banco de dados | Cache Redis | | SIM | |
+| Armazenamento | Blobs | SIM | | |
+| Armazenamento | Arquivos | SIM | | |
+| Armazenamento | Filas | SIM | | |
+| Armazenamento | Tabelas | SIM | | |
+| Armazenamento | Discos | SIM | | |
 
 **: versão prévia pública no Azure Governamental a partir de maio de 2018  
 **: versão prévia privada no Azure Governamental a partir de maio de 2018
-

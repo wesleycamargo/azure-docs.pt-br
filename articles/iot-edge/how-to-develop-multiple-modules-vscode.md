@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048253"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041238"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Desenvolver uma solução IoT Edge com vários módulos no Visual Studio Code
 
 Você pode usar o Visual Studio Code para desenvolver uma solução do Azure IoT Edge com vários módulos. Este artigo mostra como criar, atualizar e implantar uma solução do IoT Edge que redireciona os dados do sensor em um dispositivo do IoT Edge simulado no VS Code. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste artigo, são necessários os pré-requisitos a seguir:
 
@@ -74,5 +74,7 @@ Também será necessário [Docker para VS Code](https://marketplace.visualstudio
 
 Saiba mais sobre outros cenários para desenvolvimento com o Azure IoT Edge no Visual Studio Code:
 
-* [Desenvolver um módulo C# no VS Code](how-to-develop-csharp-module.md)
-* [Desenvolver uma função C# no VS Code](how-to-develop-csharp-function.md)
+* Desenvolver módulos no VS Code com [C#](how-to-develop-csharp-module.md) ou [Node.js](how-to-develop-node-module.md).
+* Desenvolver Azure Functions no VS Code com [C#](how-to-develop-csharp-function.md).
+
+Para desenvolver módulos para seus dispositivos do IoT Edge, consulte [Entender e usar os SDKs de Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md).

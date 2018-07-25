@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435466"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004177"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Linux
 
@@ -50,8 +50,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Instale o vcruntime usando:
@@ -140,7 +141,7 @@ Para recuperar seu endereço IP, digite `ipconfig` na janela do PowerShell. Copi
 
 ![DockerNat][img-docker-nat]
 
-Atualizar o **workload_uri** e **management_uri** no **conectar-se:** seção do arquivo de configuração. Substitua **\<GATEWAY_ADDRESS\>** com o endereço IP que você copiou. 
+Atualizar o **workload_uri** e **management_uri** no **conectar-se:** seção do arquivo de configuração. Substitua **\<GATEWAY_ADDRESS\>** pelo endereço IP do DockerNAT que você copiou. 
 
 ```yaml
 connect:
@@ -148,7 +149,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Insira os mesmos endereços na seção **listen:** de configuração, usando seu endereço IP como o endereço do gateway.
+Insira os mesmos endereços na seção **listen:**.
 
 ```yaml
 listen:

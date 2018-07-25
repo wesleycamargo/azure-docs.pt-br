@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799797"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001823"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorar soluções do Lote
 
@@ -43,7 +43,7 @@ Monitore cada conta do Lote usando os recursos do [Azure Monitor](../monitoring-
 
 Nos aplicativo do Lote, use as APIs de Lote para monitorar ou consultar o status dos recursos, incluindo trabalhos, tarefas, nós e pools. Por exemplo: 
 
-* [Contagem de tarefas por estado](batch-get-task-counts.md)
+* [Contar tarefas e nós de computação por estado](batch-get-resource-counts.md)
 * [Criar consultas para listar os recursos do Lote de forma eficiente](batch-efficient-list-queries.md)
 * [Criar dependências de tarefas](batch-task-dependencies.md)
 * Use uma [tarefa do gerenciador de trabalhos](/rest/api/batchservice/job/add#jobmanagertask)

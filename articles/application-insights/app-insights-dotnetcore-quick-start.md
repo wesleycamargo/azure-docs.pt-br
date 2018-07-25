@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386371"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991556"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -23,7 +23,7 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo W
 
 Este guia de início rápido lhe ajuda a adicionar o SDK do Application Insights para um aplicativo Web ASP.NET Core existente. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -33,7 +33,7 @@ Para concluir este guia de início rápido:
 - [Instalar o SDK 2.0 do .NET Core](https://www.microsoft.com/net/core)
 - Você precisará de uma assinatura do Azure e de um aplicativo Web .NET Core existente.
 
-Se você não tiver um aplicativo Web ASP.NET Core, você poderá criar um seguindo o [guia Criar um aplicativo Web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Se você não tiver um aplicativo Web ASP.NET Core, você pode usar nosso guia passo a passo para [criar um aplicativo ASP.NET Core e adicionar o Application Insights.](app-insights-asp-net-core.md)
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -77,25 +77,25 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Agora você pode reabrir o a página **Visão Geral** do Application Insights no Portal do Azure, selecionando **Projeto** > **Application Insights** > **Abrir Portal do Application Insights** para exibir detalhes sobre o seu aplicativo em execução no momento.
 
-   ![Menu Visão Geral do Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Menu Visão Geral do Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo. Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-   ![Mapa de aplicativo](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Mapa de aplicativo](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/app-insights-dotnetcore-quick-start/006.png).  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Volte para a página **Visão Geral** e examine a **linha do tempo de Visão Geral de Integridade**.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
+4. Volte para a página **Visão geral** e examine os painéis de KPI.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
 
-   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2283b7559bb0dc7e8333949a8e6382d562162123
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060376"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092480"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Banco de dados SQL do Microsoft Azure e de alta disponibilidade
 
@@ -46,21 +46,18 @@ No modelo Premium, o Banco de Dados SQL do Azure integra computação e armazena
 
 A alta disponibilidade é implementada usando o padrão [Grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Cada banco de dados é um cluster de nós de banco de dados com um banco de dados primário acessível para carga de trabalho do cliente e alguns processos secundários que contêm cópias dos dados. O nó primário efetua constantemente push das alterações para nos secundários para garantir que os dados estejam disponíveis em réplicas secundárias se o nó primário falhar por qualquer motivo. O failover é tratado pelo Mecanismo de Banco de Dados do SQL Server – uma réplica secundária se torna o nó primário e uma nova réplica secundária é criada para garantir nós suficientes no cluster. A carga de trabalho é automaticamente redirecionada para o novo nó primário. O tempo de failover é medido em milissegundos e a nova instância primária fica imediatamente pronta para continuar a atender solicitações.
 
-## <a name="zone-redundant-configuration-preview"></a>Configuração com redundância de zona (versão prévia)
+## <a name="zone-redundant-configuration"></a>Configuração com redundância de zona
 
-Por padrão, as réplicas do quorum para as configurações de armazenamento locais são criadas no mesmo datacenter. Com a introdução das [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md), é possível colocar as diferentes réplicas no quorum para diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona não cria redundância de banco de dados adicional, o uso de Zonas de Disponibilidade nas camadas de serviço Premium ou Comercialmente Crítico (versão prévia) está disponível sem nenhum custo adicional. Ao selecionar um banco de dados com redundância de zona, você pode tornar seus bancos de dados Premium ou Comercialmente Crítico (versão prévia) resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem quaisquer alterações na lógica de aplicativo. Além disso, é possível converter quaisquer pools ou bancos de dados Premium ou Comercialmente Crítico (versão prévia) existentes para a configuração com redundância de zona.
+Por padrão, as réplicas do quorum para as configurações de armazenamento locais são criadas no mesmo datacenter. Com a introdução das [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md), é possível colocar as diferentes réplicas no quorum para diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado entre várias zonas como três GW (anéis de gateway). O roteamento para um anel de gateway específico é controlado pelo ATM [(Gerenciador de Tráfego do Microsoft Azure)](../traffic-manager/traffic-manager-overview.md). Como a configuração com redundância de zona não cria redundância de banco de dados adicional, o uso de Zonas de Disponibilidade nas camadas de serviço Premium ou Comercialmente Crítico está disponível sem nenhum custo adicional. Ao selecionar um banco de dados com redundância de zona, você pode tornar os bancos de dados Premium ou Comercialmente Crítico resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração na lógica de aplicativo. Além disso, é possível converter quaisquer pools ou bancos de dados Premium ou Comercialmente Crítico existentes para a configuração com redundância de zona.
 
 Como o quórum com redundância de zona tem réplicas em diferentes datacenters com alguma distância entre eles, a latência de rede aumentada pode aumentar o tempo de confirmação e, desse modo, afetar o desempenho de algumas cargas de trabalho OLTP. Sempre será possível retornar à configuração de única zona, desabilitando a configuração com redundância de zona. Esse processo é um tamanho de operação de dados e é semelhante à atualização do SLO (Objetivo do Nível de Serviço) regular. No final do processo, o pool ou banco de dados será migrado de um anel com redundância de zona para um anel de única zona ou vice-versa.
-
-> [!IMPORTANT]
-> Os bancos de dados com redundância de zona e os pools elásticos só têm suporte no momento na camada de serviço Premium. Durante a visualização pública, os backups e registros de auditoria são armazenados no armazenamento RA-GRS e, portanto, podem não ser disponibilizados automaticamente no caso de uma interrupção de toda a zona. 
 
 A versão com redundância de zona da arquitetura de alta disponibilidade é ilustrada pelo diagrama a seguir:
  
 ![Arquitetura de alta disponibilidade com redundância de zona](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Expansão de leitura
-Conforme descrito, as camadas de serviço Premium e Comercialmente Crítico (versão prévia) utilizam os conjuntos de quorum e a tecnologia Always ON para Alta Disponibilidade em configurações com redundância de zona e única zona. Um dos benefícios do AlwaysON é que as réplicas estão sempre no estado consistente transicionalmente. Como as réplicas têm o mesmo nível de desempenho que o primário, o aplicativo pode aproveitar essa capacidade adicional para atender às cargas de trabalho somente leitura sem custo adicional (expansão de leitura). Dessa forma, as consultas somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso de expansão de leitura destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam aproveitar essa capacidade adicional sem conexão ao primário. 
+Conforme descrito, as camadas de serviço Premium e Comercialmente Crítico utilizam conjuntos de quorum e tecnologia Always ON para Alta Disponibilidade tanto em configurações com redundância de zona quanto única zona. Um dos benefícios do AlwaysON é que as réplicas estão sempre no estado consistente transicionalmente. Como as réplicas têm o mesmo nível de desempenho que o primário, o aplicativo pode aproveitar essa capacidade adicional para atender às cargas de trabalho somente leitura sem custo adicional (expansão de leitura). Dessa forma, as consultas somente leitura serão isoladas da carga de trabalho principal de leitura/gravação e não afetarão o desempenho. O recurso de expansão de leitura destina-se aos aplicativos que incluem cargas de trabalho somente leitura logicamente separadas, como análises e, portanto, poderiam aproveitar essa capacidade adicional sem conexão ao primário. 
 
 Para usar o recurso Expansão de leitura com um determinado banco de dados, você deve habilitá-lo ao criar o banco de dados ou posteriormente, alterando a configuração usando o PowerShell invocando os cmdlets [et-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ou por meio da API REST do Azure Resource Manager usando o método [Bancos de dados - Criar ou Atualizar](/rest/api/sql/databases/createorupdate).
 

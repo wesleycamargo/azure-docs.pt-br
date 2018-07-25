@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633920"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125006"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -65,11 +65,11 @@ Valores e nomes de propriedade são limitados a caracteres ASCII, portanto, o co
 
 Para obter informações sobre limites de tamanho de mensagem no Hub IoT, consulte [cotas do Hub IoT e limitação][lnk-quotas].
 
-Para saber como criar e ler mensagens do Hub IoT em várias linguagens de programação, consulte os tutoriais de [Introdução][lnk-get-started].
+Para saber como criar e ler mensagens do Hub IoT em várias linguagens de programação, consulte os [Inícios Rápidos][lnk-get-started].
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

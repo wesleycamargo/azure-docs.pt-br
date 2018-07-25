@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721421"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003352"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN Ponto a Site
 
@@ -58,7 +58,7 @@ A autenticação de Domínio do AD permite que os usuários se conectem ao Azure
 
 Um servidor RADIUS também pode integrar-se com outros sistemas de identidade externa. Isso possibilita várias opções de autenticação para VPNs P2S, incluindo opções de multifator.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![ponto a site](./media/point-to-site-about/p2s.png "Ponto a Site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Quais são os requisitos de configuração do cliente?
 

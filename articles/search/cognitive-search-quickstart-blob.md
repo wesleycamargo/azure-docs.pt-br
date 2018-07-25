@@ -3,16 +3,17 @@ title: 'Início Rápido: Criar um pipeline de pesquisa cognitivas no Azure Searc
 description: Extração de dados, idioma natural e exemplo de habilidades de processamento de imagem no portal do Azure usando dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640254"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003689"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de pesquisa cognitivas usando habilidades e dados de exemplo
 
@@ -32,7 +33,7 @@ Você pode experimentar pesquisa cognitiva em um serviço do Azure Search criado
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [“O que é pesquisa cognitiva?”](cognitive-search-concept-intro.md) apresenta a arquitetura de enriquecimento e componentes. 
 
@@ -60,7 +61,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   Um serviço gratuito está limitado a 3 índices, tamanho máximo do blob de 16 MB e 2 minutos de indexação, o que não é suficiente para exercer todos os recursos de pesquisa cognitiva. Para examinar os limites para as diferentes camadas, consulte [Limites de Serviço](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Pesquisa Cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Posteriormente, o preço desse recurso será anunciado.
+  > A pesquisa cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Posteriormente, o preço desse recurso será anunciado.
 
 1. Fixe o serviço no painel de controle para acesso rápido a informações de serviço.
 
@@ -72,7 +73,7 @@ O pipeline de enriquecimento recebe de fontes de dados do Azure com suporte [ind
 
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. 
 
-1. Inscreva-se para o armazenamento de BLOBs do Azure, crie uma conta de armazenamento, faça logon no Gerenciador de armazenamento e crie um contêiner. Veja [Início Rápido do Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para instruções em todas as etapas.
+1. Inscreva-se para o armazenamento de Blobs do Azure, crie uma conta de armazenamento, entre no Gerenciador de Armazenamento e crie um contêiner. Veja [Início Rápido do Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para instruções em todas as etapas.
 
 1. Usando o Gerenciador de Armazenamento do Microsoft Azure, no contêiner que você criou, clique em **carregar** para carregar os arquivos de exemplo.
 
@@ -123,7 +124,7 @@ Como você definiu um conjunto de qualificações, o assistente pressupõe que v
 
 Em **personalizar índice**, revise os atributos de campos para ver como eles são usados em um índice. Pesquisável indica que um campo pode ser pesquisado. Recuperável significa que ele possa ser retornado nos resultados. 
 
-Considere limpar Retornável do campo `content`. Em blobs, este campo pode ser executada em milhares de linhas, difícil de ler em uma ferramenta como **Search Explorer**.
+Considere limpar Retornável do campo `content`. Em blobs, este campo pode ser executada em milhares de linhas, difícil de ler em uma ferramenta como o **Gerenciador de pesquisa**.
 
 Clique em **OK** para aceitar a definição de índice.
 
@@ -148,9 +149,9 @@ A indexação e enriquecimento podem levar tempo, por isso, os conjuntos de dado
 
 ## <a name="query-in-search-explorer"></a>Consultar no Gerenciador de pesquisa
 
-Depois que um índice é criado, você pode enviar consultas para retornar os documentos do índice. No portal, use **Gerenciador de Pesquisa** para executar consultas e exibir os resultados. 
+Depois que um índice é criado, você pode enviar consultas para retornar os documentos do índice. No portal, use **Gerenciador de pesquisa** para executar consultas e exibir os resultados. 
 
-1. Na página de painel do serviço de pesquisa, clique em **Search Explorer** na barra de comandos.
+1. Na página de painel do serviço de pesquisa, clique em **Gerenciador de pesquisa** na barra de comandos.
 
 1. Clique em **Alterar índice** na parte superior para selecionar o índice que você criou.
 

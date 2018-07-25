@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349062"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049857"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
 
@@ -38,14 +38,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este tutorial, uma [conta de Automação do Azure](../automation/automation-offering-get-started.md) é necessária para armazenar o runbook que é disparado da assinatura da Grade de Eventos do Azure.
 
+* O módulo `AzureRM.Tags` precisa ser carregado em sua conta de automação, veja [Como importar os módulos na automação do Azure](../automation/automation-update-azure-modules.md) para aprender a importar os módulos para a Automação do Azure.
+
 ## <a name="import-an-event-grid-sample-runbook"></a>Importar um runbook de exemplo da Grade de Eventos
+
 1. Selecione sua conta de Automação e selecione a página de **Runbooks**.
 
    ![Selecione runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Clique no botão **Procurar na galeria**.
 
-3. Pesquise por **Grade de Eventos** e selecione **Integração da Automação do Azure com a Grade de Eventos**. 
+3. Pesquise por **Grade de Eventos** e selecione **Integração da Automação do Azure com a Grade de Eventos**.
 
     ![Importe a galeria de runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -53,7 +56,11 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 
 5. Depois que a galeria foi importada, selecione **Editar** para exibir a fonte do runbook. Clique no botão **Publicar**.
 
+> [!NOTE]
+> A linha 74 no script deve ter a linha alterada para `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Agora, o parâmetro `-Tags` é `-Tag`.
+
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Criar um hebwook opcional no Microsoft Teams
+
 1. No Microsoft Teams, selecione **Mais Opções** próximo ao nome do canal e, em seguida, selecione **Conectores**.
 
     ![Conexões do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
@@ -67,6 +74,7 @@ Para concluir este tutorial, uma [conta de Automação do Azure](../automation/a
 5. Selecione **Concluído** para salvar o webhook.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Criar um webhook para o runbook
+
 1. Abra o runbook Watch-VMWrite.
 
 2. Selecione **Webhooks** e clique no botão **Adicionar Webhook**.

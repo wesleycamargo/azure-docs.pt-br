@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084953"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092283"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -38,7 +38,7 @@ A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os tr�
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Use a recuperação pontual para recuperar um banco de dados
 
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-single-database-scale.md). Se você estiver usando o [modelo de compra com base em vCore (versão prévia)](sql-database-service-tiers-vcore.md), a retenção de backups é configurável em até 35 dias nas camadas crítica de Negócios e uso geral. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco a dez minutos para proteger sua empresa contra a perda de dados. Se você estiver usando o [modelo de compra com base em DTU](sql-database-service-tiers-dtu.md), esses backups são armazenados no armazenamento RA-GRS por 35 dias para bancos de dados nas camadas de serviço Standard e Premium e 7 dias para bancos de dados na camada de serviço Básico. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-single-database-scale.md). Se você estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), a retenção de backups será configurável em até 35 dias nas camadas Uso geral e Comercialmente crítico. Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Para saber mais, consulte [backups de banco de dados automáticos](sql-database-automated-backups.md).
 
 Se o período máximo de retenção de PITR com suporte não for suficiente para o aplicativo, será possível estendê-lo configurando uma política LTR (retenção de longo prazo) para o(s) banco(s) de dados. Para obter mais informações, consulte [Backups Automáticos](sql-database-automated-backups.md) e [Retenção de backup de longo prazo](sql-database-long-term-retention.md).
 
@@ -57,19 +57,19 @@ Use os backups automatizados como o mecanismo de continuidade e recuperação do
 
 Se você precisar de uma recuperação mais rápida, use a [replicação geográfica ativa](sql-database-geo-replication-overview.md) (discutida a seguir). Se for necessário recuperar dados de um período anterior a 35 dias, use [Retenção de longo prazo](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usar a replicação geográfica ativa e os grupos de failover automático (em versão prévia) para reduzir o tempo de recuperação e limitar a perda de dados associada a uma recuperação
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usar a replicação geográfica ativa e os grupos de failover automático para reduzir o tempo de recuperação e limitar a perda de dados associada a uma recuperação
 
 Além de usar os backups de banco de dados para a recuperação de banco de dados no caso de uma interrupção de negócios, você poderá usar a [replicação geográfica ativa](sql-database-geo-replication-overview.md) para configurar um banco de dados para ter até quatro bancos de dados secundários legíveis em regiões de sua escolha. Esses bancos de dados secundários são mantidos sincronizados com o banco de dados primário usando um mecanismo de replicação assíncrona. Esse recurso é usado para proteger contra interrupções de negócios, no caso de uma interrupção do data center, ou durante uma atualização de aplicativo. A replicação geográfica ativa pode ser usada para fornecer melhor desempenho em consultas do tipo somente leitura para usuários geograficamente dispersos.
 
-Para habilitar o failover transparente e automatizado, você deve organizar seus bancos de dados replicados geograficamente em grupos, usando o recurso [grupo de failover automático](sql-database-geo-replication-overview.md) do Banco de Dados SQL (em versão prévia).
+Para habilitar o failover automatizado e transparente, será necessário organizar os bancos de dados com replicação geográfica em grupos usando o recurso de [grupo de failover automático](sql-database-geo-replication-overview.md) do Banco de Dados SQL.
 
-Se o banco de dados primário ficar offline inesperadamente ou se precisar colocá-lo offline para atividades de manutenção, você poderá promover rapidamente um secundário para se tornar o primário (também chamado de failover) e configurar os aplicativos para se conectarem ao primário promovido. Se seu aplicativo estiver se conectando aos bancos de dados usando o ouvinte de grupo de failover, você não precisará alterar a configuração de cadeia de conexão do SQL após o failover. Com um failover planejado, não há nenhuma perda de dados. Com um failover não planejado, há uma pequena perda de dados em transações muito recentes devido à natureza da replicação assíncrona. Usando grupos de failover automático (em versão prévia), você pode personalizar a política de failover para minimizar a possível perda de dados. Depois de um failover, você poderá fazer o failback posteriormente, ou de acordo com um plano ou quando o data center voltar a ficar online. Em todos os casos, os usuários enfrentam um breve tempo de inatividade e precisarão ser reconectados.
+Se o banco de dados primário ficar offline inesperadamente ou se precisar colocá-lo offline para atividades de manutenção, você poderá promover rapidamente um secundário para se tornar o primário (também chamado de failover) e configurar os aplicativos para se conectarem ao primário promovido. Se seu aplicativo estiver se conectando aos bancos de dados usando o ouvinte de grupo de failover, você não precisará alterar a configuração de cadeia de conexão do SQL após o failover. Com um failover planejado, não há nenhuma perda de dados. Com um failover não planejado, há uma pequena perda de dados em transações muito recentes devido à natureza da replicação assíncrona. Usando grupos de failover automático, você pode personalizar a política de failover para minimizar a possível perda de dados. Depois de um failover, você poderá fazer o failback posteriormente, ou de acordo com um plano ou quando o data center voltar a ficar online. Em todos os casos, os usuários enfrentam um breve tempo de inatividade e precisarão ser reconectados.
 
 > [!IMPORTANT]
-> Para usar a replicação geográfica ativa e grupos de failover automático (em versão prévia), você deverá ser o proprietário da assinatura ou ter permissões administrativas no SQL Server. Você pode configurar e fazer failover usando o Portal do Azure, o PowerShell ou a API REST utilizando permissões da assinatura do Azure, ou utilizando o Transact-SQL com permissões no SQL Server.
+> Para usar a replicação geográfica ativa e grupos de failover automático, você deverá ser o proprietário da assinatura ou ter permissões administrativas no SQL Server. Você pode configurar e fazer failover usando o Portal do Azure, o PowerShell ou a API REST utilizando permissões da assinatura do Azure, ou utilizando o Transact-SQL com permissões no SQL Server.
 > 
 
-Use a replicação geográfica ativa e os grupos de failover automático (em versão prévia), caso seu aplicativo atenda a qualquer um desses critérios:
+Use a replicação geográfica ativa e os grupos de failover automático se o aplicativo atender a algum destes critérios:
 
 * Seja crítico.
 * Tenha um SLA (Contrato de Nível de Serviço) que não permita um tempo de inatividade de 24 horas ou superior.
@@ -126,7 +126,7 @@ Independentemente do recurso de continuidade de negócios usados, você deve:
 Se você não se preparar corretamente, colocar seus aplicativos online após um failover ou uma recuperação de banco de dados exigirá um tempo adicional e, provavelmente, a solução de problemas também será exigida em um momento de estresse, ou seja, uma combinação ruim.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Fazer failover em um banco de dados secundário com replicação geográfica
-Se você estiver usando a replicação geográfica ativa e os grupos de failover automático (em versão prévia) como mecanismos de recuperação, você poderá configurar uma política de failover automático ou usar o [failover manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Depois de iniciado, o failover faz com que o secundário se torne o novo primário e fique pronto para registrar novas transações e responder à consultas, com perda mínima de dados, para os dados que ainda não foram replicados. Para obter informações sobre como criar o processo de failover, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se você estiver usando a replicação geográfica ativa e os grupos de failover automático como mecanismos de recuperação, será possível configurar uma política de failover automático ou usar o [failover manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Depois de iniciado, o failover faz com que o secundário se torne o novo primário e fique pronto para registrar novas transações e responder à consultas, com perda mínima de dados, para os dados que ainda não foram replicados. Para obter informações sobre como criar o processo de failover, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando o data center volta a ficar online, os primários antigos reconectam-se automaticamente ao novo primário e se tornam bancos de dados secundários. Se você precisar realocar o primário de volta para a região original, poderá iniciar um failover planejado manualmente (failback). 

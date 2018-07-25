@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de análise de uso no Azure Application Insights
+title: Solucionar problemas de ferramentas de análise de comportamento do usuário no Azure Application Insights
 description: Guia de solução de problemas - analisando o uso do aplicativo e site com o Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -9,21 +9,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 01/16/2018
-ms.author: mbullwin;daviste
-ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867561"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992033"
 ---
-# <a name="troubleshoot-usage-analytics-in-application-insights"></a>Solucionar problemas de análise de uso no Application Insights
-Dúvidas sobre as [ferramentas de análise de uso no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos do Usuário](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
+# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
+Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
 
 ## <a name="counting-users"></a>Contagem de usuários
-**As ferramentas de análise de uso mostram que o meu aplicativo tem um usuário/uma sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como corrigir essas contagens incorretas?**
+**As ferramentas de análise de comportamento do usuário mostram que o meu aplicativo tem um usuário/uma sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como corrigir essas contagens incorretas?**
 
 Todos os eventos de telemetria do Application Insights possuem um [ID de usuário anônimo](application-insights-data-model-context.md) e uma [ID de sessão](application-insights-data-model-context.md) como duas de suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso fazem a contagem de usuários e sessões com base nessas IDs. Se essas propriedades padrão não estiverem sendo populadas com IDs exclusivas para cada usuário e sessão do seu aplicativo, você verá uma contagem incorreta de usuários e sessões nas ferramentas de análise de uso.
 
@@ -33,12 +34,12 @@ Se você estiver monitorando um serviço Web (sem interface de usuário), [Crie 
 
 Se o seu aplicativo estiver enviando [IDs de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users), você pode realizar a contagem com base nas IDs de usuários autenticados na ferramenta de usuários. Na lista suspensa "Mostrar", escolha "Usuários autenticados".
 
-Atualmente, as ferramentas de análise de uso não oferecem suporte à contagem de usuários ou sessões com base nas propriedades que não sejam o ID de usuário anônimo, ID de usuário autenticado ou ID de sessão.
+Atualmente, as ferramentas de análise de comportamento do usuário não são compatíveis com a contagem de usuários ou com sessões baseadas nas propriedades que não sejam o ID de usuário anônimo, ID de usuário autenticado ou ID de sessão.
 
 ## <a name="naming-events"></a>Nomeando Eventos
-**Meu aplicativo tem milhares de exibições de página e nomes de evento personalizado diferentes. É difícil distingui-los, e as ferramentas de análise de uso normalmente não respondem. Como corrigir esses problemas de nomenclatura?**
+**Meu aplicativo tem milhares de exibições de página e nomes de evento personalizado diferentes. É difícil distingui-los, e as ferramentas de análise de comportamento do usuário normalmente não respondem. Como corrigir esses problemas de nomenclatura?**
 
-A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de uso. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes excessivamente genéricos ("Botão clicado") e ter muitos nomes excessivamente específicos ("Editar botão clicado http://www.contoso.com/index").
+A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter poucos nomes excessivamente genéricos ("Botão clicado") e ter muitos nomes excessivamente específicos ("Editar botão clicado http://www.contoso.com/index").
 
 Para fazer alterações no modo de exibição de página e nos nomes de evento personalizado que seu aplicativo está enviando, você precisa alterar o código-fonte e a reimplantação do seu aplicativo. **Todos os dados de telemetria no Application Insights são armazenados por 90 dias e não podem ser excluídos**; portanto, as alterações feitas aos nomes de evento levarão 90 dias para se manifestarem completamente. A 90 dias depois de fazer as alterações no nome, ambos os nomes de evento antigo e novo serão mostrados em sua telemetria, então ajuste as consultas e se comunique com suas equipes adequadamente.
 
@@ -52,7 +53,7 @@ Se o seu aplicativo estiver enviando um número excessivo de nomes de evento per
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da análise de uso](app-insights-usage-overview.md)
+* [Visão geral das ferramentas de análise de comportamento do usuário](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)

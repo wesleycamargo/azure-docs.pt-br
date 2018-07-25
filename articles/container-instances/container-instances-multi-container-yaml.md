@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: 5dfee15e978d2dba0f50d1dc4b78953698389950
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d1885112b8e7f7b1e187073c86d561eb57fd23f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851040"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114456"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Implantar um grupo com vários contêineres com YAML
 
@@ -35,7 +35,7 @@ Para implantar um grupo de vários contêineres com o comando [az container crea
 
 Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml**.
 
-Este arquivo YAML define um grupo de contêineres com dois contêineres, um endereço IP público e duas portas expostas. O primeiro contêiner no grupo executa um aplicativo Web voltado para a Internet. O segundo contêiner, o secundário, faz periodicamente solicitações HTTP para o aplicativo Web em execução no primeiro contêiner por meio da rede local do grupo de contêiner.
+Esse arquivo YAML define um grupo de contêineres nomeado "myContainerGroup" com dois contêineres, um endereço IP público e duas portas expostas. O primeiro contêiner no grupo executa um aplicativo Web voltado para a Internet. O segundo contêiner, o secundário, faz periodicamente solicitações HTTP para o aplicativo Web em execução no primeiro contêiner por meio da rede local do grupo de contêiner.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -83,7 +83,7 @@ az group create --name myResourceGroup --location eastus
 Implante o grupo de contêineres com o comando [az container create][az-container-create], passando o arquivo YAML como argumento:
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure.
@@ -96,7 +96,7 @@ Para exibir o estado da implantação, use o comando [az container show][az-cont
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Se quiser ver o aplicativo em execução, navegue até o endereço IP dele em seu navegador. Por exemplo, o IP é `52.168.26.124` nesta saída de exemplo:
+Se quiser exibir o aplicativo em execução, navegue até o endereço IP dele em seu navegador. Por exemplo, o IP é `52.168.26.124` nesta saída de exemplo:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -200,14 +200,15 @@ Você pode exportar a configuração de um grupo de contêineres existente para 
 Exporte a configuração do grupo de contêiner que você criou anteriormente emitindo o seguinte comando [az container export][az-container-export]:
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 Nenhuma saída será exibida se o comando for bem-sucedido, mas você pode exibir o conteúdo do arquivo para ver o resultado. Por exemplo, as primeiras linhas com `head`:
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -216,11 +217,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> A partir da CLI do Azure versão 2.0.34, há um [problema conhecido][cli-issue-6525] no qual os grupos de contêineres exportados especificam uma versão mais antiga de API de **2018-02-01-preview** (vista no exemplo anterior de saída JSON). Se você quiser reimplantar usando o arquivo YAML exportado, atualize com segurança o valor `apiVersion` no arquivo YAML exportado para **2018-06-01**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

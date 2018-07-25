@@ -1,6 +1,6 @@
 ---
-title: "Configurar análise de aplicativo Web do ASP.NET com o Azure Application Insights | Microsoft Docs"
-description: "Configurar análise de desempenho, disponibilidade e uso para seu site ASP.NET, hospedado no local ou no Azure."
+title: Configurar análise de aplicativo Web do ASP.NET com o Azure Application Insights | Microsoft Docs
+description: Configure ferramentas de análise de desempenho, de disponibilidade e do comportamento do usuário para seu site ASP.NET, hospedado localmente ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992032"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para seu site ASP.NET
 
@@ -25,7 +26,7 @@ Este procedimento configura seu aplicativo da Web ASP.NET para enviar telemetria
 
 A instalação leva apenas alguns cliques no Visual Studio. Você tem a opção de evitar cobranças limitando o volume de telemetria. Isso permite testar e depurar ou monitorar um site com poucos usuários. Quando você decidir que deseja prosseguir e monitorar seu site de produção, é fácil aumentar o limite mais tarde.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para adicionar o Application Insights ao seu site ASP.NET, você precisa:
 
 - Instale o [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:

@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346052"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035566"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge Linux que atua como um gateway transparente
 
@@ -22,7 +22,7 @@ Este artigo fornece instruções detalhadas sobre o uso de um dispositivo do IoT
 >[!NOTE]
 >No momento:
 > * Se o gateway está desconectado do Hub IoT, os dispositivos downstream não podem se autenticar no gateway.
-> * Os dispositivos do IoT Edge não podem se conectar com gateways do IoT Edge.
+> * Os dispositivos habilitados para o Edge não podem se conectar com gateways do IoT Edge. 
 > * Dispositivos downstream não podem usar o upload de arquivo.
 
 A parte difícil de criar um gateway transparente é conectar de forma segura o gateway aos dispositivos downstream. Azure IoT Edge permite que você use a infraestrutura de PKI para configurar conexões seguras de TLS entre esses dispositivos. Neste caso, nós estamos permitindo um dispositivo downstream conectar-se a um dispositivo IoT Edge atuando como um gateway transparente.  Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo Edge como você deseja apenas os dispositivos que se conectar a seus gateways e não um gateway potencialmente mal-intencionados.
@@ -144,8 +144,8 @@ Instalar este certificado no repositório de certificados do sistema operacional
 
 * Windows - aqui está um exemplo de como instalar um certificado de autoridade de certificação em um host do Windows.
   * No menu Iniciar, digite “Gerenciar certificados de computador”. Isso deve abrir um utilitário chamado `certlm`.
-  * Navegue para certificados de computador Local--> certificados raiz confiáveis--> certificados--> botão direito--> todas as tarefas--> Importar para iniciar o Assistente para importação de certificados.
-  * Siga as etapas conforme indicado e importe o certificado arquivo $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Navegue para Certificados de computador Local --> Certificados raiz confiáveis --> Certificados --> clique com o botão direito --> Todas as tarefas --> Importar para iniciar o assistente para importação de certificados.
+  * Siga as etapas conforme indicado e importe o arquivo de certificado $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
   * Quando concluído, você verá uma mensagem "Importada com êxito".
 
 ### <a name="application-level"></a>Nível de aplicativo
@@ -181,7 +181,7 @@ O tempo de execução de IoT Edge pode rotear as mensagens enviadas dos disposit
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Consulte o [artigo de composição do módulo] [lnk-módulo-composição] para obter mais detalhes sobre o roteamento de mensagens.
+Consulte o [artigo de composição do módulo][lnk-module-composition] para obter mais detalhes sobre o roteamento de mensagens.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge][lnk-module-dev].
@@ -192,6 +192,7 @@ Consulte o [artigo de composição do módulo] [lnk-módulo-composição] para o
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

@@ -3,7 +3,7 @@ title: Gerenciando recomendações de segurança na Central de Segurança do Azu
 description: Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure e a cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 07/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364243"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006607"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerenciando recomendações de segurança na Central de Segurança do Azure
 Este documento mostra como usar as recomendações na Central de Segurança do Azure para ajudar a proteger os recursos do Azure.
@@ -76,7 +76,7 @@ Use a tabela a seguir como referência para ajudar a entender as recomendações
 | [Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md) |Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) do Azure e computadores não Azure. |
 | [Corrigir as configurações de segurança](security-center-remediate-os-vulnerabilities.md) |Recomenda que você alinhe as configurações do sistema operacional com as regras de configuração de segurança recomendadas, por exemplo, não permitir o armazenamento de senhas. |
 | [Aplicar atualizações do sistema](security-center-apply-system-updates.md) |Recomenda que você implante a atualizações críticas e de segurança do sistema ausentes para computadores e VMs Linux e do Windows. |
-| [Aplicar um controle de acesso à rede Just-In-Time](security-center-just-in-time.md) | Recomenda que você aplique acesso à VM just in time. O recurso just in time está em versão prévia e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. |
+| [Aplicar um controle de acesso à rede Just-In-Time](security-center-just-in-time.md) | Recomenda que você aplique acesso à VM just in time. O recurso Just-In-Time está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. |
 | [Reinicializar após as atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Recomenda que você reinicialize uma VM para concluir o processo de aplicação de atualizações de sistema. |
 | [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md) |Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443). </br>A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e no Ambiente do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md).</br>Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. |
 | [Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, as alterações de configuração necessárias serão concluídas. |
@@ -95,7 +95,35 @@ Use a tabela a seguir como referência para ajudar a entender as recomendações
 | [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md) |Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
 | [Corrigir vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite que você veja as vulnerabilidades do sistema e dos aplicativos detectadas pela solução de avaliação de vulnerabilidade instalada na VM. |
 | [Habilitar a criptografia para a Conta de Armazenamento do Azure](security-center-enable-encryption-for-storage-account.md) | Recomenda a habilitação da Criptografia do Serviço de Armazenamento do Azure para dados em repouso. A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação. Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo. Para saber mais, confira [Criptografia do Serviço de Armazenamento para dados em repouso](../storage/common/storage-service-encryption.md).</br>A SSE tem suporte apenas nas contas de armazenamento do Resource Manager. |
-
+| [Habilitar controles de aplicativos adaptáveis](security-center-adaptive-application.md) | Recomenda-se de que você aplique controles de aplicativo adaptáveis em suas VMs do Windows. Esse recurso está em versão prévia e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. |
+| O Serviço de Aplicativo deve ser acessível apenas por HTTPS | É recomendável que você limite o acesso do Serviço de Aplicativo apenas por HTTPS. |
+| Os soquetes da Web devem ser desabilitados para o aplicativo Web| É recomendável que você examine cuidadosamente o uso de soquetes da Web em aplicativos Web.  O protocolo de soquetes da Web é vulnerável a diferentes tipos de ameaças de segurança. |
+| Usar domínios personalizados para seu aplicativo Web | É recomendável o uso de domínios personalizados para proteger um aplicativo Web de ataques comuns como phishing e outros ataques relacionados a DNS. |
+| Configurar restrições de IP para o aplicativo Web | É recomendável que você defina uma lista de endereços IP que tem autorização para acessar seu aplicativo.  O uso de restrições de IP protege um aplicativo Web de ataques comuns. |
+| Não permita que todos os recursos ('*') acessem o aplicativo | É recomendável que você não defina o parâmetro WEBSITE_LOAD_CERTIFICATES como ‘*’. Definir o parâmetro como '*' significa que todos os certificados serão carregados para seu repositório de certificados pessoal de aplicativos Web.  Isso pode levar a abuso do princípio de privilégio mínimo porque é improvável que o site precise de acesso a todos os certificados em tempo de execução. |
+| O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo | É recomendável que você permita que apenas os domínios necessários interajam com seu aplicativo Web. O CORS (compartilhamento de recurso de origem cruzada) não deve permitir que todos os domínios acessem seu aplicativo Web. |
+| Use o .NET Framework compatível mais recente para o aplicativo Web | É recomendável que você use a versão mais recente do .NET Framework para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| Use a versão mais recente compatível do Java para o aplicativo Web | É recomendável que você use a versão mais recente do Java para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| Use a versão mais recente compatível do PHP para o aplicativo Web | É recomendável que você use a versão mais recente do PHP para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md) |Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443).</br></br>A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e no Ambiente do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md).</br></br>Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. |
+| [Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, as alterações de configuração necessárias serão concluídas. |
+| Use a versão mais recente compatível do Node.js para o aplicativo Web | É recomendável que você use a versão mais recente do Node.js para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo de funções | É recomendável que você permita que apenas os domínios necessários interajam com seu aplicativo Web. O CORS (compartilhamento de recurso de origem cruzada) não deve permitir que todos os domínios acessem seu aplicativo de funções. |
+| Use domínios personalizados para o aplicativo de funções | É recomendável o uso de domínios personalizados para proteger um aplicativo de funções de ataques comuns como phishing e outros ataques relacionados a DNS. |
+| Configure restrições de IP para o aplicativo de funções | É recomendável que você defina uma lista de endereços IP que tem autorização para acessar seu aplicativo. O uso de restrições de IP protege um aplicativo de funções de ataques comuns. |
+| O aplicativo de funções deve ser acessível apenas por HTTPS | É recomendável que você limite o acesso de aplicativos de função apenas por HTTPS. |
+| A depuração remota deve ser desativada para o aplicativo de funções | É recomendável que você desative a depuração para o aplicativo de funções caso não precise mais usá-la. A depuração remota exige que as portas de entrada estejam abertas em um aplicativo de funções. |
+| Os soquetes da Web devem ser desabilitados para o aplicativo de funções | É recomendável que você examine cuidadosamente o uso de soquetes da Web em aplicativos de funções. O protocolo de soquetes da Web é vulnerável a diferentes tipos de ameaças de segurança. |
+| Designe mais de um proprietário na sua assinatura | É recomendável designar mais de um proprietário da assinatura para poder ter redundância de acesso de administrador. |
+| Designe até três proprietários em sua assinatura | É recomendável designar menos de três proprietários de assinaturas para reduzir o potencial de violação por um proprietário comprometido. |
+| Habilite a MFA para contas com permissões de proprietário em sua assinatura | É recomendável que você habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de administrador para evitar uma violação de conta ou recursos. |
+| Habilite a MFA para contas com permissões de gravação em sua assinatura | É recomendável que você habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de gravação para evitar uma violação de conta ou recursos. |
+| Habilite a MFA para contas com permissões de leitura em sua assinatura | É recomendável que você habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de leitura para evitar uma violação de conta ou recursos. |
+| Remova contas externas com permissões de leitura da sua assinatura | É recomendável que você remova contas externas com privilégios de leitura da sua assinatura para impedir o acesso não monitorado. |
+| Remova contas externas com permissões de gravação da sua assinatura | É recomendável que você remova contas externas com privilégios de gravação da sua assinatura para impedir o acesso não monitorado. |
+| Remova contas externas com permissões de proprietário da sua assinatura | É recomendável que você remova contas externas com permissões de proprietário da sua assinatura para impedir o acesso não monitorado. |
+| Remova contas preteridas da assinatura | É recomendável remover contas preteridas das suas assinaturas. |
+| Remova contas preteridas com permissões de proprietário da assinatura | É recomendável que você remova as contas preteridas com permissões de proprietário das suas assinaturas. |
 Você pode filtrar e ignorar as recomendações.
 
 1. Selecione **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.

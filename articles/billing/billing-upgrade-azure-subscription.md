@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769164"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124976"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar sua avaliação gratuita ou assinatura do Microsoft Imagine Azure para pré-pago
 
@@ -36,4 +36,9 @@ Atualize sua [Avaliação Gratuita](https://azure.microsoft.com/free/) ou assina
    
     ![Captura de tela que mostra o que selecionar para confirmar que você deseja atualizar sua assinatura](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- Ao atualizar de uma assinatura de avaliação gratuita, você mantém o crédito restante pelos 30 dias após ter criado a assinatura. Você também tem acesso a serviços gratuitos por 12 meses.
+ Ao atualizar de uma assinatura de avaliação gratuita, você mantém o crédito restante pelos 30 dias após ter criado a assinatura. Além disso, também terá acesso a serviços gratuitos por 12 meses.
+ 
+ Se você quiser [transferir a assinatura](billing-subscription-transfer.md) após o upgrade, será necessário aguardar até que a ID de oferta da assinatura seja alterada para **MS-AZR-003P**. A ID de oferta é alterada quando
+
+* Você consome todo o crédito restante ou,
+* 30 dias após o início da avaliação gratuita

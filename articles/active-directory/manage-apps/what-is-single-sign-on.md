@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081499"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091825"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
@@ -45,8 +45,7 @@ Quando um usuário entra em um aplicativo, ele passa por um processo de autentic
 O AD do Azure oferece suporte a três maneiras diferentes de entrar em aplicativos:
 
 * **Logon único federado** permite que os aplicativos sejam redirecionados para o Azure AD para autenticação do usuário em vez de solicitar sua própria senha. O logon único federado tem suporte para aplicativos que compatíveis com protocolos como SAML 2.0, WS-Federation ou OpenID Connect e é o melhor modo de logon único.
-* **Logon único baseado em senha** permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. Logon único com base em senha com o 
-*  processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas e não exigem que o usuário saiba a senha.
+* **Logon único baseado em senha** permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. O logon único baseado em senha usa o processo existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas e não exige que o usuário saiba a senha.
 * **Logon único existente** permite que o Azure AD utilize qualquer logon único existente que tenha sido configurado para o aplicativo, mas permite que esses aplicativos sejam vinculados aos portais do painel de acesso do Office 365 ou do Azure AD e também permite outros tipos de relatório no Azure AD quando os aplicativos são iniciados lá.
 
 Após um usuário ter sido autenticado com um aplicativo, ele também precisa ter um registro de conta provisionado no aplicativo que diz ao aplicativo onde estão suas permissões e nível de acesso dentro do aplicativo. O provisionamento deste registro de conta ou pode ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do usuário recebe acesso de logon único.
@@ -158,7 +157,7 @@ O Painel de Acesso em https://myapps.microsoft.com é um portal baseado na Web q
 
 O Painel de acesso é separado do portal do Azure e não requer que os usuários tenham uma assinatura do Azure ou do Office 365.
 
-Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso do AD do Azure, consulte a [Introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Iniciador de aplicativos do Office 365
 Para organizações que implantaram o Office 365, os aplicativos atribuídos aos usuários por meio do Microsoft Azure AD também aparecerão no Portal do Office 365 em https://portal.office.com/myapps. Isso torna simples e fácil para os usuários em uma organização para iniciar seus aplicativos sem precisar usar um segundo portal e é a solução de inicialização do aplicativo recomendada para organizações que usam o Office 365.
@@ -194,7 +193,7 @@ Esses links usam os mesmos mecanismos de controle de acesso que o painel de aces
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](../active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md)
-* [Configurar Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Configurar Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introdução ao gerenciamento do acesso a aplicativos](what-is-access-management.md)
 * [Comparando recursos de gerenciamento de identidades externas no Azure AD](../active-directory-b2b-compare-b2c.md)
 

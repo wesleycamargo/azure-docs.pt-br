@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050600"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113970"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o tempo de execução de integração do Azure-SSIS em um agendamento
 Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem um custo associado a ele. Portanto, normalmente, você executa o IR somente quando precisar executar pacotes SSIS no Azure e para o IR quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)).
@@ -34,7 +34,7 @@ A seguir, são apresentadas as etapas de alto nível descritas neste artigo:
 3. **Crie dois webhooks para o runbook**, um para a operação INICIAR e o outro para a operação PARAR. Use as URLs desses webhooks ao configurar atividades da Web em um pipeline do Data Factory. 
 4. **Criar um pipeline do Data Factory**. O pipeline que você criar consiste em três atividades. A primeira atividade da **Web** invoca o primeiro webhook para iniciar o IR do Azure-SSIS. A atividade de **Procedimento Armazenado** executa um script SQL que executa o pacote SSIS. A segunda atividade da **Web** para o IR do Azure-SSIS. Para obter mais informações sobre como invocar um pacote SSIS de um pipeline do Data Factory usando a atividade de Procedimento Armazenado, consulte [Invocar um pacote SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Em seguida, você cria um gatilho de agendamento para agendar o pipeline a executar na cadência que você especificar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Se um tempo de execução de integração do Azure-SSIS ainda não estiver provisionado, provisione-o seguindo instruções no [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Criar e testar um runbook de Automação do Azure
@@ -373,15 +373,40 @@ Como agora o pipeline está funcionando conforme o esperado, você poderá criar
 5. Publique a solução o Data Factory, selecionando **Publicar Tudo** no painel esquerdo. 
 
     ![Publicar Tudo](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. Para monitorar execuções do gatilho e execuções do pipeline, use a guia **Monitor** à esquerda. Para obter etapas detalhadas, consulte [Monitorar o pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Monitorar o pipeline e o gatilho no portal do Azure
+
+1. Para monitorar execuções do gatilho e execuções do pipeline, use a guia **Monitor** à esquerda. Para obter etapas detalhadas, consulte [Monitorar o pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Execuções de pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Para visualizar as atividades executadas associadas a uma execução do pipeline, selecione o primeiro link (**Exibir as Execuções da atividade**) na coluna **Ações**. Você vê as três execuções de atividade associadas a cada atividade no pipeline (a primeira atividade da Web, atividade de Procedimento Armazenado e a segunda atividade da Web). Para alternar de volta para a exibição das execuções do pipeline, selecione o link **Pipelines** na parte superior.
+2. Para visualizar as atividades executadas associadas a uma execução do pipeline, selecione o primeiro link (**Exibir as Execuções da atividade**) na coluna **Ações**. Você vê as três execuções de atividade associadas a cada atividade no pipeline (a primeira atividade da Web, atividade de Procedimento Armazenado e a segunda atividade da Web). Para alternar de volta para a exibição das execuções do pipeline, selecione o link **Pipelines** na parte superior.
 
     ![Execuções de atividade](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. Também é possível visualizar as execuções do gatilho, selecionando **Execuções do gatilho** na lista suspensa próxima às **Execuções do pipeline** na parte superior. 
+3. Também é possível visualizar as execuções do gatilho, selecionando **Execuções do gatilho** na lista suspensa próxima às **Execuções do pipeline** na parte superior. 
 
     ![Execuções de gatilho](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>Monitorar o pipeline e o gatilho com PowerShell
+
+Use scripts como os exemplos a seguir para monitorar o pipeline e o gatilho.
+
+1. Obtenha o status de uma execução de pipeline.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Receba informações sobre o gatilho.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Obtenha o status de uma execução do gatilho.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte a postagem blog a seguir:

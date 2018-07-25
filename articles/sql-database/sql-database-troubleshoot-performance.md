@@ -9,14 +9,14 @@ keywords: ajuste de desempenho de sql, ajuste de desempenho de banco de dados, d
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: v-shysun
-ms.openlocfilehash: a20d198c64bfc6aeaa42f310ee533626c2b1409c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79f41ab133cba539e5f855b3ab8fa21723694acb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649611"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092555"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoramento e ajuste de desempenho
 
@@ -50,7 +50,7 @@ Você também pode permitir que o banco de dados SQL do Azure [otimize o desempe
 
 ## <a name="improving-database-performance-with-more-resources"></a>Melhorando o desempenho do banco de dados com mais recursos
 
-Por fim, se não houver nenhum item acionável que possa melhorar o desempenho do banco de dados, você poderá alterar a quantidade de recursos disponíveis no Banco de Dados SQL do Azure. Atribua mais recursos alterando a [camada de serviço DTU](sql-database-service-tiers-dtu.md) de um banco de dados autônomo ou aumente as eDTUs de um pool elástico a qualquer momento. Como alternativa, se você estiver usando o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md), você pode alterar a camada de serviço ou aumentar os recursos alocados para o banco de dados. 
+Por fim, se não houver nenhum item acionável que possa melhorar o desempenho do banco de dados, você poderá alterar a quantidade de recursos disponíveis no Banco de Dados SQL do Azure. Atribua mais recursos alterando a [camada de serviço DTU](sql-database-service-tiers-dtu.md) de um banco de dados autônomo ou aumente as eDTUs de um pool elástico a qualquer momento. Como alternativa, se estiver usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), você poderá alterar a camada de serviço ou aumentar os recursos alocados para o banco de dados. 
 1. Para bancos de dados independentes, é possível [alterar as camadas de serviço](sql-database-service-tiers-dtu.md) ou [recursos de computação](sql-database-service-tiers-vcore.md) sob demanda para melhorar o desempenho do banco de dados.
 2. Para vários bancos de dados, considere o uso de [pools elásticos](sql-database-elastic-pool-guidance.md) para dimensionar os recursos automaticamente.
 

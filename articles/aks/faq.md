@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
-ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096444"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001238"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -21,17 +21,7 @@ Este artigo aborda as perguntas frequentes sobre o AKS (Serviço de Kubernetes d
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quais regiões do Azure fornecem o AKS (Serviço de Kubernetes do Azure) hoje?
 
-- Leste da Austrália
-- Canadá Central
-- Leste do Canadá
-- Centro dos EUA
-- Leste dos EUA
-- Leste dos EUA 2
-- Norte da Europa
-- Sul do Reino Unido
-- Europa Ocidental
-- Oeste dos EUA
-- Oeste dos EUA 2
+Consulte a documentação [Regiões e disponibilidade][aks-regions] do Serviço de Kubernetes do Azure para obter uma lista completa.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>As atualizações de segurança são aplicadas aos nós do agente do AKS?
 
@@ -76,7 +66,7 @@ AKS não é nativamente integrado com o Azure Key Vault neste momento. Entretant
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Posso executar contêineres do Windows Server no AKS?
 
-Para executar contêineres do Windows Server, você precisa executar nós baseados no Windows Server. Nós baseados em Windows Server não estão disponíveis no AKS neste momento. Se você precisar executar contêineres do Windows Server em Kubernetes no Azure, consulte a [documentação para acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Para executar contêineres do Windows Server, você precisa executar nós baseados no Windows Server. Nós baseados em Windows Server não estão disponíveis no AKS neste momento. É possível, no entanto, usar o Kubelet Virtual para agendar contêineres do Windows em Instâncias de Contêiner do Azure e gerenciá-los como parte do seu cluster do AKS. Para obter mais informações, consulte [Use Virtual Kubelet with AKS][virtual-kubelet] (Usar Virtual Kubelet com o AKS).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que são criados dois grupos de recursos com o AKS?
 
@@ -87,6 +77,11 @@ Se você estiver criando recursos que serão usados com o cluster AKS, como cont
 ## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um contrato de nível de serviço?
 
 Em um SLA (Contrato de Nível de Serviço), o provedor concorda em reembolsar o cliente pelo custo do serviço caso o nível de serviço publicado não seja atendido. Como o AKS é gratuito, não há nenhum custo a reembolsar e, portanto, nenhum SLA formal. No entanto, procuramos manter uma disponibilidade de pelo menos 99,5% para o servidor da API do Kubernetes.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

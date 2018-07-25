@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6b63e3ff48d4234bceadfe0556a8af92d9f8cc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724574"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136580"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -28,7 +28,7 @@ Este artigo explica como trabalhar com associações de armazenamento de Tabela 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As associações de armazenamento de Tabelas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table).
 
@@ -50,14 +50,16 @@ Use a associação de entrada de armazenamento de Tabela do Azure para ler uma t
 
 Consulte o exemplo específico a um idioma:
 
-* [Uma entidade de leitura de C#](#input---c-example-1)
-* [Múltiplas entidades de leitura de C#](#input---c-example-2)
-* [Uma entidade de leitura - script C#](#input---c-script-example-1)
-* [Múltiplas entidades de leitura - script C#](#input---c-script-example-2)
-* [F#](#input---f-example-2)
+* [Uma entidade de leitura de C#](#input---c-example---one-entity)
+* [Associação de C# para IQueryable](#input---c-example---iqueryable)
+* [Associação de C# para CloudTable](#input---c-example---cloudtable)
+* [Script de C# ler uma entidade](#input---c-script-example---one-entity)
+* [Associação de script de C# para IQueryable](#input---c-script-example---iqueryable)
+* [Associação de script de C# para CloudTable](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-example-1"></a>Entrada - exemplo 1 de C#
+### <a name="input---c-example---one-entity"></a>Entrada - exemplo de C# - uma entidade
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê uma linha da tabela. 
 
@@ -84,7 +86,7 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example-2"></a>Exemplo 2 de C# - entrada
+### <a name="input---c-example---iqueryable"></a>Entrada - exemplo de C# - IQueryable
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê várias linhas da tabela. Observe que a `MyPoco` classe deriva de `TableEntity`.
 
@@ -110,10 +112,58 @@ public class TableStorage
 }
 ```
 
-  > [!NOTE]
-  > `IQueryable` não tem suporte no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é [usar um parâmetro do método paramName de CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) para ler a tabela usando o SDK de Armazenamento do Azure. Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+### <a name="input---c-example---cloudtable"></a>Entrada - exemplo de C# - CloudTable
 
-### <a name="input---c-script-example-1"></a>Entrada - exemplo 1 de script C#
+`IQueryable` não tem suporte no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é usar um `CloudTable` parâmetro do método para ler a tabela usando o SDK de Armazenamento do Azure. Veja um exemplo de uma função 2.x que consulta uma tabela de log do Azure Functions:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            TraceWriter log)
+        {
+            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.Info(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+Para obter mais informações sobre como usar o CloudTable, consulte [Introdução ao Armazenamento de Tabelas do Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="input---c-script-example---one-entity"></a>Entrada - exemplo de script de C# - uma entidade
 
 O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo *function.json* e código [script C#](functions-reference-csharp.md) que usa a associação. A função usa um gatilho de fila para ler uma linha da tabela. 
 
@@ -162,7 +212,7 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example-2"></a>Entrada - exemplo 2 de script C#
+### <a name="input---c-script-example---iqueryable"></a>Entrada - exemplo de script de C# - IQueryable
 
 O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo *function.json* e código [script C#](functions-reference-csharp.md) que usa a associação. A função lê entidades para uma chave de partição especificada em uma mensagem da fila.
 
@@ -212,6 +262,68 @@ public class Person : TableEntity
     public string Name { get; set; }
 }
 ```
+
+### <a name="input---c-script-example---cloudtable"></a>Entrada - exemplo de script de C# - CloudTable
+
+`IQueryable` não tem suporte no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é usar um `CloudTable` parâmetro do método para ler a tabela usando o SDK de Armazenamento do Azure. Veja um exemplo de uma função 2.x que consulta uma tabela de log do Azure Functions:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.Info(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+Para obter mais informações sobre como usar o CloudTable, consulte [Introdução ao Armazenamento de Tabelas do Azure](../cosmos-db/table-storage-how-to-use-dotnet.md).
+
+Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 ### <a name="input---f-example"></a>Entrada - exemplo #F
 
@@ -648,7 +760,7 @@ A associação de entrada de Armazenamento da Tabela dá suporte aos seguintes c
 
   Em C# e o script C#, acesse a entidade de tabela de saída usando um parâmetro de método como `ICollector<T> paramName` ou `IAsyncCollector<T> paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. `T` especifica o esquema das entidades que você deseja adicionar. Geralmente, `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas isso não é obrigatório. A chave de partição e a linha valores de chave em *function.json* ou o `Table` construtor de atributo não são usados neste cenário.
 
-  Uma alternativa é usar um `CloudTable paramName` parâmetro do método para gravar a tabela usando o SDK de Armazenamento do Azure. Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+  Uma alternativa é usar um `CloudTable` parâmetro do método para gravar a tabela usando o SDK de Armazenamento do Azure. Se você tentar associar `CloudTable` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x). Para um exemplo de código que associa a `CloudTable`, consulte os exemplos de associação de entrada para [C#](#input---c-example---cloudtable) ou [script de C#](#input---c-script-example---cloudtable) anteriormente neste artigo.
 
 * **Gravar uma ou mais linhas em JavaScript**
 

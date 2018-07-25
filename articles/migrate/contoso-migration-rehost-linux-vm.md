@@ -5,31 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 8f039884ca0ea46c128078984d6cab6fd29ac9af
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6c96beee347a7a36a3dc04ecf8cd994484fd6bb7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220543"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007242"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: novo host a um aplicativo local Linux VMs do Azure
 
 Este artigo mostra como a Contoso é nova hospedagem um aplicativo de suporte técnico de serviço baseado em Linux local (**osTicket**), para VMs Azure IaaS.
 
-Este documento é a sétima em uma série de artigos de documento como a empresa fictícia Contoso migra seus recursos locais para a nuvem do Microsoft Azure. A série inclui informações básicas e um conjunto de cenários que ilustra como configurar uma infra-estrutura de migração e executar diferentes tipos de migrações. Cenários de crescem em complexidade e incluiremos artigos adicionais ao longo do tempo.
+Este documento é um em uma série de artigos que documentam como a empresa fictícia Contoso migra seus recursos locais para a nuvem do Microsoft Azure. A série inclui informações básicas e um conjunto de cenários que ilustra como configurar uma infra-estrutura de migração e executar diferentes tipos de migrações. Os cenários crescem em complexidade; incluiremos outros artigos ao longo do tempo.
 
 **Artigo** | **Detalhes** | **Status**
 --- | --- | ---
-[O artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
-[Artigo 2: Implantar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara seu local e a infraestrutura do Azure para a migração. A mesma infraestrutura é usada para todos os cenários de migração da Contoso. | Disponível
-[Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md)  | Mostra como a Contoso é executado em uma avaliação de seu aplicativo de SmartHotel de duas camadas do local em execução no VMware. Avaliar a VMs de aplicativo com o [migrar do Azure](migrate-overview.md) service e o banco de dados do SQL Server de aplicativo com o [Assistente de migração de banco de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-[Artigo 4: Novo host para as VMs do Azure e uma instância gerenciada do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra o aplicativo SmartHotel no Azure. Elas migram a VM de front-end do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e o banco de dados de aplicativo usando o serviço de [Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview), para migrar para uma Instância Gerenciada do SQL. | Disponível
-[Artigo 5: Novo host para máquinas virtuais do Azure](contoso-migration-rehost-vm.md) | Mostra como a Contoso migrar seu aplicativo SmartHotel VMs usando apenas o Site Recovery.
-[Artigo 6: Novo host para máquinas virtuais do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como a Contoso migra o aplicativo SmartHotel. Eles usam o Site Recovery para migrar as máquinas virtuais do aplicativo e o serviço de Migração de Banco de Dados para migrar o banco de dados de aplicativo para um Grupo de Disponibilidade do SQL Server. | Disponível
-Artigo 7: Novo host a um aplicativo do Linux para VMs do Azure (neste artigo) | Mostra como a Contoso migra seus aplicativos do Linux osService usando o Azure Site Recovery.
+[Artigo 1: Visão geral](contoso-migration-overview.md) | Fornece uma visão geral de estratégia de migração da Contoso, a série de artigos e os aplicativos de exemplo que usamos. | Disponível
+[Artigo 2: Implantar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como a Contoso prepara seu local e a infraestrutura do Azure para a migração. A mesma infraestrutura é usada para todos os cenários de migração da Contoso. | Disponível
+[Artigo 3: Avaliar recursos locais](contoso-migration-assessment.md)  | Mostra como a Contoso executa uma avaliação de seu aplicativo SmartHotel local de duas camadas em execução na VMware. As VMs de aplicativo são avaliadas com o serviço [Migrações para Azure](migrate-overview.md) e o banco de dados do SQL Server do aplicativo com o [Assistente de Migração de Dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Mudança de host para VMs do Azure e para uma Instância Gerenciada do SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como a Contoso migra o aplicativo SmartHotel para o Azure. Elas migram a VM de front-end do aplicativo usando o [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e o banco de dados de aplicativo usando o serviço de [Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview), para migrar para uma Instância Gerenciada do SQL. | Disponível
+[Artigo 5: Mudança de host para VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como a Contoso migra suas VMs do aplicativo SmartHotel para VMs do Azure. | Disponível
+[Artigo 6: Mudança de host para VMs do Azure e para Grupos de Disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como a Contoso migra o aplicativo SmartHotel. Eles usam o Site Recovery para migrar as máquinas virtuais do aplicativo e o serviço de Migração de Banco de Dados para migrar o banco de dados de aplicativo para um Grupo de Disponibilidade do SQL Server. | Disponível
+Artigo 7: Hospedar novamente um aplicativo do Linux para as VMs do Azure | Mostra como a Contoso migra seus aplicativos do Linux osService usando o Azure Site Recovery. | Este artigo.
 [Artigo 8: Novo host a um aplicativo do Linux para as VMs do Azure e o Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra o aplicativo do Linux osService, usando a recuperação de Site para migração de VM e MySQL Workbench para migrar (para uma instância do MySQL Server do Azure. | Disponível
+[Artigo 9: Refatorar um aplicativo em aplicativos Web do Azure e no Banco de Dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | Demonstra como a Contoso migra o aplicativo SmartHotel para um aplicativo Web do Azure e migra o banco de dados do aplicativo para a instância do SQL Server do Azure | Disponível
+[Artigo 10: Refatorar um aplicativo Linux em aplicativos Web do Azure e para o Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Mostra como a Contoso migra o aplicativo osTicket Linux para os aplicativos Web do Azure em vários sites, integrados com o GitHub para oferecer entrega contínua. Eles migram o banco de dados do aplicativo para uma instância do MySQL do Azure. | Disponível
+[Artigo 11: Refatorar o TFS no VSTS](contoso-migration-tfs-vsts.md) | Mostra como a Contoso migra sua implantação do TFS (Team Foundation Server) local migrando-a para o VSTS (Visual Studio Team Services) no Azure. | Disponível
+[Artigo 12: Recriar a arquitetura de um aplicativo nos contêineres do Azure e no Banco de Dados SQL do Azure](contoso-migration-rearchitect-container-sql.md) | Mostra como a Contoso migra e recria a arquitetura de seu aplicativo SmartHotel para o Azure. Eles recriam a arquitetura da camada da Web do aplicativo como um contêiner do Windows e do banco de dados do aplicativo em um Banco de Dados SQL do Azure. | Disponível
+[Artigo 13: Recompilar um aplicativo no Azure](contoso-migration-rebuild.md) | Mostra como a Contoso recompila seu aplicativo SmartHotel usando uma variedade de funcionalidades e serviços do Azure, incluindo os Serviços de Aplicativos, o Kubernetes do Azure, o Azure Functions, os Serviços Cognitivos e o Cosmos DB. | Disponível
 
 Neste artigo, a Contoso migrará duas camadas **osTicket** aplicativo, em execução no Linux Apache MySQL PHP (LÂMPADA) para o Azure. O aplicativo VMs será migrado usando o serviço do Azure Site Recovery. Se você quiser usar este aplicativo de código-fonte aberto, você pode baixá-lo do [GitHub](https://github.com/osTicket/osTicket).
 
@@ -38,7 +43,7 @@ Neste artigo, a Contoso migrará duas camadas **osTicket** aplicativo, em execu�
 A equipe de liderança de TI trabalhou em conjunto com seus parceiros comerciais para entender o que desejam obter com a migração:
 
 - **Endereço de crescimento comercial**: Contoso está crescendo e, como resultado, há pressão sobre a infra-estrutura e os sistemas locais.
-- **Limitar o risco**: O serviço de aplicativo de suporte técnico é essencial para a empresa Contoso. Eles querem movê-lo para o Azure com risco zero.
+- **Limitar o risco**: o serviço de aplicativo de central de serviço é essencial para o negócio da Contoso. Eles querem movê-lo para o Azure com risco zero.
 - **Estender**: não quer alterar o aplicativo agora. Eles simplesmente desejam garantir que ele esteja estável.
 
 
@@ -46,7 +51,7 @@ A equipe de liderança de TI trabalhou em conjunto com seus parceiros comerciais
 
 A equipe de nuvem Contoso foi fixado para baixo objetivos para a migração, para determinar o melhor método de migração:
 
-- Após a migração, o aplicativo no Azure deve ter os mesmos recursos de desempenho de hoje em seu ambiente de VMWare no local.  O aplicativo permanecerá como crítico na nuvem quanto local. 
+- Após a migração, o aplicativo no Azure deve ter os mesmos recursos de desempenho de hoje em seu ambiente de VMWare no local.  O aplicativo permanecerá essencial tanto na nuvem quanto localmente. 
 - A Contoso não quiser investir nesse aplicativo.  É importante para os negócios, mas em sua forma atual, eles simplesmente desejam movê-lo com segurança para a nuvem.
 - A Contoso não quer alterar o modelo de operações para este aplicativo. Eles querem interagir com ele na nuvem da mesma maneira que fazem agora.
 - A Contoso não quer alterar a funcionalidade do aplicativo. Somente o local do aplicativo será alterado.
@@ -64,7 +69,7 @@ Neste cenário:
 - As máquinas virtuais serão migradas para a região principal (Leste dos EUA 2) e colocadas na rede de produção (VNET-PROD-EUS2):
     - Web VM residem na sub-rede front-end (FE-PROD-EUS2).
     - O banco de dados de máquina virtual residem na sub-rede de banco de dados (PROD-DB-EUS2).
-- As VMs locais no datacenter Contoso, serão descomissionadas após a migração.
+- As VMs locais no datacenter da Contoso serão descomissionadas após a migração.
 
 ![Arquitetura de cenário](./media/contoso-migration-rehost-linux-vm/architecture.png) 
 
@@ -85,16 +90,16 @@ A Contoso migrará da seguinte maneira:
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | O serviço coordena e gerencia a migração e a recuperação de desastre para VMs do Azure e servidores físicos e de VMs locais.  | Durante a replicação para o Azure, são gerados encargos do Armazenamento do Azure.  As VMs do Azure são criadas e incorrem em encargos quando ocorre failover. [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre encargos e preços.
 
  
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui está o que você (e a Contoso) precisam para executar este cenário.
 
 **Requisitos** | **Detalhes**
 --- | ---
-**Assinatura do Azure** | Você já deve ter criado uma assinatura durante os artigos anteriores nesta série. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se você criar uma conta gratuita, será o administrador da assinatura e poderá executar todas as ações.<br/><br/> Se você usar uma assinatura existente e não for o administrador, será necessário trabalhar com o administrador para receber permissões de Proprietário ou de Colaborador.<br/><br/> Se forem necessárias permissões mais granulares, leia [este artigo](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Infraestrutura do Azure** | Contoso configurar sua infraestrutura do Azure conforme descrito em [infraestrutura do Azure para migração](contoso-migration-infrastructure.md).<br/><br/> Saiba mais sobre específico [rede](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [armazenamento](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requisitos para a recuperação de Site.
-**Servidores locais** | O servidor do vCenter local deve estar executando a versão 5.5, 6.0 ou 6.5<br/><br/> Um host ESXi que executa a versão 5.5, 6.0 ou 6.5<br/><br/> Uma ou mais VMs do VMware em execução no host ESXi.
-**VMs locais** | [Examine máquinas Linux](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) que têm suporte para migração com a recuperação de Site.<br/><br/> Verifique se tem suporte [sistemas de arquivo e armazenamento Linux](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage).<br/><br/> As VMs devem atender aos [requisitos do Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
+**Assinatura do Azure** | Você já deve ter criado uma assinatura durante os artigos anteriores desta série. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Se você criar uma conta gratuita, será o administrador da assinatura e poderá executar todas as ações.<br/><br/> Se você usar uma assinatura existente e não for o administrador, será necessário trabalhar com o administrador para receber permissões de Proprietário ou de Colaborador.<br/><br/> Se forem necessárias permissões mais granulares, leia [este artigo](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Infraestrutura do Azure** | A Contoso configura a infraestrutura do Azure conforme descrito em [Infraestrutura do Azure para migração](contoso-migration-infrastructure.md).<br/><br/> Saiba mais sobre os requisitos de [rede](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) e [armazenamento](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) específicos para o Site Recovery.
+**Servidores locais** | O servidor vCenter local deve estar executando a versão 5.5, 6.0 ou 6.5<br/><br/> Um host ESXi que executa a versão 5.5, 6.0 ou 6.5<br/><br/> Uma ou mais VMs do VMware em execução no host ESXi.
+**VMs locais** | [Examine máquinas Linux](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) que têm suporte para migração com a recuperação de Site.<br/><br/> Verifique os [sistemas de arquivo e armazenamento Linux](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage) que têm suporte.<br/><br/> As VMs devem atender aos [requisitos do Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
 
 
 ## <a name="scenario-steps"></a>Etapas do cenário
@@ -114,7 +119,7 @@ A Contoso precisa de alguns componentes do Azure para recuperação de Site:
 
 - Failover de uma rede virtual nos quais recursos estão localizados (Contoso usará a rede virtual que já implantados de produção)
 - Uma nova conta de armazenamento do Azure para armazenar dados replicados. 
-- Um cofre de serviços de recuperação no Azure.
+- Um cofre dos Serviços de Recuperação no Azure.
 
 Contoso já criada a rede virtual durante [implantação de infraestrutura do Azure](contoso-migration-infrastructure.md), portanto, precisam apenas para criar uma conta de armazenamento e o cofre.
 
@@ -132,7 +137,7 @@ Contoso já criada a rede virtual durante [implantação de infraestrutura do Az
 
 **Precisa de mais ajuda?**
 
-[Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure) a configuração o Azure para o Site Recovery.
+[Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure) como configurar o Azure para o Site Recovery.
 
 
 ## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>Etapa 2: Preparar VMware local para o Site Recovery
@@ -154,7 +159,7 @@ O Site Recovery precisa de acesso aos servidores VMware para:
 A Contoso configura a conta da seguinte maneira:
 
 1. A Contoso cria uma função no nível do vCenter.
-2. A Contoso, em seguida, atribua essa função as permissões necessárias.
+2. A Contoso, em seguida, atribui a essa função as permissões necessárias.
 
 
 
@@ -179,27 +184,27 @@ Após o failover no Azure, a Contoso deseja ser capaz de se conectar às VMs rep
 
 **Precisa de mais ajuda?**
 
-- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery) criar e atribuir uma função para a descoberta automática.
-- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation) como criar uma conta para a instalação por push do serviço de Mobilidade.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery) como criar e atribuir uma função para a descoberta automática.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation) como criar uma conta para a instalação do serviço de mobilidade por push.
 
 
 ## <a name="step-3-replicate-the-on-premises-vms"></a>Etapa 3: Replicar máquinas virtuais no local
 
 Antes de eles migrar a máquina virtual da web para o Azure, Contoso configura e habilita a replicação.
 
-### <a name="set-a-protection-goal"></a>Definir um objetivo de proteção
+### <a name="set-a-protection-goal"></a>Definir uma meta de proteção
 
-1. No cofre, sob o nome do cofre (ContosoVMVault) definir uma meta de replicação (**Introdução** > **recuperação de Site** > **preparar infraestrutura**.
+1. No cofre, sob o nome do cofre (ContosoVMVault), ela define uma meta de replicação (**Introdução** > **Site Recovery** > **Preparar infraestrutura**.
 2. Eles especificam que suas máquinas estão localizados no local, eles são VMs VMware e que deseja replicar no Azure.
     ![Meta de replicação](./media/contoso-migration-rehost-linux-vm/replication-goal.png)
 
 ### <a name="confirm-deployment-planning"></a>Confirmar planejamento de implantação
 
-Para continuar, eles confirmam que eles concluiu o planejamento da implantação, selecionando **Sim, tiver feito isso**. Contoso são migrar apenas uma única VM nesse cenário e não é necessário planejamento da implantação.
+Para continuar, ela confirma que concluiu o planejamento da implantação selecionando **Sim, fiz isso**. A Contoso só está migrando uma VM neste cenário e não precisa de planejamento de implantação.
 
 ### <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-A Contoso deve configurar seu ambiente de origem. Para fazer isso, eles baixam um modelo OVF e o utilizam para implantar o servidor de configuração do Site Recovery como uma VM VMware local, altamente disponível. Depois que a configuração do servidor tiver sido finalizada, registre-o no cofre.
+A Contoso precisa configurar seu ambiente de origem. Para fazer isso, eles baixam um modelo OVF e o utilizam para implantar o servidor de configuração do Site Recovery como uma VM VMware local, altamente disponível. Depois que a configuração do servidor tiver sido finalizada, registre-o no cofre.
 
 O servidor de configuração executa vários componentes:
 
@@ -207,27 +212,27 @@ O servidor de configuração executa vários componentes:
 - Servidor em processo que age como um gateway de replicação. Ele recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.
 - O servidor de processo também instala o Serviço de Mobilidade nas VMs que você deseja replicar e executa a descoberta automática de VMs VMware locais.
 
-A Contoso executar essas etapas, da seguinte maneira:
+A Contoso executa essas etapas da seguinte maneira:
 
-1. Eles baixam o modelo OVF **preparar a infraestrutura** > **fonte** > **servidor de configuração**.
+1. Ela baixam o modelo OVF de **Preparar infraestrutura** > **Fonte** > **Servidor de Configuração**.
     
     ![Baixe o OVF](./media/contoso-migration-rehost-linux-vm/add-cs.png)
 
-2. Eles importar o modelo para VMware para criar a VM e implante a VM.
+2. Ela importa o modelo para o VMware a fim de criar e implantar a VM.
 
     ![Modelo de OVF](./media/contoso-migration-rehost-linux-vm/vcenter-wizard.png)
 
-3. Ao ligar a máquina virtual pela primeira vez, ela é inicializado com uma experiência de instalação do Windows Server 2016. Eles aceitam o contrato de licença e inserir uma senha de administrador.
+3. Ao ligar a máquina virtual pela primeira vez, ela é inicializada como uma experiência de instalação do Windows Server 2016. Eles aceitam o contrato de licença e inserir uma senha de administrador.
 4. Depois que a instalação for concluída, entrarem na VM como um administrador. Na primeira entrada, a ferramenta de configuração de recuperação de Site do Azure é executado por padrão.
-5. Na ferramenta, eles especificam um nome a ser usado para registrar o servidor de configuração no cofre.
-6. A ferramenta verifica se a VM pode se conectar ao Azure. Depois que a conexão for estabelecida, eles entrarão na assinatura do Azure. As credenciais devem ter acesso ao cofre no qual você deseja registrar o servidor de configuração.
+5. Na ferramenta, ela especifica um nome a ser usado para registrar o servidor de configuração no cofre.
+6. A ferramenta verifica se a VM pode se conectar ao Azure. Depois que a conexão é estabelecida, entram na assinatura do Azure. As credenciais devem ter acesso ao cofre no qual você deseja registrar o servidor de configuração.
 
     ![Registrar servidor de configuração](./media/contoso-migration-rehost-linux-vm/config-server-register2.png)
 
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reinicializada.
-8. Eles entram na máquina novamente e o Assistente de Gerenciamento do Servidor de Configuração é iniciado automaticamente.
-9. No assistente, eles selecionam o NIC para receber o tráfego de replicação. Essa configuração não pode ser alterada depois de ter sido definida.
-10. Eles selecionam a assinatura, o grupo de recursos e o cofre no qual registrar o servidor de configuração.
+8. Entram na máquina novamente e o Assistente de Gerenciamento do Servidor de Configuração é iniciado automaticamente.
+9. No assistente, selecionam o NIC que vai receber o tráfego de replicação. Essa configuração não pode ser alterada depois de definida.
+10. Ela seleciona a assinatura, o grupo de recursos e o cofre no qual registrar o servidor de configuração.
 
     ![cofre](./media/contoso-migration-rehost-linux-vm/cswiz1.png) 
 
@@ -237,7 +242,7 @@ A Contoso executar essas etapas, da seguinte maneira:
 
     ![vCenter](./media/contoso-migration-rehost-linux-vm/cswiz2.png)
 
-14. Após a conclusão do registro, no portal do Azure, a Contoso verifica se o servidor de configuração e o servidor do VMware estão listados no **fonte** página no cofre. Descoberta pode levar 15 minutos ou mais. 
+14. Após a conclusão do registro, no portal do Azure, a Contoso verifica se o servidor de configuração e o servidor do VMware estão listados na página **Fonte** no cofre. Descoberta pode levar 15 minutos ou mais. 
 15. Recuperação de site conecta-se a servidores VMware e descobre máquinas virtuais.
 
 ### <a name="set-up-the-target"></a>Configurar o destino
@@ -245,17 +250,17 @@ A Contoso executar essas etapas, da seguinte maneira:
 Agora, a Contoso configura as configurações de replicação de destino.
 
 1. Em **preparar infraestrutura** > **destino**, eles selecionam as configurações de destino.
-2. Recuperação de site verifica se há uma conta de armazenamento do Azure e da rede de destino especificado.
+2. O Site Recovery verifica se há uma rede e uma conta de armazenamento do Azure no destino especificado.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
 Depois de origem e destino são configuradas, a Contoso está pronta para criar uma política de replicação.
 
 1. Em **preparar infraestrutura** > **as configurações de replicação** > **política de replicação** >  **criar e Associar**, eles criam uma política **ContosoMigrationPolicy**.
-2. Eles usam as configurações padrão:
-    - **Limite de RPO**: Padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
-    - **Retenção de ponto de recuperação**. Padrão de 24 horas. Esse valor Especifica quanto tempo a janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
-    - **Frequência de instantâneos consistentes com o aplicativo**. Padrão de uma hora. Esse valor especifica a frequência com a qual os instantâneos consistentes com o aplicativo são criados.
+2. Usam as configurações padrão:
+    - **Limite de RPO**: padrão de 60 minutos. Esse valor define a frequência em que são criados os pontos de recuperação. Um alerta será gerado se a replicação contínua exceder esse limite.
+    - **Retenção do ponto de recuperação**. Padrão de 24 horas. Esse valor especifica qual é o tempo da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela.
+    - **Frequência de instantâneos consistentes com o aplicativo**. O padrão é de uma hora. Esse valor especifica a frequência com que são criados instantâneos consistentes com o aplicativo.
  
         ![Criar política de replicação](./media/contoso-migration-rehost-linux-vm/replication-policy.png)
 
@@ -265,14 +270,14 @@ Depois de origem e destino são configuradas, a Contoso está pronta para criar 
 
 **Precisa de mais ajuda?**
 
-- Você pode ler uma explicação completa de todas essas etapas em [configurar a recuperação de desastres para máquinas virtuais do VMware no local](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
-- As instruções detalhadas estão disponíveis para ajudá-lo a [configurar o ambiente de origem](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [implantar o servidor de configuração](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), e [definir configurações de replicação](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
+- Você pode ler uma explicação completa de todas essas etapas em [Configurar a recuperação de desastres para máquinas virtuais do VMware locais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
+- As instruções detalhadas estão disponíveis para ajudá-lo a [configurar o ambiente da fonte](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [implantar o servidor de configuração](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), e [definir configurações de replicação](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
 - [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) sobre o agente convidado do Azure para Linux.
 
 **Precisa de mais ajuda?**
 
-- Você pode ler uma explicação completa de todas essas etapas em [configurar a recuperação de desastres para máquinas virtuais do VMware no local](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
-- As instruções detalhadas estão disponíveis para ajudá-lo a [configurar o ambiente de origem](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [implantar o servidor de configuração](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), e [definir configurações de replicação](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
+- Você pode ler uma explicação completa de todas essas etapas em [Configurar a recuperação de desastres para máquinas virtuais do VMware locais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
+- As instruções detalhadas estão disponíveis para ajudá-lo a [configurar o ambiente da fonte](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [implantar o servidor de configuração](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), e [definir configurações de replicação](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
 - [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) sobre o agente convidado do Azure para Linux.
 
 
@@ -290,7 +295,7 @@ Agora, a Contoso pode iniciar a replicação de **OSTICKETWEB** VM.
 
      ![Habilitar a replicação](./media/contoso-migration-rehost-linux-vm/enable-replication2.png)
 
-3. Seleciona Contoso **OSTICKETWEB** para replicação. 
+3. A Contoso seleciona **OSTICKETWEB** para replicação. 
 
     - Neste estágio, a Contoso seleciona somente **OSTICKETWEB** porque a rede virtual e a sub-rede devem ser selecionados e as máquinas virtuais não estão na mesma sub-rede.
     - O Site Recovery instala automaticamente o serviço Mobility quando a replicação está habilitada para a VM.
@@ -301,7 +306,7 @@ Agora, a Contoso pode iniciar a replicação de **OSTICKETWEB** VM.
 
      ![Serviço de mobilidade](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
-5. em **as configurações de replicação** > **definir configurações de replicação**, eles verificar que a política de replicação correto é aplicado e selecione **habilitar replicação**.
+5. Em **Configurações de Replicação** > **Definir Configurações de Replicação**, ela verifica se a política de replicação correta está aplicada e seleciona **Habilitar Replicação**.
 6.  Eles rastreiam o progresso da replicação em **Trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 
@@ -331,8 +336,8 @@ Contoso para executar um rápido failover de teste e, em seguida, migrar as máq
 Executar um failover de teste ajuda a garantir que tudo está funcionando conforme o esperado antes da migração. 
 
 1. A Contoso executa um failover de teste para o ponto no tempo mais recente disponível (**Último processado**).
-2. Eles selecionam **Desligar o computador antes do início do failover**, para que o Site Recovery tente desligar a VM da fonte antes de disparar o failover. O failover continuará mesmo o desligamento falhar. 
-3. O failover de Teste executa: 
+2. Selecionam **Desligar o computador antes do início do failover**, para que o Site Recovery tente desligar a VM da fonte antes de disparar o failover. O failover continuará mesmo o desligamento falhar. 
+3. O failover de teste é executado: 
     - Uma verificação de pré-requisitos será executada para conferir se todas as condições exigidas para a migração foram cumpridas.
     - O failover processa os dados para que uma VM do Azure possa ser criada. Se o ponto de recuperação mais recente for selecionado, um ponto de recuperação é criado dos dados.
     - Uma VM do Azure é criada usando os dados processados na etapa anterior.
@@ -367,11 +372,11 @@ Executar um failover de teste ajuda a garantir que tudo está funcionando confor
 A Contoso está pronto para executar um failover no plano de recuperação, para migrar as máquinas virtuais.
 
 1. Eles selecionam o plano > **Failover**.
-2.  Eles selecionam o failover para o último ponto de recuperação e especificar que a recuperação de Site deve tentar desligar a VM do local antes de acionar o failover. Eles podem acompanhar o progresso do failover na página**Trabalhos**.
+2.  Eles selecionam o failover para o último ponto de recuperação e especificar que a recuperação de Site deve tentar desligar a VM do local antes de acionar o failover. Podem acompanhar o progresso do failover na página **Trabalhos**.
 
     ![Failover](./media/contoso-migration-rehost-vm/failover1.png)
 
-3. Durante o failover, o servidor vCenter emite comandos para parar as duas máquinas virtuais em execução no host ESXi.
+3. Durante o failover, o vCenter Server emite comandos para parar as duas VMs em execução no host ESXi.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm/vcenter-failover.png)
 
@@ -379,12 +384,12 @@ A Contoso está pronto para executar um failover no plano de recuperação, para
 
     ![Failover](./media/contoso-migration-rehost-linux-vm/failover2.png)  
 
-3. Depois de verificar se a VM no Azure, eles concluírem a migração para concluir o processo de migração para cada VM. Isso interrompe a replicação da VM e interrompe o faturamento do Site Recovery para a VM.
+3. Depois de verificar se a VM no Azure, eles concluírem a migração para concluir o processo de migração para cada VM. Isso interrompe a replicação para a VM e interrompe a cobrança do Site Recovery para a VM.
 
     ![Failover](./media/contoso-migration-rehost-linux-vm/failover3.png)
 
 
-### <a name="connect-the-vm-to-the-database"></a>Conecte a VM ao banco de dados
+### <a name="connect-the-vm-to-the-database"></a>Conectar a VM ao banco de dados
 
 Como a etapa final no processo de migração, a Contoso atualizar a cadeia de caracteres de conexão do aplicativo para apontar para o banco de dados de aplicativo com o **OSTICKETMYSQL** VM. 
 
@@ -404,7 +409,7 @@ Como a etapa final no processo de migração, a Contoso atualizar a cadeia de ca
     
     ![Atualizar IP](./media/contoso-migration-rehost-linux-vm/update-ip2.png) 
     
-3. Reinicie o serviço com **systemctl reiniciar do apache2**.
+3. Ela reinicia o serviço com **systemctl restart apache2**.
 
     ![Reiniciar](./media/contoso-migration-rehost-linux-vm/restart.png) 
 
@@ -416,9 +421,9 @@ Como a etapa final no processo de migração, a Contoso atualizar a cadeia de ca
 
 **Precisa de mais ajuda?**
 
-- [Saiba mais](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure) sobre a execução de failovers de teste. 
+- [Saiba mais](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure) sobre como executar failovers de teste. 
 - [Saiba](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) como criar um plano de recuperação.
-- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) failover para o Azure.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) como fazer failover para o Azure.
 
 ## <a name="clean-up-after-migration"></a>Limpeza após a migração
 

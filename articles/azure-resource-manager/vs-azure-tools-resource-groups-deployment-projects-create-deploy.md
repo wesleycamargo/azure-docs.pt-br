@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 62e376a345be837e910ea615f8648e6b8d196ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435537"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006240"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 Com o Visual Studio, você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns. Neste artigo, você pode implantar um aplicativo Web e o Banco de Dados SQL.  
@@ -292,7 +292,6 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  }
   ```
 
 2. Reimplante seu grupo de recursos. Examinar seu painel no Portal do Azure e observe que o painel compartilhado foi adicionado à sua lista de opções.

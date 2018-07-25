@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ab3982c85cfb008bde08495f8cb8aa86d066d8c0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901204"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114847"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciada de uma VMSS usando um modelo
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a executar as seguintes operações de Identidade
 - Habilitar e desabilitar a identidade atribuída pelo sistema em uma VMSS do Azure
 - Adicionar e remover uma identidade atribuída pelo sistema em uma VMSS do Azure
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -55,7 +55,7 @@ Nesta seção, você habilitará e desabilitará a identidade atribuída pelo si
 
 1. Carregue o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachineScaleSets` de interesse na seção `resources`. O seu pode parecer um pouco diferente do mostrado captura de tela a seguir, dependendo do editor usado e de se você está editando um modelo para uma implantação nova ou existente.
    
-   ![Captura de tela do modelo – localizar VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![Captura de tela do modelo – localizar VM](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
 2. Para habilitar a identidade atribuída pelo sistema, adicione a propriedade `"identity"` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachineScaleSets"`. Use a seguinte sintaxe:
 
@@ -91,7 +91,7 @@ Nesta seção, você habilitará e desabilitará a identidade atribuída pelo si
 
 4. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
 
-   ![Captura de tela do modelo após a atualização](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![Captura de tela do modelo após a atualização](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Desabilitar uma identidade atribuída pelo sistema de um conjunto de dimensionamento de máquinas virtuais
 
@@ -113,6 +113,9 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VMSS d
 
 1. No elemento `resources`, adicione a seguinte entrada para atribuir uma identidade atribuída pelo usuário à VMSS.  Certifique-se de substituir `<USERASSIGNEDIDENTITY>` pelo nome da identidade atribuída pelo usuário que você criou.
 
+   > [!Important]
+   > O valor `<USERASSIGNEDIDENTITYNAME>` mostrado no exemplo a seguir deve ser armazenado em uma variável.  Além disso, para a implementação atualmente com suporte da atribuição de identidades atribuídas ao usuário a uma máquina virtual em um modelo do Resource Manager, a versão da API deve corresponder à versão no exemplo a seguir. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -121,7 +124,7 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VMSS d
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

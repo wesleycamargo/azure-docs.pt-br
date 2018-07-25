@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341657"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115223"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo
 
@@ -45,8 +45,11 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
   > [!NOTE]
   > Você pode criptografar cada ativo com vários tipos de criptografia (AES-128, PlayReady, Widevine, FairPlay). Ver [tipos de criptografia e protocolos de Streaming](#streaming-protocols-and-encryption-types), para ver o que faz sentido para combinar.
   
-  O artigo a seguir mostra etapas para criptografar conteúdo com AES: [Proteger com criptografia AES](protect-with-aes128.md)
- 
+  Os artigos a seguir mostram etapas para criptografar conteúdo com AES e/ou DRM: 
+  
+  * [Proteger com criptografia AES](protect-with-aes128.md)
+  * [Proteger com DRM](protect-with-drm.md)
+
 2. Player com o cliente do AES ou DRM. Um aplicativo de player de vídeo baseado em um player SDK (nativo ou baseado em navegador) precisa atender aos seguintes requisitos:
   * O SDK player dá suporte a clientes necessários do DRM
   * O SDK de player suporta os protocolos de streaming necessários: HLS, Smooth e/ou traço
@@ -54,9 +57,9 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
   
     Você consegue criar um player usando a [API do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/). Use a [API ProtectionInfo do Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/) para especificar qual tecnologia de DRM usar em diferentes plataformas de DRM.
 
-    Para testar conteúdo criptografado AES ou CENC (Widevine + PlayReady), você pode usar o [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Verifique se você clicou em "Opções avançadas" e verificou o AES e forneceu o token.
+    Para testar conteúdo criptografado AES ou CENC (Widevine e/ou PlayReady), é possível usar o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de clicar em "Opções avançadas" e verifique as opções de criptografia.
 
-    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](http://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. Você precisa escolher o navegador certo para testar DRMs diferentes: Chrome/Opera/Firefox para Widevine, MS Edge/IE11 para PlayReady, Safari no maOS para FairPlay.
+    Se você quiser testar o conteúdo do FairPlay criptografado, use [esse teste player](http://aka.ms/amtest). O player suporta DRM Widevine, PlayReady e FairPlay, bem como a criptografia de chave AES-128. É necessário escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, MS Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. O Secure Token Service (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos de back-end. Você pode usar os serviços de entrega de licença do AMS como o recurso de back-end. Um STS deve definir o seguinte:
 
@@ -90,7 +93,7 @@ Para concluir com êxito o design do sistema / aplicativo de "proteção de cont
 
 Em Serviços de Mídia v3, uma chave de conteúdo está associada a StreamingLocator (consulte [Este exemplo](protect-with-aes128.md)). Se usar o serviço de distribuição de chaves dos Serviços de Mídia, auto gerar a chave de conteúdo. Você mesmo deve gerar a chave de conteúdo se estiver usando seu próprio serviço de entrega de chaves ou se precisar lidar com um cenário de alta disponibilidade no qual precisa ter a mesma chave de conteúdo em dois datacenters.
 
-Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave não criptografada AES ou a criptografia DRM. Para descriptografar o fluxo, o player solicita a chave do serviço de entrega de chave dos Serviços de Mídia ou do serviço de entrega de chaves especificado. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave não criptografada AES ou a criptografia DRM. Para descriptografar o fluxo, o player solicita a chave do serviço de entrega de chave dos Serviços de Mídia ou do serviço de entrega de chaves especificado. Para decidir se o usuário está autorizado ou não a obter a chave, o serviço avalia a política de chave de conteúdo que você especificou para a chave.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Chave AES-128 não criptografada vs. DRM
 
@@ -122,22 +125,13 @@ Com uma política de chave de conteúdo restrita por token, a chave de conteúdo
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. O público, às vezes chamado de escopo, descreve a intenção do token ou do recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
-## <a name="streaming-urls"></a>URLs de streaming
-
-Se o ativo foi criptografado com mais de um DRM, use uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').
-
-As seguintes considerações se aplicam:
-
-* O tipo de criptografia não precisa ser especificado na URL se apenas uma criptografia foi aplicada no ativo.
-* O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
-* Os seguintes tipos de criptografia podem ser especificados:
-  * **cenc**: para PlayReady ou Widevine (criptografia comum)
-  * **cbcs-aapl**: para FairPlay (criptografia AES CBC)
-  * **cbc**: para criptografia de envelope AES
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como proteger com criptografia AES nos Serviços de Mídia v3](protect-with-aes128.md)
+Confira os artigos a seguir:
+
+  * [Proteger com criptografia AES](protect-with-aes128.md)
+  * [Proteger com DRM](protect-with-drm.md)
 
 Informações adicionais podem ser encontradas no [design e implementação de referência de DRM](../previous/media-services-cenc-with-multidrm-access-control.md)
 

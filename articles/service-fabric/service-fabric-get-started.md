@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 993d5c804490540a9c71647f52692fb55b27c405
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b5d0e923955ea5ca67941fad0dc3d1415e4a5899
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113292"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115860"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37113292"
 
 Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento do Windows, instale o tempo de execução do Service Fabric, o SDK e as ferramentas. Você também precisa [habilitar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operacional com suporte
 Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
 
@@ -64,10 +64,10 @@ Se só precisar do SDK, você poderá instalar este pacote:
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
-* Ferramentas e SDK do Service Fabric 3.1.301
-* Tempo de execução do Service Fabric 6.2.301
-* Ferramentas do Service Fabric para Visual Studio 2015, 2.1.20180510.2
-* O Visual Studio 2017 15.7 inclui as Ferramentas do Service Fabric para Visual Studio 2.1.20180423.1 
+* SDK do Service Fabric e Ferramentas 3.2.162
+* Tempo de execução do Service Fabric 6.3.162
+* Ferramentas do Service Fabric para Visual Studio 2015 2.3.10710.3
+* O Visual Studio 2017 15.7 inclui as Ferramentas do Service Fabric para Visual Studio 2.3.10710.1 
 
 Para obter uma lista das versões com suporte, consulte [suporte ao Service Fabric](service-fabric-support.md)
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435610"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008154"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerenciar acesso usando o RBAC e o Portal do Azure
 
@@ -88,7 +88,9 @@ Ao gerenciar o acesso, você deseja saber quem tem acesso, quais são suas permi
 
    ![Recursos do Azure para usuário do Azure Active Directory](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Na folha de recursos do Azure, você pode ver as atribuições de função para o usuário selecionado. Essa lista inclui apenas as atribuições de função para os recursos que você tem permissão para ler. Por exemplo, se o usuário também tem atribuições de função em uma assinatura diferente você não pode ler, as atribuições de função não aparecerão na lista.
+   Na folha de recursos do Azure, você pode ver as atribuições de função para o usuário selecionado e a assinatura selecionada. Essa lista inclui apenas as atribuições de função para os recursos que você tem permissão para ler. Por exemplo, se o usuário também tiver atribuições de função que você não pode ler, as atribuições de função não aparecerão na lista.
+
+1. Se você tiver várias assinaturas, poderá escolher a lista suspensa **Assinatura** para ver as atribuições de função em uma assinatura diferente.
 
 ## <a name="grant-access"></a>Conceder acesso
 
@@ -161,14 +163,6 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 1. Na mensagem de remoção de atribuição de função que aparece, escolha **Sim**.
 
 As atribuições herdadas não podem ser removidas. Se você precisar remover uma atribuição de função herdada, precisará fazê-lo no escopo em que a atribuição de função foi criada. Na coluna **Escopo**, ao lado de **Herdado**, há um link que leva aos recursos em que essa função foi atribuída. Vá para o escopo listado a fim de remover a atribuição de função.
-
-## <a name="other-tools-to-manage-access"></a>Outras ferramentas para gerenciar o acesso
-
-Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure em ferramentas que não sejam o portal do Azure. Para obter mais informações, consulte os links a seguir:
-
-* [PowerShell do Azure](role-assignments-powershell.md)
-* [CLI do Azure](role-assignments-cli.md)
-* [API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

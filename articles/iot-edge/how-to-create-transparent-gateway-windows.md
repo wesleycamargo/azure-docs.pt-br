@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344293"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036077"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge Windows que atua como um gateway transparente
 
@@ -22,7 +22,7 @@ Este artigo fornece instruções detalhadas sobre o uso de um dispositivo do IoT
 >[!NOTE]
 >No momento:
 > * Se o gateway está desconectado do Hub IoT, os dispositivos downstream não podem se autenticar no gateway.
-> * Os dispositivos do IoT Edge não podem se conectar com gateways do IoT Edge.
+> * Os dispositivos habilitados para o Edge não podem se conectar com gateways do IoT Edge. 
 > * Dispositivos downstream não podem usar o upload de arquivo.
 
 A parte difícil de criar um gateway transparente é conectar de forma segura o gateway aos dispositivos downstream. Azure IoT Edge permite que você use a infraestrutura de PKI para configurar conexões seguras de TLS entre esses dispositivos. Neste caso, nós estamos permitindo um dispositivo downstream conectar-se a um dispositivo IoT Edge atuando como um gateway transparente.  Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo Edge como você deseja apenas os dispositivos que se conectar a seus gateways e não um gateway potencialmente mal-intencionados.
@@ -35,7 +35,7 @@ O gateway apresenta o seu certificado AC de dispositivo Edge para o dispositivo 
 
 As etapas a seguir o orientará no processo de criação de certificados e instalá-los nos lugares certos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1.  [Instale o tempo de execução do Azure IoT Edge][lnk-install-windows-x64] em um dispositivo de Windows que você deseja usar como o gateway transparente.
 
 1. Obter OpenSSL para Windows. Há muitas maneiras de instalar o OpenSSL:

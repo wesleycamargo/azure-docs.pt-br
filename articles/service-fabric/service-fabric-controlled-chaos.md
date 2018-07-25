@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 26a954412b8755cd112bf2931ed9bdda291fd727
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3774ae0572a87129fb089064cec9bb7957a98c22
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204831"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113232"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
 Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços distribuídos confiáveis sobre uma infraestrutura não confiável. Para gravar serviços distribuídos robustos sobre uma infraestrutura não confiável, os desenvolvedores precisam poder testar a estabilidade de seus serviços enquanto a infraestrutura subjacente não confiável está passando por transições de estado complicadas devido a falhas.
 
 O [Serviço de Injeção de Falhas e Análise de Cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (também conhecido como Serviço de Análise de Falhas) fornece aos desenvolvedores a capacidade de induzir falhas para testar os serviços. Essas falhas simuladas direcionadas, como [reiniciar uma partição](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), podem ajudar a praticar as transições de estado mais comuns. No entanto, as falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem ignorar bugs que aparecem apenas em uma sequência de transições de estado complicada, longa e difícil de prever. Para um teste imparcial, você pode usar o Chaos.
 
-O Chaos simula falhas intercaladas periódicas (amigáveis e não amigáveis) em todo o cluster durante longos períodos de tempo. Uma falha normal consiste em um conjunto de chamadas de API de Service Fabric, por exemplo, falha de réplica de reinicialização é uma falha normal porque este é um fechamento seguido por uma abertura em uma réplica. Remover réplica, mover a réplica primária e mover secundária são as outras falhas normais exercidas pela caos. Falhas anormais são saídas do processo, como reiniciar o pacote de código de nó e reiniciar. 
+O Chaos simula falhas intercaladas periódicas (amigáveis e não amigáveis) em todo o cluster durante longos períodos de tempo. Uma falha normal consiste em um conjunto de chamadas de API de Service Fabric, por exemplo, falha de réplica de reinicialização é uma falha normal porque este é um fechamento seguido por uma abertura em uma réplica. Remover réplica, mover a réplica primária e mover secundária são as outras falhas normais exercidas pela caos. Falhas anormais são saídas do processo, como o nó de reinicialização e o pacote de códigos de reinicialização. 
 
 Depois que tiver configurado o Chaos com a taxa e o tipo de falhas, você pode iniciar o Chaos pela API REST, PowerShell ou C# para começar a gerar falhas no cluster e nos serviços. Você pode configurar o Chaos para ser executado por um período especificado (por exemplo, por uma hora), após o qual o Chaos para automaticamente ou pode chamar a API StopChaos (C# ou PowerShell, ou REST) para pará-lo a qualquer momento.
 

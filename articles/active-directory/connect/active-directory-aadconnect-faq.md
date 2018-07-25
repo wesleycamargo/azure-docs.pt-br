@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7edabc99da5e1466e848336c647a33213c9edd8b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133177"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008137"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Para manter as coisas simples, é recomendável que os usuários que instalam o 
 Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 300 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Esta recomendação também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
 
 **P: Os SLDs (domínios de rótulo único) têm suporte?**  
-Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usando SLDs.
+Embora seja altamente não usar essa configuração de rede ([consulte o artigo](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), o uso da sincronização do Azure AD Connect com um único domínio de rótulo é compatível, desde que a configuração de rede para o domínio de nível único esteja funcionando corretamente.
 
 **P: as florestas com domínios do AD não contíguos têm suporte?**  
 Não, o Azure AD Connect não oferece suporte a florestas locais que contêm namespaces contíguos.

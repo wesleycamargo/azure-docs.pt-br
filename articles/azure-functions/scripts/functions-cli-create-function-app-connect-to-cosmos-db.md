@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 01/22/2018
+ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9154cef897d38e617c2f9dccdc8a47fe1af72104
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843214"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989454"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure
 
@@ -45,14 +45,12 @@ Este exemplo cria um Aplicativo de funções do Azure e adiciona uma chave de ac
 
 Esse script usa os seguintes comandos: cada comando na tabela contém links para a respectiva documentação específica.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Fazer logon no Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com local |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar um novo aplicativo de funções |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Criar um banco de dados cosmosdb |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpar |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Criar um grupo de recursos com local |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [plano de consumo](../functions-scale.md#consumption-plan) sem servidor. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Crie um banco de dados do Azure Cosmos DB. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

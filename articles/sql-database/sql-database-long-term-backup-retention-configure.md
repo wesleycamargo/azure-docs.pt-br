@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969180"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113624"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
 Você pode configurar o banco de dados do SQL do Azure com uma política de [retenção de backup de longo prazo](sql-database-long-term-retention.md) (LTR) para reter automaticamente os backups no armazenamento de blobs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups pelo Portal do Azure ou o PowerShell.
-
-> [!NOTE]
-> Como parte da versão inicial da versão prévia desse recurso de outubro de 2016, os backups foram armazenados no cofre do Serviço de Recuperação de Serviços do Azure. Esta atualização remove essa dependência, mas para haver compatibilidade com versões anteriores a API original terá suporte até 31 de maio de 2018. Se você precisar interagir com backups no cofre de Recuperação de Serviços do Azure, consulte [Retenção de backup de longo prazo usando o cofre de Serviço de Recuperação de Serviços do Azure](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Usar o Portal do Azure para configurar políticas de retenção de longo prazo e restaurar backups
 
@@ -32,29 +29,21 @@ As seções a seguir mostram como usar o Portal do Azure para configurar a reten
 
 Você pode configurar o Banco de Dados SQL para [reter backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção da camada de serviços. 
 
-1. No Portal do Azure, selecione o SQL Server e, em seguida, clique em **Retenção de backup de longo prazo**.
+1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Configurar políticas**, selecione o banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo.
 
-   ![link da retenção de backup de longo prazo](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![link gerenciar backups](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Na guia **Configurar políticas**, selecione o banco de dados no qual você deseja definir ou modificar políticas de retenção de backup de longo prazo.
-
-   ![selecionar banco de dados](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. No painel **Configurar políticas**, selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um. 
+2. No painel **Configurar políticas**, selecione se deseja reter backups semanais, mensais ou anuais e especifique o período de retenção para cada um. 
 
    ![configurar políticas](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Quando concluir, clique em **Aplicar**.
+3. Quando concluir, clique em **Aplicar**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Exibir os backups e restaurar de um backup usando o Portal do Azure
 
 Exiba os backups que são mantidos para um banco de dados específico com uma política LTR e restaure a partir desses backups. 
 
-1. No Portal do Azure, selecione o SQL Server e, em seguida, clique em **Retenção de backup de longo prazo**.
-
-   ![link da retenção de backup de longo prazo](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Na guia **Backups disponíveis**, selecione o banco de dados para o qual você deseja ver os backups disponíveis.
+1. No portal do Azure, selecione o servidor SQL e clique em **Gerenciar Backups**. Na guia **Backups disponíveis**, selecione o banco de dados para o qual você deseja ver os backups disponíveis.
 
    ![selecionar banco de dados](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

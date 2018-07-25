@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 9b8f87f3cf09fef020ceed0166dd1652617ef605
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958809"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126602"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -63,7 +63,9 @@ As sugestões a seguir ajudarão você a aproveitar ao máximo o Gerenciador de 
 3. Execute comandos imperativos para gerenciar os recursos, como iniciar ou interromper um aplicativo ou máquina.
 4. Organize recursos com o mesmo ciclo de vida em um grupo de recursos. Use marcas para as demais organizações de recursos.
 
-Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance).
+Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+
+Para obter recomendações sobre a criação de modelos do Resource Managers que podem ser utilizados no Azure global, nas nuvens soberanas do Azure e no Azure Stack, consulte [Desenvolver modelos do Azure Resource Manager para consistência de nuvem](templates-cloud-consistency.md).
 
 ## <a name="resource-groups"></a>Grupos de recursos
 Existem alguns fatores importantes a considerar ao definir seu grupo de recursos:
@@ -283,6 +285,7 @@ Para obter informações sobre como usar esses idiomas com seus recursos, confir
 * Para obter uma explicação mais completa da criação de um modelo, consulte [Criar seu primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 * Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](resource-group-template-functions.md)
 * Para saber mais sobre como usar o Visual Studio com o Resource Manager, veja [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* Para saber mais sobre a migração de recursos do clássico para ARM, veja [Migrar do Clássico para o Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
 Veja uma demonstração em vídeo desta visão geral:
 

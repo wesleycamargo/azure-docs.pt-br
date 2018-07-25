@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969197"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114872"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -29,7 +29,7 @@ A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidad
 
 Neste artigo, você aprenderá a executar as seguintes operações de Identidade de Serviço Gerenciada em uma VM do Azure usando o modelo de implantação do Azure Resource Manager:
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -59,7 +59,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
    > Este exemplo supõe que variáveis como `vmName`, `storageAccountName`, e `nicName` foram definidas no modelo.
    >
 
-   ![Captura de tela do modelo – localizar VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Captura de tela do modelo – localizar VM](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Para habilitar a identidade atribuída pelo sistema, adicione a propriedade `"identity"` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"`. Use a seguinte sintaxe:
 
@@ -99,7 +99,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
 
 5. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
 
-   ![Captura de tela do modelo após a atualização](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Captura de tela do modelo após a atualização](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Atribuir uma função à identidade atribuída pelo sistema da VM
 
@@ -174,6 +174,10 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VM do 
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Atribuir uma identidade atribuída pelo usuário a uma VM do Azure
 
 1. No elemento `resources`, adicione a seguinte entrada para atribuir uma identidade atribuída pelo usuário à VM.  Certifique-se de substituir `<USERASSIGNEDIDENTITY>` pelo nome da identidade atribuída pelo usuário que você criou.
+   
+   > [!Important]
+   > O valor `<USERASSIGNEDIDENTITYNAME>` mostrado no exemplo a seguir deve ser armazenado em uma variável.  Além disso, para a implementação atualmente com suporte da atribuição de identidades atribuídas ao usuário a uma máquina virtual em um modelo do Resource Manager, a versão da API deve corresponder à versão no exemplo a seguir.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

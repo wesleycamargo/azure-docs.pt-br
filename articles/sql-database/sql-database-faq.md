@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309122"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092062"
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -24,9 +24,9 @@ A versão atual do banco de dados SQL é V12. Versão V11 foi desativado.
 ## <a name="what-is-the-sla-for-sql-database"></a>O que é o SLA para o banco de dados SQL?
 Garantimos que por pelo menos 99,99% do tempo você terá conectividade entre o Banco de Dados SQL do Microsoft Azure e o nosso gateway da Internet, independentemente da sua camada de serviço. Para saber mais, veja [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>O que é o novo modelo de compra baseado em vCore (versão prévia) para o Banco de Dados SQL do Azure?
+## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Qual é o novo modelo de compra baseado em vCore para Banco de Dados SQL do Azure?
 
-O novo modelo de compra é um acréscimo ao modelo existente baseado em DTU. O modelo baseado em vCore foi projetado para oferecer aos clientes flexibilidade, controle, transparência e uma maneira simples de mover os requisitos de carga de trabalho local para a nuvem. Ele também permite aos clientes escalar recursos de armazenamento e computação com base nas necessidades da carga de trabalho. As opções de banco de dados individual e pool elástico usando o modelo vCore também são elegíveis para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md) para obter mais informações. 
+O novo modelo de compra é um acréscimo ao modelo existente baseado em DTU. O modelo baseado em vCore foi projetado para oferecer aos clientes flexibilidade, controle, transparência e uma maneira simples de mover os requisitos de carga de trabalho local para a nuvem. Ele também permite aos clientes escalar recursos de armazenamento e computação com base nas necessidades da carga de trabalho. As opções de banco de dados individual e pool elástico usando o modelo vCore também são elegíveis para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter mais informações. 
 
 ## <a name="what-is-a-vcore"></a>O que é um vCore? 
 Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz.
@@ -38,11 +38,11 @@ Em muitos casos, os aplicativos podem se beneficiar da simplicidade de um pacote
 
 Os modelos baseados em DTU e vCore continuarão a existir paralelamente. Estamos lançando o modelo baseado em vCore em reposta às solicitações de clientes por maior transparência em relação aos recursos de banco de dados e à capacidade para escalar recursos de armazenamento e computação de maneira separada. O modelo baseado em vCore também possibilita economia adicional aos clientes com o Software Assurance ativo por meio do Benefício Híbrido do Azure para SQL Server.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>Como devo escolher entre o modelo de compra baseado em DTU em comparação ao modelo de compra baseado em vCore (versão prévia)? 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Como devo escolher entre o modelo de compra baseado em DTU em comparação ao modelo de compra baseado em vCore? 
 A DT (Unidade de Transmissão de Dados) é baseada em uma medida combinada de CPU, memória, leituras e gravações. Os níveis de desempenho baseados em DTU representam pacotes pré-configurados de recursos para gerar níveis diferentes de desempenho do aplicativo. Clientes que não querem se preocupar com os recursos subjacentes e preferem a simplicidade de um pacote pré-configurado enquanto pagam um valor fixa a cada mês podem achar o modelo baseado em DTU mais adequado às suas necessidades. No entanto, para clientes que precisam de mais informações sobre os recursos subjacentes ou precisam escaloná-los independentemente para atingir o desempenho ideal, o modelo baseado em vCore será a melhor escolha.  Além disso, se um cliente tiver um SA (Software Assurance) ativo para SQL Server, ele poderá aproveitar o investimento existente e economizar até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  As opções dentro de cada um dos modelos de compra fornecem os benefícios de um serviço totalmente gerenciado, como backups automáticos, atualizações de software e patches. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>O que é o Benefício Híbrido do Azure para SQL Server? 
-O [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ajuda a maximizar o valor de seus investimentos de licenciamento atuais e acelerar sua migração para a nuvem. O Benefício Híbrido do Azure para SQL Server é um benefício baseado no Azure que permite usar as licenças do SQL Server com o Software Assurance para pagar uma taxa reduzida (“taxa base”) no Banco de Dados SQL. O Benefício Híbrido do Azure para SQL Server está disponível na visualização pública do modelo de compra baseado em vCore (versão prévia) para bancos de dados individuais do Bando de Dados SQL e pools elásticos. É possível aplicar esse benefício mesmo se a SKU estiver ativa, mas observe que a taxa base será aplicada a partir do momento em que selecioná-la no Portal do Azure. Não há emissão retroativa de crédito.
+O [Benefício Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ajuda a maximizar o valor de seus investimentos de licenciamento atuais e acelerar sua migração para a nuvem. O Benefício Híbrido do Azure para SQL Server é um benefício baseado no Azure que permite usar as licenças do SQL Server com o Software Assurance para pagar uma taxa reduzida (“taxa base”) no Banco de Dados SQL. O Benefício Híbrido do Azure para SQL Server está disponível na visualização pública do modelo de compra baseado em vCore para bancos de dados individuais do Bando de Dados SQL e pools elásticos. É possível aplicar esse benefício mesmo se a SKU estiver ativa, mas observe que a taxa base será aplicada a partir do momento em que selecioná-la no Portal do Azure. Não há emissão retroativa de crédito.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Há direitos de uso duplo com o Benefício Híbrido do Azure para SQL Server?
 Você tem 180 dias de direitos de uso duplo da licença para garantir que as migrações estejam executando perfeitamente. Após esse período de 180 dias, a licença do SQL Server somente poderá ser utilizada na nuvem no Banco de Dados SQL e não há direitos de uso duplo no local e na nuvem.
@@ -144,7 +144,7 @@ Pools elásticos são cobrados de acordo com as seguintes características:
 * Se um pool elástico for redimensionado, o pool não será cobrado de acordo com a nova quantidade de recursos até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados individuais.
 * O preço de um pool elástico é baseado nos recursos do pool. O preço de um pool elástico é independente do número e da utilização dos bancos de dados elásticos dentro dele.
 
-Para obter detalhes, consulte [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/), [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md).
+Para obter detalhes, consulte [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/), [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>Como o uso baseado em vCore aparece na minha fatura? 
 No modelo baseado em vCore, o serviço é cobrado em uma taxa horária previsível com base na camada de serviço, computação provisionada no vCores, armazenamento provisionado em GB/mês e armazenamento de backup consumido. Se o armazenamento para backups exceder o tamanho total do banco de dados (ou seja, 100% do tamanho do banco de dados), haverá encargos adicionais. As horas de vCore, o armazenamento do banco de dados configurado, E/S consumida e armazenamento de backup são claramente discriminados na fatura, facilitando a visualização dos detalhes dos recursos que você usou. Armazenamento de backup até 100% do tamanho máximo do banco de dados incluído, além do qual você é cobrado em GB/mês consumido em um mês.

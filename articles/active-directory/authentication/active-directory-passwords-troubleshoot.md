@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e24f5070a793f62481bdc80044c97163c5b5c79f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857211"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045182"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
 
@@ -80,7 +80,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 | Erro | Solução |
 | --- | --- |
-| O serviço de redefinição de senha não é iniciado no local. O Erro 6800 aparece no log de eventos do aplicativo do computador do Azure AD Connect. <br> <br> Após a integração, os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Quando o write-back de senha é habilitado, o mecanismo de sincronização chama a biblioteca de write-back para realizar a configuração (integração) comunicando-se com o serviço de integração em nuvem. Os erros encontrados durante a integração ou ao iniciar o ponto de extremidade do WCF (Windows Communication Foundation) para o write-back de senha resultam em erros no log de eventos e no computador do Azure AD Connect. <br> <br> Durante a reinicialização do serviço ADSync (Sincronização do Azure AD), se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o ponto de extremidade de write-back de senha de não foi iniciado. Os detalhes do log de eventos desse evento (6800) juntamente com as entradas do log de eventos geradas pelo componente PasswordResetService indicam por que não é possível iniciar o ponto de extremidade. Examine esses erros do log de eventos e tente reiniciar o Azure AD Connect se o write-back de senha ainda não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.
+| O serviço de redefinição de senha não é iniciado no local. O Erro 6800 aparece no log de eventos do aplicativo do computador do Azure AD Connect. <br> <br> Após a integração, os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Quando o write-back de senha é habilitado, o mecanismo de sincronização chama a biblioteca de write-back para realizar a configuração (integração) comunicando-se com o serviço de integração em nuvem. Erros encontrados durante a integração ou ao iniciar o ponto de extremidade do WCF (Windows Communication Foundation) para write-back de senha levam a erros ao entrar em seu computador do Azure AD Connect. <br> <br> Durante a reinicialização do serviço ADSync (Sincronização do Azure AD), se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o ponto de extremidade de write-back de senha de não foi iniciado. Os detalhes do log de eventos desse evento (6800) juntamente com as entradas do log de eventos geradas pelo componente PasswordResetService indicam por que não é possível iniciar o ponto de extremidade. Examine esses erros do log de eventos e tente reiniciar o Azure AD Connect se o write-back de senha ainda não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.
 | Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. <br> <br> Além disso, você verá um evento no log de eventos do Azure AD Connect que contém: "O mecanismo de sincronização retornou um erro hr=800700CE, message=O nome de arquivo ou a extensão é muito longo" após a operação de desbloqueio ocorrer. | Encontre a conta do Active Directory no Azure AD Connect e redefina a senha para que contenha no máximo 127 caracteres. Em seguida, abra o **Serviço de Sincronização** no menu **Iniciar**. Navegue para **Conectores** e localize o **Active Directory Connector**. Selecione-o e, em seguida, selecione **Propriedades**. Navegue até a página **Credenciais** e digite a nova senha. Selecione **OK** para fechar a página. |
 | Na última etapa do processo de instalação do Azure AD Connect, você verá um erro que indica que não é possível configurar o write-back de senha. <br> <br> O log de eventos do aplicativo Azure AD Connect contém erro 32009 com texto "Erro ao obter token de autenticação". | Esse erro ocorre nos seguintes casos: <br><ul><li>Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.</li><li>Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect.</li></ul> Para corrigir esse problema, verifique se você não está usando uma conta federada para o administrador global especificado no início do processo de instalação. Além disso, verifique se a senha especificada está correta. |
 | O log de eventos do computador do Azure AD Connect contém o erro 32002, lançado pela execução de PasswordResetService. <br> <br> O erro é: "Erro ao se conectar ao Barramento de Serviço. O provedor de token não pôde fornecer um token de segurança.” | O ambiente local não pode se conectar ao ponto de extremidade do Barramento de Serviço do Azure na nuvem. Esse erro normalmente é causado por uma regra de firewall que bloqueia uma conexão de saída com uma porta ou um endereço web específico. Consulte [Pré-requisitos de conectividade](./../connect/active-directory-aadconnect-prerequisites.md) para saber mais. Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deverá começar a funcionar novamente. |
@@ -296,8 +296,8 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../active-directory-passwords-reset-register.md)
+* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)

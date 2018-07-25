@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search | Microsoft Docs'
+title: Tutorial para adição de preenchimento automático à caixa de pesquisa usando o Azure Search | Microsoft Docs
 description: Exemplos de como melhorar a experiência do usuário final de seus aplicativos centrados em dados usando o preenchimento automático do Azure Search e as APIs de sugestões.
 manager: pablocas
 author: mrcarter8
@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 90e99e7d44183d70f4e348c7b9070001fa3c6329
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100908"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989664"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
 

@@ -4,21 +4,21 @@ description: Saiba como monitorar diferentes tipos de tempo de execução de int
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045238"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113250"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -45,7 +45,7 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 -------- | ------------- | 
 | NOME | Nome do tempo de execução de integração do Azure. |  
 | Estado | Status do tempo de execução de integração do Azure. | 
-| Local padrão | Local do tempo de execução de integração do Azure. Para obter detalhes sobre o local de um tempo de execução de integração do Azure, consulte [Introdução ao tempo de execução de integração](concepts-integration-runtime.md). |
+| Localização | Local do tempo de execução de integração do Azure. Para obter detalhes sobre o local de um tempo de execução de integração do Azure, consulte [Introdução ao tempo de execução de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o tempo de execução de integração do Azure pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | DESCRIÇÃO | Descrição do tempo de execução de integração.  |
@@ -156,7 +156,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | OtherErrors | Os erros acionáveis não específicos dos nós em seu tempo de execução de integração do Azure-SSIS. |
 | LastOperation | O resultado da última operação de iniciar/parar em seu tempo de execução de integração do Azure-SSIS com erros acionáveis se houve falha. |
 | Estado | O status geral (inicial/iniciando/iniciado/parando/parado) de seu tempo de execução de integração do Azure-SSIS. |
-| Local padrão | O local do seu tempo de execução de integração do Azure-SSIS. |
+| Localização | O local do seu tempo de execução de integração do Azure-SSIS. |
 | NodeSize | O tamanho de cada nó do seu tempo de execução de integração do Azure-SSIS. |
 | NodeCount | O número de nós em seu tempo de execução de integração do Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó em seu tempo de execução de integração do Azure-SSIS. |
@@ -167,7 +167,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | VNetId | A ID de recursos da rede virtual para o tempo de execução de integração do Azure-SSIS ingressar. |
 | Sub-rede | O nome da sub-rede para o tempo de execução de integração do Azure-SSIS ingressar. |
 | ID | A ID de recursos do seu tempo de execução de integração do Azure-SSIS. |
-| type | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
+| Tipo | O tipo (Gerenciado/Auto-hospedado) de seu tempo de execução de integração do Azure-SSIS. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, no qual seu data factory e o tempo de execução de integração do Azure-SSIS foram criados. |
 | DataFactoryName | O nome de seu data factory do Azure. |
 | NOME | O nome do seu tempo de execução de integração do Azure-SSIS. |
@@ -192,6 +192,24 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | Iniciado | Os nós de seu tempo de execução de integração do Azure-SSIS foram alocados/preparados e estão prontos para implantar/executar pacotes do SSIS. |
 | Parando  | Os nós de seu tempo de execução de integração do Azure-SSIS estão sendo liberados. |
 | Parado | Os nós de seu tempo de execução de integração do Azure-SSIS foram liberados e a cobrança parou. |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorar o tempo de execução de integração do Azure-SSIS no portal do Azure
+
+As capturas de tela a seguir mostram como selecionar o IR do Azure-SSIS a ser monitorado e fornecer um exemplo das informações exibidas.
+
+![Selecionar o tempo de execução de integração do Azure-SSIS para monitorar](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Exibir informações sobre o tempo de execução de integração do Azure-SSIS](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Monitorar o tempo de execução de integração do Azure-SSIS com PowerShell
+
+Usar um script como o exemplo a seguir para verificar o status do IR do Azure-SSIS.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mais informações sobre o tempo de execução de integração do Azure-SSIS
 
 Consulte os artigos a seguir para saber mais sobre o tempo de execução de integração do Azure-SSIS:
 

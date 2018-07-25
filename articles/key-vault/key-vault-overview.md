@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068591"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115313"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -39,9 +39,9 @@ O armazenamento centralizado de segredos do aplicativo no Azure Key Vault permit
 
 Os aplicativos podem acessar as informações necessárias com segurança por meio de URIs que permitem recuperar versões específicas de um segredo depois que a chave ou o segredo do aplicativo é armazenado no Azure Key Vault. Isso ocorre sem a necessidade de escrever código personalizado para proteger as informações secretas.
 
-### <a name="securely-store-secrets"></a>Armazenar segredos com segurança
+### <a name="securely-store-secrets-and-keys"></a>Armazene segredos e chaves com segurança
 
-As chaves são protegidas pelo Azure, usando HSMs (módulos de segurança de hardware), comprimentos da chave e algoritmos padrão da indústria. Os HSMs usados são validados pelo padrão FIPS (Federal Information Processing Standards) 140-2 Nível 2.
+Os segredos e as chaves são protegidas pelo Azure, usando módulos de segurança de hardware (HSMs), comprimentos da chave e algoritmos padrão da indústria. Os HSMs usados são validados pelo padrão FIPS (Federal Information Processing Standards) 140-2 Nível 2.
 
 O acesso a um cofre de chaves requer a devida autenticação e autorização antes de um chamador (usuário ou aplicativo) poder obter acesso. A autenticação estabelece a identidade do chamador e a autorização determina as operações que ele tem permissão para executar.
 
@@ -49,7 +49,7 @@ A autenticação é feita pelo Azure Active Directory. A autorização pode ser 
 
 Os Azure Key Vaults podem ser qualquer software ou hardware protegido por HSM. Para situações que exijam garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. A Microsoft usa módulos de segurança de hardware Thales. Você pode usar as ferramentas Thales para mover uma chave de seu HSM para o Azure Key Vault.
 
-Por fim, o Azure Key Vault foi projetado para que a Microsoft não veja nem extraia suas chaves.
+Por fim, o Azure Key Vault foi projetado para que a Microsoft não veja nem extraia seus dados.
 
 ### <a name="monitor-access-and-use"></a>Monitorar o acesso e o uso
 

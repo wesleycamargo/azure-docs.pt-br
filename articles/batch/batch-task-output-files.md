@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: ee8622525adcc698bf920b0c3379cc3065798a19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30315585"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116976"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -180,7 +180,7 @@ Se você estiver desenvolvendo com uma linguagem que não C#, precisará implant
 
 O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio demonstra como usar a biblioteca de cliente em lotes para .NET para manter a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
 
-1. Abra o projeto no **Visual Studio 2015 ou mais recente**.
+1. Abra o projeto no **Visual Studio 2017**.
 2. Adicione suas **credenciais de conta** do Lote e do Armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
 3. **Compile** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
 4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote .zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1.0".
@@ -190,7 +190,7 @@ O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre manter a saída da tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Manter dados de trabalho e tarefa no Armazenamento do Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET para manter ](batch-task-output-file-conventions.md).
+- Para obter mais informações sobre persistência de saída de tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET](batch-task-output-file-conventions.md).
 - Para obter mais informações sobre outras abordagens para manter os dados de saída em lote do Azure, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).
 
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs

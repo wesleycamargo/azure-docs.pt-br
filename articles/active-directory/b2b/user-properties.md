@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65fd23ecf81aebdb1fe74f800d20df6414c18317
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259459"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057888"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -85,6 +85,9 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 É possível desativar as limitações do usuário convidado padrão para que um usuário convidado no diretório da empresa receba as mesmas permissões que um membro.
 
 ![Como remover limitações do usuário convidado](media/user-properties/remove-guest-limitations.png)
+
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
+Sim. Por padrão, os objetos convidados não estão visíveis na lista de endereços global da organização, mas é possível usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, consulte **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Acesso para convidado em Grupos do Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

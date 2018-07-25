@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: juliako
-ms.openlocfilehash: e3af5efd253458401c13f6174d9567f932482eb0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e54aff6e42d19755d274393d4221578cf5595cc5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133175"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112783"
 ---
-# <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine
+# <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença do Widevine 
 
-Você pode usar os Serviços de Mídia do Azure para configurar e solicitar licenças do Google Widevine. Quando o player tentar reproduzir o conteúdo protegido do Widevine, uma solicitação será enviada ao serviço de entrega de licença para a obtenção de uma licença. Se o serviço de licença aprovar a solicitação, o serviço emitirá a licença. Ela é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
+Os Serviços de Mídia do Azure permitem criptografar o conteúdo com **Google Widevine**. Os Serviços de Mídia também fornecem um serviço para fornecer licenças Widevine. É possível usar APIs dos Serviços de Mídia do Azure para configurar licenças Widevine. Quando um player tenta reproduzir o conteúdo protegido por Widevine, uma solicitação é enviada ao serviço de entrega de licenças para obter a licença. Se o serviço de licença aprovar a solicitação, o serviço emitirá a licença. Ela é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
 A solicitação de licença do Widevine é formatada como uma mensagem JSON.  
 
@@ -74,7 +74,7 @@ A solicitação de licença do Widevine é formatada como uma mensagem JSON.
 | parse_only |Booliano, true ou false |A solicitação de licença é analisada, mas nenhuma licença é emitida. No entanto, os valores da solicitação de licença retornam na resposta. |
 
 ## <a name="content-key-specs"></a>Especificações de chave de conteúdo
-Se já houver uma política, não será necessário especificar qualquer um dos valores nas especificações de chave de conteúdo. A política preexistente associada a este conteúdo é usada para determinar a proteção de saída, como Proteção de Conteúdo Digital de Alta Largura de Banda (HDCP) e Sistema de Gerenciamento Geral de Cópia (CGMS). Se uma política existente não estiver registrada no servidor de licenças do Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
+Se existir uma política pré-existente, não será necessário especificar nenhum dos valores na especificação da chave de conteúdo. A política pré-existente associada a esse conteúdo é usada para determinar a proteção HDCP e o CGMS. Se uma política pré-existente não estiver registrada no servidor de licenças Widevine, o provedor de conteúdo poderá injetar os valores na solicitação de licença.   
 
 Cada valor content_key_specs deve ser especificado para todos os controles, independentemente da opção use_policy_overrides_exclusively. 
 
@@ -95,7 +95,7 @@ Cada valor content_key_specs deve ser especificado para todos os controles, inde
 | policy_overrides&#46;license_duration_seconds |int64 |Indica o período para esta licença específica. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides&#46;rental_duration_seconds |int64 |Indica o período em que a reprodução é permitida. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
 | policy_overrides&#46;playback_duration_seconds |int64 |O período de exibição após o início da reprodução dentro da duração da licença. Um valor 0 indica que não há qualquer limite para a duração. O padrão é 0. |
-| policy_overrides&#46;renewal_server_url |string |Todas as solicitações de pulsação (renovação) para esta licença são direcionadas à URL especificada. Este campo só será usado se can_renew for true. |
+| policy_overrides&#46;renewal_server_url |string |Todas as solicitações (renovação) de pulsação dessa licença são direcionadas para a URL especificada. Este campo só será usado se can_renew for true. |
 | policy_overrides&#46;renewal_delay_seconds |int64 |O número de segundos após license_start_time antes da primeira tentativa de renovação. Este campo só será usado se can_renew for true. O padrão é 0. |
 | policy_overrides&#46;renewal_retry_interval_seconds |int64 |Especifica o atraso em segundos entre as solicitações de renovação da licença subsequentes, em caso de falha. Este campo só será usado se can_renew for true. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |O período durante o qual a reprodução pode continuar enquanto ocorre a tentativa de renovação, porém sem êxito devido a problemas de back-end com o servidor de licença. Um valor 0 indica que não há qualquer limite para a duração. Este campo só será usado se can_renew for true. |
@@ -112,90 +112,97 @@ Cada valor content_key_specs deve ser especificado para todos os controles, inde
 
 Os Serviços de Mídia fornecem uma classe que permite a configuração de suas licenças do Widevine. Para construir a licença, passe o JSON para [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
-Para configurar o modelo, você pode:
+Para configurar o modelo, é possível:
 
-1.  Diretamente contruir/hardcore uma cadeia de caracteres JSON (que pode ser propensa a erro);
+### <a name="directly-construct-a-json-string"></a>Construir diretamente uma cadeia de cadeia de caracteres JSON
+
+Esse método pode ser propenso a erro. É recomendável usar outro método, descrito em [Definir classes necessárias e serializar para JSON](#classes).
 
     ```csharp
-        ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
         WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
     };
     ```
 
-2.  Construir classes necessárias com propriedades de mapeamento para esses atributos JSON e instanciá-las antes de serializá-las para a cadeia de caracteres JSON. Abaixo está um exemplo de tais classes e como elas são instanciadas e serializadas.
+### <a id="classes"></a> Definir classes necessárias e serializar para JSON
+
+#### <a name="define-classes"></a>Definir classes
+
+O exemplo a seguir mostra um exemplo de definições de classes que mapeia para o esquema Widevine JSON. É possível instanciar as classes antes de serializá-las para a cadeia de caracteres JSON.  
 
     ```csharp
-    public class policy_overrides
+    public class PolicyOverrides
     {
-        public bool can_play { get; set; }
-        public bool can_persist { get; set; }
-        public bool can_renew { get; set; }
-        public int rental_duration_seconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int playback_duration_seconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int license_duration_seconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public bool CanPlay { get; set; }
+        public bool CanPersist { get; set; }
+        public bool CanRenew { get; set; }
+        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
     }
 
-    public class content_key_spec
+    public class ContentKeySpec
     {
-        public string track_type { get; set; }
-        public int security_level { get; set; }
-        public output_protection required_output_protection { get; set; }
+        public string TrackType { get; set; }
+        public int SecurityLevel { get; set; }
+        public OutputProtection RequiredOutputProtection { get; set; }
     }
 
-    public class output_protection
+    public class OutputProtection
     {
-        public string hdcp { get; set; }
+        public string HDCP { get; set; }
     }
 
-    public class widevine_template
+    public class WidevineTemplate
     {
-        public string allowed_track_types { get; set; }
-        public content_key_spec[] content_key_specs { get; set; }
-        public policy_overrides policy_overrides { get; set; }
+        public string AllowedTrackTypes { get; set; }
+        public ContentKeySpec[] ContentKeySpecs { get; set; }
+        public PolicyOverrides PolicyOverrides { get; set; }
     }
     ```
 
-### <a name="configure-the-license"></a>Configurar a licença
+#### <a name="configure-the-license"></a>Configurar a licença
 
 Use as classes definidas na seção anterior para criar o JSON que é usado para configurar [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
-void ConfigureLicense()
+private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()
 {
-    widevine_template objwidevine_template = new widevine_template()
+    WidevineTemplate template = new WidevineTemplate()
     {
-        allowed_track_types = "SD_HD",
-        content_key_specs = new content_key_spec[]
+        AllowedTrackTypes = "SD_HD",
+        ContentKeySpecs = new ContentKeySpec[]
         {
-            new content_key_spec()
+            new ContentKeySpec()
             {
-                track_type = "SD",
-                security_level = 1,
-                required_output_protection = new output_protection()
+                TrackType = "SD",
+                SecurityLevel = 1,
+                RequiredOutputProtection = new OutputProtection()
                 {
-                hdcp = "HDCP_V2"
+                    HDCP = "HDCP_V2"
                 }
             }
         },
-        policy_overrides = new policy_overrides()
+        PolicyOverrides = new PolicyOverrides()
         {
-            can_play = true,
-            can_persist = true,
-            can_renew = false,
-            license_duration_seconds = 2592000,
-            playback_duration_seconds = 10800,
-            rental_duration_seconds = 604800,
+            CanPlay = true,
+            CanPersist = true,
+            CanRenew = false,
+            RentalDurationSeconds = 2592000,
+            PlaybackDurationSeconds = 10800,
+            LicenseDurationSeconds = 604800,
         }
     };
 
     ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
-        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(objwidevine_template)
+        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(template)
     };
+    return objContentKeyPolicyWidevineConfiguration;
 }
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral](content-protection-overview.md)
+Confira como [proteger com DRM](protect-with-drm.md)

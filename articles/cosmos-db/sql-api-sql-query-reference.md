@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798824"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042003"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
 
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Representa um valor do nome de parâmetro especificado. Os nomes de parâmetro devem ter uma única @ como primeiro caractere.  
+     Representa um valor do nome de parâmetro especificado. Os nomes de parâmetro devem ter uma única \@ como primeiro caractere.  
   
  **Comentários**  
   
@@ -1854,7 +1854,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
@@ -2367,7 +2367,80 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+####  <a name="bk_tostring"></a> ToString  
+ Retorna uma representação de cadeia de caracteres de uma expressão escalar. 
   
+ **Sintaxe**  
+  
+```  
+ToString(<expr>)
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão escalar válida.  
+  
+ **Tipos de retorno**  
+  
+ Retorna uma expressão de cadeia de caracteres.  
+  
+ **Exemplos**  
+  
+ O exemplo a seguir mostra como ToString se comporta com tipos diferentes.   
+  
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+  
+ Este é o conjunto de resultados.  
+  
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ Dada a seguinte entrada:
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ O exemplo a seguir mostra como ToString pode ser usado com outras funções de cadeia de caracteres como CONCAT.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ Este é o conjunto de resultados.  
+  
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+Dada a seguinte entrada.
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ O exemplo a seguir mostra como ToString pode ser usado com outras funções de cadeia de caracteres como REPLACE.   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ Este é o conjunto de resultados.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
 ####  <a name="bk_upper"></a> UPPER  
  Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos.  
   

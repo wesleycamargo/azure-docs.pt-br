@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448750"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113368"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guia de início rápido: bloquear acesso quando um risco de sessão é detectado com acesso condicional do Active Directory do Azure  
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 
 
-## <a name="prerequisites"></a>pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Para concluir o cenário deste tutorial, você precisa de:
 
@@ -62,7 +62,7 @@ O objetivo desta etapa é certificar-se de que sua conta de teste pode acessar s
 
 ## <a name="create-your-conditional-access-policy"></a>Criar sua política de acesso condicional 
 
-O cenário neste início rápido usa uma entrada de um Tor Browser para gerar um evento de risco detectado **entradas de endereços IP anônimos**. O nível de risco desse evento de risco é médio.   
+O cenário neste início rápido usa uma entrada de um Tor Browser para gerar um evento de risco detectado **entradas de endereços IP anônimos**. O nível de risco desse evento de risco é médio. Para responder a esse evento de risco, defina a condição de risco de entrada como média. Em um ambiente de produção, é necessário definir a condição de risco de entrada como alta ou média e alta.     
 
 Esta seção mostra como criar a política de acesso condicional necessária. Em sua política, defina:
 
@@ -70,10 +70,11 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 |---     | --- |
 | Usuários e grupos | Alain Charon  |
 | Aplicativos na nuvem | Todos os aplicativos em nuvem |
+| Risco de entrada | Média |
 | Concessão | Acesso bloqueado |
  
 
-![Criar política](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Criar política](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
     a. Clique em **todos os aplicativos em nuvem**.
 
     b. Clique em **Concluído**.
+
+10. Clique em **Condições**. 
+
+    ![Controles de acesso](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. Na página **Condições**:
+
+    ![Nível de risco de entrada](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Clique em **Risco de entrada**.
+ 
+    b. Em **Configurar**, clique em **Sim**.
+
+    c. Como nível de risco de entrada, selecione **Médio**.
+
+    d. Clique em **Selecionar**.
+
+    e. Na página **Condições**, clique em **Concluído**.
+
+
 
 10. Na seção **Controles de acesso**, clique em **Conceder**.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066060"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029987"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -41,7 +41,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | --- | --- | --- |
 | Redes virtuais |50 |1000 |
 | Sub-redes por rede virtual |1000 |10000 |
-| Emparelhamentos de rede virtual por Rede Virtual |10 |50 |
+| Emparelhamentos de rede virtual por Rede Virtual |50** |100 |
 | Servidores DNS por rede virtual |9 |25 |
 | Endereços IP privados por rede virtual |16384** |16384 |
 | Endereços IP privados por interface de rede |256 |256 |
@@ -55,13 +55,13 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Configurações de IP por grupo de segurança do aplicativo |1000 |4000 |
 | Os grupos de segurança do aplicativo que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |50 |100 |
 | Tabelas de rota definida pelo usuário |100 |200 |
-| Rotas definidas pelo usuário por tabela de rotas |100 |400 |
+| Rotas definidas pelo usuário por tabela de rotas |400** |400 |
 | Endereços IP públicos - dinâmicos |(Básico) 60 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Basic) 20 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Standard) 20 |entrar em contato com o suporte |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
 
-***Esses limites padrão aplicam-se às assinaturas que anteriormente não tinham esses limites aumentados pelo suporte
+***Esses limites padrão atualizados aplicam-se às assinaturas que anteriormente não tinham esses limites aumentados pelo suporte. Se você teve esses limites aumentados pelo suporte no passado e gostaria de atualizá-los para os novos padrões, [abra uma solicitação de suporte do cliente online, sem custo adicional](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Limites do Load Balancer
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir o uso de recursos atual em relação aos limites de assinatura](../articles/networking/check-usage-against-limits.md)

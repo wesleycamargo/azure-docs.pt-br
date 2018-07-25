@@ -1,6 +1,6 @@
 ---
-title: Complementos de roteamento de aplicativo HTTP no Serviço de Contêiner do Azure (AKS)
-description: Usar os complementos de roteamento de aplicativo HTTP no Serviço de Contêiner do Azure (AKS)
+title: Complemento de roteamento de aplicativos HTTP no AKS (Serviço de Kubernetes do Azure)
+description: Usar o complemento de roteamento de aplicativos HTTP no AKS (Serviço de Kubernetes do Azure).
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -8,45 +8,64 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 1cf1ffc5038b32232b42152e62cca9d20b3cc57b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116966"
 ---
-# <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
+# <a name="http-application-routing"></a>Roteamento de aplicativos HTTP
 
-A solução de roteamento de aplicativo HTTP facilita o acesso a aplicativos implantados ao cluster AKS. Quando habilitada, a solução configura um controlador de entrada em seu cluster AKS. Além disso, como os aplicativos são implantados, a solução também cria nomes DNS publicamente acessíveis para pontos de extremidade do aplicativo.
+A solução de roteamento de aplicativos HTTP facilita o acesso a aplicativos implantados no cluster do AKS (Serviço de Kubernetes do Azure). Quando a solução é habilitada, ela configura um controlador de Entrada no cluster do AKS. Na medida em que os aplicativos são implantados, a solução também cria nomes DNS publicamente acessíveis para os pontos de extremidade do aplicativo.
 
-Habilitar este complemento cria uma zona DNS em sua assinatura. Para obter mais informações sobre o custo DNS, consulte [preços do DNS][dns-pricing].
+Quando o complemento é habilitado, ele cria uma zona DNS na assinatura. Para obter mais informações sobre o custo DNS, consulte [preços do DNS][dns-pricing].
 
 ## <a name="http-routing-solution-overview"></a>Visão geral da solução roteamento HTTP
 
-O complemento implanta dois componentes de um [Controlador de Entrada Kubernetes][ingress] e um controlador de [DNS externo][external-dns].
+O complemento implanta dois componentes: um [Controlador de Entrada do Kubernetes][ingress] e um controlador de [DNS Externo][external-dns].
 
-- **Controlador de entrada** - o controlador de entrada é exposto à internet usando um serviço de Kubernetes do tipo de Balanceador de Carga. O controlador de entrada inspeciona e implementa [recursos de entrada de Kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
-- **Controlador de DNS externo** - inspeciona recursos de entrada Kubernetes e cria registros de DNS A na zona de DNS de cluster específico.
+- **Controlador de entrada**: o controlador de Entrada é exposto à internet usando um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada inspeciona e implementa [recursos de Entrada do Kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
+- **Controlador de DNS externo**: inspeciona os recursos de Entrada do Kubernetes e cria registros DNS A na zona DNS específica do cluster.
 
-## <a name="deploy-http-routing"></a>Implantar o roteamento de HTTP
+## <a name="deploy-http-routing-cli"></a>Implantar o roteamento HTTP: CLI
 
-O complemento de roteamento de aplicativo HTTP pode ser habilitado por meio do portal do Azure ao implantar um cluster AKS.
+O complemento de roteamento de aplicativos HTTP pode ser habilitado com a CLI do Azure ao implantar um cluster do AKS. Para fazer isso, use o comando [az aks create][az-aks-create] com o argumento `--enable-addons`.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+```
+
+Depois que o cluster for implantado, use o comando [az aks show][az-aks-show] para recuperar o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster do AKS.
+
+```azurecli
+$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+Result
+-----------------------------------------------------
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+```
+
+## <a name="deploy-http-routing-portal"></a>Implantar roteamento HTTP: portal
+
+O complemento de roteamento de aplicativos HTTP pode ser habilitado por meio do portal do Azure ao implantar um cluster do AKS.
 
 ![Habilitar o recurso de roteamento de HTTP](media/http-routing/create.png)
 
-Quando o cluster tiver sido implantado, navegue até o grupo de recursos AKS criado automaticamente e selecione a zona DNS. Anote o nome da zona DNS. Esse nome é necessário ao implantar aplicativos para o cluster AKS.
+Depois que o cluster for implantado, navegue até o grupo de recursos do AKS criado automaticamente e selecione a zona DNS. Anote o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster do AKS.
 
 ![Obter o nome da zona DNS](media/http-routing/dns.png)
 
 ## <a name="use-http-routing"></a>Usar o roteamento de HTTP
 
-A solução de roteamento do aplicativo HTTP só pode ser disparada em recursos de entrada que são anotados da seguinte maneira:
+A solução de roteamento de aplicativos HTTP somente pode ser disparada nos recursos de Entrada que são anotados da seguinte forma:
 
 ```
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Crie um arquivo chamado `samples-http-application-routing.yaml` e copie no YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS coletados na última etapa deste documento.
+Crie um arquivo nomeado **samples-http-application-routing.yaml** e copie no YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS coletada na última etapa deste artigo.
 
 
 ```yaml
@@ -98,17 +117,17 @@ spec:
         path: /
 ```
 
-Use o comando [kubectl create][kubectl-create] para criar os recursos.
+Use o comando [kubectl apply][kubectl-apply] para criar o segredo.
 
 ```
-$ kubectl create -f samples-http-application-routing.yaml
+$ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
 service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Use cURL ou um navegador para navegar para o nome do host especificado na seção de host do arquivo `samples-http-application-routing.yaml`. O aplicativo pode levar até um minuto antes que esteja disponível através da internet.
+Use cURL ou um navegador para navegar até o nome do host especificado na seção do host do arquivo samples-http-application-routing.yaml. O aplicativo pode demorar até um minuto antes de ser disponibilizado pela Internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -131,9 +150,9 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
-Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o aplicativo de DNS externo. Os logs devem confirmar que um registro DNS TXT e A foi criado com êxito.
+Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o aplicativo de DNS externo. Os logs devem confirmar que um registro DNS A e TXT foi criado com êxito.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -146,7 +165,7 @@ Esses registros também podem ser vistos no recurso de zona de DNS no portal do 
 
 ![Obter os registros DNS](media/http-routing/clippy.png)
 
-Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o controlador de entrada Nginx. Os logs devem confirmar a criação de um recurso de entrada e o recarregamento do controlador. Todas as atividades HTTP serão registradas.
+Use o comando [kubectl logs][kubectl-logs] para exibir os logs do aplicativo para o controlador de Entrada Nginx. Os logs devem confirmar o `CREATE` de um recurso de Entrada e o recarregamento do controlador. Toda a atividade de HTTP é registrada.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -185,9 +204,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
 ```
 
-## <a name="cleanup"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
-Remova os objetos Kubernetes associados criados nesta etapa.
+Remova os objetos do Kubernetes associados criados neste artigo.
 
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -199,15 +218,18 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre como instalar um controlador de entrada protegida HTTPS em AKS, consulte [Entrada HTTPS no Serviço de Contêiner do Azure (AKS)][ingress-https]
+Para obter informações sobre como instalar um controlador de Entrada protegido por HTTPS no AKS, consulte [Entrada HTTPS no AKS (Serviço de Kubernetes do Azure)][ingress-https].
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/

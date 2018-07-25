@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176781"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112715"
 ---
 # <a name="understand-load-balancer-probes"></a>Compreender as investigações do Load Balancer
 
-O Azure Load Balancer usa investigações de integridade para determinar qual instância de pool de back-end deve receber novos fluxos. Quando um teste de integridade falha, o Load Balancer interromperá o envio de novos fluxos para a instância não íntegro respectiva e os fluxos existentes nessa instância não serão afetados.  Quando todas as instâncias de pool de back-end são investigação de cima para baixo, todos os fluxos existentes atingirão o tempo limite em todas as instâncias no pool de back-end.
+O Azure Load Balancer usa investigações de integridade para determinar qual instância de pool de back-end deve receber novos fluxos.   É possível usar investigações de integridade para detectar a falha de um aplicativo em uma instância de back-end.  Também é possível usar a resposta de investigação de integridade do aplicativo para sinalizar ao Load Balancer se continua enviando novos fluxos ou se para de enviar novos fluxos a uma instância de back-end para gerenciar carga ou tempo de inatividade planejado.
 
-Funções do serviço de nuvem (funções de trabalho e da Web) usam um agente convidado para o monitoramento de investigação. As investigações de integridade personalizadas TCP ou HTTP devem ser configuradas quando você usa VMs atrás do Load Balancer.
+As investigações de integridade determinam se novos fluxos são estabelecidos para instâncias de back-end íntegras. Quando uma investigação de integridade falha, o Load Balancer para de enviar novos fluxos à respectiva instância não íntegra.  Conexões TCP estabelecidas continuam após falha da investigação de integridade.  Fluxos UDP existentes serão movidos da instância não íntegra para outra instância íntegra no pool de back-end.
+
+Se todas as detecções de um pool de back-end falharem, os Load Balancers Básicos encerrarão todos os fluxos TCP existentes para o pool de back-end, enquanto o Standard Load Balancer permitirá que os fluxos TCP estabelecidos continuem, e nenhum novo fluxo será enviado para o pool de back-end.  Todos os fluxos UDP existentes serão encerrados para os Standard Load Balancers e Básico quando todas as investigações de um pool de back-end falharem.
+
+Funções do serviço de nuvem (funções de trabalho e da Web) usam um agente convidado para o monitoramento de investigação. As investigações de integridade personalizadas TCP ou HTTP deverão ser configuradas quando você usar os Serviços de Nuvem com VMs de IaaS atrás do Load Balancer.
 
 ## <a name="understand-probe-count-and-timeout"></a>Noções básicas sobre contagem da investigação e tempo limite
 

@@ -11,20 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128632"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116037"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
 
 Este artigo responde às perguntas comuns dos usuários que estão fazendo essa transição.  Se você usou o Log Analytics no portal do OMS, encontrará aqui as respostas sobre como executar as mesmas tarefas no Portal do Azure.
+
+## <a name="do-i-need-to-migrate-anything"></a>É necessário migrar alguma coisa?
+Não. Não há alterações feitas no próprio Log Analytics, portanto, não há nada que precise ser migrado. A única coisa que está alterando é a interface que você usa para acessá-lo. Na verdade, agora é possível usar o portal do Azure para acessar os mesmos espaços de trabalho, soluções, exibições e pesquisas de logs que você atualmente usa no portal do OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Onde está o Log Analytics no Azure?
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu espaço de trabalho. A página de resumo do espaço de trabalho será exibida.

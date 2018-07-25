@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723448"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007154"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Seção de recursos dos modelos do Azure Resource Manager
 
@@ -30,7 +30,7 @@ Você define recursos com a seguinte estrutura:
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -83,10 +83,10 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| condition | Não  | Valor booliano que indica se o recurso está implantado. |
-| apiVersion |sim |Versão da API REST a ser usada para criar o recurso. |
-| Tipo |sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
-| Nome |sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
+| condition | Não  | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. |
+| apiVersion |SIM |Versão da API REST a ser usada para criar o recurso. |
+| Tipo |SIM |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
+| Nome |SIM |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. |
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). |
 | marcas |Não  |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | comentários |Não  |Suas anotações para documentar os recursos em seu modelo |
@@ -100,7 +100,7 @@ Você define recursos com a seguinte estrutura:
 
 ## <a name="condition"></a>Condição
 
-Durante a implantação, quando você precisar decidir se deseja ou não criar um recurso, use o elemento `condition`. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso é implantado. Quando o valor for false, o recurso não é implantado. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou uma conta de armazenamento existente é usada, use:
+Durante a implantação, quando você precisar decidir se deseja ou não criar um recurso, use o elemento `condition`. O valor desse elemento é resolvido como verdadeiro ou falso. Quando o valor for true, o recurso será criado. Quando o valor for false, o recurso não será criado. Normalmente, você usa esse valor quando deseja criar um novo recurso ou usar um existente. Por exemplo, para especificar se uma nova conta de armazenamento é implantada ou uma conta de armazenamento existente é usada, use:
 
 ```json
 {

@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128853"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114089"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
 O **Gerenciador de Trabalho** e os **modelos do Visual Studio do Processador de Tarefa** para o Lote fornecem código para ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote com o mínimo de esforço. Este documento descreve esses modelos e fornece diretrizes sobre como usá-los.
 
 > [!IMPORTANT]
-> Este artigo discute apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço do Lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do gerenciador de trabalho, variáveis de ambiente e outras informações relevantes. Encontre mais informações em [Noções básicas do Lote do Azure](batch-technical-overview.md), [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md) e [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md).
+> Este artigo discute apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço do Lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do gerenciador de trabalho, variáveis de ambiente e outras informações relevantes. É possível encontrar mais informações em [Noções básicas do Lote do Azure](batch-technical-overview.md) e [Visão geral do recurso do Lote para desenvolvedores](batch-api-basics.md).
 > 
 > 
 
@@ -52,7 +52,7 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 
 ![Diagrama mostrando como o código do cliente interage com o serviço do Lote][diagram01]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para usar os modelos do Lote, você precisará do seguinte:
 
 * Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.

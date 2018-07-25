@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659005"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113470"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -21,7 +21,7 @@ Este artigo fornece instruções passo a passo sobre como usar o serviço de Imp
 
 O serviço de Importação/Exportação dá suporte somente à importação de Arquivos do Azure para o Armazenamento do Microsoft Azure. Não há suporte para a exportação de Arquivos do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de criar um trabalho de importação para transferir dados ao Arquivos do Azure, revise cuidadosamente e preencha a seguinte lista de pré-requisitos. Você deve:
 
@@ -30,6 +30,14 @@ Antes de criar um trabalho de importação para transferir dados ao Arquivos do 
 - Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows executando uma [Versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
 - [Baixe o WAImportExport versão 2](https://www.microsoft.com/download/details.aspx?id=55280) no sistema Windows. Descompacte para a pasta padrão `waimportexport`. Por exemplo, `C:\WaImportExport`.
+- Ter uma conta FedEx/DHL. 
+    - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
+    - Gerar um número de controle para o trabalho de exportação.
+    - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
+    - Se você não tiver uma conta de transportadora, vá para:
+        - [Criar uma conta FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>Etapa 1: preparar as unidades
@@ -142,6 +150,9 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. 
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
+        > [!TIP] 
+        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+
        ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
@@ -159,6 +170,10 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 ## <a name="step-4-update-the-job-with-tracking-information"></a>Etapa 4: atualizar o trabalho com informações de rastreamento
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>Etapa 5: verificar upload de dados para Azure
+
+Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, verifique se os dados foram carregados no Azure. Exclua os dados locais somente depois de verificar se o upload foi realizado com êxito.
 
 ## <a name="samples-for-journal-files"></a>Exemplos de arquivos de diário
 

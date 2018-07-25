@@ -4,16 +4,16 @@ description: Saiba como solucionar problemas com runbooks de automação do Azur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929342"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044859"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -94,6 +94,31 @@ Se você tiver a autenticação multifator em sua conta do Azure, você não pod
 Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Cenário: o runbook falha devido a um cmdlet ausente
+
+#### <a name="issue"></a>Problema
+
+Seu runbook falha com um erro semelhante ao exemplo a seguir:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro pode ser causado pelos seguintes motivos:
+
+1. O módulo que contém o cmdlet não é importado para a conta de automação
+2. O módulo contendo o cmdlet é importado, mas está expirado
+
+#### <a name="resolution"></a>Resolução
+
+Esse erro pode ser resolvido executando uma das seguintes tarefas:
+
+Se o módulo for um módulo do Azure, consulte [Como atualizar módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md) para saber como atualizar os módulos em sua conta de automação.
+
+Se for um módulo separado, verifique se o módulo foi importado em sua Conta de Automação.
 
 ### <a name="job-attempted-3-times"></a>Cenário: O início do trabalho de runbook foi tentado três vezes, mas falhou ao iniciar a cada vez
 

@@ -3,26 +3,29 @@ title: Pontos de extremidade e regras de serviço de rede virtual para o Banco d
 description: Marque uma sub-rede como um ponto de extremidade de serviço de Rede virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados SQL do Azure. Seu Banco de dados SQL do Microsoft Azure então aceita a comunicação de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.reviewer: genemi
+ms.date: 07/18/2018
+ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802588"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127460"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados SQL do Azure e SQL Data Warehouse
 
-*Regras de rede Virtual* são um recurso de segurança de firewall que controla se o servidor do banco de dados SQL do Azure aceita comunicações que sejam enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+*Regras de rede virtual* são um recurso de segurança do firewall que controla se o [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou o servidor do [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+
+> [!NOTE]
+> Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
 
 Para criar uma regra de rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
-
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
 
@@ -141,7 +144,6 @@ Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as s
 Ao usar pontos de extremidade de serviço para o Banco de Dados SQL do Azure, veja as considerações a seguir:
 
 - **Saída para IPs públicos do Banco de Dados SQL do Azure é necessária**: NSGs (Grupos de Segurança de Rede) devem ser abertos para IPs do Banco de Dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando o NSG [Marcas de Serviço](../virtual-network/security-overview.md#service-tags) para o Banco de Dados SQL do Azure.
-- **Não há suporte para o Banco de Dados do Azure para PostgreSQL e MySQL**: pontos de extremidade de serviço não têm suporte para o Banco de Dados do Azure para PostgreSQL ou MySQL. A habilitação de pontos de extremidade de serviço para o Banco de Dados SQL interromperá a conectividade com esses serviços. Há uma mitigação para isso, e você deve entrar em contato com *dmalik@microsoft.com* para obter mais informações.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -242,7 +244,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 - [Regras de Rede Virtual do Microsoft Azure: Operações][rest-api-virtual-network-rules-operations-862r]
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 

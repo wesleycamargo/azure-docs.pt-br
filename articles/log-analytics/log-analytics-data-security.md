@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859762"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990108"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Azure Log Analytics para complementar as informações na [Central de Confiabilidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -37,6 +37,24 @@ O serviço Log Analytics gerencia seus dados baseados em nuvem com segurança us
 * Certificações de padrões de segurança
 
 Entre em contato conosco com quaisquer perguntas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo nossas políticas de segurança nas [opções de suporte do Azure](http://azure.microsoft.com/support/options/).
+
+## <a name="sending-data-securely-using-tls-12"></a>Enviando dados com segurança usando o TLS 1.2 
+
+Para garantir a segurança dos dados em trânsito para o Log Analytics, incentivamos você a configurar o agente para usar pelo menos o protocolo TLS 1.2. Versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto ele ainda estiver atualmente trabalham para permitir a compatibilidade com versões anteriores, eles são **não recomendáveis**, e o setor está se movendo rapidamente para abandonar o suporte para esses protocolos mais antigos. 
+
+O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) tem definido um [prazo para 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desabilitar as versões mais antigas do TLS/SSL e atualizar para proteger mais os protocolos. Depois que o Azure tiver descartado o suporte herdado, se seus agentes não conseguirem se comunicar pelo menos pelo TLS 1.2, você não conseguirá enviar dados para o Log Analytics. 
+
+Não é recomendável definir explicitamente seu agente para usar somente o TLS 1.2, a menos que absolutamente necessário, pois isso pode separar os recursos de segurança em nível de plataforma que permitem que você detecte e use os protocolos mais seguros e mais recentes assim que estiverem automaticamente disponíveis como TLS 1.3. 
+
+### <a name="platform-specific-guidance"></a>Diretrizes específicas da plataforma
+
+|Plataforma/linguagem | Suporte | Mais informações |
+| --- | --- | --- |
+|Linux | Distribuições do Linux tendem a depender do [OpenSSL](https://www.openssl.org) para suporte a TLS 1.2.  | Verifique as [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL é suportada.|
+| Windows 8.0 - 10 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suporte e habilitado por padrão. | Para confirmar que você ainda está usando o [as configurações padrão](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows Server 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro de segurança de camada de transporte (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar.  |
+| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>Segregação de dados
 Depois que seus dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados logicamente em cada componente no serviço. Todos os dados são marcados por espaço de trabalho. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço. Os dados ficam armazenados em um banco de dados dedicado no cluster de armazenamento na região selecionada.

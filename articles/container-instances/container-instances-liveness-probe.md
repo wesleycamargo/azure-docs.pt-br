@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248905"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011824"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
-Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em estados quebrados que talvez precisem ser reparados reiniciando o contêiner. As Instâncias de Contêiner do Azure dão suporte a investigações de atividade para incluir configurações de modo que o contêiner possa ser reiniciado se a funcionalidade crítica não estiver funcionando. 
+Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em estados quebrados que talvez precisem ser reparados reiniciando o contêiner. As Instâncias de Contêiner do Azure dão suporte a investigações de atividade para incluir configurações de modo que o contêiner possa ser reiniciado se a funcionalidade crítica não estiver funcionando.
 
 Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de atividade, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
 
 ## <a name="yaml-deployment"></a>Implantação do YAML
 
-Crie um arquivo `liveness-probe.yaml` com o trecho a seguir. Esse arquivo define um grupo de contêineres composto por um contêiner NGNIX que eventualmente se tornará não íntegro. 
+Crie um arquivo `liveness-probe.yaml` com o trecho a seguir. Esse arquivo define um grupo de contêineres composto por um contêiner NGNIX que eventualmente se tornará não íntegro.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ A propriedade `periodSeconds` indica que o comando deve ser executado a cada cin
 
 Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de atividade verificar a existência do arquivo `healthy`, o código de status retornará um zero, indicando sucesso, portanto nenhuma reinicialização será executada.
 
-Depois de 30 segundos, o `cat /tmp/healthy` começará a falhar, provocando a falta de integridade e eventos de eliminação. 
+Depois de 30 segundos, o `cat /tmp/healthy` começará a falhar, provocando a falta de integridade e eventos de eliminação.
 
-Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure 2.0.
+Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure.
 
 ![Evento não íntegro no portal][portal-unhealthy]
 

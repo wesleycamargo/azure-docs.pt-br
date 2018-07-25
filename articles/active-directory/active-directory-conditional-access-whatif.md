@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750075"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113021"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Qual é a ferramenta “e se” de acesso condicional do Azure Active Directory?
 
@@ -50,6 +50,10 @@ Como uma próxima etapa, você pode iniciar uma simulação que avalia suas conf
 
 
 Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas.
+
+
+> [!NOTE]
+> Atualmente, a ferramenta What If não dá suporte a grupos aninhados. Se um usuário estiver em um grupo e esse grupo for membro de outro grupo usado em uma política de acesso condicional, a ferramenta what if não exibirá corretamente o efeito dessa política para o usuário. 
 
 
 ## <a name="running-the-tool"></a>A execução da ferramenta

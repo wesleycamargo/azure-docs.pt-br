@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Chamar APIs de pesquisa cognitiva no Azure Search | Microsoft Docs'
-description: Exemplo de extração de dados, o idioma natural e o processamento de imagem AI na indexação do Azure Search para transformação e extração de dados.
+title: Tutorial para chamar APIs de pesquisa cognitiva no Azure Search | Microsoft Docs
+description: Neste tutorial, percorra um exemplo de extração de dados, o idioma natural e o processamento de imagem AI na indexação do Azure Search para transformação e extração de dados.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757563"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991830"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivas pesquisar APIs (visualização)
 
@@ -23,8 +23,8 @@ Neste tutorial, você aprenderá a mecânica de programação enriquecimento de 
 Neste tutorial, você deve fazer chamadas da API REST para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um pipeline de indexação que enriquece dados de origem em rota para um índice
-> * Usar qualificações internas nos dados de exemplo: o reconhecimento de entidade, a detecção de idioma, manipulação de texto e extração de frase-chave
+> * Criar um pipeline de indexação que enriquece dados de exemplo em rota para um índice
+> * Aplique as qualificações internas: o reconhecimento de entidade, a detecção de idioma, manipulação de texto e extração de frase-chave
 > * Saiba como encadear habilidades mapeando entradas para saídas em um conjunto de qualificações
 > * Executar solicitações e analisar resultados
 > * Redefinir o índice e indexadores para desenvolvimento futuro
@@ -33,7 +33,7 @@ Saída é um índice de pesquisa de texto completo no Azure Search. Você pode a
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Novo na pesquisa cognitiva? Leia [“O que é pesquisa cognitiva?”](cognitive-search-concept-intro.md) para se familiarizar ou tente o [quickstart portal](cognitive-search-quickstart-blob.md) para obter uma introdução prática para conceitos importantes.
 
@@ -60,7 +60,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   Um serviço gratuito está limitado a 3 índices, tamanho máximo do blob de 16 MB e 2 minutos de indexação, o que não é suficiente para exercer todos os recursos de pesquisa cognitiva. Para examinar os limites para as diferentes camadas, consulte [Limites de Serviço](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Pesquisa Cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Posteriormente, o preço desse recurso será anunciado.
+  > A pesquisa cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Posteriormente, o preço desse recurso será anunciado.
 
 1. Fixe o serviço no painel de controle para acesso rápido a informações de serviço.
 
@@ -76,7 +76,7 @@ O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados 
 
 1. [Baixe os dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Dados de exemplo consistem em um conjunto de pequenos arquivos de tipos diferentes. 
 
-1. Inscreva-se para o armazenamento de BLOBs do Azure, crie uma conta de armazenamento, faça logon no Gerenciador de armazenamento e crie um contêiner nomeado `basicdemo`. Veja [Início Rápido do Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para instruções em todas as etapas.
+1. Inscreva-se para o armazenamento de Blobs do Azure, crie uma conta de armazenamento, entre no Gerenciador de Armazenamento e crie um contêiner nomeado `basicdemo`. Veja [Início Rápido do Gerenciador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para instruções em todas as etapas.
 
 1. Usando o Gerenciador de Armazenamento do Microsoft Azure, no contêiner `basicdemo` que você criou, clique em **Carregar** para carregar os arquivos de exemplo.
 

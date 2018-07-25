@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859140"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055008"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ Os valores JSON na definição podem ser literais ou expressões que são avalia
 ```
 
 ## <a name="expressions"></a>Expressões  
-As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se um valor JSON for uma expressão, o corpo da expressão será extraído removendo a arroba (\@). Se for necessária uma cadeia de caracteres literal que comece com @, essa cadeia de caracteres deverá ser substituída usando @@. Os exemplos a seguir mostram como as expressões são avaliadas.  
+As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se um valor JSON for uma expressão, o corpo da expressão será extraído removendo a arroba (\@). Se for necessária uma cadeia de caracteres literal que começa \@, seu escape deverá ser feito usando \@\@. Os exemplos a seguir mostram como as expressões são avaliadas.  
   
 |Valor JSON|Result|  
 |----------------|------------|  
 |"parameters"|Os “parâmetros” dos caracteres são retornados.|  
 |"parameters[1]"|Os “parâmetros[1]” dos caracteres são retornados.|  
-|"\@@"|Uma cadeia de caracteres de 1 caractere que contém \'\@\' será retornada.|  
-|" \@"|Uma cadeia de caracteres de 2 caracteres que contém ' \@\' será retornada.|  
+|"\@\@"|Uma cadeia de caracteres com 1 caractere que contém ' \@' será retornada.|  
+|" \@"|Uma cadeia de caracteres com 2 caracteres que contém ' \@' será retornada.|  
   
  As expressões também podem aparecer dentro de cadeias de caracteres usando um recurso chamado *interpolação de cadeia de caracteres* em que as expressões estão encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |"\@{pipeline().parameters.myNumber}"| Retorna `42` como uma *cadeia de caracteres*.|  
 |"A resposta é: @{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: 42`.|  
 |"\@ concat ('Resposta é:', string (pipeline (). Parameters.myNumber))"| Retorna a cadeia de caracteres `Answer is: 42`|  
-|"A resposta é: \@ @ {pipeline (). Parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"A resposta é: \@\@{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exemplos
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293614"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989744"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para o Analytics
 
@@ -116,15 +116,16 @@ Formato JSON
 ]
 ```
  
-Cada coluna é identificada pelo local, nome e tipo. 
+Cada coluna é identificada pelo local, nome e tipo.
 
 * Local - para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
 * Nome - o nome exibido da coluna.
 * Tipo - o tipo de dados dessa coluna.
  
-Caso alguns dados de exemplo tenham sido usados, e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final. 
-
-O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema do formato JSON não precisa mapear todas as chaves que estão localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
+> [!NOTE]
+> Caso alguns dados de exemplo tenham sido usados e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final.
+> 
+> O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema com um formato JSON não precisa mapear todas as chaves localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
 
 ## <a name="import-data"></a>Importar dados
 

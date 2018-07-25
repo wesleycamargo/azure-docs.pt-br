@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652001"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011934"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 
@@ -85,6 +85,14 @@ Se sua região do Gerenciador de Dados for diferente da sua região de definiç�
 ## <a name="managing-personal-information"></a>Gerenciando informações pessoais
 
 O Gerenciador de Dados do StorSimple não coleta nem exibe informações pessoais. Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
+
+## <a name="known-limitations"></a>Limitações conhecidas
+
+Atualmente, o serviço tem as seguintes limitações:
+- Atualmente, o Gerenciador de Dados do StorSimple não funciona com volumes que são criptografados com o BitLocker. Se tentar executar o serviço com uma unidade criptografada, você verá falhas de trabalho.
+- Alguns metadados de arquivos (incluindo ACLs) não serão mantidos nos dados transformados.
+- Esse serviço funciona apenas com volumes NTFS.
+- Tamanhos de caminho do arquivo precisarão ser menores que 256 caracteres, caso contrário o trabalho falhará.
 
 ## <a name="next-steps"></a>Próximas etapas
 

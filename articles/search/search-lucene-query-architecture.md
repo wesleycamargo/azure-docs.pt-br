@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194999"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036863"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
@@ -185,7 +185,7 @@ O analisador padrão quebra o texto de entrada nos dois tokens a seguir, associa
 
 ### <a name="exceptions-to-lexical-analysis"></a>Exceções para análise léxica 
 
-A análise léxica só se aplica a tipos de consultas que exigem termos completos – uma consulta de termo ou uma consulta de frase. Ela não se aplica aos tipos de consulta com termos incompletos – consulta de prefixo, consulta de caractere curinga, consulta regex – ou a uma consulta difusa. Esses tipos de consulta, incluindo a consulta de prefixo com o termo *ar-condicio\** em nosso exemplo, são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta desses tipos é colocá-los em letras minúsculas.
+A análise léxica só se aplica a tipos de consultas que exigem termos completos – uma consulta de termo ou uma consulta de frase. Ela não se aplica aos tipos de consulta com termos incompletos – consulta de prefixo, consulta de caractere curinga, consulta regex – ou a uma consulta difusa. Esses tipos de consulta, incluindo a consulta de prefixo com o termo `air-condition*` em nosso exemplo, são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta desses tipos é colocá-los em letras minúsculas.
 
 <a name="stage3"></a>
 

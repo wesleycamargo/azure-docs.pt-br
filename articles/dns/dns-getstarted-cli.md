@@ -1,48 +1,37 @@
 ---
-title: Introdução ao DNS do Azure usando a CLI do Azure 2.0 | Microsoft Docs
-description: Saiba como criar uma zona e registro DNS no DNS do Azure. Este é uma guia passo a passo para criar e gerenciar sua primeira zona e registro DNS usando a CLI do Azure 2.0.
+title: 'Início Rápido: Criar uma zona DNS do Azure e o registro usando a CLI do Azure'
+description: Início Rápido - Saiba como criar uma zona e registro DNS no DNS do Azure. Este é uma guia passo a passo para criar e gerenciar sua primeira zona e registro DNS usando a CLI do Azure.
 services: dns
-documentationcenter: na
-author: KumuD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: vhorne
 ms.service: dns
-ms.devlang: azurecli
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: kumud
-ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.date: 7/16/2018
+ms.author: victorh
+ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30175232"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090115"
 ---
-# <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introdução ao DNS do Azure usando a CLI do Azure 2.0
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: Criar uma zona DNS do Azure e o registro usando a CLI do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI 2.0 do Azure](dns-getstarted-cli.md)
-
-Este artigo explica as etapas de criação de sua primeira zona e registro DNS usando a CLI do Azure 2.0 entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode executar essas etapas usando o Portal do Azure ou o Azure PowerShell.
+Este artigo explica as etapas de criação de sua primeira zona e registro DNS usando a CLI do Azure, que está disponível para Windows, Mac e Linux. Você também pode executar essas etapas usando o [portal do Azure](dns-getstarted-portal.md) ou o [Azure PowerShell](dns-getstarted-powershell.md).
 
 Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS. Por fim, para publicar sua zona DNS na Internet, você precisa configurar os servidores de nome para o domínio. Cada uma dessas etapas é descrita abaixo.
 
-Essas instruções pressupõem que você já instalou e entrou na CLI do Azure 2.0. Para obter ajuda, confira [Como gerenciar as zonas DNS usando a CLI do Azure 2.0](dns-operations-dnszones-cli.md).
-
 O DNS do Azure agora também oferece suporte a zonas de DNS privado (atualmente em visualização pública). Para saber mais sobre as zonas DNS privadas, consulte [Usar o Azure DNS para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona de DNS privado, consulte [Introdução às zonas privadas do DNS do Azure usando a CLI](./private-dns-getstarted-cli.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Antes de criar a zona DNS, um grupo de recursos é criado para conter a zona DNS. O código a seguir mostra o comando.
+Antes de criar a zona DNS, crie um grupo de recursos para conter a zona DNS:
 
 ```azurecli
-az group create --name MyResourceGroup --location "West US"
+az group create --name MyResourceGroup --location "East US"
 ```
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
@@ -64,8 +53,6 @@ O exemplo a seguir cria um registro com o nome relativo "www" na Zona DNS "conto
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
-
-Para outros tipos de registros, para conjuntos de registros com mais de um registro, para valores de TTL alternativos e para modificar registros existentes, veja [Gerenciar registros DNS e conjuntos de registros usando a CLI do Azure 2.0](dns-operations-recordsets-cli.md).
 
 ## <a name="view-records"></a>Exibir registros
 
@@ -107,7 +94,7 @@ Esses servidores de nome devem ser configurados com o registrador de nome de dom
 
 ## <a name="delete-all-resources"></a>Excluir todos os recursos
  
-Para excluir todos os recursos criados neste artigo, execute as seguintes etapas:
+Quando não forem mais necessários, você poderá excluir todos os recursos criados neste início rápido ao excluir o grupo de recursos:
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -115,8 +102,7 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o DNS do Azure, veja [Visão geral do DNS do Azure](dns-overview.md).
+Agora que você criou sua primeira zona e registro DNS usando a CLI do Azure, pode criar registros para um aplicativo Web em um domínio personalizado.
 
-Para saber mais sobre como gerenciar as zonas DNS no DNS do Azure, consulte [Gerenciar zonas DNS no DNS do Azure usando a CLI do Azure 2.0](dns-operations-dnszones-cli.md).
-
-Para saber mais sobre como gerenciar os registros DNS no DNS do Azure, veja [Gerenciar registros DNS e conjuntos de registros no DNS do Azure usando a CLI do Azure 2.0](dns-operations-recordsets-cli.md).
+> [!div class="nextstepaction"]
+> [Criar registros DNS para um aplicativo Web em um domínio personalizado](./dns-web-sites-custom-domain.md)

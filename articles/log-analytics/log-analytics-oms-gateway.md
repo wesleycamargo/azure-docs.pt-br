@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868932"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056827"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Conectar computadores sem acesso à Internet usando o Gateway do OMS
 Este documento descreve como configurar a comunicação com a Automação do Azure e Log Analytics usando o Gateway do OMS quando os computadores monitorados pelo Operations Manager ou conectados diretamente não tem acesso à Internet.  O Gateway do OMS, que é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT, pode coletar dados e enviá-los para a Automação do Azure ou o Log Analytics em seu nome.  
@@ -50,7 +50,7 @@ O diagrama a seguir mostra o fluxo de dados de um grupo de gerenciamento do Oper
 
 ![Diagrama Comunicação do Operations Manager com o Log Analytics](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Ao designar um computador para executar o Gateway do OMS, esse computador deve ter o seguinte:
 
@@ -89,8 +89,8 @@ A tabela a seguir destaca o número de agentes com suporte para se comunicar com
 
 |Gateway |Número aproximado de agentes com suporte|  
 |--------|----------------------------------|  
-|- CPU: CPU Intel XEON E5-2660 v3 com 2 núcleos de 2,6GHz<br> - Memória: 4 GB<br> - Largura de banda de rede: 1 Gbps| 600|  
-|- CPU: CPU Intel XEON E5-2660 v3 com 4 núcleos de 2,6GHz<br> - Memória: 8 GB<br> - Largura de banda de rede: 1 Gbps| 1000|  
+|- CPU: CPU Intel XEON E5-2660 v3 \@ 2 núcleos de 2,6GHz<br> - Memória: 4 GB<br> - Largura de banda de rede: 1 Gbps| 600|  
+|- CPU: CPU Intel XEON E5-2660 v3 \@ 4 núcleos de 2,6GHz<br> - Memória: 8 GB<br> - Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-oms-gateway"></a>Baixar o Gateway do OMS
 

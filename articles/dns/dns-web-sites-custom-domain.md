@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058118"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Criar registros DNS para um aplicativo Web em um domínio personalizado
 
@@ -41,7 +42,7 @@ Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros pa
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Criar um registro A para seu domínio personalizado
 
-Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribuiremos \@\ como um registro A para um endereço IPv4:
+Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribuiremos \@ como um registro A para um endereço IPv4:
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Etapa 2
 
-Adicione o valor IPv4 ao conjunto de registros criado anteriormente "\@\" usando a variável $rs atribuída. O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.
+Adicione o valor IPv4 ao conjunto de registros criado anteriormente "\@" usando a variável $rs atribuída. O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.
 
 Para localizar o endereço IP de um aplicativo Web, siga as etapas em [Configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 

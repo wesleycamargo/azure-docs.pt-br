@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112177"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112698"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes da coleta de dados para soluções de gerenciamento no Azure
 Este artigo inclui uma lista de [soluções de gerenciamento](monitoring-solutions.md) disponíveis na Microsoft com links para a documentação detalhada.  Fornece também informações sobre o método e a frequência de coleta de dados no Log Analytics.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. 
@@ -53,7 +53,7 @@ As explicações das colunas são as seguintes:
 | [Hybrid Worker de Automação](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
 | [Análise de Gateway de Aplicativo do Azure](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | após a notificação |
 | **Solução de gerenciamento** | **Plataforma** | **Microsoft Monitoring Agent** | **Agente do Operations Manager** | **Armazenamento do Azure** | **O Operations Manager é necessário?** | **Dados do agente do Operations Manager enviados por meio do grupo de gerenciamento** | **Frequência de coleta** |
-| [Análise de Grupo de Segurança de Rede do Azure](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | após a notificação |
+| [Análise do Grupo de Segurança de Rede do Azure (preterido)](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | após a notificação |
 | [Azure SQL Analytics (Visualização)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | após a notificação |
 | [Capacidade e Desempenho (versão prévia)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
@@ -72,7 +72,7 @@ As explicações das colunas são as seguintes:
 | [Avaliação do System Center Operations Manager (versão prévia)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sete dias |
 | [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |pelo menos, 2 vezes por dia e 15 minutos após a instalação de uma atualização |
 | [Preparação para atualização](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 dias |
-| [Monitoramento do VMware (visualização)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
+| [Monitoramento do VMware (preterido)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
 | [Wire Data 2.0 (versão prévia)](../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2/8.1 ou posterior) |&#8226; |&#8226; | | | | 1 minuto |
 
 

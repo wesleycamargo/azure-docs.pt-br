@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 10d6b81915432d9f41c0d4751f98cbf380ff2d13
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901129"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136563"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
+**P: É possível registrar dispositivos Android ou iOS BYOD?**
 
+**R:** Sim, mas apenas com o serviço de registro de dispositivos do Azure e para clientes híbridos. Não há suporte a esses dispositivos com serviço de registro de dispositivo local no AD FS.
 
 **P: Como posso registrar um dispositivo macOS?**
 
@@ -98,6 +100,11 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 **P: Meus usuários não conseguem procurar impressoras em dispositivos ingressados no Azure AD. Como habilitar a impressão usando dispositivos ingressados no Azure AD?**
 
 **R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
+
+---
+
+**P: Como fazer para conectar um dispositivo associado do Azure AD remoto?**
+**R:** Consulte o artigo https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
 
 ---
 

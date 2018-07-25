@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625586"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044542"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usar o esquema CloudEvents com a Grade de Eventos
 
@@ -58,7 +58,7 @@ Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato 
 
 CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
-| CloudEvents        | type     | Valor JSON de exemplo             | DESCRIÇÃO                                                        | Mapeamento de Grade de Eventos
+| CloudEvents        | Tipo     | Valor JSON de exemplo             | DESCRIÇÃO                                                        | Mapeamento de Grade de Eventos
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | Cadeia de caracteres   | "com.example.someevent"          | Tipo de ocorrência que ocorreram                                   | eventType
 | eventTypeVersion   | Cadeia de caracteres   | "1.0"                            | A versão do eventType (Opcional)                            | dataVersion
@@ -73,9 +73,9 @@ CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
 Para obter mais informações, confira a [especificação CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configurar a Grade de Eventos para CloudEvents
+Os valores dos cabeçalhos de eventos fornecidos no esquema CloudEvents e no esquema de Grade de Eventos são os mesmos, com exceção de `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
 
-Atualmente, a Grade de Eventos do Azure tem suporte para versão prévia para entrada e saída no formato JSON CloudEvents no **Centro Oeste dos EUA**, **Centro dos EUA**, e **Norte da Europa**.
+## <a name="configure-event-grid-for-cloudevents"></a>Configurar a Grade de Eventos para CloudEvents
 
 Você pode usar a Grade de Eventos para entrada e saída de eventos no esquema CloudEvents. Você pode usar o CloudEvents para eventos do sistema, como eventos do Armazenamento de Blob e eventos do Hub IoT e eventos personalizados. Também pode transformar esses eventos durante a transmissão para trás e para frente.
 
@@ -91,7 +91,7 @@ Para todos os esquemas de evento, a Grade de Eventos requer validação ao publi
 
 ### <a name="input-schema"></a>Esquema de entrada
 
-Para definir o esquema de entrada em um tópico personalizado para CloudEvents, use o seguinte parâmetro no CLI do Azure quando você criar seu tópico `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que os eventos de entrada no formato de CloudEvents v0.1.
+Para definir o esquema de entrada em um tópico personalizado para CloudEvents, use o seguinte parâmetro no CLI do Azure quando você criar seu tópico personalizado `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que os eventos de entrada no formato de CloudEvents v0.1.
 
 Para criar um tópico da Grade de Eventos, use:
 
@@ -124,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Você precisa usar um gatilho HTTP.
+A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Você precisa usar um gatilho HTTP. Para obter exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Use um gatilho HTTP como um gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Próximas etapas
 

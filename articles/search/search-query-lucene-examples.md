@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951015"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036659"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para criar consultas no Azure Search
 Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O Analisador de Consulta Lucene dá suporte a constructos de consulta mais complexos, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular.
@@ -69,7 +69,7 @@ O campo especificado em **nomedocampo:termodepesquisa** deve ser um campo pesqui
 ## <a name="fuzzy-search-example"></a>Exemplo de pesquisa difusa
 Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Para fazer uma pesquisa difusa, acrescente o símbolo til “~” ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria mar, amar e maré.
+Para fazer uma pesquisa difusa, acrescente o símbolo til `~` ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornariam mar, amar e maré.
 
 **Exemplo 3** : clique com o botão direito do mouse no trecho código de consulta a seguir. Essa consulta pesquisa os trabalhos com o termo associado (onde ele é escrito incorretamente):
 

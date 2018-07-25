@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 01f213c7cf5f6be3ef84601a50bb4455422faf22
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311180"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092113"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools-preview"></a>Limites do modelo de compra baseado em vCore para o Banco de Dados SQL do Azure para pools elásticos (versão prévia)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
 
 Este artigo fornece os limites de recursos detalhados para pools elásticos do Banco de Dados SQL e bancos de dados em pool usando o modelo de compra baseado em vCore.
 
@@ -38,7 +38,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
-|Suporte de columnstore|sim|sim|sim|sim|sim|sim|
+|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Tamanho máximo de dados (GB)|512|756|1536|2.048|3584|4096|
@@ -62,7 +62,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|11|22|44|88|132|176|220|440|
-|Suporte de columnstore|sim|sim|sim|sim|sim|sim|sim|sim|
+|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|sim|SIM|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Tamanho máximo de dados (GB)|512|756|1536|2.048|3072|4096|4096|4096|
@@ -88,7 +88,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Geração de hardware|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memória (GB)|7|14|28|56|112|168|
-|Suporte de columnstore|sim|sim|sim|sim|sim|sim|
+|Suporte de columnstore|SIM|sim|sim|sim|sim|SIM|
 |Armazenamento OLTP na memória (GB)|1|2|4|8|20|36|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
@@ -102,7 +102,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Paradas de clique do pool elástico mínimo/máximo|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Número de réplicas|3|3|3|3|3|3|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escala de leitura|sim|sim|sim|sim|sim|sim|
+|Escala de leitura|SIM|sim|sim|sim|sim|SIM|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 |||
 
@@ -112,7 +112,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Geração de hardware|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memória (GB)|11|22|44|88|132|176|220|440|
-|Suporte de columnstore|sim|sim|sim|sim|sim|sim|sim|sim|
+|Suporte de columnstore|SIM|sim|sim|sim|sim|sim|sim|SIM|
 |Armazenamento OLTP na memória (GB)|1. 571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
@@ -126,7 +126,7 @@ Para pools elásticos do Bancos de Dados SQL, as tabelas a seguir mostram os rec
 |Paradas de clique do pool elástico mínimo/máximo|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Número de réplicas|3|3|3|3|3|3|3|3|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escala de leitura|sim|sim|sim|sim|sim|sim|sim|sim|
+|Escala de leitura|SIM|sim|sim|sim|sim|sim|sim|SIM|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 |||
 

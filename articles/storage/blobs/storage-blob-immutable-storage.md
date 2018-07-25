@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970237"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070001"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Recurso de armazenamento imutável do armazenamento de Blobs do Azure (versão prévia)
 
@@ -178,11 +178,11 @@ Você pode usar o recurso de armazenamento imutável com contas GPv2 existentes 
 
 **O que acontece se eu tentar excluir um contêiner com uma política de retenção baseada em tempo ou retenção legal *bloqueada*?**
 
-A operação Excluir contêiner falhará se for pelo menos um blob com uma política de retenção baseada em tempo ou retenção legal bloqueada. A operação Excluir contêiner será bem-sucedida se não houver nenhum blob com um intervalo de retenção ativo e não haja nenhuma retenção legal. Você deve excluir os blobs antes de excluir o contêiner.
+A operação Excluir contêiner falhará se for pelo menos um blob com uma política de retenção baseada em tempo ou retenção legal bloqueada. Isso é verdadeiro mesmo se os dados forem [excluídos temporariamente](storage-blob-soft-delete.md). A operação Excluir contêiner será bem-sucedida se não houver nenhum blob com um intervalo de retenção ativo e não haja nenhuma retenção legal. Você deve excluir os blobs antes de excluir o contêiner. 
 
 **O que acontece se eu tentar excluir uma conta de armazenamento com um contêiner WORM que tem uma política de retenção baseada em tempo ou retenção legal *bloqueada*?**
 
-A exclusão da conta de armazenamento falhará se houver pelo menos um contêiner WORM com retenção legal ou um blob com um intervalo de retenção ativa.  Todos os contêineres WORM devem ser excluídos antes que a conta de armazenamento possa ser excluída.  Consulte a Pergunta #2 para obter informações sobre a exclusão do contêiner.
+A exclusão da conta de armazenamento falhará se houver pelo menos um contêiner WORM com retenção legal ou um blob com um intervalo de retenção ativa.  Todos os contêineres WORM devem ser excluídos antes que a conta de armazenamento possa ser excluída.  Veja a pergunta anterior para obter informações sobre a exclusão de contêiner.
 
 **Posso mover os dados entre níveis diferentes de blob (frequente, esporádico, passivo) quando o blob estiver no estado imutável?**
 

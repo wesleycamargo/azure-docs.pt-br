@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934675"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057320"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depure suas APIs usando o rastreamento de solicitação
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ![Inspetor de API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
@@ -44,6 +44,12 @@ Neste tutorial, você aprenderá como:
 3. Selecione a operação **GetSpeakers**.
 4. Mude para a guia **Teste**.
 5. Não se esqueça de incluir um cabeçalho HTTP chamado **Ocp-Apim-Trace** com o valor definido como **true**.
+
+    ![Cabeçalho de rastreamento de API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > Se Ocp-Apim-Subscription-Key não for preenchido automaticamente, você poderá recuperá-la indo até o Portal do Desenvolvedor e expor as chaves na página do perfil.
+
 6. Clique em **"Enviar"** para fazer uma chamada de API. 
 7. Aguarde a conclusão da chamada. 
 8. Acesse a guia **Rastreamento** no **Console de API**. Você pode clicar em qualquer um dos links a seguir para ir até as informações de rastreamento detalhadas: **entrada**, **back-end**, **saída**.

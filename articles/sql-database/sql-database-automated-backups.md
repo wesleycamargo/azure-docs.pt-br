@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35630743"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136597"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
@@ -26,7 +26,7 @@ O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-G
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?
 
-O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](http://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](http://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos e os backups diferenciais geralmente ocorrem a cada 12 horas, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 
 Use esses backups para:
@@ -42,7 +42,7 @@ Use esses backups para:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Por quanto tempo os backups são mantidos?
-Cada backup de Banco de Dados SQL tem um período de retenção padrão baseado na camada de serviço do banco de dados e difere entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md). Você pode atualizar o período de retenção de backup de um banco de dados. Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
+Cada backup de Banco de Dados SQL tem um período de retenção padrão baseado na camada de serviço do banco de dados e difere entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Você pode atualizar o período de retenção de backup de um banco de dados. Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
 
 Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 
@@ -62,14 +62,9 @@ Se você reduzir o período de retenção de PITR atual, os backups existentes m
 
 Se você aumentar o período de retenção de PITR atual, o Banco de Dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Retenção de PITR para as camadas de serviço baseadas em vCore (versão prévia)
-
-Durante a versão prévia, o período de retenção de PITR para os bancos de dados criados usando o modelo de compra baseado em vCore é definido como sete dias. O armazenamento associado é incluído gratuitamente.    
-
-
 ## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
 ### <a name="backups-for-point-in-time-restore"></a>Backups para a Recuperação Pontual
-O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Os backups completos do banco de dados são criados semanalmente, os backups diferenciais do banco de dados são criados em intervalos de algumas horas e os backups de log de transações são criados a cada cinco a dez minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema.
+O Banco de Dados SQL permite o autoatendimento para PITR (Recuperação Pontual) ao criar automaticamente o backup completo, backups diferenciais e backups de log de transações. Backups completos de banco de dados são criados semanalmente, backups diferenciais de banco de dados geralmente são criados a cada 12 horas e backups de log de transações geralmente são criados a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema.
 
 Os backups de PITR têm redundância geográfica e são protegidos pela [Replicação inter-regional do Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -93,7 +88,7 @@ Quando você migra o banco de dados de uma camada de serviço baseada em DTU, co
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>Como alterar o período de retenção de backup
-Você pode alterar a retenção padrão usando a API REST ou o PowerShell. Os valores permitidos são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias. 
+Você pode alterar a retenção padrão usando a API REST ou o PowerShell. Os valores com suporte são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias. 
 
 > [!NOTE]
 > As APIs afetarão somente o período de retenção de PITR. Se você tiver configurado a LTR para o banco de dados, ela não será afetada. Veja [Retenção de backup de longo prazo](sql-database-long-term-retention.md) para obter detalhes de como alterar os períodos de retenção de LTR.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018639"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036839"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usar API de autenticação do Resource Manager para acessar assinaturas
 ## <a name="introduction"></a>Introdução
@@ -69,19 +69,25 @@ Gerencie as assinaturas conectadas:
 ## <a name="register-application"></a>Registrar aplicativo
 Antes de iniciar a codificação, registre o aplicativo Web com o Azure AD (Active Directory). O registro do aplicativo cria uma identidade central para seu aplicativo no Azure AD. Ele contém informações básicas sobre seu aplicativo, como ID do Cliente OAuth, URLs de Resposta e credenciais que o aplicativo usa para autenticar e acessar as APIs do Azure Resource Manager. O registro do aplicativo também registra as várias permissões delegadas de que seu aplicativo precisa para acessar APIs da Microsoft em nome do usuário.
 
-Como o aplicativo acessa outra assinatura, você deve configurá-lo como um aplicativo multilocatário. Para passar na validação, forneça um domínio associado ao Azure Active Directory. Para ver os domínios associados ao Azure Active Directory, faça logon no portal.
+Como o aplicativo acessa outra assinatura, você deve configurá-lo como um aplicativo multilocatário. Para passar na validação, forneça um domínio associado ao Azure Active Directory. Para ver os domínios associados ao Azure Active Directory, entre no portal.
 
 O exemplo a seguir mostra como registrar o aplicativo usando o Azure PowerShell. Você deve ter a versão mais recente (agosto de 2016) do Azure PowerShell para que esse comando funcione.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
-Para fazer logon como o aplicativo do AD, são necessárias a ID e a senha do aplicativo. Para ver a ID do aplicativo retornada pelo comando anterior, use:
+Para entrar como o aplicativo do AD, são necessárias a ID e a senha do aplicativo. Para ver a ID do aplicativo retornada pelo comando anterior, use:
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 O exemplo a seguir mostra como registrar o aplicativo usando a CLI do Azure.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 Os resultados incluem o AppId, que é necessário durante a autenticação do aplicativo.
 

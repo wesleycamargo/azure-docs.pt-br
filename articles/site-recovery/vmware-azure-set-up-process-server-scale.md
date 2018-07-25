@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688993"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056602"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Configurar servidores de processo adicional para escalabilidade
 
@@ -31,11 +31,11 @@ Verifique os requisitos de dimensionamento resumidos na tabela. Em geral, se for
 
 | **Servidor de processo adicional** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Computadores protegidos** |
 | --- | --- | --- | --- |
-|4 vCPUs (2 soquetes * 2 núcleos @ 2,5 GHz), 8 GB de memória |300 GB |250 GB ou menos |Replique 85 computadores ou menos. |
-|8 vCPUs (2 soquetes * 4 núcleos @ 2,5 GHz), 12 GB de memória |600 GB |250 GB a 1 TB |Replique entre 85 e 150 computadores. |
-|12 vCPUs (2 soquetes * 6 núcleos @ 2,5 GHz), 24 GB de memória |1 TB |1 TB a 2 TB |Replique entre 150 e 225 computadores. |
+|4 vCPUs (2 soquetes * 2 núcleos \@ 2,5 GHz), 8 GB de memória |300 GB |250 GB ou menos |Replique 85 computadores ou menos. |
+|8 vCPUs (2 soquetes * 4 núcleos \@ 2,5 GHz), 12 GB de memória |600 GB |250 GB a 1 TB |Replique entre 85 e 150 computadores. |
+|12 vCPUs (2 soquetes * 6 núcleos \@ 2,5 GHz), 24 GB de memória |1 TB |1 TB a 2 TB |Replique entre 150 e 225 computadores. |
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos para o servidor de processo adicional são resumidos na tabela a seguir.
 

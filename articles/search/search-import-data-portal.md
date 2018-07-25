@@ -1,22 +1,22 @@
 ---
 title: Importar dados para o Azure Search no portal | Microsoft Docs
-description: Use o Assistente de Dados de Importação do Azure Search no Portal do Azure para rastrear dados do Azure desde o Azure Cosmos DB NoSQL, o armazenamento de Blobs, o armazenamento de tabelas, o Banco de Dados SQL e o SQL Server em VMs do Azure.
+description: Saiba como usar o Assistente de Importação de Dados no portal do Azure para rastrear dados do Azure do Cosmos DB, do armazenamento de blobs, do armazenamento de tabela, do Banco de Dados SQL e do SQL Server em VMs do Azure.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795877"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004926"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importar dados para o Azure Search usando o portal
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Como importar dados para o índice do Azure Search usando o portal do Azure
+
 O portal do Azure fornece um assistente de **Importação de dados** no painel do Azure Search para carregar os dados em um índice. 
 
   ![Importar Dados na barra de comandos][1]
@@ -26,8 +26,6 @@ Internamente, o assistente configura e invoca um *indexador*, automatizando vár
 * Conexão a uma fonte de dados externa na mesma assinatura do Azure
 * Gerar um esquema de índice modificável com base na estrutura de dados de origem
 * Carregar documentos JSON em um índice usando um conjunto de registros recuperado da fonte de dados
-
-Você pode experimentar este fluxo de trabalho usando dados de exemplo no Azure Cosmos DB. Visite [Introdução ao Azure Search no Portal do Azure](search-get-started-portal.md) para obter instruções.
 
 > [!NOTE]
 > Você pode iniciar o assistente **Importar dados** do painel do Azure Cosmos DB para simplificar a indexação dessa fonte de dados. Em navegação à esquerda, vá para **Coleções** > **Adicionar Azure Search** para começar.
@@ -45,8 +43,10 @@ Um conjunto de dados bidimensional é uma entrada exigida. Você só pode import
 
 ## <a name="connect-to-your-data"></a>Conectar aos seus dados
 1. Entre no [portal do Azure](https://portal.azure.com) e abra o painel de serviço. Você pode clicar em **Todos os serviços** na barra de navegação para procurar os “serviços de pesquisa” existentes na assinatura atual. 
-2. Clique em **Importar Dados** na barra de comandos para deslizar e abrir a folha Importar Dados.  
-3. Clique em **Conectar a seus dados** para especificar uma definição de fonte de dados usada por um indexador. Para fontes de dados dentro da assinatura, normalmente o assistente pode detectar e ler as informações de conexão, reduzindo os requisitos gerais de configuração.
+
+1. Clique em **Importar Dados** na barra de comandos para deslizar e abrir a folha Importar Dados.
+
+1. Clique em **Conectar a seus dados** para especificar uma definição de fonte de dados usada por um indexador. Para fontes de dados dentro da assinatura, normalmente o assistente pode detectar e ler as informações de conexão, reduzindo os requisitos gerais de configuração.
 
 |  |  |
 | --- | --- |
@@ -61,25 +61,32 @@ Um conjunto de dados bidimensional é uma entrada exigida. Você só pode import
 Normalmente, um índice preliminar é inferido do conjunto de dados. Adicionar, editar ou excluir campos para concluir o esquema. Além disso, defina os atributos no nível do campo para determinar seus comportamentos de pesquisa subsequentes.
 
 1. Em **Personalizar índice de destino**, especifique o nome e uma **Chave** usados para identificar exclusivamente cada documento. A Chave deve ser uma cadeia de caracteres. Se os valores de campo incluem espaços ou traços, defina as opções avançadas em **Importar seus dados** para suprimir a verificação de validação para esses caracteres.
-2. Analise e revise os campos restantes. O nome e o tipo do campo geralmente são preenchidos para você. Você pode alterar o tipo de dados até que o índice é criado. Alterá-la posteriormente exigirá uma recompilação.
-3. Defina os atributos de índice de cada campo:
+
+1. Analise e revise os campos restantes. O nome e o tipo do campo geralmente são preenchidos para você. Você pode alterar o tipo de dados até que o índice é criado. Alterá-la posteriormente exigirá uma recompilação.
+
+1. Defina os atributos de índice de cada campo:
    
    * Recuperável retorna o campo nos resultados da pesquisa.
    * Filtrável permite que o campo seja referenciado em expressões de filtro.
    * Classificável permite que o campo seja usado em uma classificação.
    * Com faceta habilita o campo para a navegação com faceta.
    * Pesquisável habilita a pesquisa de texto completo.
-4. Clique na guia **Analisador** se desejar especificar um analisador de idiomas no nível do campo. Somente os analisadores de idioma podem ser especificados no momento. O uso de um analisador personalizado ou de um analisador que não é de linguagem, como o Keyword, o Pattern etc., exige código.
+
+1. Clique na guia **Analisador** se desejar especificar um analisador de idiomas no nível do campo. Somente os analisadores de idioma podem ser especificados no momento. O uso de um analisador personalizado ou de um analisador que não é de linguagem, como o Keyword, o Pattern etc., exige código.
    
    * Clique em **Pesquisável** para designar a pesquisa de texto completo no campo e habilitar a lista suspensa Analisador.
    * Escolha o analisador que quiser. Confira [Criar um índice para documentos em vários idiomas](search-language-support.md) para obter detalhes.
-5. Clique em **Sugestor** para habilitar o preenchimento automático de sugestões de consulta nos campos selecionados.
+
+1. Clique em **Sugestor** para habilitar o preenchimento automático de sugestões de consulta nos campos selecionados.
 
 ## <a name="import-your-data"></a>Importar seus dados
 1. Em **Importar seus dados**, forneça um nome para o indexador. Lembre-se de que o produto do assistente para Importação de Dados é um indexador. Posteriormente, se você quiser exibir ou editá-lo, selecione-o no portal em vez de executar novamente o assistente. 
-2. Especifique o cronograma, que tem base no fuso horário regional no qual o serviço é provisionado.
-3. Defina opções avançadas para especificar os limites de continuação da indexação no caso de um documento ser descartado. Além disso, você pode especificar se os campos **Chave** podem conter espaços e barras.  
-4. Clique em **OK** para criar o índice e importar os dados.
+
+1. Especifique o cronograma, que tem base no fuso horário regional no qual o serviço é provisionado.
+
+1. Defina opções avançadas para especificar os limites de continuação da indexação no caso de um documento ser descartado. Além disso, você pode especificar se os campos **Chave** podem conter espaços e barras.  
+
+1. Clique em **OK** para criar o índice e importar os dados.
 
 Você pode monitorar a indexação no portal. Como documentos são carregados, a contagem de documentos se expandirão para o índice que você definiu. Às vezes, demora alguns minutos para que a página do portal obtenham as atualizações mais recentes.
 
@@ -87,9 +94,9 @@ O índice estará pronto para consulta assim que todos os documentos forem carre
 
 ## <a name="query-an-index-using-search-explorer"></a>Consultar um índice usando o Search Explorer
 
-O portal inclui **Search Explorer** para que você possa consultar um índice sem precisar escrever nenhum código. Você pode usar o [Search Explorer](search-explorer.md) em qualquer índice.
+O portal inclui o **Search Explorer** para que você possa consultar um índice sem precisar escrever nenhum código. Você pode usar o [Search Explorer](search-explorer.md) em qualquer índice.
 
-A experiência de pesquisa se baseia nas configurações padrão, como a [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e padrão [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+A experiência de pesquisa se baseia nas configurações padrão, como a [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e padrão [searchMode query parameter](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Os resultados são retornados em JSON, em um formato detalhado, para que você possa inspecionar o documento inteiro.
 

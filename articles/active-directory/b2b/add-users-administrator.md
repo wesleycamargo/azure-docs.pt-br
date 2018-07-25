@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.date: 07/10/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7dddc41d35ae466f7c1392450fbda3c86a72a538
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266948"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037220"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure
 
@@ -32,16 +32,16 @@ Para adicionar usuários de colaboração B2B ao diretório, siga estas etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador do Microsoft Azure AD.
 2. No painel de navegação, selecione **Azure Active Directory**.
-3. Em **Gerenciar**, selecione **Usuários e grupos** > **Todos os usuários**.
+3. Em **Gerenciar**, selecione **Usuários**.
 4. Selecione **Novo usuário convidado**.
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. Em **Convidar um convidado**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. Por exemplo: 
+5. Em **Nome de usuário**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. Por exemplo: 
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/InviteGuest.png) 
 
-8. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. Na área **Notificação**, procure uma mensagem **Usuário convidado com êxito**. 
+6. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. 
  
 Depois de enviar o convite, a conta de usuário é automaticamente adicionada ao diretório como convidado.
 
@@ -53,18 +53,15 @@ Se você precisar adicionar manualmente usuários de colaboração B2B a um grup
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador do Microsoft Azure AD.
 2. No painel de navegação, selecione **Azure Active Directory**.
-3. Em **Gerenciar**, selecione **Usuários e grupos** > **Todos os grupos**.
+3. Em **Gerenciar**, selecione **Grupos**.
 4. Selecione um grupo (ou clique em **Novo grupo** para criar um novo). É recomendável incluir na descrição do grupo que o grupo contém usuários convidados B2B.
-5. Selecione **Membros** > **Adicionar membros**. 
+5. Selecione **Membros**. 
 6. Faça uma das opções a seguir:
-   - Se o usuário convidado já existir no diretório, procure o usuário B2B. Selecione o usuário > clique em **Selecionar** para adicionar o usuário ao grupo.
-   - Se o usuário convidado ainda não existir no diretório, selecione **Convidar**.
-   ![Adicionar botão Convidar para adicionar membros convidados](./media/add-users-administrator/GroupInvite.png)
+   - Se o usuário convidado já existir no diretório, procure o usuário B2B. Selecione o usuário e clique em **Selecionar** para adicioná-lo ao grupo.
+   - Se o usuário convidado ainda não existir no diretório, convide-o para fazer parte do grupo digitando seu endereço de email na caixa de pesquisa, digitando uma mensagem pessoal opcional e, em seguida, clicando em **Selecionar**. O convite é enviado automaticamente para o usuário convidado.
+     
+     ![Adicionar botão Convidar para adicionar membros convidados](./media/add-users-administrator/GroupInvite.png)
    
-      Em **Convidar um convidado**,insira o endereço de e-mail e uma mensagem pessoal opcional > selecione **Convidar**. Clique em **Selecionar** para adicionar o usuário ao grupo.
-
-      O convite é enviado automaticamente para o usuário convidado. Na área **Notificação** procure uma mensagem**Usuário convidado com êxito**. 
-
 Também é possível usar grupos dinâmicos com a colaboração B2B do Microsoft Azure AD. Para obter mais informações, consulte [Grupos dinâmicos e colaboração B2B do Azure Active Directory](use-dynamic-groups.md).
 
 ## <a name="add-guest-users-to-an-application"></a>Adicionar usuários convidados a um aplicativo
@@ -75,20 +72,25 @@ Para adicionar usuários de colaboração B2B a um aplicativo como administrador
 2. No painel de navegação, selecione **Azure Active Directory**.
 3. Em **Gerenciar**, selecione **Aplicativos empresariais** > **Todos aplicativos**.
 4. Selecione o aplicativo ao qual você deseja adicionar usuários convidados.
-5. Em **Gerenciar**, selecione **Usuários e grupos**.
+5. No painel do aplicativo, selecione **Total de Usuários** para abrir o painel **Usuários e grupos**.
+
+    ![Botão Total de Usuários para abrir Usuários e grupos](./media/add-users-administrator/AppUsersAndGroups.png)
+
 6. Selecione **Adicionar usuário**.
 7. Em **Adicionar Atribuição**, selecione **Usuários e grupos**.
 8. Faça uma das opções a seguir:
-   - Se o usuário convidado já existir no diretório, procure o usuário B2B. Selecione o usuário e clique em **Selecionar** para adicionar o usuário ao aplicativo.
+   - Se o usuário convidado já existir no diretório, procure o usuário B2B. Selecione o usuário, clique em **Selecionar** e, em seguida, clique em **Atribuir** para adicionar o usuário ao aplicativo.
    - Se o usuário convidado ainda não existir no diretório, selecione **Convidar**.
-   ![Adicionar botão Convidar para adicionar membros convidados](./media/add-users-administrator/AppInviteUsers.png)
+           
+       ![Adicionar botão Convidar para adicionar membros convidados](./media/add-users-administrator/AppInviteUsers.png)
    
-      Em **Convidar um convidado**,insira o endereço de e-mail e uma mensagem pessoal opcional > selecione **Convidar**. Clique em **Selecionar** para adicionar o usuário ao aplicativo.
+      Em **Convidar uma pessoa**, insira o endereço de email, digite uma mensagem pessoal opcional e, em seguida, selecione **Convidar**. Clique em **Selecionar** e, em seguida, clique em **Atribuir** para adicionar o usuário ao aplicativo. Um convite é enviado automaticamente para o usuário convidado.
 
-      O convite é enviado automaticamente para o usuário convidado. Na área **Notificação** procure uma mensagem**Usuário convidado com êxito**.
-
-9. Em **Adicionar Atribuição**, clique em **Selecionar Função** > selecione uma função para aplicar ao usuário selecionado (se aplicável) > selecione **OK**.
-10. Clique em **Atribuir**.
+9. O usuário convidado é exibido na lista **Usuários e grupos** do aplicativo, com a função **Acesso Padrão** atribuída. Se quiser alterar a função, faça o seguinte:
+   - Selecione o usuário convidado e, em seguida, selecione **Editar**. 
+   - Em **Editar Atribuição**, clique em **Selecionar Função** e selecione a função que deseja atribuir ao usuário selecionado.
+   - Clique em **Selecionar**.
+   - Clique em **Atribuir**.
  
 ## <a name="resend-invitations-to-guest-users"></a>Reenviar convites para usuários convidados
 
@@ -96,8 +98,7 @@ Se um usuário convidado ainda não tiver resgatado o convite, você poderá ree
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador do Microsoft Azure AD.
 2. No painel de navegação, selecione **Azure Active Directory**.
-3. Em **Gerenciar**, selecione **Usuários e grupos**.
-4. Selecione **Todos os usuários**.
+3. Em **Gerenciar**, selecione **Usuários**.
 5. Selecione a conta do usuário.
 6. Em **Gerenciar**, selecione **Perfil**.
 7. Se o usuário ainda não aceitou o convite, a opção **Reenviar convite** estará disponível. Selecione esse botão para reenviar.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796013"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005259"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -44,7 +44,7 @@ Quando você cria um serviço de nuvem no Azure, registros DNS A correspondentes
 ## <a name="why-would-i-request-an-ilpip"></a>Por que solicitar um ILPIP?
 Se você quiser ser capaz de conectar a sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o &lt;número da porta&gt; do VIP de serviço de nuvem, solicite um ILPIP para sua VM ou instância de função.
 
-* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte \(\https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)\[Visão geral do protocolo FTP] para obter detalhes sobre o protocolo FTP.
+* **FTP Ativo** – com a atribuição de um ILPIP a uma VM, ele pode receber o tráfego em qualquer porta. Pontos de extremidade não são necessários para que a VM receba o tráfego.  Consulte [Visão geral do protocolo FTP] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)) para encontrar detalhes sobre o protocolo FTP.
 * **IP de saída** – O tráfego de saída proveniente da VM é mapeado para o ILPIP, conforme a fonte e o ILPIP identificam exclusivamente a VM para entidades externas.
 
 > [!NOTE]

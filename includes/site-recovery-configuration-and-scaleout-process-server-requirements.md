@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 669966ce21c5c6c2d0653eb51c81fe78aa0b3a12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319719"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057303"
 ---
 **Configuração/Requisitos do servidor de processo**
 
@@ -36,7 +36,7 @@ IIS | - Nenhum site da Web padrão já existente <br> - Nenhum aplicativo/site d
 | 
 **CONFIGURAÇÕES DE REDE** | 
 Tipo de endereço IP | estático 
-Acesso à Internet | O servidor precisa acessar essas URLs (diretamente ou via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (se você estiver configurando um servidor de configuração) <br> - time.nist.gov <br> - time.windows.com 
+Acesso à Internet | O servidor precisa acessar essas URLs (diretamente ou via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> O OVF também precisa ter acesso às seguintes URLs <br> - https://login.microsoftonline.com <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.windows.net <br> - https://login.windows.net <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Portas | 443 (orquestração do canal de controle)<br>9443 (transporte de dados) 
 Tipo de NIC | VMXNET3 (se o Servidor de Configuração for uma VM do VMware)
  | 
@@ -48,7 +48,7 @@ MySQL | MySQL deve ser instalado. Você pode instalar manualmente ou o Azure Sit
 
 **CPU** | **Memória** | **Cache de disco** | **Taxa de alteração de dados** | **Computadores replicados**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 soquetes * 4 núcleos @ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores
-12 vCPUs<br/><br/> 2 soquetes  * 6 núcleos @ 2,5 GHz | 18 GB | 600 GB | 500 GB -1 TB | 100 a 150 computadores
-16 vCPUs<br/><br/> 2 soquetes  * 8 núcleos @ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 a 200 computadores
+8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < 100 computadores
+12 vCPUs<br/><br/> 2 soquetes  * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB -1 TB | 100 a 150 computadores
+16 vCPUs<br/><br/> 2 soquetes  * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 a 200 computadores
 
