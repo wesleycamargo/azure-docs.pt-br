@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806376"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909942"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Os discos de VM que usam Armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Para tirar proveito da velocidade e do desempenho dos discos de armazenamento premium, você pode migrar os discos de VM existentes para o Armazenamento Premium.
@@ -52,7 +52,7 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 * **Discos de Armazenamento Premium**
 
-    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS, Ls, Fs e Esv3. Você tem a opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
+    O Armazenamento Premium dá suporte a discos VM que podem ser anexados a VMs da série de tamanho específico. O Armazenamento Premium dá suporte a uma ampla variedade de VMs do Azure. Você tem a opção de sete tamanhos de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Tamanhos de disco P4 e P6 no momento têm suporte somente para o Managed Disks. Cada tamanho de disco tem suas próprias especificações de desempenho. Dependendo dos requisitos do aplicativo, você pode anexar um ou mais discos à VM. Descrevemos as especificações em mais detalhes em [Metas de desempenho e escalabilidade do Armazenamento Premium](#scalability-and-performance-targets).
 
 * **Blobs de página Premium**
 
@@ -78,16 +78,16 @@ Aqui estão alguns dos recursos de Armazenamento Premium:
 
 ## <a name="supported-vms"></a>VMs com suporte
 
-O Armazenamento Premium fornece suporte para as VMs das séries B, DS, DSv2, DSv3, Esv3, GS, Ls, M e Fs. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
+O Armazenamento Premium tem suporte em uma ampla variedade de VMs do Azure. Você pode usar os discos do Armazenamento Standard e Premium com esses tipos de VM. Não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
 
 
 Para obter informações sobre tipos de VM e tamanhos no Azure para Windows, confira [Tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para obter informações sobre tipos de VM e tamanhos no Azure para Linux, confira [Tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md).
 
-Estes são alguns dos recursos das VMs das séries DS, DSv2, GS, Ls e Fs:
+Estes são alguns dos recursos com suporte em VMs habilitadas para armazenamento premium:
 
-* **Serviço de nuvem**
+* **Conjunto de disponibilidade**
 
-    Você pode adicionar VMs da série DS para um serviço de nuvem que tenha apenas VMs da série DS. Não adicione VMs da série DS a um serviço de nuvem existente que tenha qualquer tipo diferente de VMs da série DS. Você pode migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se quiser usar o mesmo endereço IP virtual para o novo serviço de nuvem que hospeda as VMs da série DS, use [endereços IP reservados](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). As VMs da série GS podem ser adicionadas a um serviço de nuvem existente que tem apenas VMs da série Gs.
+    Usando o exemplo de uma VMs da série DS, você pode adicionar uma VM da série DS a um serviço de nuvem que tenha apenas VMs da série DS. Não adicione VMs da série DS a um serviço de nuvem existente que tenha qualquer tipo diferente de VMs da série DS. Você pode migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se quiser usar o mesmo endereço IP virtual para o novo serviço de nuvem que hospeda as VMs da série DS, use [endereços IP reservados](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
 * **Disco do sistema operacional**
 
@@ -104,7 +104,13 @@ Estes são alguns dos recursos das VMs das séries DS, DSv2, GS, Ls e Fs:
 
 * **Cache**
 
-    VMs da série de tamanho que dão suporte a Armazenamento Premium têm um único recurso de cache para altos níveis de taxa de transferência e latência. A capacidade de cache excede o desempenho de disco de armazenamento premium subjacente. Você pode definir a política de cache de disco em discos de armazenamento premium para **ReadOnly**, **ReadWrite** ou **Nenhum**. A política de cache de disco de padrão é **ReadOnly** para todos os discos de dados premium e **ReadWrite** para discos do sistema operacional. Para otimizar o desempenho do seu aplicativo, use a configuração de cache correta. Por exemplo, para discos de dados com necessidade de prontidão intensa ou somente leitura, como arquivos de dados do SQL Server, defina a política de cache de disco como **ReadOnly**. Para discos de dados com gravação intensa ou somente gravação, como arquivos de log do SQL Server, defina a política de cache de disco como **None**. Para saber mais sobre como otimizar seu design com o Armazenamento Premium, confira [Design para desempenho com o Armazenamento Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
+    VMs (máquinas virtuais) que dão suporte a Armazenamento Premium têm um único recurso de cache para altos níveis de taxa de transferência e latência reduzida. A capacidade de cache excede o desempenho de disco de armazenamento premium subjacente. No entanto, nem todas as VMs dão suporte ao cache. Portanto, examine as especificações de VM para os tamanhos de VM em que você está interessado para obter mais informações.  Máquinas virtuais que dão suporte a cache indicarão isso em suas especificações com uma medida de "Taxa de transferência máxima de armazenamento em cache e temp".  Eles também são especificados diretamente sob o título VM.
+    
+    Com o cache, você pode definir a política de cache de disco em discos de armazenamento premium para **ReadOnly**, **ReadWrite** ou **Nenhum**. A política de cache de disco de padrão é **ReadOnly** para todos os discos de dados premium e **ReadWrite** para discos do sistema operacional. Para otimizar o desempenho do seu aplicativo, lembre-se de usar a configuração de cache correta. 
+    
+    Por exemplo, para discos de dados com necessidade de prontidão intensa ou somente leitura, como arquivos de dados do SQL Server, defina a política de cache de disco como **ReadOnly**. Para discos de dados com gravação intensa ou somente gravação, como arquivos de log do SQL Server, defina a política de cache de disco como **None**. 
+    
+    Para saber mais sobre como otimizar seu design com o Armazenamento Premium, confira [Design para desempenho com o Armazenamento Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 * **Analytics**
 

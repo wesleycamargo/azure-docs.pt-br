@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445409"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072407"
 ---
 # <a name="azure-storage-account-options"></a>Opções da conta de Armazenamento do Azure
 
 ## <a name="overview"></a>Visão geral
 O Armazenamento do Azure fornece três opções de conta com diferentes preços e suporte a recursos. Considere essas diferenças antes de criar uma conta de armazenamento para determinar a melhor opção para seus aplicativos. As três opções de conta de armazenamento são:
 
-* Contas de **GPv2 (Uso geral v2)** 
-* Contas para **Uso geral v1 (GPv1)**
-* Contas de **Armazenamento de Blobs**
+* [**Contas de v2 (GPv2)** de uso geral](#general-purpose-v2-accounts)
+* [**Contas v1 (GPv1)** de uso geral](#general-purpose-v1-accounts)
+* [**Contas de armazenamento** de Blobs](#blob-storage-accounts)
 
 Cada tipo de conta é descrito mais detalhadamente na seção a seguir:
 
 ## <a name="storage-account-options"></a>Opções da conta de armazenamento
 
-### <a name="general-purpose-v2"></a>Uso geral v2
+### <a name="general-purpose-v2-accounts"></a>Contas para uso geral v2
 
-Contas de GPv2 são contas de armazenamento que dão suporte a todos os recursos mais recentes de arquivos, blobs, filas e tabelas. Essas contas aceitam as APIs e os recursos compatíveis com as contas de armazenamento de GPv1 e Blobs. Elas também oferecem os mesmos recursos de durabilidade, disponibilidade, escalabilidade e desempenho desses outros tipos de conta. As contas de GPv2 apresentam o melhor custo-benefício (menor preço por gigabyte) e valores de transação competitivos no setor.
+Contas de GPv2 são contas de armazenamento que dão suporte a todos os recursos mais recentes de arquivos, blobs, filas e tabelas. As contas de GPv2 dão suporte a todas as APIs, serviços e recursos compatíveis com as contas de Finalidade geral v1 (GPv1) e contas de armazenamento de Blobs. Eles também mantêm a mesma durabilidade, disponibilidade, escalabilidade e desempenho fornecidas por todos os tipos de conta de armazenamento. As contas de GPv2 apresentam o melhor custo-benefício (menor preço por gigabyte) e valores de transação competitivos no setor.
 
 Você pode atualizar sua conta de GPv1 ou armazenamento de Blobs para uma conta de GPv2 usando o portal do Azure, o PowerShell ou a CLI do Azure. 
 
-Para blobs de bloco em uma conta de armazenamento GPv2, você pode escolher entre as camadas de armazenamento Frequente e Esporádica no nível de conta ou as camadas Frequente, Esporádica ou de Arquivos no nível de blob com base nos padrões de acesso. Armazene dados acessados frequentemente, com pouca frequência e raramente nas camadas de armazenamento frequente, esporádico e de arquivo respectivamente para otimizar os custos. 
+Para bloquear blogs em uma conta de armazenamento GPv2, você pode optar entre as camadas de acesso frequente ou esporádico no nível da conta e entre as camadas de armazenamento de arquivo, de acesso frequente ou de acesso esporádico no nível do blob com base em padrões de uso. Armazene dados acessados frequentemente, com pouca frequência e raramente nas camadas de armazenamento frequente, esporádico e de arquivo respectivamente para otimizar os custos de armazenamento e transação. 
 
-As contas de Armazenamento GPv2 expõem o atributo **Camada de Acesso** no nível da conta, o qual especifica a camada de conta de armazenamento padrão como **Frequente** ou **Esporádica**. A camada de conta de armazenamento padrão é aplicada a qualquer blob que não tenha uma camada explícita definida no nível do blob. Se houver uma alteração no padrão de uso dos dados, você também poderá alternar entre as camadas de armazenamento a qualquer momento. A **camada de arquivo** só pode ser aplicada no nível do blob.
+As contas de Armazenamento GPv2 expõem o atributo **Camada de Acesso** no nível da conta, o qual especifica a camada de conta de armazenamento padrão como **Frequente** ou **Esporádica**. A camada de conta de armazenamento padrão é aplicada a qualquer blob que não tenha uma camada explícita definida no nível do blob. Se houver uma alteração no padrão de uso dos dados, você também poderá alternar entre as camadas de armazenamento a qualquer momento. A camada **Arquivo Morto** só pode ser aplicada no nível do blob.
 
 > [!NOTE]
 > A alteração da camada de armazenamento pode resultar em cobranças adicionais. Para obter mais informações, confira a seção [Preços e cobrança](#pricing-and-billing).
@@ -46,7 +46,10 @@ As contas de Armazenamento GPv2 expõem o atributo **Camada de Acesso** no níve
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Como atualizar uma conta de armazenamento para GPv2
 
-Os usuários podem atualizar uma conta de GPv1 ou um armazenamento de Blobs para uma conta de GPv2 a qualquer momento usando o Portal do Azure, PowerShell ou a CLI do Azure. Essa alteração não pode ser revertida, e nenhuma outra alteração é permitida.
+Os usuários podem atualizar uma conta de GPv1 ou um armazenamento de Blobs para uma conta de GPv2 a qualquer momento usando o Portal do Azure, PowerShell ou a CLI do Azure. Essa alteração não pode ser revertida, e nenhuma outra alteração de tipo de conta é permitida. Para saber mais sobre como avaliar sua conta de armazenamento existente, veja a seção [Avaliação e migração para contas de armazenamento de GPv2](#evaluating-and-migrating-to-gpv2-storage-accounts).
+* [Upgrade para GPv2 no portal do Azure](#upgrade-with-azure-portal)
+* [Upgrade para GPv2 com o PowerShell](#upgrade-with-powershell)
+* [Upgrade para GPv2 com a CLI do Azure](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Atualização com o Portal do Azure
 Para atualizar uma conta de armazenamento de Blob ou GPv1 para uma conta GPv2 usando o Portal do Azure, entre no [Portal do Azure](https://portal.azure.com) e selecione sua conta de armazenamento. Selecione **Configurações** > **Configuração**. Você verá o botão **Atualizar** junto com uma observação sobre o processo de atualização.
@@ -67,7 +70,7 @@ Para atualizar uma conta GPv1 ou um armazenamento de Blobs para uma conta de GPv
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>Uso geral v1
+### <a name="general-purpose-v1-accounts"></a>Contas para uso geral v1
 
 As contas de Uso geral v1 (GPv1) fornecem o acesso a todos os Serviços de Armazenamento do Azure, mas talvez não tenham os recursos mais recentes ou o menor preço por gigabyte. Por exemplo, não há suporte para armazenamento esporádico e de arquivo na GPv1. O preço é inferior para transações GPv1, portanto, cargas de trabalho com alta rotatividade ou altas taxas de leitura podem se beneficiar desse tipo de conta.
 
@@ -196,14 +199,19 @@ O objetivo desta seção é ajudar os usuários a fazer uma transição tranquil
 * Você tem uma conta existente de armazenamento de GPv1 e deseja avaliar uma alteração para uma conta de armazenamento de GPv2 com a camada de armazenamento adequada.
 * Você optou por usar uma conta de armazenamento de GPv2 ou já tem uma e deseja avaliar se deve usar a camada de armazenamento dinâmica ou estática.
 
-Em ambos os casos, a prioridade é estimar o custo de armazenar e acessar os dados armazenados em uma conta de armazenamento de GPv2 e comparar isso com seus custos atuais.
+Em ambos os casos, a prioridade é estimar o custo de armazenar, acessar e operar os dados armazenados em uma conta de armazenamento de GPv2 e comparar isso com seus custos atuais.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>Avaliando camadas de conta de armazenamento de GPv2
 
 Para estimar o custo de armazenar e acessar dados armazenados em uma conta de armazenamento de GPv2, você precisa avaliar seu padrão de uso existente ou estimar seu padrão de uso. Em geral, você precisa saber:
 
-* Consumo de armazenamento: quanto dados são armazenados e como isso é alterado mensalmente?
-* Padrão de acesso de armazenamento: quantos dados são lidos e gravados na conta (incluindo novos dados)? Quantas transações são usadas para acesso a dados e que tipo de transações são elas?
+* Seu consumo de armazenamento de dados (GB)
+    - Quantos dados estão sendo armazenados na conta de armazenamento?
+    - Como o volume de dados é alterado mensalmente; os dados novos substituem constantemente os dados antigos?
+* O padrão de acesso de armazenamento (operações e transferência de dados)
+    - A quantidade de dados está sendo lido de (saída) e gravada (entrada), o armazenamento de conta? 
+    - Quantas operações ocorrem nos dados na conta de armazenamento?
+    - Quais tipos de operações (Leitura versus Gravação) são transacionados nos dados?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Monitorando contas de armazenamento existentes
 
@@ -244,7 +252,7 @@ A soma de *'TotalBillableRequests'* de todas as entradas para uma API na tabela 
 Para estimar os custos de transação para contas de armazenamento de Blobs, você precisa dividir as transações em três grupos, já que elas possuem preços diferentes.
 
 * Transações de gravação, como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
-* Transações de exclusão, como *'DeleteBlob'* e *'DeleteContainer'*.
+* Transações de leitura, como *'GetBlob'*.
 * Todas as outras transações.
 
 Para estimar os custos de transação para contas de armazenamento de GPv1, você precisa agregar todas as transações, independentemente da operação/API.

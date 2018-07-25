@@ -1,30 +1,36 @@
 ---
-title: Tutorial de sinônimos no Azure Search | Microsoft Docs
-description: Adicione o recurso de sinônimos a um índice no Azure Search.
+title: Tutorial do C# de sinônimos no Azure Search | Microsoft Docs
+description: Neste tutorial, adicione o recurso de sinônimos a um índice no Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182082"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990554"
 ---
-# <a name="synonym-c-tutorial-for-azure-search"></a>Tutorial de sinônimos do C# para o Azure Search
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: Adicionar sinônimos para o Azure Search em C#
 
-Os sinônimos expandem uma consulta correspondendo os termos considerados semanticamente equivalentes com o termo de entrada. Por exemplo, você pode querer que "carro" corresponda aos documentos contendo os termos "automóvel" ou "veículo".
+Os sinônimos expandem uma consulta correspondendo os termos considerados semanticamente equivalentes com o termo de entrada. Por exemplo, você pode querer que "carro" corresponda aos documentos contendo os termos "automóvel" ou "veículo". 
 
-No Azure Search, os sinônimos são definidos em um *mapa de sinônimos*com *regras de mapeamento* que associam os termos equivalentes. Você pode criar vários mapas de sinônimos, publicá-los como um recurso de todo o serviço disponível em qualquer índice e fazer referência a qual deles usar no nível do campo. No momento da consulta, além de pesquisar um índice, o Azure Search faz uma pesquisa em um mapa de sinônimos, caso um seja especificado nos campos usados na consulta.
+No Azure Search, os sinônimos são definidos em um *mapa de sinônimos*com *regras de mapeamento* que associam os termos equivalentes. Este tutorial aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente. Você aprenderá como:
+
+> [!div class="checklist"]
+> * Habilitar sinônimos criando e postando regras de mapeamento 
+> * Fazer referência a um mapa de sinônimos em uma cadeia de caracteres de consulta
+
+Você pode criar vários mapas de sinônimos, publicá-los como um recurso de todo o serviço disponível em qualquer índice e fazer referência a qual deles usar no nível do campo. No momento da consulta, além de pesquisar um índice, o Azure Search faz uma pesquisa em um mapa de sinônimos, caso um seja especificado nos campos usados na consulta.
 
 > [!NOTE]
-> Há suporte para o recurso de sinônimos nas últimas versões de API e SDK (api-version=2017-11-11, versão de SDK 5.0.0). Não há suporte do portal do Azure no momento. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Os sinônimos têm suporte na API nas últimas versões de API e SDK (api-version=2017-11-11, versão de SDK 5.0.0). Não há suporte do portal do Azure no momento. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os requisitos do tutorial incluem o seguinte:
 
@@ -73,7 +79,7 @@ As etapas para criar e preencher o índice de exemplo são explicadas em [Como u
 
 ## <a name="before-queries"></a>Consultas "antes"
 
-Em `RunQueriesWithNonExistentTermsInIndex`, emitimos as consultas de pesquisa com "cinco estrelas", "Internet" e "economia e hotel".
+Em `RunQueriesWithNonExistentTermsInIndex`, emitimos as consultas de pesquisa com "cinco estrelas", "Internet" e "economia E hotel".
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
@@ -159,8 +165,13 @@ Adicionar sinônimos muda completamente a experiência de pesquisa. Neste tutori
 ## <a name="sample-application-source-code"></a>Código-fonte do aplicativo de exemplo
 Você pode encontrar o código-fonte completo do aplicativo de exemplo usado neste passo a passo no [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+A maneira mais rápida para limpar depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examine [Como usar sinônimos no Azure Search](search-synonyms.md)
-* Examine [Documentação API REST dos sinônimos](https://aka.ms/rgm6rq)
-* Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Este tutorial demonstrou a [API REST dos Sinônimos](https://aka.ms/rgm6rq) em código C# para criar e lançar as regras de mapeamento e, em seguida, chamar o mapa de sinônimos em uma consulta. Informações adicionais podem ser encontradas na documentação de referência do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e da [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+
+> [!div class="nextstepaction"]
+> [Como usar sinônimos no Azure Search](search-synonyms.md)

@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756390"
+---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C em Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -16,7 +33,7 @@ Para simplificar, o código no dispositivo gera valores de exemplo, mas é recom
 
 O dispositivo também é capaz de responder aos métodos invocados no painel da solução e aos conjuntos de valores de propriedade desejada no painel da solução.
 
-Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
+Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Antes de começar
 Antes de escrever qualquer código para o seu dispositivo, você precisa provisionar a solução pré-configurada de monitoramento remoto e provisionar um novo dispositivo personalizado nessa solução.
@@ -24,13 +41,13 @@ Antes de escrever qualquer código para o seu dispositivo, você precisa provisi
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provisionar sua solução pré-configurada de monitoramento remoto
 O dispositivo que você criar neste tutorial enviará dados a uma instância da solução pré-configurada de [monitoramento remoto][lnk-remote-monitoring]. Se você ainda não provisionou a solução pré-configurada de monitoramento remoto em sua conta do Azure, use as seguintes etapas:
 
-1. Na página <https://www.azureiotsuite.com/>, clique em **+** para criar uma solução.
+1. Na página <https://www.azureiotsolutions.com/>, clique em **+** para criar uma solução.
 2. Clique em **Selecionar** no painel **Monitoramento remoto** para criar a solução.
 3. Na página **Criar solução de Monitoramento remoto**, insira um **Nome de solução** de sua escolha, selecione a **Região** na qual você deseja implantar e selecione a assinatura do Azure a ser usada. Clique em **Criar solução**.
 4. Aguarde até que o processo de provisionamento seja concluído.
 
 > [!WARNING]
-> As soluções pré-configuradas usam serviços faturáveis do Azure. Certifique-se de remover a solução pré-configurada da sua assinatura quando tiver terminado com ela para evitar encargos desnecessários. Você pode remover completamente uma solução pré-configurada de sua assinatura visitando a página <https://www.azureiotsuite.com/>.
+> As soluções pré-configuradas usam serviços faturáveis do Azure. Certifique-se de remover a solução pré-configurada da sua assinatura quando tiver terminado com ela para evitar encargos desnecessários. Você pode remover completamente uma solução pré-configurada de sua assinatura acessando a página <https://www.azureiotsolutions.com/>.
 > 
 > 
 

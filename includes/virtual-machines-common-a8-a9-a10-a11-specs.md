@@ -5,14 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 05/29/2018
+ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: ee32886ddb74bdbbe0f240310629c8ef26230a68
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34669332"
 ---
 ## <a name="deployment-considerations"></a>Considerações de implantação
 * **Assinatura do Azure** – Para implantar um número maior de instâncias de computação intensiva, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
@@ -36,4 +37,4 @@ Essa interface permite que as instâncias compatíveis com RDMA comuniquem-se at
 > No Azure, não há suporte para IP sobre IB. Apenas RDMA sobre IB é compatível.
 >
 
-Implante as VMs HPC compatíveis com RDMA no mesmo conjunto de disponibilidade ou conjunto de dimensionamento de VM (quando usar o modelo de implantação do Azure Resource Manager) ou no mesmo serviço de nuvem (quando usar o modelo de implantação clássica). A seguir estão os requisitos adicionais para VMs HPC compatíveis com RDMA acessarem a rede RDMA do Azure.
+Implante as VMs HPC compatíveis com RDMA no mesmo conjunto de disponibilidade ou conjunto de dimensionamento de VM (quando usar o modelo de implantação do Azure Resource Manager) ou no mesmo serviço de nuvem (quando usar o modelo de implantação clássica). Se você usar um conjunto de dimensionamento VM, limite a implantação em um único grupo de posicionamento. Por exemplo, em um modelo do Resource Manager, defina a propriedade *singlePlacementGroup* como *verdadeiro*. A seguir estão os requisitos adicionais para VMs HPC compatíveis com RDMA acessarem a rede RDMA do Azure.

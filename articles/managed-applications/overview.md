@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639200"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990507"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -41,7 +41,7 @@ Você pode publicar seu aplicativo gerenciado externamente ou internamente.
 
 ### <a name="service-catalog"></a>Catálogo de serviços
 
-O catálogo de serviços é um catálogo interno das soluções aprovadas para os usuários em uma organização. Use o catálogo para assegurar a conformidade com certos padrões organizacionais enquanto oferece soluções excelentes para as organizações. Os funcionários usam o catálogo para descobrir facilmente um conjunto sofisticado de aplicativos recomendados e aprovados pelos departamentos de TI. Eles veem os aplicativos gerenciados que outras pessoas na organização compartilham com eles.
+O catálogo de serviços é um catálogo interno das soluções aprovadas para os usuários em uma organização. Use o catálogo para assegurar a conformidade com certos padrões organizacionais enquanto oferece soluções excelentes para as organizações. Os funcionários usam o catálogo para descobrir os aplicativos recomendados e aprovados pelos departamentos de TI. Eles veem os aplicativos gerenciados que outras pessoas na organização compartilham com eles.
 
 Para obter informações sobre como publicar um aplicativo gerenciado do Catálogo de Serviços, confira [Criar o aplicativo do catálogo de serviços](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ O consumidor tem acesso total ao grupo de recursos e o utiliza para gerenciar o 
 Este grupo de recursos contém todos os recursos necessários ao aplicativo gerenciado. Por exemplo, esse grupo de recursos contém as máquinas virtuais, contas de armazenamento e redes virtuais para a solução. O consumidor tem acesso limitado a esse grupo de recursos, pois não gerencia os recursos individuais do aplicativo gerenciado. O acesso do fornecedor a este grupo de recursos corresponde à função especificada na definição do aplicativo gerenciado. Por exemplo, o fornecedor pode solicitar a função de Proprietário ou Colaborador para este grupo de recursos.
 
 Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerenciado também é excluído.
+
+## <a name="azure-policy"></a>Azure Policy
+
+Você pode aplicar uma [política do Azure](../azure-policy/azure-policy-introduction.md) ao seu aplicativo gerenciado. Aplicar políticas para garantir que instâncias implantadas de seu aplicativo gerenciado estejam em conformidade com os requisitos de segurança e de dados. Se seu aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se seu aplicativo interage com os dados do Office 365, aplique uma política para garantir que a criptografia de dados esteja habilitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

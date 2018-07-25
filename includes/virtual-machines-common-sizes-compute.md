@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 638b52edb554b6bddb206943fca42b03bdc69060
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "30845124"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906795"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -32,6 +32,10 @@ A série Fs fornece todas as vantagens da série F, além do armazenamento Premi
 ## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
 
 ACU: 195 - 210
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
 
 | Tamanho             | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
@@ -53,6 +57,10 @@ ACU: 195 - 210
 
 ACU: 210 - 250
 
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4.000 / 32 (12) |3.200 / 48 |2 / 750 |
@@ -71,6 +79,10 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 ## <a name="f-series"></a>Série F
 
 ACU: 210 - 250
+
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

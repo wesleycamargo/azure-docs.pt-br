@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082498"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091986"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -64,13 +64,13 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact-
 | --- | --- |
 |Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>Compilado em alta disponibilidade <br>Dados protegidos com backups automatizados <br>Período de retenção de backup configurável pelo cliente (corrigido para 7 dias na Visualização Pública) <br>Backups iniciados pelo usuário <br>Capacidade de restauração pontual do banco de dados |
 |**Segurança e conformidade** | **Gerenciamento**|
-|Ambiente isolado (integração de VNet, serviço de locatário único, computação dedicada e armazenamento <br>Criptografia dos dados em trânsito <br>Autenticação do Microsoft Azure AD, suporte de logon único <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>Auditoria do SQL <br>Detecção de ameaças |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados 
+|Ambiente isolado (integração de VNet, serviço de locatário único, computação dedicada e armazenamento) <br>Transparent Data Encryption<br>Autenticação do Microsoft Azure AD, suporte de logon único <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>Auditoria do SQL <br>Detecção de ameaças |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados 
 
 ![logon único](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>Modelo de compra baseado em vCore (versão prévia)
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-O modelo de compra baseado em vCore (versão prévia) proporciona flexibilidade, controle e transparência, além de ser uma maneira simples de mover os requisitos das cargas de trabalho locais para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. O modelo vCore também pode ser usado para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O modelo de compra baseado em vCore proporciona flexibilidade, controle e transparência, além de ser uma maneira simples de mover os requisitos das cargas de trabalho locais para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. O modelo vCore também pode ser usado para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware.
 - As CPUs Lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz.
@@ -81,13 +81,20 @@ A tabela a seguir o ajudará a entender como selecionar a configuração ideal d
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Processadores Intel E5-2673 v3 (Haswell) 2,4 GHz, SSD anexado vCore = 1 PP (núcleo físico)|Processadores V4 Intel E5-2673 (Broadwell) 2,3 GHz, SSD eNVM rápido, vCore = 1 LP (hyper-thread)|
-|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
-|Memória|7 GB por vCore|5,5 GB por vCore|
+|Níveis de desempenho|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Memória|7 GB por vCore|5.5 GB por vCore|
 ||||
 
-## <a name="managed-instance-service-tier"></a>Camada de serviço de Instância Gerenciada
+## <a name="managed-instance-service-tiers"></a>Camadas de serviço de Instância Gerenciada
 
-Inicialmente, a Instância Gerenciada está disponível em uma única camada de serviço - Uso Geral - projetada para aplicativos com disponibilidade típica e requisitos de latência de E/S comuns.
+A instância gerenciada está disponível em duas camadas de serviço:
+- **Uso geral**: projetado para aplicativos com disponibilidade típica e requisitos de latência de E/S comuns.
+- **Uso geral**: projetado para aplicativos com disponibilidade típica e requisitos de latência de E/S comuns.
+ 
+> [!IMPORTANT]
+> Não há suporte para alterar sua camada de serviço de uso geral para Comercialmente Crítico ou vice-versa em visualização pública. Se você quiser migrar seus bancos de dados para uma instância na camada de serviço diferentes, pode criar a nova instância, restaurar os bancos de dados com recuperação pontual da instância original e, em seguida, descarte a instância original se não for mais necessária. 
+
+### <a name="general-purpose-service-tier"></a>Camada de serviço de Uso Geral
 
 A lista a seguir apresenta a principal característica da camada de serviço de Uso Geral: 
 
@@ -101,28 +108,57 @@ O diagrama a seguir ilustra a computação ativa e os nós redundantes nessa cam
  
 ![Camada de serviço de Uso Geral](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-A seguir, são descritos os principais recursos da camada de serviço de Uso Geral:
+A lista a seguir apresenta a principal característica da camada de serviço de Uso Geral:
 
 |Recurso | DESCRIÇÃO|
 |---|---|
-| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40 (Geração 5)|
+| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40, 64, 80 (Geração 5)|
 | Compilação/versão do SQL Server | SQL Server (mais recente disponível) |
 | Tamanho mínimo de armazenamento | 32 GB |
 | Tamanho máximo de armazenamento | 8 TB |
-| Armazenamento máximo por banco de dados | 8 TB |
+| Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância |
 | IOPS de armazenamento esperado | 500-7500 IOPS por arquivo de dados (depende do arquivo de dados). Consulte [Armazenamento Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 
-| Backups automatizados gerenciados | sim |
+| Backups automatizados gerenciados | SIM |
 | HA | Com base em armazenamento remoto e [Microsoft Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Métricas e monitoramento de banco de dados e instância interna | sim |
-| Aplicação automática de patches de software | sim |
-| VNet - Implantação do Azure Resource Manager | sim |
+| Métricas e monitoramento de banco de dados e instância interna | SIM |
+| Aplicação automática de patches de software | SIM |
+| VNet - Implantação do Azure Resource Manager | SIM |
 | VNet - Modelo de implantação clássico | Não  |
-| Suporte do Portal | sim|
+| Suporte do Portal | SIM|
 |||
 
 \* Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. As CPUs Lógicas Geração 4 são baseadas em processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz e as CPUs Lógicas Geração 5 são baseadas em processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz. 
+
+### <a name="business-critical-service-tier"></a>Camada de serviço comercialmente crítica
+
+Camada de serviço Comercialmente Crítico desenvolvida para aplicativos com altos requisitos de E/S. Oferece maior resiliência a falhas usando réplicas Always On. O diagrama a seguir ilustra a arquitetura de serviço desta camada de serviço:
+
+![Camada de serviço comercialmente crítica](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+A lista a seguir apresenta as características principais da camada Comercialmente Crítico: 
+-   Projetada para aplicativos de negócios com requisitos de alta disponibilidade e desempenho mais alto 
+-   Vem com o armazenamento SSD super-rápido (até 1 TB em Gen 4 e até 4 TB na Geração 5) - dá suporte a até 100 bancos de dados por instância 
+
+|Recurso | DESCRIÇÃO|
+|---|---|
+| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40, 64, 80 (Geração 5)|
+| Compilação/versão do SQL Server | SQL Server (mais recente disponível) |
+| Recursos adicionais | [OLTP in-memory](sql-database-in-memory.md)<br> 1 réplica somente leitura adicional ([expansão de leitura](sql-database-read-scale-out.md))
+| Tamanho mínimo de armazenamento | 32 GB |
+| Tamanho máximo de armazenamento | Geração 4: 1 TB (todos os tamanhos de vCore<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 40, 60, 80 vCores</ul>|
+| Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância |
+| Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
+| Número de arquivos de log (LOG) por banco de dados | 1 | 
+| Backups automatizados gerenciados | SIM |
+| HA | Com base em [grupos de disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Métricas e monitoramento de banco de dados e instância interna | SIM |
+| Aplicação automática de patches de software | SIM |
+| VNet - Implantação do Azure Resource Manager | SIM |
+| VNet - Modelo de implantação clássico | Não  |
+| Suporte do Portal | SIM|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas 
 
@@ -134,9 +170,15 @@ A Instância Gerenciada fornece isolamento de segurança adicional de outros loc
 - O ponto de extremidade do SQL é exposto apenas por meio de um endereço IP privado, permitindo conectividade segura a partir de redes híbridas ou privadas do Azure
 - Locatário único com infraestrutura subjacente dedicada (computação, armazenamento)
 
-O diagrama a seguir apresenta o design de isolamento: 
+O diagrama a seguir descreve várias opções de conectividade para seus aplicativos: 
 
 ![alta disponibilidade](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+Para saber mais detalhes sobre a integração de rede virtual e a aplicação de políticas no nível de sub-rede de rede, consulte [Configurar uma rede virtual para o banco de dados de instância gerenciada do SQL](sql-database-managed-instance-vnet-configuration.md) e [conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Coloque várias instâncias gerenciadas na mesma sub-rede, onde quer que o permitido pela seus requisitos de segurança, como o que trará benefícios adicionais. Disposição das instâncias na mesma sub-rede será significativamente simplificar a manutenção de infraestrutura de rede e reduzir o tempo, o provisionamento, pois o provisionamento de longa duração está associado ao custo de implantação de primeira instância gerenciada em uma sub-rede de instância.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria de segurança e conformidade 
 
@@ -147,6 +189,11 @@ A [auditoria de Instância Gerenciada](sql-database-managed-instance-auditing.md
 A Instância Gerenciada protege os dados, fornecendo criptografia para dados em movimentação usando o protocolo TLS.
 
 Além do protocolo TLS, a Instância Gerenciada do Banco de Dados SQL oferece proteção de dados confidenciais em trânsito, em repouso e durante processamento de consulta com [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted é pioneiro na indústria, oferecendo segurança de dados incomparável contra violações envolvendo o roubo de dados críticos. Por exemplo, com o Always Encrypted, números de cartão de crédito são armazenados sempre criptografados no banco de dados, mesmo durante a consulta de processamento, permitindo a descriptografia no ponto de uso por pessoal autorizado ou aplicativos que precisam processar os dados. 
+
+### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso 
+A [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) criptografa arquivos de dados de Instância Gerenciada do Banco de Dados SQL do Azure, conhecido como dados de criptografia em repouso. A TDE realiza a criptografia e a descriptografia de E/S em tempo real dos arquivos de log e de dados. A criptografia usa uma chave de criptografia de banco de dados (DEK), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação. Você pode proteger todos os seus bancos de dados na instância gerenciada com a criptografia transparente de dados. A TDE é a tecnologia de criptografia ociosa comprovada da SQL exigida por vários padrões de conformidade para proteger contra roubo de mídia de armazenamento. Durante a visualização pública, o modelo de gerenciamento automático de chaves é compatível (realizada pela plataforma de PaaS). 
+
+Há suporte para a migração de um banco de dados criptografado para a instância gerenciada do SQL por meio do serviço de migração de banco de dados do Azure (DMS) ou restauração nativa. Se você planeja migrar o banco de dados criptografado usando restauração nativa, a migração do certificado TDE existente do SQL Server no local ou VM do SQL Server para instância gerenciada é uma etapa necessária. Para obter mais informações sobre as opções de migração consulte [migração da instância do SQL Server à Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
 ### <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 
@@ -224,4 +271,5 @@ A Instância Gerenciada permite que o administrador do sistema concentre-se no q
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md).
 - Para obter um tutorial que cria uma Instância Gerenciada e restaura um banco de dados de um arquivo de backup, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-create-tutorial-portal.md).
-- Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para migração, consulte [Migração de Instância Gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para obter um tutorial usando o DMS (Serviço de Migração de Banco de Dados do Azure) para a migração, confira [Migração de Instância Gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL gerenciados](https://azure.microsoft.com/pricing/details/sql-database/managed/).

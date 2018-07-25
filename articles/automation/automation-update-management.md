@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345375"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115666"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -209,7 +209,7 @@ Selecione a guia **Atualizar Implantações** para exibir a lista das implantaç
 
 ## <a name="create-or-edit-an-update-deployment"></a>Criar ou editar uma implantação de atualização
 
-Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. O painel **Nova implantação de atualizações** é aberto. Insira os valores para as propriedades descritas na tabela a seguir:
+Para criar uma nova implantação de atualização, selecione **Agendar implantação de atualização**. O painel **Nova implantação de atualizações** é aberto. Insira valores para as propriedades descritas na tabela a seguir e clique em **Criar**:
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -264,7 +264,7 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 
 Para obter mais informações sobre as portas que exige o Hybrid Runbook Worker, consulte [portas de função do Hybrid Worker](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-É recomendável usar os endereços listados ao definir exceções. Para endereços IP, você pode baixar a [lista de IPs de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP, é postado semanalmente.
+É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP, é postado semanalmente.
 
 ## <a name="search-logs"></a>Pesquisa da logs
 

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312076"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950399"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Serviços de Consultoria do Microsoft Azure Marketplace
 Serviços de Consultoria no Azure Marketplace fornece a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso do Azure. O Azure Marketplace oferece suporte a listagem das ofertas de serviços de consultoria de parceiros do Integrador de Sistema (SI) da Microsoft. 
 
-Essas ofertas de serviços de consultoria são os compromissos específicos do cliente. Elas têm escopo e duração fixos, podem ter preço fixo ou ser gratuitas e ter um resultado definido. Clientes potenciais podem facilmente solicitar que sejam contatados pelos parceiros. Os parceiros recebem uma notificação em seu sistema de CRM e visam responder às solicitações em até 48 horas.
+Essas ofertas de serviços de consultoria são os compromissos específicos do cliente. Os editores têm a opção de determinar o tipo de listagem e com escopo e duração fixos, preço fixo ou gratuito e ter uma entrega definida para o cliente. Os parceiros recebem uma notificação em seu sistema de CRM e visam responder às solicitações em até 48 horas.
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Serviços de Consultoria no Azure Marketplace vs AppSource Storefront
 As vitrines do Marketplace estão alinhadas com o público e os produtos de nuvem da Microsoft para ajudar os clientes a localizar o que precisam. Cada vitrine oferece opções de publicação especializadas para ajudá-lo a maximizar seu investimento de publicação. A tabela a seguir resume essas opções:
@@ -37,7 +37,8 @@ As vitrines do Marketplace estão alinhadas com o público e os produtos de nuve
 |Experiência de produto      |Portal de Gerenciamento do Azure|Dynamics 365, Office 365, aplicativos de cliente do Office| 
 |Outros      |Publicar local por meio do Azure Stack|Serviços de Consultoria para Dynamics e Power BI|
 
-Os Serviços de Consultoria no Azure Marketplace devem utilizar ofertas destinadas a um público técnico que concentra-se em serviços e soluções técnicas do Azure.
+>[!Note]
+>Os Serviços de Consultoria no Azure Marketplace devem utilizar ofertas destinadas a um público técnico que concentra-se em *serviços e soluções técnicas do Azure.*
 
 
 As ofertas de serviço baseadas no Microsoft Dynamics 365, Office 365 e Power BI são qualificadas para serem listadas no AppSource. Para obter mais informações, consulte [diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
@@ -52,7 +53,7 @@ Também é exigido aos parceiros que tenham uma **Competência Gold ou Silver** 
 |Competência  |Área da solução  |
 |---------|---------|
 |Infraestrutura e Cloud Platform     |   Cloud Platform, Data Center      |
-|ISV e Desenvolvimento de Aplicativo     |  Desenvolvimento de Aplicativo, 	Integração do Aplicativo, DevOps       |
+|ISV e Desenvolvimento de Aplicativo     |  Desenvolvimento de Aplicativo, Integração do Aplicativo, DevOps       |
 |Análise e Gerenciamento de Dados    |  Análise de Dados, Data Platform       |
 
 Para obter mais informações, consulte [competências por meio do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
@@ -71,8 +72,16 @@ Os parceiros do SI podem enviar ofertas de serviços de consultoria para os 18 p
 
 A inicialização dos serviços de consultoria do Azure Marketplace entrará em vigor primeiro na Austrália, no Canadá, no Reino Unido e nos Estados Unidos. Os catálogos para outros países entrarão em vigor após o envio de um número significativo e uma seleção atraente de ofertas de serviços por parceiros e a aprovação pela Microsoft.
 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Como se registrar para serviços de consultoria no Azure Marketplace
+Comece registrando seus serviços de consultoria no [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Os editores podem consultar [Tornar-se um editor no Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), para obter uma lista de verificação completa dos requisitos de registro. 
+
+**O que esperar após registro** A equipe de integração entrará em contato em 1 a 3 dias úteis com um email de boas-vindas que incluirá suas informações de logon do CPP (Portal do Cloud Partner). [Portal do Cloud Partner](https://cloudpartner.azure.com) é o portal de listagem de ofertas onde os editores enviam informações de listagem e envios. 
+
+>[!Note]
+>Os parceiros só precisam se registrar uma vez para se tornarem um editor. Depois de receber o email de boas-vindas e fazer logon no Portal do Cloud Partner, os editores não precisam registrar novamente para publicar tipos de diferentes de listagem. 
+
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
-Mesmo antes de nomear o serviço, é possível iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e a solução para seu cliente-alvo. 
+Antes do registro, é possível iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo. 
 
 |Configurar para novos publicadores  |
 |---------|
@@ -142,3 +151,12 @@ Ao revisar Descrições da Oferta e Resumos da Oferta, a equipe aplicará os seg
 |Workshop    |   Inclua uma agenda detalhada diária, semanal ou mensal, dependendo da duração escolhida da sua oferta. Articule quais são os objetivos de aprendizado ou outras entregas de seu workshop     |   Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa      |
 
 Dentro do Portal do Microsoft Cloud Partner você pode adicionar a formatação para a sua listagem usando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Esta é uma linguagem de design leve que ajudará a adicionar polimento à sua listagem. 
+
+**Anotações de exemplo de Markdown**
+*   Adicione * no início e no final do bloco de cópia - sem espaço para criar o itálico (por exemplo: *conteúdo*)
+* Inclua a quebra de linha após os dois pontos ":"
+*   Um espaço depois de "*" para marcadores (por exemplo: *(espaço)Conteúdo)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espaço para título (por exemplo: ###(espaço)Agenda/Produtos)
+*   Quebra de linha após o título
+*   ** = negrito (Sem espaço) (por exemplo: **Sem espaço**) •   Resumo de oferta em itálico •   Agenda e Entregas é um Título
+

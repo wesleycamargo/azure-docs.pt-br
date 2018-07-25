@@ -1,7 +1,23 @@
-
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: virtual-machines
+author: shants123
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 07/02/2018
+ms.author: shants
+ms.custom: include file
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38945338"
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
-Quando uma onda de manutenção planejada estiver agendada, e as notificações forem enviadas, você poderá observar a lista de máquinas virtuais que serão afetados pela próxima onda de manutenção. 
+Após agendar uma onda de manutenção planejada, observe a lista de máquinas virtuais que serão afetadas pela próxima onda de manutenção. 
 
 É possível usar o portal do Azure e procurar as VMs agendadas para manutenção.
 
@@ -13,33 +29,35 @@ Quando uma onda de manutenção planejada estiver agendada, e as notificações 
 
 4. Selecione e adicione as seguintes colunas:
 
-   **Manutenção** -mostra o status de manutenção para a máquina virtual. Estes são os valores possíveis:
+   **Manutenção**: mostra o status de manutenção da VM. Estes são os valores possíveis:
       
       | Valor | DESCRIÇÃO |
       |-------|-------------|
-      | Comece agora | A VM está na janela de manutenção de autoatendimento que permite a você iniciar a manutenção por conta própria. Veja abaixo sobre como iniciar a manutenção em sua VM | 
-      | Agendado | A VM está programada para manutenção sem a opção para iniciar a manutenção. Você pode saber da janela de manutenção, selecionando a janela Agendado Automaticamente neste modo de exibição ou clicando na VM | 
-      | Concluído | Você iniciou e concluiu com êxito a manutenção em sua VM. | 
-      | Ignorado| Você optou por iniciar a manutenção sem sucesso. Você não poderá usar a opção de manutenção de autoatendimento. A VM precisará ser reinicializada pelo Azure durante a fase de manutenção agendada. | 
+      | Comece agora | A VM está na janela de manutenção de autoatendimento, na qual você pode iniciar a manutenção por conta própria. Veja a seguir como iniciar a manutenção na VM. | 
+      | Agendado | A VM está programada para manutenção sem a opção para iniciar a manutenção. Para saber mais sobre a janela de manutenção, selecione a janela de manutenção agendada neste modo de exibição ou clique na VM. | 
+      | Já atualizado | A VM já está atualizada e nenhuma ação adicional é necessária neste momento. | 
+      | Tente novamente mais tarde | Você iniciou a manutenção, mas ela apresentou falha. Você poderá usar a opção de manutenção de autoatendimento posteriormente. | 
+      | Tente agora | Tente realizar a manutenção que foi iniciada automaticamente sem êxito. | 
 
-   **Manutenção proativa** -mostra a janela de tempo quando você pode iniciar automaticamente a manutenção em suas VMs.
+   **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
    
-   **Manutenção agendada** -mostra a janela de tempo quando o Azure reiniciará sua VM para concluir a manutenção. 
-
+   **Janela de manutenção agendada**: mostra a janela de tempo, quando o Azure fará a manutenção da VM. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para saber mais, veja [Monitorar a atividade de assinatura com o Log de Atividades do Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+O Azure comunica uma agenda para manutenção planejada, enviando um email para o grupo de proprietário e os coadministradores de assinatura. Você pode adicionar outros destinatários e canais para essa comunicação com a criação de alertas de log de atividades do Azure. Para saber mais, confira [Monitorar a atividade de assinatura com o Log de Atividades do Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Monitor**. 
-3. No painel **Monitor - Log de atividades**, selecione **Alertas**.
-4. No painel **Monitor - Alertas**, clique em **+ Adicionar alerta do log de atividade**.
-5. Complete as informações na página **Adicionar alerta do log de atividade** e defina o seguinte em **Critérios**: **Tipo**: Manutenção - **Status**: Todos (não defina o status como Ativo ou Resolvido) **Nível**: Todos
+3. No painel **Monitor – Alertas (clássico)**, clique em **+Adicionar alerta do log de atividades**.
+5. Preencha as informações na página **Adicionar alerta do log de atividades** e defina os seguintes itens nos **Critérios**:
+   - **Categoria de eventos**: Integridade do Serviço
+   - **Serviços**: Máquinas Virtuais e Conjuntos de Dimensionamento de Máquinas Virtuais
+   - **Tipo**: manutenção planejada 
     
-Para saber mais sobre como configurar alertas de Log de Atividade, veja [Criar alertas de log de atividade](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Para saber mais sobre como configurar alertas do log de atividades, confira o artigo [Criar alertas de log de atividade](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Iniciar Manutenção na sua VM do portal
@@ -48,8 +66,8 @@ Ao examinar os detalhes da VM, você poderá ver mais detalhes relacionados à m
 Na parte superior do modo de exibição de detalhes VM, uma nova faixa de opções de notificação será adicionada se sua VM for incluída em uma onda de manutenção planejada. Além disso, uma nova opção é adicionada ao iniciar manutenção quando possível. 
 
 
-Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planejada. A partir daí, você será capaz de **iniciar a manutenção** na sua VM.
+Clique na notificação de manutenção para ver a página de manutenção com mais detalhes sobre a manutenção planejada. Nesse local, você pode **iniciar a manutenção** da VM.
 
-Quando você começar a manutenção, sua máquina virtual será reiniciada e o status de manutenção será atualizado para refletir o resultado dentro de alguns minutos.
+Quando você inicia a manutenção, a máquina virtual passa pelo processo de manutenção e o respectivo status é atualizado para refletir o resultado dentro de alguns minutos.
 
-Se você tiver perdido a janela onde pode iniciar a manutenção, ainda poderá ver a janela quando a VM for reiniciada pelo Azure. 
+Caso perca a janela de autoatendimento, você ainda poderá exibi-la quando a VM passar pela manutenção do Microsoft Azure. 

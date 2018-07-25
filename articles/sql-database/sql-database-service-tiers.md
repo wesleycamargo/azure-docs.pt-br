@@ -6,19 +6,19 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083984"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091908"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure e recursos 
 
-Servidores lógicos no [Banco de Dados SQL do Azure ](sql-database-technical-overview.md) oferece dois modelos de compra para recursos de E/S, armazenamento e computação: um modelo de compra baseado em DTU e um modelo de compra baseado em vCore (versão prévia). 
+Servidores lógicos no [Banco de Dados SQL do Azure ](sql-database-technical-overview.md) oferece dois modelos de compra para recursos de E/S, armazenamento e computação: um modelo de compra baseado em DTU e um modelo de compra baseado em vCore. 
 
 > [!NOTE]
 > [Instâncias Gerenciadas](sql-database-managed-instance.md) no Banco de Dados SQL do Microsoft Azure oferecem o modelo de compra com base no vCore.
@@ -26,7 +26,7 @@ Servidores lógicos no [Banco de Dados SQL do Azure ](sql-database-technical-ove
 A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compra.
 
 > [!IMPORTANT]
-> Para [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md), consulte Modelo de compra baseado em vCore (versão prévia)
+> Para Modelo de compra baseado em vCore, consulte [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)
 
 |**Modelo de compra**|**Descrição**|**Mais adequado para**|
 |---|---|---|
@@ -36,13 +36,13 @@ A tabela e o gráfico a seguir comparam e contrastam esses dois modelos de compr
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model--preview"></a>Modelo de compra baseado no vCore (visão prévia)
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore 
 
-Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. O modelo de compra baseado em vCore (versão prévia) fornece flexibilidade, controle, transparência do consumo de recursos individual e uma forma simples de mover os requisitos de carga de trabalho local para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. No modelo de compra baseado em vCore, os clientes podem escolher entre camadas de serviço Comercialmente Crítico e de Uso Geral (versão prévia) para ambos os [bancos de dados individuais](sql-database-single-database-scale.md) e [pools elásticos](sql-database-elastic-pool.md). 
+Um núcleo virtual representa a CPU lógica oferecida com uma opção para escolher entre gerações de hardware. O modelo de compra baseado em vCore fornece flexibilidade, controle, transparência do consumo de recursos individual e uma forma simples de mover os requisitos de carga de trabalho local para a nuvem. Esse modelo permite escalar computação, memória e armazenamento com base nas necessidades de carga de trabalho. No modelo de compra baseado em vCore, os clientes podem escolher entre camadas de serviço Comercialmente Crítico e de Uso Geral para ambos os [bancos de dados individuais](sql-database-single-database-scale.md) e [pools elásticos](sql-database-elastic-pool.md). 
 
-O modelo de compra baseado em vCore (visão prévia) permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Se o banco de dados ou pool elástico consumir mais de 300 DTU, a conversão para o vCore poderá reduzir o custo. É possível converter usando a API de sua preferência ou o Portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU atender aos seus requisitos de desempenho e de negócios, você deve continuar utilizando-o. Se você decidir converter do modelo DTU para o modelo vCore, deverá selecionar o nível de desempenho usando a seguinte regra geral: cada 100 DTU na camada Padrão exige pelo menos 1 vCore na camada de Finalidade Geral; cada 125 DTU na camada Premium requer pelo menos 1 vCore no nível Business Critical.
+O modelo de compra baseado em vCore permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Se o banco de dados ou pool elástico consumir mais de 300 DTU, a conversão para o vCore poderá reduzir o custo. É possível converter usando a API de sua preferência ou o Portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU atender aos seus requisitos de desempenho e de negócios, você deve continuar utilizando-o. Se você decidir converter do modelo DTU para o modelo vCore, deverá selecionar o nível de desempenho usando a seguinte regra geral: cada 100 DTU na camada Padrão exige pelo menos 1 vCore na camada de Finalidade Geral; cada 125 DTU na camada Premium requer pelo menos 1 vCore no nível Business Critical.
 
-No modelo de compra baseado em vCore (preview), os clientes pagam por:
+No modelo de compra baseado em vCore, os clientes pagam por:
 - Computação (camada de serviço + número de vCores + geração de hardware)*
 - Tipo e quantidade de dados e armazenamento de log 
 - Número de E/S**
@@ -54,7 +54,7 @@ No modelo de compra baseado em vCore (preview), os clientes pagam por:
 
 > [!IMPORTANT]
 > Armazenamento de log e dados, E/S e computação são cobrados por banco de dados ou pool elástico. O armazenamento de backups é cobrado por cada banco de dados. Para obter detalhes sobre os encargos de Instância Gerenciada, veja [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
-> **Limitações de região:** O modelo de compra baseado em vCore (versão prévia) não está ainda disponível nas seguintes regiões: Europa Ocidental, França Central, Sul do Reino Unido, Oeste do Reino Unido e Sudeste da Austrália.
+> **Limitações de região:** O modelo de compra baseado em vCore não está ainda disponível nas seguintes regiões: Europa Ocidental, França Central, Sul do Reino Unido, Oeste do Reino Unido e Sudeste da Austrália.
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra com base em DTU
 
@@ -189,5 +189,5 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para [Modelo de compra baseado em vCore (versão prévia)](sql-database-service-tiers-vcore.md), consulte Modelo de compra baseado em vCore (versão prévia)
+- Para Modelo de compra baseado em vCore, consulte [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)
 - Para o modelo de compra com base em DTU, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).

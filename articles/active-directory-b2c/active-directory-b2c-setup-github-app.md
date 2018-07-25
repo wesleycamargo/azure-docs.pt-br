@@ -1,55 +1,53 @@
 ---
-title: Configuração do provedor de identidade GitHub no Azure Active Directory B2C | Microsoft Docs
-description: Forneça inscrição e entrada aos clientes com as contas do GitHub em seus aplicativos protegidos pelo Azure Active Directory B2C.
+title: Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C | Microsoft Docs
+description: Forneça a inscrição e entrada aos consumidores com contas do GitHub em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3754a169b301bac97f3e12d10b754222e3cf325d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 88fffd28319101c112f848eebc6e8ee27f7f863e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443334"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952011"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-github-accounts"></a>Azure Active Directory B2C: forneça inscrição e conexão aos consumidores com contas do GitHub
+# <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C
 
 > [!NOTE]
 > Esse recurso está em visualização.
 > 
 
-Esse artigo mostra como habilitar a entrada para os usuários com uma conta GitHub.
+Para usar uma conta do GitHub como um provedor de identidade no Azure AD (Azure Active Directory) B2C, você precisará criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta do GitHub, consiga uma conta em [https://www.github.com/](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Crie um aplicativo GitHub OAuth
 
-Para usar o GitHub como um provedor de identidade no Azure AD B2C, você precisará criar um aplicativo do GitHub OAuth e fornecer a ele os parâmetros certos.
+1. Entrar no site de [Desenvolvedor do GitHub](https://github.com/settings/developers) com suas credenciais do GitHub.
+2. Escolha **Aplicativos do OAuth** e, em seguida, escolha **Registrar um novo aplicativo**.
+3. Insira um **nome do Aplicativo** e **URL da home page**.
+4. Insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` em **URL de retorno de chamada de autorização**. Substitua **{tenant}** pelo nome do locatário o seu Azure AD B2C (por exemplo, B2C.onmicrosoft.com).
+5. Clique em **Registrar aplicativo**.
+6. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará delas para adicionar o provedor de identidade ao locatário.
 
-1. Vá para o [configurações do desenvolvedor GitHub](https://github.com/settings/developers) depois de entrar no GitHub.
-1. Clique em **Novo Aplicativo OAuth**
-1. Insira um **nome do Aplicativo** e **URL da home page**.
-1. Para a **URL de retorno de chamada da autorização**, insira `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`. Substitua **{tenant}** pelo nome do locatário o seu Azure AD B2C (por exemplo, B2C.onmicrosoft.com).
+## <a name="configure-a-github-account-as-an-identity-provider"></a>Configurar a conta do GitHub como um provedor de identidade
 
-    >[!NOTE]
-    >O valor de "locatário" deve estar todo em letras maiúsculas na **URL de Entrada**.
+1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C alternando para ele no canto superior direito do portal do Azure. Selecione as informações da sua assinatura e depois selecione **Alternar diretório**. 
 
-1. Clique em **Registrar aplicativo**.
-1. Salve os valores de **ID do cliente** e **Segredo do cliente**. Você precisará deles na próxima seção.
+    ![Alternar para seu locatário do Azure AD B2C](./media/active-directory-b2c-setup-github-app/switch-directories.png)
 
-## <a name="configure-github-as-an-identity-provider-in-your-azure-ad-b2c-tenant"></a>Configure o GitHub como um provedor de identidade em seu locatário do Azure AD B2C
+    Escolha o diretório que contém seu locatário.
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no Portal do Azure.
-1. Na folha de recursos do B2C, clique em **Provedores de identidade**.
-1. Clique em **+Adicionar** , na parte superior da folha.
-1. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "GitHub".
-1. Clique em **Tipo de provedor de identidade**, selecione **GitHub** e clique em **OK**.
-1. Clique em **Configurar este provedor de identidade** e insira a ID do cliente e o segredo do cliente do aplicativo do GitHub OAuth criado anteriormente.
-1. Clique em **OK** e em **Criar** para salvar a configuração do GitHub.
+    ![Selecionar diretório](./media/active-directory-b2c-setup-github-app/select-directory.png)
 
-## <a name="next-steps"></a>Próximas etapas
-
-Criar ou editar um [política interna](active-directory-b2c-reference-policies.md) e adicione o GitHub como um provedor de identidade.
+3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
+4. Escolha **Provedores de identidade** e escolha **Adicionar**.
+5. Forneça um **Nome**. Por exemplo, insira *Github*.
+6. Escolha **Tipo de provedor de identidade**, marque **Github (versão prévia)** e clique em **OK**.
+7. Escolha **Configurar este provedor de identidade** e insira o ID do Cliente que você registrou anteriormente como a **ID do Cliente** e insira o Segredo do Cliente que você registrou como o **Segredo do Cliente** do aplicativo de conta do Github criado anteriormente.
+8. Clique em **OK** e em **Criar** para salvar a configuração de conta do GitHub.

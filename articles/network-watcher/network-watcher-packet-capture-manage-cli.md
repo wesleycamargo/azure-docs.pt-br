@@ -1,6 +1,6 @@
 ---
-title: Gerenciar capturas de pacote com o Observador de Rede do Azure – CLI 2.0 do Azure | Microsoft Docs
-description: Esta página explica como gerenciar o recurso de captura de pacote do Observador de Rede usando a CLI 2.0 do Azure
+title: Gerenciar capturas de pacote com o Observador de Rede do Azure - CLI do Azure | Microsoft Docs
+description: Esta página explica como gerenciar o recurso de captura de pacote do Observador de Rede usando a CLI do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c0b65411e9846077036e16204b7a407c6c7ee9e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261762"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090479"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI 2.0 do Azure
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
-> - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
+> - [portal do Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
 Captura de pacote do Observador de Rede permite que você crie sessões de captura para controlar o tráfego em uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.

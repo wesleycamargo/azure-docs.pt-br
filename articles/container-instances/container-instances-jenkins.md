@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887684"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072068"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
@@ -92,31 +92,21 @@ O Jenkins agora está configurado e pronto para compilar e implantar código. Pa
 
 ## <a name="create-a-build-job"></a>Criar um trabalho de build
 
-Ao usar uma imagem de contêiner como um destino de build do Jenkins, é necessário especificar uma imagem que inclua todas as ferramentas necessárias para um build com êxito. Para especificar a imagem:
+Agora, um trabalho de build do Jenkins é criado para demonstrar builds dos Jenkins em uma instância de contêiner do Azure.
 
-1. Selecione **Gerenciar Jenkins** > **Configurar Sistema** e role até a seção **Nuvem**. Neste exemplo, atualize o valor de imagem do Docker para **microsoft/java-on-azure-jenkins-slave**.
-
-   Quando terminar, clique em **Salvar** para retornar ao painel do Jenkins.
-
-   ![Configuração de nuvem do Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Agora, crie um trabalho de build do Jenkins. Selecione **Novo Item**, dê ao projeto de build um nome como **aci-java-demo**, selecione **Freestyle project** e selecione **OK**.
+1. Selecione **Novo Item**, dê ao projeto de build um nome como **aci-demo**, selecione **Freestyle project** e selecione **OK**.
 
    ![Caixa para o nome do trabalho de compilação e a lista de tipos de projeto](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Em **Geral**, assegure-se de que **Restringir onde este projeto pode ser executado** está selecionado. Insira **linux** para a expressão de rótulo. Essa configuração assegura que esse trabalho de build execute na nuvem do ACI.
+2. Em **Geral**, assegure-se de que **Restringir onde este projeto pode ser executado** está selecionado. Insira **linux** para a expressão de rótulo. Essa configuração assegura que esse trabalho de build execute na nuvem do ACI.
 
    ![Guia "Geral" com detalhes de configuração](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Em **gerenciamento de código-fonte**, **Git** e insira **https://github.com/spring-projects/spring-petclinic.git** para o repositório URL. Este repositório do GitHub contém o código do aplicativo de exemplo.
+3. Sob **Build**, selecione **Adicionar etapa de compilação** e selecione **Executar Shell**. Insira `echo "aci-demo"` como o comando.
 
-   ![Guia "Gerenciamento de código de origem" com informações do código fonte](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Em **Compilar**, selecione **Adicionar etapa de build** e, em seguida, **Invocar destinos de nível superior do Maven**. Insira o **pacote** como a meta da etapa de build.
-
-   ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Clique em **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="run-the-build-job"></a>Executar o trabalho de build
 

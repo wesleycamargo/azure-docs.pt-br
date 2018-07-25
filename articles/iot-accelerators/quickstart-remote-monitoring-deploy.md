@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37087875"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004311"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Implantar uma solução de monitoramento remoto baseado em nuvem
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitoramento remoto baseado em nuvem
 
-Este início rápido mostra como implantar o acelerador de solução de Monitoramento Remoto do Azure IoT para uso como uma solução de monitoramento remoto baseado em nuvem por seus dispositivos IoT. Depois que você implantar o acelerador de solução, pode usar a página **Painel** da solução para visualizar os dispositivos simulados em um mapa e a página **Manutenção** para responder a um alerta de pressão de um dispositivo resfriador simulado.
+Este início rápido mostra como implantar o acelerador de solução de Monitoramento Remoto do Azure IoT para execução como uma simulação de monitoramento remoto baseado em nuvem. Depois que você implantar o acelerador de solução, pode usar a página **Painel** da solução para visualizar os dispositivos simulados em um mapa e a página **Manutenção** para responder a um alerta de pressão de um dispositivo resfriador simulado. Você pode usar esse acelerador de solução como o ponto de partida para sua própria implementação ou como uma ferramenta de aprendizado.
 
-A implantação padrão configura o acelerador de solução de Monitoramento Remoto para uma empresa chamada Contoso. A Contoso gerencia um conjunto de diferentes tipos de dispositivos, como resfriadores, implantados em ambientes físicos diferentes. Um dispositivo resfriador envia telemetria de temperatura, umidade e pressão para o acelerador de solução de Monitoramento Remoto.
-
-## <a name="prerequisites"></a>Pré-requisitos
+A implantação inicial configura o acelerador de solução de Monitoramento Remoto para uma empresa chamada Contoso. A Contoso gerencia um conjunto de diferentes tipos de dispositivos, como resfriadores, implantados em ambientes físicos diferentes. Um dispositivo resfriador envia telemetria de temperatura, umidade e pressão para o acelerador de solução de Monitoramento Remoto.
 
 Para concluir este início rápido, você precisará de uma assinatura do Azure ativa.
 
@@ -42,9 +40,9 @@ Na página **Criar solução de Monitoramento Remoto**, selecione uma implantaç
 
 Escolha **.NET** como linguagem. As implementações de Java e .NET têm recursos idênticos.
 
-Insira um **Nome de solução** exclusivo para o acelerador de solução de Monitoramento Remoto.
+Insira um **Nome de solução** exclusivo para o acelerador de solução de Monitoramento Remoto. Para este início rápido, estamos chamando nosso **contoso-rm2**.
 
-Selecione a **Assinatura** e a **Região** que você deseja usar para o acelerador de solução. Normalmente a região escolhida é a mais próxima de você. Você deve ser um [usuário ou administrador global ](iot-accelerators-permissions.md) na assinatura.
+Selecione a **Assinatura** e a **Região** que você deseja usar para o acelerador de solução. Normalmente a região escolhida é a mais próxima de você. Para este início rápido, estamos usando **Visual Studio Enterprise** e **Europa Ocidental**. Você deve ser um [usuário ou administrador global ](iot-accelerators-permissions.md) na assinatura.
 
 Clique em **Criar solução** para iniciar a implantação. Esse processo leva pelo menos cinco minutos para ser executado:
 
@@ -52,7 +50,7 @@ Clique em **Criar solução** para iniciar a implantação. Esse processo leva p
 
 ## <a name="sign-in-to-the-solution"></a>Entrar na solução
 
-Quando a implantação em sua assinatura do Azure for concluída, você poderá entrar em seu painel do acelerador de solução de Monitoramento Remoto.
+Quando a implantação para sua assinatura do Azure for concluída, você verá uma marca de seleção verde e **Pronto** no bloco da solução. Agora você pode entrar em seu painel de acelerador de solução Monitoramento Remoto.
 
 Na página **Soluções provisionadas**, clique em seu novo acelerador de solução de Monitoramento Remoto:
 
@@ -68,7 +66,7 @@ Clique em **Aceitar** para aceitar a solicitação de permissões. O painel de s
 
 ## <a name="view-your-devices"></a>Exibir dispositivos
 
-O painel da solução mostra as seguintes informações sobre os dispositivos da Contoso:
+O painel da solução mostra as seguintes informações sobre os dispositivos simulados da Contoso:
 
 * **Estatísticas de dispositivo** mostra informações resumidas sobre alertas e o número total de dispositivos. Na implantação padrão, a Contoso tem 10 dispositivos simulados de tipos diferentes.
 
@@ -110,7 +108,7 @@ Para agir no resfriador, role para baixo até **Informações relacionadas**, se
 
 [![Selecionar o dispositivo e agendar uma ação](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-No painel **Trabalhos**, escolha **Executar método**, o método **EmergencyValveRelease**, adicione o nome do trabalho **ChillerPressureRelease** e clique em **Aplicar**. Essas configurações criam um trabalho que é executado imediatamente.
+No painel **Trabalhos**, escolha **Executar método** e então o método **EmergencyValveRelease**. Adicione o nome do trabalho **ChillerPressureRelease** e clique em **Aplicar**. Essas configurações criam um trabalho que é executado imediatamente.
 
 Para exibir o status do trabalho, retorne à página **Manutenção** e exiba a lista de trabalhos no modo de exibição **Trabalhos**. Talvez seja necessário aguardar alguns segundos para poder ver se o trabalho foi executado para liberar a pressão da válvula no resfriador:
 
@@ -132,7 +130,7 @@ O valor na coluna de status muda para **Fechado**.
 
 Se você planeja passar para outros tutoriais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 
-Se você não precisar mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir solução**:
 
 ![Excluir solução](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Se você não precisar mais do acelerador de solução, exclua-o da página [Sol
 
 Neste início rápido, você implantou o acelerador de solução de Monitoramento Remoto e concluiu uma tarefa de monitoramento usando os dispositivos simulados na implantação padrão da Contoso.
 
-Para saber como atualizar o firmware nos dispositivos conectados e organizar os ativos no acelerador de solução, prossiga para o próximo tutorial.
+Para saber mais sobre o acelerador de soluções usando dispositivos simulados, prossiga para o tutorial a seguir.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Monitorar seus dispositivos de IoT](iot-accelerators-remote-monitoring-monitor.md)

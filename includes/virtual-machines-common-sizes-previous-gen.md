@@ -5,15 +5,15 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4b4dcb16adf207b775bd8411848d9e5d69c397a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669791"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906673"
 ---
 Este artigo fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Esses tamanhos ainda podem ser usados, mas as gerações mais recentes estão disponíveis.
 
@@ -21,6 +21,10 @@ Este artigo fornece informações sobre as gerações anteriores de tamanhos de 
 ## <a name="ds-series"></a>Série DS
 
 ACU: 160
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,6 +38,10 @@ ACU: 160
 ## <a name="ds-series---memory-optimized"></a>Série DS - otimizado para memória
 
 ACU: 160 <sup>1</sup>
+
+Armazenamento Premium: com suporte
+
+Cache de Armazenamento Premium: com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,6 +58,10 @@ ACU: 160 <sup>1</sup>
 
 ACU: 160
 
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
+
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 500                 |
@@ -63,6 +75,10 @@ ACU: 160
 
 ACU: 160
 
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
+
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
@@ -75,6 +91,10 @@ ACU: 160
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
 
 ACU: 225
+
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
 
 Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -93,6 +113,10 @@ Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de compu
 
 ACU: 50-100
 
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
@@ -108,6 +132,7 @@ ACU: 50-100
 <sup>1</sup> O tamanho A0 está assinado em excesso no hardware físico. Para este tamanho específico somente, outras implantações de clientes podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é descrito a seguir como a linha de base esperada, sujeito a uma variação aproximada de 15%.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 usando CLI e PowerShell
+
 No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:
 
 * Standard_A0 é ExtraSmall 
@@ -117,6 +142,10 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 * Standard_A4 é ExtraLarge
 
 ## <a name="basic-a"></a>A Básico
+
+Armazenamento Premium: sem suporte
+
+Cache de Armazenamento Premium: sem suporte
 
 Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
 

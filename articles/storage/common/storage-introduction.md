@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653647"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001534"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -140,6 +140,7 @@ Há dois tipos básicos de criptografia disponíveis para os serviços de Armaze
 
 A SSE (Criptografia do Serviço de Armazenamento) do Azure em repouso ajuda a proteger seus dados para atender aos compromissos de conformidade e segurança de sua organização. Com esse recurso, o Armazenamento do Azure criptografa automaticamente seus dados antes de persistir no armazenamento e os descriptografa antes da recuperação. A criptografia, a descriptografia e o gerenciamento de chaves são totalmente transparentes para os usuários.
 
+
 A SSE criptografa automaticamente os dados em todos os níveis de desempenho (Standard e Premium), em todos os modelos de implantação (Azure Resource Manager e Clássico) e em todos os serviços do Armazenamento do Azure (Blobs, Filas, Tabelas e Arquivos). A SSE não afeta o desempenho do Armazenamento do Azure.
 
 Para saber mais sobre a criptografia de SSE em repouso, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
@@ -168,6 +169,8 @@ Você pode usar o utilitário de linha de comando AzCopy para copiar dados de ar
 O AzCopy se baseia na [Biblioteca de Movimentação de Dados do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que atualmente está disponível na visualização.
 
 O serviço de Importação/Exportação do Azure pode ser usado para importar ou exportar grandes quantidades de dados de blobs de ou para sua conta de armazenamento. Você prepara e envia vários discos rígidos para um data center do Azure, onde eles transferirão os dados de/para discos rígidos e enviarão os discos rígidos de volta para você. Para obter mais informações sobre o serviço de Importação/Exportação, consulte [Usar o Serviço de Importação/Exportação do Microsoft Azure para Transferir Dados para o Armazenamento de Blobs](../storage-import-export-service.md).
+
+Para importar grandes quantidades de dados de blob para sua conta de armazenamento rápido, barato e uma maneira confiável, você também pode usar o disco do Azure Data Box. A Microsoft fornece até cinco SSDs (discos de estado sólido) criptografados com capacidade de 40 TB para seu datacenter por meio de uma operadora regional. Você configura rapidamente os discos, copiar dados para discos em uma conexão USB e enviar os discos de volta para o Azure. No datacenter do Azure, seus dados são carregados automaticamente de unidades para a nuvem. Para saber mais sobre essa solução, acesse [Visão geral do disco do Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="pricing"></a>Preços
 

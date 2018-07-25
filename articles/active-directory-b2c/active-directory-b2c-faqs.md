@@ -6,19 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939674"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928725"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ) 
 Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não consigo acessar a extensão do Azure AD B2C no portal do Azure?
+Há duas razões comuns pelas quais a extensão do Azure AD não está funcionando para você.  O Azure AD B2C requer que sua função de usuário no diretório seja administrador global.  Entre em contato com o administrador se você achar que deve ter acesso.  Se você tiver privilégios de administrador global, verifique se está em um diretório do Azure AD B2C, não em um diretório do Azure Active Directory.  Você pode ver as instruções para [Criar um diretório do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário.  Um locatário do Azure AD representa uma organização.  Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável.  Com as políticas personalizadas (em visualização pública), o Azure AD B2C pode se federar ao Azure AD, permitindo a autenticação de funcionários em uma organização.
@@ -97,9 +100,9 @@ Leia este artigo sobre [identidades externas](../active-directory/active-directo
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quais recursos de relatórios e de auditoria são oferecidos pelo AD B2C do Azure? São iguais aos do Azure AD Premium?
 Não, o AD B2C do Azure não dá suporte ao mesmo conjunto de relatórios que o Azure AD Premium. No entanto, há muitos aspectos em comum:
 
-* Os **Relatórios de entrada** só estão disponíveis no portal do Azure (Azure Active Directory > Atividade > Entradas) e não estão disponíveis por meio da API do Graph. Eles fornecem um registro de cada entrada com poucos detalhes.
-* Os **Relatórios de auditoria** só estão disponíveis no portal do Azure (Azure Active Directory > Atividade > Registros de auditoria) e não estão disponíveis por meio da API do Graph. Eles incluem a atividade do administrador e a atividade do aplicativo. 
-* Os **Relatórios de uso** só estão disponíveis por meio da [API de relatórios de uso](active-directory-b2c-reference-usage-reporting-api.md) e não estão disponíveis através do portal do Azure. Eles incluem o número de usuários, o número de logons e o volume de MFA. 
+* Os **relatórios de entrada** fornecem um registro de cada entrada com poucos detalhes.
+* **Relatórios de auditoria** incluem a atividade do administrador e a atividade do aplicativo. 
+* **Relatórios de uso** incluem o número de usuários, o número de logons e o volume de MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface de usuário das páginas atendidas pelo AD B2C do Azure? Quais são os idiomas com suporte?
 Sim!  Leia sobre a [personalização de linguagem](active-directory-b2c-reference-language-customization.md), que está em visualização pública.  Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.

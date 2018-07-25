@@ -5,21 +5,17 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783312"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888360"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -69,8 +65,8 @@ Antes de executar o exemplo, edite o arquivo App.config e, dependendo do cenári
 
 - `tenantId`: defina com o valor **TenantId**.
 - `clientId`: defina com o valor **ApplicationId**. 
-- `clientSecret`: se você quiser fazer logon usando o segredo do cliente, crie-o no Azure AD. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
-- `eventHubNamespaceFQDN`: defina o nome DNS completo do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
+- `clientSecret`: se você quiser entrar usando o segredo do cliente, crie-o no Azure AD. Além disso, use um aplicativo Web ou uma API em vez de um aplicativo nativo. E também adicione o aplicativo no **Controle de Acesso (IAM)** no namespace que você criou anteriormente.
+- `eventHubNamespaceFQDN`: defina o nome DNS totalmente qualificado do namespace dos Hubs de Eventos recém-criado, por exemplo, `example.servicebus.windows.net`.
 - `eventHubName`: defina como o nome do hub de eventos que você criou.
 - O URI de redirecionamento que você especificou no aplicativo nas etapas anteriores.
  

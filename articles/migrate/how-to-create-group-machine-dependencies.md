@@ -4,18 +4,18 @@ description: Descreve como criar uma avaliação usando dependências de máquin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: beae4e2127fc7c0056d4ac05a18f4123cde03d39
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213025"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919702"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas usando o mapeamento de dependências da máquina
 
-Este artigo descreve como criar um grupo de máquinas para avaliação das [Migrações para Azure](migrate-overview.md) visualizando as dependência das máquinas. Normalmente, você usa esse método quando quer avaliar grupos de VMs com níveis mais altos de confiança por meio da verificação das dependências de máquina, antes de executar uma avaliação. A visualização de dependências pode ajudá-lo a planejar de forma eficaz sua migração para o Azure. Isso ajuda a garantir que nada seja deixado para trás e que interrupções surpresa não ocorram quando você estiver migrando para o Azure. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, bem como identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração. 
+Este artigo descreve como criar um grupo de máquinas para avaliação das [Migrações para Azure](migrate-overview.md) visualizando as dependência das máquinas. Normalmente, você usa esse método quando quer avaliar grupos de VMs com níveis mais altos de confiança por meio da verificação das dependências de máquina, antes de executar uma avaliação. A visualização de dependências pode ajudá-lo a planejar de forma eficaz sua migração para o Azure. Isso ajuda a garantir que nada seja deixado para trás e que interrupções surpresa não ocorram quando você estiver migrando para o Azure. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, bem como identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração.
 
 
 ## <a name="prepare-machines-for-dependency-mapping"></a>Preparar as máquinas para mapeamento de dependência
@@ -23,9 +23,12 @@ Para ver as dependências das máquinas, faça o download e instale agentes em c
 
 ### <a name="download-and-install-the-vm-agents"></a>Fazer o download e instalar os agente de VM
 1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
-2. Na coluna **Dependências**, clique em **Instalar agentes**. 
+2. Na coluna **Dependências**, clique em **Instalar agentes**.
 3. Na página **Dependências**, faça o download e instale o MMA (Microsoft Monitoring Agent) e o Agente de dependência em cada VM que você deseja avaliar.
 4. Copie a ID e a chave do espaço de trabalho. Você precisará delas quando instalar o MMA na máquina local.
+
+> [!NOTE]
+> Para automatizar a instalação de agentes, use qualquer ferramenta de implantação, como o System Center Configuration Manager, ou use nossa ferramenta de parceiro, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que tem uma solução de implantação do agente para Migrações para Azure.
 
 ### <a name="install-the-mma"></a>Instalar o MMA
 
@@ -33,8 +36,8 @@ Para instalar o agente em uma máquina com Windows:
 
 1. Clique duas vezes no agente baixado.
 2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
-3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**. 
-4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**. 
+3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
+4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do espaço de trabalho e a chave que você copiou do portal. Clique em **Próximo**.
 
 
@@ -52,7 +55,9 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência. 
+[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operacionais com suporte do Agente de dependência.
+
+[Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
 
 ## <a name="create-a-group"></a>Criar um grupo
 
@@ -62,7 +67,7 @@ Para instalar o agente em uma máquina com Linux:
 4. O mapa de dependências da máquina mostra os seguintes detalhes:
     - Conexões TCP de entrada (clientes) e saída (servidores) para/da máquina
         - As máquinas dependentes que não têm o agente de dependência e o MMA instalado são agrupadas por números de porta
-        - As máquinas dependentes que têm o agente de dependência e o MMA instalado são mostradas como caixas separadas 
+        - As máquinas dependentes que têm o agente de dependência e o MMA instalados aparecem como caixas separadas
     - Quanto aos processos em execução na máquina, você pode expandir cada caixa para exibir os processos
     - Quanto às propriedades como o nome de domínio totalmente qualificado, o sistema operacional, o endereço MAC de cada máquina, você pode clicar na caixa de cada máquina para exibir esses detalhes
 
@@ -70,7 +75,7 @@ Para instalar o agente em uma máquina com Linux:
 
 4. Você pode procurar por dependências em períodos diferentes clicando no período no rótulo de intervalo de tempo. Por padrão, o intervalo é de uma hora. Você pode modificar o intervalo, ou especificar as datas de início e de término e a duração.
 5. Depois de identificar máquinas dependentes que você deseja agrupar, use Ctrl+Clique para selecionar várias máquinas no mapa e clique em **Agrupar máquinas**.
-6. Especifique um nome de grupo. Verifique se as máquinas dependentes foram descobertas pelas Migrações para Azure. 
+6. Especifique um nome de grupo. Verifique se as máquinas dependentes foram descobertas pelas Migrações para Azure.
 
     > [!NOTE]
     > Se uma máquina dependente não for descoberta pelas Migrações para Azure, você não poderá adicioná-lo ao grupo. Para adicionar essas máquinas ao grupo, você precisa executar o processo de descoberta novamente com o escopo correto no vCenter Server e certificar-se de que a máquina seja descoberta pelas Migrações para Azure.  

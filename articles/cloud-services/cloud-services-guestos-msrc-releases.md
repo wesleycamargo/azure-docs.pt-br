@@ -12,17 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737530"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902156"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="june-guest-os"></a>SO convidado de junho
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Segurança do Windows 10 |5.20 |12 de junho de 2018 |
+| Rel 18-06 | [4284867] |Somente Segurança do Windows |2.75 |12 de junho de 2018 |
+| Rel 18-06 | [4284846] |Somente Segurança do Windows |3.62 |12 de junho de 2018 |
+| Rel 18-06 | [4284878] |Somente Segurança do Windows |4.55 |12 de junho de 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 de junho de 2018 |
+| Rel 18-06 | [4287903] |Piscando |3.62, 4.75, 5.20 |12 de junho de 2018 |
+| N/D | [4103718] |Pacote cumulativo de atualizações não relacionado à segurança de maio |2.75 |8 de maio de 2018 |
+| N/D | [4103730] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.62 |8 de maio de 2018 |
+| N/D | [4103725] |Pacote cumulativo de atualizações não relacionado à segurança de maio |4.55 |8 de maio de 2018 |
+| N/D | [4040980], [4040977] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de setembro de 2017 |2.75 |14 de novembro de 2017 |
+| N/D | [4095874] |Pacote cumulativo de atualizações não relacionado à segurança do .NET 3.5 de maio |2.75 |8 de maio de 2018 |
+| N/D | [4096495] |Versão não relacionada à segurança do .NET 4.x de maio |2.75 |8 de maio de 2018 |
+| N/D | [4040975] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de setembro de 2017 |3.62 |14 de novembro de 2017 |
+| N/D | [4095872] |Pacote cumulativo de atualizações não relacionado à segurança do .NET 3.5 de maio |3.62 |8 de maio de 2018 |
+| N/D | [4096494] |Versão não relacionada à segurança do .NET 4.x de maio |3.62 |8 de maio de 2018 |
+| N/D | [4096416] |Pacote cumulativo de atualizações não relacionado à segurança do .NET 4.5x de maio |3.62 |8 de maio de 2018 |
+| N/D | [4040974], [4040972] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de setembro de 2017 |4.55 |14 de novembro de 2017 |
+| N/D | [4043763] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de outubro de 2017 |4.55 |12 de setembro de 2017 |
+| N/D | [4095876] |Versão não relacionada à segurança do .NET 4.x de maio |4.55 |8 de maio de 2018 |
+| N/D | [4096417] |Pacote cumulativo de atualizações não relacionado à segurança do .NET 4.5x de maio |4.55 |8 de maio de 2018 |
+| N/D | [4132216] |SSU de maio |5.20 |8 de maio de 2018 |
 
 ## <a name="may-guest-os"></a>SO convidado de maio
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -648,6 +673,32 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[3007054] |Opção de impressão protegida por PIN sempre mostra quando você imprime um documento em um aplicativo da Windows Store no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
+
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

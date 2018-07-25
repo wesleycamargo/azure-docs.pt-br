@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919114"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070670"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -38,9 +38,12 @@ Este é o terceiro tutorial de uma série. Este tutorial presume que você já t
 Antes de começar, é aconselhável examinar as arquiteturas do [VMware](vmware-azure-architecture.md) ou [Hyper-V](hyper-v-azure-architecture.md) quanto à recuperação de desastre.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Não há suporte para dispositivos exportados por drivers paravirtualizados.
+- Não há suporte para dispositivos exportados por drivers paravirtualizados.
+ 
+> [!WARNING]
+> É possível migrar as VMs em outras plataformas de virtualização (que não sejam VMware, Hyper-V), como o XenServer, tratando as VMs como Servidores Físicos. Essa abordagem no entanto, ainda não foi testada e validada pela Microsoft e pode ou não funcionar. Por exemplo, as VMs em execução na plataforma do XenServer não podem executar no Azure, a menos que as ferramentas do XenServer e armazenamento para-virtualizados e drivers de rede são desinstalados da VM antes de iniciar a migração.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
@@ -109,7 +112,7 @@ Execute um failover para as máquinas que você deseja migrar.
 1. Em **Configurações** > **Itens replicados** clique no computador > **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente.
 3. A configuração de chave de criptografia não é relevante para esse cenário.
-4. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará fazer um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
+4. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará desligar máquinas virtuais antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 5. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
 6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM e interrompe a cobrança do Site Recovery para a VM.
 
@@ -124,7 +127,7 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você migrou máquinas virtuais locais para máquinas virtuais do Azure. Agora é possível configurar a recuperação de desastres para VMs do Azure.
-
-> [!div class="nextstepaction"]
-> [Configurar a recuperação de desastres](azure-to-azure-replicate-after-migration.md) para VMs do Azure após a migração de um site local.
+Neste tutorial, você migrou máquinas virtuais locais para máquinas virtuais do Azure. Agora que você migrou máquinas virtuais com êxito:
+- [Configurar a recuperação de desastre](azure-to-azure-replicate-after-migration.md) para as VMs migradas.
+- Tire proveito dos recursos [Seguros e bem-gerenciados na nuvem](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) do Azure para gerenciar suas VMs no Azure.
+  

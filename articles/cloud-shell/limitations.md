@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590514"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855977"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -31,7 +31,7 @@ O Azure Cloud Shell tem as seguintes limitações conhecidas:
 
 O computador que fornece a sessão do Cloud Shell é temporário e é reciclado após a sessão ficar inativa por 20 minutos. O Cloud Shell exige a montagem de um compartilhamento de arquivos do Azure. Como resultado, sua assinatura deve ser capaz de configurar recursos de armazenamento para acessar o Cloud Shell. Outras considerações incluem:
 
-* Com o armazenamento montado, apenas as modificações no diretório `clouddrive` persistem. No Bash, seu `$Home` diretório também persiste.
+* Com o armazenamento montado, apenas as modificações no diretório `$Home` persistem.
 * Os compartilhamentos de arquivo do Azure só podem ser montados em sua [região atribuída](persisting-shell-storage.md#mount-a-new-clouddrive).
   * No Bash, execute `env` para localizar sua região definida como `ACC_LOCATION`.
 
@@ -63,21 +63,33 @@ Tome cuidado ao editar .bashrc, uma vez que isso pode causar erros inesperados n
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
-### <a name="slow-startup-time"></a>Tempo de inicialização lento
+### <a name="azuread-module-name"></a>Nome do módulo `AzureAD`
 
-O PowerShell no Azure Cloud Shell (Versão prévia) pode levar até 60 segundos para inicializar durante a versão prévia.
+Atualmente, o nome do módulo `AzureAD` é `AzureAD.Standard.Preview`, o módulo fornece a mesma funcionalidade.
 
-### <a name="no-home-directory-persistence"></a>Sem persistência do diretório $Home
+### <a name="sqlserver-module-functionality"></a>Funcionalidade do módulo `SqlServer`
 
-Os dados gravados `$Home` por qualquer aplicativo (como git, vim e outros) não persistem entre as sessões do PowerShell. Para obter uma solução, [veja aqui](troubleshooting.md#powershell-troubleshooting).
+O módulo `SqlServer` incluído no Cloud Shell tem suporte apenas de pré-lançamento para o PowerShell Core. Especificamente, `Invoke-SqlCmd` ainda não está disponível.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Local padrão do arquivo quando criado da unidade do Azure:
 
-Usando cmdlets do PowerShell, os usuários não podem criar arquivos na unidade do Azure. Quando os usuários criam novos arquivos usando outras ferramentas como vim ou nano, os arquivos são salvos na pasta C:\Usuários por padrão. 
+Usando cmdlets do PowerShell, os usuários não podem criar arquivos na unidade do Azure. Quando os usuários criam novos arquivos usando outras ferramentas como vim ou nano, os arquivos são salvos em `$HOME` por padrão. 
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos GUI
 
 Se o usuário executar um comando que cria uma caixa de diálogo do Windows, como `Connect-AzureAD` ou `Connect-AzureRmAccount`, vê-se uma mensagem de erro como a seguinte: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>O preenchimento com Tab trava o PSReadline
+
+Se o EditMode do usuário no PSReadline estiver definido como Emacs, o usuário tentar exibir todas as possibilidades por meio do preenchimento com tab e o tamanho da janela for muito pequeno para exibir todas as possibilidades, o PSReadline falhará.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Intervalo grande depois de exibir a barra de progresso
+
+Se o usuário executa uma ação que exibe uma barra de progresso, por exemplo, um preenchimento de guia na unidade `Azure:`, é possível que o cursor não esteja definido corretamente e uma lacuna apareça onde antes estava a barra de progresso.
+
+### <a name="random-characters-appear-inline"></a>Caracteres aleatórios aparecem embutidos
+
+Os códigos de sequência de posição do cursor, por exemplo `5;13R`, podem aparecer na entrada do usuário.  Os caracteres podem ser removidos manualmente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

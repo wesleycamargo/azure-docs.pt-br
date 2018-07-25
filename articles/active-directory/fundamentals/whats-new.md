@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920807"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136750"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -34,6 +34,44 @@ O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os
 - Planos de alterações
 
 Esta página é atualizada mensalmente; portanto, visite-a regularmente.
+
+---
+
+## <a name="july-2018"></a>Julho de 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Melhorias nas notificações por email do Azure Active Directory
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** outro  
+**Funcionalidade do produto**: gerenciamento do ciclo de vida da identidade
+ 
+No **final de julho de 2018**, os emails do Azure AD (Azure Active Directory) apresentarão um design atualizado, bem como alterações no endereço de email do remetente e no nome de exibição do remetente, quando enviados dos serviços a seguir:
+ 
+- Revisões de acesso do Azure AD
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Gerenciamento de identidades com privilégios do AD do Azure
+- Notificação de certificado expirando do Aplicativo Enterprise
+- Notificações do serviço de provisionamento do Aplicativo Enterprise
+ 
+As notificações por email serão enviadas a partir do seguinte endereço de email e nome de exibição:
+
+- Endereço de email: azure-noreply@microsoft.com
+- Nome de exibição: Microsoft Azure
+ 
+Para obter um exemplo de alguns dos novos designs de email e mais informações, consulte [Notificações por email no PIM do Azure AD](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Veja autenticações herdadas por meio dos logs de atividades de Entradas
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+Com a introdução do campo **Client App** nos logs de atividades de login, os clientes agora podem ver usuários que estão usando autenticações herdadas. Os clientes poderão acessar essas informações usando a API do MS Graph de entradas ou por meio dos logs de atividades de entrada no portal do Azure AD, onde você pode usar o controle **Aplicativo Cliente** para filtrar as autenticações herdadas. Confira a documentação para obter mais detalhes.
+
+---
 
 ## <a name="june-2018"></a>Junho de 2018
 
@@ -242,16 +280,6 @@ Agora, usando políticas personalizadas, você pode adicionar o ponto de extremi
 **Funcionalidade do produto:** SSO
  
 Os usuários agora podem acessar aplicativos por meio de URLs internas, mesmo de fora da rede corporativa, usando a Extensão Logon Protegido dos Meus aplicativos para Azure AD. Isso funcionará com qualquer aplicativo que você tenha publicado usando o Proxy de Aplicativo do Azure AD, em qualquer navegador que também tenha a extensão de navegador do Painel de Acesso instalada. A funcionalidade de redirecionamento de URL é habilitada automaticamente quando um usuário faz logon na extensão. A extensão está disponível para download no [Edge](https://go.microsoft.com/fwlink/?linkid=845176), no [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) e no [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Veja autenticações herdadas por meio dos logs de atividades de Entradas
-
-**Tipo:** novo recurso  
-**Categoria de serviço:** relatórios  
-**Funcionalidade do produto:** monitoramento e relatórios
- 
-Com a introdução do campo **Client App** nos logs de atividades de login, os clientes agora podem ver usuários que estão usando autenticações herdadas. Os clientes poderão acessar essas informações usando a API do MS Graph de entradas ou por meio dos logs de atividades de entrada no portal do Azure AD, onde você pode usar o controle **Aplicativo Cliente** para filtrar as autenticações herdadas. Confira a documentação para obter mais detalhes.
 
 ---
  

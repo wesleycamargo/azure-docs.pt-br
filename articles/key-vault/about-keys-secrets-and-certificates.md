@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636599"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972393"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.
@@ -122,7 +122,7 @@ A versão inicial do Cofre de Chaves do Azure oferece suporte somente a chaves R
 -   **RSA**: uma chave RSA de 2048 bits. Esta é uma chave "soft", que é processada no software pelo Cofre de Chaves, mas é armazenada criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA existente ou solicitar que o Cofre de Chaves do Azure gere uma.  
 -   **RSA-HSM**: uma chave RSA que é processada em um HSM. As chaves RSA-HSM são protegidas em um dos mundos de segurança HSM do Cofre de Chaves do Azure (há um mundo de segurança por localização geográfica para manter o isolamento). Os clientes podem importar uma chave RSA, no formato soft ou por meio da exportação de um dispositivo do HSM compatível, ou solicitar que o Cofre de chaves do Azure gere uma. Esse tipo de chave adiciona o atributo T para o JWK obter para transportar o material de chave do HSM.  
 
-     Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmos RSA  
  Os seguintes identificadores de algoritmo são compatíveis com chaves RSA no Cofre de Chaves do Azure.  
@@ -172,7 +172,7 @@ O Cofre de Chaves do Azure suporta as seguintes operações em objetos de chave:
 -   **Backup**: exporta uma chave de forma protegida.  
 -   **Restaurar**: importa uma chave de backup anterior.  
 
-Para obter mais informações, consulte [Operações de chave](/rest/api/keyvault/key-operations.md).  
+Para saber mais, confira [Operações de chave](/rest/api/keyvault/key-operations).  
 
 Quando uma chave tiver sido criada no Cofre de Chaves do Azure, as seguintes operações criptográficas podem ser executadas usando a chave:  
 
@@ -281,7 +281,7 @@ As seguintes permissões podem ser usadas, por entidade de segurança, na entrad
 -   *excluir*: excluir o segredo  
 -   *todas*: todas as permissões  
 
-Para obter mais informações sobre como trabalhar com segredos, consulte [Operações de segredo](/rest/api/keyvault/secret-operations.md).  
+Para obter mais informações sobre como trabalhar com segredos, consulte [Operações de segredo](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Cofre de Chaves do Azure oferece suporte a até 15 marcas, cada um deles pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -443,9 +443,9 @@ Se uma política de certificado for definida como renovação automática, uma n
 
 ## <a name="additional-information-for-certificates"></a>Informações adicionais sobre certificados
 
-- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies.md)
-- [Emissores de certificado](/rest/api/keyvault/certificate-issuers.md)
-- [Contatos de certificado](/rest/api/keyvault/certificate-contacts.md)
+- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies)
+- [Emissores de certificado](/rest/api/keyvault/certificate-issuers)
+- [Contatos de certificado](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Veja também
 

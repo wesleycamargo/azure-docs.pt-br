@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "23059921"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718933"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como usar serviço de email SendGrid do PHP
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são escritas em PHP.
@@ -47,7 +47,7 @@ O uso do SendGrid em um aplicativo PHP Azure não exige configuração ou codifi
 É possível enviar emails usando o SMTP ou a API Web fornecida pelo SendGrid.
 
 ### <a name="smtp-api"></a>API do SMTP
-Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e classes do <span class="auto-style2">Swift\_Message</span>, a definição das propriedades adequadas e a chamada do método <span class="auto-style2">Swift\_Mailer::send</span>.
+Para enviar email usando a API do SMTP do SendGrid, use o *Swift Mailer*, uma biblioteca baseada em componente para envio de emails de aplicativos PHP. Você pode baixar a biblioteca do *Swift Mailer* em [http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0 (use o [Compositor] para instalar o Swift Mailer). O envio de email pela biblioteca envolve a criação de instâncias do <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e classes do <span class="auto-style2">Swift\_Message</span>, a definição das propriedades adequadas e a chamada do método <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";

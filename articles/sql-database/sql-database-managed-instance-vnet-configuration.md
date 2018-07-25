@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309326"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091597"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar VNet para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -59,8 +59,9 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 
 - O Azure usa cinco endereços IP na sub-rede para necessidades próprias 
 - Cada instância de Uso Geral precisa de dois endereços 
+- Cada instância Comercialmente Crítica precisa de quatro endereços
 
-**Exemplo**: você planeja ter oito Instâncias Gerenciadas. Isso significa que você precisa de 5 + 8 * 2 = 21 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27. 
+**Exemplo**: Você planeja ter três Usos Gerais e duas instâncias Gerenciadas Comercialmente Críticas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>Criar uma nova rede virtual para Instâncias Gerenciadas 
 
@@ -93,7 +94,7 @@ Criar uma rede virtual do Azure é um pré-requisito para a criação de uma Ins
 
 ## <a name="create-the-required-route-table-and-associate-it"></a>Criar a tabela de rotas necessária e associá-la
 
-1. Entrar no Portal do Azure  
+1. Entre no Portal do Azure  
 2. Localize e clique em **Tabela de rotas** e, em seguida, clique em **Criar** na página Tabela de rotas.
 
    ![formulário de criação da tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)

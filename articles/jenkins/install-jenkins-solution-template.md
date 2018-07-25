@@ -11,11 +11,11 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29936570"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635451"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor Jenkins em uma VM Linux do Azure no portal do Azure
 
@@ -45,7 +45,7 @@ Configure o túnel usando o comando `ssh` na página a partir da linha de comand
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Depois de iniciar o túnel, navegue para http://localhost:8080/ em seu computador local. 
+Depois de iniciar o túnel, navegue para http://localhost:8080/ no computador local. 
 
 Obtenha a senha inicial executando o comando abaixo na linha de comando, enquanto estiver conectado à VM Jenkins por meio do SSH.
 
@@ -77,7 +77,7 @@ Selecione a guia **Build** e selecione **Adicionar etapa de compilação**, **In
 
 ![Use o wrapper Gradle para compilar](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Selecione **Avançado** e digite `complete` no campo **Script da Compilação da Raiz**. Selecione **Salvar**.
+Selecione **Avançado** e digite `complete` no campo **Script da Compilação da Raiz**. Clique em **Salvar**.
 
 ![Definir as configurações avançadas na etapa de compilação do wrapper Gradle](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

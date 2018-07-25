@@ -8,16 +8,14 @@
       items:
         - name: atualização 1805
           href: azure-stack-update-1805.md
-        - name: 1804 atualização
+        - name: atualização do 1804
           href: azure-stack-update-1804.md
-        - name: atualização 1803
+        - name: atualização do 1803
           href: azure-stack-update-1803.md
-        - name: atualização 1802
-          href: azure-stack-update-1802.md
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Avaliar a pilha do Azure
+    - name: Avaliar o Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Tutoriais
   items:
@@ -31,7 +29,7 @@
   items:
     - name: Integração do datacenter
       items:
-        - name: Considerações sobre a integração geral do Azure pilha
+        - name: Considerações sobre a integração geral do Azure Stack
           href: azure-stack-datacenter-integration.md
         - name: Modelos de conexão de implantação de pilha do Azure
           href: azure-stack-connection-models.md
@@ -41,7 +39,7 @@
           href: azure-stack-disconnected-deployment.md
         - name: Integração de rede do Datacenter
           items:
-            - name: Integração da rede
+            - name: Integração de rede
               href: azure-stack-network.md
             - name: Conectividade de borda
               href: azure-stack-border-connectivity.md
@@ -94,7 +92,7 @@
   items:
     - name: Configurar a coleta de telemetria
       href: azure-stack-telemetry.md
-    - name: Registrar a pilha do Azure
+    - name: Registrar o Azure Stack
       href: azure-stack-registration.md
     - name: Gerenciar
       items:
@@ -122,15 +120,15 @@
               href: azure-stack-updates.md
             - name: Aplicar atualizações
               href: azure-stack-apply-updates.md
-            - name: Status de atualização do monitor
+            - name: Monitorar o status de atualização
               href: azure-stack-monitor-update.md
         - name: Monitorar integridade e alertas
           href: azure-stack-monitor-health.md
         - name: Gerenciar recursos de rede
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Alterar o proprietário da assinatura usuário
+        - name: Alterar proprietário da assinatura de usuário
           href: azure-stack-change-subscription-owner.md
-        - name: Iniciar e parar a pilha do Azure
+        - name: Iniciar e parar o Azure Stack
           href: azure-stack-start-and-stop.md
         - name: Gerenciar a capacidade
           items:
@@ -150,18 +148,18 @@
               href: azure-stack-replace-disk.md
             - name: Substitua o componente
               href: azure-stack-replace-component.md
-        - name: Fazer backup do Azure pilha
+        - name: Fazer backup do Azure Stack
           href: azure-stack-backup-infrastructure-backup.md
           items:
-            - name: Habilitar o Backup para a pilha do Azure pelo console de administração
+            - name: Habilitar o Backup para o Azure Stack no console de administração
               href: azure-stack-backup-enable-backup-console.md
-            - name: Habilitar o Backup para a pilha do Azure com o PowerShell
+            - name: Habilitar o Backup para o Azure Stack com o PowerShell
               href: azure-stack-backup-enable-backup-powershell.md
-            - name: Fazer backup do Azure pilha
+            - name: Fazer backup do Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
             - name: Fazer backup de arquivos e aplicativos no Azure Stack
               href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
-            - name: Recuperação de perda de dados catastrófica
+            - name: Recuperar da perda de dados catastrófica
               href: azure-stack-backup-recover-data.md
             - name: Práticas recomendadas de backup
               href: azure-stack-backup-best-practices.md
@@ -213,7 +211,7 @@
               href: azure-stack-quota-types.md
         - name: Visão geral dos serviços PaaS
           href: azure-stack-tools-paas-services.md
-        - name: Oferecer SQL como PaaS
+        - name: Oferta do SQL como PaaS
           href: azure-stack-sql-resource-provider.md
           items:
             - name: Implantar o provedor de recursos do SQL Server
@@ -228,7 +226,7 @@
               href: azure-stack-sql-resource-provider-maintain.md
             - name: Remover o provedor de recursos do SQL Server
               href: azure-stack-sql-resource-provider-remove.md
-        - name: Oferecer MySQL como PaaS
+        - name: Oferta de MySQL como PaaS
           href: azure-stack-mysql-resource-provider.md
           items:
             - name: Implantar o provedor de recursos do servidor MySQL
@@ -251,7 +249,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Antes de começar
               href: azure-stack-app-service-before-you-get-started.md
-            - name: Como redistribuir o serviço de aplicativo do Azure na pilha do Azure em domínios de falha
+            - name: Como redistribuir o serviço de aplicativo do Azure no Azure Stack em domínios de falha
               href: azure-stack-app-service-fault-domain-update.md
             - name: Implantar provedor de recursos do Serviço de Aplicativo
               href: azure-stack-app-service-deploy.md
@@ -259,15 +257,15 @@
               href: azure-stack-app-service-deploy-offline.md
             - name: Atualizar serviço de aplicativo
               href: azure-stack-app-service-update.md
-            - name: Atualização do serviço de aplicativo Offline
+            - name: Atualizar o serviço de aplicativo Offline
               href: azure-stack-app-service-update-offline.md
             - name: Adicionar mais funções de trabalho da Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurar fontes de implantação
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Serviço de aplicativo no Azure pilha update 1 notas
+            - name: Serviço de aplicativo no Azure Stack update notas de versão 1
               href: azure-stack-app-service-release-notes-update-one.md
-            - name: Serviço de aplicativo em notas de versão de atualização 2 de pilha do Azure
+            - name: Serviço de aplicativo em notas de versão de atualização 2 do Azure Stack
               href: azure-stack-app-service-release-notes-update-two.md
         - name: Implantar Ethereum
           href: azure-stack-ethereum.md
@@ -277,21 +275,21 @@
               href: azure-stack-marketplace.md
             - name: Baixar itens do marketplace
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Itens do Marketplace do Azure para a pilha do Azure
+            - name: Itens do Marketplace do Azure para o Azure Stack
               href: azure-stack-marketplace-azure-items.md
             - name: Criar e publicar um item do marketplace
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Use a ferramenta de publicação do marketplace
               href: azure-stack-marketplace-publisher.md
-            - name: Sistemas operacionais convidados com suporte de pilha do Azure
+            - name: Sistemas operacionais convidados com suporte para o Azure Stack
               href: azure-stack-supported-os.md
             - name: Adicionar uma imagem de máquina virtual personalizada
               href: azure-stack-add-vm-image.md
-            - name: Oferece um conjunto de escala de máquinas virtuais
+            - name: Oferecer um conjunto de dimensionamento de máquina virtual
               href: azure-stack-compute-add-scalesets.md
             - name: Oferecer máquinas virtuais do Linux
               href: azure-stack-linux.md
-            - name: Adicionar uma máquina virtual de Red Hat
+            - name: Adicionar uma máquina virtual do Red Hat
               href: azure-stack-redhat-create-upload-vhd.md
             - name: Oferecer um Cluster Kubernetes
               href: azure-stack-solution-template-kubernetes-cluster-add.md
@@ -301,15 +299,15 @@
             - name: Gerenciar o uso e cobrança como um CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
               items:
-                - name: Adicionar locatários pelo uso e cobrança
+                - name: Adicionar locatários para uso e cobrança
                   href: azure-stack-csp-howto-register-tenants.md
-                - name: Gerenciar o registro do inquilino
+                - name: Gerenciar registro do inquilino
                   href: azure-stack-csp-ref-operations.md
-            - name: Uso e cobrança referência
+            - name: Uso e cobrança de referência
               items:
                 - name: Relatórios de dados de uso
                   href: azure-stack-usage-reporting.md
-                - name: Uso de infraestrutura de relatório para provedores de serviços de nuvem
+                - name: Uso de infraestrutura de relatórios para provedores de serviços de nuvem
                   href: azure-stack-csp-ref-infrastructure.md
                 - name: API de uso do provedor
                   href: azure-stack-provider-resource-api.md
@@ -321,7 +319,7 @@
           items:
             - name: Conectar-se usando VPN
               href: azure-stack-connect-vpn.md
-            - name: Sobre o gateway VPN
+            - name: Sobre o gateway de VPN
               href: azure-stack-vpn-gateway-about-vpn-gateways.md
             - name: Configurações de gateway VPN
               href: azure-stack-vpn-gateway-settings.md
@@ -333,7 +331,7 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnósticos no Azure Stack
           href: azure-stack-diagnostics.md
-        - name: Validação de pilha do Azure
+        - name: Validação para o Azure Stack
           href: azure-stack-diagnostic-test.md
 - name: Referência
   items:

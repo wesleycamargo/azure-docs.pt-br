@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9eefbdb8acd7dff14817c8358a05ae0f91e5eb11
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 360c6c98227e52f0540b00ef136888d3d143b9fb
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218870"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951067"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services – Alertas de solução de problemas
 Este artigo fornece guias de solução de problemas para quaisquer alertas que podem ocorrer em seu domínio gerenciado.
@@ -39,7 +39,7 @@ Escolha as etapas de solução de problemas que correspondem à ID ou mensagem d
 | AADDS105 | *A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.* | [O aplicativo de sincronização de senha está desatualizado](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *O domínio gerenciado foi sincronizado pela última vez com o Azure AD em [data]. Os usuários poderão não conseguir entrar no domínio gerenciado ou as associações de grupo poderão não ser sincronizadas com o Microsoft Azure Active Directory.* | [A sincronização não é realizada há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *O backup do domínio gerenciado foi feito pela última vez em [data].* | [O backup não é realizado há algum tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *O certificado LDAP seguro para o domínio gerenciado expira em XX.* | [Certificado LDAP seguro perto de expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *O certificado LDAP seguro para o domínio gerenciado expirará em [data]].* | [Certificado LDAP seguro perto de expirar](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *O domínio gerenciado está suspenso porque a assinatura do Azure associada ao domínio não está ativa.* | [Suspensão devido a uma assinatura desativada](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *O domínio gerenciado está suspenso devido a uma configuração inválida. O serviço foi não tem conseguido gerenciar, aplicar patches ou atualizar os controladores de domínio para seu domínio gerenciado há muito tempo.* | [Suspensão devido a uma configuração inválida](#aadds504-suspension-due-to-an-invalid-configuration) |
 
@@ -112,6 +112,9 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 
 [Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Às vezes, problemas com sua configuração podem impedir que a Microsoft sincronize seu domínio gerenciado. Se você conseguir resolver os alertas, aguarde duas horas e veja de novo se a sincronização foi concluída.
 
+Veja alguns motivos comuns pelos quais a sincronização é interrompida em domínios gerenciados:
+- A conexão de rede é bloqueada no domínio gerenciado. Para saber mais sobre a verificação da rede para localizar problemas, leia como a [solucionar problemas de Grupos de Segurança de Rede](active-directory-ds-troubleshoot-nsg.md) e [requisitos de rede para o Azure AD Domain Services](active-directory-ds-networking.md).
+-  A sincronização de senha nunca foi configurada ou concluída. Para configurar a sincronização de senha, leia [este artigo](active-directory-ds-getting-started-password-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: O backup não é realizado há algum tempo
 
@@ -132,6 +135,9 @@ Dentro da rede virtual, as máquinas podem fazer solicitações para recursos do
 
 **Resolução:**
 
+> [!WARNING]
+> Se seu domínio gerenciado ficar suspenso por um longo período de tempo, correrá o risco de ser excluído. É melhor tratar da suspensão assim que possível. Para ler mais, acesse [este artigo](active-directory-ds-suspension.md).
+
 Para restaurar seu serviço, [renove sua assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associada a seu domínio gerenciado.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Suspensão devido a uma configuração inválida
@@ -142,7 +148,11 @@ Para restaurar seu serviço, [renove sua assinatura do Azure](https://docs.micro
 
 **Resolução:**
 
+> [!WARNING]
+> Se seu domínio gerenciado ficar suspenso por um longo período de tempo, correrá o risco de ser excluído. É melhor tratar da suspensão assim que possível. Para ler mais, acesse [este artigo](active-directory-ds-suspension.md).
+
 [Verifique a integridade do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na configuração do seu domínio gerenciado. Se puder resolver esses alertas, resolva. Depois, contate o suporte para habilitar novamente a sua assinatura.
+
 
 ## <a name="contact-us"></a>Fale conosco
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

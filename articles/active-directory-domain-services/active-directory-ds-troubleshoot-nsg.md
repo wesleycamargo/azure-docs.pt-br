@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 807dd2bdcc1e2ad18b1a93c3337c8244e3f1366b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 67f4f0850d0600fc7ca0f1323e7c7801187089f5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218972"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950727"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de rede inválida para o domínio gerenciado
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à rede que resultam na seguinte mensagem de alerta:
@@ -35,8 +35,8 @@ Configurações inválidas do NSG são a causa mais comum de erros de rede para 
 1. Navegue até a página [Grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) no portal do Azure
 2. Na tabela, escolha o NSG associado à sub-rede na qual o domínio gerenciado está habilitado.
 3. Em **Configurações** no painel esquerdo, clique em **Regras de segurança de entrada**
-4. Examine as regras em vigor e identifique quais regras estão bloqueando o acesso a [essas portas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
-5. Edite o NSG para garantir a conformidade excluindo a regra, adicionando uma regra, ou criando um NSG completamente novo. As etapas para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [criar um novo NSG compatível](#create-a-nsg-for-azure-ad-domain-services-using-powershell) estão abaixo.
+4. Examine as regras em vigor e identifique quais regras estão bloqueando o acesso a [essas portas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
+5. Edite o NSG para garantir a conformidade excluindo a regra, adicionando uma regra, ou criando um NSG completamente novo. As etapas para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [criar um novo NSG compatível](#create-a-nsg-for-azure-ad-domain-services-using-powershell) estão abaixo
 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um exemplo de NSG que manteria seu domínio gerenciado seguro ao mesmo tempo em que permitiria o monitoramento, gestão e atualização das informações pela Microsoft.
@@ -49,7 +49,7 @@ A tabela a seguir ilustra um exemplo de NSG que manteria seu domínio gerenciado
 ## <a name="add-a-rule-to-a-network-security-group-using-the-azure-portal"></a>Adicionar uma regra a um Grupo de Segurança de Rede usando o Portal do Azure
 Se você não quiser usar o PowerShell, você pode adicionar manualmente regras únicas para os NSGs usando o portal do Azure. Conclua estas etapas para criar regras no seu Grupo de Segurança de Rede:
 
-1. Navegue até a página [Grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) no portal do Azure
+1. Navegue até a página [Grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) no portal do Azure.
 2. Na tabela, escolha o NSG associado à sub-rede na qual o domínio gerenciado está habilitado.
 3. Em **Configurações**, no painel de navegação esquerdo, clique em **Regras de segurança de entrada** ou em **Regras de segurança de saída**.
 4. Crie a regra clicando em **Adicionar** e preenchendo as informações. Clique em **OK**.

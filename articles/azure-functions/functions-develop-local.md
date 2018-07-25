@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: glenga
-ms.openlocfilehash: 89f94be4cf624914183480362ae23c62c363622f
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e82981471306c9a9d09751da15256e85b770eb1a
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088378"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125032"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
 
@@ -30,7 +30,7 @@ A maneira como você desenvolve funções em seu computador local depende de seu
 
 |Ambiente                              |Linguagens         |DESCRIÇÃO|
 |-----------------------------------------|------------|---|
-| [Prompt de comando ou terminal](functions-run-local.md) | [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Ferramentas básicas do Azure Functions] fornece os principais tempos de execução e modelos para a criação de funções, o que permite o desenvolvimento local. Desenvolvimento de suporte à versão 2.x em Linux, MacOS e Windows. Todos os ambientes contam com ferramentas essenciais para o tempo de execução local do Functions.|
+| [Prompt de comando ou terminal](functions-run-local.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script do C# (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [Java](functions-reference-java.md) | [Ferramentas básicas do Azure Functions] fornece os principais tempos de execução e modelos para a criação de funções, o que permite o desenvolvimento local. A versão 2.x oferece suporte a desenvolvimento em Linux, MacOS e Windows. Todos os ambientes contam com ferramentas essenciais para o tempo de execução local do Functions. |
 |[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | A [extensão do Azure Functions para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona suporte ao Functions para o VS Code. Requer as Ferramentas Essenciais. Oferece suporte ao desenvolvimento em Linux, MacOS e Windows ao usar a versão 2.x das Ferramentas Essenciais. Para saber mais, confira [Implantar no Azure usando o Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).  |
 | [Visual Studio 2017](functions-develop-vs.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md) | As ferramentas do Azure Functions estão incluídas na carga de trabalho de **desenvolvimento do Azure** do [Visual Studio 2017 versão 15.5](https://www.visualstudio.com/vs/) e posterior. Permite que você compile funções em uma biblioteca de classes e publique o arquivo .dll no Azure. Inclui as Ferramentas Essenciais para teste local. Para saber mais, consulte [Desenvolver Azure Functions usando o Visual Studio](functions-develop-vs.md). |
 | [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | Integra-se com as Ferramentas Essenciais para habilitar o desenvolvimento de funções Java. A versão 2.x oferece suporte a desenvolvimento em Linux, MacOS e Windows. Para saber mais, consulte [Criar sua primeira função com Java e Maven](functions-create-first-java-maven.md).|
@@ -48,5 +48,5 @@ Cada um desses ambientes de desenvolvimento local permite criar projetos de apli
 <!-- LINKS -->
 
 [Ferramentas básicas do Azure Functions]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751771"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856939"
 ---
 # <a name="understanding-policy-effects"></a>Compreendendo os efeitos da política
 
@@ -125,11 +125,11 @@ Exemplo: usando o efeito negar.
 
 ## <a name="audit"></a>Audit
 
-O efeito auditoria é usado para criar um evento de aviso no log de auditoria quando um recurso não conforme é avaliado, mas não interrompe a solicitação.
+O efeito auditoria é usado para criar um evento de aviso no log de atividade quando um recurso não conforme é avaliado, mas não interrompe a solicitação.
 
 ### <a name="audit-evaluation"></a>Avaliação do efeito auditoria
 
-O efeito auditoria é o último a ser executado durante a criação ou atualização de um recurso antes de o recurso ser enviado para o provedor de recursos. O efeito auditoria funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação, executando uma operação `Microsoft.Authorization/policies/audit/action` para o Log de Atividades. Em ambos os casos, o recurso é marcado como não compatível.
+O efeito auditoria é o último a ser executado durante a criação ou atualização de um recurso antes de o recurso ser enviado para o provedor de recursos. O efeito auditoria funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação, executando uma operação `Microsoft.Authorization/policies/audit/action` para o log de atividades. Em ambos os casos, o recurso é marcado como não compatível.
 
 ### <a name="audit-properties"></a>Propriedades do efeito auditoria
 
@@ -151,7 +151,7 @@ O efeito AuditIfNotExists habilita a auditoria em um recurso que corresponde à 
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação do efeito AuditIfNotExists
 
-O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização para um recurso e ter retornado um código de status de êxito. O efeito é acionado se não existirem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliadas como verdadeiros. Quando o efeito é disparado, uma operação `Microsoft.Authorization/policies/audit/action` para o Log de Atividades é executada a da mesma maneira como o efeito auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
+O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização para um recurso e ter retornado um código de status de êxito. O efeito é acionado se não existirem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliadas como verdadeiros. Quando o efeito é disparado, uma operação `Microsoft.Authorization/policies/audit/action` para o log de atividades é executada a da mesma maneira como o efeito auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades do efeito AuditIfNotExists
 

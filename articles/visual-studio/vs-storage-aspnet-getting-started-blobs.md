@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696558"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070548"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 
@@ -135,11 +135,11 @@ As seguintes etapas ilustram como criar um contêiner de blobs:
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta **Modos de Exibição**.
 
-2. No menu de contexto, selecione **Adicionar** > **Nova Pasta**. Nomeie a nova pasta *Blobs*. 
+1. Se não houver uma plasta **Blobs**, crie uma. No menu de contexto, selecione **Adicionar** > **Nova Pasta**. Nomeie a nova pasta *Blobs*. 
  
 1. Em **Gerenciador de Soluções**, expanda a pasta **Modos de Exibição** e clique com o botão direito em **Blobs**.
 
-4. No menu de contexto, selecione **Adicionar** > **Exibir**.
+1. No menu de contexto, selecione **Adicionar** > **Exibir**.
 
 1. Na caixa de diálogo **Adicionar Exibição**, insira **CreateBlobContainer** para o nome da exibição e selecione **Adicionar**.
 

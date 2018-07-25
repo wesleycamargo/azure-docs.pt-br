@@ -4,14 +4,14 @@ description: Descreve como avaliar grandes números de computadores locais usand
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214684"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919855"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -23,6 +23,31 @@ As Migrações para Azure têm um limite de 1500 computadores por projeto e este
 - **Conta do vCenter**: você precisa de uma conta de somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.
 - **Permissões**: no vCenter Server, você precisa de permissões para criar uma VM importando um arquivo no formato OVA.
 - **Configurações de estatísticas**: as configurações de estatísticas para o vCenter Server devem ser definidas para o nível 3 antes de se iniciar a implantação. Se o nível for inferior ao 3, a avaliação funcionará, mas os dados de desempenho para armazenamento e rede não serão coletados. As recomendações de tamanho nesse caso serão feitas com base nos dados de desempenho para CPU e memória e nos dados de configuração para os adaptadores de rede e de disco.
+
+
+### <a name="set-up-permissions"></a>Configurar permissões
+
+As Migrações para Azure precisam de acesso aos servidores VMware para descobrir automaticamente as VMs para avaliação. A conta do VMware precisa das seguintes permissões:
+
+- Tipo de usuário: pelo menos um usuário somente leitura
+- Permissões: Objeto de Data Center –> Propagar para o Objeto Filho, role=Read-only
+- Detalhes: usuário atribuído no nível de datacenter e tem acesso a todos os objetos no datacenter.
+- Para restringir o acesso, atribua a função Nenhum acesso com Propagar para objeto filho aos objetos filho (hosts vSphere, armazenamentos de dados, VMs e redes).
+
+Se você estiver implantando em um ambiente de locatário, está é uma maneira de configurar isso:
+
+1.  Crie um usuário por locatário e, usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribua permissões somente leitura a todas as VMs que pertencem a um locatário específico. Em seguida, use essas credenciais para a descoberta. O RBAC garante que o usuário correspondente do vCenter tenha acesso apenas às VMs específicas ao locatário.
+2. Você pode configurar o RBAC para usuários de locatários diferentes, conforme descrito no exemplo a seguir para Usuário#1 e Usuário#2:
+
+    - Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o coletor usará para descobrir VMs
+    - Datacenter1 - dê permissões somente leitura para o Usuário#1 e o Usuário#2. Não propague as permissões para todos os objetos filho, pois você definirá permissões na VM individual.
+
+      - VM1 (Locatário#1) (Permissão somente leitura para o Usuário#1)
+      - VM2 (Locatário#1) (Permissão somente leitura para o Usuário#1)
+      - VM3 (Locatário#2) (Permissão somente leitura para o Usuário#2)
+      - VM4 (Locatário#2) (Permissão somente leitura para o Usuário#2)
+
+   - Se você executar a descoberta usando as credenciais do Usuário#1, apenas a VM1 e a VM2 serão descobertas.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planejar descobertas e projetos de migração
 
@@ -100,6 +125,14 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
    Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Verifique se o hash gerado corresponde às configurações a seguir.
+
+    Para a versão OVA 1.0.9.12
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     Para a versão OVA 1.0.9.8
 

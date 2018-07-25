@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316810"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865226"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Este trecho de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. A tarefa “Flowers” depende das tarefas “Rain” e “Sun”. A tarefa “Flowers” será agendada para execução em um nó de computação somente após a conclusão bem-sucedida das tarefas “Rain” e “Sun”.
 
 > [!NOTE]
-> Uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`.
+> Por padrão, uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`. Para saber como alterar isso, confira a seção [Ações de dependência](#dependency-actions).
 > 
 > 
 
@@ -121,7 +121,9 @@ Em uma dependência em um intervalo de tarefas pai, uma tarefa depende da conclu
 Para criar a dependência, forneça a primeira e a última identificação da tarefa no intervalo para o método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Quando você usa intervalos de IDs de tarefas para dependências, as IDs de tarefas no intervalo *devem* ser representações de cadeia de caracteres de valores inteiros.
+> Quando você usar os intervalos de ID de tarefa para suas dependências, somente tarefas com IDs que representam valores inteiros serão selecionadas por intervalo. Portanto, o intervalo `1..10` selecionará as tarefas `3` e `7`, mas não `5flamingoes`. 
+> 
+> Zeros à esquerda não são significativos ao avaliar as dependências do intervalo. Portanto, as tarefas com identificadores de cadeia de caracteres `4`, `04` e `004` estarão *dentro* do intervalo e serão todas tratadas como a tarefa `4`. Assim, a primeira a ser concluída atenderá à dependência.
 > 
 > Cada tarefa no intervalo deve atender à dependência, concluindo com êxito ou concluindo com uma falha que é mapeada para uma ação de dependência definida como **Atender**. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.
 >

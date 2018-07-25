@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: adfce1195a6a322e0225ee09a45148001d0167c8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592122"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089954"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
-Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
+Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](active-directory-aadconnect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](active-directory-aadconnect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
 
 ## <a name="overview"></a>Visão geral
 Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática** . Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.

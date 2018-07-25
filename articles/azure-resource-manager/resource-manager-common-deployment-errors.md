@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360009"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091315"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -104,7 +104,21 @@ Selecione a mensagem para obter mais detalhes. Na imagem a seguir, você vê um 
 
 ### <a name="deployment-errors"></a>Erros de implantação
 
-Quando a operação for aprovada na validação, mas falhar durante a implantação, você verá o erro nas notificações. Selecione a notificação.
+Quando a operação aprova a validação, mas falha durante a implantação, você recebe um erro de implantação.
+
+Para ver os códigos de erro de implantação e as mensagens com o PowerShell, use:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Para ver os códigos de erro de implantação e as mensagens com a CLI do Azure, use:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+No portal, selecione a notificação.
 
 ![erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ Você verá a mensagem de erro e os códigos de erro. Observe que há dois códi
 
 ## <a name="enable-debug-logging"></a>Habilitar o log de depuração
 
-Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Usando o PowerShell ou a CLI do Azure, você pode solicitar que informações adicionais sejam registradas durante a implantação.
+Às vezes, você precisa obter mais informações sobre a solicitação e a resposta para descobrir o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante a implantação. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
+No PowerShell, defina o parâmetro **DeploymentDebugLogLevel** como All, ResponseContent ou RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Examine o conteúdo da solicitação com o seguinte cmdlet:
+Examine o conteúdo da solicitação com o seguinte cmdlet:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   Ou o conteúdo da resposta com:
+Ou o conteúdo da resposta com:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
+Essas informações podem ajudá-lo a determinar se um valor no modelo está sendo definido incorretamente.
 
-- CLI do Azure
+### <a name="azure-cli"></a>CLI do Azure
 
-   Examine as operações de implantação, com o comando a seguir:
+Atualmente, CLI do Azure não dá suporte para ativar o log de depuração, mas você pode recuperar o log de depuração.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Examine as operações de implantação, com o comando a seguir:
 
-- Modelo aninhado
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
+Examine o conteúdo da solicitação com o seguinte comando:
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Examine o conteúdo da resposta com o seguinte comando:
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>Modelo aninhado
+
+Para registrar informações de depuração de um modelo aninhado, use o elemento **debugSetting**.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>Criar um modelo de solução de problemas
 

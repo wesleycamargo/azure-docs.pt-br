@@ -1,55 +1,55 @@
 ---
-title: Integração do data center do Azure pilha - identidade
-description: Saiba como integrar a pilha do Azure AD FS com o data center do AD FS
+title: Integração do datacenter do Azure Stack - identidade
+description: Saiba como integrar o Azure Stack AD FS com o seu datacenter do AD FS
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801466"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242930"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Integração do data center do Azure pilha - identidade
-Você pode implantar a pilha do Azure usando o Azure Active Directory (AD do Azure) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Antes de implantar a pilha do Azure, você deve fazer a escolha. Implantação usando o AD FS também é chamada de como implantar o Azure pilha no modo desconectado.
+# <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
+Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
 
 A tabela a seguir mostra as diferenças entre as opções de dois identidade:
 
 ||Desconectado da internet|Conectado à internet|
 |---------|---------|---------|
-|Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) somente|Capacidade ou pagamento como você-uso<br>EA ou provedor de soluções de nuvem (CSP)|
-|Identidade|Deve ser do AD FS|Azure AD ou AD FS|
-|Distribuição do Marketplace|Com suporte<br>BYOL de licenciamento|Com suporte<br>BYOL de licenciamento|
-|Registro|Recomendado, requer uma mídia removível<br> e um dispositivo conectado separado.|Automatizada|
-|Patch e atualização|Necessário, requer uma mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixado diretamente<br> da Internet para a pilha do Azure.|
+|Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) apenas|Capacidade ou pagamento-como-uso<br>EA ou provedor de soluções de nuvem (CSP)|
+|Identidade|Deve ser o AD FS|Azure AD ou AD FS|
+|Sindicalização do Marketplace|Com suporte<br>Licenciamento de BYOL|Com suporte<br>Licenciamento de BYOL|
+|Registro|Recomendado, requer mídia removível<br> e um dispositivo conectado separado.|Automatizada|
+|Patches e atualizações|Obrigatório, requer mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixada diretamente<br> da Internet para o Azure Stack.|
 
 > [!IMPORTANT]
-> Você não pode alternar o provedor de identidade sem reimplantar a solução do Azure pilha inteira.
+> É possível alternar o provedor de identidade sem reimplantar a solução inteira do Azure Stack.
 
-## <a name="active-directory-federation-services-and-graph"></a>Gráfico e os serviços de Federação do active Directory
+## <a name="active-directory-federation-services-and-graph"></a>Gráfico e os serviços de Federação do Active Directory
 
-Implantando com o AD FS permite que as identidades em uma floresta existente do Active Directory para autenticar com recursos na pilha do Azure. Essa floresta existente do Active Directory requer uma implantação do AD FS para permitir a criação de uma relação de confiança de Federação do AD FS.
+Implantando com o AD FS permite que as identidades em uma floresta existente do Active Directory para autenticar com recursos no Azure Stack. Essa floresta existente do Active Directory requer uma implantação do AD FS para permitir a criação de uma relação de confiança de Federação do AD FS.
 
-A autenticação é uma parte da identidade. Para gerenciar a função com base em acesso RBAC (controle) na pilha do Azure, o componente do Graph deve ser configurado. Quando o acesso a um recurso é delegado, o componente gráfico procura a conta de usuário na floresta existente do Active Directory usando o protocolo LDAP.
+Autenticação é uma parte da identidade. Para gerenciar com base em acesso RBAC (controle) no Azure Stack, o componente gráfico deve ser configurado. Quando o acesso a um recurso é delegado, o componente gráfico procura a conta de usuário na floresta do Active Directory existente usando o protocolo LDAP.
 
 ![Arquitetura de pilha do AD FS do Azure](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-O AD FS existente é o conta Serviço de token segurança (STS) que envia solicitações para a pilha do Azure AD FS (o recurso STS). Na pilha do Azure, automação cria a relação de confiança do provedor de declarações com o ponto de extremidade de metadados para o AD FS existente.
+O AD FS existente é o conta Serviço de token segurança (STS) que envia declarações para o Azure Stack AD FS (o recurso STS). No Azure Stack, a automação cria a relação de confiança do provedor de declarações com o ponto de extremidade de metadados para o AD FS existente.
 
-No AD FS existente, uma terceira parte confiável deve ser configurada. Essa etapa não é feita através da automação e deve ser configurada pelo operador. O ponto de extremidade de metadados de pilha do Azure está documentado no arquivo AzureStackStampDeploymentInfo.JSON ou por meio do ponto de extremidade com privilégios ao executar o comando `Get-AzureStackInfo`.
+No AD FS existente, uma terceira parte confiável deve ser configurada. Esta etapa não é feita pela automação e deve ser configurada pelo operador. O ponto de extremidade de metadados do Azure Stack está documentado no arquivo AzureStackStampDeploymentInfo.JSON ou por meio do ponto de extremidade com privilégios, executando o comando `Get-AzureStackInfo`.
 
-A configuração de confiança terceira parte confiável também exige que você configure as regras de transformação de declaração que são fornecidas pela Microsoft.
+A configuração de confiança da terceira parte confiável também exige que você configure as regras de transformação de declaração são fornecidas pela Microsoft.
 
-Para a configuração de gráfico, uma conta de serviço deve ser fornecido que tem permissão no Active Directory existente de leitura. Essa conta é necessária como entrada para a automação habilitar cenários RBAC.
+Para a configuração do gráfico, uma conta de serviço deve ser fornecida que tem permissão de leitura no Active Directory existente. Essa conta é necessária como entrada para a automação habilitar cenários RBAC.
 
-Para a última etapa, um novo proprietário é configurado para a assinatura do provedor padrão. Essa conta tem acesso completo a todos os recursos quando conectado ao portal do administrador de pilha do Azure.
+Para a última etapa, um novo proprietário é configurado para a assinatura de provedor padrão. Essa conta tem acesso completo a todos os recursos quando conectado ao portal do administrador do Azure Stack.
 
 Requisitos:
 
@@ -59,17 +59,17 @@ Requisitos:
 |Grafo|Microsoft Active Directory 2012/2012 R2/2016|
 |AD FS|Windows Server 2012/2012 R2/2016|
 
-## <a name="setting-up-graph-integration"></a>Configurar a integração de gráfico
+## <a name="setting-up-graph-integration"></a>Configurar a integração do Graph
 
-Gráfico só dá suporte à integração com uma única floresta do Active Directory. Se houver várias florestas, apenas a floresta especificada na configuração será usada para buscar os usuários e grupos.
+Gráfico só dá suporte à integração com uma única floresta do Active Directory. Se existirem várias florestas, apenas a floresta especificada na configuração do será usada para buscar os usuários e grupos.
 
-As informações a seguir são necessárias como entradas para os parâmetros de automação:
+As seguintes informações são necessárias como entradas para os parâmetros de automação:
 
 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>Se você deseja integrar com|Contoso.com|
-|CustomADAdminCredentials|Um usuário com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
+|CustomADGlobalCatalog|FQDN do destino da floresta do Active Directory<br>que você deseja integrar ao|Contoso.com|
+|CustomADAdminCredentials|Um usuário com permissão de leitura LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Criar conta de usuário no Active Directory existente (opcional)
 
@@ -83,7 +83,7 @@ Opcionalmente, você pode criar uma conta para o serviço de gráfico no Active 
 
 #### <a name="trigger-automation-to-configure-graph"></a>Automação de gatilho para configurar o gráfico
 
-Para esse procedimento, use um computador em sua rede de datacenter que pode se comunicar com o ponto de extremidade com privilégios na pilha do Azure.
+Para este procedimento, use um computador em sua rede de datacenter que pode se comunicar com o ponto de extremidade privilegiado no Azure Stack.
 
 2. Abra uma sessão do Windows PowerShell com privilégios elevados (Executar como administrador) e conecte-se para o endereço IP do ponto de extremidade com privilégios. Usar as credenciais para **CloudAdmin** para autenticar.
 
@@ -98,75 +98,75 @@ Para esse procedimento, use um computador em sua rede de datacenter que pode se 
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Quando solicitado, especifique a credencial da conta de usuário que você deseja usar para o serviço de gráfico (como graphservice). A entrada para o cmdlet Register-DirectoryService deve ser o nome da floresta / raiz de domínio na floresta em vez de qualquer outro domínio na floresta.
+   Quando solicitado, especifique a credencial da conta de usuário que você deseja usar para o serviço de gráfico (como graphservice). A entrada para o cmdlet Register-DirectoryService deve ser o nome da floresta / raiz de domínio na floresta, em vez de qualquer outro domínio na floresta.
 
    > [!IMPORTANT]
-   > Aguarde até que as credenciais de pop-up (Get-Credential não há suporte para no ponto de extremidade com privilégios) e insira as credenciais de conta de serviço do Graph.
+   > Aguarde até que as credenciais de pop-up (Get-Credential não é suportado no ponto de extremidade com privilégios) e insira as credenciais de conta de serviço do Graph.
 
-#### <a name="graph-protocols-and-ports"></a>Gráfico de protocolos e portas
+#### <a name="graph-protocols-and-ports"></a>Portas e protocolos de gráfico
 
-Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com um servidor de catálogo de Global (GC) gravável e o Centro de distribuição de chaves (KDC) que pode processar solicitações de logon no destino de floresta do Active Directory.
+Serviço do Graph no Azure Stack usa os seguintes protocolos e portas para se comunicar com um servidor de catálogo de Global (GC) gravável e o Centro de distribuição de chaves (KDC) que pode processar solicitações de logon no destino de floresta do Active Directory.
 
-Serviço de gráfico na pilha do Azure usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
+Serviço do Graph no Azure Stack usa os seguintes protocolos e portas para se comunicar com o destino do Active Directory:
 
-|type|Porta|Protocolo|
+|Tipo|Porta|Protocolo|
 |---------|---------|---------|
 |LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
 |LDAP SSL DE GC|3269|TCP|
 
-## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurar a integração do AD FS baixando metadados de Federação
+## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Como configurar a integração do AD FS, baixando metadados de Federação
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|CustomAdfsName|Nome do provedor de declarações. <cr>Parece dessa forma na página de aterrissagem do AD FS.|Contoso|
+|CustomAdfsName|Nome do provedor de declarações. <cr>Ele aparece dessa forma, na página de aterrissagem do AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automação de gatilho para configurar a confiança do provedor de declarações na pilha do Azure
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automação de gatilho para configurar a relação de confiança de provedor de declarações no Azure Stack
 
-Para esse procedimento, use um computador que possa se comunicar com o ponto de extremidade com privilégios na pilha do Azure. Espera-se que o certificado usado pela conta **STS AD FS** confiável pela pilha do Azure.
+Para este procedimento, use um computador que possa se comunicar com o ponto de extremidade privilegiado no Azure Stack. Espera-se que o certificado usado pela conta **STS AD FS** é confiável pelo Azure Stack.
 
-1. Abra uma sessão do Windows PowerShell com privilégios elevados e conectar-se ao ponto de extremidade com privilégios.
+1. Abra uma sessão do Windows PowerShell com privilégios elevados e conecte-se ao ponto de extremidade com privilégios.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o comando a seguir usando os parâmetros adequados para seu ambiente:
+2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o seguinte comando usando os parâmetros adequados para seu ambiente:
 
    ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
-3. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros adequados para seu ambiente:
+3. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros apropriados para seu ambiente:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
-## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação
+## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Como configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação
 
-Use este método se alguma das seguintes condições for verdadeira:
+Use esse método se alguma das seguintes condições é verdadeira:
 
-- A cadeia de certificados é diferente do AD FS em comparação comparado todos os outros pontos de extremidade na pilha do Azure.
-- Não há nenhuma conectividade de rede para o servidor do AD FS existente da instância do AD FS da pilha do Azure.
+- A cadeia de certificados é diferente do AD FS em comparação comparado todos os outros pontos de extremidade no Azure Stack.
+- Não há nenhuma conectividade de rede no servidor do AD FS existente da instância do AD FS do Azure Stack.
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|CustomAdfsName|Nome do provedor de declarações. Parece que forma na página de aterrissagem do AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|Arquivo de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAdfsName|Nome do provedor de declarações. Ele aparece dessa forma, na página de aterrissagem do AD FS.|Contoso|
+|CustomADFSFederationMetadataFileContent|Conteúdo de metadados|$using: federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Criar arquivo de metadados de Federação
 
-Para o procedimento a seguir, você deve usar um computador que tenha conectividade de rede para a implantação do AD FS existente, que se torna a conta do STS. Além disso, os certificados necessários devem ser instalados.
+Para o procedimento a seguir, você deve usar um computador que tenha conectividade de rede para a implantação do AD FS existente, que se torna o STS da conta. Além disso, os certificados necessários devem ser instalados.
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando, usando os parâmetros adequados para seu ambiente:
 
@@ -176,41 +176,36 @@ Para o procedimento a seguir, você deve usar um computador que tenha conectivid
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Copie o arquivo de metadados para um compartilhamento que é acessível do ponto de extremidade com privilégios.
+2. Copie o arquivo de metadados para um computador que possa se comunicar com o ponto de extremidade com privilégios.
 
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automação de gatilho para configurar a relação de confiança de provedor de declarações no Azure Stack
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automação de gatilho para configurar a confiança do provedor de declarações na pilha do Azure
+Para este procedimento, use um computador que possa se comunicar com o ponto de extremidade privilegiado no Azure Stack e tem acesso ao arquivo de metadados que você criou na etapa anterior.
 
-Para esse procedimento, use um computador que possa se comunicar com o ponto de extremidade com privilégios na pilha do Azure.
-
-1. Abra uma sessão do Windows PowerShell com privilégios elevados e conectar-se ao ponto de extremidade com privilégios.
+1. Abra uma sessão do Windows PowerShell com privilégios elevados.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Agora que você está conectado ao ponto de extremidade com privilégios, execute o comando a seguir usando os parâmetros adequados para seu ambiente:
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros adequados para seu ambiente:
+2. Execute o seguinte comando para atualizar o proprietário da assinatura do provedor padrão, usando os parâmetros apropriados para seu ambiente:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
-## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configure a terceira parte confiável na implantação do AD FS existente (conta STS)
+## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurar a terceira parte confiável na implantação existente do AD FS (STS da conta)
 
-A Microsoft fornece um script que define a terceira parte confiável, incluindo as regras de transformação de declaração. Usando o script é opcional, você pode executar manualmente os comandos.
+A Microsoft fornece um script que configura a terceira parte confiável, incluindo as regras de transformação de declaração. Usando o script é opcional, pois você pode executar os comandos manualmente.
 
-Você pode baixar o script de auxiliar de [ferramentas do Azure pilha](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no Github.
+Você pode baixar o script auxiliar [as ferramentas do Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no Github.
 
-Se você optar por executar manualmente os comandos, siga estas etapas:
+Se você decidir executar manualmente os comandos, siga estas etapas:
 
-1. Copie o conteúdo a seguir em um arquivo. txt (por exemplo, salvo como c:\ClaimRules.txt) no membro de instância ou farm do AD FS do seu data center:
+1. Copie o seguinte conteúdo para um arquivo. txt (por exemplo, salvo como c:\ClaimRules.txt) no membro de instância ou farm do AD FS do seu data center:
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -249,7 +244,7 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
-3. Para adicionar a terceira parte confiável, execute o seguinte comando do Windows PowerShell na sua instância do AD FS ou um membro do farm. Certifique-se de atualizar o ponto de extremidade do AD FS e apontar para o arquivo criado na etapa 1.
+3. Para adicionar a terceira parte confiável, execute o seguinte comando do Windows PowerShell em sua instância do AD FS ou um membro do farm. Certifique-se de atualizar o ponto de extremidade do AD FS e apontar para o arquivo criado na etapa 1.
 
    **Para o AD FS 2016**
 
@@ -266,16 +261,16 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
    > [!IMPORTANT]
    > Você deve usar o snap-in do MMC do AD FS para configurar as regras de autorização de emissão, ao usar o Windows Server 2012 ou 2012 R2 AD FS.
 
-4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar a pilha do Azure, você deve ignorar associações de token. Caso contrário, as tentativas de logon falharem. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:
+4. Quando você usa o Internet Explorer ou o navegador Microsoft Edge para acessar a pilha do Azure, você deve ignorar associações de token. Caso contrário, as tentativas de logon falham. Em sua instância do AD FS ou um membro do farm, execute o seguinte comando:
 
    > [!note]  
-   > Esta etapa não é aplicável ao usar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar esse comando e continuar com a integração.
+   > Essa etapa não é aplicável ao usar o Windows Server 2012 ou 2012 R2 AD FS. É seguro ignorar esse comando e continue com a integração.
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. Os portais de pilha do Azure e ferramentas (Visual Studio) requerem tokens de atualização. Elas devem ser definidas por depender de parte confiável. Abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando:
+5. Os portais do Azure Stack e ferramentas (Visual Studio) requerem que tokens de atualização. Elas devem ser definidas no objeto de confiança de terceira parte confiável. Abra uma sessão do Windows PowerShell com privilégios elevados e execute o seguinte comando:
 
    ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
@@ -283,16 +278,16 @@ Se você optar por executar manualmente os comandos, siga estas etapas:
 
 ## <a name="spn-creation"></a>Criação de SPN
 
-Há muitos cenários que exigem o uso de um nome principal de serviço (SPN) para autenticação. A seguir estão alguns exemplos:
+Há muitos cenários que exigem o uso de um nome de entidade de serviço (SPN) para autenticação. A seguir está alguns exemplos:
 
-- Uso de CLI com a implantação do AD FS da pilha do Azure
-- Pacote de gerenciamento do System Center para Azure pilha quando implantado com o AD FS
-- Provedores de recursos na pilha do Azure quando implantado com o AD FS
+- Uso da CLI com a implantação do AD FS do Azure Stack
+- Pacote de gerenciamento do System Center para o Azure Stack quando implantado com o AD FS
+- Provedores de recursos no Azure Stack quando implantado com o AD FS
 - Vários aplicativos
-- Você precisa de um logon não interativo
+- Você precisar de um logon não interativo
 
 > [!Important]  
-> O AD FS só oferece suporte a sessões de logon interativo. Se você precisar de um logon não interativo para um cenário automatizado, você deve usar um SPN.
+> O AD FS dá suporte apenas a sessões de logon interativo. Se você precisar de um logon não interativo para um cenário de automatizado, você deve usar um SPN.
 
 Para obter mais informações sobre como criar um SPN, consulte [criar entidade de serviço do AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
@@ -301,7 +296,7 @@ Para obter mais informações sobre como criar um SPN, consulte [criar entidade 
 
 ### <a name="configuration-rollback"></a>Reversão de configuração
 
-Se ocorrer um erro que deixa o ambiente em um estado em que você não pode autenticar, uma opção de reversão está disponível.
+Se ocorrer um erro que deixa o ambiente em um estado em que você não poderá mais autenticar, uma opção de reversão está disponível.
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
 
@@ -327,7 +322,7 @@ Se ocorrer um erro que deixa o ambiente em um estado em que você não pode aute
 
 ### <a name="collecting-additional-logs"></a>Coletando logs adicionais
 
-Se qualquer um dos cmdlets falhar, você poderá coletar logs adicionais usando o `Get-Azurestacklogs` cmdlet.
+Se qualquer um dos cmdlets falharem, você pode coletar logs adicionais usando o `Get-Azurestacklogs` cmdlet.
 
 1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
 

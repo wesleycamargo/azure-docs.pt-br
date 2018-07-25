@@ -12,39 +12,41 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 06/06/2018
 ms.author: juluk
-ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919535"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859860"
 ---
-[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-bash-in-cloud-shell-storage-works"></a>Como funciona Bash no armazenamento do Cloud Shell 
-O Bash no Cloud Shell persiste arquivos usando os seguintes métodos: 
+## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento do Cloud Shell 
+O Cloud Shell persiste arquivos usando os seguintes métodos: 
 * Criando uma imagem de disco do seu diretório `$Home` para persistir todo o conteúdo do diretório. A imagem de disco é salva no compartilhamento de arquivos especificado como `acc_<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img` e sincroniza as alterações automaticamente. 
 * Montando o compartilhamento de arquivos especificado como `clouddrive` no diretório `$Home` para que haja interação direta com o compartilhamento de arquivos. `/Home/<User>/clouddrive` é mapeado para `fileshare.storage.windows.net/fileshare`.
  
 > [!NOTE]
 > Todos os arquivos em seu diretório `$Home` como chaves SSH são persistidos em sua imagem de disco do usuário, que é armazenada no compartilhamento de arquivos montado. Aplique as práticas recomendadas ao persistir informações em seu diretório `$Home` e no compartilhamento de arquivos montado.
 
-## <a name="use-the-clouddrive-command"></a>Use o comando `clouddrive`
+## <a name="bash-specific-commands"></a>Comandos específicos do bash
+
+### <a name="use-the-clouddrive-command"></a>Use o comando `clouddrive`
 Com o Bash no Cloud Shell, você pode executar um comando denominado `clouddrive`, que permite a atualização manual do compartilhamento de arquivos que está montado no Cloud Shell.
 ![Usando o comando “clouddrive”](media/persisting-shell-storage/clouddrive-h.png)
 
-## <a name="mount-a-new-clouddrive"></a>Montar um novo clouddrive
+### <a name="mount-a-new-clouddrive"></a>Montar um novo clouddrive
 
-### <a name="prerequisites-for-manual-mounting"></a>Pré-requisitos para montagem manual
+#### <a name="prerequisites-for-manual-mounting"></a>Pré-requisitos para montagem manual
 Você pode atualizar o compartilhamento de arquivos associado ao Cloud Shell usando o comando `clouddrive mount`.
 
 Se estiver montando um compartilhamento de arquivos existente, as contas de armazenamento deverão atender ao seguinte:
 * Armazenamento redundante localmente ou armazenamento com redundância geográfica para dar suporte a compartilhamentos de arquivos.
 * Localizadas na região atribuída a você. Ao fazer a integração, a região atribuída a você será listada no nome do grupo de recursos `cloud-shell-storage-<region>`.
 
-### <a name="the-clouddrive-mount-command"></a>Usando o comando clouddrive mount
+#### <a name="the-clouddrive-mount-command"></a>O comando `clouddrive mount`
 
 > [!NOTE]
 > Se você estiver montando um novo compartilhamento de arquivo, uma nova imagem de usuário será criada para o diretório `$Home`. A imagem `$Home` anterior é mantida em seu compartilhamento de arquivo anterior.
@@ -59,7 +61,7 @@ Para exibir mais detalhes, execute `clouddrive mount -h` conforme mostrado aqui:
 
 ![Executando o comando ' clouddrive mount'](media/persisting-shell-storage/mount-h.png)
 
-## <a name="unmount-clouddrive"></a>Desmontar clouddrive
+### <a name="unmount-clouddrive"></a>Desmontar clouddrive
 Você pode desmontar um compartilhamento de arquivos que esteja montado no Cloud Shell a qualquer momento. Como o Cloud Shell requer o uso de compartilhamento de arquivos montado, será solicitado que você crie e monte outro compartilhamento de arquivos na sessão seguinte.
 
 1. Execute `clouddrive unmount`.
@@ -72,7 +74,7 @@ Seu compartilhamento de arquivos continuará existindo se você não o excluir m
 > [!WARNING]
 > Embora a execução desse comando não exclua todos os recursos, a exclusão manual de um grupo de recursos, de uma conta de armazenamento, ou de um compartilhamento de arquivos mapeado para o Cloud Shell apaga a imagem do disco `$Home` e todos os arquivos em seu compartilhamento de arquivos. Essa ação não pode ser desfeita.
 
-## <a name="list-clouddrive"></a>Lista `clouddrive`
+### <a name="list-clouddrive"></a>Lista `clouddrive`
 Para descobrir qual compartilhamento de arquivos está montado como `clouddrive`, execute o comando `df`. 
 
 O caminho de arquivo para a unidade de nuvem mostra o nome da conta de armazenamento e o compartilhamento de arquivos na URL. Por exemplo, `//storageaccountname.file.core.windows.net/filesharename`
@@ -88,10 +90,22 @@ shm                                                    65536       0      65536 
 //mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
 justin@Azure:~$
 ```
+## <a name="powershell-specific-commands"></a>Comandos específicos do PowerShell
 
-[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Compartilhamentos de Arquivos do Azure
+O cmdlet `Get-CloudDrive` recupera as informações de compartilhamento de arquivos do Azure montadas no momento por `clouddrive` no Cloud Shell. <br>
+![Executando Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+
+### <a name="unmount-clouddrive"></a>Desmontar o `clouddrive`
+Você pode desmontar um compartilhamento de arquivos do Azure que esteja montado no Cloud Shell a qualquer momento. Se o compartilhamento de arquivos do Azure tiver sido removido, será solicitado que você crie e monte um novo compartilhamento de arquivos do Azure na sessão seguinte.
+
+O cmdlet `Dismount-CloudDrive` desmonta um compartilhamento de arquivos do Azure da conta de armazenamento atual. Desmontar `clouddrive` encerra a sessão atual. O usuário precisará criar e montar um novo compartilhamento de arquivos do Azure durante a próxima sessão.
+![Executando Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+
+[!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Bash no Cloud Shell](quickstart.md) <br>
+[Início Rápido do PowerShell no Cloud Shell](quickstart-powershell.md) <br>
 [Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Saiba mais sobre marcas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

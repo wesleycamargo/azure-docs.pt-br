@@ -1,6 +1,6 @@
 ---
-title: Visão geral de segurança de rede do Azure | Microsoft Docs
-description: Saiba mais sobre opções de segurança para controlar o fluxo do tráfego de rede entre recursos do Azure.
+title: Visão geral de grupos de segurança do Azure | Microsoft Docs
+description: Saiba mais sobre grupos de segurança de rede e aplicativo. Os grupos de segurança ajudam você a filtrar o tráfego de rede entre recursos do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657580"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092657"
 ---
-# <a name="network-security"></a>Segurança de rede
+# <a name="network-and-application-security-groups"></a>Grupos de segurança de rede e aplicativo
 
-Você pode limitar o tráfego de rede para recursos em uma rede virtual usando um grupo de segurança de rede. Um grupo de segurança de rede contém uma lista de regras de segurança que permitem ou negam o tráfego de rede de entrada ou saída com base no endereço IP de origem ou destino, na porta e no protocolo. 
+Você pode limitar o tráfego de rede a recursos em uma rede virtual usando grupos de segurança de rede e de aplicativo. Um grupo de segurança de rede contém uma lista de regras de segurança que permitem ou negam o tráfego de rede de entrada ou saída com base no endereço IP de origem ou destino, na porta e no protocolo. Um grupo de segurança de aplicativos permite agrupar máquinas virtuais com funções semelhantes, como servidores Web. Você pode especificar um grupo de segurança do aplicativo como a origem ou o destino em uma regra de grupos de segurança de rede.
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Cada interface de rede não tem nenhum ou tem um grupo de segurança de rede associado. Cada interface de rede existe em uma sub-rede de [rede virtual](virtual-networks-overview.md). Uma sub-rede também pode não ter nenhum ou ter um grupo de segurança de rede associado. 
+Cada interface de rede não tem nenhum ou tem um grupo de segurança de rede associado. Cada interface de rede existe em uma sub-rede de [rede virtual](virtual-networks-overview.md). Uma sub-rede também pode não ter nenhum ou ter um grupo de segurança de rede associado.
 
 Quando aplicadas a uma sub-rede, as regras de segurança são aplicadas a todos os recursos na sub-rede. Além dos adaptadores de rede, você pode ter instâncias de outros serviços do Azure, como o HDInsight, Conjuntos de Dimensionamento de Máquinas Virtuais e Ambientes de Serviço de Aplicativo, implantados na sub-rede.
 
@@ -167,10 +167,10 @@ Os grupos de segurança do aplicativo têm as seguintes restrições:
 
      - **Contrato Enterprise**: a comunicação de saída da porta 25 é permitida. É possível enviar emails de saída diretamente a partir de máquinas virtuais para provedores de email externos, sem restrições da plataforma do Azure. 
      - **Pré-pago:** a comunicação de saída da porta 25 está bloqueada de todos os recursos. Se você precisar enviar emails de uma máquina virtual diretamente para os provedores de email externos (não usando uma retransmissão SMTP autenticada), pode fazer uma solicitação para remover a restrição. As solicitações são examinadas e aprovadas a critério da Microsoft e somente são concedidas após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte com o tipo de problema *Técnico*, *Conectividade de rede virtual*, *Não é possível enviar email (SMTP/Porta 25)*. No seu caso de suporte, isso inclui detalhes sobre por que você precisa enviar emails diretamente aos provedores de email, em vez de passar por um retransmissor SMTP autenticado. Se sua assinatura for isenta, somente as máquinas virtuais criadas após a data de isenção serão capazes de se comunicar pela porta 25.
-     - **CSP (provedor de serviços de nuvem), MSDN, Azure Pass, Azure via Open, Educação, BizSpark, e Avaliação gratuita**: a comunicação de saída da porta 25 está bloqueada para todos os recursos. Nenhuma solicitação para remover a restrição pode ser feita, pois as solicitações não foram concedidas. Se você tiver que enviar um email de sua máquina virtual, deve usar um serviço de retransmissão de SMTP.
+     - **MSDN, Azure Pass, Azure via Open, Educação, BizSpark, e Avaliação gratuita**: a comunicação de saída da porta 25 está bloqueada para todos os recursos. Nenhuma solicitação para remover a restrição pode ser feita, pois as solicitações não foram concedidas. Se você tiver que enviar um email de sua máquina virtual, deve usar um serviço de retransmissão de SMTP.
+     - **Provedor de serviços de nuvem**: os clientes que estão consumindo recursos do Azure por meio de um provedor de serviços de nuvem podem criar um caso de suporte com seu provedor de serviços de nuvem e solicitar que o provedor de criar um caso de desbloqueio em seu nome, se uma retransmissão SMTP segura não puder ser usada.
 
-  Se o Azure permitir que você envie emails pela porta 25, a Microsoft não garante que os provedores de email aceitarão emails de entrada provenientes de sua máquina virtual. Se um provedor específico rejeitar um email de sua máquina virtual, você deve trabalhar diretamente com o provedor para resolver qualquer entrega de mensagens ou problemas de filtragem de spam ou usar um serviço de retransmissão de SMTP autenticado. 
-
+  Se o Azure permitir que você envie emails pela porta 25, a Microsoft não garante que os provedores de email aceitarão emails de entrada provenientes de sua máquina virtual. Se um provedor específico rejeitar um email de sua máquina virtual, você deve trabalhar diretamente com o provedor para resolver qualquer entrega de mensagens ou problemas de filtragem de spam ou usar um serviço de retransmissão de SMTP autenticado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

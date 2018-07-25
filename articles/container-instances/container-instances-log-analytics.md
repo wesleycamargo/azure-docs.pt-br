@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809855"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112956"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrar em log uma instância de contêiner com Azure Log Analytics
 
@@ -21,7 +21,7 @@ Os espaços de trabalho do Log Analytics fornecem um local centralizado para arm
 
 Para enviar dados da instância de contêiner ao Log Analytics, é necessário criar um grupo de contêineres usando a CLI do Azure (ou Cloud Shell) e um arquivo YAML. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
@@ -43,9 +43,26 @@ Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
-Agora que você tem a ID e a chave primária do espaço de trabalho do Log Analytics, você está pronto para criar um grupo de contêineres com registro em log habilitado. O exemplo a seguir cria um grupo de contêineres com um único contêiner [fluentd][fluentd]. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+Agora que você tem a ID e a chave primária do espaço de trabalho do Log Analytics, você está pronto para criar um grupo de contêineres com registro em log habilitado.
 
-Primeiro, copie o YAML a seguir, que define um grupo de contêineres com um único contêiner, em um novo arquivo. Substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores obtidos na etapa anterior e salve o arquivo como **deploy-aci.yaml**.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e a CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+
+### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
+
+Para implantar com a CLI do Azure, especifique os parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` no comando [az container create][az-container-create]. Substitua os dois valores de espaço de trabalho pelos valores que você obteve na etapa anterior (e atualize o nome do grupo de recursos) antes de executar o comando a seguir.
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>Implantar com YAML
+
+Use esse método se você preferir implantar grupos de contêineres com YAML. O YAML a seguir define um grupo de contêineres com um único contêiner. Copie o YAML para em um novo arquivo, então substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores obtidos na etapa anterior. Salve o arquivo como **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Em seguida, execute o comando a seguir para implantar o grupo de contêineres; substitua `myResourceGroup` por um grupo de recursos na assinatura (ou crie primeiro um grupo de recursos nomeado "myResourceGroup"):
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Você deverá receber uma resposta do Azure contendo detalhes da implantação, logo após a emissão do comando.
@@ -135,3 +152,4 @@ Para obter informações sobre monitoramento de recursos de memória e CPU da in
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

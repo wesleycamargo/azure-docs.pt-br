@@ -2,19 +2,19 @@
 title: Usar discos do Azure com AKS
 description: Usar discos do Azure com AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34597060"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868238"
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes com discos do Azure
 
@@ -49,6 +49,12 @@ Depois que o disco tiver sido criado, você deverá ver uma saída semelhante à
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Os Azure Managed Disks são cobrados por SKU de um tamanho específico. Essas SKUs variam de 32GiB para discos S4 ou P4 discos a 4TiB para discos S50 ou P50. Além disso, a taxa de transferência e o desempenho de IOPS de um Disco Gerenciado Premium depende do SKU e do tamanho da instância dos nós no cluster do AKS. Confira [Preços e desempenho do Managed Disks][managed-disk-pricing-performance].
+
+> [!NOTE]
+> Se precisar criar o disco em um grupo de recursos separado, adicione também a entidade de serviço do AKS (Serviço de Kubernetes do Azure) do cluster ao grupo de recursos, mantendo o disco com a função `Contributor`. 
+>
 
 ## <a name="mount-disk-as-volume"></a>Montar o disco como volume
 
@@ -94,6 +100,7 @@ Saiba mais sobre os volumes do Kubernetes utilizando discos do Azure.
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list

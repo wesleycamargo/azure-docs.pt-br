@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5529a4510b6d9f005dc46165e1be799585e5a153
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296525"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755484"
 ---
 Aqui estão as restrições de uso e outros limites de serviço para o serviço Active Directory do Azure.
 
 | Categoria | Limites |
 | --- | --- |
-| Diretórios |Um único usuário pode ser associado a um máximo de 20 diretórios do Azure Active Directory.<br />Exemplos de possíveis combinações: <ul> <li>Um único usuário cria 20 diretórios.</li><li>Um único usuário é adicionado a 20 diretórios como um membro.</li><li>Um único usuário cria 10 diretórios e posteriormente é adicionado por outros 10 diretórios diferentes.</li></ul> |
+| Diretórios |Um único usuário pode ser associado a um máximo de 500 diretórios do Azure Active Directory.<br />Exemplos de possíveis combinações: <ul> <li>Um único usuário cria 500 diretórios.</li><li>Um único usuário é adicionado a 500 diretórios como um membro.</li><li>Um único usuário cria 250 diretórios e, posteriormente, é adicionado por outros 250 diretórios diferentes.</li></ul> |
 | Domínios | É possível adicionar no máximo 900 nomes de domínio gerenciados. Se você estiver configurando todos os domínios para federação com o Active Directory local, poderá adicionar no máximo 450 nomes de domínio em cada diretório. |
 | Objetos |<ul><li>Os usuários da edição Gratuita do Azure Active Directory podem criar no máximo 500.000 objetos em um único diretório.</li><li>Um usuário não administrador pode criar até 250 objetos.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões de tipo de cadeia de caracteres podem ter, no máximo, 256 caracteres. </li><li>Extensões de tipo binário são limitadas a 256 bytes.</li><li>É possível gravar 100 valores de extensão (entre todos os tipos e todos os aplicativos) em um único objeto.</li><li>Somente as entidades "User", "Group", "TenantDetail", "Device", "Application" e "ServicePrincipal" podem ser estendidas com atributos de valor único de tipo "cadeia de caracteres" ou "binário".</li><li>As extensões de esquema estão disponíveis apenas na versão 1.21-preview da API do Graph. O aplicativo precisa obter acesso de gravação para registrar uma extensão.</li></ul> |

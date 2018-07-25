@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: c153b4987e37a5d97b95d4f1249de1ed92e851b3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3ac3105231017cdbf8bfcf143b26451a68da5283
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295937"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868694"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introdução ao conector do SharePoint
 O Conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoint.

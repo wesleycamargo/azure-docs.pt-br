@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b5a50b01da220f8da2f518895a61221f80d098f6
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825737"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635134"
 ---
 # <a name="billing-options"></a>Opções de Cobrança  
 
@@ -67,12 +67,12 @@ Um benefício importante do uso da opção de listagem Transação é que seus c
 No cenário, a Microsoft cobra e recebe em seu nome. A cobrança da Microsoft elimina a necessidade de criar sua própria relação de compras com o cliente. A cobrança em fatura única pode economizar tempo e recursos. A cobrança em fatura única pode ajudar você a se concentrar em realizar a venda, em vez de receber a fatura. 
 
 ## <a name="enterprise-agreement"></a>Contrato Enterprise  
-Se você for um cliente de EA (Contrato Enterprise) com a Microsoft, poderá usar seu EA par pagar por produtos da Microsoft. Você pode cobrar produtos, inclusive o uso do Azure. O uso de seu EA para pagar foi projetado para organizações que desejam licenciar software e serviços de nuvem por três anos ou mais. Você parcela os pagamentos em vez de realizar um pagamento adiantado. Se você usar o tipo de listagem de transação de Pagamento Conforme o Uso, a cobrança dos seus custos de licenciamento de software seguirá o ciclo de cobrança excedente do EA trimestral.  
+Se você for um cliente de EA (Contrato Enterprise) com a Microsoft, poderá usar seu EA par pagar por produtos da Microsoft. Você pode ser cobrado por produtos, incluindo o uso do Azure. O uso de seu EA para pagar foi projetado para organizações que desejam licenciar software e serviços de nuvem por três anos ou mais. Você parcela os pagamentos em vez de realizar um pagamento adiantado. Se você usar o tipo de listagem de transação de Pagamento Conforme o Uso, a cobrança dos seus custos de licenciamento de software seguirá o ciclo de cobrança excedente do EA trimestral.  
 
 ### <a name="monetary-commitment"></a>Compromisso monetário  
 Se você for um cliente de EA, poderá adicionar o Azure ao contrato. Você adiciona o Azure ao contrato fazendo compromisso monetário antecipado com o Azure. O compromisso monetário é consumido ao longo do ano. Seu compromisso inclui qualquer combinação de uso da ampla variedade de serviços no Azure.  
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+*   Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
  
 ---  

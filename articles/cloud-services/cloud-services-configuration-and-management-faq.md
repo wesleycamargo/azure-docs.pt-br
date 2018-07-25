@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070491"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37437130"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -204,10 +204,10 @@ Para obter mais informações, consulte [HTTP/2 on IIS](https://blogs.iis.net/da
 
 ## <a name="permissions"></a>Permissões
 
-### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar Acesso Baseado em Função para Serviços de Nuvem?
-Serviços de Nuvem não dão suporte ao modelo RBAC (Controle de Acesso Baseado em Função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
+### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Como implementar acesso baseado em função para Serviços de Nuvem?
+Serviços de Nuvem não dão suporte ao modelo RBAC (controle de acesso baseado em função), uma vez que ele não é um serviço do baseado no Azure Resource Manager.
 
-Consulte [RBAC do Azure versus administradores de assinatura clássica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="remote-desktop"></a>Área de trabalho remota
 

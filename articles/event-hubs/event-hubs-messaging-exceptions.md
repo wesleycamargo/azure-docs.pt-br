@@ -5,25 +5,23 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 22fcedfdb1921c941250b63f09bfa7fcff9c2f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783121"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856698"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
 
-Este artigo lista algumas das exceções geradas pela biblioteca de APIs das mensagens do Barramento de Serviço do Azure, que inclui APIs de Hubs de Eventos. Essa referência está sujeita a alterações, então verifique se há atualizações.
+Este artigo lista algumas das exceções geradas pela biblioteca de APIs das mensagens do Barramento de Serviço do Azure, que inclui APIs de Hubs de Eventos do .NET Framework. Essa referência está sujeita a alterações, então verifique se há atualizações.
 
 ## <a name="exception-categories"></a>Categorias de exceções
 
@@ -59,7 +57,7 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 
 Isso pode acontecer se o número máximo de destinatários (5) já foi aberto em um nível de grupo por consumidor.
 
-### <a name="event-hubs"></a>Hubs de evento
+### <a name="event-hubs"></a>Hubs de Eventos
 Os Hubs de Eventos têm um limite de 20 grupos de consumidores por Hub de Eventos. Quando você tenta criar mais, recebe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
@@ -87,7 +85,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 2. O namespace dos Hubs de Eventos não tem unidades de produtividade suficientes (você pode verificar a tela **Métricas** na janela Namespace de Hubs de Eventos no [portal do Azure](https://portal.azure.com) para confirmar). Observe que o portal mostra informações agregadas (1 minuto), mas medimos a taxa de transferência em tempo real – portanto, é apenas uma estimativa.
 
-    Resolução: Aumentar as unidades de taxa de transferência no namespace pode ajudar. Você pode fazer isso no portal, na janela **Escala** da tela Namespace de Hubs de Eventos.
+    Resolução: Aumentar as unidades de taxa de transferência no namespace pode ajudar. Você pode fazer isso no portal, na janela **Escala** da tela Namespace de Hubs de Eventos. Ou você pode usar [Inflar automaticamente](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Código do erro 50001
 
@@ -95,8 +93,9 @@ Esse erro deve ocorrer raramente. Isso acontece quando o contêiner executando o
 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

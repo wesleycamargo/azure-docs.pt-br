@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 02421ace226f42da58eb9864fe0ef2e1ca550391
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a792db670602f736489ee962df5078531e0a8e88
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319275"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -33,7 +33,7 @@ A integração do SharePoint local com o Azure AD oferece os seguintes benefíci
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o SharePoint local, você precisa dos seguintes itens:
 
@@ -85,7 +85,7 @@ Para configurar e testar o logon único do Azure AD com o SharePoint local, voc�
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do SharePoint local](#create-a-sharePoint-on-premises-test-user)** – para ter um equivalente de Brenda Fernandes no SharePoint local vinculado à representação do usuário no Azure AD.
+3. **[Conceder acesso ao usuário de teste do SharePoint local](#grant-access-to-sharePoint-on-premises-test-user)** – para ter um equivalente de Brenda Fernandes no SharePoint local vinculado à representação do usuário no Azure AD.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
@@ -109,12 +109,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:sharepoint:<YourSharePointServerURL>`
+    b. Na caixa de texto **Identificador**, digite a URL: `urn:sharepoint:federation`
 
-    > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do SharePoint local](https://support.office.com/) para obter esses valores.
-
-4. Na seção **Certificado de Autenticação SAML**, clique em **XML de Metadados** e então salve o arquivo de metadados em seu computador com a extensão .cer. Copie e cole o caminho completo do arquivo de metadados baixado no Bloco de Notas.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
@@ -197,7 +194,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     d. Clique em **Criar**.
 
-### <a name="create-a-sharepoint-on-premises-test-user"></a>Criar um usuário de teste do SharePoint local
+### <a name="grant-access-to-sharepoint-on-premises-test-user"></a>Conceder acesso a um usuário de teste do SharePoint local
+
+Os usuários que irão fazer logon no Azure AD e acessar o SharePoint precisam ter acesso ao aplicativo. Use as etapas a seguir para definir as permissões para acessar o aplicativo Web.
 
 1. Na Administração Central, clique em **Gerenciamento de Aplicativos**.
 
@@ -213,7 +212,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 6. Na caixa de diálogo **Policy for Web Application**, na seção **Escolher Usuários**, clique no ícone **Procurar**.
 
-7. Na caixa de texto **Localizar**, digite o nome de usuário para um usuário em seu diretório e clique em **Pesquisar**. </br>Exemplo: *demouser@blueskyabove.onmicrosoft.com*.
+7. Na caixa de texto **Encontrar**, digite o valor do **Nome UPN** para o qual você configurou o aplicativo do SharePoint local no Azure AD e clique em **Pesquisar**. </br>Exemplo: *brittasimon@contoso.com*.
 
 8. Sob o cabeçalho AzureAD na exibição de lista, selecione a propriedade name e clique em **Add** e, em seguida, clique em **OK** para fechar a caixa de diálogo.
 
@@ -222,6 +221,29 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![Concedendo Controle Total a um Usuário de Reclamações](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
 10. Clique em **, clique em Concluir**  e, em seguida, clique em **OK** .
+
+### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>Configurando um provedor de identidade confiável para vários aplicativos Web
+
+A configuração funciona para um único aplicativo Web, mas precisa de configuração adicional se você pretende usar o mesmo provedor de identidade confiável para vários aplicativos Web. Por exemplo, imagine que nós estendemos um aplicativo Web para usar a URL `https://portal.contoso.local` e agora queremos autenticar os usuários em `https://sales.contoso.local` também. Para fazer isso, precisamos atualizar o provedor de identidade para respeitar o parâmetro WReply e atualizar o registro do aplicativo no Azure AD para adicionar uma URL de resposta.
+
+1. No portal do Azure, abra o diretório do Azure AD. Clique em **Registros de aplicativo** e, em seguida, clique em **Exibir todos os aplicativos**. Clique no aplicativo que você criou anteriormente (integração SAML do SharePoint).
+
+2. Clique em **Configurações**.
+
+3. Na folha de configurações, clique em **URLs de Resposta**. 
+
+4. Adicione a URL do aplicativo Web adicional com `/_trust/default.aspx` anexado à URL (como `https://sales.contoso.local/_trust/default.aspx`) e clique em **Salvar**.
+
+5. No servidor do SharePoint, abra o **Shell de Gerenciamento do SharePoint 2016** e execute os comandos a seguir, usando o nome do emissor do token de identidade confiável que você usou anteriormente.
+
+    ```
+    $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
+    $t.UseWReplyParameter=$true
+    $t.Update()
+    ```
+6. Em Administração Central, vá para o aplicativo Web e habilite o provedor de identidade confiável existente. Lembre-se de também configurar a URL da página de entrada como uma página de entrada personalizada `/_trust/`.
+
+7. Em Administração Central, clique no aplicativo Web e escolha **Política de Usuário**. Adicione um usuário com as permissões apropriadas, conforme demonstrado anteriormente neste artigo.
 
 ### <a name="fixing-people-picker"></a>Como corrigir o Seletor de Pessoas
 
@@ -269,13 +291,13 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco no local do SharePoint no Painel de Acesso, você deverá entrar automaticamente no seu aplicativo local do SharePoint.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+* [Usando o Azure AD para Autenticação de Servidor do SharePoint](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
 
 <!--Image references-->
 

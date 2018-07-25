@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: f2d342558e83c54e101e0ff9128611da9bec1e77
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d1d2bd74a5118b48f7ed79a77ca2d7b6545607c6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656951"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072373"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certificações e configurações do SAP em execução no Microsoft Azure
 
@@ -62,7 +62,7 @@ Referências:
 
 | Produto SAP | SO convidado | RDBMS | Tipos de máquina virtual |
 | --- | --- | --- | --- |
-| SAP Business One no SQL Server | Windows  | SQL Server | Todos os tipos de VM certificadas pelo NetWeaver |
+| SAP Business One no SQL Server | Windows  | SQL Server | Todos os tipos de VM certificadas pelo NetWeaver<br /> [Nota SAP #928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows e Linux | | Todos os tipos de VM certificadas pelo NetWeaver<br /> Nota SAP nº 2451795 |
 | Plataforma BI do SAP Business Objects | Windows e Linux | | Nota SAP nº 2145537 |
 | SAP Data Services 4.2 | | | Nota SAP nº 2288344 |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 31bbeff8049c6005671b991f965fae7316e3adf6
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24010869"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309584"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Conectar o Raspberry Pi 3 à solução de monitoramento remoto e habilitar as atualizações de firmware remotas usando Node.js
 
@@ -144,7 +144,7 @@ Pressione **Ctrl-C** para sair do programa a qualquer momento.
 
 1. Na página **Invocar Método** escolha **InitiateFirmwareUpdate** na lista suspensa **Método**.
 
-1. No campo **FWPackageURI**, digite **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Esse arquivo contém a implementação da versão 2.0 do firmware.
+1. No campo **FWPackageURI**, insira **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Esse arquivo contém a implementação da versão 2.0 do firmware.
 
 1. Escolha **InvokeMethod**. O aplicativo no Raspberry Pi envia uma confirmação de volta para o painel da solução. Em seguida, ele inicia o processo de atualização de firmware baixando a nova versão do firmware:
 

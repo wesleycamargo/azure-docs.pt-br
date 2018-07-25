@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060510"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090955"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -27,7 +27,7 @@ Você deve estar familiarizado com os conceitos de contêiner e como criar um po
 
 O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, você pode criar e testar um contêiner localmente e carregar a imagem do contêiner em um registro no Azure ou em outro lugar. O modelo de implantação do contêiner garante que o ambiente de tempo de execução do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Versões do SDK**: os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
@@ -42,7 +42,9 @@ O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote s
 
 ### <a name="limitations"></a>Limitações
 
-* O Lote dá suporte a RDMA apenas para contêineres em execução em pools Linux.
+* O Lote dá suporte a RDMA apenas para contêineres em execução em pools Linux
+
+* Para cargas de trabalho de contêiner do Windows, é recomendável escolher um tamanho de VM com vários núcleos para o pool
 
 ## <a name="supported-virtual-machine-images"></a>Imagens de máquina virtual com suporte
 

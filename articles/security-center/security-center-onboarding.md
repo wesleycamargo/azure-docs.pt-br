@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416482"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479454"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
 Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Experimente a versão Standard gratuitamente por 60 dias. Para saber mais, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -42,7 +42,7 @@ Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que
 
 ## <a name="upgrade-an-azure-subscription"></a>Atualizar uma assinatura do Azure
 Para atualizar todas as assinaturas para a camada Standard:
-1. No menu principal da Central de Segurança, selecione **Integração**.
+1. No menu principal da Central de Segurança, selecione **Integração à segurança avançada**.
 2. Em **Integração à segurança avançada**, a Central de Segurança lista as assinaturas qualificadas para a integração. Você pode atualizar todas as assinaturas listadas selecionando **Aplicar plano Standard**.
 
   ![Atualizar todas as assinaturas][1]
@@ -54,7 +54,7 @@ Para atualizar uma assinatura individual para Standard: você pode atualizar uma
   ![Atualizar todas as assinaturas][2]
 
 3. Selecione **Standard** para atualizar de Gratuito para Standard.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 > [!NOTE]
 > A atualização de uma assinatura para Standard ativará o [provisionamento automático](security-center-enable-data-collection.md), caso ele tenha sido previamente desabilitado. É recomendável o provisionamento automático dos agentes de monitoramento.
@@ -70,7 +70,7 @@ Aplicar Standard ao espaço de trabalho terá efeito em todos os recursos que se
   ![Atualizar um espaço de trabalho][8]
 
 3. Selecione **Standard** para atualizar.  
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    > [!NOTE]
    > Há um cenário em que você poderá não ter Gratuito ou Standard aplicado ao seu espaço de trabalho. Se você selecionar Gratuito, os recursos Gratuitos da Central de Segurança serão aplicados somente às suas VMs do Azure. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos Standard serão aplicados a todas as VMs do Azure, bem como aos computadores não Azure que se relacionam com o espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
@@ -113,8 +113,8 @@ Você pode adicionar um computador, seguindo o fluxo de trabalho de **Integraç�
 
    ![Visão geral][5]
 
-2. Selecione o bloco **Computação**.
-3. Em **Computação**, selecione **Adicionar computadores**.
+2. Selecione **Computação e aplicativos**.
+3. Em **Computação e aplicativos**, selecione **Adicionar computadores**.
 
    ![Folha Computação][6]
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298288"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072156"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -144,6 +144,7 @@ Estes são os padrões comuns para especificar caminhos de índice:
 
 O exemplo a seguir configura um caminho específico com índice do Intervalo e um valor de precisão personalizado de 20 bytes:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +165,74 @@ O exemplo a seguir configura um caminho específico com índice do Intervalo e u
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+Quando um caminho é adicionado para indexação, números e cadeias de caracteres dentro desses caminhos são indexadas. Portanto, mesmo que você defina a indexação de cadeias de caracteres apenas, Azure Cosmos DB adiciona a definição padrão para números também. Em outras palavras, o Azure Cosmos DB tem a capacidade de exclusão do caminho da política de indexação, mas não a exclusão de um caminho específico. A seguir está um exemplo, observe que apenas um índice é especificado para os dois caminhos (Caminho = "/ *" e o Caminho = "/\"attr1\"/?"), mas o tipo de dados de número também é adicionado ao resultado.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Resultado da criação de índice:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipos de dados, tipos de índices e precisões
 Você possui várias opções quando configura a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:

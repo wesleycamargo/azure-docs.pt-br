@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643491"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858945"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
@@ -52,8 +52,9 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 > * Você deseja usar outra *conta de armazenamento* ou outro *período de retenção* para um banco de dados específico.
 > * Você deseja auditar tipos de evento ou categorias de um banco de dados específico diferentes do restante dos bancos de dados no servidor. Por exemplo, talvez você tenha inserções de tabela que precisam ser auditadas somente em um banco de dados específico.
 > * Você queira usar a Detecção de ameaças, que só tem suporte atualmente com a auditoria de nível de banco de dados.
->
 
+> [!IMPORTANT]
+>Habilitar a auditoria em um Azure SQL Data Warehouse ou em um servidor que tenha um Azure SQL Data Warehouse **fará com que o Data Warehouse seja retomado**, mesmo que ele estivesse em pausa anteriormente. **Não se esqueça de pausar o Data Warehouse novamente após a habilitação da auditoria**.
 
 ## <a id="subheading-5"></a>Configurar a auditoria de nível de servidor para todos os bancos de dados
 
