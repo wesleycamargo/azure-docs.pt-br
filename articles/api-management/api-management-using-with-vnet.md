@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437188"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187376"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -29,7 +29,7 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 > O Gerenciamento de API do Azure oferece suporte às VNets clássicas e do Azure Resource Manager.
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -111,7 +111,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente com o Gerenciamento de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interna |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Dependência no Armazenamento do Microsoft Azure**, Barramento de Serviço do Microsoft Azure e Azure Active Directory (quando aplicável).|Interno e externo |
-| * / 1433 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
+| * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |Interno e externo |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência do Compartilhamento de Arquivos do Azure para GIT |Interno e externo |
 | * / 1886 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Necessário para publicar o status da Integridade no Resource Health |Interno e externo |
@@ -150,6 +150,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 * **Instalação Inicial**: quando a implantação inicial do serviço de Gerenciamento de API em uma sub-rede não for bem-sucedida, é recomendável primeiro implantar uma máquina virtual na mesma sub-rede. Em seguida, acesse a área de trabalho remota na máquina virtual e valide se há conectividade a um de cada recurso abaixo em sua assinatura do azure
     * Azure Storage Blob
     * Banco de Dados SQL do Azure
+    * Tabela de armazenamento do Azure
 
  > [!IMPORTANT]
  > Após validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede antes de implantar o Gerenciamento de API na sub-rede.
