@@ -4,24 +4,25 @@ description: Perguntas frequentes e respostas relacionadas à Autenticação Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049404"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159834"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
 Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação Multifator do Azure e sobre o uso do serviço de Autenticação Multifator. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de cobrança e solução de problemas.
 
 ## <a name="general"></a>Geral
+
 **P: Como o Servidor de Autenticação Multifator do Azure lida com os dados do usuário?**
 
 Com o Servidor de Autenticação Multifator, os dados do usuário são armazenados apenas em servidores locais. Nenhum dado de usuário persistente é armazenado na nuvem. Quando o usuário executa a verificação em duas etapas, o Servidor de Autenticação Multifator envia dados ao serviço de nuvem da Autenticação Multifator do Azure para autenticação. A comunicação entre o Servidor de Autenticação Multifator e o serviço de nuvem da Autenticação Multifator usa o protocolo SSL (Secure Sockets Layer) ou TLS (Transport Layer Security) pela porta de saída 443.
@@ -60,6 +61,7 @@ Nos Canadá, a Microsoft usa os seguintes códigos curtos de SMS:
 A Microsoft não garante a entrega de prompt consistente de Autenticação multifator com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não tem suporte para códigos curtos para países além dos Estados Unidos e Canadá
 
 ## <a name="billing"></a>Cobrança
+
 A maioria das perguntas de cobranças podem ser respondidas consultando o [Página de preços de Autenticação Multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou a documentação sobre [Como obter Autenticação Multifator do Azure](concept-mfa-licensing.md).
 
 **P: é a minha organização cobrada para enviar as chamadas telefônicas e mensagens de texto que são usadas para autenticação?**
@@ -119,7 +121,6 @@ O Azure Active Directory é necessário para o modelo de licença porque as lice
 Espero que todos os usuários configuraram mais de um método de verificação. Peça que ele tente entrar novamente, mas selecione um método de verificação diferente na página de entrada.
 
 Você pode apontar os usuários a [guia de solução de problemas do usuário final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
-
 
 **P: o que devo fazer se um dos meus usuários não é possível obter sua conta?**
 
@@ -196,8 +197,8 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
-
 ## <a name="errors"></a>Errors
+
 **P: o que os usuários deverão fazer se receberem uma mensagem de erro "A solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?**
 
 Diga siga este procedimento para remover a conta do aplicativo móvel e adicione-a novamente:
@@ -214,6 +215,7 @@ O erro 0x800434D4L ocorre ao tentar entrar em um aplicativo sem navegador, insta
 Uma solução alternativa para esse erro é ter contas de usuário separadas para operações administrativas e não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, saiba como [fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Se sua pergunta não foi respondida aqui, deixe-a nos comentários na parte inferior da página. Ou então, aqui estão algumas opções adicionais para obter ajuda:
 
 * Pesquise a [Base de Dados de Conhecimento de Suporte da Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para obter soluções para problemas técnicos comuns.

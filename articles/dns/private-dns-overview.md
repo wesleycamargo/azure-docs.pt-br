@@ -3,7 +3,7 @@ title: Usar DNS do Azure para domínios privados | Microsoft Docs
 description: Uma visão geral do serviço de hospedagem de DNS privado no Microsoft Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
-ms.openlocfilehash: 0ee3b18b7f874c4f6b7b2c9c559aa7e393ad7d8d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: victorh
+ms.openlocfilehash: 2ab7070a4cf46dae543af8d3e1d688e12ec1eb2a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700597"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173635"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Usar DNS do Azure para domínios privados
 O Sistema de Nomes de Domínio ou DNS, é responsável por converter (ou resolver) um nome de serviço em seu endereço IP. Um serviço de hospedagem para domínios DNS, o DNS do Azure fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Além de dar suporte a domínios DNS para a Internet, o DNS do Azure agora também dá suporte a domínios DNS privados como um recurso de versão prévia. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a31fe62f2e81a0e39e4c314fc736e91e72bf7517
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b97a32e2e859a5bb370873bfbdc5c6b4dffa1ac1
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301546"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237835"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitoramento do Desempenho com Log Analytics
 
@@ -51,7 +51,7 @@ A melhor maneira de adicionar o Agente do Log Analytics ao cluster é por meio d
     Para um cluster do Linux:
 
     ```sh
-    az vmss extension set --name Log AnalyticsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
     Aqui está um exemplo de como o Agente do Log Analytics sendo adicionado a um cluster do Windows.

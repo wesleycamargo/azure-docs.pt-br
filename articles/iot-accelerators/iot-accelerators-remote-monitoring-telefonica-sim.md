@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097073"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185424"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados do SIM na solução de monitoramento remoto
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="telefnica-iot-integration-setup"></a>Configuração da integração de IoT da Telefónica
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Atualmente, esse recurso adicional de Monitoramento Remoto está em versão prévia. Para sincronizar seus dados de conectividade na solução de monitoramento remoto do Azure, siga estas etapas:
 
@@ -67,7 +67,7 @@ Os parâmetros de conectividade a seguir são publicados:
 
 Agora que você já tem uma visão geral de como integrar os dados do SIM no monitoramento remoto do Azure IoT, aqui estão as próximas etapas sugeridas para os aceleradores de solução:
 
-* [Operar a solução de Monitoramento Remoto do Azure IoT](iot-accelerators-remote-monitoring-explore.md)
+* [Operar a solução de Monitoramento Remoto do Azure IoT](quickstart-remote-monitoring-deploy.md)
 * [Executar o monitoramento avançado](iot-accelerators-remote-monitoring-monitor.md)
 * [Gerenciar seus dispositivos](iot-accelerators-remote-monitoring-manage.md)
 * [Solucionar problemas de dispositivos](iot-accelerators-remote-monitoring-maintain.md)

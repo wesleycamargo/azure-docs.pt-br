@@ -1,0 +1,53 @@
+---
+title: Saiba mais sobre a verificação em duas etapas no Azure MFA | Microsoft Docs
+description: O que é Autenticação Multifatorial do Microsoft Azure, por que usar MFA e os diferentes métodos e versões disponíveis.
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: michmcla
+ms.openlocfilehash: d58d81d85dac7e5cd520b8d8a3fb5d91650e0cbe
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161598"
+---
+# <a name="what-is-azure-multi-factor-authentication"></a>O que é a Autenticação Multifator do Azure?
+
+A verificação em duas etapas é um método de autenticação que exige mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários. Ela funciona, exigindo dois ou mais dos métodos de verificação a seguir:
+
+* Algo que você sabe (normalmente, uma senha)
+* Algo que você tem (um dispositivo confiável que não pode ser facilmente clonado, como um telefone)
+* Algo seu (biometria)
+
+<center>![Nome de usuário e senha](./media/multi-factor-authentication/pword.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Certificados](./media/multi-factor-authentication/phone.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smartphone](./media/multi-factor-authentication/hware.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Cartão inteligente](./media/multi-factor-authentication/smart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Cartão inteligente virtual](./media/multi-factor-authentication/vsmart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Nome de usuário e senha](./media/multi-factor-authentication/cert.png)</center>
+
+A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de métodos de verificação, incluindo chamada telefônica, mensagem de texto ou verificação de aplicativo móvel.
+
+## <a name="why-use-azure-multi-factor-authentication"></a>Por que usar a Autenticação Multifator do Azure?
+Hoje, mais do que nunca, as pessoas estão cada vez mais conectadas. Com smart phones, tablets, laptops e PCs, as pessoas têm várias opções para acessar suas contas e aplicativos de qualquer lugar e para se manterem constantemente conectadas.
+
+A Autenticação Multifator do Azure é uma solução fácil de usar, escalonável e confiável que fornece um segundo método de autenticação para proteger os seus usuários.
+
+| ![Fácil de usar](./media/multi-factor-authentication/simple.png) | ![Escalonável](./media/multi-factor-authentication/scalable.png) | ![Proteção constante](./media/multi-factor-authentication/protected.png) | ![Confiável](./media/multi-factor-authentication/reliable.png) |
+|:---:|:---:|:---:|:---:|
+| **Fácil de usar** |**Escalonável** |**Proteção constante** |**Confiável** |
+
+* **Fácil de usar** – a Autenticação Multifator do Azure é simples de configurar e usar. A proteção extra que acompanha a Autenticação Multifator do Azure permite que os usuários gerenciem seus próprios dispositivos. O melhor de tudo, em muitos casos ela pode ser configurada com apenas alguns cliques.
+* **Escalonável** – a Autenticação Multifator do Azure utiliza os recursos da nuvem e integra-se ao seu AD e a aplicativos personalizados locais. Essa proteção é estendida ainda às situações críticas de altos volumes.
+* **Proteção constante** - a Autenticação Multifator do Azure fornece autenticação forte usando os mais altos padrões do setor.
+* **Confiável** - a Microsoft garante 99,9% de disponibilidade da Autenticação Multifator do Azure. O serviço é considerado indisponível quando não é possível receber ou processar solicitações de verificação para verificação em duas etapas.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Saiba mais sobre [Como funciona a Autenticação Multifator do Azure](concept-mfa-howitworks.md)
+
+- Leia sobre os diferentes [métodos de consumo e versões para a Autenticação Multifator do Azure](concept-mfa-licensing.md)

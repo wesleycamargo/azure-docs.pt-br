@@ -132,7 +132,7 @@
     - name: Usar ferramentas do HDInsight
       items:
         - name: Ferramentas para Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Ferramentas para VSCode
           href: ../hdinsight-for-vscode.md

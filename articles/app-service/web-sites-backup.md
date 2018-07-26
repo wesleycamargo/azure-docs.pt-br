@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901612"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224795"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](app-service-web-overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
@@ -37,8 +37,8 @@ O Serviço de Aplicativo pode fazer backup das seguintes em uma conta de armazen
 
 As soluções de banco de dados a seguir são compatíveis com o recurso de backup: 
    - [Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-   - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/services/mysql)
-   - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/services/postgresql)
+   - [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
+   - [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
    - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

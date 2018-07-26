@@ -3,8 +3,8 @@ O **serviço vinculado do Azure Storage** permite que você vincule uma conta de
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **AzureStorage** |Sim |
-| connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |Sim |
+| Tipo |A propriedade type deve ser definida como: **AzureStorage** |SIM |
+| connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |SIM |
 
 Consulte o seguinte artigo para obter as etapas para exibir/copiar a chave de conta para um armazenamento do Azure: [Exibir, copiar e regenerar as chaves de acesso de armazenamento](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
@@ -36,8 +36,8 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo |A propriedade type deve ser definida como: **AzureStorageSas** |Sim |
-| sasUri |Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela.  |Sim |
+| Tipo |A propriedade type deve ser definida como: **AzureStorageSas** |SIM |
+| sasUri |Especificar o URI de Assinatura de Acesso Compartilhado para os recursos de Armazenamento do Azure, como blob, contêiner ou tabela.  |SIM |
 
 **Exemplo:**
 

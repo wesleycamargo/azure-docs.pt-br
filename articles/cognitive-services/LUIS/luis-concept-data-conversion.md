@@ -2,19 +2,19 @@
 title: Reconhecimento conceitos de conversão de dados no LUIS - Azure | Microsoft Docs
 description: Saiba como as expressões podem ser alteradas antes das previsões no Reconhecimento vocal (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 16b0df4b81220885e2c3747470272cee9536e10c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063554"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223694"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Conceitos de conversão de dados no LUIS
 O LUIS fornece uma forma de converter expressões de expressões faladas a expressões em texto antes da previsão. 

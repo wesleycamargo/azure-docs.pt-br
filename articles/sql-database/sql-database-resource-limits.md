@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345699"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236917"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Visão geral dos Limites de recursos do Banco de Dados SQL do Azure 
 
@@ -63,10 +63,6 @@ O número máximo de sessões e trabalhos é determinado pelo nível de desempen
 
 Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenuação incluem:
 - Aumentar a camada de serviço ou o nível de desempenho do banco de dados ou do pool elástico. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
-- Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização de trabalho for devido à contenção de recursos de computação. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
-Ao encontrar uma utilização alta de sessão ou trabalho, as opções de atenuação incluem:
-- Aumentar a camada de serviço ou o nível de desempenho do banco de dados. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
 - Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização de trabalho for devido à contenção de recursos de computação. Para saber mais, consulte [Ajuste/Dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Próximas etapas

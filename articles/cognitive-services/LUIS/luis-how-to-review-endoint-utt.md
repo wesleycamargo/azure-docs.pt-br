@@ -2,21 +2,21 @@
 title: Declarações sugeridas de rótulo com o LUIS | Microsoft Docs
 description: Use o Reconhecimento vocal (LUIS) para rotular declarações sugeridas e ajudar a melhorar o aprendizado de máquina ativo.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966824"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224544"
 ---
-# <a name="review-endpoint-utterances"></a>Examinar enunciados de ponto de extremidade
+# <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
 O recurso inovador do LUIS é o [conceito](luis-concept-review-endpoint-utterances.md) de aprendizado ativo. Depois que seu LUIS tiver consultas de ponto de extremidade, ele usa o aprendizado ativo para melhorar a qualidade dos resultados. No processo de aprendizado ativo, o LUIS examina todas as declarações de ponto de extremidade e seleciona as declarações de que não tem certeza. Se você rotular essas declarações, treiná-las e publicá-las, o LUIS identificará as declarações com mais precisão. 
 
@@ -79,4 +79,4 @@ Para excluir várias declarações, selecione cada item e selecione a lixeira à
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para testar como o desempenho melhora depois que você rotula as declarações sugeridas, você poderá acessar o console de teste selecionando **Teste** no painel superior. Para obter instruções sobre como testar seu aplicativo usando o console de teste, consulte [Treinar e testar seu aplicativo](interactive-test.md).
+Para testar como o desempenho melhora depois que você rotula as declarações sugeridas, você poderá acessar o console de teste selecionando **Teste** no painel superior. Para obter instruções sobre como testar seu aplicativo usando o console de teste, consulte [Treinar e testar seu aplicativo](luis-interactive-test.md).

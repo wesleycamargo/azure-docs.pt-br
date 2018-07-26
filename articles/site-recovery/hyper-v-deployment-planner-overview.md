@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921205"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226553"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planejador de Implantações do Site Recovery para Hyper-V para o Azure
 
@@ -74,14 +74,14 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |sim|sim|Não |Sim*|Não 
+Cenários com suporte |SIM|sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND
 
 *A ferramenta destina-se principalmente ao cenário de recuperação de desastre do Hyper-V para o Azure. Para a recuperação de desastre do Hyper-V para o site secundário, ela só pode ser usado para entender as recomendações do lado de origem, como a largura de banda de rede necessária, o espaço livre de armazenamento necessário em cada um dos servidores Hyper-V de origem e os números e as definições de lote da replicação inicial.  Ignore as recomendações do Azure e os custos do relatório. Além disso, a operação Obter Taxa de Transferência não é aplicável ao cenário de recuperação de desastre do Hyper-V para o site secundário.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, análise e geração de relatórios. Também há uma quarta opção para calcular apenas a taxa de transferência. Os requisitos para o servidor no qual as diferentes fases precisam ser executadas são apresentados na tabela a seguir:
 
 | Requisito de servidor | DESCRIÇÃO |
@@ -94,13 +94,13 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Etapas para adicionar servidores à lista TrustedHosts
 1.  A VM de onde a ferramenta deve ser implantada sempre deverá ter todos os hosts a serem analisados em sua lista TrustedHosts. Para adicionar o cliente à lista de Trustedhosts, execute o seguinte comando de um PowerShell elevado na VM. A VM pode ser um Windows Server 2012 R2 ou um Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Cada host do Hyper-V a ser analisado deve ter:
 
     a. A máquina virtual na qual a ferramenta vai ser executado em sua lista TrustedHosts. Execute o comando a seguir em uma sessão do PowerShell com privilégios elevados no host do Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Comunicação remota do PowerShell habilitada.
 

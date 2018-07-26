@@ -2,19 +2,19 @@
 title: Sobre o Reconhecimento Vocal (LUIS) no Azure | Microsoft Docs
 description: Saiba como usar o Reconhecimento Vocal (LUIS) para levar a capacidade de aprendizado de máquina para seus aplicativos.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: v-geberr
-ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 072176347adacbabc0a92f1c7e437f8233531003
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952531"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225451"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 O Reconhecimento Vocal (LUIS) é um serviço baseado em nuvem que aplica aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes. 

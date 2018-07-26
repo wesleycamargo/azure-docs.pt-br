@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 654c458c419db9e2849b55df45f389dd5d282f00
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922714"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247845"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar a alteração de formato dos logs de diagnóstico do Azure Monitor arquivados em uma conta de armazenamento
 
@@ -24,15 +24,15 @@ ms.locfileid: "37922714"
 
 ## <a name="what-is-changing"></a>O que está mudando
 
-O Azure Monitor oferece uma funcionalidade que permite que você envie dados de diagnóstico de recurso e dados de log de atividades para uma conta de armazenamento do Azure, um namespace dos Hubs de Eventos ou no Log Analytics. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018, às 00h (meia-noite) UTC**, o formato dos dados de log enviados para o Armazenamento de Blobs será alterado. Caso tenha ferramentas que leem dados fora do Armazenamento de Blobs, você precisará atualizá-las para que elas reconheçam o novo formato de dados.
+O Azure Monitor oferece uma funcionalidade que permite que você envie dados de diagnóstico de recurso e dados de log de atividades para uma conta de armazenamento do Azure, um namespace dos Hubs de Eventos ou no Log Analytics. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 24h (meia-noite) UTC**, o formato dos dados de log enviados para o armazenamento de blobs será alterado. Caso tenha ferramentas que leem dados fora do armazenamento de blobs, você precisará atualizá-las para que elas reconheçam o novo formato de dados.
 
-* Na quinta-feira, 1º de novembro de 2018, às 00h (meia-noite) UTC, o formato de blob será alterado para [Linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externa e sem vírgulas entre os registros JSON.
+* Na quinta-feira, 1º de novembro de 2018 às 24h (meia-noite) UTC, o formato de blob será alterado para [Linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externa e sem vírgulas entre os registros JSON.
 * O formato de blob é alterado para todas as configurações de diagnóstico em todas as assinaturas ao mesmo tempo. O primeiro arquivo PT1H.json emitido para 1º de novembro usará esse novo formato. Os nomes de blob e de contêiner permanecem os mesmos.
 * A definição de uma configuração de diagnóstico entre hoje e 1º de novembro continua emitindo os dados no formato atual até 1º de novembro.
 * Essa alteração ocorrerá ao mesmo tempo em todas as regiões de nuvem pública. A alteração ainda não ocorrerá nas nuvens do Azure China, Azure Alemanha ou Azure Governamental.
 * Essa alteração afeta os seguintes tipos de dados:
   * [Logs de diagnóstico de recurso do Azure](./monitoring-archive-diagnostic-logs.md) ([veja a lista de recursos aqui](./monitoring-diagnostic-logs-schema.md))
-  * [Métricas de recursos do Azure exportadas pelas configurações de diagnóstico](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)
+  * [Métricas de recursos do Azure exportadas pelas configurações de diagnóstico](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
   * [Dados de Log de atividades do Azure exportados pelos perfis de log](./monitoring-archive-activity-log.md)
 * Essa alteração não afeta:
   * Logs de fluxo de rede
@@ -57,7 +57,7 @@ Se você tiver recursos que estão enviando dados para uma conta de armazenament
 
 ### <a name="details-of-the-format-change"></a>Detalhes da alteração de formato
 
-O formato atual do arquivo PT1H.json no Armazenamento de Blobs do Azure usa uma matriz de registros JSON. Esta é uma amostra de um arquivo de log do KeyVault agora:
+O formato atual do arquivo PT1H.json no armazenamento de blobs do Azure usa uma matriz de registros JSON. Esta é uma amostra de um arquivo de log do KeyVault agora:
 
 ```json
 {
@@ -129,7 +129,7 @@ Esse novo formato permite que o Azure Monitor efetue push de arquivos de log usa
 
 ## <a name="how-to-update"></a>Como atualizar
 
-Você só precisará fazer atualizações se tiver ferramentas personalizadas que ingerem esses arquivos de log para processamento adicional. Se você estiver usando uma ferramenta externa de SIEM ou de análise de log, recomendamos o [uso de Hubs de Eventos para a ingestão desses dados](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). A integração aos Hubs de Eventos é mais fácil em termos de processamento de logs de muitos serviços e de indicação do local em determinado log.
+Você só precisará fazer atualizações se tiver ferramentas personalizadas que ingerem esses arquivos de log para processamento adicional. Se você estiver usando uma ferramenta externa de SIEM ou de análise de log, recomendamos o [uso de hubs de eventos para a ingestão desses dados](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). A integração aos hubs de eventos é mais fácil em termos de processamento de logs de muitos serviços e de indicação do local em determinado log.
 
 As ferramentas personalizadas devem ser atualizadas para manipular o formato atual e o formato Linhas JSON descrito acima. Isso garantirá que, quando os dados começarem a ser exibidos no novo formato, as ferramentas não sejam interrompidas.
 

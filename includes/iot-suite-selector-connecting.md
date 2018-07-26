@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 780a215b66fec845bc1df639fedda870881b4027
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665983"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189239"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -22,7 +22,7 @@ ms.locfileid: "34665983"
 > * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [C no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-Neste tutorial, você implementará um dispositivo **Resfriador** que envia a seguinte telemetria para o [acelerador de solução](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de Monitoramento Remoto:
+Neste tutorial, você implementará um dispositivo **Resfriador** que envia a seguinte telemetria para o [acelerador de solução](../articles/iot-accelerators/about-iot-accelerators.md) de Monitoramento Remoto:
 
 * Temperatura
 * Pressão
@@ -44,7 +44,7 @@ Antes de escrever qualquer código para o dispositivo, implante o acelerador de 
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de Monitoramento Remoto
 
-O dispositivo **Resfriador** criado neste tutorial envia os dados para uma instância do acelerador de solução de [Monitoramento Remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md). Caso ainda não tenha provisionado o acelerador de solução de monitoramento remoto em sua conta do Azure, confira [Implantar o acelerador de solução de monitoramento remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+O dispositivo **Resfriador** criado neste tutorial envia os dados para uma instância do acelerador de solução de [Monitoramento Remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Caso ainda não tenha provisionado o acelerador de solução de monitoramento remoto em sua conta do Azure, confira [Implantar o acelerador de solução de monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
 Quando o processo de implantação para a solução de Monitoramento Remoto for concluído, clique em **Inicialização** para abrir o painel da solução em seu navegador.
 

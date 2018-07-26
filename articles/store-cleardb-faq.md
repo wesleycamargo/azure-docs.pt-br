@@ -11,12 +11,13 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917067"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215196"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.

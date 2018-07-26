@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228607"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215026"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics
 A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Com o Log Analytics, você pode:
@@ -37,14 +37,14 @@ Para encontrar o ResourceId da sua Conta de automação do Azure:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Para localizar o ResourceId do seu espaço de trabalho do Log Analytics, execute o seguinte PowerShell:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Caso tenha mais de uma Conta de automação ou espaços de trabalho na saída dos comandos anteriores, localize o *Nome* que você precisa configurar e copie o valor de *ResourceId*.

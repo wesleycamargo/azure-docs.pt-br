@@ -9,18 +9,18 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363860"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223362"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
 Para usar o Serviço de Visão Personalizada, primeiro você deve compilar um classificador. Neste documento, saiba como compilar um classificador por meio de seu navegador da Web.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para compilar um classificador, primeiro você deve ter:
 
@@ -83,8 +83,6 @@ Para criar um novo projeto, use as etapas a seguir:
     O Serviço de Visão Personalizada aceita imagens de treinamento em formato .jpg, .png e .bmp, até 6 MB por imagem. (Imagens de previsão podem ter até 4 MB por imagem.) É recomendável que imagens tenham 256 pixels na borda mais curta. Qualquer imagem de menos de 256 pixels na borda menor é escalada verticalmente pelo Serviço de Visão Personalizada.
 
     ![O controle de adição de imagens é mostrado no canto superior esquerdo e como um botão na parte inferior central.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![O botão para procurar arquivos locais é mostrado próximo à parte inferior central.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > A API REST pode ser usada para carregar as imagens de treinamento de URLs.

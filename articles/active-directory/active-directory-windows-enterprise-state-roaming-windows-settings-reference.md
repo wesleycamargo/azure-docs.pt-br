@@ -4,23 +4,24 @@ description: Uma lista completa de todas as configurações que serão ser movid
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159070"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223660"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -30,10 +31,10 @@ Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de cont
 
 | Tipo e operação de conta | Desktop | Móvel |
 | --- | --- | --- |
-| Active Directory do Azure: sincronização |sim |Não  |
+| Active Directory do Azure: sincronização |SIM |Não  |
 | Active Directory do Azure: backup/restauração |Não  |Não  |
-| Conta da Microsoft: sincronização |sim |sim |
-| Conta da Microsoft: backup/restauração |Não  |sim |
+| Conta da Microsoft: sincronização |SIM |SIM |
+| Conta da Microsoft: backup/restauração |Não  |SIM |
 
 ## <a name="what-is-backup"></a>O que é backup?
 As configurações do Windows geralmente são sincronizadas por padrão, mas algumas configurações são incluídas apenas no backup, como a lista de aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. O backup usa uma conta da Microsoft e armazena as configurações e dados do aplicativo no OneDrive. Se um usuário desabilitar a sincronização no dispositivo usando o aplicativo Configurações, os dados de aplicativo que normalmente são sincronizados se tornarão somente backup. Os dados de backup só podem ser acessados por meio da operação de restauração durante a primeira execução de um novo dispositivo. Os backups podem ser desabilitados por meio de configurações do dispositivo e podem ser gerenciados e excluídos por meio da conta do OneDrive do usuário.

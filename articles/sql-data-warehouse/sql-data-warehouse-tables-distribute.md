@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526246"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258041"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes de design para tabelas distribuídas no SQL Data Warehouse do Azure
 Recomendações para a criação de tabelas distribuídas por hash e round-robin no SQL Data Warehouse do Azure.
@@ -174,7 +174,7 @@ Para decidir se deve resolver a distorção de dados em uma tabela, você deve c
 Como você não pode alterar a coluna de distribuição em uma tabela existente, uma forma comum de resolver distorção de dados é recriar a tabela com uma coluna de distribuição diferente.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Criar novamente a tabela com uma nova coluna de distribuição
-Este exemplo usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) para recriar uma tabela com uma coluna de distribuição de hash diferente.
+Este exemplo usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para recriar uma tabela com uma coluna de distribuição de hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

@@ -3,19 +3,19 @@ title: Saiba como Padrões aumentam a precisão da previsão | Microsoft Docs
 titleSuffix: Azure
 description: Saiba como definir padrões para aumentar a pontuação da previsão da intenção e encontrar entidades.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888272"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225210"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares. Ao fornecer um padrão para a expressão, LUIS pode ter uma alta confiabilidade da previsão. 

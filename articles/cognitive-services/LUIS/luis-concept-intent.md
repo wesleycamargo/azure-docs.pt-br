@@ -2,19 +2,19 @@
 title: Noções básicas sobre intenções em aplicativos LUIS no Azure | Microsoft Docs
 description: Descreve quais intenções estão nos aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888571"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225781"
 ---
 # <a name="intents-in-luis"></a>Intenções no LUIS
 

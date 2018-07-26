@@ -2,19 +2,19 @@
 title: Gerenciar sua assinatura do ponto de extremidade do Azure | Microsoft Docs
 description: Neste artigo, você cria uma chave de ponto de extremidade limitada para sua conta do LUIS para fornecer tráfego ilimitado ao seu ponto de extremidade de acordo com um plano de pagamento.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: diberry
+ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340766"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223272"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerenciar suas chaves de assinatura do ponto de extremidade do Azure
 

@@ -7,19 +7,19 @@ ms.author: jasonh
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 8bee80647d692b60898880a85652189a684426f7
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 426d7b15cd4a98d958ed02329f40becdfb177ceb
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312966"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259272"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT
 Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo para reunir dados dos dispositivos da Internet das Coisas (IoT). Usaremos um caso de uso real da Internet das coisas (IoT) para demonstrar como compilar uma solução rápida e econômica.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * [Assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Exemplos de arquivos de consulta e de dados que podem ser baixados de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 

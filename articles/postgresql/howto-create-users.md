@@ -9,12 +9,12 @@ manager: jhubbard
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 87a73929185112190d5dd6698e014db225ebc08e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: be3be5769f1d9ad6138fcef851179ddc5cf6c0da
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574179"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144730"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Criar usuários em um Banco de Dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como você pode criar usuários em um servidor de Banco de Dados do Azure para PostgreSQL.
@@ -64,7 +64,7 @@ A conta de usuário administrador do servidor pode ser usada para criar usuário
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. Usando uma conta de administrador, você precisará conceder privilégios adicionais para proteger os objetos no banco de dados. Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) para obter mais detalhes sobre as funções de banco de dados e os privilégios. Por exemplo:  
