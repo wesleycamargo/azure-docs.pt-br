@@ -131,6 +131,9 @@
   items:
     - name: Cenários para Automação de Cobrança
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Gerenciar os custos com os Orçamentos do Azure
+          href: billing-cost-management-budget-scenario.md
     - name: Visão Geral da API de Cobrança do Azure
       href: billing-usage-rate-card-overview.md
       items:
