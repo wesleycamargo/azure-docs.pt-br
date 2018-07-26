@@ -8,22 +8,22 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968948"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185883"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizar Dados de Monitoramento Remoto com o Time Series Insights
 
 Um operador pode desejar estender ainda mais a visualização de dados imediata fornecida pela solução de Monitoramento Remoto pré-configurada. Nosso acelerador de solução fornece integração com TSI imediata. Com estas instruções você aprenderá como configurar o Time Series Insights para analisar a telemetria do dispositivo e detectar anomalias.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir estas instruções, você precisará do seguinte:
 
-* [Implantar a solução de Monitoramento Remoto pré-configurada](iot-accelerators-remote-monitoring-deploy.md)
+* [Implantar a solução de Monitoramento Remoto pré-configurada](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 

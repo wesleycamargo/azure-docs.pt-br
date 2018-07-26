@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 904a5c3de9ddc8fa8146c4e2c87ab968c31e5d59
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221199"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238413"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -389,12 +389,12 @@ client.replaceDocumentAsync(docToReplace.self,
 });
 
 // Fails, can’t use a create trigger in a replace operation
+```
+### <a name="database-post-triggers"></a>Pós-gatilhos de banco de dados
+Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um documento e não assumem parâmetros de entrada. Eles são executados **após** a operação ter sido concluída, e possuem acesso à mensagem de resposta que é enviada ao cliente.   
 
-### Database post-triggers
-Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
-
-The following example shows post-triggers in action:
-
+O exemplo a seguir mostra pós-gatilhos em ação:
+```
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -432,9 +432,9 @@ var updateMetadataTrigger = {
     triggerOperation: TriggerOperation.All
 }
 
-
-The trigger can be registered as shown in the following sample.
-
+```
+O gatilho pode ser registrado como mostrado na amostra a seguir.
+```
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 

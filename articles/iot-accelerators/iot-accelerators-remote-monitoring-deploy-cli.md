@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017502"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187991"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
-Este tutorial mostra como provisionar o acelerador da solução de Monitoramento Remoto. Implante a solução usando a CLI. Também é possível implantar a solução usando a interface do usuário na Web em azureiotsuite.com. Para saber mais sobre essa opção, confira [Implantar o acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-deploy.md).
+Este tutorial mostra como provisionar o acelerador da solução de Monitoramento Remoto. Implante a solução usando a CLI. Também é possível implantar a solução usando a interface do usuário na Web em azureiotsuite.com. Para saber mais sobre essa opção, confira [Implantar o acelerador de solução de Monitoramento Remoto](quickstart-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para implantar o acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
@@ -65,7 +65,7 @@ Nossa opção de implantação Standard deve ser usada quando você estiver pron
 
 Criar uma solução Basic resultará no provisionamento dos seguintes serviços do Azure em sua assinatura do Azure, com custo: 
 
-| Contagem | Recurso                       | type         | Usadas para |
+| Contagem | Recurso                       | Tipo         | Usadas para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
@@ -135,6 +135,6 @@ Neste tutorial, você aprendeu como:
 > * Implantar o acelerador de solução
 > * Entrar no acelerador de solução
 
-Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](./iot-accelerators-remote-monitoring-deploy.md).
+Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](./quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

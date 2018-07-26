@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 677f0e0f17191feb560ac5e9bb72a058e385084d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309906"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185823"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT usando .NET
 
@@ -25,7 +25,7 @@ Este tutorial se baseia no código do tutorial [Como enviar mensagens da nuvem p
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-Os tutoriais [Introdução ao Hub IoT](iot-hub-csharp-csharp-getstarted.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-csharp-csharp-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Processar mensagens do dispositivo para a nuvem](tutorial-routing.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
+Os tutoriais [Introdução ao Hub IoT](quickstart-send-telemetry-dotnet.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-csharp-csharp-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Processar mensagens do dispositivo para a nuvem](tutorial-routing.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
 * Arquivos grandes que contêm imagens
 * vídeos

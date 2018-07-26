@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088383"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187716"
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -83,11 +83,11 @@ O vídeo a seguir mostra um passo a passo para conectar dispositivos simulados e
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este tutorial, você precisa do seguinte:
 
-* Uma instância implantada da solução de Monitoramento Remoto em sua assinatura do Azure. Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Uma instância implantada da solução de Monitoramento Remoto em sua assinatura do Azure. Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Implantar o acelerador de solução de monitoramento remoto](../iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Se você não tem o Visual Studio 2017 instalado, baixe a edição gratuita [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 

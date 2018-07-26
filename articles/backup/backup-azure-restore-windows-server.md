@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2018
+ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: 16f0460dea75b0dc52c3852d9947db0ad15f8fbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606317"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247271"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
 
@@ -143,33 +143,6 @@ A terminologia usada nessas etapas inclui:
     > [!Important]
     > Se você não clicar em Desmontar, o Volume de Recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
     >
-
-## <a name="troubleshooting"></a>solução de problemas
-Se o Backup do Azure não tiver montado com êxito o volume de recuperação mesmo após os diversos minutos de clicar em **Montar** ou falha ao montar o volume de recuperação com um ou mais erros, siga as etapas abaixo para iniciar a recuperação normalmente.
-
-1.  Cancele o processo de montagem em andamento caso ele esteja sendo executado por vários minutos.
-
-2.  Verifique se você está na versão mais recente do agente de Backup do Azure. Para obter as informações de versão do agente de Backup do Azure, clique em **Sobre o Agente dos Serviços de Recuperação do Microsoft Azure** no painel **Ações** do console de Backup do Microsoft Azure e verifique se o número de **Versão** é igual a ou maior do que a versão mencionada [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Você pode baixar a versão mais recente [aqui](https://go.microsoft.com/fwLink/?LinkID=288905)
-
-3.  Vá para **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** e verifique se você pode localizar o **Iniciador do Microsoft iSCSI**. Se você puder localizá-lo, vá diretamente para a etapa 7 abaixo. 
-
-4.  Se você não puder localizar o serviço Iniciador do Microsoft iSCSI conforme mencionado na etapa 3, verifique se você pode encontrar uma entrada em **Gerenciador de Dispositivos** -> **Controladores de Armazenamento** chamada **Dispositivo Desconhecido** com a ID de Hardware **ROOT\ISCSIPRT**.
-
-5.  Clique com o botão direito do mouse em **Dispositivo Desconhecido** e selecione **Atualizar Software de Driver**.
-
-6.  Atualize o driver ao selecionar a opção para **Pesquisar automaticamente software de driver atualizado**. A conclusão da atualização deve alterar o **Dispositivo Desconhecido** para o **Iniciador do Microsoft iSCSI** conforme mostrado abaixo. 
-
-    ![Criptografia](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  Vá para **Gerenciador de Tarefas** -> **Serviços (Local)** -> **Serviço Iniciador do Microsoft iSCSI**. 
-
-    ![Criptografia](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  Reinicie o serviço Iniciador do Microsoft iSCSI ao clicar com o botão direito do mouse no serviço, clicar em **Parar** e continue clicando com o botão direito do mouse e clicando em **Iniciar**.
-
-9.  Repita a recuperação usando a Restauração Instantânea. 
-
-Se a recuperação ainda falhar, reinicialize o servidor/cliente. Se uma reinicialização não for desejável ou se a recuperação ainda falhar mesmo após a reinicialização do servidor, tente recuperar de um Computador Alternativo e contate o Suporte do Azure no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e envie uma solicitação de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).

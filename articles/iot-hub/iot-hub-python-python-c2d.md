@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: ac57af167948ad0ca2a658953ba39fc188e2e800
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 316a8cd9ebf58e06ba39ba18fa19ede4b6a62229
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635382"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187291"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Enviar mensagens da nuvem para dispositivo com o Hub IoT (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -311,12 +311,12 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md
+[Introdução ao Hub IoT]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
 [Central de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Portal do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 [Acelerador de solução de Monitoramento Remoto do Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18a2aa289c89f98e6d20ddcdbd1217785fc163d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918403"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248071"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
 Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
@@ -25,7 +25,7 @@ Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manage
 
 O método para habilitar os Logs de Diagnóstico usando um modelo do Resource Manager depende do tipo de recurso.
 
-* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 * **De Computação** (baseados no WAD/LAD) usam o [Arquivo de configuração do WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Neste artigo, descrevemos como configurar o diagnóstico usando um método.

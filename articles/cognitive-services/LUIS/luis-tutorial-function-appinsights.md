@@ -3,19 +3,19 @@ title: Adicionar os dados do LUIS ao Application Insights usando Node.js | Micro
 titleSuffix: Azure
 description: Crie um bot integrado com um aplicativo do LUIS e o Application Insights usando Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364713"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236832"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Adicionar resultados do LUIS ao Application Insights de um bot de aplicativo Web
 Este tutorial adiciona informações de solicitação e resposta do LUIS ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou com o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
@@ -25,11 +25,11 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 * Adicionar a biblioteca do Application Insights a um bot de aplicativo Web
 * Capturar e enviar resultados da consulta LUIS para o Application Insights
-* Consulte o Application Insights para principais intenções, pontuações e enunciados
+* Veja o Application Insights para as principais intenções, pontuações e declarações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Seu bot de aplicativo Web do LUIS do **[tutorial anterior](luis-nodejs-tutorial-build-bot-framework-sample.md)** com o Application Insights ativado. 
+* O bot de aplicativo Web do LUIS do **[tutorial anterior](luis-nodejs-tutorial-build-bot-framework-sample.md)** com o Application Insights ativado. 
 
 > [!Tip]
 > Se você ainda não tiver uma assinatura, poderá registrar-se para uma [conta gratuita](https://azure.microsoft.com/free/).
@@ -160,4 +160,4 @@ Outras informações que você talvez queira adicionar aos dados do Application 
 Se você estiver usando a mesma assinatura do ponto de extremidade para mais de um aplicativo LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada. 
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre enunciados de exemplo](luis-how-to-add-example-utterances.md)
+> [Saiba mais sobre declarações de exemplo](luis-how-to-add-example-utterances.md)

@@ -3,22 +3,22 @@ title: Adicionar os dados do LUIS ao Application Insights usando C# | Microsoft 
 titleSuffix: Azure
 description: Crie um bot integrado com um aplicativo do LUIS e o Application Insights usando C#.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 52b6ae224b0e8da12eb4903f5100a6e5cc39704d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35364916"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237784"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Adicionar os resultados do LUIS ao Application Insights de um bot do aplicativo Web
-Este tutorial adiciona informações de resposta do LUIS ao armazenamento de dados de telemetria do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou Power BI para analisar, agregar e relatar intenções e entidades da declaração em tempo real. Essa análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo do LUIS.
+Este tutorial adiciona informações de resposta do LUIS ao armazenamento de dados de telemetria do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando você tiver esses dados, poderá consultá-los com a linguagem de Kusto ou Power BI para analisar, agregar e relatar intenções e entidades da declaração em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
 
 Neste tutorial, você aprenderá como:
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprenderá como:
 * Capturar e enviar os resultados de consulta do LUIS para o Application Insights
 * Veja o Application Insights para as principais intenções, pontuações e declarações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * O bot de aplicativo Web do LUIS do **[tutorial anterior](luis-csharp-tutorial-build-bot-framework-sample.md)** com o Application Insights ativado. 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) instalado localmente no computador.
@@ -189,11 +189,11 @@ Turn on the hall light
 ## <a name="view-luis-entries-in-application-insights"></a>Exibir as entradas do LUIS no Application Insights
 Abra o Application Insights para ver as entradas do LUIS. 
 
-1. No portal, selecione **Todos os recursos**, em seguida, filtre pelo nome do bot do aplicativo Web. Clique no recurso com o tipo **Application Insights**. O ícone do Application Insights é uma lâmpada. 
+1. No portal, selecione **Todos os recursos** e, em seguida, filtre pelo nome do bot do aplicativo Web. Clique no recurso com o tipo **Application Insights**. O ícone para o Application Insights é uma lâmpada. 
 
-    ![Pesquisar app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Pesquisar insights de aplicativo](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
-2. Quando o recurso é aberto, clique no ícone **Pesquisa** da lupa no painel mais à direita. Um novo painel à direita é exibido. Dependendo de quantos dados de telemetria forem encontrados, o painel poderá levar um segundo para ser exibido. Procure `LUIS`. A lista é restrita somente aos resultados de consulta do LUIS adicionados com este tutorial.
+2. Quando o recurso se abrir, clique no ícone **Pesquisar** da lupa no painel bem à direita. Um novo painel à direita é exibido. Dependendo de quantos dados de telemetria forem encontrados, o painel poderá levar um segundo para ser exibido. Procure `LUIS`. A lista é restrita somente aos resultados de consulta do LUIS adicionados com este tutorial.
 
     ![Pesquisar rastreamentos](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
 
@@ -205,9 +205,9 @@ Abra o Application Insights para ver as entradas do LUIS.
 
 
 > [!Tip]
-> Se você quiser salvar a lista de dependências e retornar a ele mais tarde, clique em **... Mais** e clique em **Salvar favorito**.
+> Se você quiser salvar a lista de dependências e retornar a ela mais tarde, clique em **…Mais** e em **Salvar favorito**.
 
-## <a name="query-application-insights-for-intent-score-and-utterance"></a>Consulte o Application Insights para as intenções, pontuações e declarações
+## <a name="query-application-insights-for-intent-score-and-utterance"></a>Consulte o Application Insights para intenções, pontuações e enunciados
 O Application Insights oferece a capacidade de consultar os dados com a linguagem [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), além de exportar para [PowerBI](https://powerbi.microsoft.com). 
 
 1. Clique em **Análise** na parte superior da lista de dependência acima da caixa de filtro. 
@@ -218,7 +218,7 @@ O Application Insights oferece a capacidade de consultar os dados com a linguage
 
     ![Relatório de análise padrão](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-1.png)
 
-3. Para retirar a intenção superior, pontuação e declaração, adicione o seguinte logo acima da última linha na janela de consulta:
+3. Para extrair as principais intenções, pontuações e enunciados, adicione o seguinte logo acima da última linha na janela de consulta:
 
     ```SQL
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
@@ -226,7 +226,7 @@ O Application Insights oferece a capacidade de consultar os dados com a linguage
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-4. Execute a consulta. Role para a direita na tabela de dados. As novas colunas da intenção superior, pontuação e declaração estão disponíveis. Clique na coluna da intenção superior para classificar.
+4. Execute a consulta. Role bem para a direita na tabela de dados. As novas colunas de topIntent, pontuação e enunciado estão disponíveis. Clique na coluna da intenção superior para classificar.
 
     ![Relatório de análise personalizado](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
@@ -239,9 +239,9 @@ Saiba mais sobre o [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Outras informações que você talvez queira adicionar aos dados do Application Insights incluem a ID do aplicativo, ID de versão, data da última alteração do modelo, data do último treinamento, data da última publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID de versão) ou de uma chamada à [API de criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d), em seguida, definida nas configurações do bot do aplicativo Web e utilizada a partir daí.  
+Outras informações que você talvez queira adicionar aos dados do Application Insights incluem ID do aplicativo, ID de versão, data da última alteração do modelo, data do último treinamento, data da última publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID de versão) ou de uma chamada à [API de criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) e então definidos nas configurações do bot do aplicativo Web e capturados de lá.  
 
-Se você estiver usando a mesma assinatura do ponto de extremidade para mais de um aplicativo do LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada. 
+Se você estiver usando a mesma assinatura do ponto de extremidade para mais de um aplicativo LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada. 
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre declarações de exemplo](luis-how-to-add-example-utterances.md)

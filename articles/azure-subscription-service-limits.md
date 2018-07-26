@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069532"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188057"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -59,7 +59,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviços de Nuvem](#cloud-services-limits)
 * [Instâncias de Contêiner](#container-instances-limits)
 * [Registro de Contêiner](#container-registry-limits)
-* [Serviço do Kubernetes](#container-service-aks-limits)
+* [Serviço do Kubernetes](#kubernetes-service-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)

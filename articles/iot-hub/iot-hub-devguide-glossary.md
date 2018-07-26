@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125908"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187359"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -151,7 +151,7 @@ Um hub IoT expõe vários [pontos de extremidade](iot-hub-devguide-endpoints.md)
 Para ler mensagens do [dispositivo para nuvem](#device-to-cloud) enviadas ao seu hub IoT, você pode se conectar a um ponto de extremidade em seu hub e usar qualquer método compatível com o Hub de Eventos para ler essas mensagens. Entre os métodos compatíveis com o Hub de Eventos estão o uso de [SDKs dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md) e o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Gateway de campo
-Um gateway de campo permite a conectividade para dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub) e normalmente é implantado localmente com seus dispositivos. Para saber mais, confira [O que é o Hub IoT do Azure?](iot-hub-what-is-iot-hub.md)
+Um gateway de campo permite a conectividade para dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub) e normalmente é implantado localmente com seus dispositivos. Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Conta gratuita
 Você pode criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) para concluir os tutoriais do Hub IoT e experimentar o serviço Hub IoT (e outros serviços do Azure).
@@ -168,7 +168,7 @@ Uma mensagem interativa é uma mensagem da [nuvem para o dispositivo](#cloud-to-
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>Hub IoT
-O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Para saber mais, confira [O que é o Hub IoT do Azure?](iot-hub-what-is-iot-hub.md) Usando a [assinatura do Azure](#subscription), você pode criar hubs IoT para lidar com suas cargas de trabalho de mensagens IoT.
+O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md) Usando a [assinatura do Azure](#subscription), você pode criar hubs IoT para lidar com suas cargas de trabalho de mensagens IoT.
 
 ## <a name="iot-hub-metrics"></a>Métricas do Hub IoT
 As [métricas do Hub IoT](iot-hub-metrics.md) fornecem dados sobre o estado dos hubs IoT em sua [assinatura do Azure](#subscription). As métricas do Hub IoT permitem avaliar a integridade geral do serviço e dos dispositivos conectados a ele. As métricas do Hub IoT podem ajudar você a ver o que está acontecendo com o hub IoT e a investigar a causa raiz de problemas sem precisar entrar em contato com o suporte do Azure.
@@ -180,7 +180,7 @@ A [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) é uma 
 Você pode usar a [API REST dos recursos do Hub IoT](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerenciar os hubs IoT em sua [assinatura do Azure](#subscription) que executam operações como criar, atualizar e excluir hubs.
 
 ## <a name="iot-solution-accelerators"></a>Aceleradores de solução do IoT
-Os aceleradores de solução do Azure IoT incluem vários serviços do Azure para oferecer diferentes soluções. Essas soluções permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [O que são os aceleradores de solução do Azure IoT?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Os aceleradores de solução do Azure IoT incluem vários serviços do Azure para oferecer diferentes soluções. Essas soluções permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [O que são os aceleradores de solução do Azure IoT?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>A extensão de IoT para o Azure CLI 2.0
 [A extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
@@ -201,7 +201,7 @@ Um dispositivo físico é um dispositivo real como um Raspberry Pi que se conect
 Quando você se conecta a um ponto de extremidade voltado para o dispositivo ou voltado para o serviço em um hub IoT, sua [cadeia de conexão](#connection-string) inclui a chave para conceder acesso. Quando você adiciona um dispositivo ao [registro de identidade](#identity-registry) ou adiciona uma [política de acesso compartilhado](#shared-access-policy) para o hub, o serviço gera uma chave primária e secundária. Ter duas chaves permite que você passe de uma chave para outra quando você atualiza uma chave sem perder o acesso ao hub IoT.
 
 ## <a name="protocol-gateway"></a>Gateway de protocolo
-Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de conversão de protocolo para dispositivos que se conectam ao [Hub IoT](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](iot-hub-what-is-iot-hub.md)
+Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de conversão de protocolo para dispositivos que se conectam ao [Hub IoT](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>Cotas e limitação
 Há várias [cotas](iot-hub-devguide-quotas-throttling.md) que se aplicam ao uso do [Hub IoT](#iot-hub), muitas delas variam de acordo com a camada do hub IoT. O [Hub IoT](#iot-hub) também aplica [limitações](iot-hub-devguide-quotas-throttling.md) ao uso do serviço em tempo de execução.

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 48a2d302727f2f8e9c87552a05bc7506fbef3120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 936063e1419d5e2261033ea74d75687eade928e8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235552"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187309"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -25,7 +25,7 @@ Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
 - Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-O tutorial [Introdução ao Hub IoT](iot-hub-node-node-getstarted.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
+O tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
 
 * Arquivos grandes que contêm imagens
 * vídeos

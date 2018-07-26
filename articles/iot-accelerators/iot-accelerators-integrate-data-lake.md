@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971730"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188056"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store
 
@@ -21,11 +21,11 @@ Talvez você tenha necessidades de análise avançada além do que é oferecido 
 
 Neste manual, você usará um trabalho do Azure Stream Analytics para transmitir dados do hub IoT em sua solução de Monitoramento Remoto para um Azure Data Lake Store.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir estas instruções, você precisará do seguinte:
 
-* [Implantar o acelerador da solução de monitoramento remoto](iot-accelerators-remote-monitoring-deploy.md).
+* [Implantar o acelerador da solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md).
   * A solução de Monitoramento Remoto implantará o hub IoT e o trabalho do Azure Stream Analytics usado neste artigo em sua assinatura do Azure.
 * [Implantar um Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * O Data Lake Store deve ser implantado na mesma região que sua solução de Monitoramento Remoto.

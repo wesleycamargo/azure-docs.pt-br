@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2090977813f5335f2170ff543bde19cd8bf123b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631880"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185775"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo com o Hub IoT (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -189,7 +189,7 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introdução ao Hub IoT]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Acelerador de solução de Monitoramento Remoto do Azure IoT]: https://docs.microsoft.com/azure/iot-suite/
 [SDKs do dispositivo IoT do Azure]: iot-hub-devguide-sdks.md

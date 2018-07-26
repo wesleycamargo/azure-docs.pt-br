@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917203"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213626"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
 
@@ -33,7 +33,7 @@ Uma boa solução de recuperação de desastres deve permitir a modelagem de pla
 Este documento fornece uma orientação passo a passo para a criação de uma solução de recuperação de desastre para suas implantações locais do Citrix XenApp em plataformas do Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você precisa entender o seguinte:
 
@@ -63,9 +63,9 @@ Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais
 
 **Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
-**Hyper-V** | Não está no escopo | sim
-**VMware** | Não está no escopo | sim
-**Servidor físico** | Não está no escopo | sim
+**Hyper-V** | Não está no escopo | SIM
+**VMware** | Não está no escopo | SIM
+**Servidor físico** | Não está no escopo | SIM
 
 ### <a name="versions"></a>Versões
 Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. O Azure Site Recovery pode proteger as implantações físicas e virtuais no Azure.
@@ -182,7 +182,7 @@ O plano de recuperação personalizado parece com o seguinte:
 
 
    >[!NOTE]
-   >Você pode usar scripts no [local](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) para atualizar o DNS com os novos IPs de failover > máquinas virtuais ou para anexar um balanceador de carga pela máquina virtual na qual o failover foi realizado, se necessário.
+   >Você pode usar scripts no [local](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) para atualizar o DNS com os novos IPs de failover > máquinas virtuais ou para anexar um balanceador de carga pela máquina virtual na qual o failover foi realizado, se necessário.
 
 
 ## <a name="doing-a-test-failover"></a>Executar um failover de teste

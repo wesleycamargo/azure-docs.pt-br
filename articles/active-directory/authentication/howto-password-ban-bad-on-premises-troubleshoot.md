@@ -4,18 +4,18 @@ description: Reconhecer o registro em log da proteção por senha do Azure AD e 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e5b3dc1bfa7c7890be83529e863907ec056f188f
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292011"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187342"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Versão prévia: solução de problemas, relatório, monitoramento de proteção por senha do Azure AD
 
@@ -197,7 +197,7 @@ Se for decidido desinstalar o software de visualização pública e limpar todo 
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Não omita o asterisco (“*”) no final do valor da variável $keywords.
@@ -209,7 +209,7 @@ Se for decidido desinstalar o software de visualização pública e limpar todo 
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    O objeto resultante encontrado através do comando `Get-ADObject` pode ser redirecionado para `Remove-ADObject` ou excluído manualmente.

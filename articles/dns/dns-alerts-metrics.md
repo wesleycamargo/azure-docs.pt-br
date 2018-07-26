@@ -3,7 +3,7 @@ title: Métricas e alertas de DNS do Azure | Microsoft Docs
 description: Saiba mais sobre métricas e alertas de DNS do Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jennoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: kumud
-ms.openlocfilehash: 54c4df446ee5c1bf8d29dd6c33b304f39ce8f1b8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 17541cdc0fd017cf762c4af55e0a6be25dead9f1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31591612"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171857"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas DNS do Azure
 O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Este artigo descreve as métricas e alertas para o serviço DNS do Azure.

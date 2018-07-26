@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299521"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172010"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Crie APIs personalizadas que podem ser chamadas de fluxos de trabalho de aplicativos lógicos
 
@@ -43,7 +43,8 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Para obter exemplos de aplicativo de API criados para aplicativos lógicos, visite o [Repositório GitHub de Aplicativos Lógicos do Azure](http://github.com/logicappsio) ou o [blog](http://aka.ms/logicappsblog).
 
@@ -180,7 +181,7 @@ Por exemplo, para verificar periodicamente novos arquivos no serviço, você pod
 | A solicitação inclui `triggerState`? | Resposta da API | 
 | -------------------------------- | -------------| 
 | Não  | Retornar um status HTTP `202 ACCEPTED` e um cabeçalho `location` com `triggerState` definido com a hora atual e o intervalo `retry-after` como 15 segundos. | 
-| sim | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
+| SIM | Verifique em seu serviço arquivos adicionados após o `DateTime` para `triggerState`. | 
 ||| 
 
 | Número de arquivos encontrados | Resposta da API | 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb5e7ce608f434bd880baae4d6780dd5038099f8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299137"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187209"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -25,7 +25,7 @@ Este tutorial descreve como usar os [recursos de carregamento de arquivos do Hub
 - Fornece um contêiner de armazenamento com segurança para carregar um arquivo.
 - Use o cliente do Python para carregar um arquivo por meio de seu Hub IoT.
 
-O tutorial [Introdução ao Hub IoT](iot-hub-node-node-getstarted.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
+O tutorial [Introdução ao Hub IoT](quickstart-send-telemetry-node.md) demonstra a funcionalidade básica de mensagens de dispositivo para nuvem do Hub IoT. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
 
 > [!NOTE]
 > SDK de Python de Hub IoT atualmente suporta apenas carregar arquivos baseados em caracteres, como arquivos **.txt**.

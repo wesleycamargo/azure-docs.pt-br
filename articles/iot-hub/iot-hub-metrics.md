@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: 754901bb9c851f66708771346cbb7fe2e42688cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b41458f0201c46b99c09d0bfffd219743a36ad50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634056"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186748"
 ---
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas de Hub IoT
 As métricas do Hub IoT fornecem dados melhores sobre o estado dos recursos IoT do Azure na sua assinatura do Azure. As métricas Hub IoT permitem avaliar a integridade geral do serviço do Hub IoT e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam você a ver o que está acontecendo com o Hub IoT e com os problemas de causa raiz sem precisar contatar o suporte do Azure.
@@ -100,7 +100,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [1]: media/iot-hub-metrics/enable-metrics-1.png
 [2]: media/iot-hub-metrics/enable-metrics-2.png
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-operations-monitoring]: iot-hub-operations-monitoring.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
