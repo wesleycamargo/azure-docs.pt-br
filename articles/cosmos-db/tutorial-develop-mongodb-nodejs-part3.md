@@ -2,7 +2,7 @@
 title: Tutorial de MongoDB, Angular e Node para Azure - parte 3 | Microsoft Docs
 description: Parte 3 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB.
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d38d6048a59b1a284f4dc24157b2105a748c348d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798297"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249029"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB - parte 3: criar a interface do usuário com Angular
 
@@ -34,7 +34,7 @@ A Parte 3 do tutorial se baseia na [Parte 2](tutorial-develop-mongodb-nodejs-par
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) do tutorial.
 
@@ -112,8 +112,8 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
-        styleUrls: ['./heroes.component.scss']
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;

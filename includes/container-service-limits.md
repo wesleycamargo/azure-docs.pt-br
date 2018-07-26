@@ -3,10 +3,9 @@
 | Nós máx por cluster | 100 |
 | Pods máx por nó ([rede básica com Kubenet][basic-networking]) | 110 |
 | Pods máx por nó ([rede avançada com CNI do Azure][advanced-networking]) | 30<sup>1</sup> |
-| Cluster máx por assinatura | 20<sup>2</sup> |
+| Cluster máx por assinatura | 100 |
 
 <sup>1</sup> Esse valor pode ser personalizado por meio de implantação de modelo do ARM. Veja exemplos [aqui][arm-deployment-example].<br />
-<sup>2</sup> Crie uma [solicitação de suporte do Azure][azure-support] para solicitar um aumento de limite.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking

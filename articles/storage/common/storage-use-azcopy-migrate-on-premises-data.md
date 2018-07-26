@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267434"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205316"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrar dados locais para o armazenamento em nuvem usando o AzCopy
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > * Modifique os dados para fins de teste.
 > * Crie uma tarefa agendada ou trabalho de Cron para identificar novos arquivos a serem carregados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, baixe a versão mais recente do AzCopy em [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) ou [Windows](http://aka.ms/downloadazcopy). 
 
@@ -70,7 +70,7 @@ Você pode usar AzCopy para carregar todos os arquivos em uma pasta para Armazen
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 Substitua `<key>` e `key` pela sua chave de conta. No Portal do Azure, você pode recuperar a chave de conta selecionando **Chaves de acesso** em **Configurações** em sua conta de armazenamento. Selecione uma chave e, em seguida, cole-a no comando AzCopy. Se o contêiner de destino especificado não existir, o AzCopy o criará e carregará o arquivo nele. Atualize o caminho de origem para o diretório de dados e substituir **myaccount** na URL de destino com o nome da sua conta de armazenamento.
@@ -91,7 +91,7 @@ Se você quiser copiar apenas os recursos de origem que não existem no destino,
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Criar uma tarefa agendada ou trabalho de Cron 
@@ -104,7 +104,7 @@ Copie o comando AzCopy para um editor de texto. Atualize os valores de parâmetr
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 O AzCopy é executado com a opção detalhada `--verbose` (Linux) ou `/V` (Windows). A saída é redirecionada para um arquivo de log. 
