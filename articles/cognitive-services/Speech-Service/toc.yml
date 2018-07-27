@@ -1,3 +1,4 @@
+# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Documentação de API do Serviço de fala
   href: index.yml
 - name: Visão geral
@@ -13,30 +14,42 @@
       href: get-started.md
     - name: 'Reconhecer fala no C# (.NET no Windows)'
       href: quickstart-csharp-dotnet-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: 'Reconhecer fala no C# (.NET Core no Windows)'
       href: quickstart-csharp-dotnetcore-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconhecer fala em um aplicativo UWP
       href: quickstart-csharp-uwp.md
+      displayName: 'recognize speech, speech recognition, speech to text, C#'
     - name: Reconhecer fala no C++ para Windows
       href: quickstart-cpp-windows.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconhecer fala no C++ para Linux
       href: quickstart-cpp-linux.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconhecer fala no Java para Android
       href: quickstart-java-android.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Introdução ao SDK de dispositivos de fala
       href: speech-devices-sdk-qsg.md
+      displayName: 'roobo, speech devices sdk'
 - name: Guias de instruções
   items:
     - name: Reconhecer fala
       href: how-to-speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Sintetizar fala
       href: how-to-text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: Traduzir fala
       href: how-to-translate-speech.md
+      displayName: 'translate speech, speech translation, translator'
     - name: Transcrição de lote
       href: batch-transcription.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Obter SDK dos dispositivos de fala
       href: get-speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk, download'
 - name: Personalização
   items:
     - name: Personalizar modelos acústicos
@@ -55,28 +68,37 @@
       href: how-to-use-audio-input-streams.md
     - name: Personalizar palavra de ativação do dispositivo (SKD de Dispositivos)
       href: speech-devices-sdk-create-kws.md
+      displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: Exemplos
   items:
     - name: Baixar amostras
       href: samples.md
     - name: Reconhecimento de fala
       href: speech-to-text-sample.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Reconhecimento de intenção
       href: intent.md
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
     - name: Tradução
       href: translation.md
+      displayName: 'translate speech, speech translation, translator'
 - name: Conceitos
   items:
     - name: Conversão de Fala em Texto
       href: speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech to text'
     - name: Texto em fala
       href: text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
     - name: Tradução de Fala
       href: speech-translation.md
+      displayName: 'translate speech, speech translation, translator'
     - name: SDK de fala
       href: speech-sdk.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
     - name: SDK de Dispositivos de Fala
       href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
 - name: Referência
   items:
     - name: Idiomas com suporte
@@ -87,37 +109,46 @@
       href: rest-apis.md
     - name: API do SDK de fala
       href: speech-sdk-reference.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Marcação de síntese de fala
       href: speech-synthesis-markup.md
+      displayName: 'synthesize speech, speech synthesis, text to speech'
 - name: Recursos
   items:
+    - name: Notas de Versão do SDK de Fala
+      href: releasenotes.md
     - name: Perguntas frequentes
       items:
         - name: Perguntas frequentes da conversão de fala em texto
           href: faq-stt.md
+          displayName: 'recognize speech, speech recognition, speech to text'
         - name: Perguntas Frequentes da Conversão de Texto em Fala
           href: faq-text-to-speech.md
+          displayName: 'synthesize speech, speech synthesis, text to speech'
         - name: Perguntas Frequentes do Tradutor
           href: 'https://www.microsoft.com/translator/faq.aspx'
+          displayName: 'translate speech, speech translation, translator'
+    - name: solução de problemas
+      href: troubleshooting.md
+    - name: Suporte
+      href: support.md
+    - name: Enviando seu aplicativo
+      href: ship-application.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Licença/Legal
+      items:
+        - name: Licença do SDK de fala
+          href: license.md
+        - name: Avisos de Terceiros do SDK de Fala
+          href: third-party-notices.md
+        - name: Licença do SDK de dispositivos de fala
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: Avisos de Terceiros do SDK de Dispositivos
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Política de privacidade e cookies
       href: 'https://privacy.microsoft.com/privacystatement'
-    - name: solução de problemas
-      href: troubleshooting.md
-    - name: Enviando seu aplicativo
-      href: ship-application.md
-    - name: Notas de versão
-      href: releasenotes.md
-    - name: Licença do SDK de fala
-      href: license.md
-    - name: Licença do SDK de dispositivos de fala
-      href: speech-devices-sdk-license.md
-    - name: Avisos de terceiros
-      href: third-party-notices.md

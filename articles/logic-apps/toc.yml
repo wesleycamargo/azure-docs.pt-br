@@ -312,9 +312,9 @@
     - name: Esquema da linguagem de definição do fluxo de trabalho
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: Gatilhos e ações do fluxo de trabalho
+        - name: Referência de tipos de gatilho e ação
           href: logic-apps-workflow-actions-triggers.md
-        - name: Funções da linguagem de definição do fluxo de trabalho
+        - name: Referência de funções
           href: workflow-definition-language-functions-reference.md
         - name: GA - Histórico do esquema
           href: logic-apps-schema-2016-04-01.md

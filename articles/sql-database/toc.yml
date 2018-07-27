@@ -138,9 +138,9 @@
           items:
             - name: Retenção de backup de longo prazo
               href: sql-database-long-term-retention.md
-            - name: Configurar retenção de backup de longo prazo - Armazenamento do SQL
+            - name: Configurar usando o armazenamento de blobs do Azure
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Configurar retenção de backup de longo prazo - Cofre do Azure (preterido)
+            - name: Configurar usando o cofre do Azure (preterido)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Grupos de failover e replicação geográfica
           items:
@@ -551,7 +551,7 @@
           href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
         - name: JDBC
           href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
-        - name: ODBC
+        - name: ODBCODBC
           href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Recursos
   items:

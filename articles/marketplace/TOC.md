@@ -16,7 +16,7 @@
 #### [Máquinas virtuais](./marketplace-virtual-machines.md)
 #### [Aplicativos do Azure: Modelos de Solução](./marketplace-solution-templates.md)
 #### [Aplicativos do Azure: Aplicações Geridas](./marketplace-managed-apps.md)
-#### [Guia de publicação de aplicativo SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Aplicativo SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Contêineres](./marketplace-containers.md)
 #### [Serviço de consultoria](./consulting-services.md)  
 #### [Aplicações AppSource](./appsource-offer-publishing-guide.md)

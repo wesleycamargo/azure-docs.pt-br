@@ -6,7 +6,7 @@
       href: overview.md
 - name: Guia de início rápido
   items:
-    - name: Usar uma VM MSI para acessar o Azure Resource Manager
+    - name: Usar uma Identidade Gerenciada de VM para acessar o Azure Resource Manager
       items:
         - name: VM Windows
           href: tutorial-windows-vm-access-arm.md
@@ -49,11 +49,11 @@
         - name: Gerenciador de recursos do acesso do Azure com uma identidade de usuário atribuída
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Barramento de Serviço do Azure
-      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Funções e Serviço de Aplicativo do Azure
-      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Hubs de eventos do Azure
-      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
 - name: Guias de instruções
   items:
     - name: Configurar identidade para uma VM do Azure
@@ -82,7 +82,7 @@
           href: qs-configure-template-windows-vmss.md
         - name: REST
           href: qs-configure-rest-vmss.md
-    - name: Como usar um MSI na VM
+    - name: Usar uma Identidade Gerenciada da VM
       items:
         - name: Adquirir um token de acesso
           href: how-to-use-vm-token.md

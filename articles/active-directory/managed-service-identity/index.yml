@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7649d78e764c547f2211d8993514a1b793d76609
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264041"
 documentType: LandingData
 title: Documentação da Identidade de Serviço Gerenciada do Azure Active Directory
 metadata:
   document_id: 
   title: Documentação da Identidade de Serviço Gerenciada do Azure Active Directory
-  description: Saiba como usar a Identidade de Serviço Gerenciada (MSI) para se autenticar com segurança nos serviços de nuvem do Azure sem precisar manter as credenciais em seu código-fonte.
+  description: Saiba como usar a Identidade de Serviço Gerenciada para autenticar com segurança os serviços de nuvem do Azure sem precisar manter as credenciais em seu código-fonte.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -15,19 +21,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2018
   ms.author: daveba
-  ms.openlocfilehash: ca90d9d2bb3fffb65d2cefe156d0425de9634bdd
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34354275"
 abstract:
-  description: A MSI (Identidade de Serviço Gerenciado) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD (Azure Active Directory). Você pode usar essa identidade para se autenticar em qualquer serviço que dá suporte à autenticação do Azure AD sem ter as credenciais no código.  Saiba como criar e gerenciar as Identidades de Serviço Gerenciada com tutoriais e guias de início rápido.
+  description: A Identidade de Serviço Gerenciada fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (AAD). Você pode usar essa identidade para se autenticar em qualquer serviço que dá suporte à autenticação do Azure AD sem ter as credenciais no código.  Saiba como criar e gerenciar as Identidades de Serviço Gerenciada com tutoriais e guias de início rápido.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: Saiba como usar a Identidade de Serviço Gerenciada (MSI) para acessar a API do Azure Resource Manager
+    text: Saiba como usar a Identidade de Serviço Gerenciada para acessar a API do Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -36,7 +36,7 @@ sections:
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
-    text: Saiba como usar a Identidade de Serviço Gerenciada (MSI) para acessar com segurança os recursos do Azure
+    text: Saiba como usar a Identidade de Serviço Gerenciada para acessar com segurança os recursos do Azure
   - type: paragraph
     text: VM/VMSS Windows
   - type: list

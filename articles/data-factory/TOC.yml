@@ -214,7 +214,7 @@
           href: connector-netezza.md
         - name: OData
           href: connector-odata.md
-        - name: ODBC
+        - name: ODBCODBC
           href: connector-odbc.md
         - name: Oracle
           href: connector-oracle.md
@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
-        - name: Unir o IR do Azure-SSIS a uma rede virtual
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Configurar o alto desempenho para IR Azure-SSIS
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Provisionar a Enterprise Edition para IR Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personalizar instalação para IR Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Instalar componentes licenciados para IR Azure-SSIS
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Executar pacotes SSIS com a atividade Executar pacote do SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar execução de integração do Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Unir o IR do Azure-SSIS a uma rede virtual
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Provisionar a Enterprise Edition para IR Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personalizar instalação para IR Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Instalar componentes licenciados para IR Azure-SSIS
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Configurar o alto desempenho para IR Azure-SSIS
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Configurar a recuperação de desastres para IR Azure-SSIS
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Criar gatilhos
       items:
         - name: Criar um gatilho de agenda

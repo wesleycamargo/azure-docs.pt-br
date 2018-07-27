@@ -138,7 +138,7 @@
 ### Solucionar problemas
 #### [Dados de auditoria ausentes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dados ausentes nos downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Erros do pacote de conteúdo dos logs do Azure AD](active-directory-reporting-troubleshoot-
+#### [Erros do pacote de conteúdo de logs de Atividade do Azure AD](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Erros na API de Relatórios do Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Acesso Programático](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Solucionar problemas](manage-apps/application-proxy-troubleshoot.md)
 
 ### Gerenciar aplicativos empresariais
+#### [Adicionar um aplicativo](manage-apps/add-application-portal.md)
+#### [Exibir aplicativos de locatário](manage-apps/view-applications-portal.md)
 #### [Atribuir usuários](manage-apps/assign-user-or-group-access-portal.md)
 #### [Personalizar identidade visual](manage-apps/change-name-or-logo-portal.md)
 #### [Desabilitar entradas de usuário](manage-apps/disable-user-sign-in-portal.md)
 #### [Remover usuários](manage-apps/remove-user-or-group-access-portal.md)
-#### [Exibir todos os meus aplicativos](manage-apps/view-applications-portal.md)
+
 #### [Gerenciar o provisionamento de conta de usuário](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Gerenciar logon único para aplicativos corporativos](manage-apps/configure-single-sign-on-portal.md)
 #### [Assinatura de certificados avançada para aplicativos SAML](manage-apps/certificate-signing-options.md)
