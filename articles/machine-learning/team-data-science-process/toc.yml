@@ -26,8 +26,6 @@
       href: project-lead-tasks.md
     - name: Colaborador individual
       href: project-ic-tasks.md
-- name: Estrutura do projeto
-  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Planejamento do projeto
   href: team-data-science-process-project-templates.md
 - name: Desenvolvimento
@@ -94,9 +92,6 @@
       href: team-data-science-process-for-devops.md
 - name: Como
   items:
-    - name: Usar TDSP no Azure ML
-      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-      maintainContext: true
     - name: Configurar um ambiente de ciência de dados
       href: environment-setup.md
       items:
@@ -218,6 +213,9 @@
               maintainContext: true
     - name: Implantar modelos em produção
       href: deploy-models-in-production.md
+    - name: Usar TDSP no Azure ML
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
 - name: Relacionados
   items:
     - name: Azure Machine Learning - AML
@@ -235,28 +233,26 @@
           href: cortana-intelligence-appsource-evaluation-tool.md
     - name: Cortana Analytics
       items:
-        - name: APIs
+        - name: Detecção de anomalias
+          href: apps-anomaly-detection-api.md
+        - name: Serviços Cognitivos
+          href: 'https://docs.microsoft.com/azure/cognitive-services/'
+        - name: Manutenção preditiva
           items:
-            - name: Detecção de anomalias
-              href: apps-anomaly-detection-api.md
-            - name: Serviços Cognitivos
-              href: 'https://docs.microsoft.com/azure/cognitive-services/'
-            - name: Manutenção preditiva
-              items:
-                - name: Visão geral
-                  href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: Arquitetura
-                  href: cortana-analytics-architecture-predictive-maintenance.md
-                - name: Guia técnico
-                  href: cortana-analytics-technical-guide-predictive-maintenance.md
-            - name: Telemetria de veículo
-              items:
-                - name: Visão geral
-                  href: cortana-analytics-playbook-vehicle-telemetry.md
-                - name: Manual
-                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-                - name: Configuração
-                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+            - name: Visão geral
+              href: cortana-analytics-playbook-predictive-maintenance.md
+            - name: Arquitetura
+              href: cortana-analytics-architecture-predictive-maintenance.md
+            - name: Guia técnico
+              href: cortana-analytics-technical-guide-predictive-maintenance.md
+        - name: Telemetria de veículo
+          items:
+            - name: Visão geral
+              href: cortana-analytics-playbook-vehicle-telemetry.md
+            - name: Manual
+              href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+            - name: Configuração
+              href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Recursos
   items:
     - name: Blogs
@@ -279,8 +275,6 @@
           href: 'https://newsignature.com/services/professional-services/advanced-analytics/'
         - name: Blue Granite
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
-        - name: Serviços de Consultoria da Microsoft
-          href: 'https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx'
     - name: Recursos relacionados da Microsoft
       items:
         - name: Fórum do MSDN
