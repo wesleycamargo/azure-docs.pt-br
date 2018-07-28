@@ -1,9 +1,9 @@
 ---
-title: Habilitar multilocação na pilha do Azure | Microsoft Docs
-description: Saiba como dar suporte a vários diretórios do Active Directory do Azure na pilha do Azure
+title: A multilocação no Azure Stack
+description: Saiba como dar suporte a vários diretórios do Active Directory do Azure no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,47 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: mabrigg
-ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 07/23/2018
+ms.author: patricka
+ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301828"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39331126"
 ---
-# <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar multilocação na pilha do Azure
+# <a name="multi-tenancy-in-azure-stack"></a>A multilocação no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode configurar a pilha do Azure para oferecer suporte a usuários de vários locatários do Azure Active Directory (AD do Azure) para usar os serviços na pilha do Azure. Por exemplo, considere o seguinte cenário:
+Você pode configurar o Azure Stack para oferecer suporte a usuários de vários locatários do Azure Active Directory (Azure AD) para usar os serviços no Azure Stack. Por exemplo, considere o cenário a seguir:
 
- - Você está o administrador do serviço de contoso.onmicrosoft.com, em que a pilha do Azure está instalada.
+ - Você está o administrador do serviço de contoso.onmicrosoft.com, em que o Azure Stack está instalado.
  - Mary é o administrador do diretório de fabrikam.onmicrosoft.com, onde os usuários convidados estão localizados. 
- - Empresa de Mary recebe serviços IaaS e PaaS de sua empresa e precisa permitir que os usuários do diretório de convidado (fabrikam.onmicrosoft.com) entrar e usar recursos de pilha do Azure no contoso.onmicrosoft.com.
+ - Empresa de Mary recebe serviços IaaS e PaaS de sua empresa e precisa permitir que os usuários do diretório convidado (fabrikam.onmicrosoft.com) entrar e usar recursos do Azure Stack no contoso.onmicrosoft.com.
 
-Este guia fornece as etapas necessárias, no contexto desse cenário, para configurar a multilocação na pilha do Azure.  Nesse cenário, você e Mary devem concluir as etapas para permitir que os usuários da Fabrikam entrar e consumir serviços de implantação da pilha do Azure na Contoso.  
+Este guia fornece as etapas necessárias, no contexto desse cenário, para configurar a multilocação no Azure Stack. Nesse cenário, você e Mary devem concluir as etapas para permitir que os usuários da Fabrikam para entrar e consumir serviços de implantação do Azure Stack na Contoso.  
 
-## <a name="before-you-begin"></a>Antes de começar
-Há alguns pré-requisitos para levar em consideração antes de configurar a multilocação na pilha do Azure:
+## <a name="enable-multi-tenancy"></a>Habilitar multilocação
+
+Há alguns pré-requisitos para levar em conta antes de configurar a multilocação no Azure Stack:
   
- - Você e Mary devem coordenar as etapas administrativas entre o diretório que do Azure pilha está instalada (Contoso) e o diretório de convidado (Fabrikam).  
- - Certifique-se de que você [instalado](azure-stack-powershell-install.md) e [configurado](azure-stack-powershell-configure-admin.md) PowerShell para Azure pilha.
- - [Baixar as ferramentas do Azure pilha](azure-stack-powershell-download.md)e importar os módulos conectar e identidade:
+ - Você e Mary devem coordenar as etapas administrativas entre o diretório que do Azure Stack está instalado (Contoso) e o diretório de convidado (Fabrikam).  
+ - Certifique-se de que você [instalados](azure-stack-powershell-install.md) e [configurados](azure-stack-powershell-configure-admin.md) PowerShell para o Azure Stack.
+ - [Baixe as ferramentas do Azure Stack](azure-stack-powershell-download.md)e importe os módulos de identidade e conectar-se:
 
-    ````PowerShell
-        Import-Module .\Connect\AzureStack.Connect.psm1
-        Import-Module .\Identity\AzureStack.Identity.psm1
-    ```` 
- - Mary exigirá [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) acesso a pilha do Azure. 
+    ````PowerShell  
+    Import-Module .\Connect\AzureStack.Connect.psm1
+    Import-Module .\Identity\AzureStack.Identity.psm1
+    ````
 
-## <a name="configure-azure-stack-directory"></a>Configurar o diretório de pilha do Azure
-Nesta seção, você deve configurar a pilha do Azure para permitir logons de locatários de diretório do AD do Azure da Fabrikam.
+ - Mary exigirá [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) acesso ao Azure Stack. 
 
-### <a name="onboard-guest-directory-tenant"></a>Locatário de diretório convidado integrado
-Em seguida, carregar o locatário de diretório do convidado (Fabrikam) a pilha do Azure.  Esta etapa configura o Gerenciador de recursos do Azure para aceitar os usuários e entidades de serviço do locatário de diretório do convidado.
+### <a name="configure-azure-stack-directory"></a>Configurar o diretório do Azure Stack
 
-````PowerShell
+Nesta seção, você configura o Azure Stack para permitir entradas de locatários de diretório da Fabrikam do Azure AD.
+
+Integrar o locatário do diretório convidado (Fabrikam) para o Azure Stack por meio da configuração do Azure Resource Manager para aceitar os usuários e entidades do locatário do diretório convidado de serviço.
+
+````PowerShell  
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
@@ -63,22 +66,26 @@ $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
 $ResourceGroupName = "system.local"
 
+## Replace the value below with the region location of the resource group. 
+$location = "local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local" `
+ -Location $location `
  -ResourceGroupName $ResourceGroupName
 ````
 
+### <a name="configure-guest-directory"></a>Configurar diretório convidado
 
+Depois de concluir as etapas no diretório do Azure Stack, Mary deve fornecer consentimento para acessar o diretório de convidado do Azure Stack e registre o Azure Stack com o diretório de convidado. 
 
-## <a name="configure-guest-directory"></a>Configurar o diretório de convidado
-Depois de concluir as etapas no diretório do Azure pilha, Mary deve fornecer autorização para acessar o diretório de convidado de pilha do Azure e registrar a pilha do Azure com o diretório de convidado. 
+#### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrando o Azure Stack com o diretório de convidado
 
-### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrando a pilha do Azure com o diretório de convidado
-Depois que o administrador de diretório do convidado tiver fornecido consentimento para a pilha do Azure acessar o diretório da Fabrikam, Mary deve registrar a pilha do Azure com o locatário de diretório da Fabrikam.
+Depois que o administrador do diretório convidado forneceu consentimento para o Azure Stack acessar o diretório da Fabrikam, Mary deve registrar o Azure Stack com locatário do diretório da Fabrikam.
 
 ````PowerShell
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
 ## Replace the value below with the guest tenant directory. 
@@ -89,10 +96,60 @@ Register-AzSWithMyDirectoryTenant `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
-## <a name="direct-users-to-sign-in"></a>Direcionar os usuários para entrar
-Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar usuários Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) de entrada visitando https://portal.local.azurestack.external.  
 
-Mary direcionará qualquer [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório Fabrikam sem o sufixo do fabrikam.onmicrosoft.com) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usam essa URL, eles são enviados ao seu diretório padrão (Fabrikam) e receber um erro informando que seu administrador não consentiu.
+> [!IMPORTANT]
+> Se o administrador do Azure Stack instala os novos serviços ou atualizações no futuro, você precisa executar esse script novamente.
+>
+> Execute este script novamente a qualquer momento para verificar o status dos aplicativos do Azure Stack em seu diretório.
+
+### <a name="direct-users-to-sign-in"></a>Direcionar os usuários para entrar
+
+Agora que você e Mary concluiu as etapas para o diretório de Mary integrado, Mary pode direcionar os usuários de Fabrikam para entrar.  Usuários da Fabrikam (ou seja, os usuários com o sufixo fabrikam.onmicrosoft.com) entram visitando https://portal.local.azurestack.external.  
+
+Mary qualquer direcionará [entidades externas](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os usuários no diretório sem o sufixo de fabrikam.onmicrosoft.com Fabrikam) para entrar usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não usarem essa URL, eles são enviados em seu diretório padrão (Fabrikam) e recebem um erro informando que seu administrador não aceitou.
+
+## <a name="disable-multi-tenancy"></a>Desabilitar a multilocação
+
+Se você não quiser mais vários locatários no Azure Stack, você pode desabilitar a multilocação seguindo as etapas a seguir na ordem:
+
+1. Como o administrador do diretório convidado (Mary neste cenário), execute *Unregister-AzsWithMyDirectoryTenant*. O cmdlet desinstala todos os aplicativos do Azure Stack do novo diretório.
+
+    ``` PowerShell
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $tenantARMEndpoint = "https://management.local.azurestack.external"
+        
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
+    
+    Unregister-AzsWithMyDirectoryTenant `
+     -TenantResourceManagerEndpoint $tenantARMEndpoint `
+     -DirectoryTenantName $guestDirectoryTenantName `
+     -Verbose 
+    ```
+
+2. Como o administrador de serviços do Azure Stack (você nesse cenário), execute *Unregister-AzSGuestDirectoryTenant*. 
+
+    ``` PowerShell  
+    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
+    
+    ## Replace the value below with the Azure Stack directory
+    $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
+    
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
+    
+    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    $ResourceGroupName = "system.local"
+    
+    Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
+     -DirectoryTenantName $azureStackDirectoryTenant `
+     -GuestDirectoryTenantName $guestDirectoryTenantToBeDecommissioned `
+     -ResourceGroupName $ResourceGroupName
+    ```
+
+    > [!WARNING]
+    > As etapas de multilocação disable devem ser executadas na ordem. Etapa 1 # falhará se a etapa #2 for concluída primeiro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
