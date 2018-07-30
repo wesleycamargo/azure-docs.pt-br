@@ -2,19 +2,19 @@
 title: Tutorial para criar um aplicativo de LUIS que retorna frases-chave - Azure | Microsoft Docs
 description: Neste tutorial, saiba como adicionar e retornar a entidade keyPhrase para seu aplicativo de LUIS para analisar enunciados com os principais assuntos.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929539"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224255"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adicionar entidade KeyPhrase 
 Neste tutorial, use um aplicativo que demonstra como extrair os principais assuntos dos enunciados.

@@ -2,19 +2,19 @@
 title: Tutorial para criar um aplicativo de LUIS que retorna a análise de sentimento - Azure | Microsoft Docs
 description: Neste tutorial, saiba como adicionar análise de sentimento ao seu aplicativo LUIS para analisar enunciados para sentimentos positivos, negativos e neutros.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930599"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223612"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Tutorial: 9.  Adicionar análise de sentimento
 Neste tutorial, crie um aplicativo que demonstra como extrair sentimentos positivos, negativos e neutros dos enunciados.
