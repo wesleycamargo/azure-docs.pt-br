@@ -83,6 +83,7 @@
 
 ## Gerenciar Serviços de Federação
 ### [Gerenciar e personalizar](active-directory-aadconnect-federation-management.md)
+### [Gerenciar a relação de confiança do AD FS com o Azure AD usando o Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Federar várias instâncias do Azure AD com uma instância única do AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
