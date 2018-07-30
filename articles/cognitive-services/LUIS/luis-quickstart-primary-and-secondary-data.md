@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130883"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952378"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Tutorial: 6. Adicionar entidade simples e lista de frases
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Adicionar entidade simples e lista de frases
 Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendizado de máquina de um enunciado usando a entidade **Simple**.
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendiza
 Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade hierárquica](luis-quickstart-intent-and-hier-entity.md), [importe](create-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade composta](luis-tutorial-composite-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `simple`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original.  
 
@@ -366,7 +366,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
     ```
 
 ## <a name="phrase-lists"></a>Listas de frase
-A adição da lista de frases aumentou o sinal das palavras na lista, mas **não** é usada como uma correspondência exata. A lista de frases tem vários trabalhos com a primeira palavra `lead`, e também tem o trabalho `welder`, mas não tem o `lead welder`. Essa lista de frases de trabalhos pode não ser concluída. À medida que você [examinar enunciados de ponto de extremidade](label-suggested-utterances.md) regularmente e encontrar outras palavras de trabalho, adicione-as à sua lista de frases. Em seguida, treine e publique novamente.
+A adição da lista de frases aumentou o sinal das palavras na lista, mas **não** é usada como uma correspondência exata. A lista de frases tem vários trabalhos com a primeira palavra `lead`, e também tem o trabalho `welder`, mas não tem o `lead welder`. Essa lista de frases de trabalhos pode não ser concluída. À medida que você [examinar enunciados de ponto de extremidade](luis-how-to-review-endoint-utt.md) regularmente e encontrar outras palavras de trabalho, adicione-as à sua lista de frases. Em seguida, treine e publique novamente.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
 Esse aplicativo, com uma entidade simple e uma lista de frases com palavras, identificou uma intenção de consulta de linguagem natural e retornou os dados do trabalho. 
@@ -377,7 +377,7 @@ Agora, seu chatbot tem informações suficientes para determinar a ação primá
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode usar o resultado de topScoringIntent e os dados da entidade para usar uma API de terceiros para enviar as informações do trabalho para um representante dos recursos humanos. Se houver outras opções de programação para o aplicativo de chamada ou o bot, o LUIS não executará esse trabalho. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o menu de três pontos (...) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione as reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

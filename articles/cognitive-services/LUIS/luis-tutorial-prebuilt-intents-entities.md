@@ -6,18 +6,18 @@ author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266372"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929042"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Usar intenções e entidades predefinidas para manipular intenções e dados comuns
-Adicione intenções e entidades predefinidas ao aplicativo de início rápido de Recursos Humanos para adquirir rapidamente previsão de intenção e extração de dados. 
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Adicionar entidades e intenções predefinidas
+Adicione intenções e entidades predefinidas ao aplicativo de tutorial de Recursos Humanos para adquirir rapidamente previsão de intenção e extração de dados. 
 
 Neste tutorial, você aprenderá como:
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 * Consultar o LUIS e receber resposta de previsão
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se você não tiver o aplicativo de Recursos Humanos no início rápido do [domínio personalizado](luis-quickstart-intents-only.md), [importe](create-new-app.md#import-new-app) o JSON para um novo aplicativo no site do [LUIS][LUIS], no repositório GitHub [Exemplos-LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+Caso não tenha o aplicativo de [recursos humanos](luis-quickstart-intents-only.md) do tutorial anterior, [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website) do repositório Github de [exemplos do LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `prebuilts`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -37,7 +37,7 @@ O LUIS oferece várias intenções predefinidas para ajudar com intenções do c
 
 1. Verifique se o seu aplicativo está na seção **Criar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
-    [ ![Captura de tela do aplicativo de LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Captura de tela do aplicativo LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selecione **Adicionar intenção de domínio predefinida**. 
 
@@ -52,8 +52,9 @@ O LUIS oferece várias intenções predefinidas para ajudar com intenções do c
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Stop
+
 
 ## <a name="add-prebuilt-entities"></a>Adicionar entidades predefinidas
 O LUIS fornece várias entidades predefinidas para extração de dados comuns. 
@@ -79,9 +80,11 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
     ![Barra de status treinado](./media/luis-quickstart-intents-only/trained.png)
 
-2. No canto superior direito do site do LUIS, selecione o botão **Publicar** para abrir a página Publicar. O slot de produção é selecionado por padrão. Selecione o botão **Publicar** pela opção do slot de produção. A publicação estará concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+2. No canto superior direito do site do LUIS, selecione o botão **Publicar** para abrir a página Publicação. 
 
-    Não é necessário criar uma chave LUIS no portal do Azure antes de publicar ou antes de testar a URL do ponto de extremidade. Todo aplicativo LUIS tem uma chave de início gratuita para criação. Ela oferece a você criação ilimitada e [algumas ocorrências de ponto de extremidade](luis-boundaries.md#key-limits). 
+3. O slot de produção é selecionado por padrão. Selecione o botão **Publicar** pela opção do slot de produção. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+
+    Não é necessário criar uma chave de ponto de extremidade do LUIS no portal do Azure antes de publicar ou antes de testar a URL do ponto de extremidade. Todo aplicativo LUIS tem uma chave gratuita de starter para criação. Ela oferece a você criação ilimitada e [algumas ocorrências de ponto de extremidade](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Consultar o ponto de extremidade com uma declaração
 Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. Vá até o final da URL no endereço e insira `I want to cancel on March 3`. O último parâmetro da cadeia de caracteres de consulta é `q`, a declaração **query**. 
@@ -163,12 +166,15 @@ O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março
     }
     ```
 
+Há dois valores para 3 de março, porque o enunciado diz se 3 de março está no passado ou no futuro. É responsabilidade do aplicativo de chamada do LUIS fazer uma suposição ou pedir esclarecimentos, se for necessário. 
+
 Ao adicionar rápida e facilmente intenções e entidades predefinidas, o aplicativo cliente pode adicionar gerenciamento de conversa e extrair tipos de dados comuns. 
+
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione **Meus aplicativos** no menu superior esquerdo. Selecione as reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre entidades](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Saiba como adicionar uma entidade de expressão regular](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
