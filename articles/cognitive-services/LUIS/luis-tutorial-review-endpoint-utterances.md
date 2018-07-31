@@ -2,19 +2,19 @@
 title: Tutorial para examinar enunciados de ponto de extremidade no Serviço Inteligente de Reconhecimento Vocal (LUIS) - Azure | Microsoft Docs
 description: Neste tutorial, aprenda a analisar os enunciados de ponto de extremidade do domínio de recursos humanos (RH) no LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970499"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237206"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Tutorial: Examinar enunciados de ponto de extremidade
 Neste tutorial, melhore previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS. 
@@ -23,7 +23,7 @@ Neste tutorial, melhore previsões de aplicativo verificando ou corrigindo os en
 > [!div class="checklist"]
 > * Entender como examinar os enunciados de ponto de extremidade 
 > * Usar o aplicativo LUIS para o domínio dos recursos humanos (RH) 
-> * Examinar enunciados de ponto de extremidade
+> * Examinar declarações de ponto de extremidade
 > * Treinar e publicar o aplicativo
 > * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
 
@@ -47,7 +47,7 @@ Esse processo de revisão é outra maneira do LUIS aprender sobre o domínio do 
 
 Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a intenção prevista do enunciado. Você também pode rotular entidades personalizadas que não foram previstas. 
 
-## <a name="review-endpoint-utterances"></a>Examinar enunciados de ponto de extremidade
+## <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
 1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
