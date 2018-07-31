@@ -1,6 +1,6 @@
 ---
-title: Usar um MSI de VM do Windows para acessar o SQL do Azure
-description: Um tutorial que orienta o processo de usar uma MSI (Identidade de Serviço Gerenciada) de VM do Windows para acessar o SQL do Azure.
+title: Usar uma VM do Windows para acessar o SQL do Azure
+description: Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciada de VM do Windows para acessar o SQL do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001925"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247220"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Tutorial: Usar a MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o SQL do Azure
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o SQL do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma MSI (Identidade de Serviço Gerenciada) para uma VM (máquina virtual) do Windows para acessar um SQL Server do Azure. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este tutorial mostra como usar uma Identidade de Serviço Gerenciada para uma VM (máquina virtual) do Windows para acessar um SQL Server do Azure. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Habilitar MSI em uma VM do Windows 
+> * Habilitar a Identidade de Serviço Gerenciada em uma VM do Windows 
 > * Conceda à sua VM acesso a um SQL Server do Azure
 > * Obtenha um token de acesso usando a identidade da VM e use-o para consultar um SQL Server do Azure
 
@@ -44,7 +44,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
-Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar o MSI em uma VM existente.
+Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
 
 1.  Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
@@ -55,13 +55,13 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 
     ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM 
 
-Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar o MSI informa ao Azure para criar uma identidade gerenciada para sua VM. Nos bastidores, habilitar MSI em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
+Uma Identidade de Serviço Gerenciada de VM permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade de Serviço Gerenciada informa ao Azure para criar uma identidade gerenciada para sua VM. Em segundo plano, habilitar a Identidade de Serviço Gerenciada faz duas coisas: registra sua VM com o Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
-1.  Selecione a **Máquina Virtual** na qual você deseja habilitar MSI.  
+1.  Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.  
 2.  Na barra de navegação à esquerda, clique em **Configuração**. 
-3.  Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não. 
+3.  Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não. 
 4.  Lembre-se de clicar em **Salvar** para salvar a configuração.  
     ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -70,38 +70,38 @@ Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de col
 Agora você pode conceder à VM acesso a um banco de dados em um SQL Server do Azure.  Para esta etapa, você pode usar um SQL Server existente ou criar um novo.  Para criar um novo servidor e banco de dados usando o portal do Azure, siga este [início rápido do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Também há inícios rápidos que usam a CLI do Azure e o Azure PowerShell na [documentação do SQL Azure](https://docs.microsoft.com/azure/sql-database/).
 
 Há três etapas para conceder acesso da VM a um banco de dados:
-1.  Crie um grupo no Azure AD e torne a MSI da VM um membro do grupo.
+1.  Crie um grupo no Azure AD e torne a Identidade de Serviço Gerenciada da VM um membro do grupo.
 2.  Habilite a autenticação do Azure AD para o SQL Server.
 3.  Crie um **usuário contido** no banco de dados que representa o grupo do Azure AD.
 
 > [!NOTE]
-> Normalmente, você criaria um usuário contido mapeado diretamente para a MSI da VM.  No momento, o SQL Azure não permite a Entidade de Serviço do Azure AD que representa a MSI da VM a ser mapeada para um usuário contido.  Como uma solução alternativa com suporte, torne a MSI da VM um membro de um grupo do Azure AD e crie um usuário contido no banco de dados que representa o grupo.
+> Normalmente, você criaria um usuário contido mapeado diretamente para a Identidade de Serviço Gerenciada da VM.  No momento, o SQL Azure não permite a Entidade de Serviço do Azure AD que representa a Identidade de Serviço Gerenciada da VM a ser mapeada para um usuário contido.  Como uma solução alternativa com suporte, torne a Identidade de Serviço Gerenciada da VM um membro de um grupo do Azure AD e crie um usuário contido no banco de dados que representa o grupo.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-msi-a-member-of-the-group"></a>Crie um grupo no Azure AD e torne a MSI da VM um membro do grupo
+### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Crie um grupo no Azure AD e torne a Identidade de Serviço Gerenciada da VM um membro do grupo
 
 Você pode usar um grupo do Azure AD existente ou criar um novo usando o PowerShell do Azure AD.  
 
 Primeiro, instale o módulo do [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando `Connect-AzureAD` e execute o seguinte comando para criar o grupo e salvá-lo em uma variável:
 
 ```powershell
-$Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+$Group = New-AzureADGroup -DisplayName "VM Managed Service Identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 ```
 
 A saída é semelhante à seguinte, que também examina o valor da variável:
 
 ```powershell
-$Group = New-AzureADGroup -DisplayName "VM MSI access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+$Group = New-AzureADGroup -DisplayName "VM Managed Service Identity access to SQL" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
 $Group
 ObjectId                             DisplayName          Description
 --------                             -----------          -----------
-6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
+6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM Managed Service Identity access to SQL
 ```
 
-Em seguida, adicione a MSI da VM ao grupo.  Você precisa da **ObjectId** da MSI, que você pode obter usando o Azure PowerShell.  Primeiro, baixe o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Então entre usando `Connect-AzureRmAccount` e execute os seguintes comandos para:
+Em seguida, adicione a Identidade de Serviço Gerenciada da VM ao grupo.  Você precisa da **ObjectId** da Identidade de Serviço Gerenciada, que você pode obter usando o Azure PowerShell.  Primeiro, baixe o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Então entre usando `Connect-AzureRmAccount` e execute os seguintes comandos para:
 - Garantir que o contexto da sessão esteja definido para a assinatura do Azure desejada, se você tiver várias.
 - Listar os recursos disponíveis na sua assinatura do Azure e verificar os nomes de VM e grupo de recursos corretos.
-- Obter as propriedades da MSI da VM usando os valores apropriados para `<RESOURCE-GROUP>` e `<VM-NAME>`.
+- Obtenha as propriedades da VM da Identidade de Serviço Gerenciada usando os valores apropriados para `<RESOURCE-GROUP>` e `<VM-NAME>`.
 
 ```powershell
 Set-AzureRMContext -subscription "bdc79274-6bb9-48a8-bfd8-00c140fxxxx"
@@ -109,14 +109,14 @@ Get-AzureRmResource
 $VM = Get-AzureRmVm -ResourceGroup <RESOURCE-GROUP> -Name <VM-NAME>
 ```
 
-A saída é semelhante à seguinte, que também examina a ID de Objeto de entidade de serviço da MSI da VM:
+A saída é semelhante à seguinte, que também examina a ID de Objeto de entidade de serviço da Identidade de Serviço Gerenciada da VM:
 ```powershell
 $VM = Get-AzureRmVm -ResourceGroup DevTestGroup -Name DevTestWinVM
 $VM.Identity.PrincipalId
 b83305de-f496-49ca-9427-e77512f6cc64
 ```
 
-Agora adicione a MSI da VM ao grupo.  Você só pode adicionar uma entidade de serviço a um grupo usando o Azure AD PowerShell.  Execute este comando:
+Agora, adicione a Identidade de Serviço Gerenciada da VM ao grupo.  Você só pode adicionar uma entidade de serviço a um grupo usando o Azure AD PowerShell.  Execute este comando:
 ```powershell
 Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId $VM.Identity.PrincipalId
 ```
@@ -134,7 +134,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilitar a autenticação do Azure AD para o SQL Server
 
-Agora que você criou o grupo e adicionou a MSI da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando as seguintes etapas:
+Agora que você criou o grupo e adicionou a Identidade de Serviço Gerenciada da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando as seguintes etapas:
 
 1.  No portal do Azure, selecione **Servidores SQL** na navegação à esquerda.
 2.  Clique no SQL Server a ser habilitado para autenticação do Azure AD.
@@ -162,25 +162,25 @@ Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Manage
 10.  Na janela de consulta, insira a linha a seguir e clique em **Executar** na barra de ferramentas:
     
      ```
-     CREATE USER [VM MSI access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VM Managed Service Identity access to SQL] FROM EXTERNAL PROVIDER
      ```
     
      O comando deve ser concluído com êxito, criando o usuário independente para o grupo.
 11.  Desmarque a janela de consulta, insira a linha a seguir e clique em **Executar** na barra de ferramentas:
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM MSI access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VM Managed Service Identity access to SQL]
      ```
 
      O comando deve ser concluído com êxito, concedendo ao usuário independente a capacidade de ler todo o banco de dados.
 
-O código em execução na VM pode obter um token da MSI e usar o token para autenticação no SQL Server.
+O código em execução na VM agora pode obter um token da Identidade de Serviço Gerenciada e usar o token para autenticação no SQL Server.
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-sql"></a>Obter um token de acesso usando a identidade da VM e usando-a para chamar o Azure SQL 
 
-O Azure SQL tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando MSI.  Você usa o método **token de acesso** para criar uma conexão para o SQL.  Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
+O Azure SQL tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando a Identidade de Serviço Gerenciada.  Você usa o método **token de acesso** para criar uma conexão para o SQL.  Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
 
-Aqui está um exemplo de código .Net de abertura de uma conexão a SQL usando um token de acesso.  Esse código deve ser executado na VM para poder acessar o ponto de extremidade da MSI da VM.  É necessário ter o **.NET Framework 4.6** ou superior para usar o método de token de acesso.  Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo.  Observe a ID de recurso para o SQL Azure é "https://database.windows.net/".
+Aqui está um exemplo de código .Net de abertura de uma conexão a SQL usando um token de acesso.  Esse código deve ser executado na VM para poder acessar o ponto de extremidade da Identidade de Serviço Gerenciada da VM.  É necessário ter o **.NET Framework 4.6** ou superior para usar o método de token de acesso.  Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo.  Observe a ID de recurso para o SQL Azure é "https://database.windows.net/".
 
 ```csharp
 using System.Net;
@@ -198,7 +198,7 @@ string accessToken = null;
 
 try
 {
-    // Call MSI endpoint.
+    // Call Managed Service Identity endpoint.
     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
     // Pipe response Stream to a StreamReader and extract access token.
@@ -229,7 +229,7 @@ Como alternativa, uma maneira rápida de testar a configuração de ponta a pont
 1.  No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**. 
 2.  Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3.  Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4.  Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade MSI local para obter um token de acesso ao Azure SQL.
+4.  Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso ao SQL Azure.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -268,7 +268,7 @@ Como alternativa, uma maneira rápida de testar a configuração de ponta a pont
     $SqlAdapter.Fill($DataSet)
     ```
 
-Examine o valor de `$DataSet.Tables[0]` para exibir os resultados da consulta.  Parabéns, você consultou o banco de dados usando uma MSI da VM e sem a necessidade de fornecer credenciais!
+Examine o valor de `$DataSet.Tables[0]` para exibir os resultados da consulta.  Parabéns, você consultou o banco de dados usando uma Identidade de Serviço Gerenciada da VM e sem a necessidade de fornecer credenciais!
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: Usar um MSI de VM do Linux para acessar o Armazenamento do Azure
-description: Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciada (MSI) de VM do Linux para acessar o Armazenamento do Azure.
+title: Usar uma Identidade de Serviço Gerenciada de VM do Linux para acessar o armazenamento do Azure
+description: Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciada de VM do Linux para acessar o Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa0736452d7dc06c5a1a6c2710024a5fdc626af1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048837"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258704"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: usar uma Identidade de Serviço Gerenciada de VM do Linux para acessar o Armazenamento do Azure por meio da chave de acesso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar o MSI (Identidade de Serviço Gerenciada) para uma Máquina Virtual do Linux e, em seguida, usar essa identidade para recuperar as chaves de acesso da conta de armazenamento. Você pode usar a chave de acesso de armazenamento normalmente ao realizar operações de armazenamento, por exemplo, ao usar o SDK de Armazenamento. Para este tutorial, vamos carregar e baixar blobs usando a CLI do Azure. Você saberá como:
+Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma Máquina Virtual do Linux e, em seguida, usar essa identidade para recuperar as chaves de acesso da conta de armazenamento. Você pode usar a chave de acesso de armazenamento normalmente ao realizar operações de armazenamento, por exemplo, ao usar o SDK de Armazenamento. Para este tutorial, vamos carregar e baixar blobs usando a CLI do Azure. Você saberá como:
 
 > [!div class="checklist"]
-> * Habilitar MSI em uma Máquina Virtual do Linux 
+> * Habilitar a Identidade de Serviço Gerenciada na Máquina Virtual do Linux 
 > * Conceder acesso à VM para chaves de acesso da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso usando a identidade da VM e usá-la para recuperar as chaves de acesso de armazenamento do Resource Manager  
 
@@ -44,7 +44,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux em um novo grupo de recursos
 
-Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar o MSI em uma VM existente.
+Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
 
 1. Clique no botão **+/Criar novo serviço** encontrado no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
@@ -56,20 +56,20 @@ Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilit
 5. Para selecionar um novo **Grupo de Recursos** no qual você deseja criar a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
 6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos** ou altere o filtro Tipo de disco com suporte. Na folha de configurações, mantenha os padrões e clique em **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM
 
-Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar a Identidade do Serviço Gerenciado em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.  
+Uma Identidade de Serviço Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade do Serviço Gerenciado em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.  
 
 1. Navegue até o grupo de recursos de sua nova máquina virtual e selecione a máquina virtual que você criou na etapa anterior.
 2. Em “Configurações” da VM à esquerda, clique em **Configuração**.
-3. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não.
+3. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não.
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.
 
     ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
-Se você ainda não tiver uma, agora você criará uma conta de armazenamento.  Você também pode ignorar esta etapa e concedam acesso MSI da VM às chaves de uma conta de armazenamento existente. 
+Se você ainda não tiver uma, agora você criará uma conta de armazenamento.  Você também pode ignorar esta etapa e concedam acesso da Identidade de Serviço Gerenciada da VM às chaves de uma conta de armazenamento existente. 
 
 1. Clique no botão **+/Criar novo serviço** encontrado no canto superior esquerdo do portal do Azure.
 2. Clique em **Armazenamento**, então **Conta de Armazenamento** e um novo painel "Criar conta de armazenamento" será exibido.
@@ -91,9 +91,9 @@ Mais tarde vamos carregar e baixar um arquivo para a nova conta de armazenamento
 
     ![Criar um contêiner de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Conceder acesso ao MSI da VM para usar chaves de acesso da conta de armazenamento
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Conceder acesso à Identidade de Serviço Gerenciada da VM para usar chaves de acesso da conta de armazenamento
 
-O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  No entanto, você pode usar um MSI para recuperar as chaves de acesso da conta de armazenamento do Resource Manager e usar essas chaves para acessar o armazenamento.  Nesta etapa, você concede o acesso MSI de VM às chaves para sua conta de armazenamento.   
+O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  No entanto, você pode usar uma Identidade de Serviço Gerenciada para recuperar as chaves de acesso da conta de armazenamento do Resource Manager e usar essas chaves para acessar o armazenamento.  Nesta etapa, você concede acesso da Identidade de Serviço Gerenciada da VM às chaves da sua conta de armazenamento.   
 
 1. Navegue de volta para sua conta de armazenamento criado recentemente.
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  

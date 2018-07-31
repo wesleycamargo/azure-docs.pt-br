@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcb142b8b648f3f02855cb211789a4dee62183c0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035193"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145573"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -81,7 +81,7 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 
 * A entidade de serviço para o Kubernetes é parte da configuração do cluster. No entanto, não use a identidade para implantar o cluster.
 * Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço para um cluster Kubernetes pode ser associada a qualquer nome de aplicativo válido do Azure AD (por exemplo: `https://www.contoso.org/example`). A URL para o aplicativo não precisa ser um ponto de extremidade real.
-* Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId` (conforme mostrado neste artigo) ou o `name` da entidade de serviço correspondente (por exemplo, `https://www.contoso.org/example`).
+* Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
 * Nas VMs mestre e de nó no cluster Kubernetes, as credenciais de entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`.
 * Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
 * Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Para excluir a entidade de serviço, primeiro obtenha a ID para o serviço principal com [az ad app list][az-ad-app-list]. O exemplo a seguir consulta o cluster chamado *myAKSCluster* e, em seguida, exclui a ID do aplicativo com [az ad app delete][az-ad-app-delete]. Substitua esses nomes pelos seus próprios valores:

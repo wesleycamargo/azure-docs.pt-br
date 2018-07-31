@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267121"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257864"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -85,7 +85,9 @@ Para saber mais sobre as permissões necessárias para criar um emparelhamento d
 
 ## <a name="pricing"></a>Preços
 
-Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/virtual-network).
+Há um custo nominal para tráfego de entrada e saída que utiliza uma conexão de emparelhamento de rede virtual. Para obter mais informações sobre o emparelhamento de VNet e preços do emparelhamento VNet Global, consulte a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Tráfego de gateway é uma propriedade de emparelhamento que permite que uma rede virtual para utilizar o gateway de VPN em uma rede virtual emparelhada para conectividade entre locais e VNET a VNET. O tráfego que passa por um gateway remoto neste cenário está sujeito à [encargos de gateway VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e não incorre em [encargos de emparelhamento de Vnet.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se VNetA tem um gateway de VPN para conectividade local e VNetB está emparelhada com VNetA com as propriedades apropriadas configuradas, o tráfego da VNetB para o local é cobrado apenas considerando a saída conforme os preços de gateway VPN. Encargos de emparelhamento de VNet não se aplicam. Saiba como [configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Próximas etapas
 

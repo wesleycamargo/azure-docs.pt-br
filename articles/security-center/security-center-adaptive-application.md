@@ -3,7 +3,7 @@ title: Controles de aplicativo adaptáveis na Central de Segurança do Azure | M
 description: Este documento ajuda a usar controles de aplicativo adaptáveis na Central de Segurança do Azure para colocar aplicativos em execução em VMs do Azure na lista de permissões.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989958"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161925"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure (Versão prévia)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>O que são controles de aplicativo adaptáveis na Central de Segurança?
@@ -35,7 +35,7 @@ Os controles de aplicativo adaptáveis ajudam a controlar quais aplicativos pode
 - Habilite a TI a controlar o acesso a dados confidenciais pelo uso do aplicativo.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como habilitar os controles de aplicativo adaptáveis?
-Os controles de aplicativo adaptáveis o ajudam a definir um conjunto de aplicativos que podem ser executados em grupos de recursos configurados. Este recurso só está disponível para computadores Windows (todas as versões, clássica ou Azure Resource Manager). As etapas a seguir podem ser usadas para configurar a lista de permissões de aplicativos na Central de Segurança:
+Os controles de aplicativo adaptáveis o ajudam a definir um conjunto de aplicativos que podem ser executados em grupos configurados. Este recurso só está disponível para computadores Windows (todas as versões, clássica ou Azure Resource Manager). As etapas a seguir podem ser usadas para configurar a lista de permissões de aplicativos na Central de Segurança:
 
 1. Abra o painel **Central de Segurança**.
 2. No painel esquerdo, selecione **Controles de aplicativo adaptáveis** localizado em **Proteção de nuvem avançada**.
@@ -87,12 +87,12 @@ A seção **Grupos de VMs** contém três guias:
 
 5. Após concluir suas seleções, selecione **Criar**.
 
-Por padrão, a Central de Segurança sempre habilita o controle de aplicativo no modo *Auditoria*. Após verificar que a lista de permissões não tem nenhum efeito adverso sobre sua carga de trabalho, você pode alterar para o modo *Impor*.
-
-A Central de Segurança conta com um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes da camada standard da Central de Segurança devem esperar que seus grupos de máquinas virtuais sejam exibidos primeiro na guia *sem recomendações*.
-
+6. A Central de Segurança aplica as regras apropriadas em cada uma das VMs selecionadas, aproveitando os recursos internos do AppLocker para os servidores Windows. Além disso, a Central de Segurança sempre habilita o controle de aplicativo no modo Auditoria, por padrão. Após verificar que a lista de permissões não teve nenhum efeito adverso sobre sua carga de trabalho, você pode alterar para o modo **Impor**. Para saber mais, consulte [Como o AppLocker funciona](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
+ 
 > [!NOTE]
-> Como uma melhor prática de segurança, a Central de Segurança sempre tentará criar uma regra de fornecedor para os aplicativos que devem estar na lista de permissões, e somente se um aplicativo não tiver informações sobre o fornecedor (também conhecido como não assinado) é que uma regra de caminho será criada para o caminho completo do EXE específico.
+> - A Central de Segurança conta com um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes da camada standard da Central de Segurança devem esperar que seus grupos de máquinas virtuais sejam exibidos primeiro na guia *sem recomendações*.
+> - Os controles de aplicativo adaptáveis da Central de Segurança não oferecem suporte a máquinas virtuais para as quais uma política AppLocker já está habilitada por um GPO ou uma política de segurança local.
+> -  Como uma melhor prática de segurança, a Central de Segurança sempre tentará criar uma regra de fornecedor para os aplicativos que devem estar na lista de permissões, e somente se um aplicativo não tiver informações sobre o fornecedor (também conhecido como não assinado) é que uma regra de caminho será criada para o caminho completo do EXE específico.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Editando e monitorado um grupo configurado com controle de aplicativo

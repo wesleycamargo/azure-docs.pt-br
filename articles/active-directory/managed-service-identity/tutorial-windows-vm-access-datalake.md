@@ -1,6 +1,6 @@
 ---
-title: Como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store
-description: Um tutorial que mostra como usar uma MSI (Identidade do Serviço Gerenciado) de VM Windows para acessar o Azure Data Lake Store.
+title: Como usar uma Identidade do Serviço Gerenciada de VM Windows para acessar o Azure Data Lake Store
+description: Um tutorial que mostra como usar uma Identidade de Serviço Gerenciada de VM Windows para acessar o Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007960"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247906"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: como usar uma MSI (Identidade do Serviço Gerenciada) de VM Windows para acessar o Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Tutorial: como usar uma Identidade de Serviço Gerenciada de VM Windows para acessar o Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma MSI (Identidade do Serviço Gerenciado) para uma VM (máquina virtual) Windows para acessar um Azure Data Lake Store. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este tutorial mostra como usar uma Identidade de Serviço Gerenciada para uma máquina virtual (VM) do Windows para acessar um Azure Data Lake Store. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Habilitar MSI em uma VM do Windows 
+> * Habilitar a Identidade de Serviço Gerenciada em uma VM do Windows 
 > * Conceder acesso a um Azure Data Lake Store à sua VM
 > * Obter um token de acesso usando a identidade da VM e usá-lo para acessar um Azure Data Lake Store
 
@@ -44,7 +44,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
-Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar o MSI em uma VM existente.
+Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
 
 1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
@@ -55,17 +55,17 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 
    ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM 
 
-Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar o MSI informa ao Azure para criar uma identidade gerenciada para sua VM. Nos bastidores, habilitar MSI em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
+Uma Identidade de Serviço Gerenciada de VM permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade de Serviço Gerenciada informa ao Azure para criar uma identidade gerenciada para sua VM. Em segundo plano, habilitar a Identidade de Serviço Gerenciada faz duas coisas: registra sua VM com o Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
-1. Selecione a **Máquina Virtual** na qual você deseja habilitar MSI.  
+1. Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.  
 2. Na barra de navegação à esquerda, clique em **Configuração**. 
-3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não. 
+3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não. 
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.  
    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Se você deseja verificar quais as extensões que estão nessa VM, clique em **Extensões**. Se o MSI estiver habilitado, **ManagedIdentityExtensionforWindows** será exibido na lista.
+5. Se você deseja verificar quais as extensões que estão nessa VM, clique em **Extensões**. Se a Identidade de Serviço Gerenciada estiver habilitada, **ManagedIdentityExtensionforWindows** será exibido na lista.
 
    ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
@@ -73,7 +73,7 @@ Um MSI de VM permite obter tokens de acesso do Azure AD sem a necessidade de col
 
 Agora você pode conceder o acesso a arquivos e pastas em um Azure Data Lake Store à sua VM.  Para esta etapa, é possível usar um Data Lake Store existente ou criar um novo.  Para criar um novo Data Lake Store usando o Portal do Azure, siga este [Guia de início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também há guias de início rápido que usam a CLI do Azure e o Azure PowerShell na [documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-No seu Data Lake Store, crie uma nova pasta e conceda permissão à sua VM permissão da MSI para ler, gravar e executar arquivos nessa pasta:
+No seu Data Lake Store, crie uma nova pasta e conceda permissão à sua VM permissão da Identidade de Serviço Gerenciada para ler, gravar e executar arquivos nessa pasta:
 
 1. No Portal do Azure, clique em **Data Lake Store** na navegação à esquerda.
 2. Clique no Data Lake Store que você deseja usar para este tutorial.
@@ -87,21 +87,21 @@ No seu Data Lake Store, crie uma nova pasta e conceda permissão à sua VM permi
 10. Semelhante à etapa 5, clique em **Adicionar** e, no campo **Selecionar**, digite o nome da sua VM, selecione-a e clique em **Selecionar**.
 11. Semelhante à etapa 6, clique em **Selecionar permissões**, selecione **Leitura**, **Gravação** e **Execução**, adicione a **Esta pasta** e acrescente como **Uma entrada de permissão de acesso e uma entrada de permissão padrão**.  Clique em **OK**.  A permissão deverá ser adicionada com êxito.
 
-A MSI de VM agora pode executar todas as operações nos arquivos da pasta que você criou.  Para saber mais sobre como gerenciar acesso ao Data Lake Store, leia este artigo sobre [Controle de acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+A Identidade de Serviço Gerenciada de VM agora pode executar todas as operações nos arquivos da pasta que você criou.  Para saber mais sobre como gerenciar acesso ao Data Lake Store, leia este artigo sobre [Controle de acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso usando a MSI de VM e usá-la para chamar o sistema de arquivos do Azure Data Lake Store
+## <a name="get-an-access-token-using-the-vm-managed-service-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso usando a Identidade de Serviço Gerenciada de VM e usá-la para chamar o sistema de arquivos do Azure Data Lake Store
 
-O Azure Data Lake Store tem suporte nativo para autenticação do Azure AD, de modo que ele pode aceitar diretamente os tokens de acesso obtidos por meio do MSI.  Para autenticar para o sistema de arquivos do Data Lake Store, você enviar um token de acesso emitido pelo Azure AD para o ponto de extremidade do sistema de arquivos do Data Lake Store em um cabeçalho de autorização no formato “Bearer <ACCESS_TOKEN_VALUE>”.  Para saber mais sobre o suporte do Data Lake Store à autenticação do Azure AD, leia [Autenticação com o Data Lake Store usando o Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+O Azure Data Lake Store tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando a Identidade de Serviço Gerenciada.  Para autenticar para o sistema de arquivos do Data Lake Store, você enviar um token de acesso emitido pelo Azure AD para o ponto de extremidade do sistema de arquivos do Data Lake Store em um cabeçalho de autorização no formato “Bearer <ACCESS_TOKEN_VALUE>”.  Para saber mais sobre o suporte do Data Lake Store à autenticação do Azure AD, leia [Autenticação com o Data Lake Store usando o Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > Os SDKs do cliente do sistema de arquivos do Data Lake Store ainda não dão suporte à Identidade de Serviço Gerenciado.  Este tutorial será atualizado quando esse suporte for adicionado ao SDK.
 
-Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data Lake Store usando o PowerShell para fazer solicitações REST. Para usar a MSI de VM para autenticação, será necessário fazer as solicitações da VM.
+Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data Lake Store usando o PowerShell para fazer solicitações REST. Para usar a Identidade de Serviço Gerenciada de VM para autenticação, será necessário fazer as solicitações da VM.
 
 1. No portal, navegue até **Máquinas Virtuais**, acesse a VM Windows e, em **Visão geral**, clique em **Conectar**.
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade de MSI local para obter um token de acesso para o Azure Data Lake Store.  O identificador de recursos para Data Lake Store é "https://datalake.azure.net/".  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
+4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso ao Azure Data Lake Store.  O identificador de recursos para Data Lake Store é "https://datalake.azure.net/".  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -207,7 +207,7 @@ Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data
 
 Usando outras APIs do sistema de arquivos do Data Lake Store, é possível acrescentar aos arquivos, baixar arquivos e muito mais.
 
-Parabéns!  Você foi autenticado no sistema de arquivos do Data Lake Store usando uma MSI de VM.
+Parabéns!  Você foi autenticado no sistema de arquivos do Data Lake Store usando uma Identidade de Serviço Gerenciada de VM.
 
 ## <a name="next-steps"></a>Próximas etapas
 

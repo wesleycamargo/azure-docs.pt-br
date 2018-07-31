@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006923"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237862"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>O que é a Identidade de Serviço Gerenciada para recursos do Azure?
 
@@ -59,7 +59,7 @@ Aqui está um exemplo de como as Identidades Atribuídas pelo sistema funcionam 
 6. A chamada é feita ao Azure Active Directory solicitando acesso ao token conforme especificado na etapa 5, usando a ID do cliente e o certificado configurado na etapa 3. O Azure AD retorna um token de acesso do JSON Web Token (JWT).
 7. Seu código envia o token de acesso em uma chamada para um serviço que dá suporte à autenticação do Azure AD.
 
-Usando o mesmo diagrama, aqui está um exemplo de como um usuário atribui trabalhos com as Máquinas Virtuais do Azure.
+Usando o mesmo diagrama, aqui está um exemplo de como uma identidade gerenciada atribuída ao usuário funciona com as Máquinas Virtuais do Azure.
 
 1. O Azure Resource Manager recebe uma mensagem para criar uma identidade atribuída pelo usuário.
 2. O Azure Resource Manager cria uma entidade de serviço no Azure Active Directory para representar a identidade atribuída pelo usuário. A Entidade de Serviço é criada no locatário do Azure AD que é confiável para essa assinatura.

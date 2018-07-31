@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 75bca93b8aa4329a20e7491f1a0e1318cdbc13a5
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113032"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214652"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilar um aplicativo .NET Framework ou Core usando a API do Graph
 
@@ -157,7 +157,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
  
    **.NET SDK URI** - esse valor é usado quando você se conectar à conta do graph usando a biblioteca Microsoft.Azure.Graphs. 
 
-   **Ponto de Extremidade do Gremlin** - esse valor é usado quando ao se conectar à conta do graph usando a biblioteca Gremlin.Net.
+   **Ponto de Extremidade do Gremlin** - Esse valor é usado ao se conectar à conta do Graph usando a biblioteca Gremlin.Net.
 
     ![Copiar o ponto de extremidade](./media/create-graph-dotnet/endpoint.png)
 

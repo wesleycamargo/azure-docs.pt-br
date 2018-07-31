@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299247"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173498"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implantar o Azure Machine Learning como um módulo do IoT Edge – versão prévia
 
-Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial mostra todas as etapas necessárias para implantar um módulo do Azure Machine Learning que prevê quando um dispositivo falhará com base nos dados de temperatura do computador simulado. 
+Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial mostra todas as etapas necessárias para implantar um módulo do Azure Machine Learning que prevê quando um dispositivo falhará com base nos dados de temperatura do computador simulado. Para saber mais sobre o Azure ML no IoT Edge, confira a [Documentação do Azure Machine Learning](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
 O módulo do Azure Machine Learning criado neste tutorial lê os dados ambientais gerados pelo dispositivo e rotula as mensagens como anômalas ou não.
 
@@ -41,16 +41,16 @@ O módulo de aprendizado de máquina do Azure não oferece suporte a processador
 
 Tenha os seguintes pré-requisitos em seu computador de desenvolvimento: 
 * Uma conta do Azure Machine Learning. Siga as instruções em [Criar contas do Azure Machine Learning e instalar o Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Você não precisa instalar o aplicativo workbench para este tutorial. 
-* Gerenciamento de módulo para Azure ML no seu computador. Para configurar seu ambiente e criar uma conta, siga as instruções em [Configuração de gerenciamento de modelo](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
+* Gerenciamento de Modelos para Azure ML no seu computador. Para configurar seu ambiente e criar uma conta, siga as instruções em [Configuração de gerenciamento de modelo](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante a configuração de implantação, é recomendável escolher as etapas locais em vez de cluster, sempre que possível.
 
 ### <a name="disable-process-identification"></a>Desabilitar a identificação do processo
 
 >[!NOTE]
 >
 > Enquanto estiver na versão prévia, o Azure Machine Learning não suporta o recurso de segurança de identificação de processo habilitado por padrão no IoT Edge. 
-> Abaixo estão as etapas para desabilitá-lo. No entanto isso não é adequado para uso em produção.
+> Abaixo estão as etapas para desabilitá-lo. No entanto isso não é adequado para uso em produção. Essas etapas só são necessárias no Linux, então você as terá concluído durante as etapas de configuração de tempo de execução do Windows Edge.
 
-Para desabilitar a identificação do processo será necessário fornecer o endereço IP e a porta para **workload_uri** e **management_uri** na seção **connect** da configuração do daemon do IoT Edge.
+Para desabilitar a identificação do processo no seu dispositivo do IoT Edge será necessário fornecer o endereço IP e a porta para **workload_uri** e **management_uri** na seção **connect** da configuração do daemon do IoT Edge.
 
 Obtenha primeiro o endereço IP. Digite `ifconfig` na linha de comando e copie o endereço IP da interface **docker0**.
 
@@ -131,7 +131,7 @@ Verifique se a imagem de seu contêiner foi criada com êxito e armazenada no Re
 
 1. Adicione a módulo de machine learning que você criou.
 
-    1. Clique em **Adicionar** e selecione **Módulo do Azure Machine Learning**.
+    1. Clique em **Adicionar** e selecione **Módulo do IoT Edge**.
     1. No campo **Nome**, insira `machinelearningmodule`
     1. No campo **imagem**, insira seu endereço de imagem, por exemplo, `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Clique em **Salvar**.

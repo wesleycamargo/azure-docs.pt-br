@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091765"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344225"
 ---
 # <a name="azure-stack-1805-update"></a>Atualização da pilha 1805 do Azure
 
@@ -90,6 +90,8 @@ Após a instalação do 1805, instale os Hotfixes aplicáveis. Para obter mais i
 A seguir estão os problemas conhecidos de pós-instalação para esta versão de compilação.
 
 ### <a name="portal"></a>Portal  
+- <!-- TBD - IS ASDK --> É possível aplicar as atualizações de driver por meio de um pacote de extensão de OEM com esta versão do Azure Stack.  Não há nenhuma solução alternativa para esse problema.
+
 - <!-- 2551834 - IS, ASDK --> Quando você seleciona **visão geral** nos portais de administrador ou usuário, as informações da conta de armazenamento a *Essentials* painel não será exibido.  O painel do Essentials exibe informações sobre a conta, como seu *grupo de recursos*, *local*, e *ID da assinatura*.  Outras opções de visão geral são acessíveis como *serviços* e *monitoramento*, bem como opções para *abrir no Gerenciador de* ou *excluir conta de armazenamento* . 
 
   Para exibir as informações disponíveis, use o [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) cmdlet do PowerShell. 

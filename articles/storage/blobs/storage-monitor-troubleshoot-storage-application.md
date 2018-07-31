@@ -3,20 +3,19 @@ title: Monitorar e solucionar problemas de um aplicativo de armazenamento de nuv
 description: Use ferramentas de diagnóstico, métricas e alertas para solucionar problemas e monitorar um aplicativo em nuvem.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418179"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206047"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -30,9 +29,9 @@ Na primeira parte da série, você aprende a:
 > * Executar tráfego de teste com tokens SAS incorretos
 > * Baixar e analisar logs
 
-O [Azure Storage Analytics](../common/storage-analytics.md) fornece registro em log e dados de métrica para uma conta de armazenamento. Esses dados fornecem informações sobre a integridade da conta de armazenamento. Antes que você possa ter visibilidade de sua conta de armazenamento, você precisa configurar a coleta de dados. Esse processo envolve ativar o registro em log, configurar métricas e habilitar alertas.
+O [Azure Storage Analytics](../common/storage-analytics.md) fornece registro em log e dados de métrica para uma conta de armazenamento. Esses dados fornecem informações sobre a integridade da conta de armazenamento. Para coletar dados de análise de armazenamento do Azure, você pode configurar o registro em log, métricas e alertas. Esse processo envolve ativar o registro em log, configurar métricas e habilitar alertas.
 
-Métricas e registro em log de contas de armazenamento são habilitados na guia **Diagnóstico** no Portal do Azure. Há dois tipos de métricas. Métricas de **Agregação** coletam os percentuais de entrada/saída, disponibilidade, latência e êxito. Essas métricas são agregadas para os serviços de blob, fila, tabela e arquivo. Métricas **Por API** coletam o mesmo conjunto de métricas para cada operação de armazenamento na API de serviço do Armazenamento do Azure. O log de armazenamento permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses logs permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs do Azure. Eles também permitem que você veja os motivos para solicitações com falha, tais como tempos limite atingidos, limitação e erros de autorização.
+Métricas e registro em log de contas de armazenamento são habilitados na guia **Diagnóstico** no Portal do Azure. O log de armazenamento permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses logs permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs do Azure. Eles também permitem que você veja os motivos para solicitações com falha, tais como tempos limite atingidos, limitação e erros de autorização.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -42,11 +41,11 @@ Faça logon no [Portal do Azure](https://portal.azure.com)
 
 No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione sua conta de armazenamento na lista de recursos.
 
-Em **Diagnóstico**, defina **Status** para **Ativado**. Verifique se todas as opções em **Propriedades de blob** estão habilitadas.
+Em **Configurações de diagnóstico (clássico)**, defina **Status** para **Ativado**. Verifique se todas as opções em **Propriedades de blob** estão habilitadas.
 
 Quando concluir, clique em **Salvar**
 
-![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 
@@ -54,34 +53,33 @@ Os alertas fornecem uma maneira de enviar email aos administradores ou disparar 
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navegar até sua conta de armazenamento no Portal do Azure
 
-No menu à esquerda, selecione **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione sua conta de armazenamento na lista de recursos.
+Na seção **Monitoramento**, selecione **Alertas (clássico)**.
 
-Na seção **Monitoramento**, selecione **Regras de alerta**.
+Selecione **Adicionar alerta de métrica (clássico)** e preencha o formulário **Adicionar regra** com as informações necessárias. Na lista suspensa **Métrica**, selecione `SASClientOtherError`. Para permitir que o alerta dispare após o primeiro erro, na lista suspensa **Condição** selecione **Maior que ou igual a**.
 
-Selecione **+ Adicionar alerta** e, em **Adicionar uma regra de alerta**, preencha as informações necessárias. Escolha `SASClientOtherError` na lista suspensa **Métrica**.
-
-![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Painel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>Simular um erro
 
-Para simular um alerta válido, você pode tentar solicitar um blob inexistente da sua conta de armazenamento. Para fazer isso, substitua valor `<incorrect-blob-name>` por outro inexistente. Execute o exemplo de código a seguir algumas vezes para simular solicitações de blob com falha.
+Para simular um alerta válido, você pode tentar solicitar um blob inexistente da sua conta de armazenamento. O comando a seguir requer um nome de contêiner de armazenamento. Você pode usar o nome de um contêiner existente ou criar um novo para os fins deste exemplo.
+
+Substitua os espaços reservados pelos valores reais (certifique-se de que `<INCORRECT_BLOB_NAME>` é definido como um valor que não existe) e execute o comando.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 A imagem a seguir é um exemplo de alerta que é baseado em falha simulada executada com o exemplo anterior.
 
- ![Exemplo de alerta](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Exemplo de alerta](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>Baixar e exibir logs
 

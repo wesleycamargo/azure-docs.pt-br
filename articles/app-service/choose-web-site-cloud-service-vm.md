@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597919"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224948"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 ## <a name="overview"></a>Visão geral
@@ -51,7 +51,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Camada intermediária de host de uma arquitetura multicamada |X |X |X |X |Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. |
 | Suporte integrado do MySQL como serviço |X |X | | | |
 | Suporte para ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |O Service Fabric oferece suporte à criação de um front-end da Web o usando [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou você pode implantar qualquer tipo de aplicativo (Node.js, Java etc.) como um [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md). |
-| Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware. |
+| Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre as máquinas e verifique se você tem mais de uma instância VM no [conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md). |
 | Suporte para SSL |X |X |X |X |Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar o SSL com os aplicativos Web, consulte [Configurar um certificado SSL para um site do Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integração do Visual Studio |X |X |X |X | |
 | Depuração Remota |X |X |X | | |

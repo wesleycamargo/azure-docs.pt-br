@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301600"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188175"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Atribuir acesso aos dados de gerenciamento de custos
 
@@ -28,6 +28,8 @@ Quando você registrou sua conta ou um contrato do Azure, uma conta com permiss�
 > [!div class="checklist"]
 > * Criar um usuário com acesso de administrador
 > * Criar um usuário com acesso de usuário
+> * Excluir um usuário
+> * Excluir ou exportar dados pessoais
 > * Criar e gerenciar entidades
 
 
@@ -42,7 +44,7 @@ Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azu
 
 Embora você já tenha acesso de administrador, os colegas de trabalho em sua organização também precisaram ter acesso de administrador. No portal da Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**. Clique em **Adicionar Novo Usuário** para adicionar um novo usuário.
 
-Insira as informações necessárias sobre o usuário. A ID de logon deve ser um endereço de email válido. Escolha permissões para permitir o Gerenciamento de Usuários para que o usuário possa criar e modificar a outros usuários. O Gerenciamento de Listas de Destinatários permite que o usuário edite listas de destinatários. Um link com informações de entrada é enviado da Cloudyn para o email do usuário quando você seleciona **Notificar usuário por email**. Na primeira entrada, o usuário define uma senha.
+Insira as informações necessárias sobre o usuário. A **ID de logon** deve ser um endereço de email válido. Escolha permissões para permitir o Gerenciamento de Usuários para que o usuário possa criar e modificar a outros usuários. O Gerenciamento de Listas de Destinatários permite que o usuário edite listas de destinatários. Um link com informações de entrada é enviado da Cloudyn para o email do usuário quando você seleciona **Notificar usuário por email**. Na primeira entrada, o usuário define uma senha.
 
 Em **Usuário tem acesso de administrador**, a entidade de raiz de sua organização está selecionada. Deixe a raiz selecionada e, em seguida, salve as informações do usuário. Selecionar a entidade raiz permite que o usuário tenha permissão de administrador não apenas para a entidade raiz na árvore, mas também para todas as entidades que residem abaixo dela.  
   ![adicionar novo usuário com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Usuários típicos que precisam de acesso aos dados de gerenciamento de custos, 
 ![adicionar novo usuário com acesso de usuário](.\media\tutorial-user-access\new-user-access.png)
 
 Para assistir a um vídeo de tutorial sobre como adicionar usuários, consulte [Como adicionara usuários ao Gerenciamento de Custos do Azure](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Excluir um usuário
+
+Quando você exclui um usuário, quaisquer entidades as quais o usuário tenha acesso permanecerão intactas. Os relatórios *pessoais* salvos são removidos quando o usuário é excluído. Os relatórios *públicos* salvos criados pelo usuário não são excluídos.
+
+Não é possível remover a si mesmo como um usuário.
+
+> [!WARNING]
+> Quando você exclui um usuário, ele não pode ser restaurado.
+
+1.  No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Gerenciamento de Usuários**.
+2.  Na lista de usuários, selecione o usuário que você deseja excluir e, em seguida, clique em **Excluir usuário** (o símbolo de lixeira).
+3.  Na caixa Excluir usuário, clique em **Sim** e, em seguida, clique em **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Excluir ou exportar dados pessoais
+
+Se você quiser excluir ou exportar dados pessoais do Cloudyn, você precisará criar um tíquete de suporte. Quando o tíquete de suporte é criado, ele atua como uma solicitação formal - uma solicitação do titular dos dados. A Microsoft então toma a ação adequada para remover a conta e excluir quaisquer dados pessoais ou de cliente. Para saber mais sobre como você pode solicitar a exclusão ou exportação dos seus dados, consulte [Solicitações de dados do Cloudyn pelo titular dos dados](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## <a name="create-and-manage-entities"></a>Criar e gerenciar entidades
 
@@ -105,6 +125,8 @@ Neste tutorial, você aprendeu como:
 > [!div class="checklist"]
 > * Criar um usuário com acesso de administrador
 > * Criar um usuário com acesso de usuário
+> * Excluir um usuário
+> * Excluir ou exportar dados pessoais
 > * Criar e gerenciar entidades
 
 

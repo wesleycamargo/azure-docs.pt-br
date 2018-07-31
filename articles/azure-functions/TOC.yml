@@ -85,12 +85,14 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
-    - name: Diagnostics
+    - name: Diagnósticos
       href: ../app-service/app-service-diagnostics.md
     - name: Considerações sobre o desempenho
       href: functions-best-practices.md
     - name: Proxies de Funções
       href: functions-proxies.md
+    - name: Endereços IP
+      href: ip-addresses.md
     - name: Funções locais
       href: functions-runtime-overview.md
     - name: Funções duráveis
@@ -111,7 +113,7 @@
           href: durable-functions-http-api.md
         - name: Tratamento de erros
           href: durable-functions-error-handling.md
-        - name: Diagnostics
+        - name: Diagnósticos
           href: durable-functions-diagnostics.md
         - name: Temporizadores
           href: durable-functions-timers.md

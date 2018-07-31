@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/10/2018
+ms.date: 07/18/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8c3f727c6154a0364f151d22000d2684c361676a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: d059cab5668eef8d4dafc1442ca9749a7dcf8c9d
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037203"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162507"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -21,7 +21,7 @@ O WAN Virtual fornece conectividade site a site em larga escala e é construído
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quais provedores de dispositivo (parceiros de WAN Virtual) têm suporte no momento da inicialização? 
 
-Neste momento, Citrix e Riverbed dão suporte à experiência de WAN Virtual totalmente automatizada. Mais parceiros serão ser integrados nos próximos meses, incluindo: Nokia Nuage, Palo Alto e Checkpoint. Para saber mais, confira [Parceiros de WAN Virtual](https://aka.ms/virtualwan).
+Neste momento, Citrix e Riverbed dão suporte à experiência de WAN Virtual totalmente automatizada. Para saber mais, confira [Parceiros de WAN Virtual](https://aka.ms/virtualwan).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Eu sou obrigado a usar um dispositivo de parceiro preferido?
 
@@ -29,7 +29,7 @@ Não. Você pode usar qualquer dispositivo com capacidade para VPN que cumpre ao
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
-Soluções de conectividade definidas pelo software normalmente gerenciam seus dispositivos de branch usando um controlador ou um centro de provisionamento de dispositivos. O controlador pode usar as APIs do Azure para automatizar a conectividade com a WAN Virtual do Azure. Para saber mais sobre como isso funciona, consulte [Automação de parceiro da WAN Virtual](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Soluções de conectividade definidas pelo software normalmente gerenciam seus dispositivos de branch usando um controlador ou um centro de provisionamento de dispositivos. O controlador pode usar as APIs do Azure para automatizar a conectividade com a WAN Virtual do Azure. Para saber mais, confira [Automação de parceiros de WAN Virtual](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="does-virtual-wan-change-any-existing-connectivity-features"></a>A WAN Virtual altera quaisquer recursos de conectividade existentes?   
 
@@ -46,7 +46,7 @@ Antes de configurar a WAN Virtual do Azure, você precisa inscrever sua assinatu
 Considerações:
 
 * A versão prévia está limitada a apenas regiões públicas do Azure.
-* Até 100 conexões têm suporte por hub virtual. Cada conexão é composta por 2 túneis que estão em uma configuração ativa-ativa. Os túneis terminam em um vpngateway do Hub Virtual do Azure.
+* Até 100 conexões têm suporte por hub virtual. Cada conexão é composta por dois túneis que estão em uma configuração ativa-ativa. Os túneis terminam em um vpngateway do Hub Virtual do Azure.
 * Considere o uso desta Versão prévia se:
   * Você quiser implantar a largura de banda agregada com menos de 1 Gbps por hub virtual.
   * Você tem um dispositivo VPN que dá suporte à configuração com base em rotas e conectividade IKEv2 IPsec.
@@ -62,7 +62,7 @@ Sim. Você pode fazer diretamente o emparelhamento de VNet entre spokes que est�
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Posso implantar e usar minha solução de virtualização de rede favorita (em uma VNet NVA) com a WAN Virtual do Azure?
 
-Sim, você pode conectar sua solução de virtualização de rede (NVA) favorita com a WAN Virtual do Azure, mas isso exigirá recursos de roteamento no hub que estarão em GA. Todos os spokes conectados à VNet NVA devem estar conectados ao hub virtual. 
+Sim, você pode conectar sua solução de virtualização de rede (NVA) favorita com a WAN Virtual do Azure, mas isso exigirá recursos de roteamento no hub que estão em nosso roteiro. Todos os spokes conectados à VNet NVA devem estar conectados ao hub virtual. 
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>Uma VNet NVA pode ter um gateway de rede virtual?
 
@@ -74,8 +74,48 @@ Sim, há suporte para BGP. Para garantir que as rotas de uma VNet NVA sejam anun
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Posso direcionar o tráfego usando UDR no hub virtual?
 
-A UDR e a funcionalidade de roteamento estarão disponíveis via GA.
+Isso está em nosso roteiro. Fique atento!
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>Há quaisquer informações de licenciamento ou preços para a WAN Virtual?
  
 Não há custos adicionais durante a Versão prévia. Os [preços atuais de VPN do Azure e egresso](https://azure.microsoft.com/pricing/details/vpn-gateway/) permanecem em vigor durante a Versão prévia.
+
+### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como integrar novos parceiros que não estejam na sua lista de parceiros de lançamento?
+
+Envie um email para azurevirtualwan@microsoft.com. Um parceiro ideal é aquele que tem um dispositivo que pode ser provisionado para conectividade IPSec IKEv2.
+
+### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>É possível construir a WAN Virtual do Azure com um modelo do Resource Manager?
+
+Estamos trabalhando nisso. No momento, o serviço é orientado a REST e ao Portal.
+
+### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>A conectividade de branch para branch é permitida na WAN Virtual?
+
+Sim, a conectividade de branch para branch está disponível na WAN Virtual.
+
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de branch para branch atravessa a WAN Virtual do Azure?
+
+Sim.
+
+### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Como a WAN Virtual é diferente do Gateway de Rede Virtual do Azure existente?
+
+VPN de Gateway de Rede Virtual é limitada a 30 túneis. Para conexões, você deve usar a WAN Virtual para VPN em larga escala. Na visualização pública, isso é limitado a 100 conexões de branch com 1 Gbps no hub.
+
+### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Essa WAN Virtual exige o ExpressRoute de cada site?
+
+Não, a WAN Virtual não exige o ExpressRoute de cada site. Ele usa a conectividade de site a site IPsec padrão por meio de links da Internet do dispositivo para um hub de WAN Virtual do Azure.
+
+### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há um limite de taxa de transferência de rede ao usar a WAN Virtual do Azure?
+
+Na visualização pública, o número de branches é limitado a 100 conexões por hub/região e a um total de 1G no hub.
+
+### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo local utilize vários ISPs em paralelo ou sempre será um único túnel VPN?
+
+Sim, você pode ter túneis ativo-ativo (2 túneis = 1 conexão WAN Virtual do Azure) de um único branch, dependendo do dispositivo branch.
+
+### <a name="how-is-traffic-is-routed-on-the-azure-backbone"></a>Como o tráfego é roteado no backbone do Azure?
+
+O tráfego permite que o padrão: dispositivo branch ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->dispositivo branch.
+
+### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Nesse modelo, o que você precisa em cada site? Apenas uma conexão com a Internet?
+
+Sim. Uma conexão com a Internet e o dispositivo físico, preferencialmente de nossos parceiros integrados. A menos que você queira gerenciar manualmente a configuração e a conectividade para o Azure do seu dispositivo preferido.

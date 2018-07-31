@@ -247,7 +247,7 @@
     - name: Guias
       items:
         - name: Arquiteturas de referência
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: solução de problemas

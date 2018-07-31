@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619275"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145529"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -28,9 +28,9 @@ Este tutorial mostra como configurar a nuvem para provisionamento automático de
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Criar uma instância do Serviço de Provisionamento de Dispositivos e obter o escopo da ID
 
@@ -50,9 +50,9 @@ Siga estas etapas para criar uma nova instância do Serviço de Provisionamento 
 
    ![Inserir as informações básicas sobre seu DPS no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Clique em **Criar**.
-6. O *escopo da ID* é usado para identificar as IDs de registro e fornece uma garantia de que a ID do registro é exclusiva. Para obter esse valor, clique em **Visão geral** para abrir a página **Essentials** para o Serviço de Provisionamento de Dispositivos. Copie o valor de **Escopo da ID** para um local temporário para uso posterior.
-7. Além disso, anote o valor do **Ponto de extremidade de serviço** ou copie-o para um local temporário para uso posterior. 
+5. Clique em **Criar**. Após alguns instantes, a instância do serviço de provisionamento do dispositivo é criada e a página **Visão geral** é exibida.
+6. Na página **Visão geral** para a nova instância de serviço, copie o valor para o **escopo da ID** para uso posterior. Esse valor é usado para identificar as IDs de registro e fornece uma garantia de que a ID do registro é exclusiva.
+7. Copie também o valor do **Ponto de extremidade de serviço** para uso posterior. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ A próxima etapa é vincular o Serviço de Provisionamento de Dispositivos e o H
 1. Na página **Todos os recursos**, clique na instância do Serviço de Provisionamento de Dispositivos que você criou anteriormente.
 2. Na página do Serviço de Provisionamento de Dispositivos, clique em **Hubs IoT Vinculados**.
 3. Clique em **Adicionar**.
-4. Na página **Adicionar link para o Hub IoT**, use os botões de opção para especificar se o Hub IoT vinculado está localizado na assinatura atual ou em uma diferente. Em seguida, escolha o nome do hub IoT da caixa **Hub IoT**.
-5. Clique em **Salvar**.
+4. Na página **Adicionar link ao Hub IoT**, forneça as informações a seguir e clique em **Salvar**:
+
+    * **Assinatura:** Verifique se a assinatura que contém o Hub IoT está selecionada. Você pode vincular ao Hub IoT que reside em uma assinatura diferente.
+    * **Hub IoT:** Escolha o nome do Hub IoT que você deseja vincular a essa instância de serviço de provisionamento do dispositivo.
+    * **Política de acesso:** Selecione **iothubowner** como as credenciais para estabelecer o link com o Hub IoT.
 
    ![Vincular o nome do Hub a ser vinculado à instância do DPS no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 

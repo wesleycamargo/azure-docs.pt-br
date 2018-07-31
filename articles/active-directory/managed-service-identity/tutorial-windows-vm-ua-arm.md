@@ -1,6 +1,6 @@
 ---
-title: Use a MSI atribuída pelo usuário de VM do Windows para acessar o Azure Resource Manager
-description: Um tutorial que orienta o processo de uso de uma MSI (Identidade de Serviço Gerenciado pelo Usuário) em uma VM do Windows, para acessar o Azure Resource Manager.
+title: Usar uma Identidade de Serviço Gerenciada atribuída pelo usuário da VM do Windows para acessar o Azure Resource Manager
+description: Um tutorial que orienta o processo de uso de uma Identidade de Serviço Gerenciada pelo Usuário em uma VM do Windows, para acessar o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904366"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248380"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Usar uma MSI (Identidade de Serviço Gerenciada) atribuída pelo usuário em uma VM do Windows para acessar o Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Usar uma Identidade de Serviço Gerenciada atribuída pelo usuário em uma VM do Windows para acessar o Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -37,7 +37,7 @@ Você aprenderá como:
 > * Obtenha um token de acesso usando a identidade atribuída pelo usuário e use-a para chamar o Azure Resource Manager 
 > * Leia as propriedades de um grupo de recursos
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a seção de [visão geral](overview.md). **Lembre-se de analisar as [diferenças entre as identidades atribuídas pelo sistema e pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso à MSI atribuída pelo usuário a um grupo de recursos no Azure Resource Manager 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder acesso à Identidade de Serviço Gerenciada atribuída pelo usuário a um grupo de recursos no Azure Resource Manager 
 
-A MSI (Managed Service Identity, identidade de serviço gerenciado) fornece identidades que seu código pode usar para solicitar tokens de acesso para autenticação em APIs de recursos que dão suporte à autenticação do AD do Azure. Neste tutorial, seu código acessará a API do Azure Resource Manager. 
+A Identidade de Serviço Gerenciada fornece identidades que seu código pode usar para solicitar tokens de acesso para autenticação em APIs de recursos que dão suporte à autenticação do Microsoft Azure AD. Neste tutorial, seu código acessará a API do Azure Resource Manager. 
 
 Antes que seu código possa acessar a API, você precisa conceder o acesso de identidade a um recurso no Azure Resource Manager. Nesse caso, o grupo de recursos no qual a VM está contida. Atualize os valores de `<SUBSCRIPTION ID>` conforme apropriado para seu ambiente.
 
@@ -148,7 +148,7 @@ Para o restante do tutorial, você trabalhará a partir da VM que criamos anteri
 
 4. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota.
 
-5. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação ao terminal do MSI local para obter um token de acesso para o Azure Resource Manager.
+5. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para o ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso ao Azure Resource Manager.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

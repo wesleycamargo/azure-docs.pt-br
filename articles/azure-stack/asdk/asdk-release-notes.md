@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 2f732dfdfe9bf4aff2753114c3041f8f646421c2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242692"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344725"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure
 Essas notas de versão fornecem informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -47,6 +47,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>Problemas conhecidos
  
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> É possível aplicar as atualizações de driver por meio de um pacote de extensão de OEM com esta versão do Azure Stack.  Não há nenhuma solução alternativa para esse problema.
+ 
 - <!-- TBD - IS ASDK --> Não use os novos tipos de assinatura administrativos do *assinatura de medição*, e *assinatura de consumo*. Esses novos tipos de assinatura foram introduzidos com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o *provedor padrão* tipo de assinatura.  
 
 - <!-- 2403291 - IS ASDK --> Você pode não ter o uso da barra de rolagem horizontal na parte inferior do portais do administrador e usuário. Se você não pode acessar a barra de rolagem horizontal, use a trilha para navegar até uma folha anterior no portal, selecionando o nome da folha você quer exibir na lista de navegação estrutural na parte superior esquerda do portal.
@@ -168,6 +170,8 @@ O exemplo a seguir agora está disponíveis, mas não exige a atualização do A
 ### <a name="known-issues"></a>Problemas conhecidos
  
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> É possível aplicar as atualizações de driver por meio de um pacote de extensão de OEM com esta versão do Azure Stack.  Não há nenhuma solução alternativa para esse problema.
+ 
 - <!-- TBD - IS ASDK --> A capacidade [para abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Kit de desenvolvimento do Azure Stack, use https://aka.ms/azurestackforum.    
 
