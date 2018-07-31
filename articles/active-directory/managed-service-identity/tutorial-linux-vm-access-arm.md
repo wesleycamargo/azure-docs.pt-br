@@ -1,6 +1,6 @@
 ---
-title: Use o MSI de Linux para acessar o Azure Resource Manager
-description: Um tutorial que orienta você durante o processo de uso de uma Identidade de Serviço Gerenciado (MSI) de VM do Linux para acessar o Azure Resource Manager.
+title: Usar Identidade de Serviço Gerenciada de VM do Linux para acessar o Azure Resource Manager
+description: Um tutorial que orienta você durante o processo de uso de uma Identidade de Serviço Gerenciada de VM do Linux para acessar o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 643d4814dd30926a9a4294494e768cadc60ee428
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001578"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247972"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Usar MSI (Identidade do Serviço Gerenciado) de VM do Linux para acessar o Azure Resource Manager
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-resource-manager"></a>Usar Identidade de Serviço Gerenciada de VM do Linux para acessar o Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar a Identidade de Serviço Gerenciado (MSI) para uma Máquina Virtual do Linux e, em seguida, usar essa identidade para acessar a API do Azure Resource Manager. As Identidades de Serviço Gerenciado são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que oferecem suporte à autenticação do Azure AD sem a necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma Máquina Virtual do Linux e, em seguida, usar essa identidade para acessar a API do Azure Resource Manager. As Identidades de Serviço Gerenciado são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que oferecem suporte à autenticação do Azure AD sem a necessidade de inserir as credenciais em seu código. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Habilitar MSI em uma Máquina Virtual do Linux 
+> * Habilitar a Identidade de Serviço Gerenciada na Máquina Virtual do Linux 
 > * Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 > * Obter um token de acesso usando a identidade da máquina virtual e usá-la para chamar o Azure Resource Manager 
 
@@ -44,7 +44,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual do Linux em um novo Grupo de Recursos
 
-Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar o MSI em uma VM existente.
+Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
 
 1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
@@ -56,20 +56,20 @@ Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilit
 5. Para selecionar um novo **Grupo de Recursos** no qual você deseja criar a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
 6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos** ou altere o filtro Tipo de disco com suporte. Na folha de configurações, mantenha os padrões e clique em **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Habilitar o MSI na sua VM
+## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM
 
-Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a necessidade de colocar as credenciais no seu código. Habilitar a Identidade do Serviço Gerenciado em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
+Uma Identidade de Serviço Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade do Serviço Gerenciado em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
-1. Selecione a **Máquina Virtual** na qual você deseja habilitar MSI.
+1. Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.
 2. Na barra de navegação à esquerda, clique em **Configuração**.
-3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar o MSI, selecione **Sim**; se você deseja desabilitá-la, escolha Não.
+3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não.
 4. Lembre-se de clicar em **Salvar** para salvar a configuração.
 
     ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 
-Usando o MSI seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD. A API do Azure Resource Manager oferece suporte à autenticação do Azure AD. Primeiro, é preciso conceder acesso de identidade desta VM a um recurso no Azure Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
+Usando a Identidade de Serviço Gerenciada seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD. A API do Azure Resource Manager oferece suporte à autenticação do Azure AD. Primeiro, é preciso conceder acesso de identidade desta VM a um recurso no Azure Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
 
 1. Navegue até a guia para **Grupo de Recursos**.
 2. Selecione o **Grupo de Recursos** específico criado anteriormente.
@@ -87,7 +87,7 @@ Para concluir essas etapas, você precisará de cliente SSH. Se você estiver us
 
 1. No portal, navegue até a VM do Linux e em **Visão geral**, clique em **Conectar**.  
 2. **Conecte-se** à VM com um cliente SSH de sua escolha. 
-3. Na janela de terminal, usando a CURL, faça uma solicitação para o ponto de extremidade do MSI local para obter um token de acesso para o Azure Resource Manager.  
+3. Na janela de terminal, usando CURL, faça uma solicitação para o ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso para o Azure Resource Manager.  
  
     A solicitação CURL para o token de acesso está abaixo.  
     

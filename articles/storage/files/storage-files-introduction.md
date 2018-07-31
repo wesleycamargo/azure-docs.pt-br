@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 83096e15b26b0edfd47df36fe368fd5c9c846f12
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: b331a6fcc6efd07bf63135e917f9fe55560e4ec7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737275"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158277"
 ---
 # <a name="introduction-to-azure-files"></a>Introdução aos Arquivos do Azure
-Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão no setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, os compartilhamentos de arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados estão sendo usados.
+Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão no setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, os compartilhamentos de arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
 
 ## <a name="videos"></a>vídeos
 | Introdução à Sincronização de Arquivos do Azure (2 m) | Arquivos do Azure com Sincronização (Ignite 2017) (85 m)  |

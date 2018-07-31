@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823556"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259248"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar conexões coexistentes Site a Site e do ExpressRoute
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Há dois conjuntos diferentes de procedimentos para escolher. O procedimento de 
     Se você ainda não tiver uma rede virtual, esse procedimento explica como criar uma nova rede virtual usando o modelo de implantação do Gerenciador de Recursos e criando novas conexões de VPN Site a Site e de ExpressRoute. Para configurar uma rede virtual, siga as etapas em [Para criar uma nova rede virtual e conexões coexistentes](#new).
 * Eu já tenho uma VNet do modelo de implantação do Gerenciador de Recursos.
   
-    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão de ExpressRoute existente. Neste cenário, se a máscara de sub-rede de gateway é /28 ou maior, você precisa excluir o gateway existente. A seção [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e, em seguida, criar novas conexões de VPN Site a Site e de ExpressRoute.
+    Talvez você já tenha uma rede virtual implementada com uma conexão de VPN Site a Site ou uma conexão de ExpressRoute existente. Neste cenário, se a máscara de sub-rede de gateway é /28 ou menor (/28, /29, etc.), você precisa excluir o gateway existente. A seção [Para configurar conexões coexistentes para uma VNet já existente](#add) explica como excluir o gateway e, em seguida, criar novas conexões de VPN Site a Site e de ExpressRoute.
   
     Se você excluir e recriar o gateway, você terá tempo de inatividade para as conexões entre locais. Entretanto, suas VMs e serviços ainda poderão se comunicar por meio do balanceador de carga enquanto você configura o seu gateway, se estiverem configurados para fazer isso.
 
@@ -91,7 +91,7 @@ Este procedimento orientará você na criação de uma VNet, bem como na criaç�
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Crie uma rede virtual incluindo uma Sub-rede de Gateway. Para saber mais sobre como criar uma rede virtual, confira [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para saber mais sobre como criar sub-redes, confira [Criar uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

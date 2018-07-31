@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081849"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216016"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -31,14 +31,14 @@ Neste tutorial, você executa as seguintes ações:
 > * Configurar o laboratório de sala de aula
 > * Enviar link de registro para estudantes
 
-## <a name="prerequisites"></a>pré-requisitos
-Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. Um proprietário de laboratório pode adicionar um usuário à função Criador de Laboratório usando as etapas deste artigo: [Adicionar um usuário à função Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+## <a name="prerequisites"></a>Pré-requisitos
+Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que você usou para criar uma conta de laboratório é automaticamente adicionada a essa função. Um proprietário de laboratório pode adicionar outros usuários à função de criador de laboratório realizando as etapas no seguinte artigo: [Adicionar um usuário à função de criador de laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue até [Site do Azure Lab Services](https://labs.azure.com).
-2. Selecione **Iniciar sessão** e insira suas credenciais. 
+1. Navegue até [Site do Azure Lab Services](https://labs.azure.com). 
+2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft. 
 3. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório de sala de aula. 
     2. Selecione o **tamanho** da máquina virtual que você planeja usar na sala de aula.
@@ -71,27 +71,27 @@ Um modelo em um laboratório é uma imagem básica da máquina virtual a partir 
 
     ![Descrição do laboratório de sala de aula](../media/tutorial-setup-classroom-lab/lab-description.png)
 
-### <a name="set-up-the-template-vm"></a>Configurar a VM de modelo
- Você se conecta à VM de modelo e instala todo o software necessário antes de disponibilizá-la para os alunos. 
+### <a name="set-up-the-template-vm"></a>Configurar a VM modelo
+ Você se conecta à VM modelo e instala todo o software necessário antes de disponibilizá-la para os alunos. 
 
 1. Aguarde até que a máquina virtual do modelo esteja pronta. Quando estiver pronto, o botão **Iniciar** deverá ser habilitado. Para iniciar a máquina virtual, selecione **Iniciar**.
 
-    ![Iniciar a VM de modelo](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. Para se conectar à máquina virtual, selecione **Conectar**e siga as instruções. 
+    ![Iniciar a VM modelo](../media/tutorial-setup-classroom-lab/start-template-vm.png)
+1. Para se conectar à máquina virtual, selecione **Conectar** e siga as instruções. 
 
-    ![Conectar à VM de modelo](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Azure Storage Explorer etc.). 
-2. Desconecte (feche sua sessão de área de trabalho remota) da VM de modelo. 
-3. **Pare** a VM de modelo selecionando **Parar**. 
+    ![Conectar à VM modelo](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
+2. Desconecte (feche sua sessão de área de trabalho remota) da VM modelo. 
+3. **Pare** a VM modelo selecionando **Parar**. 
 
-    ![Parar a VM de modelo](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
+    ![Parar a VM modelo](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 ### <a name="publish-the-template"></a>Publicar o modelo 
 Quando você publicar um modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. O número de VMs criadas neste processo é o mesmo que o número máximo de usuários permitidos em um laboratório, que você pode definir na política de uso do laboratório. Todas as máquinas virtuais têm a mesma configuração que o modelo. 
 
 1. Selecione **Publicar** na seção **Modelo**. 
 
-    ![Publicar a VM de modelo](../media/tutorial-setup-classroom-lab/public-access.png)
+    ![Publicar a VM modelo](../media/tutorial-setup-classroom-lab/public-access.png)
 1. Na janela **Publicar**, selecione a opção **Publicado**. 
 2. Agora, selecione o botão **Publicar**. Esse processo pode levar alguns tempo, dependendo de quantas VMs estiverem sendo criadas, que é igual ao número de usuários permitidos no laboratório.
     

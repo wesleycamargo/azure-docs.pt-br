@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531653"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237957"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o PowerShell e tópicos/assinaturas
 
@@ -36,7 +36,7 @@ Um exemplo desse cenário é uma atualização de sortimento de estoque para vá
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 

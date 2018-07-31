@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967303"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205554"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Criar um pipeline de CI/CD para o seu código existente com o projeto de DevOps do Azure
 
@@ -38,7 +38,7 @@ Você vai:
 > * Examinar o pipeline de CI/CD do VSTS
 > * Configurar o monitoramento do Application Insights
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acesso ao GitHub ou repositório Git externo que contém o .NET, Java, PHP, nó, Python ou código da Web estático.
@@ -141,8 +141,8 @@ Com o Azure Application Insights, você pode monitorar facilmente o aplicativo q
 
 1. Insira um **Nome** para o alerta.
 
-1. Selecione o menu suspenso para **Alterar destino ativado**.  Escolha seu **recursos do Serviço de Aplicativo.**
-
+1. Selecione o menu suspenso para **Alterar destino ativado**.  Escolha seu **recurso do Serviço de Aplicativo.**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. O alerta padrão é para um **tempo de resposta do servidor maior do que 1 segundo**.  Selecione o menu suspenso **Métrica** para examinar as várias métricas de alerta.  Você pode configurar facilmente vários alertas para melhorar os recursos de monitoramento do seu aplicativo.
 
 1. Marque a caixa de seleção para **Notificar por email proprietários, colaboradores e leitores**.  Opcionalmente, você pode executar ações adicionais quando um alerta é disparado, executando um aplicativo lógico do Azure.

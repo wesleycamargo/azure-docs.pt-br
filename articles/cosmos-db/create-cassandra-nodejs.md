@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: b05a16f4ecb37245eff8217ddc89b88403d346ac
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e86b80328c3717220b2771a1bf8f4232f9a51748
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668100"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215857"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Este guia de início rápido mostra como usar o Node.js e a [API Cassandra](cass
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, tabelas, valores-chave e bancos de dados de gráfico, todos os quais se beneficiam de recursos de distribuição global e escala horizontal e no núcleo do Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -121,7 +121,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
     client.batch(queries, { prepare: true}, next);
     ```
 
-* Consulta para obter todos os valores de chave.
+* Consulta para obter todos os pares chave-valor.
 
     ```nodejs
    var query = 'SELECT * FROM uprofile.user';

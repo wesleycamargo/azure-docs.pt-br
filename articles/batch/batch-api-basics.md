@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114432"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216301"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -174,7 +174,7 @@ Para informações sobre preços de ambos os nós de computação de baixa prior
 
 ### <a name="size-of-the-compute-nodes"></a>Tamanho dos nós de computação
 
-Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece uma variedade de tamanhos de VMs para diferentes cargas de trabalho, incluindo tamanhos de VMs [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitado para GPU](../virtual-machines/linux/sizes-gpu.md) especializados. 
+Ao criar um pool de Lote do Azure, você pode escolher dentre quase todas as famílias de VMs e os tamanhos disponíveis no Azure. O Azure oferece vários tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados para [HPC](../virtual-machines/linux/sizes-hpc.md) ou [habilitados para GPU](../virtual-machines/linux/sizes-gpu.md). 
 
 Para obter mais informações, confira [Escolha um tamanho de VM para nós de computação em um pool do Lote do Azure](batch-pool-vm-sizes.md).
 
@@ -505,7 +505,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
-* Baixe e instale o [BatchLabs][batch_labs] para usá-lo ao desenvolver suas soluções do Lote. Use o BatchLabs para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. 
+* Baixe e instale o [Batch Explorer][batch_labs] para usá-lo durante a instalação das suas soluções de lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure. 
 * Consulte os recursos da comunidade incluindo o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure][batch_forum] no MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

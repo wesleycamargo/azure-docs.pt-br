@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 12a17edc74ef0fbc573be0fc167aa7921e599341
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2293390684a8dcdf5f32bbae8f04fe7317d389e2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005859"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258936"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado
 
@@ -57,15 +57,15 @@ Você pode usar qualquer registro compatível com o Docker neste tutorial. Dois 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto de módulo do IoT Edge
 As etapas a seguir criam um projeto de módulo do IoT Edge baseado no SDK do .NET Core 2.0 usando o Visual Studio Code e a extensão do Azure IoT Edge.
-1. No Visual Studio Code, selecione **Exibir** > **Terminal Integrado** para abrir o terminal integrado do Visual Studio Code.
-2. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
-3. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
-4. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+
+1. No Visual Studio Code, selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
+2. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
+3. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    1. Selecione a pasta na qual deseja criar a solução. 
    2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
    3. Escolha **Módulo C#** como o modelo de módulo. 
-   4. Nomeie o módulo **CSharpModule**. 
+   4. Substitua o nome do módulo padrão **CSharpModule**. 
    5. Especifique o registro de contêiner do Azure que você criou na seção anterior como o repositório de imagens do primeiro módulo. Substitua **localhost:5000** pelo valor de servidor de logon que você copiou. A cadeia de caracteres final se parece com \<nome do registro\>.azurecr.io/csharpmodule.
 
 4.  A janela do VS Code carrega seu espaço de trabalho da solução IoT Edge: uma pasta de módulos, uma pasta \.vscode, um arquivo de modelo do manifesto de implantação e um arquivo \.env. No explorador do VS Code, abra **módulos** > **CSharpModule** > **Program.cs**.
@@ -105,6 +105,16 @@ As etapas a seguir criam um projeto de módulo do IoT Edge baseado no SDK do .NE
     }
     ```
 
+8. O método **Init** declara um protocolo de comunicação para o módulo usar. Substitua as configurações de MQTT pelas configurações de AMPQ. 
+
+   ```csharp
+   // MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+   // ITransportSettings[] settings = { mqttSetting };
+
+   AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
+   ITransportSettings[] settings = {amqpSetting};
+   ```
+
 8. No método **Init**, o código cria e configura um objeto **ModuleClient**. Esse objeto permite que o módulo se conecte ao tempo de execução do Azure IoT Edge local para enviar e receber mensagens. A cadeia de caracteres de conexão utilizada no método **Init** é fornecida ao módulo pelo tempo de execução do IoT Edge. Depois de criar o **ModuleClient**, o código lê o valor **temperatureThreshold** das propriedades desejadas do módulo gêmeo. O código registra um retorno de chamada para receber mensagens de um hub IoT Edge por meio do ponto de extremidade **input1**. Substitua o método **SetInputMessageHandlerAsync** por um novo e adicione um método **SetDesiredPropertyUpdateCallbackAsync** para atualizações das propriedades desejadas. Para fazer essa alteração, substitua a última linha do método **Init** pelo seguinte código:
 
     ```csharp
@@ -121,7 +131,7 @@ As etapas a seguir criam um projeto de módulo do IoT Edge baseado no SDK do .NE
     }
 
     // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
     // Register a callback for messages that are received by the module.
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
@@ -226,7 +236,11 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
    ```
    Use o nome de usuário, a senha e o servidor de logon que você copiou de seu registro de contêiner do Azure na primeira seção. Você também pode recuperar esses valores da seção **Chaves de acesso** do registro no portal do Azure.
 
-2. No explorador do VS Code, abra o arquivo deployment.template.json no espaço de trabalho da solução IoT Edge. Esse arquivo manda o **$edgeAgent** implantar dois módulos: **tempSensor** e **CSharpModule**. O valor **CSharpModule.image** é definido como uma versão Linux amd64 da imagem. Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+2. No explorador do VS Code, abra o arquivo deployment.template.json no espaço de trabalho da solução IoT Edge. Esse arquivo manda o **$edgeAgent** implantar dois módulos: **tempSensor** e **CSharpModule**. O valor **CSharpModule.image** é definido como uma versão Linux amd64 da imagem. 
+
+   Verifique se o modelo tem o nome do módulo correto, não o nome padrão **SampleModule** alterado quando você criou a solução de IoT Edge.
+
+   Para saber mais sobre manifestos de implantação, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
 3. No arquivo deployment.template.json, a seção **registryCredentials** armazena suas credenciais de registro do Docker. Os pares de nome de usuário e senha reais são armazenados no arquivo .env que é ignorado pelo git.  
 
@@ -251,7 +265,7 @@ Você pode conferir o endereço de imagem de contêiner completo com marca no te
 
 1. Configure a extensão Kit de Ferramentas do Azure IoT com a cadeia de conexão para o hub IoT: 
 
-    1. Abra o explorador do Visual Studio Code, selecionando **Exibir** > **Explorer**.
+    1. Abra o gerenciador do Visual Studio Code, selecionando **Exibir** > **Explorer**.
 
     1. No explorador, selecione **Dispositivos do Hub IoT do Azure**, selecione as reticências (**...** ) e escolha **Selecionar Hub IoT**. Siga as instruções para entrar na conta do Azure e escolher o hub IoT. 
 
@@ -293,11 +307,11 @@ Para excluir o grupo de recursos inteiro por nome:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome**, digite o nome do grupo de recursos que contém o hub IoT. 
+2. Na caixa de texto **Filtrar por nome**, insira o nome do grupo de recursos que contém seu Hub IoT. 
 
-3. À direita do seu grupo de recursos na lista de resultados, selecione as reticências (**...** ) e selecione **Excluir grupo de recursos**.
+3. À direita do seu grupo de recursos na lista de resultados, selecione as reticências (**...**) e selecione **Excluir grupo de recursos**.
 
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite novamente o nome do grupo de recursos para confirmar e selecione **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Insira novamente o nome do grupo de recursos para confirmar e selecione **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
 
 

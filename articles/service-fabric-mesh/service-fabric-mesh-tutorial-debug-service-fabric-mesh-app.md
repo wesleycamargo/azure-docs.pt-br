@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125646"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186731"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Tutorial: Depurar um aplicativo Web da Malha do Service Fabric
 
@@ -75,8 +75,8 @@ Após a conclusão da implantação local, e quando o Visual Studio estiver exec
 **Dicas de depuração**
 
 * Se você receber o erro **Não há um cluster local do Service Fabric em execução**, verifique se o SLCM (Gerenciador de Cluster Local do Serviço) está em execução e clique com o botão direito no ícone do SLCM na barra de tarefas, depois clique em **Iniciar Cluster Local**. Depois de iniciado, retorne ao Visual Studio e pressione **F5**.
-* Se você receber um erro **404** quando o aplicativo for iniciado, ele provavelmente significará que suas variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `AppName`, `ApiHostPort` e `ServiceName` estejam definidas corretamente de acordo com as instruções em [Definir variáveis de ambiente](#set-environment-variables).
-* Se você receber erros de compilação em **service.yaml**, use espaços, e não guias, para recuar linhas.
+* Se você receber um erro **404** quando o aplicativo for iniciado, ele provavelmente significará que suas variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `ApiHostPort` e `ServiceName` estejam definidas corretamente de acordo com as instruções em [Criar variáveis de ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* Se você receber erros de compilação em **service.yaml**, use espaços, e não guias, para recuar linhas. Além disso, por enquanto, você deve compilar o aplicativo usando a localidade de inglês.
 
 ### <a name="debug-in-visual-studio"></a>Depuração no Visual Studio
 

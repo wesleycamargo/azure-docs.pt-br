@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 93c9f42df1136f242a5a04dc3056e0b1595cfb02
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: facf2de40c555ccd79fe73543a85f0b5cc150450
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933435"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247476"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipe com Azure Dev Spaces
 
@@ -127,7 +127,7 @@ Faça o seguinte para criar um novo espaço:
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. Na caixa de diálogo **Adicionar Espaço**, digite um nome para o espaço e clique em **OK**. Você pode usar seu nome (por exemplo, “scott”) para o novo espaço para que seus colegas possam identificar em qual espaço você está trabalhando.
+6. Na caixa de diálogo **Adicionar espaço**, defina o espaço pai para **default**e digite um nome para seu novo espaço. Você pode usar seu nome (por exemplo, “scott”) para o novo espaço para que seus colegas possam identificar em qual espaço você está trabalhando. Clique em **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

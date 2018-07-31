@@ -1,9 +1,9 @@
 ---
-title: Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight | Microsoft Docs
+title: Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight
 description: Saiba como criar clusters HDInsight com contas de armazenamento do Azure com transferência segura habilitada.
-keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, transferência segura, conta de armazenamento do azure
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,20 +11,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/24/2018
+ms.openlocfilehash: b4dd6f0f5f44e128e0ae15db69b2f36f8e4c5600
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952187"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247152"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight
 
 O recurso [Transferência segura exigida](../storage/common/storage-require-secure-transfer.md) aprimora a segurança de sua conta de Armazenamento do Azure aplicando todas as solicitações à sua conta por meio de uma conexão segura. Esse recurso e o esquema wasbs só têm suporte da versão 3.6 ou mais recente do cluster HDInsight. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deverá ter o seguinte:
 
 * **Assinatura do Azure**: para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
@@ -97,5 +96,3 @@ Para saber mais sobre como criar ou gerenciar um cluster do HDInsight, consulte 
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-

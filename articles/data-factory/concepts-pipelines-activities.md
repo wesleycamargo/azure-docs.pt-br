@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4cf62e609505487961dbfbab3f46c37d54e8f50b
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857883"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259044"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,9 +97,9 @@ Veja como um pipeline é definido no formato JSON:
 
 Marca | DESCRIÇÃO | Tipo | Obrigatório
 --- | ----------- | ---- | --------
-Nome | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os caracteres a seguir não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia de caracteres | sim
+Nome | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia de caracteres | SIM
 Descrição | Especifique o texto descrevendo para que o pipeline é usado. | Cadeia de caracteres | Não 
-atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Matriz | sim
+atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Matriz | SIM
 parâmetros | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Listar | Não 
 
 ## <a name="activity-json"></a>Atividade JSON
@@ -130,9 +130,9 @@ A seguinte tabela descreve as propriedades na definição de JSON da atividade:
 
 Marca | DESCRIÇÃO | Obrigatório
 --- | ----------- | ---------
-Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | sim</li></ul>
-Descrição | Texto que descreve para que a atividade é usada | sim
-Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-activities) para diferentes tipos de atividade. | sim
+Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade. <br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | SIM</li></ul>
+Descrição | Texto que descreve para que a atividade é usada | SIM
+Tipo | Tipo da atividade. Confira as seções [Atividades de movimentação de dados](#data-movement-activities), [Atividades de transformação de dados](#data-transformation-activities) e [Atividades de controle](#control-activities) para diferentes tipos de atividade. | SIM
 linkedServiceName | Nome do serviço vinculado usado pela atividade.<br/><br/>Uma atividade pode exigir que você especifique o serviço vinculado que é vinculado ao ambiente de computação necessário. | Sim para Atividade de HDInsight, Atividade de Pontuação de Lote do Azure Machine Learning e Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outros
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não 
 policy | Políticas que afetam o comportamento de tempo de execução da atividade. Essa propriedade inclui o comportamento de tempo limite e de repetição. Se não forem especificados, os valores padrão serão usados. Para obter mais informações, consulte a seção [Política de atividade](#activity-policy). | Não 
@@ -194,9 +194,9 @@ As atividades de controle têm a seguinte estrutura de nível superior:
 
 Marca | DESCRIÇÃO | Obrigatório
 --- | ----------- | --------
-Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | sim</li><ul>
-Descrição | Texto que descreve para que a atividade é usada | sim
-Tipo | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-activities) para diferentes tipos de atividade. | sim
+Nome | Nome da atividade. Especifique um nome que represente a ação executada pela atividade.<br/><ul><li>Número máximo de caracteres: 55</li><li>Deve começar com uma letra, um número ou um sublinhado (_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | SIM</li><ul>
+Descrição | Texto que descreve para que a atividade é usada | SIM
+Tipo | Tipo da atividade. Confira as seções [atividades de movimentação de dados](#data-movement-activities), [atividades de transformação de dados](#data-transformation-activities) e [atividades de controle](#control-activities) para diferentes tipos de atividade. | SIM
 typeProperties | As propriedades na seção typeProperties dependem de cada tipo de atividade. Para ver as propriedades de tipo para uma atividade, clique em links para a atividade na seção anterior. | Não 
 dependsOn | Essa propriedade é usada para definir a dependência de atividade e o modo como as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, consulte [dependência de atividade](#activity-dependency). | Não 
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001943"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145302"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -235,7 +235,7 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 6. Em **Regras**, digite **AllowDNS** como **Nome**.
 8. Em **Protocolo**, selecione **TCP**.
 9. Em **Endereços de Origem**, digite **10.0.2.0/24**.
-10. Em Endereço de destino, digite **209.244.0.3, 209.244.0.4**
+10. Em Endereço de destino, digite **209.244.0.3,209.244.0.4**
 11. Em **Portas de Destino**, digite **53**.
 12. Clique em **Adicionar**.
 

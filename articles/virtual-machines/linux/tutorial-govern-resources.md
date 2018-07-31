@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: aeb94a430e633299637d4e9b96ef6b2c0309b163
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18ea9920ef3f3602721bc27001a66bcd2fc2b0fd
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722908"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205690"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Tutorial: Saiba mais sobre o controle de máquina virtual do Linux com a CLI 2.0 do Azure
 
@@ -71,13 +71,9 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador da Conta de Armazenamento*, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 
-## <a name="azure-policies"></a>Políticas do Azure
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Aplicar políticas
-
-Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list):
+O [Azure Policy](../../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de política disponíveis, use o comando [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

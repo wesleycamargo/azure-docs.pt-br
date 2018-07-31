@@ -1,5 +1,5 @@
 ---
-title: Implantar uma solução de manutenção preditiva de IoT baseada em nuvem no Azure | Microsoft Docs
+title: Experimentar uma solução de manutenção preditiva de IoT baseada em nuvem no Azure | Microsoft Docs
 description: Neste início rápido, você implanta o acelerador de solução de manutenção preditiva do Azure IoT e faz logon para usar o painel da solução.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001120"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144305"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada em nuvem para executar uma análise de manutenção preditiva em meus dispositivos conectados
 

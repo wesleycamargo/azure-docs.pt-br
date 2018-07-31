@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 692a384c3695001677b7a3d6161b77f3f015ad7c
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125862"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185662"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: Criar, depurar e implantar um aplicativo Web de vários serviços na malha do Service Fabric
 
@@ -52,7 +52,9 @@ Antes de começar este tutorial:
 
 * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* [Configure o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), o que inclui a instalação do tempo de execução do Service Fabric, do SDK, do Docker e do Visual Studio 2017.
+* Verifique se [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), o que inclui a instalação do tempo de execução do Service Fabric, SDK, Docker e Visual Studio 2017.
+
+* O aplicativo para este tutorial deve, por enquanto, ser compilado usando a localidade de inglês.
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Criar um projeto de malha do Service Fabric
 
