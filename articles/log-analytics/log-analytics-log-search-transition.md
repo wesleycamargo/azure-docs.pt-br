@@ -50,7 +50,7 @@ A tabela a seguir fornece uma comparação entre uma variedade de consultas comu
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | Comparação de cadeias de caracteres      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Evento &#124; em que o Computador contém “contoso” (não diferencia maiúsculas de minúsculas)<br>Evento &#124; em que o Computador contains_cs “Contoso” (diferencia maiúsculas de minúsculas) |
-|                        | Type=Event Computer=RegEx("\@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
+|                        | Type=Event Computer=RegEx("\@contoso\@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Comparação de datas        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | Comparação de boolianos     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| onde IsGatewayInstalled == false |
