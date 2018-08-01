@@ -131,7 +131,6 @@
 #### [Latências](active-directory-reporting-latencies-azure-portal.md)
 #### [Referência das atividades de auditoria](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de erro da atividade de entrada](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Autenticação multifator](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpretar o esquema do log de auditoria no Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpretar o esquema do log de logon no Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Planejar a Associação do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Perguntas frequentes](device-management-faq.md)
 ### Tarefas
+#### [Como planejar a implementação de ingresso no Azure Active Directory híbrido](devices/hybrid-azuread-join-plan.md)
+#### [Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configurar o ingresso no Azure Active Directory híbrido para os domínios federados](devices/hybrid-azuread-join-federated-domains.md)
+#### [Como controlar o ingresso no Azure AD híbrido de seus dispositivos](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Configurar dispositivos do Windows 10 registrados pelo Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurar dispositivos adicionados ao Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configurar dispositivos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Configurar dispositivos adicionados ao Azure AD](devices/hybrid-azuread-join-manual-steps.md)
 #### [Implantar no local](active-directory-device-registration-on-premises-setup.md)
 #### [Associação do Azure AD durante a experiência de primeira execução do Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Solucionar problemas

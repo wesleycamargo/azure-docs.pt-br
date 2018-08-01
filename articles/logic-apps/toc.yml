@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: Criar variáveis para salvar os valores
           href: logic-apps-create-variables-store-values.md
+        - name: Executar operações de dados
+          href: logic-apps-perform-data-operations.md
         - name: Adicionar código personalizado com o Azure Functions
           href: logic-apps-azure-functions.md
         - name: Chamar aplicativos lógicos com o Azure Functions
@@ -282,6 +284,8 @@
     - name: 'Exemplos, cenários e explicações passo a passo'
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: Operações de dados - exemplos de código
+          href: logic-apps-data-operations-code-samples.md
         - name: Monitorar mídia social
           href: logic-apps-scenario-social-serverless.md
         - name: Criar um aplicativo sem servidor - Visual Studio

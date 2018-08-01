@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Pesquisando dados
       items:
-        - name: Construção de consultas básicas
+        - name: Conceitos básicos da consulta
           href: search-query-overview.md
         - name: Gerenciador de pesquisa (portal)
           href: search-explorer.md
-        - name: Sintaxe de consulta simples
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Sintaxe de consulta Lucene
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Exemplos de consulta do Lucene
+        - name: Exemplos de sintaxe simples
+          href: search-query-simple-examples.md
+        - name: Exemplos de sintaxe completa
           href: search-query-lucene-examples.md
+        - name: Referência de consulta
+          items:
+            - name: Sintaxe de consulta simples
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Sintaxe de consulta Lucene
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Resultados da paginação
           href: search-pagination-page-layout.md
         - name: Ajuste de relevância
