@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969069"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248308"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introdução ao aplicativo Web Node.js do Azure AD
 Aqui usaremos o Passport para:
@@ -62,7 +62,10 @@ O aplicativo completo também é fornecido no final deste tutorial.
 
 6. Depois de registrar, AD do Azure atribui seu aplicativo uma ID de aplicativo único. Você precisará desse valor nas seções a seguir, então copie-o da página do aplicativo.
 7. Na página **Configurações** -> **Propriedades** do aplicativo, atualize o URI da ID do Aplicativo. O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo. A convenção é usar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Para criar uma chave secreta, siga a etapa 4 em [Para adicionar credenciais do aplicativo ou permissões para acessar APIs Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Dos **as configurações** -> **URLs de resposta** página para seu aplicativo, adicione a URL adicionada na URL de logon da etapa 5 e clique em Salvar.
+
+9. Para criar uma chave secreta, siga a etapa 4 em [Para adicionar credenciais do aplicativo ou permissões para acessar APIs Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copie o valor da chave do aplicativo. Esse é o valor de `clientSecret`, do qual você precisará para a **Etapa 3** abaixo. 
@@ -91,7 +94,7 @@ Aqui, configuramos o Express para usar o protocolo de autenticação OpenID Conn
 
   * `clientID` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
 
-  * `returnURL` é o **Uri de Redirecionamento** inserido no portal.
+  * O `returnURL` é o **URL de resposta** inserido no portal.
 
   * O `clientSecret` é o segredo gerado no portal.
 
@@ -382,7 +385,7 @@ Agora `app.js` for concluída. Nós simplesmente precisamos adicionar os roteiro
     <% } %>
     ```
 
-5. Vamos fazer essa análise boa adicionando um layout. Crie a exibição '/views/layout.ejs' sob o diretório raiz.
+5. Vamos fazer essa análise boa adicionando um layout. Crie o modo de exibição `/views/layout.ejs` no diretório raiz.
 
     ```HTML
 

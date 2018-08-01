@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 19fb5d3cb793b6e1e8e715c41edf8cde5746278b
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 2a447931ea850c4ccbe618270de5fbbc9b9eaea7
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257915"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366589"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar sua instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Registro é recomendado porque ele permite que você teste funcionalidades importantes da pilha do Azure, como o relatório de uso e distribuição de mercado. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure. Você pode vê-lo sob a assinatura que você usou para o registro. No entanto, os usuários ASDK não são cobrados por qualquer uso que eles relatam.
@@ -45,9 +45,7 @@ Siga estas etapas para registrar o ASDK com o Azure.
 
 1. Abra um console do PowerShell como administrador.  
 
-2. Execute os seguintes comandos do PowerShell para registrar sua instalação ASDK com o Azure. Você precisará entrar em sua assinatura do Azure e a instalação ASDK local. Se você não tiver uma assinatura do Azure, você pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrar o Azure Stack incorre em sua assinatura do Azure sem custo.
-
-    Se você estiver executando o script de registro em mais de uma instância do Azure Stack usando a mesma ID de assinatura do Azure, defina um nome exclusivo para o registro quando você executa o **AzsRegistration conjunto** cmdlet. O **RegistrationName** parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se você usar o mesmo nome em mais de uma instância do Azure Stack, o script falhará.
+2. Execute os seguintes comandos do PowerShell para registrar sua instalação ASDK com o Azure. Você precisará entrar em sua assinatura do Azure e a instalação ASDK local. Se você não tiver uma assinatura do Azure, você pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registrar o Azure Stack incorre em sua assinatura do Azure sem custo.  
 
   ```PowerShell  
   # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
@@ -62,12 +60,10 @@ Siga estas etapas para registrar o ASDK com o Azure.
   #Register Azure Stack
   $AzureContext = Get-AzureRmContext
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
-      -RegistrationName $RegistrationName
   ```
 3. Quando o script for concluído, você deverá ver esta mensagem: **seu ambiente agora está registrado e ativada usando os parâmetros fornecidos.**
 

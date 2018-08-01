@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337174"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226519"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizar a autenticação e a autorização no Serviço de Aplicativo do Azure
 
@@ -53,6 +53,12 @@ Na página de entrada, ou na barra de navegação ou em qualquer outro local de 
 ```
 
 Quando o usuário clica em um dos links, a respectiva página de entrada é aberta para que ele entre.
+
+Para redirecionar o usuário pós-entada para uma URL personalizada, use o parâmetro de cadeia de caracteres de consulta `post_login_redirect_url` (não deve ser confundido com o URI de redirecionamento na configuração do provedor de identidade). Por exemplo, para orientar o usuário para `/Home/Index` após entrar, use o seguinte código HTML:
+
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
 
 ## <a name="access-user-claims"></a>Acessar declarações de usuários
 

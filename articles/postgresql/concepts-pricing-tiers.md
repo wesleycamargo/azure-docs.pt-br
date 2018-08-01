@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970254"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173700"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -97,6 +97,8 @@ O servidor é marcado como somente leitura quando a quantidade de armazenamento 
 Quando o servidor é definido como somente leitura, todas as sessões existentes são desconectadas e as transações não confirmadas são revertidas. Todas as operações de gravação subsequente e a transação falham. Todas as consultas de leitura continuam a funcionar sem interrupções.  
 
 Você pode aumentar a quantidade de armazenamento provisionado para o servidor ou iniciar uma nova sessão no modo de gravação de leitura e soltar os dados para recuperar o armazenamento livre. Executar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` define a sessão atual para o modo de gravação de leitura. Para evitar a corrupção de dados, não execute nenhuma operação de gravação quando o servidor ainda estiver em status somente leitura.
+
+Recomendamos que você configure um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do limite, para evitar entrar no estado somente leitura. Para mais informações, consulte a documentação em [como configurar um alerta](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

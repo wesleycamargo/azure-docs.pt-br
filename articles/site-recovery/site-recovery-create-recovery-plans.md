@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 853b9c2f50967d7a203e5627bdd2fc6f14e0e4f6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920994"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226661"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -76,7 +76,7 @@ Você pode personalizar um plano de recuperação com a adição de um script ou
 2. Em **Inserir ação**, selecione **Script** ou **Ação manual**.
 3. Se deseja adicionar uma ação manual, faça o seguinte: a. Digite um nome para a ação e as instruções da ação. A pessoa que está executando o failover verá essas instruções.
     b. Especifique se deseja adicionar a ação manual para todos os tipos de failover (Teste, Failover, Failover planejado (se relevante)). Em seguida, clique em **OK**.
-4. Se deseja adicionar um script, faça o seguinte: a. Se estiver adicionando um script do VMM, selecione **Failover no script do VMM** e, em **Caminho do Script**, digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento está localizado em \\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
+4. Se deseja adicionar um script, faça o seguinte: a. Se estiver adicionando um script do VMM, selecione **Failover para script do VMM** e, em **Caminho do Script**, digite o caminho relativo para o compartilhamento. Por exemplo, se o compartilhamento está localizado em \\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
     b. Se estiver adicionando um runboook da automação do Azure, especifique a **Conta de Automação do Azure** na qual o runbook está localizado e selecione o **Script de Runbook do Azure** apropriado.
 5. Execute um failover de teste do plano de recuperação para garantir que o script funciona conforme esperado.
 

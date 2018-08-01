@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a98b971367c9f83826e85bdc24bbcfe48483f57
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 674952982ac4342caaf31c05f3d644c1e74b649d
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916258"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215889"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
 Este artigo descreve como funciona a Autenticação de Passagem do Azure AD (Azure Active Directory). Para obter informações técnicas e de segurança aprofundadas, veja o artigo [Aprofundamento sobre segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como a Autenticação de Passagem do Azure Active Directory funciona?
+
+>[!NOTE]
+>Como um pré-requisito para que a Autenticação de Passagem funcione, os usuários precisam ser provisionados no Azure AD do Active Directory local usando o Azure AD Connect. A Autenticação de Passagem não aplica-se a usuários somente de nuvem.
 
 Quando um usuário tenta entrar em um aplicativo protegido pelo Azure AD, e se a Autenticação de Passagem está habilitada no locatário, ocorrem as seguintes etapas:
 
@@ -49,6 +52,7 @@ O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas:
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
+- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - Um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Perguntas frequentes](active-directory-aadconnect-pass-through-authentication-faq.md): encontre respostas para perguntas frequentes.
 - [Solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.

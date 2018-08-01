@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0d098b7befe5426db4aff503e9633623b1249dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659026"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227729"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -142,7 +142,7 @@ Habilite comportamento eventualmente consistente entre limites de partição ou 
 ### <a name="context-and-problem"></a>Contexto e problema
 EGTs habilitam transações atômicas entre várias entidades que compartilham a mesma chave de partição. Por motivos de escalabilidade e desempenho, você pode optar por armazenar entidades que têm requisitos de consistência em partições separadas ou em um sistema de armazenamento separado: nesse cenário, você não pode usar EGTs para manter a consistência. Por exemplo, você pode ter um requisito para manter a consistência eventual entre:  
 
-* Entidades armazenadas em duas partições diferentes na mesma tabela em tabelas diferentes e em contas de armazenamento diferentes.  
+* Entidades armazenadas em duas partições diferentes na mesma tabela, em tabelas diferentes ou em diferentes contas de armazenamento.  
 * Uma entidade armazenada no serviço Tabela e um blob armazenado no serviço Blob.  
 * Uma entidade armazenada no serviço Tabela e um arquivo em um sistema de arquivos.  
 * Um repositório de entidades no serviço Tabela ainda indexado usando o serviço de Azure Search.  
@@ -1022,7 +1022,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>Controlando o acesso com assinaturas de acesso compartilhado
-Você pode usar tokens de SAS (Assinatura de Acesso Compartilhado) para habilitar aplicativos cliente a modificarem (e consultarem) diretamente, sem a necessidade de autenticação direta no serviço Tabela. Normalmente, há três benefícios principais para usar SAS em seu aplicativo:  
+É possível usar tokens de SAS (Assinatura de Acesso Compartilhado) para permitir que aplicativos cliente modifiquem (e consultem) entidades de tabela sem necessidade de incluir a chave da conta de armazenamento no código. Normalmente, há três benefícios principais para usar SAS em seu aplicativo:  
 
 * Você não precisa distribuir sua chave de conta de armazenamento para uma plataforma insegura (como um dispositivo móvel) para permitir que esse dispositivo acesse e modifique entidades no serviço Tabela.  
 * Você pode descarregar parte do trabalho que as funções Web e de trabalho desempenham no gerenciamento de suas entidades em dispositivos clientes, como computadores de usuários finais e dispositivos móveis.  

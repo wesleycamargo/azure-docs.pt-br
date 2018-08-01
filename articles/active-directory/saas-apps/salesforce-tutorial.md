@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045431"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -60,14 +60,14 @@ Para configurar a integração do Salesforce ao Azure AD, você precisará adici
 
 **Para adicionar o Salesforce na galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -103,26 +103,26 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Na seção **URLs e Domínio do Salesforce**, execute as seguintes etapas:
 
     ![Informações de logon único de URLs e Domínio do Salesforce](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão:
-    
+
     Conta empresarial: `https://<subdomain>.my.salesforce.com`
 
     Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. Na caixa de texto **Identificador**, digite o valor usando o seguinte padrão:
-    
+
     Conta empresarial: `https://<subdomain>.my.salesforce.com`
 
     Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Salesforce](https://help.salesforce.com/support) para obter esses valores.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o arquivo de certificado no computador.
@@ -170,14 +170,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     b. No campo **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do portal do Azure.
 
     c. Na **caixa de texto Id da Entidade**, digite seu nome de domínio do Salesforce usando o seguinte padrão:
-      
+
       * Conta empresarial: `https://<subdomain>.my.salesforce.com`
       * Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Para carregar o **Certificado de Provedor de Identidade**, clique em **Escolher Arquivo** para navegar e selecionar o arquivo do certificado que você baixou do portal do Azure.
 
     e. Como **Tipo de Identidade SAML**, escolha uma das seguintes opções:
-    
+
       * Selecione **A declaração contém o nome do usuário do Salesforce**, se o nome do usuário do Salesforce estiver sendo transmitido na declaração SAML
 
       * Selecione **A declaração contém a ID de Federação do objeto de Usuário**, se a ID de Federação do objeto de Usuário estiver sendo transmitida na declaração SAML
@@ -189,7 +189,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     g. Para **Associação de Solicitação Iniciada do Provedor de Serviço**, selecione **Redirecionamento HTTP**.
 
     h. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único** copiado do Portal do Azure
-    
+
     i. Finalmente, clique em **Salvar** para aplicar as configurações de logon único do SAML.
 
 14. No painel de navegação à esquerda no Salesforce, clique em **Configurações da Empresa** para expandir a seção correspondente e clique em **Meu Domínio**.
@@ -200,7 +200,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. Na seção **Configuração de Autenticação**, marque a **Página de Logon** como **Serviço de Autenticação** de sua configuração de SSO do SAML e clique em **Salvar**.
+16. Na seção **Configuração de Autenticação**, selecione **AzureSSO** como **Serviço de Autenticação** da configuração de SSO de SAML e, em seguida, clique em **Salvar**.
 
     ![Configurar o logon único](./media/salesforce-tutorial/sf-auth-config.png)
 

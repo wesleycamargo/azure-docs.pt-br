@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 739ef5423f7b1769fa793f0cac5306efa634b781
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262966"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216192"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introdução ao dimensionamento automático usando métricas personalizadas no Azure
 Este artigo descreve como dimensionar seu recurso usando métricas personalizadas no portal do Azure.
@@ -39,7 +39,7 @@ Este artigo pressupõe que você tenha um aplicativo Web com o Application Insig
 > Observação: caso haja algum problema ao ler as métricas do recurso e a capacidade atual esteja abaixo da capacidade padrão, a fim de garantir a disponibilidade do recurso o dimensionamento automático escalará horizontalmente para o valor padrão. Se a capacidade atual já for maior que a capacidade padrão, o dimensionamento automático não reduzirá horizontalmente.
 - Clique em "Salvar"
 
-Parabéns. Você criou com êxito sua configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base em uma métrica personalizada.
+Parabéns. Agora você criou com êxito a configuração de dimensionamento para dimensionar automaticamente o aplicativo Web com base em uma métrica personalizada.
 
 > Observação: as mesmas etapas são aplicáveis para começar a usar uma função de serviço de nuvem ou VMSS.
 

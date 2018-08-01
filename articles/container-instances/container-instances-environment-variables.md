@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/19/2018
 ms.author: marsma
-ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a3d521d4382e3d9b5b1b1cf4eb3e43fa02c9a40
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830455"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159542"
 ---
 # <a name="set-environment-variables"></a>Configurar variáveis de ambiente
 
@@ -25,7 +25,7 @@ Por exemplo, se você executar a imagem de contêiner [microsoft/aci-wordcount][
 
 *MinLength*: O número mínimo de caracteres em uma palavra a serem contados. Um número mais alto ignora palavras comuns como "de" e "a" ou “o”.
 
-Se você precisa passar segredos como variáveis de ambiente, as Instâncias de Contêiner do Azure são compatíveis com [valores seguros](#secure-values) para contêineres do Windows e do Linux.
+Se for necessário passar segredos como variáveis de ambiente, as Instâncias de Contêiner do Azure dão suporte a [valores seguros](#secure-values) para contêineres do Windows e do Linux.
 
 ## <a name="azure-cli-example"></a>Exemplos de CLI do Azure
 
@@ -156,9 +156,10 @@ Para exibir os logs do contêiner, em **CONFIGURAÇÕES** selecione **Contêiner
 ![Portal mostrando a saída do log de contêiner][portal-env-vars-02]
 
 ## <a name="secure-values"></a>Valores seguros
+
 Objetos com valores seguros servem para proteger informações confidenciais como senhas ou chaves para seu aplicativo. Usar valores seguros para variáveis de ambiente é mais seguro e flexível do que incluí-los na imagem de contêiner. Outra opção é usar os volumes secretos, descritos em [Montar um volume secreto em Instâncias de Contêiner do Azure](container-instances-volume-secret.md).
 
-Variáveis de ambiente seguro com valores seguros não revelam o valor seguro nas propriedades do contêiner, assim, o valor só pode ser acessado de dentro de seu contêiner. Por exemplo, as propriedades de contêiner exibidas no portal do Azure ou na CLI do Azure não serão exibidas em uma variável de ambiente com um valor seguro.
+Variáveis de ambiente com valores seguros não são visíveis nas propriedades do contêiner – os valores podem ser acessados somente por dentro do contêiner. Por exemplo, as propriedades de contêiner exibidas no portal do Azure ou na CLI do Azure exibirão apenas o nome de uma variável segura, mas não o valor.
 
 A variável de ambiente seguro podem ser definida especificando a propriedade `secureValue` em vez de `value` para o tipo da variável. As duas variáveis definidas no YAML a seguir demonstram os dois tipos de variável.
 
@@ -168,17 +169,17 @@ Crie um arquivo `secure-env.yaml` com o trecho a seguir.
 
 ```yaml
 apiVersion: 2018-06-01
-location: westus
+location: eastus
 name: securetest
 properties:
   containers:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
         - "name": "NOTSECRET"
           "value": "my-exposed-value"
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
       image: nginx
       ports: []
       resources:
@@ -191,43 +192,50 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para implantar o grupo de contêineres com YAML, execute o comando a seguir.
+Execute o seguinte comando para implantar o grupo de contêineres com YAML (ajuste o nome do grupo de recursos conforme necessário):
 
 ```azurecli-interactive
-az container create --resource-group myRG --name securetest -f secure-env.yaml
+az container create --resource-group myResourceGroup --file secure-env.yaml
 ```
 
 ### <a name="verify-environment-variables"></a>Verifique as variáveis de ambiente
 
-Execute o seguinte comando para consultar as variáveis de ambiente do contêiner.
+Execute o comando [az container show][az-container-show] para consultar as variáveis de ambiente do contêiner:
 
 ```azurecli-interactive
-az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+az container show --resource-group myResourceGroup --name securetest --query 'containers[].environmentVariables'
 ```
 
-A resposta JSON com detalhes desse contêiner mostrará apenas a variável de ambiente não seguro e protegerá a chave da variável de ambiente.
+A resposta JSON mostra a chave e o valor de ambiente não seguro, mas apenas o nome da variável de ambiente seguro:
 
 ```json
-  "environmentVariables": [
+[
+  [
     {
       "name": "NOTSECRET",
+      "secureValue": null,
       "value": "my-exposed-value"
     },
     {
-      "name": "SECRET"
+      "name": "SECRET",
+      "secureValue": null,
+      "value": null
     }
+  ]
+]
 ```
 
-É possível examinar se a variável de ambiente seguro está definida com o comando `exec`, o que permite executar um comando dentro de um contêiner em execução. 
+Com o comando [az container exec][az-container-exec], que permite executar um comando dentro de um contêiner em execução, é possível verificar se a variável de ambiente seguro foi definida. Execute o comando a seguir para iniciar uma sessão interativa de busca no contêiner:
 
-Execute o comando a seguir para iniciar uma sessão interativa do Bash com o contêiner.
 ```azurecli-interactive
-az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Dentro do contêiner, imprima a variável de ambiente com o seguinte comando do Bash.
-```bash
-echo $SECRET
+Depois de abrir um shell interativo dentro do contêiner, é possível acessar o valor da variável `SECRET`:
+
+```console
+root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
+my-secret-value
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -243,6 +251,7 @@ Cenários baseados em tarefas, como o processamento em lote de um grande conjunt
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-exec]: /cli/azure/container#az-container-exec
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/

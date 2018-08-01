@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/04/2017
+ms.date: 7/19/2018
 ms.author: wgries
-ms.openlocfilehash: beb3e5caf8c8dce9b2ea06bbd0a2ea5a4e05a714
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 8937b0cfc620114c602278a3f8989ba1f3f60685
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738067"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173717"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
-O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo descreve as metas de escalabilidade e desempenho para Arquivos do Azure e Sincronização de Arquivos do Azure (visualização).
+O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Este artigo discute as metas de escalabilidade e desempenho dos arquivos do Azure e do Azure File Sync.
 
 As metas de escalabilidade e desempenho listadas aqui são metas avançadas, mas podem ser afetadas por outras variáveis em sua implantação. Por exemplo, a taxa de transferência para um arquivo pode também ser limitada pela sua largura de banda de rede disponível, não apenas os servidores que hospedam o serviço de Arquivos do Azure. É altamente recomendável testar seu padrão de uso para determinar se a escalabilidade e o desempenho do Arquivos do Azure atende às suas necessidades. É nosso compromisso aumentar esses limites ao longo do tempo. Não hesite em fazer comentários, na seção de comentários abaixo ou no [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files), sobre os limites que você gostaria que aumentássemos.
 
@@ -63,7 +63,7 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 |-|-|
 | Número de objetos | 10 milhões de objetos | 
 | Tamanho do conjunto de dados| ~4 TiB |
-| Tamanho médio de arquivo | ~500 KiB (Largest File: 100 GiB) |
+| Tamanho médio de arquivo | ~500 KiB (Maior arquivo: 100 GiB) |
 | Carregue a taxa de transferência | 15 objetos por segundo |
 | Fazer o download do Namespace * | 350 objetos por segundo |
  
@@ -73,11 +73,11 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 |-|--|
 | Número de objetos sincronizados| 125.000 objetos (aproximadamente 1% rotatividade) | 
 | Tamanho do conjunto de dados| 50 GiB |
-| Tamanho médio de arquivo | ~500 KiB (Maior arquivo: 100 GiB) |
+| Tamanho médio de arquivo | ~500 KiB |
 | Carregue a taxa de transferência | 20 objetos por segundo |
 | Taxa de transferência do Download completo* | 30 objetos por segundo |
  
-Se nuvem camadas estiver habilitada, provavelmente a observar um desempenho melhor com apenas o arquivo de dados são baixados. Sincronização de arquivos do Azure fazer o download somente os dados de arquivos armazenados em cache quando forem alteradas em qualquer um dos pontos de extremidade. Para todos os arquivos em camadas ou recentemente criados, o agente não baixar os dados de arquivo e em vez disso, apenas o namespace para todos os pontos de extremidade do servidor é sincronizado. O agente também oferece suporte parciais downloads de arquivos em camadas como eles são acessados pelo usuário. 
+*Se nuvem camadas estiver habilitada, provavelmente a observar um desempenho melhor com apenas o arquivo de dados são baixados. Sincronização de arquivos do Azure fazer o download somente os dados de arquivos armazenados em cache quando forem alteradas em qualquer um dos pontos de extremidade. Para todos os arquivos em camadas ou recentemente criados, o agente não baixar os dados de arquivo e em vez disso, apenas o namespace para todos os pontos de extremidade do servidor é sincronizado. O agente também oferece suporte parciais downloads de arquivos em camadas como eles são acessados pelo usuário. 
  
 > [!Note]  
 > Os números acima não são uma indicação do desempenho que você terá. O desempenho real dependerá vários fatores conforme descrito no início desta seção.

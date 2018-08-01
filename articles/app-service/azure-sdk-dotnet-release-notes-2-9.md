@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150950"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222521"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.9
 
@@ -32,7 +32,7 @@ Nenhuma alteração significativa do Azure SDK 2.9 foi introduzida nesta versão
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 versão Release Candidate
 
-- No Visual Studio 2017 RC, esta versão do SDK do Azure para .NET é integrada à Carga de Trabalho do Azure. Todas as ferramentas que você precisa para fazer o desenvolvimento do Azure farão parte do Visual Studio 2017 RC no futuro. Para o Visual Studio 2015 e o Visual Studio 2013, o SDK ainda estará disponível por meio do WebPI. Suspenderemos o SDK do Azure para versões .NET para o Visual Studio 2013, quando o Visual Studio 2017 for lançado como um produto final. Siga este link para download do Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- No Visual Studio 2017 RC, essa versão do SDK do Azure para .NET é integrada à Carga de Trabalho do Azure. Todas as ferramentas que você precisa para fazer o desenvolvimento do Azure farão parte do Visual Studio 2017 RC no futuro. Para o Visual Studio 2015 e o Visual Studio 2013, o SDK ainda estará disponível por meio do WebPI. Suspenderemos o SDK do Azure para versões .NET para o Visual Studio 2013, quando o Visual Studio 2017 for lançado como um produto final. Siga este link para download do Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
@@ -68,7 +68,7 @@ Para obter informações detalhadas sobre atualizações nesta versão, consulte
 ## <a name="azure-sdk-29-for-visual-studio-2015-update-2-and-visual-studio-15-preview"></a>Atualização 2 do SDK do Azure 2.9 para Visual Studio 2015 e Visual Studio "15" Preview
 Esta atualização inclui as seguintes correções de bug:
 
-* Problema relacionado à API REST de Geração de Cliente no qual a cadeia de caracteres "Tipo Desconhecido" seria exibida como o nome da pasta de geração de código e/ou o nome do namespace descartado no código gerado.
+* Problema relacionado à API REST de Geração de Cliente em que a cadeia de caracteres "Tipo Desconhecido" seria exibida como o nome da pasta de geração de código e/ou o nome do namespace descartado no código gerado.
 * Problema relacionado a WebJobs Agendados no qual as informações de autenticação estavam falhando em serem passadas para o processo de provisionamento do Agendador.
 
 Esta atualização inclui o novo recurso a seguir:
@@ -86,7 +86,7 @@ Essa atualização inclui o seguinte:
 ## <a name="hdinsight-tools"></a>Ferramentas do HDInsight
 **Ferramentas do HDInsight** para Visual Studio agora dão suporte ao HDInsight versão 3.3, incluindo a exibição de grafos Tez e outras correções de linguagem.
 
-## <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 Essa versão adiciona o suporte para [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) para modelos do Resource Manager.
 
 ## <a name="see-also"></a>Consulte também

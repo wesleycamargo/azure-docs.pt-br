@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294842"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224289"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -189,14 +189,14 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     |---------|--------------|
     | Prefixo de recursos | Identificador exclusivo curto para sua implantação. Esse valor é usado como base para nomear recursos. |
     | Nome de usuário da VM | O nome de usuário é usado como administrador para todas as máquinas virtuais (VM). |
-    | Tipo de autenticação. | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
+    | Tipo de autenticação | Selecione se deseja usar uma senha ou chave para se conectar a VMs. |
     | Senha | A senha é usada para se conectar a VMs. |
     | SSH | Use uma chave pública RSA no formato de única linha começando com **ssh-rsa** ou use o formato PEM de várias linha. É possível gerar chaves SSH usando `ssh-keygen` no Linux e OS X ou usando PuTTYGen no Windows. Para obter mais informações sobre como usar chaves SSH, veja [Como usar chaves SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Senha do banco de dados / Confirmar senha do banco de dados | Especifique a senha a ser usada para acessar o banco de dados criado como parte da implantação. |
     | Resultados da implantação | Especifique onde implantar os recursos Blockchain Workbench. Para melhor disponibilidade, isso deve corresponder à configuração do **Local**. |
     | Assinatura | Especifique a assinatura do Azure que você deseja usar para sua implantação. |
     | Grupos de recursos | Crie um novo grupo de recursos selecionando **Criar novo** e especifique um nome exclusivo para o grupo de recursos. |
-    | Local padrão | Especifique a região em que você deseja implantar a estrutura. |
+    | Localização | Especifique a região em que você deseja implantar a estrutura. |
 
 6.  Selecione **OK** para concluir a seção de configuração básica.
 
@@ -213,9 +213,13 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
 8.  Clique em **OK** para concluir a seção de configuração de Parâmetros do Microsoft Azure Active Directory.
 
-9.  Conclua as configurações de **Tamanho e desempenho da rede**.
+9.  Em **Configurações de Rede e Desempenho**, escolha se você quer criar uma nova rede de blockchain ou usar uma rede de blockchain de prova de autoridade existente.
 
-    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    Para **Criar novo**:
+
+    A opção *criar novo* cria um conjunto de nós de PoA (prova de autoridade) do Ethereum dentro da assinatura de um único membro. 
+
+    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Desempenho de armazenamento | Escolha o desempenho de armazenamento de VM preferido para sua rede de blockchain. |
     | Tamanho da máquina virtual | Escolha o tamanho de VM preferido para sua rede de blockchain. |
 
-10. Clique em **OK** para concluir a seção de tamanho e desempenho de rede.
+    Para **Usar existente**:
+
+    A opção *usar existente* permite que você especifique uma rede de blockchain de PoA (Prova de Autoridade) do Ethereum. Os pontos de extremidade têm os seguintes requisitos.
+
+    * O ponto de extremidade deve ser uma rede de blockchain de PoA (Prova de Autoridade) do Ethereum.
+    * O ponto de extremidade deve estar publicamente acessível pela rede.
+    * A rede de blockchain de PoA deve ser configurada para definir o preço do gás como zero (Nota: as contas do Blockchain Workbench não são financiadas. Se fundos forem necessários, as transações falharão).
+
+    ![Configurações de rede e desempenho](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | Configuração | DESCRIÇÃO  |
+    |---------|--------------|
+    | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com http:// e termina com um número da porta. Por exemplo, `http://contoso-chain.onmicrosoft.com:8545` |
+    | Desempenho de armazenamento | Escolha o desempenho de armazenamento de VM preferido para sua rede de blockchain. |
+    | Tamanho da máquina virtual | Escolha o tamanho de VM preferido para sua rede de blockchain. |
+
+10. Selecione **OK** para concluir as configurações de rede e desempenho.
 
 11. Conclua as configurações do **Azure Monitor**.
 

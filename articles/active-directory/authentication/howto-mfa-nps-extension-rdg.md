@@ -4,18 +4,18 @@ description: Integrar sua infraestrutura de Gateway de Área de Trabalho Remota 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049058"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160096"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -23,7 +23,7 @@ Este artigo fornece os detalhes para integração da infraestrutura do seu Gatew
 
 A extensão do NPS (Servidor de Políticas de Rede) para o Azure permite que os clientes protejam a autenticação do cliente do serviço RADIUS usando a [MFA (Autenticação Multifator) do Azure](multi-factor-authentication.md) baseada em nuvem. Essa solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança para logons de usuário e transações.
 
-Este artigo fornece instruções passo a passo para integrar a infraestrutura do NPS com a Autenticação Multifator do Azure usando a extensão do NPS do Azure. Isso permite uma verificação segura para os usuários que tentarem fazer logon em um Gateway de Área de Trabalho Remota. 
+Este artigo fornece instruções passo a passo para integrar a infraestrutura do NPS com a Autenticação Multifator do Azure usando a extensão do NPS do Azure. Isso permite a verificação dos usuários que tentarem entrar em um Gateway de Área de Trabalho Remota. 
 
 A Política de Rede e Serviços de Acesso (NPS) permite que as organizações façam o seguinte:
 * Defina locais centrais para o gerenciamento e controle de solicitações de rede especificando quem pode se conectar, as horas do dia durante as quais as conexões são permitidas, a duração das conexões e o nível de segurança que os clientes devem usar para se conectar e assim por diante. Em vez de especificar essas políticas em cada servidor VPN ou Gateway de Área de Trabalho Remota (RD), essas políticas podem ser especificadas uma vez em um local central. O protocolo RADIUS fornece a Autenticação, Autorização e Contabilização (AAA) centralizadas. 
@@ -32,7 +32,7 @@ A Política de Rede e Serviços de Acesso (NPS) permite que as organizações fa
 
 Normalmente, as organizações usam o NPS (RADIUS) para simplificar e centralizar o gerenciamento de políticas de VPN. No entanto, muitas organizações também usam o NPS para simplificar e centralizar o gerenciamento das Políticas de Autorização de Conexão de Área de Trabalho da Área de Trabalho Remota (RD CAPs). 
 
-As organizações também podem integrar o NPS com o Azure MFA para aumentar a segurança e fornecer um alto nível de conformidade. Isso ajuda a garantir que os usuários estabeleçam a verificação em duas etapas para fazer logon no Gateway de Área de Trabalho Remota. Para conceder acesso aos usuários, é necessário que eles forneçam a combinação de nome de usuário e senha com as informações que o usuário tem em seu controle. Essas informações devem ser confiáveis e não facilmente duplicadas, como um número de telefone celular, o número de telefone fixo, o aplicativo em um dispositivo móvel e assim por diante.
+As organizações também podem integrar o NPS com o Azure MFA para aumentar a segurança e fornecer um alto nível de conformidade. Isso ajuda a garantir que os usuários estabeleçam a verificação em duas etapas para entrar no Gateway de Área de Trabalho Remota. Para conceder acesso aos usuários, é necessário que eles forneçam a combinação de nome de usuário e senha com as informações que o usuário tem em seu controle. Essas informações devem ser confiáveis e não facilmente duplicadas, como um número de telefone celular, o número de telefone fixo, o aplicativo em um dispositivo móvel e assim por diante.
 
 Antes da disponibilidade da extensão do NPS do Azure, os clientes que desejavam implementar a verificação em duas etapas para ambientes integrados de NPS e o Azure MFA tinham que configurar e manter um servidor de MFA separado no ambiente local, conforme documentado no [Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS](howto-mfaserver-nps-rdg.md).
 
@@ -293,7 +293,7 @@ Lembre-se de que o servidor NPS com a extensão do MFA do Azure é o repositóri
  ![Políticas de Rede](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Verificar a configuração
-Para verificar a configuração, será necessário fazer logon no Gateway de Área de Trabalho Remota com um cliente RDP adequado. Certifique-se de usar uma conta que é permitida por suas Políticas de Autorização de Conexão e está habilitada para o Azure MFA. 
+Para verificar a configuração, será necessário entrar no Gateway de Área de Trabalho Remota com um cliente RDP adequado. Certifique-se de usar uma conta que é permitida por suas Políticas de Autorização de Conexão e está habilitada para o Azure MFA. 
 
 Você pode usar a página **Acesso via Web à Área de Trabalho Remota**, conforme mostrado abaixo.
 

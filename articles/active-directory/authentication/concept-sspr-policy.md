@@ -1,31 +1,31 @@
 ---
-title: Políticas de redefinição de senha por autoatendimento – Azure Active Directory
-description: Opções de política de autoatendimento de redefinição de senha do Azure AD
+title: Políticas de redefinição de senha de autoatendimento do Azure AD
+description: Configurar as opções da política de redefinição de senha de autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054753"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162041"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
 Este artigo descreve as políticas de senha e os requisitos de complexidade associados a contas de usuário armazenadas no locatário do Azure Active Directory (Azure AD).
 
-## <a name="administrator-password-policy-differences"></a>Diferenças de política de senha do administrador
+## <a name="administrator-reset-policy-differences"></a>Diferenças da política de redefinição de senha do administrador
 
-A Microsoft impõe uma política padrão forte de redefinição de senha de *dois portões* para qualquer função de administrador do Azure. 
+**A Microsoft impõe uma política de redefinição de senha forte de *duas portas* padrão para qualquer função de administrador do Azure**; essa política pode ser diferente daquela que você definiu para os usuários e não pode ser alterada. Sempre teste a funcionalidade de redefinição de senha como um usuário sem funções de administrador do Azure atribuídas.
 
-Com uma política de dois portões, os administradores não podem usar perguntas de segurança.
+Com uma política de duas portas, os **administradores não podem usar perguntas de segurança**.
 
  Uma política de entrada de duas portas requer dois tipos de dados de autenticação, como um endereço de email *e* um número de telefone. Uma política de duas portas aplica-se nas seguintes circunstâncias:
 
@@ -49,7 +49,7 @@ Com uma política de dois portões, os administradores não podem usar perguntas
   * Administrador de serviços de Proxy do aplicativo
   * Administrador de serviços do CRM
   * Administrador de serviços do Power BI
-  
+
 * Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação
 
   ou o
@@ -61,18 +61,18 @@ Com uma política de dois portões, os administradores não podem usar perguntas
 * O Azure AD Connect está sincronizando identidades do seu diretório local
 
 ### <a name="exceptions"></a>Exceções
+
 Uma política de duas portas requer um tipo de dados de autenticação, como um endereço de email *ou* um número de telefone. Uma política de uma porta aplica-se nas seguintes circunstâncias:
 
 * Está dentro dos primeiros 30 dias de uma assinatura de avaliação
 
   ou o
 
-* Um domínio personalizado não está presente (*.onmicrosoft.com) 
+* Um domínio personalizado não está presente (*.onmicrosoft.com)
 
-  e 
+  e
 
   O Azure AD Connect não está sincronizando identidades
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 
@@ -109,13 +109,13 @@ Esta instrução se aplica a outros provedores, como o Intune e o Office 365, qu
 > [!NOTE]
 > Apenas as senhas de contas de usuário que não são sincronizadas por meio da sincronização de diretório podem ser configuradas para não expirar. Para saber mais sobre a sincronização de diretório, confira [Conectar AD ao Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verificar políticas de senha usando o PowerShell
 
 Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell do Azure AD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois de instalá-lo, você poderá seguir as etapas abaixo para configurar cada campo.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Como verificar a política de expiração de senha
+### <a name="check-the-expiration-policy-for-a-password"></a>Verificar a política de expiração de uma senha
+
 1. Conecte-se ao Windows PowerShell usando suas credenciais de administrador de empresa.
 2. Execute um dos seguintes comandos:
 

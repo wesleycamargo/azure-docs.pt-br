@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0511c2bf7eed15f997f8444c945afb18179bbc63
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193995"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216679"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
 
@@ -46,7 +46,7 @@ Quando você chama um runbook filho Gráfico ou de Fluxo de Trabalho do PowerShe
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir invoca um runbook filho de teste que aceita três parâmetros, um objeto complexo, um número inteiro e um valor booleano. A saída do runbook filho é atribuída a uma variável.  Nesse caso, o runbook filho é um runbook de Fluxo de Trabalho do PowerShell
+O exemplo a seguir invoca um runbook filho de teste que aceita três parâmetros, um objeto complexo, um número inteiro e um valor booleano. A saída do runbook filho é atribuída a uma variável.  Nesse caso, o runbook filho é um runbook de Fluxo de Trabalho do PowerShell.
 
 ```azurepowershell-interactive
 $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
@@ -62,7 +62,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>Iniciar um runbook filho usando cmdlet
 
-Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) para iniciar um runbook, como descrito em [Para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho assim que o trabalho filho é criado para o runbook filho.  No outro modo, que você habilita especificando o parâmetro **-wait** , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
+Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar um runbook, como descrito em [Para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho assim que o trabalho filho é criado para o runbook filho.  No outro modo, que você habilita especificando o parâmetro **-wait** , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
 
 O trabalho de um runbook filho iniciado com um cmdlet executará um trabalho separado do runbook pai. Isso resulta em mais trabalhos do que invocar o runbook embutido e torna o acompanhamento mais difícil de rastrear. O pai pode iniciar vários runbooks filhos assincronamente sem esperar a conclusão de cada um. Para a mesma variante de execução paralela que chama runbooks filho embutidos, o runbook pai precisaria usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
@@ -74,9 +74,18 @@ Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir inicia um runbook filho com parâmetros e aguarda a sua conclusão usando o parâmetro Start-AzureRmAutomationRunbook -wait. Depois de concluído, sua saída é coletada do runbook filho.
+O exemplo a seguir inicia um runbook filho com parâmetros e aguarda a sua conclusão usando o parâmetro Start-AzureRmAutomationRunbook -wait. Depois de concluído, sua saída é coletada do runbook filho. Para usar `Start-AzureRmAutomationRunbook` é necessário autenticar-se na assinatura do Azure.
 
 ```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+
+$null = Add-AzureRmAccount `
+  -ServicePrincipal `
+  -TenantId $conn.TenantId `
+  -ApplicationId $conn.ApplicationId `
+  -CertificateThumbprint $conn.CertificateThumbprint
+
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 ```

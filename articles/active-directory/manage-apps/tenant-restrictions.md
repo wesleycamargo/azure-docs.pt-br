@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126653"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144985"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar Restrições de Locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -97,7 +97,7 @@ Um usuário de exemplo está na rede da Contoso, mas está tentando acessar a in
 
 Embora a configuração de Restrições de Locatário seja feita na infraestrutura de proxy corporativa, os administradores podem acessar os relatórios de Restrições de Locatários diretamente no Portal do Azure. Para exibir os relatórios, vá para a página de Visão Geral do Azure Active Directory e procure em “Outros recursos”.
 
-O administrador do locatário especificado como o locatário Restricted-Access-Context pode usar esse relatório para ver todas as entradas bloqueadas por causa da política de Restrições de Locatário, incluindo a identidade usada e a ID de diretório de destino.
+O administrador do locatário especificado como o locatário Restricted-Access-Context pode usar esse relatório para ver as entradas bloqueadas por causa da política de Restrições de Locatário, incluindo a identidade usada e a ID de diretório de destino. As entradas serão incluídas se o locatário que define a restrição for o locatário do usuário ou o locatário do recurso para a entrada.
 
 ![Use o Portal do Azure para exibir as tentativas de entrada restritas](./media/tenant-restrictions/portal-report.png)
 

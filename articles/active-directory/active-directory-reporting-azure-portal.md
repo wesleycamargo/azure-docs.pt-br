@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1ae7286bb08379b12f3e5b35e97a5f9538c605f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868551"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238141"
 ---
 # <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
@@ -38,7 +38,6 @@ A arquitetura de relatório se baseia em dois pilares principais:
 - Relatórios de atividades
 
 ![Relatórios](./media/active-directory-reporting-azure-portal/01.png)
-
 
 
 ## <a name="security-reports"></a>Relatórios de segurança
@@ -88,7 +87,7 @@ Para obter mais detalhes, confira **Comparando recursos geralmente disponíveis 
 
 
 
-O **relatório de atividades de entrada** permite encontrar respostas a perguntas como:
+O **relatório de atividades de logins** permite encontrar respostas para perguntas como:
 
 - O que é o padrão de entrada de um usuário?
 - Quantos usuários entraram em uma semana?

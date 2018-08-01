@@ -1,11 +1,11 @@
 ---
-title: "Visão geral de Registros e Zonas DNS - DNS do Azure | Microsoft Docs"
-description: "Visão geral do suporte à hospedagem de zonas e registros DNS no DNS do Microsoft Azure."
+title: Visão geral de Registros e Zonas DNS - DNS do Azure | Microsoft Docs
+description: Visão geral do suporte à hospedagem de zonas e registros DNS no DNS do Microsoft Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.author: victorh
+ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174287"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -45,7 +46,7 @@ O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja a
 
 ### <a name="time-to-live"></a>Vida útil
 
-O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em cache pelos clientes antes de ser consultado novamente. No exemplo acima, o TTL tem 3600 segundos ou 1 hora.
+O tempo de vida, ou TTL, especifica por quanto tempo cada registro é armazenado em cache pelos clientes antes de ser consultado. No exemplo acima, o TTL tem 3600 segundos ou 1 hora.
 
 No DNS do Azure, o TTL é especificado para o conjunto de registros, não para cada registro, portanto, o mesmo valor é usado para todos os registros no conjunto de registros.  Você pode especificar qualquer valor de TTL entre 1 e 2.147.483.647 segundos.
 
@@ -59,7 +60,7 @@ Para criar um conjunto de registros curinga, use o nome do conjunto de registros
 
 Os registros CAA permitem aos proprietários do domínio especificar quais ACs (Autoridades de Certificação) estão autorizadas a emitir certificados para seus domínios. Isso permite que as ACs evitem emitir certificados incorretamente em algumas circunstâncias. Os registros CAA têm três propriedades:
 * **Sinalizadores**: esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial, conforme o [RFC](https://tools.ietf.org/html/rfc6844#section-3)
-* **Marcação**: uma cadeia de caracteres ASCII que pode ser uma das seguintes:
+* **Marcação**: uma string ASCII que pode ser uma das seguintes:
     * **issue**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (somente certificados curinga)
     * **iodef**: especifique um endereço de email ou o nome do host o qual as ACs podem notificar para solicitações de problema de certificado não autorizado
@@ -69,21 +70,21 @@ Os registros CAA permitem aos proprietários do domínio especificar quais ACs (
 
 Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um conjunto de registros CNAME com o nome relativo 'www' e um registro A com o nome relativo 'www' ao mesmo tempo.
 
-Como o ápice da zona (nome = '\@\') sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no ápice da zona.
+Como o ápice da zona (nome = '\@') sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no ápice da zona.
 
 Essas restrições são provenientes dos padrões DNS e não são limitações do DNS do Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-O conjunto de registros de NS no apex da zona (nome '\@\') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
+O conjunto de registros de NS no apex da zona (nome '\@') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
 Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados. 
 
-Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser criados, modificados e excluídos sem restrição.
+Isso se aplica somente ao registro NS definido no ápice da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser criados, modificados, e excluídos sem restrição.
 
 ### <a name="soa-records"></a>Registros SOA
 
-Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (nome = '\@\') e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
+Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (nome ='\@') e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
 
 Você pode modificar todas as propriedades do registro SOA, exceto a propriedade 'host', que é pré-configurada para se referir ao nome do servidor de nomes primário fornecido pelo DNS do Azure.
 
@@ -95,7 +96,7 @@ Você pode modificar todas as propriedades do registro SOA, exceto a propriedade
 
 Os [registros SRV](https://en.wikipedia.org/wiki/SRV_record) são usados por vários serviços para especificar locais de servidor. Ao especificar um registro SRV no DNS do Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no ápice da zona, não é necessário especificar '\@\' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no ápice da zona, não é necessário especificar '\@' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
 * A *prioridade*, o *peso*, a *porta* e o *destino* são especificados como parâmetros de cada registro no conjunto de registros.
 
 ### <a name="txt-records"></a>Registros TXT

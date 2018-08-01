@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: ede7748b1471136cf792c2b30b7c90e12b0b274a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5697f6d4ca2c9d9948b7cdd005a6a75bdabb246
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006841"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222558"
 ---
 # <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar uma ação no aplicativo Azure IoT Central
 
@@ -62,7 +62,9 @@ Esta seção mostra como adicionar uma condição para monitorar a medida de eve
 
 ### <a name="add-an-action"></a>Adicionar uma ação
 
-Esta seção mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas você também pode [adicionar uma ação do Microsoft Flow](howto-add-microsoft-flow.md) à regra para disparar um fluxo de trabalho no Microsoft Flow quando a regra for disparada.
+Esse exemplo mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas também é possível adicionar outras ações:
+-  [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada
+- [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
 
 > [!NOTE]
 > Somente uma ação pode ser associada a uma única regra neste momento.

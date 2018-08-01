@@ -8,12 +8,12 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008205"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225193"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar uma ação no aplicativo Azure IoT Central
 
@@ -60,7 +60,9 @@ Esta seção mostra como adicionar uma condição para monitorar a telemetria de
 
 ### <a name="add-an-action"></a>Adicionar uma ação
 
-Esta seção mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas você também pode [adicionar uma ação do Microsoft Flow](howto-add-microsoft-flow.md) à regra para disparar um fluxo de trabalho no Microsoft Flow quando a regra for disparada.
+Este exemplo mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas também é possível adicionar outras ações:
+-  [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada
+- [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
 
 > [!NOTE]
 > Somente uma ação pode ser associada a uma única regra neste momento.

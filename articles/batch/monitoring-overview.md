@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001823"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171248"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorar soluções do Lote
 
@@ -63,7 +63,7 @@ Nos aplicativo do Lote, use as APIs de Lote para monitorar ou consultar o status
   > Custos adicionais poderão incorrer para usar o Application Insights. Consulte [opções de preços](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* O [BatchLabs](https://github.com/Azure/BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchLabs/) para Mac, Linux ou Windows. Opcionalmente, configure a solução do Lote para [exibir os dados do Application Insights](https://github.com/Azure/batch-insights) como os contadores de desempenho da VM no BatchLabs.
+* [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure sua solução em lote para [exibir dados do Application Insights](https://github.com/Azure/batch-insights), como os contadores de desempenho da VM no Batch Explorer.
 
 
 ## <a name="next-steps"></a>Próximas etapas

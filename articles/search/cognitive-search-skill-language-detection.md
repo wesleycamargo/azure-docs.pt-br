@@ -10,18 +10,18 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 338d89b47ea451efcf8300d4ac016a6946a95259
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 443ac895085053b7c4c876c3deecaa1943c9f506
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786835"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171051"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de idioma
 
 Até 120 idiomas, a habilidade **Detecção de Idioma** detecta o idioma de texto de entrada e os relatórios de um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da análise.
 
-Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a [Habilidade do Sentiment Snalysis](cognitive-search-skill-sentiment.md) ou [habilidade do Text Split](cognitive-search-skill-textsplit.md)).
+Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a habilidade de [Análise de Sentimento](cognitive-search-skill-sentiment.md) ou [Habilidade de Divisão de Texto](cognitive-search-skill-textsplit.md)).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill

@@ -1,35 +1,32 @@
 ---
-title: Sobre gateways de rede virtual ExpressRoute | Microsoft Docs
+title: Sobre gateways de rede virtual ExpressRoute do Azure | Microsoft Docs
 description: Saiba mais sobre os gateways de rede virtual para ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: carmonm
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.topic: conceptual
+ms.date: 07/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae971e7743d6dd3269c0a4f976bd2a5316300f58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a27200803ff13ed04a194fcbe45cf5edfe62ea50
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30235318"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161716"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Sobre os gateways de rede virtual para ExpressRoute
-O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. Quando você configura uma conexão ExpressRoute, é necessário criar e configurar um gateway de rede virtual e uma conexão de gateway de rede virtual.
+O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. É possível usar um gateway de rede virtual que pode ser usado para tráfego de ExpressRoute ou tráfego de VPN. Este artigo concentra-se em gateways de rede virtual do ExpressRoute.
 
-Quando você cria um gateway de rede virtual, especifica várias configurações. Uma das configurações necessárias especifica se o gateway será usado para tráfego de ExpressRoute ou Tráfego VPN Site a Site. No modelo de implantação do Resource Manager, a configuração é '-GatewayType'.
+## <a name="gateway-types"></a>Tipos de gateway
 
-Quando o tráfego de rede é enviado em uma conexão privada, você pode usar o tipo de gateway 'ExpressRoute'. Isso também é referido como um gateway ExpressRoute. Quando o tráfego de rede é enviado criptografado na Internet pública, você pode usar o tipo de gateway 'Vpn'. Isso é referido como um gateway VPN. As conexões Site a Site, Ponto a Site e VNet a VNet usam um gateway VPN.
+Quando você cria um gateway de rede virtual, especifica várias configurações. Uma das configurações necessárias, '-GatewayType', especifica se o gateway é usado para tráfego de VPN ou ExpressRoute. Os dois tipos de gateway são: 
 
-Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa - GatewayType Vpn, e outro que usa -GatewayType ExpressRoute. Este artigo se concentra no gateway de rede virtual ExpressRoute.
+* **Vpn** - Para enviar tráfego criptografado pela Internet pública, use o tipo de gateway 'Vpn'. Isso também é chamado de gateway de VPN. As conexões Site a Site, Ponto a Site e VNet a VNet usam um gateway VPN.
+
+* **ExpressRoute** - Para enviar tráfego em uma conexão privada, use o tipo de gateway 'ExpressRoute'. Isso também é chamado de gateway ExpressRoute e é o tipo de gateway que você usa ao configurar o ExpressRoute.
+
+
+Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa - GatewayType Vpn, e outro que usa -GatewayType ExpressRoute.
 
 ## <a name="gwsku"></a>SKUs do Gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -45,6 +42,20 @@ A tabela a seguir mostra os tipos de gateway e os desempenhos estimados. Esta ta
 > O desempenho do aplicativo depende de vários fatores, como a latência de ponta a ponta e o número de fluxos de tráfego abertos pelo aplicativo. Os números na tabela representam o limite superior que o aplicativo, teoricamente, pode atingir em um ambiente ideal. 
 > 
 >
+
+### <a name="zrgw"></a>SKUs de gateway com redundância de zona (versão prévia)
+
+Também é possível implantar gateways do ExpressRoute em Zonas de Disponibilidade do Azure. Isso separa fisicamente e logicamente em Zonas de disponibilidade diferentes, protegendo a conectividade de rede local com o Azure de falhas de nível de zona.
+
+![Gateway do ExpressRoute com redundância de zona](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+
+Gateways com redundância de zona usam novas SKUs de gateways específicas para gateway do ExpressRoute. As novas SKUs atualmente estão disponíveis em **Visualização Pública**.
+
+* ErGw1AZ
+* ErGw2AZ
+* ErGw3AZ
+
+As novas SKUs de gateway também dão suporte a outras opções de implantação para melhor atender às suas necessidades. Ao criar um gateway de rede virtual usando as novas SKUs de gateway, você também terá a opção de implantar o gateway em uma zona específica. Isso é referido como um gateway de VPN. Ao implantar um gateway em zona, todas as instâncias do gateway são implantadas na mesma zona de disponibilidade. Para registrar-se na versão prévia, consulte [Criar um gateway de rede virtual com redundância de zona](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 ## <a name="resources"></a>Cmdlets do PowerShell e APIs REST
 Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar cmdlets do PowerShell e APIs REST para configurações do gateway de rede virtual, veja as páginas a seguir:

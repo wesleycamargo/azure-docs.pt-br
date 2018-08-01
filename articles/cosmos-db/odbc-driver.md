@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096502"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248865"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
 O driver ODBC do Azure Cosmos DB permite que você se conecte ao Azure Cosmos DB usando ferramentas de análise de BI, como SQL Server Integration Services, Power BI Desktop e Tableau, de forma que você possa analisar e criar visualizações dos dados do Cosmos DB nessas soluções.
 
 O driver ODBC do Azure Cosmos DB está em conformidade com o ODBC 3.8 e dá suporte à sintaxe ANSI SQL-92. O driver oferece recursos avançados para ajudá-lo a renormalizar dados no Azure Cosmos DB. Usando o driver, você pode representar dados no Azure Cosmos DB como tabelas e exibições. O driver permite que você execute operações de SQL em tabelas e exibições incluindo o agrupamento por consultas, inserções, atualizações e exclusões.
+
+> [!NOTE]
+> Conectar-se ao Azure Cosmos DB com o driver ODBC no momento, há suporte para apenas para contas de API de SQL do Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Por que preciso normalizar meus dados?
 O Azure Cosmos DB é um banco de dados sem esquemas e, portanto, permite o desenvolvimento rápido de aplicativos permitindo que aplicativos iterem seu modelo de dados em tempo real e não o limitem a um esquema rígido. Um único banco de dados do Azure Cosmos DB pode conter documentos JSON de várias estruturas. Isso é ótimo para o método RAD, mas quando você deseja analisar e criar relatórios de dados usando ferramentas de BI e análise de dados, os dados geralmente precisam ser nivelados e aderir a um esquema específico.

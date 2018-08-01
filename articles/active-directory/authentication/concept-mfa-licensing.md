@@ -4,28 +4,25 @@ description: Informações sobre o cliente de autenticação multifator e os dif
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ec1a3e7e3e8969e161854a9f386d4b2e767ee48a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: michmcla
+ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970398"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161644"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
-Quando se trata de proteger suas contas, verificação em duas etapas deve ser padrão em sua organização. Esse recurso é especialmente importante para contas administrativas que tem acesso aos recursos privilegiado. Por esse motivo, a Microsoft oferece recursos básicos de verificação em duas etapas para administradores do Office 365 e do Azure sem custo extra. Se desejar fazer upgrade dos recursos para os administradores ou estender a verificação em duas etapas para o restante dos usuários, adquira a Autenticação Multifator do Azure. 
+Quando se trata de proteger suas contas, verificação em duas etapas deve ser padrão em sua organização. Esse recurso é especialmente importante para contas que tenham acesso privilegiado a recursos. Por esse motivo, a Microsoft oferece recursos básicos de verificação em duas etapas aos administradores do Office 365 e Azure AD (Azure Active Directory) sem nenhum custo adicional. Se você quiser atualizar os recursos para os administradores ou estender a verificação em duas etapas para o restante dos usuários, poderá adquirir a Autenticação Multifator do Microsoft Azure de várias maneiras.
 
-Este artigo explica a diferença entre as versões oferecidas aos administradores e a versão completa do MFA do Azure. Se estiver pronto para implantar a oferta completa do MFA do Azure, a seção posterior abordará as opções de implementação e como a Microsoft calcula o consumo.
-
-
->[!IMPORTANT]
->Este artigo deve ser um guia para ajudá-lo a entender as diferentes maneiras de comprar autenticação multifator do Azure. Para obter detalhes específicos sobre preços e cobrança, você deve sempre consultar a [página de preços da Autenticação Multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+> [!IMPORTANT]
+> Este artigo deve ser um guia para ajudá-lo a entender as diferentes maneiras de comprar autenticação multifator do Azure. Para obter detalhes específicos sobre preços e cobrança, você deve sempre consultar a [página de preços da Autenticação Multifator](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versões disponíveis da Autenticação Multifator do Azure
 
@@ -34,15 +31,15 @@ A tabela a seguir descreve as diferenças entre as três versões de autenticaç
 | Versão | DESCRIÇÃO |
 | --- | --- |
 | Autenticação Multifator para Office 365 |Esta versão funciona exclusivamente com os aplicativos do Office 365 e é gerenciada a partir do portal do Office 365. Os administradores podem [proteger recursos do Office 365 com a verificação de duas etapas](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma assinatura do Office 365. |
-| Autenticação Multifator para Administradores do Azure AD | Os usuários atribuídos à função de administrador Global nos locatários do Azure AD podem habilitar a verificação em duas etapas para suas contas de administrador global sem custo adicional.|
-| Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal do Azure](https://portal.azure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A Autenticação Multifator do Azure está incluída nos [planos do Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e nos [planos do Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing) e pode ser implantada na nuvem ou localmente. |
+| Autenticação Multifator para Administradores do Azure AD | Os usuários atribuídos à função Administrador global do Azure AD nos locatários do Azure AD podem habilitar a verificação em duas etapas sem custo adicional.|
+| Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal do Azure](https://portal.azure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A Autenticação Multifator do Microsoft Azure está incluída nos [planos do Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e pode ser implantada na nuvem ou no local. |
 
 ## <a name="feature-comparison-of-versions"></a>Comparação de recursos dasversões
+
 A tabela a seguir fornece uma lista dos recursos que estão disponíveis em várias versões do Autenticação Multifator do Azure.
 
 > [!NOTE]
 > Esta tabela de comparação aborda os recursos que fazem parte de cada versão da Autenticação Multifator. Se você tiver o serviço completo da Autenticação Multifator do Azure, alguns recursos podem não estar disponíveis caso você use [MFA na nuvem ou MFA no local](concept-mfa-whichversion.md).
-
 
 | Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para Administradores do Azure AD | Autenticação Multifator do Azure |
 | --- |:---:|:---:|:---:|
@@ -65,42 +62,38 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 | MFA para aplicativos locais | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Como ativar Autenticação Multifator do Azure para administradores do Azure AD
-Os usuários atribuídos à função de administrador Global nos locatários do Azure AD podem habilitar a verificação em duas etapas para suas contas de administrador global sem custo adicional. Se estiver usando uma Conta da Microsoft, você poderá se inscrever na autenticação multifator [aqui](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Se você não estiver usando uma Conta da Microsoft, ative a autenticação multifator para administradores globais [aqui](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+
+Os usuários atribuídos à função de administrador Global nos locatários do Azure AD podem habilitar a verificação em duas etapas para suas contas de administrador global sem custo adicional. Se estiver usando uma conta Microsoft, você poderá registrar-se para a autenticação multifator usando as diretrizes encontradas no artigo de suporte da conta Microsoft, [Sobre a verificação em duas etapas](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Se não estiver usando uma conta Microsoft, ative a autenticação multifator para Administradores Globais usando as diretrizes encontradas no artigo [Como exigir verificação em duas etapas para um usuário ou grupo](howto-mfa-userstates.md).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
+
 Se você quiser a funcionalidade completa oferecida pela autenticação multifator do Azure, há várias opções:
 
-### <a name="option-1---mfa-licenses"></a>Opção 1 - Licenças MFA
+### <a name="option-1---licenses-that-include-mfa"></a>Opção 1 - Licenças que incluem MFA
 
-Comprar licenças da Autenticação Multifator do Azure e atribuí-las a seus usuários no Azure Active Directory. 
+Compre licenças que incluem a Autenticação Multifator do Microsoft Azure, como Azure Active Directory Premium ou um pacote de licença que inclui o Azure AD Premium, e atribua aos usuários no Azure Active Directory.
 
-Se você usar essa opção, apenas crie um Provedor de Autenticação Multifator do Azure se precisar fornecer a verificação em duas etapas para alguns usuários que não têm licenças. Caso contrário, você poderá ser cobrado duas vezes.
+Se você usar essa opção, só deverá criar um Provedor de Autenticação Multifator do Azure se também precisar fornecer verificação em duas etapas para alguns usuários que não tenham licenças. Caso contrário, você poderá ser cobrado duas vezes.
 
-### <a name="option-2---bundled-licenses-that-include-mfa"></a>Opção 2 - Licenças agrupadas que incluem MFA
+### <a name="option-2---mfa-consumption-based-model"></a>Opção 2 - modelo baseado no consumo de MFA
 
-Adquira licenças que incluem a Autenticação Multifator do Azure, como o Azure Active Directory Premium ou o Enterprise Mobility + Security e atribua-as aos usuários no Azure Active Directory. 
+Crie um Provedor da Autenticação Multifator do Azure em uma assinatura do Azure. Provedores de MFA do Azure são recursos do Azure que são cobrados em relação a seu Enterprise Agreement, Azure compromisso monetário ou cartão de crédito, assim como todos os outros recursos do Azure. Esses provedores podem ser criados somente em assinaturas do Azure completo, sem limitação, assinaturas do Azure que tenha um 0 $ limite de gastos. As assinaturas limitadas são criadas quando você ativa licenças, como nas opções 1.
 
-Se você usar essa opção, só deverá criar um Provedor de Autenticação Multifator do Azure se também precisar fornecer verificação em duas etapas para alguns usuários que não tenham licenças. Caso contrário, você poderá ser cobrado duas vezes. 
+Ao usar um Provedor de Autenticação Multifator do Azure, há dois modelos de uso disponíveis que são cobrados por meio de sua assinatura do Azure: 
 
-### <a name="option-3---mfa-consumption-based-model"></a>Opção 3 - modelo baseado no consumo de MFA
-
-Crie um Provedor da Autenticação Multifator do Azure em uma assinatura do Azure. Provedores de MFA do Azure são recursos do Azure que são cobrados em relação a seu Enterprise Agreement, Azure compromisso monetário ou cartão de crédito, assim como todos os outros recursos do Azure. Esses provedores podem ser criados somente em assinaturas do Azure completo, sem limitação, assinaturas do Azure que tenha um 0 $ limite de gastos. As assinaturas limitadas são criadas quando você ativa licenças, como nas opções 1 e 2. 
-
-Ao usar um Provedor de Autenticação Multifator do Azure, há dois modelos de uso disponíveis que são cobrados por meio de sua assinatura do Azure:  
-
-1. **Por usuário habilitado** – Para as empresas que desejam habilitar a verificação em duas etapas para um número fixo de funcionários que precisam regularmente de autenticação. A cobrança por usuário é baseada no número de usuários habilitados para o MFA no locatário do Azure AD e no Servidor do MFA do Azure. Se os usuários estão habilitados para MFA no Azure AD e o Azure MFA Server e sincronização de domínio (Azure AD Connect) estiver habilitada, podemos contar o maior conjunto de usuários. Se a sincronização de domínio não estiver habilitada, então podemos contar a soma de todos os usuários habilitados para MFA no Azure AD e o Azure MFA Server. O faturamento é rateado e registrado no sistema Comércio diariamente. 
+1. **Por usuário habilitado** – Para as empresas que desejam habilitar a verificação em duas etapas para um número fixo de funcionários que precisam regularmente de autenticação. A cobrança por usuário é baseada no número de usuários habilitados para o MFA no locatário do Azure AD e no Servidor do MFA do Azure. Se os usuários estão habilitados para MFA no Azure AD e o Azure MFA Server e sincronização de domínio (Azure AD Connect) estiver habilitada, podemos contar o maior conjunto de usuários. Se a sincronização de domínio não estiver habilitada, então podemos contar a soma de todos os usuários habilitados para MFA no Azure AD e o Azure MFA Server. O faturamento é rateado e registrado no sistema Comércio diariamente.
 
   > [!NOTE]
-  > Exemplo de cobrança 1: você tem 5.000 usuários habilitados para MFA hoje. O sistema MFA divide esse número por 31 e relatórios 161.29 usuários para esse dia. No dia seguinte, você habilita mais 15 usuários e, portanto, o sistema MFA relata 161,77 usuários para esse dia. No final do ciclo de cobrança, o número total de usuários cobrado em sua assinatura do Azure até adiciona em torno de 5.000. 
+  > Exemplo de cobrança 1: você tem 5.000 usuários habilitados para MFA hoje. O sistema MFA divide esse número por 31 e relatórios 161.29 usuários para esse dia. No dia seguinte, você habilita mais 15 usuários e, portanto, o sistema MFA relata 161,77 usuários para esse dia. No final do ciclo de cobrança, o número total de usuários cobrado em sua assinatura do Azure até adiciona em torno de 5.000.
   >
-  > Exemplo de cobrança 2: tiver uma mistura de usuários com licenças e os usuários sem, para que você tenha um provedor de MFA do Azure por usuário para fazer a diferença. Há 4.500 licenças do Enterprise Mobility + Security em seu locatário, mas 5.000 usuários habilitados para MFA. Sua assinatura do Azure é cobrada por 500 usuários, rateada e considerada 16.13 usuários diariamente. 
+  > Exemplo de cobrança 2: tiver uma mistura de usuários com licenças e os usuários sem, para que você tenha um provedor de MFA do Azure por usuário para fazer a diferença. Há 4.500 licenças do Enterprise Mobility + Security em seu locatário, mas 5.000 usuários habilitados para MFA. Sua assinatura do Azure é cobrada por 500 usuários, rateada e considerada 16.13 usuários diariamente.
 
-2. **Por Autenticação** - para empresas que querem habilitar a verificação em duas etapas para um grupo grande de usuários que raramente precisam de autenticação. A cobrança é baseada no número de solicitações de verificação em duas etapas, independentemente de essas verificações serem bem-sucedidas ou negadas. Essa cobrança é exibida no demonstrativo de uso do Azure em pacotes de 10 autenticações e é relatada diariamente. 
+2. **Por Autenticação** - para empresas que querem habilitar a verificação em duas etapas para um grupo grande de usuários que raramente precisam de autenticação. A cobrança é baseada no número de solicitações de verificação em duas etapas, independentemente de essas verificações serem bem-sucedidas ou negadas. Essa cobrança é exibida no demonstrativo de uso do Azure em pacotes de 10 autenticações e é relatada diariamente.
 
   > [!NOTE]
-  > Exemplo de cobrança 3: atualmente, o serviço do Azure MFA recebido 3,105 solicitações de verificação em duas etapas. Sua assinatura do Azure é cobrada por 310,5 pacotes de autenticação. 
+  > Exemplo de cobrança 3: atualmente, o serviço do Azure MFA recebido 3,105 solicitações de verificação em duas etapas. Sua assinatura do Azure é cobrada por 310,5 pacotes de autenticação.
 
-É importante observar que você pode ter licenças do Azure MFA, mas ainda obter cobrado pela configuração com base no consumo. Se você configurar um provedor de MFA por autenticação do Azure, você será cobrado para cada solicitação de verificação em duas etapas, mesmo aquelas feitas por usuários com licenças. Se você configurar um provedor de MFA do Azure por usuário em um domínio que não está vinculado a seu locatário do Azure AD, você será cobrado por usuário habilitado, mesmo se os usuários possuem licenças no Azure AD. 
+É importante observar que você pode ter licenças do Azure MFA, mas ainda obter cobrado pela configuração com base no consumo. Se você configurar um provedor de MFA por autenticação do Azure, você será cobrado para cada solicitação de verificação em duas etapas, mesmo aquelas feitas por usuários com licenças. Se você configurar um provedor de MFA do Azure por usuário em um domínio que não está vinculado a seu locatário do Azure AD, você será cobrado por usuário habilitado, mesmo se os usuários possuem licenças no Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

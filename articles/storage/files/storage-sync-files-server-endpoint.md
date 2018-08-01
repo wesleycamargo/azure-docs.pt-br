@@ -1,5 +1,5 @@
 ---
-title: Adicionar/remover um ponto de extremidade do servidor da Sincronização de Arquivo do Azure (versão prévia) | Microsoft Docs
+title: Adicionar/remover um ponto de extremidade do servidor da Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 services: storage
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c8da3f501d03a05ef5490197d4fd38ada01a4997
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738472"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158430"
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor da Sincronização de Arquivo do Azure (versão prévia)
-A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor de Sincronização de Arquivos do Azure
+A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
 Um *ponto de extremidade do servidor* representa uma localização específica em um *servidor registrado*, como uma pasta em um volume do servidor ou a raiz do volume. Pode haver vários pontos de extremidade do servidor no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Você pode configurar políticas de disposição em camadas de nuvem individualmente para cada ponto de extremidade do servidor. Se você adicionar uma localização de servidor com um conjunto existente de arquivos como um ponto de extremidade de servidor a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
 
-Consulte [Como implantar a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivo do Azure de ponta a ponta.
+Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para criar um ponto de extremidade do servidor, primeiro você deve garantir que os seguintes critérios sejam atendidos: 
-- O servidor tem o agente de Sincronização de Arquivo do Azure instalado e foi registrado. As instruções para instalar o agente de Sincronização de Arquivo do Azure podem ser encontradas no artigo [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-server-registration.md). 
-- Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Consulte [Como implantar a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implantar um Serviço de Sincronização de Armazenamento. 
-- Certifique-se de que um Grupo de Sincronização tenha sido implantado. Saiba como [Criar um Grupo de Sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group).
+- O servidor tem o agente de Sincronização de Arquivo do Azure instalado e foi registrado. As instruções para instalar o Agente de Sincronização de Arquivos do Azure podem ser encontradas no artigo [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md). 
+- Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implantar um Serviço de Sincronização de Armazenamento. 
+- Certifique-se de que um Grupo de Sincronização tenha sido implantado. Saiba como [Criar um Grupo de Sincronização](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Certifique-se de que o servidor está conectado à Internet e que o Azure está acessível. Usamos a porta 443 para toda a comunicação entre o servidor e o nosso serviço.
 
 ## <a name="add-a-server-endpoint"></a>Adicionar um ponto de extremidade do servidor
@@ -74,5 +74,5 @@ Para remover o ponto de extremidade do servidor:
     ![Removendo um ponto de extremidade do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-server-registration.md)
+- [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md)
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

@@ -14,13 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216680"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -71,12 +72,15 @@ Há algumas coisas que você precisa saber e fazer antes de continuar.
 Você deve ter uma compreensão operacional das seguintes tecnologias:
 
 - [Tecnologias de cluster do Windows](http://technet.microsoft.com/library/hh831579.aspx)
--  [Instâncias de Cluster de Failover do SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Instâncias de Cluster de Failover do SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
 
 Além disso, você deve ter uma compreensão geral das seguintes tecnologias:
 
 - [Solução hiperconvergida usando Espaços de Armazenamento Direto no Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Grupos de recursos do Azure](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> Neste momento, a [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) não é compatível com a FCI do SQL Server no Azure. É recomendável que você desinstale a extensão de VMs que participam da FCI. Essa extensão dá suporte a recursos, como Backup Automatizado e Aplicação de Patch Automatizada, além de alguns recursos do portal para SQL. Esses recursos não funcionarão para VMs do SQL depois que o agente for desinstalado.
 
 ### <a name="what-to-have"></a>O que é preciso ter
 
@@ -278,7 +282,7 @@ A Testemunha de Nuvem é um novo tipo de testemunha de quorum de cluster armazen
 
 1. Salve as chaves de acesso e a URL do contêiner.
 
-1. Configure a testemunha de quorum do cluster de failover. Consulte, [Configurar a testemunha de quorum na interface do usuário]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na interface do usuário.
+1. Configure a testemunha de quorum do cluster de failover. Consulte, [Configurar a testemunha de quorum na interface do usuário](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) na IU.
 
 ### <a name="add-storage"></a>Adicionar armazenamento
 

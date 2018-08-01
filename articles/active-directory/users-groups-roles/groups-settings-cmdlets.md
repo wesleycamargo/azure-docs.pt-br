@@ -14,12 +14,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 658ec5bb2aa7c15fb1d38da5249ff9b13973cf41
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867990"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145104"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar grupos. Este conteúdo aplica-se somente aos Grupos do Office 365 (às vezes chamados de grupos unificados). 
@@ -96,10 +96,11 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
 |  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: True |O sinalizador indicando se a criação do Grupo do Office 365 é permitida no diretório pelos usuários não administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Padrão: “” |GUID do grupo de segurança para o qual os membros podem criar Grupos do Office 365 mesmo quando EnableGroupCreation == falso. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” |Um link para as Diretrizes de Uso do Grupo. |
-|  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. |
+|  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions somente é válido neste formato:
+  $setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description", onde Classification corresponde às cadeia de caracteres no ClassificationList.|
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Padrão: “” | A classificação que deve ser usada como a classificação padrão para um grupo, se nenhuma for especificada.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a convenção de nomenclatura configurada para Grupos do Office 365. Para obter mais informações, confira [Impor uma política de nomenclatura para Grupos do Office 365](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de frases separadas por vírgulas que os usuários não serão autorizados a usar em nomes de grupos ou alias. Para obter mais informações, confira [Impor uma política de nomenclatura para Grupos do Office 365](groups-naming-policy.md). |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a convenção de nomenclatura configurada para Grupos do Office 365. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Cadeia de caracteres de frases separadas por vírgulas que os usuários não serão autorizados a usar em nomes de grupos ou alias. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: booliano<li>Padrão: “False” | Não use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|

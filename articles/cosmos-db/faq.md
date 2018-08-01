@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002323"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215349"
 ---
 # <a name="azure-cosmos-db-faq"></a>Perguntas frequentes do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceitos básicos do Azure Cosmos DB
@@ -68,7 +68,7 @@ Para obter detalhes, consulte a página [Detalhes de preço do Azure Cosmos DB](
 ### <a name="is-a-free-account-available"></a>Existe uma conta gratuita disponível?
 Sim, você pode se inscrever para uma conta de tempo limitado sem custo adicional, sem nenhum compromisso. Para se inscrever, visite [Experimente gratuitamente o Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) ou leia mais em [Tente as Perguntas frequentes do Azure Cosmos DB](#try-cosmos-db).
 
-Se você for novo no Azure, poderá se inscrever em uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e um crédito para experimentar todos os serviços do Azure. Se você tem uma assinatura do Visual Studio, também está qualificado para receber [créditos Azure gratuitos](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
+Se você estiver começando com o Azure, é possível inscrever-se para uma [Conta gratuita do Azure](https://azure.microsoft.com/free/), que oferece 30 dias e um crédito para testar todos os serviços do Azure. Se você tem uma assinatura do Visual Studio, também está qualificado para receber [créditos Azure gratuitos](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
 
 Também use o [Emulador do Azure Cosmos DB](local-emulator.md) para desenvolver e testar seu aplicativo no local, gratuitamente, sem criar uma assinatura do Azure. Quando estiver satisfeito com o funcionamento de seu aplicativo no Emulador do Azure Cosmos DB, você poderá passar a usar uma conta do Azure Cosmos DB na nuvem.
 

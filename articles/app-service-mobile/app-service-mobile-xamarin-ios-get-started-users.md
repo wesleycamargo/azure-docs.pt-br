@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be6ee88f43254ec3075a64299005d3597af968e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31787651"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224758"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação ao aplicativo Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -55,7 +55,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 Em seguida, você atualizará o aplicativo do cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
 
 ## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
-Nesta seção, você modificará o aplicativo para exibir uma tela de logon antes de exibir os dados. Quando o aplicativo for iniciado, ele não se conectará ao serviço de aplicativo e não exibirá nenhum dado. Depois que o usuário executar pela primeira vez um gesto de atualização, a tela de logon aparecerá e, após o êxito no logon, a lista de itens de tarefas pendentes será exibida.
+Nesta seção, você modificará o aplicativo para exibir uma tela de logon antes de exibir os dados. Quando o aplicativo for iniciado, ele não será conectado ao Serviço de Aplicativo e não exibirá dados. Depois que o usuário executar pela primeira vez um gesto de atualização, a tela de logon aparecerá e, após o êxito no logon, a lista de itens de tarefas pendentes será exibida.
 
 1. No projeto do cliente, abra o arquivo **QSTodoService.cs** e adicione a seguinte instrução using e `MobileServiceUser` com acessador à classe QSTodoService:
  

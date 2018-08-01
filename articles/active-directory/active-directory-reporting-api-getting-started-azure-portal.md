@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442076"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159672"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatórios do Microsoft Azure Active Directory
 
@@ -34,7 +34,7 @@ Este artigo fornece um roteiro para acessar os dados de relatório usando a API 
 Se houver problemas, consulte [Como obter suporte para o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para acessar a API de relatório, mesmo se estiver planejando acessar a API usando um script, será necessário:
 
@@ -49,7 +49,7 @@ Para obter instruções detalhadas, consulte, [pré-requisitos para acessar a AP
 
 ## <a name="apis-with-graph-explorer"></a>APIs com Microsoft Azure Graph
 
-Você pode usar o [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) para verificar sua entrada e dados da API de auditoria. Certifique-se de entrar em sua conta usando ambos os botões de entrar na interface do usuário do Graph Explorer e defina as permissões **Tasks. ReadWrite** e **Directory.ReadAll** para seu locatário, conforme mostrado.   
+Você pode usar o [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) para verificar sua entrada e dados da API de auditoria. Certifique-se de entrar na conta usando ambos os botões entrar na interface do usuário do Explorador do Graph e configure as permissões **AuditLog.Read.All** e **Directory.Read.All** do locatário, conforme mostrado.   
 
 ![Explorador do Graph](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 

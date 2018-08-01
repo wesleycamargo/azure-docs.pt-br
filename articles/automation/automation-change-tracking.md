@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069440"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238872"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -99,7 +99,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 
 ## <a name="configure-file-content-tracking"></a>Configurar o controle de conteúdo do arquivo
 
-Você pode exibir o conteúdo antes e após uma alteração de um arquivo com Controle de Alterações de conteúdo do arquivo. Isso está disponível para arquivos do Windows e Linux, para cada alteração no arquivo, o conteúdo do arquivo é armazenado em uma conta de armazenamento e mostra o arquivo antes e após a alteração, embutido ou lado a lado. Para obter mais informações, confira [Exibir o conteúdo de um arquivo controlado](change-tracking-file-contents.md).
+Você pode visualizar o conteúdo antes e depois de uma alteração de um arquivo com o controle de alteração de conteúdo de arquivo. Isso está disponível para arquivos do Windows e Linux, para cada alteração no arquivo, o conteúdo do arquivo é armazenado em uma conta de armazenamento e mostra o arquivo antes e após a alteração, embutido ou lado a lado. Para obter mais informações, confira [Exibir o conteúdo de um arquivo controlado](change-tracking-file-contents.md).
 
 ![exibir alterações em um arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 

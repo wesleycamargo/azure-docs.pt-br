@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506406"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225569"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferente no PIM do Azure Active Directory
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Funções do diretório que você pode gerenciar usando o Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-Você pode atribuir usuários na sua organização a diferentes funções administrativas no Azure AD. Essas atribuições de função controlam quais tarefas, como adicionar ou remover usuários ou alterar configurações do serviço, os usuários podem executar no Azure AD, Office 365 e outros aplicativos conectados e Microsoft Online Services.  
+Você pode atribuir usuários na sua organização a diferentes funções administrativas no Azure AD. Essas atribuições de função controlam quais tarefas, como adicionar ou remover usuários ou alterar configurações do serviço, os usuários podem realizar no Azure AD, Office 365, no Microsoft Online Services e em outros aplicativos conectados.  
 
-> [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do Azure AD](https://aad.portal.azure.com) no portal do Azure.
-
-Um administrador global pode atualizar quais usuários são **permanentemente** atribuídos às funções no Azure AD, usando cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`, ou por meio do portal, como descrito em [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Um Administrador Global pode atualizar quais usuários são atribuídos **permanentemente** às funções no Azure AD por meio do portal, como descrito em [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) ou usando [comandos do PowerShell](/powershell/module/azuread#directory_roles).
 
 O Azure AD PIM (Privileged Identity Management) gerencia políticas para o acesso privilegiado para usuários no Azure AD. O PIM atribui usuários a uma ou mais funções no Azure AD e você pode atribuir uma pessoa para estar permanentemente na função ou qualificada para a função. Quando um usuário é atribuído permanentemente a uma função ou ativa uma atribuição de função qualificada, ele pode gerenciar o Azure Active Directory, o Office 365 e outros aplicativos com as permissões atribuídas às suas funções.
 
@@ -66,7 +63,7 @@ Se você desejar conceder acesso para gerenciar no próprio PIM a outro usuário
 ## <a name="roles-not-managed-in-pim"></a>Funções não gerenciadas no PIM
 Funções no Exchange Online ou SharePoint Online, exceto por aquelas mencionadas acima, não são representadas no Azure AD e, portanto, não são visíveis no PIM. Para obter mais informações sobre como alterar as atribuições de função refinadas nesses serviços do Office 365, consulte [Permissões no Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de Acesso Baseado em Funções do Azure](../../role-based-access-control/role-assignments-portal.md).
+As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../../billing/billing-add-change-azure-subscription-administrator.md) e, para obter mais informações sobre o Azure RBAC, consulte [Controle de acesso baseado em funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -82,7 +79,7 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 1. Entre no [Portal do Azure](http://portal.azure.com) com uma conta de administrador global ou uma conta de coadministrador.
 3. Selecione oAzure AD e o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
 4. Selecione **Licenças** à esquerda. A lista de licenças disponíveis será exibida.
-5. Selecione o plano de licença que contém as licenças que você deseja distribuir.
+5. Selecione o plano de licença contendo as licenças que você quer distribuir.
 6. Selecione **Atribuir Usuários**.
 7. Selecione o usuário ao qual você deseja atribuir uma licença.
 8. Clique no botão **Atribuir** .  O usuário agora pode entrar no Azure.

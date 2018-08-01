@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214443"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Tutorial: Integração do Azure Active Directory ao FreshService
 
@@ -33,7 +33,7 @@ A integração do Freshservice ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Freshservice, você precisará dos seguintes itens:
 
@@ -89,7 +89,7 @@ No Freshservice, atribua o valor do **nome de usuário** no Azure AD como o valo
 Para configurar e testar o logon único do Azure AD com o Freshservice, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Como criar um usuário de teste do Freshservice](#creating-a-freshservice-test-user)** – para ter um equivalente de Brenda Fernandes no Freshservice que esteja vinculado à representação do usuário no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -121,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
 4. Na seção **Certificado de Assinatura do SAML**, copie o valor do certificado de **IMPRESSÃO DIGITAL**.
 
-    ![Configurar o logon único](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![Configurar o logon único](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. Clique no botão **Salvar** .
 
@@ -149,17 +149,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Selecione **SSO do SAML**.
 
-    c. Na caixa de texto **URL de Logon do SAML**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do portal do Azure.
+    c. Na caixa de texto **URL de Logon do SAML**, cole o valor da **URL do Serviço de Logon Único do SAML**, copiado do portal do Azure.
 
-    d. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
+    d. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída**, copiado do portal do Azure.
 
-    e. Na caixa de texto **Impressão Digital do Certificado de Segurança**, cole o valor do certificado de **IMPRESSÃO DIGITAL** copiado do portal do Azure.
+    e. Na caixa de texto **Impressão Digital do Certificado de Segurança**, cole o valor do certificado de **IMPRESSÃO DIGITAL**, copiado do portal do Azure.
 
     f. Clique em **Salvar**
-   
-> [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.

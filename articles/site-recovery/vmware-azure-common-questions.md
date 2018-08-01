@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920028"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238801"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -72,7 +72,7 @@ Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. O Site Re
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?
 
-Ao replicar para o Azure, o tráfego de replicação alcança os pontos de extremidade públicos de uma conta do Armazenamento do Microsoft Azure. Desse modo, somente será possível replicar pela Internet pública com o ExpressRoute (emparelhamento público) e a VPN não funciona. 
+Quando você replica para o Azure, o tráfego de replicação atinge os pontos de extremidade públicos de uma conta de Armazenamento do Azure. Assim, você só pode replicar pela Internet pública com o ExpressRoute (emparelhamento público) e a VPN não funciona. 
 
 
 
@@ -95,8 +95,12 @@ Sim, é possível excluir discos da replicação.
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>É possível replicar VMs com discos dinâmicos?
 Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser um disco básico.
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>É possível adicionar uma nova VM a um grupo de replicação existente?
-Sim.
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMs, posso adicionar uma nova VM a um grupo de replicação existente?
+Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Você não pode adicionar uma VM a um grupo de replicação existente após a replicação ser iniciada e não é possível criar um grupo de replicação para VMs existentes.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Posso modificar as VMs que estão replicando adicionando ou redimensionando discos?
+
+Para replicação do VMware no Azure, você pode modificar o tamanho do disco. Se você quiser adicionar novos discos, precisará adicionar o disco e reativar a proteção para a VM.
 
 ## <a name="configuration-server"></a>Servidor de configuração
 

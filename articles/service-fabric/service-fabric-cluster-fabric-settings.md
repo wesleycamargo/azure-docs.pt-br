@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888646"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238940"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -57,13 +57,13 @@ As etapas abaixo ilustram como adicionar uma nova configuração *MaxDiskQuotaIn
 A seguir, é apresentada uma lista de configurações de Malha que você pode personalizar, organizada por seção.
 
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|string, o padrão é L"None"|estático| ApplicationCertificateValidationPolicy: None: não valide certificado do servidor, a solicitação tem êxito. ServiceCertificateThumbprints: consulte a configuração ServiceCertificateThumbprints para uma lista separada por vírgula de impressões digitais dos certificados remotos em que o proxy reverso pode confiar. ServiceCommonNameAndIssuer: consulte a configuração ServiceCommonNameAndIssuer para o nome da entidade e a impressão digital do emissor dos certificados remotos em que o proxy reverso pode confiar. |
+|ApplicationCertificateValidationPolicy|cadeia de caracteres, o padrão é "None"|estático| Isso não valida o certificado do servidor; suceder o pedido. Consulte config ServiceCertificateThumbprints para a lista separada por vírgula de impressões digitais dos certificados remotos nos quais o proxy reverso pode confiar. Refira a configuração ServiceCommonNameAndIssuer para o nome da assunto e impressão digital do emissor dos certificados remotos que o proxy reverso pode confiar. |
 |BodyChunkSize |Uint, o padrão é 16384 |Dinâmico| Fornece o tamanho da parte em bytes usado para ler o corpo. |
 |CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmico| Sinalizadores para validação de cadeia de certificados de serviço/aplicativo, por exemplo, verificação da CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configurar para 0 desabilita a verificação de CRL A lista completa de valores com suporte é documentada por dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. O padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
-|ForwardClientCertificate|bool, o padrão é FALSE|Dinâmico| |
+|ForwardClientCertificate|bool, o padrão é FALSE|Dinâmico|Quando configurado como false, o proxy reverso não solicitará o certificado do cliente.Quando definido como true, o proxy reverso solicitará o certificado do cliente durante o handshake SSL e encaminhará a cadeia de caracteres de formato PEM com codificação base64 para o serviço em um cabeçalho chamado X-Client -Certificado.O serviço pode falhar na solicitação com o código de status apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá que o serviço manipule o caso. O proxy reverso atuará como uma camada transparente.|
 |GatewayAuthCredentialType |cadeia de caracteres, o padrão é "None" |estático| Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
 |GatewayX509CertificateFindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Dinâmico| Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia de caracteres, o padrão é "" |Dinâmico| Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado. |
@@ -73,27 +73,27 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |IgnoreCrlOfflineError|bool, o padrão é TRUE|Dinâmico|Se ignorar ou não o erro offline de CRL para verificação do certificado de serviço/aplicativo. |
 |IsEnabled |Bool, o padrão é false |estático| Habilita/desabilita o HttpApplicationGateway. HttpApplicationGateway está desabilitado por padrão e essa configuração precisa ser definida para habilitá-lo. |
 |NumberOfParallelOperations | Uint, o padrão é 5000 |estático|Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
-|RemoveServiceResponseHeaders|string, o padrão é L"Date; Server"|estático|Lista de cabeçalhos de resposta separados por vírgula/ponto e vírgula que serão removidos da resposta do serviço antes de encaminhá-la ao cliente. Se isso estiver definido como cadeia de caracteres vazia, passe todos os cabeçalhos retornados pelo serviço no estado em que se encontram. ou seja não sobrescreva Date e Server |
+|RemoveServiceResponseHeaders|Cadeia de caracteres, o padrão é "Date; Servidor"|estático|Lista de cabeçalhos de resposta separados por vírgula/ponto e vírgula que serão removidos da resposta do serviço antes de encaminhá-la ao cliente. Se isso estiver definido como cadeia de caracteres vazia, passe todos os cabeçalhos retornados pelo serviço no estado em que se encontram. ou seja não sobrescreva Date e Server |
 |ResolveServiceBackoffInterval |Tempo em segundos, o padrão é 5 |Dinâmico|Especifique o intervalo de tempo em segundos.  Fornece o intervalo de retirada padrão antes de tentar uma operação de serviço de resolução falido novamente. |
 |SecureOnlyMode|bool, o padrão é FALSE|Dinâmico| SecureOnlyMode: true: o proxy reverso só encaminhará para serviços que publicam pontos de extremidade seguros. false: o proxy reverso pode encaminhar solicitações para pontos de extremidade seguros/não seguros.  |
-|ServiceCertificateThumbprints|string, o padrão é L""|Dinâmico| |
+|ServiceCertificateThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|A lista separada por vírgulas das impressões digitais dos certificados remotos em que o proxy reverso pode confiar.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|  |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| Nome do assunto e impressão digital do emissor dos certificados remotos em que o proxy reverso pode confiar.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, o padrão é 0|estático|O MinReplicaSetSize para BackupRestoreService |
-|PlacementConstraints|wstring, o padrão é L""|estático| O PlacementConstraints para o serviço de BackupRestore |
-|SecretEncryptionCertThumbprint|wstring, o padrão é L""|Dinâmico|Impressão digital do certificado de criptografia de segredo X509 |
-|SecretEncryptionCertX509StoreName|wstring, o padrão é L"My"|  Dinâmico|    Isso indica que o certificado a ser usado para criptografia e descriptografia de nome de credenciais do repositório de certificados X.509 que é usado para criptografar as credenciais do repositório de criptografia descriptografia usadas pelo serviço de restauração de Backup |
+|PlacementConstraints|cadeia de caracteres, o padrão é ""|estático|  O PlacementConstraints para o serviço de BackupRestore |
+|SecretEncryptionCertThumbprint|cadeia de caracteres, o padrão é ""|Dinâmico|Impressão digital do certificado de criptografia de segredo X509 |
+|SecretEncryptionCertX509StoreName|cadeia de caracteres, o padrão é "Meu"|   Dinâmico|    Isso indica que o certificado a ser usado para criptografia e descriptografia de nome de credenciais do repositório de certificados X.509 que é usado para criptografar as credenciais do repositório de criptografia descriptografia usadas pelo serviço de restauração de Backup |
 |TargetReplicaSetSize|int, o padrão é 0|estático| O TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |EnableDefaultServicesUpgrade | Bool, o padrão é false |Dinâmico|Habilite a atualização de serviços padrão durante a atualização do aplicativo. Descrições de serviço padrão serão substituídas após a atualização. |
 |FabricUpgradeHealthCheckInterval |Tempo em segundos, o padrão é de 60 |Dinâmico|A frequência de verificação do status de integridade durante uma atualização de Malha monitorada |
@@ -121,27 +121,27 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UpgradeStatusPollInterval |Tempo em segundos, o padrão é de 60 |Dinâmico|A frequência de sondagem do status de atualização do aplicativo. Esse valor determina a taxa de atualização para qualquer chamada GetApplicationUpgradeProgress |
 
 ## <a name="common"></a>Comum
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PerfMonitorInterval |Tempo em segundos, o padrão é 1 |Dinâmico|Especifique o intervalo de tempo em segundos. Intervalo de monitoramento de desempenho. Definir como 0 ou valor negativo desabilita o monitoramento. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, o padrão é None|Dinâmico|Especifica a política seguida pela desfragmentação ao esvaziar nós. Para uma determinada métrica, 0 indica que SF deve tentar desfragmentar nós uniformemente entre UDs e FDs; 1 indica que apenas os nós devem ser desfragmentados |
 
 ## <a name="defragmentationmetrics"></a>DefragmentationMetrics
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, o padrão é None|Dinâmico|Determina o conjunto de métricas que devem ser usadas para desfragmentação e não para balanceamento de carga. |
 
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, o padrão é None|Dinâmico|Determina o número de nós livres que são necessários para considerar o cluster desfragmentado especificando o percentual no intervalo [0.0-1.0) ou o número de nós vazios como um número >= 1.0 |
 
-## <a name="diagnostics"></a>Diagnostics
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+## <a name="diagnostics"></a>Diagnósticos
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, o padrão é true | Dinâmico |Se a representação é necessária ou não ao acessar repositórios de diagnóstico em nome do aplicativo. |
 |AppEtwTraceDeletionAgeInDays |Int, o padrão é 3 | Dinâmico |O número de dias após os quais é possível excluir arquivos ETL antigos que contêm rastreamentos ETW do aplicativo. |
@@ -155,13 +155,15 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ProducerInstances |Cadeia de caracteres | Dinâmico |A lista de instâncias de produtor DCA. |
 
 ## <a name="dnsservice"></a>DnsService
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|IsEnabled|bool, o padrão é FALSE|estático| |
-|InstanceCount|int, o padrão é -1|estático|  |
+|InstanceCount|int, o padrão é -1|estático|o valor padrão é -1, o que significa que o DnsService está sendo executado em todos os nós. O OneBox precisa que isso seja definido como 1, já que o DnsService usa a porta conhecida 53, portanto, não pode ter várias instâncias na mesma máquina.|
+|IsEnabled|bool, o padrão é FALSE|estático|Habilita/desabilita DnsService. O DnsService está desativado por padrão e essa configuração precisa ser definida para ativá-lo. |
+|PartitionPrefix|cadeia de caracteres, o padrão é "-"|estático|Controla o valor da cadeia de caracteres do prefixo da partição em consultas DNS para serviços particionados. O valor: <ul><li>Deve ser compatível com RFC, pois fará parte de uma consulta DNS.</li><li>Não deve conter um ponto, '.', Pois o ponto interfere no comportamento do sufixo DNS.</li><li>Não deve ter mais que 5 caracteres.</li><li>Não pode ser uma cadeia de caracteres vazia.</li><li>Se a configuração PartitionPrefix for substituída, o PartitionSuffix deverá ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
+|PartitionSuffix|cadeia de caracteres, o padrão é ""|estático|Controla o valor da sequência do sufixo da partição em consultas DNS para serviços particionados. O valor: <ul><li>Deve ser compatível com RFC, pois fará parte de uma consulta DNS.</li><li>Não deve conter um ponto, '.', Pois o ponto interfere no comportamento do sufixo DNS.</li><li>Não deve ter mais que 5 caracteres.</li><li>Se a configuração PartitionPrefix for substituída, o PartitionSuffix deverá ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tempo em segundos, o padrão é 2 |Dinâmico|Especifique o intervalo de tempo em segundos. Intervalo do tempo limite de conexão para que cada cliente tente abrir uma conexão com o gateway.|
 |HealthOperationTimeout |Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite para uma mensagem de relatório enviada ao Gerenciador de Integridade. |
@@ -175,7 +177,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ServiceChangePollInterval |Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. O intervalo entre pesquisas consecutivas para que o serviço seja alterado do cliente para o gateway para retornos de chamada de notificações de alteração do serviço registrado. |
 
 ## <a name="fabrichost"></a>FabricHost
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Int, o padrão é 10 |Dinâmico|Essa é a contagem máxima para a qual o sistema tentará novamente a ativação com falha antes de desistir. |
 |ActivationMaxRetryInterval |Tempo em segundos, o padrão é de 300 |Dinâmico|Especifique o intervalo de tempo em segundos. Máx. intervalo de repetição de ativação. Em cada falha contínua, o intervalo de repetição é calculado como Min( ActivationMaxRetryInterval; Contagem de falha contínua * ActivationRetryBackoffInterval). |
@@ -187,7 +189,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |StopTimeout |Tempo em segundos, o padrão é de 300 |Dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite para a ativação; desativação e atualização do serviço hospedado. |
 
 ## <a name="fabricnode"></a>FabricNode
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ClientAuthX509FindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Dinâmico|Indica como pesquisar o certificado no repositório especificado pelo valor ClientAuthX509StoreName com suporte: FindByThumbprint; FindBySubjectName. |
 |ClientAuthX509FindValue |cadeia de caracteres, o padrão é "" | Dinâmico|Valor do filtro de pesquisa usado para localizar o certificado para a função de administrador padrão FabricClient. |
@@ -210,7 +212,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UserRoleClientX509StoreName |cadeia de caracteres, o padrão é "My" |Dinâmico|Nome do repositório de certificados X.509 que contém o certificado da função de usuário padrão FabricClient. |
 
 ## <a name="failovermanager"></a>FailoverManager
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(3600)|Dinâmico|Especifique o intervalo de tempo em segundos. O limite de tempo para criar uma réplica com estado, depois do qual um relatório de integridade de aviso será iniciado |
 |ClusterPauseThreshold|int, o padrão é 1|Dinâmico|Se o número de nós no sistema ficarem abaixo desse valor, o posicionamento, o balanceamento de carga e o failover serão interrompidos. |
@@ -221,7 +223,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ExpectedReplicaUpgradeDuration|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmico|Especifique o intervalo de tempo em segundos. Esta é a duração esperada para todas as réplicas a serem atualizadas em um nó durante a atualização do aplicativo. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, o padrão é TRUE|Dinâmico|Se definido como true; réplicas com um tamanho 1 de conjunto de réplicas de destino terão permissão para mover durante a atualização. |
 |MinReplicaSetSize|int, o padrão é 3|Não Permitido|Esse é o tamanho mínimo do conjunto de réplicas para o FM. Se o número de réplicas ativas do FM cair abaixo desse valor; o FM rejeitará as alterações para o cluster até que pelo menos o número mínimo de réplicas seja recuperado |
-|PlacementConstraints|string, o padrão é L""|Não Permitido|Quaisquer restrições de posicionamento para as réplicas do gerenciador de failover |
+|PlacementConstraints|cadeia de caracteres, o padrão é ""|Não Permitido|Quaisquer restrições de posicionamento para as réplicas do gerenciador de failover |
 |PlacementTimeLimit|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(600)|Dinâmico|Especifique o intervalo de tempo em segundos. O limite de tempo para atingir a contagem de réplicas, depois do qual um relatório de integridade de aviso será iniciado |
 |QuorumLossWaitDuration |Tempo em segundos, o padrão é MaxValue |Dinâmico|Especifique o intervalo de tempo em segundos. Essa é a duração máxima para a qual nós permitimos que uma partição esteja em um estado de perda de quorum. Se a partição ainda estiver em perda de quorum após essa duração, ela será recuperada da perda de quorum considerando as réplicas inativas como perdidas. Observe que isso eventualmente pode resultar em perda de dados. |
 |ReconfigurationTimeLimit|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(300)|Dinâmico|Especifique o intervalo de tempo em segundos. O limite de tempo de reconfiguração; depois do qual um relatório de integridade de aviso será iniciado |
@@ -233,7 +235,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é 3600,0 * 24 * 7 |Dinâmico|Especifique o intervalo de tempo em segundos. Quando uma réplica persistente voltar de um estado inativo, talvez ela já tenha sido substituída. Este temporizador determina por quanto tempo o FM manterá a réplica em espera antes de descartá-la. |
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, o padrão é 604800 |estático| Isso é aproximadamente por quanto tempo serão mantidas as ações em um estado terminal. Isso também depende de StoredActionCleanupIntervalInSeconds, uma vez que o trabalho de limpeza é realizado somente nesse intervalo. 604800 é 7 dias. |
 |DataLossCheckPollIntervalInSeconds|int, o padrão é 5|estático|Este é o tempo entre as verificações que o sistema executa enquanto aguarda a perda de dados ocorrer. O número de vezes que o número de perda de dados será verificado por iteração interna é DataLossCheckWaitDurationInSeconds/esse valor. |
@@ -249,22 +251,24 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |TargetReplicaSetSize |Int, o padrão é 0 |estático|NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
 
 ## <a name="federation"></a>Federação
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(300)|estático|Especifique o intervalo de tempo em segundos. Nós no cluster precisam manter uma concessão global com os eleitores. Os votantes enviam seus arrendamentos globais para serem propagados através do cluster por esse período. Se a duração expirar; então a concessão é perdida. Perda de quorum de concessões faz com que um nó abandone o cluster; por não receber comunicação com um quorum de nós neste período de tempo.  Esse valor precisa ser ajustado com base no tamanho do cluster. |
 |LeaseDuration |Tempo em segundos, o padrão é de 30 |Dinâmico|Duração de uma concessão entre um nó e seus vizinhos. |
 |LeaseDurationAcrossFaultDomain |Tempo em segundos, o padrão é de 30 |Dinâmico|Duração de uma concessão entre um nó e seus vizinhos entre domínios de falha. |
 
 ## <a name="filestoreservice"></a>FileStoreService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|bool, o padrão é TRUE|Dinâmico|Config para determinar se o serviço de armazenamento de arquivos aceita o upload de arquivo baseado em partes ou não durante o pacote do aplicativo de cópia. |
 |AnonymousAccessEnabled | Bool, o padrão é true |estático|Habilitar/desabilitar o acesso anônimo aos compartilhamentos do FileStoreService. |
-|CommonName1Ntlmx509CommonName|string, o padrão é L""|estático| O nome comum do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonName1Ntlmx509StoreLocation|string, o padrão é L"LocalMachine"|estático|O local do repositório do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonName1Ntlmx509StoreName|string, o padrão é L"MY"| estático|O nome do repositório do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonName2Ntlmx509CommonName|string, o padrão é L""|estático|O nome comum do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonName2Ntlmx509StoreLocation|string, o padrão é L"LocalMachine"| estático|O local do repositório do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonName2Ntlmx509StoreName|string, o padrão é L"MY"|estático| O nome do repositório do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
-|CommonNameNtlmPasswordSecret|SecureString, o padrão é Common::SecureString(L"")| estático|O segredo de senha usado como semente para gerar a mesma senha gerada ao usar a autenticação NTLM |
+|CommonName1Ntlmx509CommonName|cadeia de caracteres, o padrão é ""|estático| O nome comum do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonName1Ntlmx509StoreLocation|cadeia de caracteres, o padrão é "LocalMachine"|estático|O local do repositório do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonName1Ntlmx509StoreName|cadeia de caracteres, o padrão é "MY"| estático|O nome do repositório do certificado X509 usado para gerar HMAC no CommonName1NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonName2Ntlmx509CommonName|cadeia de caracteres, o padrão é ""|estático|O nome comum do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonName2Ntlmx509StoreLocation|cadeia de caracteres, o padrão é "LocalMachine"| estático|O local do repositório do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonName2Ntlmx509StoreName|cadeia de caracteres, o padrão é "MY"|estático| O nome do repositório do certificado X509 usado para gerar HMAC no CommonName2NtlmPasswordSecret ao usar a autenticação NTLM |
+|CommonNameNtlmPasswordSecret|SecureString, o padrão é Common::SecureString("")| estático|O segredo de senha usado como semente para gerar a mesma senha gerada ao usar a autenticação NTLM |
 |GenerateV1CommonNameAccount| bool, o padrão é TRUE|estático|Especifica se deve gerar uma conta com o algoritmo de geração V1 de nome de usuário. A partir do Service Fabric versão 6.1; uma conta com a geração v2 sempre será criada. A conta V1 é necessária para atualizações de/para as versões que não dão suporte à geração V2 (antes da 6.1).|
 |MaxCopyOperationThreads | Uint, o padrão é 0 |Dinâmico| O número máximo de arquivos paralelos que os secundários podem copiar do primário. '0' == número de núcleos. |
 |MaxFileOperationThreads | Uint, o padrão é 100 |estático| O número máximo de threads paralelos permitidos para executar FileOperations (Copiar/Mover) no primário. '0' == número de núcleos. |
@@ -289,25 +293,25 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |SecondaryAccountUserPassword | SecureString, o padrão é vazio |estático|A senha da conta secundária da entidade para colocar os compartilhamentos do FileStoreService em ACL. |
 
 ## <a name="healthmanager"></a>HealthManager
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, o padrão é false |estático|Política de avaliação de integridade do cluster: habilitar avaliação de integridade de tipo por aplicativo. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, o padrão é false |estático|Política de avaliação de integridade do cluster: os avisos são tratados como erros. |
 |MaxPercentUnhealthyApplications | Int, o padrão é 0 |estático|Política de avaliação de integridade do cluster: a porcentagem máxima de aplicativos não íntegros permitida para que o cluster seja íntegro. |
 |MaxPercentUnhealthyNodes | Int, o padrão é 0 |estático|Política de avaliação de integridade do cluster: a porcentagem máxima de nós não íntegros permitida para que o cluster seja íntegro. |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|int, o padrão é 10|estático|Política de avaliação de integridade de atualização do cluster: a porcentagem máxima de nós delta não íntegros permitida para que o cluster seja íntegro |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, o padrão é 15|estático|Política de avaliação de integridade de atualização do cluster: a porcentagem máxima de delta de nós não íntegros em um domínio de atualização permitida para que o cluster seja íntegro |
 
 ## <a name="hosting"></a>Hosting
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Número inteiro, o padrão é 10 |Dinâmico|Número de vezes que o sistema tenta realizar novamente a ativação que falhou antes de desistir |
 |ActivationMaxRetryInterval |Tempo em segundos, o padrão é de 300 |Dinâmico|Em cada falha de ativação contínua, o sistema tenta novamente realizar a ativação até a ActivationMaxFailureCount. ActivationMaxRetryInterval especifica o intervalo de tempo de espera antes de tentar novamente após cada falha de ativação |
@@ -315,8 +319,10 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ActivationTimeout| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(180)|Dinâmico| Especifique o intervalo de tempo em segundos. O tempo limite para a ativação; desativação e atualização do aplicativo. |
 |ApplicationHostCloseTimeout| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. Quando a saída do Fabric é detectado em um self processos ativado; FabricRuntime fecha todas as réplicas no processo de host (applicationhost) do usuário. Esse é o tempo limite para a operação de fechamento. |
 |ApplicationUpgradeTimeout| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(360)|Dinâmico| Especifique o intervalo de tempo em segundos. O tempo limite para a atualização do aplicativo. Se o tempo limite for menor que o "ActivationTimeout", o implantador falhará. |
-|ContainerServiceArguments|wstring, o padrão é L "-H localhost:2375 -H npipe://"|estático|O Service Fabric (SF) gerencia o daemon do docker (exceto em máquinas cliente do Windows como Win10). Essa configuração permite que o usuário especifique argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-lo. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do Docker, com exceção do argumento '--pidfile'. Portanto, os usuários não devem especificar o argumento '--pidfile' como parte de seus argumentos de cliente. Além disso, o argumento de cliente deve garantir que o daemon do docker escuta no pipe de nome padrão no Windows (ou um soquete de domínio do Unix no Linux) para o Service Fabric poder comunicar-se com ele.|
+|ContainerServiceArguments|cadeia de caracteres, o padrão é "-H localhost:2375 -H npipe: / /"|estático|O Service Fabric (SF) gerencia o daemon do docker (exceto em máquinas cliente do Windows como Win10). Essa configuração permite que o usuário especifique argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-lo. Ao especificar argumentos personalizados, o Service Fabric não passa outro argumento para o mecanismo do Docker, com exceção do argumento '--pidfile'. Portanto, os usuários não devem especificar o argumento '--pidfile' como parte de seus argumentos de cliente. Além disso, o argumento de cliente deve garantir que o daemon do docker escuta no pipe de nome padrão no Windows (ou um soquete de domínio do Unix no Linux) para o Service Fabric poder comunicar-se com ele.|
 |CreateFabricRuntimeTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. O valor de tempo limite para chamada de sincronização de FabricCreateRuntime |
+|DefaultContainerRepositoryAccountName|cadeia de caracteres, o padrão é ""|estático|Credenciais padrão usadas em vez de credenciais especificadas no applicationmanifest. XML |
+|DefaultContainerRepositoryPassword|cadeia de caracteres, o padrão é ""|estático|Credenciais de senha padrão usadas em vez de credenciais especificadas no applicationmanifest. XML|
 |DeploymentMaxFailureCount|int, o padrão é 20| Dinâmico|A implantação de aplicativo será repetida por DeploymentMaxFailureCount vezes antes que a implantação desse aplicativo no nó falhe.| 
 |DeploymentMaxRetryInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(3600)|Dinâmico| Especifique o intervalo de tempo em segundos. Máx. intervalo de repetição para a implantação. Em cada falha contínua, o intervalo de repetição é calculado como Min( DeploymentMaxRetryInterval; Contagem de falha contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(10)|Dinâmico|Especifique o intervalo de tempo em segundos. Intervalo de retirada da falha de implantação. Em toda falha de implantação contínua o sistema fará até MaxDeploymentFailureCount novas tentativas de implantação. O intervalo de repetição é um produto da falha de implantação contínua e do intervalo de retirada de implantação. |
@@ -328,9 +334,10 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |FirewallPolicyEnabled|bool, o padrão é FALSE|estático| Habilita a abertura de portas de firewall para os recursos de ponto de extremidade com portas explícitas especificadas no ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico|Especifique o intervalo de tempo em segundos. O valor de tempo limite para as chamadas CodePackageActivationContext. Isso não é aplicável a serviços ad hoc. |
 |IPProviderEnabled|bool, o padrão é FALSE|estático|Habilita o gerenciamento de endereços IP. |
-|LinuxExternalExecutablePath|wstring, o padrão é L"/usr/bin/" |estático|O diretório principal do comandos executáveis externos no nó.|
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, o padrão é FALSE|estático|Se o DefaultContainerRepositoryPassword é criptografada ou não.|
+|LinuxExternalExecutablePath|cadeia de caracteres, o padrão é "/ usr/bin /" |estático|O diretório principal do comandos executáveis externos no nó.|
 |NTLMAuthenticationEnabled|bool, o padrão é FALSE|estático| Habilita o suporte ao uso de NTLM pelos pacotes de código que estão executando como outros usuários para que os processos entre computadores possam se comunicar com segurança. |
-|NTLMAuthenticationPasswordSecret|SecureString, o padrão é Common::SecureString(L"")|estático|É um has criptografado que é usado para gerar a senha para usuários NTLM. Deverá ser definido se NTLMAuthenticationEnabled for true. Validado pelo implantador. |
+|NTLMAuthenticationPasswordSecret|SecureString, o padrão é Common::SecureString("")|estático|É um has criptografado que é usado para gerar a senha para usuários NTLM. Deverá ser definido se NTLMAuthenticationEnabled for true. Validado pelo implantador. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(3)|Dinâmico|Especifique o intervalo de tempo em segundos. Configurações específicas do ambiente. O intervalo periódico no qual a hospedagem procura novos certificados a serem usados para a configuração NTLM do FileStoreService. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(4)|Dinâmico| Especifique o intervalo de tempo em segundos. O tempo limite para configurar usuários NTLM usando nomes comuns do certificado. Os usuários NTLM são necessários para compartilhamentos de FileStoreService. |
 |RegisterCodePackageHostTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. O valor de tempo limite para a chamada de sincronização de FabricRegisterCodePackageHost. Isso é aplicável apenas a hosts de aplicativo com vários pacotes de códigos, tais como o FWP |
@@ -343,7 +350,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UseContainerServiceArguments|bool, o padrão é TRUE|estático|Essa configuração ordena que o hosting ignore os argumentos de passagem (especificados na configuração ContainerServiceArguments) para o daemon do docker.|
 
 ## <a name="httpgateway"></a>HttpGateway
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ActiveListeners |Uint, o padrão é 50 |estático| Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tempo em segundos, o padrão é de 30 |estático|Especifique o intervalo de tempo em segundos. O intervalo no qual o Gateway HTTP envia relatórios de integridade acumulados ao Gerenciador de Integridade. |
@@ -351,7 +358,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |MaxEntityBodySize |Uint, o padrão é 4194304 |Dinâmico|Fornece o tamanho máximo do corpo que se espera de uma solicitação http. O valor padrão é 4 MB. Uma solicitação falhará no httpgateway se ele tiver um corpo de tamanho maior que esse valor. O tamanho mínimo da parte de leitura é 4096 bytes. Portanto, isso tem que ser >= 4096. |
 
 ## <a name="imagestoreclient"></a>ImageStoreClient
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ClientCopyTimeout | Tempo em segundos, o padrão é 1800 |Dinâmico| Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de cópia de nível superior para o Serviço de Repositório de Imagens. |
 |ClientDefaultTimeout | Tempo em segundos, o padrão é 180 |Dinâmico| Especifique o intervalo de tempo em segundos. Valor de tempo limite para todas as solicitações que não são de upload/que não são de download (por exemplo, existe; excluir) para o Serviço de Repositório de Imagens. |
@@ -360,7 +367,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ClientUploadTimeout |Tempo em segundos, o padrão é 1800 |Dinâmico|Especifique o intervalo de tempo em segundos. Valor de tempo limite para solicitação de upload de nível superior para o Serviço de Repositório de Imagens. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |habilitado |Bool, o padrão é false |estático|O sinalizador Enabled para ImageStoreService. Padrão: false |
 |MinReplicaSetSize | Int, o padrão é 3 |estático|O MinReplicaSetSize para ImageStoreService. |
@@ -371,7 +378,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |TargetReplicaSetSize | Int, o padrão é 7 |estático|O TargetReplicaSetSize para ImageStoreService. |
 
 ## <a name="ktllogger"></a>KtlLogger
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, o padrão é 1 |Dinâmico|Sinalizador que indica se as configurações de memória devem ser configuradas dinâmica e automaticamente. Se for zero, as definições de configuração de memória serão usadas diretamente e não serão alteradas com base nas condições do sistema. Se for um, as definições da memória serão configuradas automaticamente e poderão ser alteradas com base nas condições do sistema. |
 |MaximumDestagingWriteOutstandingInKB | Int, o padrão é 0 |Dinâmico|O número de KB que o log compartilhado tem permissão para ficar à frente do log dedicado. Use 0 para não indicar nenhum limite.
@@ -382,7 +389,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |WriteBufferMemoryPoolMinimumInKB |Int, o padrão é 8388608 |Dinâmico|O número de KB para serem inicialmente alocados para o pool de memória do buffer de gravação. Use 0 para indicar que nenhum padrão de limite deve ser consistente com SharedLogSizeInMB abaixo. |
 
 ## <a name="management"></a>Gerenciamento
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, o padrão é 5000 |Dinâmico|O número máximo de conexões simultâneas para o armazenamento do Azure. |
 |AzureStorageMaxWorkerThreads | Int, o padrão é 25 |Dinâmico|O número máximo de threads de trabalho em paralelo. |
@@ -395,17 +402,17 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ImageStoreMinimumTransferBPS | Int, o padrão é 1024 |Dinâmico|A taxa de transferência mínima entre o cluster e o ImageStore. Esse valor é usado para determinar o tempo limite ao acessar o ImageStore externo. Altere este valor somente se a latência entre o cluster e o ImageStore for alta para dar mais tempo para o cluster baixar do ImageStore externo. |
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, o padrão é None|Dinâmico|Determina o conjunto de MetricActivityThresholds para as métricas no cluster. O balanceamento funcionará se maxNodeLoad for maior que MetricActivityThresholds. Para métricas de desfragmentação, ele define a quantidade de carga na qual ou abaixo da qual o Service Fabric considerará o nó vazio |
 
 ## <a name="metricbalancingthresholds"></a>MetricBalancingThresholds
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, o padrão é None|Dinâmico|Determina o conjunto de MetricBalancingThresholds para as métricas no cluster. O balanceamento funcionará se maxNodeLoad/minNodeLoad é maior do que MetricBalancingThresholds. A desfragmentação funcionará se maxNodeLoad/minNodeLoad em pelo menos um FD ou UD for menor do que MetricBalancingThresholds. |
 
 ## <a name="namingservice"></a>NamingService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |GatewayServiceDescriptionCacheLimit |Int, o padrão é 0 |estático|O número máximo de entradas mantidas no cache de descrição do serviço LRU no Gateway de Cadastramento (defina como 0 para sem limite). |
 |MaxClientConnections |Int, o padrão é 1000 |Dinâmico|O número máximo permitido de conexões do cliente por gateway. |
@@ -427,33 +434,33 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |TargetReplicaSetSize |Int, o padrão é 7 |Não Permitido|O número de conjuntos de réplicas para cada partição do repositório do Serviço de Cadastramento. O aumento no número de conjuntos de réplicas aumenta o nível de confiabilidade das informações no Repositório do Serviço de Cadastramento; a diminuição da alteração de que as informações serão perdidas como resultado de falhas do nó, a um custo do aumento de carga no Windows Fabric e da quantidade de tempo que leva para realizar atualizações nos dados de nomenclatura.|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, o padrão é None|Dinâmico|Percentual da capacidade de nó por nome da métrica, usado como um buffer para manter algum lugar livre em um nó para o caso de failover. |
 
 ## <a name="nodecapacities"></a>NodeCapacities
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeCapacityCollectionMap |estático|Uma coleção de capacidades de nó para diferentes métricas. |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeFaultDomainIdCollection |estático|Descreve os domínios de falha aos quais o nó pertence. O domínio de falha é definido por meio de um URI que descreve o local do nó no data center.  Os URIs do domínio de falha estão no formato fd:/fd/ seguidos por um segmento de caminho do URI.|
 |UpgradeDomainId |cadeia de caracteres, o padrão é "" |estático|Descreve o domínio de atualização ao qual o nó pertence. |
 
 ## <a name="nodeproperties"></a>NodeProperties
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodePropertyCollectionMap |estático|Uma coleção de pares chave-valor da cadeia de caracteres para propriedades do nó. |
 
 ## <a name="paas"></a>Paas
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ClusterId |cadeia de caracteres, o padrão é "" |Não Permitido|Repositório de certificados X509 usado pela malha para proteção da configuração. |
 
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |Contadores |Cadeia de caracteres | Dinâmico |Lista separada por vírgulas dos contadores de desempenho a serem coletados. |
 |IsEnabled |Bool, o padrão é true | Dinâmico |O sinalizador indica se a coleta do contador de desempenho no nó local está habilitada. |
@@ -462,7 +469,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |SamplingIntervalInSeconds |Int, o padrão é 60 | Dinâmico |Intervalo de amostragem dos contadores de desempenho que estão sendo coletados. |
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |AffinityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de afinidade: 0: rígida; 1: flexível; negativa: ignorar. |
 |ApplicationCapacityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: flexível; negativo: ignorar. |
@@ -517,7 +524,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |VerboseHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes que uma réplica precisa estar não alocada antes que um aviso de integridade seja comunicado para ela (caso o relatório de integridade detalhado esteja habilitado). |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ApplicationUpgradeMaxReplicaCloseDuration | Tempo em segundos, o padrão é 900 |Dinâmico|Especifique o intervalo de tempo em segundos. A duração pela qual o sistema aguardará antes de encerrar os hosts de serviço que tiverem réplicas presas no fechamento durante a atualização do aplicativo.|
 |FabricUpgradeMaxReplicaCloseDuration | Tempo em segundos, o padrão é 900 |Dinâmico| Especifique o intervalo de tempo em segundos. A duração pela qual o sistema aguardará antes de encerrar os hosts de serviço que tenham réplicas presas no fechamento durante a atualização da malha. |
@@ -530,7 +537,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ServiceReconfigurationApiHealthDuration | Tempo em segundos, o padrão é de 30 |Dinâmico| Especifique o intervalo de tempo em segundos. ServiceReconfigurationApiHealthDuration define por quanto tempo é preciso esperar para que uma API de serviço seja executada antes que ela seja comunicada como não íntegra. Isso se aplica a chamadas à API que afetam a disponibilidade.|
 
 ## <a name="replication"></a>Replicação
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, o padrão é Common::TimeSpan::FromMilliseconds(15)|estático|Especifique o intervalo de tempo em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de enviar de volta uma confirmação. Outras operações recebidas durante esse período de tempo terão suas confirmações enviadas de volta em uma única mensagem-> reduzindo o tráfego de rede, mas reduzindo potencialmente a produtividade do replicador.|
 |MaxCopyQueueSize|uint, o padrão é 1024|estático|Esse é o valor máximo que define o tamanho inicial da fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante a o tempo de execução, a fila aumentar para esse tamanho, as operações serão limitadas entre os replicadores primários e secundários.|
@@ -541,102 +548,104 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |MaxSecondaryReplicationQueueSize|uint, o padrão é 2048|estático|Esse é o número máximo de operações que poderiam existir na fila de replicação secundária. Observe que ele deve ser uma potência de 2.|
 |QueueHealthMonitoringInterval|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(30)|estático|Especifique o intervalo de tempo em segundos. Esse valor determina o período de tempo usado pelo replicador para monitorar quaisquer eventos de integridade de aviso/erro nas filas de operação de replicação. Um valor de '0' desabilita o monitoramento de integridade |
 |QueueHealthWarningAtUsagePercent|uint, o padrão é 80|estático|Esse valor determina o uso de fila de replicação (em percentual) após o qual relatamos um aviso sobre um uso alto de fila. Podemos fazer isso depois de um intervalo de cortesia de QueueHealthMonitoringInterval. Se o uso da fila ficar abaixo desse percentual no intervalo de cortesia|
-|ReplicatorAddress|string, o padrão é L"localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para estabelecer conexões com outras réplicas a fim de enviar/receber operações.|
-|ReplicatorListenAddress|string, o padrão é L"localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para receber operações de outras réplicas.|
-|ReplicatorPublishAddress|string, o padrão é L"localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para enviar operações para outras réplicas.|
+|ReplicatorAddress|cadeia de caracteres, o padrão é "localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para estabelecer conexões com outras réplicas a fim de enviar/receber operações.|
+|ReplicatorListenAddress|cadeia de caracteres, o padrão é "localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para receber operações de outras réplicas.|
+|ReplicatorPublishAddress|cadeia de caracteres, o padrão é "localhost:0"|estático|O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para enviar operações para outras réplicas.|
 |RetryInterval|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(5)|estático|Especifique o intervalo de tempo em segundos. Quando uma operação for perdida ou rejeitada, o temporizador determinará com que frequência o replicador tentará novamente enviar a operação.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, o padrão é FALSE |estático|Controla se o serviço está habilitado no cluster ou não. |
 
 ## <a name="runas"></a>RunAs
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, o padrão é "" |Dinâmico|Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ## <a name="runasdca"></a>RunAs_DCA
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, o padrão é "" |Dinâmico|Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ## <a name="runasfabric"></a>RunAs_Fabric
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, o padrão é "" |Dinâmico|Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ## <a name="runashttpgateway"></a>RunAs_HttpGateway
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, o padrão é "" |Dinâmico|Indica o nome da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser" ou "ManagedServiceAccount". Os valores válidos são "domínio\usuário" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, o padrão é "" |Dinâmico|Indica o tipo de conta RunAs. Isso é necessário para qualquer seção RunAs Os valores válidos são "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, o padrão é "" |Dinâmico|Indica a senha da conta RunAs. Isso só é necessário para o tipo de conta "DomainUser". |
 
 ## <a name="security"></a>Segurança
-| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de Atualização**| **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|AADClientApplication|string, o padrão é L""|estático|ID ou nome do aplicativo cliente nativo que representa os clientes do Fabric |
-|AADClusterApplication|string, o padrão é L""|estático|ID ou nome do aplicativo de API Web que representa o cluster |
-|AADTenantId|string, o padrão é L""|estático|ID do locatário (GUID) |
-|AdminClientCertThumbprints|string, o padrão é L""|Dinâmico|Impressões digitais de certificados usados pelos clientes na função de administrador. É uma lista de nomes separados por vírgula. |
-|AdminClientClaims|string, o padrão é L""|Dinâmico|Todas as declarações possíveis esperadas de clientes do administrador, com o mesmo formato de ClientClaims. Essa lista é adicionada internamente a ClientClaims, portanto, não há necessidade de adicionar as mesmas entradas também a ClientClaims. |
-|AdminClientIdentities|string, o padrão é L""|Dinâmico|Identidades do Windows de clientes do Fabric na função de administrador, usadas para autorizar operações do Fabric privilegiadas. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo. Por questão de conveniência, a função de administrador é atribuída automaticamente a ServiceFabricAdministrators e à conta que executa o fabric.exe. |
+|AADClientApplication|cadeia de caracteres, o padrão é ""|estático|ID ou nome do aplicativo cliente nativo que representa os clientes do Fabric |
+|AADClusterApplication|cadeia de caracteres, o padrão é ""|estático|ID ou nome do aplicativo de API Web que representa o cluster |
+|AADTenantId|cadeia de caracteres, o padrão é ""|estático|ID do locatário (GUID) |
+|AdminClientCertThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados usados pelos clientes na função de administrador. É uma lista de nomes separados por vírgula. |
+|AdminClientClaims|cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes do administrador, com o mesmo formato de ClientClaims. Essa lista é adicionada internamente a ClientClaims, portanto, não há necessidade de adicionar as mesmas entradas também a ClientClaims. |
+|AdminClientIdentities|cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de clientes do Fabric na função de administrador, usadas para autorizar operações do Fabric privilegiadas. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo. Por questão de conveniência, a função de administrador é atribuída automaticamente a ServiceFabricAdministrators e à conta que executa o fabric.exe. |
 |CertificateExpirySafetyMargin|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(43200)|estático|Especifique o intervalo de tempo em segundos. Margem de segurança para a expiração do certificado. O status do relatório de integridade do certificado muda de OK para Aviso quando a expiração está mais próxima do que isso. O padrão é 30 dias. |
 |CertificateHealthReportingInterval|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(3600 * 8)|estático|Especifique o intervalo de tempo em segundos. Especifique o intervalo de relatórios de integridade de certificado. O valor padrão é de 8 horas. Configurar para 0 desabilita o relatório de integridade do certificado |
-|ClientCertThumbprints|string, o padrão é L""|Dinâmico|Impressões digitais dos certificados usados pelos clientes para se comunicar com o cluster. O cluster as utiliza para autorizar a conexão de entrada. É uma lista de nomes separados por vírgula. |
+|ClientCertThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais dos certificados usados pelos clientes para se comunicar com o cluster. O cluster as utiliza para autorizar a conexão de entrada. É uma lista de nomes separados por vírgula. |
 |ClientClaimAuthEnabled|bool, o padrão é FALSE|estático|Indica se a autenticação baseada em declarações está habilitada em clientes. Configurar isso para true define ClientRoleEnabled implicitamente. |
-|ClientClaims|string, o padrão é L""|Dinâmico|Todas as declarações possíveis esperadas de clientes para se conectar ao gateway. Essa é uma lista 'OR': ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... cada ClaimsEntry é uma lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
-|ClientIdentities|string, o padrão é L""|Dinâmico|Identidades do Windows de FabricClient. O gateway de nomenclatura utiliza isso para autorizar conexões de entrada. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo. Por questão de conveniência, ServiceFabricAllowedUsers, ServiceFabricAdministrators e a conta que executa o fabric.exe são permitidos automaticamente. |
+|ClientClaims|cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes para se conectar ao gateway. Essa é uma lista 'OR': ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... cada ClaimsEntry é uma lista "AND": ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
+|ClientIdentities|cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de FabricClient. O gateway de nomenclatura utiliza isso para autorizar conexões de entrada. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo. Por questão de conveniência, ServiceFabricAllowedUsers, ServiceFabricAdministrators e a conta que executa o fabric.exe são permitidos automaticamente. |
 |ClientRoleEnabled|bool, o padrão é FALSE|estático|Indica se a função do cliente está habilitada; quando definido como true, funções com base nas identidades dos clientes são atribuídas a eles. Para V2, habilitar isso significa que o cliente que não está em AdminClientCommonNames/AdminClientIdentities só pode executar operações somente leitura. |
-|ClusterCertThumbprints|string, o padrão é L""|Dinâmico|Impressões digitais de certificados com permissão para ingressar no cluster, uma lista de nomes separados por vírgula. |
-|ClusterCredentialType|string, o padrão é L"None"|Não Permitido|Indica o tipo de credenciais de segurança a usar para proteger o cluster. Os valores válidos são "None/X509/Windows" |
-|ClusterIdentities|string, o padrão é L""|Dinâmico|Identidades do Windows de nós de cluster, usadas para autorização de associação do cluster. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo |
-|ClusterSpn|string, o padrão é L""|Não Permitido|Nome da entidade de serviço do cluster. Quando o Fabric é executado como um único usuário de domínio (conta de usuário de domínio/gMSA). É o SPN de ouvintes de concessão e ouvintes em fabric.exe: ouvintes de federação, ouvintes de replicação internos, ouvinte de serviço de tempo de execução e ouvinte de gateway de nomenclatura. Isso deve ser deixado vazio quando o Fabric é executado como contas de computador, caso em que o SPN do ouvinte de computação do lado que realiza a conexão do SPN do endereço de transporte do ouvinte. |
+|ClusterCertThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados com permissão para ingressar no cluster, uma lista de nomes separados por vírgula. |
+|ClusterCredentialType|cadeia de caracteres, o padrão é "None"|Não Permitido|Indica o tipo de credenciais de segurança a usar para proteger o cluster. Os valores válidos são "None/X509/Windows" |
+|ClusterIdentities|cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de nós de cluster, usadas para autorização de associação do cluster. É uma lista separada por vírgula em que cada entrada é um nome de conta de domínio ou nome de grupo |
+|ClusterSpn|cadeia de caracteres, o padrão é ""|Não Permitido|Nome da entidade de serviço do cluster. Quando o Fabric é executado como um único usuário de domínio (conta de usuário de domínio/gMSA). É o SPN de ouvintes de concessão e ouvintes em fabric.exe: ouvintes de federação, ouvintes de replicação internos, ouvinte de serviço de tempo de execução e ouvinte de gateway de nomenclatura. Isso deve ser deixado vazio quando o Fabric é executado como contas de computador, caso em que o SPN do ouvinte de computação do lado que realiza a conexão do SPN do endereço de transporte do ouvinte. |
 |CrlCheckingFlag|uint, o padrão é 0x40000000|Dinâmico|Sinalizador para validação de cadeia de certificados padrão, por exemplo, Federação/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configurar para 0 desabilita a verificação de CRL A lista completa de valores com suporte é documentada por dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |CrlDisablePeriod|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(15)|Dinâmico|Especifique o intervalo de tempo em segundos. Por quanto tempo a verificação de CRL está desabilitada para um determinado certificado depois de encontrar o erro offline caso o erro de CRL offline possa ser ignorado. |
 |CrlOfflineHealthReportTtl|TimeSpan, o padrão é Common::TimeSpan::FromMinutes(1440)|Dinâmico|Especifique o intervalo de tempo em segundos. |
 |DisableFirewallRuleForDomainProfile| bool, o padrão é TRUE |estático| Indica se a regra de firewall não deve ser habilitada para o perfil de domínio |
 |DisableFirewallRuleForPrivateProfile| bool, o padrão é TRUE |estático| Indica se a regra de firewall não deve ser habilitada para o perfil privado | 
 |DisableFirewallRuleForPublicProfile| bool, o padrão é TRUE | estático|Indica se a regra de firewall não deve ser habilitada para o perfil público |
-|FabricHostSpn| string, o padrão é L"" |estático| O nome da entidade de serviço de FabricHost quando a malha é executada como um único usuário de domínio (conta de usuário de domínio/gMSA) e FabricHost é executado na conta de computador. É o SPN do ouvinte de IPC para o FabricHost, que por padrão deve ser deixado vazio já que o FabricHost é executado na conta do computador |
+|FabricHostSpn| cadeia de caracteres, o padrão é "" |estático| O nome da entidade de serviço de FabricHost quando a malha é executada como um único usuário de domínio (conta de usuário de domínio/gMSA) e FabricHost é executado na conta de computador. É o SPN do ouvinte de IPC para o FabricHost, que por padrão deve ser deixado vazio já que o FabricHost é executado na conta do computador |
 |IgnoreCrlOfflineError|bool, o padrão é FALSE|Dinâmico|Se deseja ou não ignorar o erro de CRL offline quando o lado do servidor verifica certificados de cliente de entrada |
 |IgnoreSvrCrlOfflineError|bool, o padrão é TRUE|Dinâmico|Se deseja ou não ignorar o erro de CRL offline quando o lado do cliente verifica certificados de servidor de entrada; o padrão é true. Ataques com certificados de servidor revogados exigem um comprometimento de DNS mais intenso do que aqueles com certificados de cliente revogados. |
-|ServerAuthCredentialType|string, o padrão é L"None"|estático|Indica o tipo de credenciais de segurança a usar para proteger a comunicação entre o FabricClient e o Cluster. Os valores válidos são "None/X509/Windows" |
-|ServerCertThumbprints|string, o padrão é L""|Dinâmico|Impressões digitais dos certificados de servidor usados pelo cluster para se comunicar com os clientes. Os clientes as utilizam para autenticar o cluster. É uma lista de nomes separados por vírgula. |
-|SettingsX509StoreName| string, o padrão é L"MY"| Dinâmico|Repositório de certificados X509 usado pela malha para proteção da configuração |
+|ServerAuthCredentialType|cadeia de caracteres, o padrão é "None"|estático|Indica o tipo de credenciais de segurança a usar para proteger a comunicação entre o FabricClient e o Cluster. Os valores válidos são "None/X509/Windows" |
+|ServerCertThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais dos certificados de servidor usados pelo cluster para se comunicar com os clientes. Os clientes as utilizam para autenticar o cluster. É uma lista de nomes separados por vírgula. |
+|SettingsX509StoreName| cadeia de caracteres, o padrão é "MY"| Dinâmico|Repositório de certificados X509 usado pela malha para proteção da configuração |
 |UseClusterCertForIpcServerTlsSecurity|bool, o padrão é FALSE|estático|Se usar o certificado de cluster para proteger a unidade de transporte do IPC Server TLS |
 |X509Folder|string, o padrão é /var/lib/waagent|estático|Pasta em que as chaves privadas e os certificados X509 estão localizados |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ActivateNode |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para ativar um nó. |
 |CancelTestCommand |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Cancelará um TestCommand específico se ele estiver em trânsito. |
 |CodePackageControl |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para reiniciar pacotes de códigos. |
 |CreateApplication |cadeia de caracteres, o padrão é "Admin" | Dinâmico|Configuração de segurança para a criação de aplicativos. |
-|CreateComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Cria uma implantação de redação descrita pelos arquivos de redação |
+|CreateComposeDeployment|cadeia de caracteres, o padrão é "Admin"| Dinâmico|Cria uma implantação de redação descrita pelos arquivos de redação |
 |CreateName |cadeia de caracteres, o padrão é "Admin" |Dinâmico|Configuração de segurança para a criação do URI de nomenclatura. |
 |CreateService |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para a criação do serviço. |
 |CreateServiceFromTemplate |cadeia de caracteres, o padrão é "Admin" |Dinâmico|Configuração de segurança para a criação do serviço com base no modelo. |
+|CreateVolume|cadeia de caracteres, o padrão é "Admin"|Dinâmico|CreateVolume |
 |DeactivateNode |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para desativar um nó. |
 |DeactivateNodesBatch |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para desativar vários nós. |
 |Excluir |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configurações de segurança para operação de exclusão do repositório de imagens. |
 |DeleteApplication |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para a exclusão de aplicativos. |
-|DeleteComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Exclui a implantação de redação |
+|DeleteComposeDeployment|cadeia de caracteres, o padrão é "Admin"| Dinâmico|Exclui a implantação de redação |
 |DeleteName |cadeia de caracteres, o padrão é "Admin" |Dinâmico|Configuração de segurança para a exclusão do URI de nomenclatura. |
 |DeleteService |cadeia de caracteres, o padrão é "Admin" |Dinâmico|Configuração de segurança para a exclusão do serviço. |
+|DeleteVolume|cadeia de caracteres, o padrão é "Admin"|Dinâmico|Exclui um volume.| 
 |EnumerateProperties |cadeia de caracteres, o padrão é "Admin\|\|User" | Dinâmico|Configuração de segurança para a enumeração da propriedade de Nomenclatura. |
 |EnumerateSubnames |cadeia de caracteres, o padrão é "Admin\|\|User" |Dinâmico| Configuração de segurança para a enumeração do URI de Nomenclatura. |
 |FileContent |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para transferência do arquivo do cliente do repositório de imagens (externo ao cluster). |
@@ -654,11 +663,11 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |GetServiceDescription |cadeia de caracteres, o padrão é "Admin\|\|User" |Dinâmico| Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviço de leitura. |
 |GetStagingLocation |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para recuperação do local de preparo do cliente do repositório de imagens. |
 |GetStoreLocation |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para recuperação do local de repositório do cliente do repositório de imagens. |
-|GetUpgradeOrchestrationServiceState|string, o padrão é L"Admin"| Dinâmico|Induz GetUpgradeOrchestrationServiceState em uma partição |
+|GetUpgradeOrchestrationServiceState|cadeia de caracteres, o padrão é "Admin"| Dinâmico|Induz GetUpgradeOrchestrationServiceState em uma partição |
 |GetUpgradesPendingApproval |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Induz GetUpgradesPendingApproval em uma partição. |
 |GetUpgradeStatus |cadeia de caracteres, o padrão é "Admin\|\|User" |Dinâmico| Configuração de segurança para sondar o status de atualização do aplicativo. |
 |InternalList |cadeia de caracteres, o padrão é "Admin" | Dinâmico|Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens (interno). |
-|InvokeContainerApi|wstring, o padrão é L"Admin"|Dinâmico|Chama a API do contêiner |
+|InvokeContainerApi|Wstring, o padrão é "Admin"|Dinâmico|Chama a API do contêiner |
 |InvokeInfrastructureCommand |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para comandos de gerenciamento de tarefa de infraestrutura. |
 |InvokeInfrastructureQuery |cadeia de caracteres, o padrão é "Admin\|\|User" | Dinâmico|Configuração de segurança para consultar tarefas de infraestrutura. |
 |Listar |cadeia de caracteres, o padrão é "Admin\|\|User" | Dinâmico|Configuração de segurança para operação da lista de arquivos do cliente do repositório de imagens. |
@@ -689,11 +698,11 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ResolveNameOwner |cadeia de caracteres, o padrão é "Admin\|\|User" | Dinâmico|Configuração de segurança para determinar o proprietário do URI de Nomenclatura. |
 |ResolvePartition |cadeia de caracteres, o padrão é "Admin\|\|User" | Dinâmico|Configuração de segurança para determinar os serviços de sistema. |
 |ResolveService |cadeia de caracteres, o padrão é "Admin\|\|User" |Dinâmico| Configuração de segurança para a resolução do serviço de reclamação. |
-|ResolveSystemService|cadeia de caracteres, o padrão é L"Admin\|\|User"|Dinâmico| Configuração de segurança para determinar os serviços de sistema |
+|ResolveSystemService|cadeia de caracteres, o padrão é "Admin\|\|User"|Dinâmico| Configuração de segurança para determinar os serviços de sistema |
 |RollbackApplicationUpgrade |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para reverter atualizações do aplicativo. |
 |RollbackFabricUpgrade |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para reverter atualizações do cluster. |
 |ServiceNotifications |cadeia de caracteres, o padrão é "Admin\|\|User" |Dinâmico| Configuração de segurança para notificações de serviço baseadas em evento. |
-|SetUpgradeOrchestrationServiceState|string, o padrão é L"Admin"| Dinâmico|Induz SetUpgradeOrchestrationServiceState em uma partição |
+|SetUpgradeOrchestrationServiceState|cadeia de caracteres, o padrão é "Admin"| Dinâmico|Induz SetUpgradeOrchestrationServiceState em uma partição |
 |StartApprovedUpgrades |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Induz StartApprovedUpgrades em uma partição. |
 |StartChaos |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Iniciará o caos se ele não tiver sido iniciado ainda. |
 |StartClusterConfigurationUpgrade |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Induz StartClusterConfigurationUpgrade em uma partição. |
@@ -709,44 +718,44 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UnreliableTransportControl |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Transporte não confiável para adicionar e remover comportamentos. |
 |UpdateService |cadeia de caracteres, o padrão é "Admin" |Dinâmico|Configuração de segurança para atualizações de serviço. |
 |UpgradeApplication |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para iniciar ou interromper atualizações do aplicativo. |
-|UpgradeComposeDeployment|string, o padrão é L"Admin"| Dinâmico|Atualiza a implantação de redação |
+|UpgradeComposeDeployment|cadeia de caracteres, o padrão é "Admin"| Dinâmico|Atualiza a implantação de redação |
 |UpgradeFabric |cadeia de caracteres, o padrão é "Admin" |Dinâmico| Configuração de segurança para iniciar atualizações do cluster. |
 |Carregar |cadeia de caracteres, o padrão é "Admin" | Dinâmico|Configuração de segurança para operação de upload do repositório de imagens. |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do cliente; Nome = clientIssuerCN; Valor = lista separada por vírgula de repositórios |
 
 ## <a name="securityclientx509names"></a>Security/AdminClientX509Names
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do cluster; Nome = clusterIssuerCN; Valor = lista separada por vírgula de repositórios |
 
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, o padrão é None |Dinâmico|Repositórios de certificados do emissor X509 para certificados do servidor; Nome = serverIssuerCN; Valor = lista separada por vírgula de repositórios |
 
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
 
 ## <a name="setup"></a>Configuração
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|string, o padrão é L""| estático |O nome de rede a ser usado ao configurar uma rede de contêineres.|
+|ContainerNetworkName|cadeia de caracteres, o padrão é ""| estático |O nome de rede a ser usado ao configurar uma rede de contêineres.|
 |ContainerNetworkSetup|bool, o padrão é FALSE| estático |Se configurar ou não uma rede de contêiner.|
 |FabricDataRoot |Cadeia de caracteres | Não Permitido |Diretório raiz de dados do Service Fabric. O padrão para o Azure é d:\svcfab |
 |FabricLogRoot |Cadeia de caracteres | Não Permitido |Diretório raiz de log do Service Fabric. É nele que logs e os rastreamentos do SF são colocados. |
@@ -756,17 +765,17 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |SkipFirewallConfiguration |Bool, o padrão é false | Não Permitido |Especifica se as configurações do firewall precisam ou não ser definidas pelo sistema. Isso se aplicará apenas se você estiver usando o Firewall do Windows. Se você estiver usando firewalls de terceiros, deverá abrir as portas para o sistema e aplicativos a utilizar |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |Provedores |cadeia de caracteres, o padrão é "DSTS" |estático|Lista separada por vírgulas dos provedores de validação de tokens para habilitar (os provedores válidas são: DSTS; AAD). No momento, somente um provedor pode ser habilitado a qualquer momento. |
 
 ## <a name="traceetw"></a>Rastreamento/Etw
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |Nível |Int, o padrão é 4 | Dinâmico |O nível de Rastreamento de Eventos para Windows pode assumir os valores 1, 2, 3 e 4. Para que tenha suporte, você deve manter o nível de rastreamento em 4 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Tempo em segundos, o padrão é 0,015 | estático | Especifique o intervalo de tempo em segundos. Determina a quantidade de tempo que o replicador aguarda depois de receber uma operação antes de enviar de volta uma confirmação. Outras operações recebidas durante esse período de tempo terão suas confirmações enviadas de volta em uma única mensagem-> reduzindo o tráfego de rede, mas reduzindo potencialmente a produtividade do replicador. |
 |MaxCopyQueueSize |Uint, o padrão é 16384 | estático |Esse é o valor máximo que define o tamanho inicial da fila que mantém as operações de replicação. Observe que ele deve ser uma potência de 2. Se, durante a o tempo de execução, a fila aumentar para esse tamanho, as operações serão limitadas entre os replicadores primários e secundários. |
@@ -778,13 +787,16 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ReplicatorAddress |cadeia de caracteres, o padrão é "localhost:0" | estático | O ponto de extremidade na forma de uma cadeia de caracteres -'IP:Port', usada pelo replicador do Windows Fabric para estabelecer conexões com outras réplicas a fim de enviar/receber operações. |
 
 ## <a name="transport"></a>Transporte
-| **Parâmetro** | **Valores permitidos** |**Política de atualização** |**Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização** |**Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(60)|estático|Especifique o intervalo de tempo em segundos. Tempo limite para a configuração de conexão no lado de entrada e aceitando (incluindo a negociação de segurança no modo de segurança) |
-|ResolveOption|string, o padrão é L"unspecified"|estático|Determina como o FQDN é resolvido.  Os valores válidos são "unspecified/ipv4/ipv6". |
+|FrameHeaderErrorCheckingEnabled|bool, o padrão é TRUE|estático|Configuração padrão para verificação de erros no cabeçalho do quadro no modo não seguro; configuração de componente sobrescreve isso. |
+|MessageErrorCheckingEnabled|bool, o padrão é FALSO|estático|Configuração padrão para verificação de erros no cabeçalho e no corpo da mensagem no modo não seguro; configuração de componente sobrescreve isso. |
+|ResolveOption|cadeia de caracteres, o padrão é "não especificado"|estático|Determina como o FQDN é resolvido.  Os valores válidos são "unspecified/ipv4/ipv6". |
+|SendTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(300)|Dinâmico|Especifique o intervalo de tempo em segundos. Tempo limite para a detecção de conexão paralisado de envio. Relatórios de falhas TCP não são confiáveis em alguns ambientes. Isso pode precisar ser ajustado de acordo com a largura de banda de rede disponível e o tamanho dos dados de saída (\*MaxMessageSize \/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, o padrão é true |estático| Sondagem automática e ação de atualização baseadas em um arquivo de estado de meta. |
 |MinReplicaSetSize |Int, o padrão é 0 |estático |O MinReplicaSetSize para UpgradeOrchestrationService.
@@ -796,7 +808,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |UpgradeApprovalRequired | Bool, o padrão é false | estático|Configuração para fazer a atualização de código exigir aprovação do administrador antes de continuar. |
 
 ## <a name="upgradeservice"></a>UpgradeService
-| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
+| **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |BaseUrl | cadeia de caracteres, o padrão é "" |estático|BaseUrl para UpgradeService. |
 |ClusterId | cadeia de caracteres, o padrão é "" |estático|ClusterId para UpgradeService. |

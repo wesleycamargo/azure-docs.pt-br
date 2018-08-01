@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164832"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216335"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o portal do Azure
 A plataforma do Azure está repleta de fluxos de trabalho flexíveis do DevOps. Neste tutorial, você aprenderá a aproveitar os recursos do portal do Azure para desenvolver, testar, implantar, solucionar problemas, monitorar e gerenciar aplicativos em execução. Este tutorial se concentra no seguinte:

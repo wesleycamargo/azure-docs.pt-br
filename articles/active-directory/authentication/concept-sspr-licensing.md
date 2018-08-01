@@ -1,45 +1,47 @@
 ---
-title: Redefinição de senha por autoatendimento da licença – Azure Active Directory
+title: Licenciar a senha de autoatendimento do Microsoft Azure Active Directory
 description: Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049077"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158991"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisitos de licenciamento para redefinição da senha de autoatendimento do Azure AD
 
-Para que a redefinição de senha do Azure AD (Azure Active Directory) funcione, é necessário *ter pelo menos uma licença atribuída na organização* para esse usuário. Uma licença apropriada é necessária se um usuário se beneficia direta ou indiretamente de qualquer recurso coberto por essa licença.
+O Azure AD (Azure Active Directory) é fornecido em quatro edições: Gratuito, Basic, Premium P1 e Premium P2. Há vários recursos diferentes que compõem a redefinição de senha de autoatendimento, incluindo alteração, redefinição, desbloqueio e write-back, que estão disponíveis nas diferentes edições do Azure AD. Este artigo tenta explicar as diferenças. Mais detalhes dos recursos incluídos em cada edição do Azure AD podem ser encontrados na [página de preços do Microsoft Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-* **Somente usuários de nuvem**: Qualquer SKU pago do Office 365 ou Azure AD Basic
-* Usuários na **nuvem** ou **locais**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
+## <a name="compare-editions-and-features"></a>Comparar edições e recursos
 
-## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
+A redefinição de senha de autoatendimento do Azure AD é licenciada por usuário e, para manter a conformidade, é necessário que as organizações atribuam a licença apropriada aos seus usuários.
 
-**Redefinição/alteração/desbloqueio de senha de autoatendimento com write-back local é um recurso Premium do Azure AD**. Para obter mais informações sobre licenciamento, consulte o [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Alteração de senhas por autoatendimento para usuários de nuvem
+   * Eu sou um **usuário somente na nuvem** e sei minha senha.
+      * Eu queria **alterar** minha senha para algo novo.
+   * Essa funcionalidade está incluída em todas as edições do Azure AD.
 
-Para usar o write-back de senha, você deve ter uma das licenças a seguir atribuídas no locatário:
+* Redefinição de senha por autoatendimento para usuários de nuvem
+   * Eu sou um **usuário somente na nuvem** e esqueci minha senha.
+      * Eu queria **alterar** minha senha para algo que eu saiba.
+   * Essa funcionalidade está incluída nas edições do Azure AD Basic, Premium P1 ou Premium P2.
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 ou A3
-* Enterprise Mobility + Security E5 ou A5
-* Microsoft 365 E3 ou A3
-* Microsoft 365 E5 ou A5
-* Microsoft 365 F1
+* Redefinição/Alteração/Desbloqueio da Senha de Autoatendimento **com write-back local**
+   * Eu sou um **usuário híbrido**, minha conta de usuário do Active Directory local está sincronizada com minha conta do Azure AD usando o Azure AD Connect. Eu queria alterar minha senha, esqueci minha senha ou ela foi bloqueada.
+      * Eu queria alterar ou redefinir minha senha para algo que conheça, ou desbloquear minha conta **e** sincronizar novamente essa alteração no Active Directory local.
+   * Essa funcionalidade está incluída nas edições do Azure AD Premium P1 ou Premium P2.
 
 > [!WARNING]
-> Os planos de licenciamento do Standalone Office 365 *não dão suporte ao write-back de senha* e exigem que você tenha um dos planos anteriores para que essa funcionalidade funcione.
+> Planos de licenciamento autônomo do Office 365 **não dão suporte para write-back de senha** e requerem as edições do Azure AD Premium P1 ou Premium P2 para efetivar essa funcionalidade.
 >
 
 As informações de licenciamento adicionais, inclusive custos, podem ser encontradas nas páginas a seguir:

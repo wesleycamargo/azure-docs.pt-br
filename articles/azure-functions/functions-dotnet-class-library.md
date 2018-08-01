@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 2308419ba79f6b482df6f68e865aafd0152ae090
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 542e3563a31a181db8eb7c97a90b61e1a503f2cb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001881"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162194"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 
@@ -197,11 +197,11 @@ Cada associação tem seus próprios tipos com suporte. Por exemplo, um atributo
 
 Você pode usar um valor de retorno do método para uma associação de saída, aplicando o atributo ao valor de retorno do método. Para obter exemplos, consulte [Gatilhos e associações](functions-triggers-bindings.md#using-the-function-return-value). 
 
-Use o valor retornado apenas se uma execução de função bem-sucedida sempre resultar em um valor retornado a ser passado para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
+Use o valor retornado apenas se uma execução de função com êxito sempre resultar em um valor retornado a ser passado para a associação de saída. Caso contrário, use `ICollector` ou `IAsyncCollector`, conforme mostrado na seção a seguir.
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
-Para gravar vários valores em uma associação de saída ou se uma invocação de função bem-sucedida não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para gravar vários valores em uma associação de saída ou se uma invocação de função com êxito não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
 Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
@@ -262,6 +262,8 @@ public static class AsyncExample
     }
 }
 ```
+
+Não é possível usar parâmetros `out` em funções assíncronas. Para associações de saída, use o [valor de retorno de função](#binding-to-method-return-value) ou um [objeto coletor](#writing-multiple-output-values).
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 

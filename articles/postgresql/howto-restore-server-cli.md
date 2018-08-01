@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635061"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173419"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
 - Um [Banco de Dados do Azure para servidor e banco de dados PostgreSQL](quickstart-create-server-database-azure-cli.md)
 
@@ -84,6 +84,8 @@ Os valores de local e tipo de preço para o servidor restaurado permanecem iguai
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
 
+O novo servidor criado durante uma restauração não tem as regras de firewall que existiam no servidor original. Regras de firewall precisam ser definidas separadamente para esse novo servidor.
+
 ## <a name="geo-restore"></a>Restauração geográfica
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para PostgreSQL esteja disponível.  
 
@@ -121,6 +123,8 @@ O comando `az postgres server georestore` exige os seguintes parâmetros:
 >Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
+
+O novo servidor criado durante uma restauração não tem as regras de firewall que existiam no servidor original. Regras de firewall precisam ser definidas separadamente para esse novo servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço.

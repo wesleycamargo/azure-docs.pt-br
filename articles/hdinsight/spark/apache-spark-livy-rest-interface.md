@@ -1,26 +1,23 @@
 ---
-title: Usar Livy Spark para enviar trabalhos para o cluster do Spark no Azure HDInsight | Microsoft Docs
+title: Usar Livy Spark para enviar trabalhos ao cluster do Spark no Microsoft Azure HDInsight
 description: Saiba como usar a API REST do Apache Spark para enviar trabalhos do Spark remotamente para um cluster do Azure HDInsight.
-keywords: api rest do apache spark, spark livy
 services: hdinsight
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 07/18/2018
+ms.openlocfilehash: f2befaea436c29b43eead63a560836446075c89f
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517770"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144818"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
@@ -37,16 +34,16 @@ Você pode usar a Livy para executar shells interativos do Spark ou enviar traba
 ## <a name="submit-a-livy-spark-batch-job"></a>Enviar um trabalho em lotes do Livy Spark
 Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no armazenamento de cluster associado ao cluster. Você pode usar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes que podem ser usados para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](../hdinsight-upload-data.md).
 
-    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
+    curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 **Exemplos**:
 
 * Se o arquivo jar estiver no armazenamento de cluster (WASB)
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 * Se quiser passar o nome do arquivo jar e o nome da classe como parte de um arquivo de entrada (nesse exemplo, input.txt)
   
-        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
 
 ## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Obter informações sobre lotes Livy Spark em execução no cluster
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
@@ -55,7 +52,7 @@ Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no
 
 * Se quiser recuperar todos os lotes Livy spark em execução no cluster:
   
-        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches" 
 * Se quiser recuperar um lote específico com uma batchID fornecida
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -101,7 +98,7 @@ Execute as seguintes etapas:
 
 2. Agora vamos enviar um trabalho em lotes. O trecho a seguir usa um arquivo de entrada (input.txt) para passar o nome do jar e o nome de classe como parâmetros. Se você estiver executando essas etapas em um computador Windows, usar um arquivo de entrada será a abordagem recomendada.
    
-        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
    
     Os parâmetros no arquivo **input.txt** são definidos da seguinte maneira:
    

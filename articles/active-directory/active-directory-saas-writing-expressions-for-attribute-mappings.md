@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c0c3e6fab27ff16f0cc75fde3587d280278be882
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034241"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215281"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -47,7 +47,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
 | **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
@@ -60,7 +60,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -76,7 +76,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN ** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
@@ -89,7 +89,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
 | **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
@@ -103,7 +103,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome |
 
@@ -115,7 +115,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
@@ -141,7 +141,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
   * Se **source** tiver um valor, usa **oldValueRegexPattern** e **oldValueRegexGroupName** para extrair o valor de substituição da propriedade com **replacementPropertyName**. O valor de substituição é retornado como o resultado
 
 **Parâmetros:**<br> 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
@@ -159,7 +159,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
 
@@ -171,7 +171,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
 
@@ -183,7 +183,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 **Parâmetros:**<br> 
 
-| NOME | Obrigatório/repetição | type | Observações |
+| NOME | Obrigatório/repetição | Tipo | Observações |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |

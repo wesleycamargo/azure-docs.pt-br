@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921222"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248773"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
-Os [logs de diagnóstico de recursos do Azure](monitoring-overview-of-diagnostic-logs.md) são emitidos por seus recursos do Azure que descrevem a operação do recurso. Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
+[Os logs de diagnóstico do Monitor do Azure](monitoring-overview-of-diagnostic-logs.md) são registros emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
 
 Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e da `category` identifica exclusivamente um esquema. Este artigo descreve o esquema de nível superior para os logs de diagnóstico e os vínculos para o esquema de cada serviço.
 
@@ -26,7 +26,8 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 | NOME | Obrigatório/Opcional | DESCRIÇÃO |
 |---|---|---|
 | tempo real | Obrigatório | O carimbo de data/hora (UTC) do evento. |
-| ResourceId | Obrigatório | A ID do recurso que emitiu o evento. |
+| ResourceId | Obrigatório | A ID do recurso que emitiu o evento. Para serviços de locatário, isso é o /tenants/tenant-id/providers/provider-name do formulário. |
+| tenantId | Necessário para os logs de locatário | A ID de locatário do que esse evento está vinculado ao locatário do Active Directory. Essa propriedade só é usada para logs de nível de locatário, ele não aparece nos logs de nível do recurso. |
 | operationName | Obrigatório | O nome da operação representada por esse evento. Se o evento representa uma operação RBAC, esse é o nome da operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modeladas na forma de uma operação do Resource Manager, mesmo que não sejam as operações do Resource Manager documentadas reais (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A api-version associada à operação, se a operationName foi executada usando uma API (por exemplo, http://myservice.windowsazure.net/object?api-version=2016-06-01). Se não houver nenhuma API que corresponde a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
 | categoria | Obrigatório | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar os logs em determinado recurso. As propriedades exibidas no blob de propriedades de um evento são as mesmas em uma categoria de log e um tipo de recurso específicos. As categorias de log típicas são “Auditoria”, “Operacional”, “Execução” e “Solicitação”. |
@@ -37,7 +38,7 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 | callerIpAddress | Opcional | O endereço IP do chamador, caso a operação corresponda a uma chamada à API proveniente de uma entidade com um endereço IP disponível publicamente. |
 | correlationId | Opcional | Um GUID usado para agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos têm o mesmo operationName, mas dois status diferentes (por exemplo, “Iniciado” e “Com Êxito”), eles compartilham a mesma ID de correlação. Isso também pode representar outras relações entre os eventos. |
 | identidade | Opcional | Um blob JSON que descreve a identidade do usuário ou do aplicativo que realizou a operação. Normalmente, isso inclui a autorização e as declarações/token JWT do Active Directory. |
-| Nível | Opcional | O nível da gravidade do evento. Precisa ser Informativo, Aviso, Erro ou Crítico. |
+| Nível | Opcional | O nível de severidade do evento. Precisa ser Informativo, Aviso, Erro ou Crítico. |
 | location | Opcional | A região do recurso que emite o evento, por exemplo, “Leste dos EUA” ou “Sul da França” |
 | propriedades | Opcional | As propriedades estendidas relacionadas a essa categoria específica de eventos. Todas as propriedades personalizadas/exclusivas precisam ser colocadas dentro desta “Parte B” do esquema. |
 
@@ -46,6 +47,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 
 | Serviço | Esquema e Documentos |
 | --- | --- |
+| Azure Active Directory | [Visão geral](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [esquema de log de auditoria](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) e [esquema entradas](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Serviços de análise | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gerenciamento de API | [Logs de Diagnóstico de Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateways do Aplicativo |[Log de diagnóstico do Gateway de Aplicativo](../application-gateway/application-gateway-diagnostics.md) |

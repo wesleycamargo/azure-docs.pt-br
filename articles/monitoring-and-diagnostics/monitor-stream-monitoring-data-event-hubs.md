@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902982"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248089"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Transmitir os dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa
 
 O Azure Monitor fornece um único pipeline para obter acesso a todos os dados de monitoramento do seu ambiente do Azure, permitindo que você configure facilmente ferramentas de monitoramento e SIEM de parceiro para consumir esses dados. Este artigo orienta você pela configuração de diferentes camadas de dados do seu ambiente do Azure para serem enviados a um único namespace de Hubs de Eventos ou hub de eventos, em que eles podem ser coletados por uma ferramenta externa.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Que dados posso enviar para um hub de eventos? 
 
@@ -27,8 +29,9 @@ Em seu ambiente do Azure há várias 'camadas' de dados de monitoramento e o mé
   - Instrumentando seu código com um SDK como o [SDK do Application Insights](../application-insights/app-insights-overview.md).
   - Executando um agente de monitoramento que escuta em busca de novos logs do aplicativo no computador executando o seu aplicativo, assim como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md).
 - **Dados de monitoramento de SO convidado:** dados sobre o sistema operacional no qual o aplicativo é executado. Exemplos de dados de monitoramento de SO convidado seriam syslog do Linux ou eventos de sistema do Windows. Para coletar esse tipo de dados, você precisa instalar um agente como o [Agente de Diagnóstico do Azure do Windows](./azure-diagnostics.md) ou o [Agente de Diagnóstico do Azure do Linux](../virtual-machines/linux/diagnostic-extension.md).
-- **Dados de monitoramento de recursos do Azure:** dados sobre a operação de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, há um SO convidado e aplicativos a serem monitorados dentro desse serviço do Azure. Para outros recursos do Azure, como Grupos de Segurança de Rede, o recurso de monitoramento de dados é a camada de dados mais alta disponível (já que não há nenhum SO convidado nem aplicativo em execução nesses recursos). Esses dados podem ser coletados usando as [configurações de diagnóstico do recurso](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Dados de monitoramento de plataforma do Azure:** dados sobre a operação e gerenciamento de um locatário ou assinatura do Azure, bem como dados sobre a integridade e a operação do Azure propriamente dito. O [log de atividades](./monitoring-overview-activity-logs.md), incluindo dados de serviço de integridade e auditorias do Active Directory, são exemplos de dados de monitoramento de plataforma. Esses dados também podem ser coletados usando as configurações de diagnóstico.
+- **Dados de monitoramento de recursos do Azure:** dados sobre a operação de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, há um SO convidado e aplicativos a serem monitorados dentro desse serviço do Azure. Para outros recursos do Azure, como Grupos de Segurança de Rede, o recurso de monitoramento de dados é a camada de dados mais alta disponível (já que não há nenhum SO convidado nem aplicativo em execução nesses recursos). Esses dados podem ser coletados usando as [configurações de diagnóstico do recurso](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Dados de monitoramento de assinatura do Azure:** Dados sobre a operação e o gerenciamento de uma assinatura do Azure, bem como dados sobre a integridade e a operação do próprio Azure. O [log de atividades](./monitoring-overview-activity-logs.md) contém a maioria dos dados de monitoramento de assinatura, como incidentes de integridade de serviço e auditorias do Azure Resource Manager. Você pode coletar esses dados usando um perfil de Log.
+- **Dados de monitoramento do inquilino do Azure:** Dados sobre a operação de serviços do Azure no nível do inquilino, como o Azure Active Directory. As auditorias e logins do Azure Active Directory são exemplos de dados de monitoramento de locatários. Esses dados podem ser coletados usando uma configuração de diagnóstico de locatário.
 
 Dados de qualquer camada podem ser enviados para um hub de eventos, do qual é possível efetuar pull desses dados para uma ferramenta de parceiro. As seções a seguir descrevem como você pode configurar os dados de cada camada para serem transmitidos para um hub de eventos. As etapas pressupõem que você já tem ativos nessa camada a serem monitorados.
 
@@ -45,11 +48,17 @@ Antes de começar, você precisa [criar um namespace dos Hubs de Eventos e um hu
 
 Consulte também as [Perguntas frequentes sobre Hubs de Eventos do Azure](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como configurar os dados de monitoramento de plataforma do Azure para serem transmitidos para um hub de eventos?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como fazer para configurar os dados de monitoramento do locatário do Azure para serem transmitidos para um hub de eventos?
 
-Os dados de monitoramento de plataforma do Azure vêm de duas origens principais:
-1. O [log de atividades do Azure](./monitoring-overview-activity-logs.md), que contém as operações create, update e delete do Resource Manager, as alterações na [integridade do serviço do Azure](../service-health/service-health-overview.md), que podem impactar os recursos em sua assinatura, as transições de estado do [resource health](../service-health/resource-health-overview.md) e vários outros tipos de eventos em nível de assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no log de atividades do Azure](./monitoring-activity-log-schema.md).
-2. [Relatórios do Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), que contêm o histórico de atividade de entrada e a trilha de auditoria das alterações feitas em um locatário específico. Ainda não é possível transmitir dados do Azure Active Directory para um hub de eventos.
+No momento, os dados de monitoramento do inquilino do Azure estão disponíveis apenas para o Active Directory do Azure. Você pode usar os dados do [relatório do Active Directory do Azure](../active-directory/active-directory-reporting-azure-portal.md), que contém o histórico da atividade de entrada e a trilha de auditoria das alterações feitas em um determinado inquilino.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Transmitir dados do Active Directory do Azure para um hub de eventos
+
+Para enviar dados do log do Azure Active Directory para um namespace de Hubs de Eventos, defina uma configuração de diagnóstico de inquilino em seu inquilino do AAD. [Siga este guia](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) para definir uma configuração de diagnóstico de inquilino.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como fazer para configurar os dados de monitoramento de assinatura do Azure para serem transmitidos para um hub de eventos?
+
+Os dados de monitoramento de assinatura do Azure estão disponíveis no [log de atividades do Azure](./monitoring-overview-activity-logs.md). Contém as operações de criação, atualização e exclusão do Gerenciador de Recursos, as alterações na [integridade do serviço do Azure](../service-health/service-health-overview.md) que podem afetar os recursos da sua assinatura, as [transições de estado da integridade do recurso](../service-health/resource-health-overview.md) e vários outros tipos de eventos no nível da assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no log de atividades do Azure](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Transmitir dados de log de atividades do Azure para um hub de eventos
 

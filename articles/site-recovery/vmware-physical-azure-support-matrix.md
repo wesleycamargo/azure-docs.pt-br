@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070902"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173785"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para replicação de VMware e servidor físico no Azure
 
@@ -61,7 +61,7 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
-Sistema operacional Windows | Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 e 64 bits](migrate-tutorial-windows-server-2008.md) (somente migração). </br></br> * *Não há suporte para Windows 2016 Nano Server.*
+Sistema operacional Windows | Windows Server 2016 de 64 bits (Server Core, Server com Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 e 64 bits](migrate-tutorial-windows-server-2008.md) (somente migração). </br></br> Não há suporte para Windows 2016 Nano Server.
 Sistema operacional Linux | Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.5 <br/><br/>CentOS: 5.2 a 5.11, 6.1 a 6.9, 7.0 a 7.5 <br/><br/>Servidor do Ubuntu 14.04 LTS[ (suporte para versões de kernel)](#ubuntu-kernel-versions)<br/><br/>Servidor LTS do Ubuntu 16.04[ (versões de kernel com suporte)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel com suporte)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 que executa Red Hat compatível com kernel ou o Unbreakable Enterprise Kernel Versão 3 (UEK3) <br/><br/></br>* *Atualizar as máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportado. Para atualizar, desabilite a replicação e habilite novamente após a atualização.*
 
 
@@ -120,7 +120,12 @@ Diretórios | Esses diretórios (se configurados como partições/sistemas de ar
 Requisitos de espaço livre| 2 GB na /partição raiz <br/><br/> 250 MB na pasta de instalação
 XFSv5 | Recursos XFSv5 em sistemas de arquivos XFS, como a soma de verificação dos metadados, têm suporte do Serviço de Mobilidade versão 9.10 em diante. Use o utilitário xfs_info para verificar o superbloco XFS da partição. Se ftype é definido como 1, isso indica que os recursos do XFSv5 estão sendo usados.
 
+## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
+**Ação** | **Detalhes**
+--- | ---
+Redimensionar o disco na VM replicada | Com suporte.
+Adicionar disco na VM replicada | Desabilitar a replicação para a VM, adicionar o disco e, em seguida, reabilitar a replicação. Adição de um disco em uma máquina virtual de replicação não é suportado atualmente.
 
 ## <a name="network"></a>Rede
 

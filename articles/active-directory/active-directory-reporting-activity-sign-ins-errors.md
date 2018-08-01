@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971067"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160239"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro no relatório de atividade de entrada no portal do Azure Active Directory
 
@@ -59,6 +59,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 
 |Erro|DESCRIÇÃO|
 |---|---|
+|16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
 |20012|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
 |20033|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
@@ -174,6 +175,7 @@ A seção a seguir fornece uma visão geral completa de todos os possíveis erro
 |81001|O tíquete Kerberos do usuário é muito grande. Isso pode acontecer se o usuário estiver em muitos grupos e, portanto, o tíquete do Kerberos contém um número excessivo de associações de grupo. Reduza as associações de grupo do usuário e tente novamente.|
 |81005|Pacote de autenticação sem suporte|
 |81007|O locatário não está habilitado para SSO contínuo|
+|81012|Isso não é uma condição de erro. Isso indica que o usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo. É possível ignorar esse código nos logs com segurança.|
 |90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação não compatível (apenas o método POST é compatível) ou não há suporte para o algoritmo de autenticação de tokens solicitado. Contate o desenvolvedor do aplicativo.|
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|

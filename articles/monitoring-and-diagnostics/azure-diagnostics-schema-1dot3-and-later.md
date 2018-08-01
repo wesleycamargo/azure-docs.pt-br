@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/15/2017
+ms.date: 06/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937906"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145376"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuração 1.3 e posterior do Diagnóstico do Azure
 > [!NOTE]
@@ -408,7 +408,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributos|DESCRIÇÃO|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumido pelos diversos tipos de dados de diagnóstico coletados pelo Diagnóstico do Azure. A configuração padrão é 4096 MB.<br />
-|**useProxyServer** | Configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|  
+|**useProxyServer** | Configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|
+|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos.|  
+
 
 <br /> <br />
 
@@ -565,12 +567,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define a configuração de buffer para logs básicos do Azure.  
 
-|Atributo|type|DESCRIÇÃO|  
+|Atributo|Tipo|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**coletores** Adicionados na 1.5|**string**|Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Application Insights.|  
+|**coletores** |**string**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -597,11 +599,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributo|type|DESCRIÇÃO|  
+|Atributo|Tipo|DESCRIÇÃO|  
 |---------------|----------|-----------------|  
 |**name**|string|Uma cadeia de caracteres que identifica o nome do coletor.|  
 
-|Elemento|type|DESCRIÇÃO|  
+|Elemento|Tipo|DESCRIÇÃO|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
 |**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
@@ -613,7 +615,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define filtros para fluxos de dados de log que passam por um coletor.  
 
-|Elemento|type|DESCRIÇÃO|  
+|Elemento|Tipo|DESCRIÇÃO|  
 |-------------|----------|-----------------|  
 |**Canal**|string|Veja a descrição em outro lugar nesta página.|  
 
@@ -624,7 +626,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|type|DESCRIÇÃO|  
+|Atributos|Tipo|DESCRIÇÃO|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**string**|Um nome exclusivo do canal que será mencionado|  

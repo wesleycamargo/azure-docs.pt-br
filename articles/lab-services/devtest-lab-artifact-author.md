@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988615"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185111"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 
@@ -113,7 +113,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
 2. Obtenha um exemplo de arquivo de definição artifactfile.json. Confira os artefatos criados pela equipe do DevTest Labs em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab). Você criou uma biblioteca avançada artefatos que podem lhe ajudar a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
 3. Faça uso do IntelliSense. Use o IntelliSense para ver os elementos válidos que você pode usar para construir um arquivo de definição de artefato. Você também pode ver as diferentes opções de valores para um elemento. Por exemplo, quando você edita o elemento **targetOsType**, o IntelliSense mostra a você as duas opções, Windows ou Linux.
-4. Armazene o artefato no [repositório público do Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou no [seu próprio repositório Git](devtest-lab-add-artifact-repo.md).
+4. Armazene o artefato no [repositório público do Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou no [seu próprio repositório Git](devtest-lab-add-artifact-repo.md). No repositório público, você pode exibir os artefatos compartilhados por outras pessoas que você pode usar diretamente ou personalizá-los para atender às suas necessidades. 
    
    1. Crie um diretório separado para cada artefato. O nome do diretório deve ser igual ao nome do artefato.
    2. Armazene o arquivo de definição de artefato (artifactfile.json) no diretório que você criou.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008409"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248767"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -71,13 +71,18 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
 1. Determine os dados a serem importados, número de unidades necessárias, local de blob de destino para os dados no armazenamento do Azure.
 2. Use a ferramenta WAImportExport para copiar dados na unidade. Criptografe os discos com o BitLocker.
 3. Crie um trabalho de importação na sua conta de armazenamento de destino no portal do Azure. Carregue os arquivos no diário da unidade.
-2. Forneça o endereço de retorno e o número da conta da operadora a serem usados para enviar de volta as unidades para você.
-3. Envie as unidades de disco para o endereço de envio fornecido durante a criação do trabalho.
-4. Atualize o número de acompanhamento de entrega nos detalhes do trabalho de importação de acompanhamento e envie o trabalho de importação.
-5. As unidades são recebidas e processadas no data center do Azure.
-6. Unidades são enviadas usando sua conta da transportadora para o endereço de retorno fornecido no trabalho de importação.
-  
-    ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
+4. Forneça o endereço de retorno e o número da conta da operadora a serem usados para enviar de volta as unidades para você.
+5. Envie as unidades de disco para o endereço de envio fornecido durante a criação do trabalho.
+6. Atualize o número de acompanhamento de entrega nos detalhes do trabalho de importação de acompanhamento e envie o trabalho de importação.
+7. As unidades são recebidas e processadas no data center do Azure.
+8. As unidades são enviadas usando sua conta da transportadora para o endereço de retorno fornecido no trabalho de importação.
+
+> [!NOTE]
+> Para remessas de locais (no país do Centro de dados), compartilhe uma conta da transportadora nacionais 
+>
+> Para remessas no exterior (fora do data center), compartilhe uma conta de operadora internacional
+
+ ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
 
 Para obter instruções passo a passo sobre importar dados, vá para:
 
@@ -101,8 +106,13 @@ Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 8. As unidades são recebidas e processadas no data center do Azure.
 9. As unidades são criptografadas com o BitLocker e as chaves estão disponíveis no portal do Azure.  
 10. As unidades são enviadas usando sua conta da transportadora para o endereço de retorno fornecido no trabalho de importação.
+
+> [!NOTE]
+> Para remessas de locais (no país do Centro de dados), compartilhe uma conta da transportadora nacionais 
+>
+> Para remessas no exterior (fora do data center), compartilhe uma conta de operadora internacional
   
-    ![Figura 2: Exportar o fluxo de trabalho](./media/storage-import-export-service/exportjob.png)
+ ![Figura 2: Exportar o fluxo de trabalho](./media/storage-import-export-service/exportjob.png)
 
 Para obter instruções passo a passo sobre exportação de dados, vá para [exportar dados de Blobs do Azure](storage-import-export-data-from-blobs.md).
 

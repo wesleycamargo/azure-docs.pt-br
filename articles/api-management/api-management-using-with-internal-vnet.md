@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151222"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145733"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -35,7 +35,7 @@ Usando o Gerenciamento de API no modo interno você pode chegar aos seguintes ce
 * Gerencie suas APIs hospedadas em várias localizações geográficas usando um único ponto de extremidade de gateway. 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -56,11 +56,14 @@ O serviço de Gerenciamento de API em uma rede virtual interna é hospedado atr�
 
     ![Menu para configurar um Gerenciamento de API do Azure em uma rede virtual interna][api-management-using-internal-vnet-menu]
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 Após a implantação bem-sucedida, você deve ver o endereço IP virtual interno do seu serviço no painel.
 
 ![Painel de Gerenciamento de API com uma rede virtual interna configurada][api-management-internal-vnet-dashboard]
+
+> [!NOTE]
+> O console de Teste disponível no portal do Azure não funcionará para o serviço implantado do VNET **Interno**, pois a URL do Gateway não está registrada no DNS público. É necessário usar o Console de Teste fornecido no **portal do Desenvolvedor**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Habilitar uma conexão de rede virtual usando cmdlets do PowerShell
 Você também pode habilitar a conectividade de rede virtual usando cmdlets do PowerShell.

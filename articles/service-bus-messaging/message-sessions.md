@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc7ef24a3e1781969284a3d1e683fe73ce48b551
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181632"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216386"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: PEPS (primeiro a entrar, primeiro a sair) 
 
@@ -54,7 +54,7 @@ O bloqueio é liberado quando **Close** ou **CloseAsync** é chamado ou quando o
 
 Quando vários destinatários simultâneos efetuam o pull da fila, as mensagens que pertencem a uma sessão específica são expedidas para um destinatário específico que atualmente mantém o bloqueio para a sessão. Com essa operação, um fluxo de mensagens intercaladas que reside em uma fila ou assinatura é corretamente desmultiplexado para diferentes destinatários e esses destinatários também podem residir em computadores cliente diferentes, uma vez que o gerenciamento de bloqueio ocorre no lado do servidor, dentro do Barramento de Serviço.
 
-A ilustração anterior mostra três receptores de sessão concomitantes. Uma Sessão com `SessionId` = 4 não tem nenhum cliente proprietário e ativo, o que significa que nenhuma mensagem é entregue dessa sessão específica. Uma sessão atua de várias maneiras como uma subfila.
+A ilustração anterior mostra três receptores de sessão concomitantes. Uma Sessão com `SessionId` = 4 não tem nenhum cliente proprietário e ativo, o que significa que nenhuma mensagem é entregue dessa sessão específica. Uma sessão atua de várias maneiras, como uma subfila.
 
 O bloqueio da sessão mantido pelo destinatário da sessão é um abrangente para os bloqueios de mensagem usados pelo modo de liquidação de *bloqueio de pico*. Um destinatário não pode ter duas mensagens simultaneamente "em trânsito", mas as mensagens devem ser processadas em ordem. Uma nova mensagem só pode ser obtida quando a mensagem anterior foi concluída ou definida como morta. Abandonar uma mensagem faz com que a mesma mensagem seja atendida novamente com a próxima operação de recebimento.
 

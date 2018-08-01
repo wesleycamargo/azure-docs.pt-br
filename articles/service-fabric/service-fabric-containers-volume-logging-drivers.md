@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969598"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144944"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Driver de Volume dos Arquivos do Azure do Service Fabric (Versão prévia)
 O plug-in de volume dos Arquivos do Azure é um [Plug-in de volume de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contêineres do Docker. Este plug-in de volume do Docker é empacotado como um aplicativo do Service Fabric que pode ser implantado em clusters do Service Fabric. Seu objetivo é fornecer volumes baseados em Arquivos do Azure para outros aplicativos de contêiner do Service Fabric que são implantados para o cluster.
@@ -28,7 +28,7 @@ O plug-in de volume dos Arquivos do Azure é um [Plug-in de volume de Docker](ht
 > A versão 6.255.389.9494 do plug-in de volume dos Arquivos do Azure é uma versão prévia que está disponível com este documento. Como uma versão prévia, **não** tem suporte para uso em ambientes de produção.
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * A versão do Windows do plug-in de volume dos Arquivos do Azure funciona no [Windows Server versão 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versão 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) ou apenas em sistemas operacionais posteriores. A versão do Linux do plug-in de volume dos Arquivos do Azure funciona em todas as versões de sistema operacional com suporte pelo Service Fabric.
 
 * O plug-in do volume de arquivos do Azure funciona somente no Service Fabric versão 6.2 e mais recente.
@@ -36,6 +36,33 @@ O plug-in de volume dos Arquivos do Azure é um [Plug-in de volume de Docker](ht
 * Siga as instruções na [Documentação dos Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) para criar um compartilhamento de arquivo para o aplicativo de contêiner do Service Fabric para usar como o volume.
 
 * Você precisará do [Powershell com o módulo do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) instalado.
+
+* Se estiver usando contêineres de Hyper-V, os seguintes fragmentos deverão ser incluídos na seção ClusterManifest (cluster local) ou fabricSettings no modelo do ARM (cluster do Azure) ou ClusterConfig.json (cluster autônomo). Você precisará do nome do volume e da porta que o volume atende no cluster. 
+
+No ClusterManifest, o seguinte precisa ser adicionado na seção Hospedagem. Neste exemplo, o nome do volume é **sfazurefile** e a porta que ele escuta no cluster é **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+Na seção fabricSettings do modelo ARM (para implantações do Azure) ou ClusterConfig.json (para implantações independentes), o trecho de código a seguir precisa ser adicionado. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Implantar o aplicativo dos Arquivos do Azure do Service Fabric
 

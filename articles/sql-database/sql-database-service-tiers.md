@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/19/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 33d23de2cd0ddae95a34c2c9f7acabdc7315cd36
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091908"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160019"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure e recursos 
 
@@ -58,7 +58,7 @@ No modelo de compra baseado em vCore, os clientes pagam por:
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra com base em DTU
 
-A DTU (Unidade de Transmissão de Dados) representa uma medida combinada de CPU, memória, leituras e gravações. O modelo de compra baseado em DTU oferece um conjunto de pacotes pré-configurados de recursos de computação e inclui armazenamento para impulsionar diferentes níveis de desempenho do aplicativo. Clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos por mês podem localizar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre as camadas de serviço **Básico**, **Standard** e **Premium** para ambos os [bancos de dados individuais](sql-database-single-database-scale.md) e [pools elásticos](sql-database-elastic-pool.md). 
+A DTU (Unidade de Transação do Banco de Dados) representa uma medida combinada de CPU, memória, leituras e gravações. O modelo de compra baseado em DTU oferece um conjunto de pacotes pré-configurados de recursos de computação e inclui armazenamento para impulsionar diferentes níveis de desempenho do aplicativo. Clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos por mês podem localizar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre as camadas de serviço **Básico**, **Standard** e **Premium** para ambos os [bancos de dados individuais](sql-database-single-database-scale.md) e [pools elásticos](sql-database-elastic-pool.md). 
 
 ### <a name="what-are-database-transaction-units-dtus"></a>O que são DTUs (Unidades de transação do banco de dados)?
 Para um único Banco de Dados SQL do Azure em um nível de desempenho específico dentro de uma [camada de serviço](sql-database-single-database-scale.md), a Microsoft garante um certo nível de recursos para o banco de dados (independente de qualquer outro banco de dados na nuvem do Azure), fornecendo um nível previsível de desempenho. A quantidade de recursos é calculada como um número de unidades de transação do banco de dados ou DTUs e é uma medida combinada de recursos de computação, armazenamento e E/S. A proporção entre esses recursos originalmente foi determinada por uma [carga de trabalho de parâmetro de comparação de OLTP](sql-database-benchmark-overview.md) projetada para ser o cenário típico de cargas de trabalho OLTP reais. Quando sua carga de trabalho excede o valor de qualquer um desses recursos, a taxa de transferência é restringida, resultando em desempenho mais lento e inatividade. Os recursos usados pela sua carga de trabalho não afetam os recursos disponíveis para outros Bancos de Dados SQL na nuvem do Azure, e os recursos usados por outras cargas de trabalho não afetam os recursos disponíveis para o Banco de Dados SQL.

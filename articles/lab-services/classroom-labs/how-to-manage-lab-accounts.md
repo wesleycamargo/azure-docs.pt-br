@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715319"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225295"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerenciar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para laboratórios gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
@@ -45,7 +45,7 @@ No Azure Lab Services, uma conta de laboratório é um contêiner para laborató
     ![Página da conta de laboratório](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Adicionar um usuário à função de criador de laboratório
-Para fornecer aos educadores a permissão para criar laboratórios para suas classes, adicione-os à função de Criador de Laboratório:
+Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário e criar um laboratório de curso, siga estas etapas: 
 
 1. Na página **Conta de Laboratório**, selecione **Controle de acesso (IAM)** e clique em **+ Adicionar** na barra de ferramentas. 
 
@@ -54,6 +54,22 @@ Para fornecer aos educadores a permissão para criar laboratórios para suas cla
 
     ![Adicionar usuário à função de Criador de Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especificar as imagens do Marketplace disponíveis para proprietários de laboratório
+Nesta seção, você deve especificar imagens do Marketplace que os proprietários de laboratório podem usar para criar laboratórios de curso. 
+
+1. Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). É possível filtrar a lista para ver apenas as imagens habilitadas/desabilitadas, selecionando a opção **Somente habilitadas**/**Somente desabilitadas** na lista suspensa na parte superior. 
+
+    ![Página Imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Para **desabilitar** uma imagem do Marketplace que tenha sido habilitada, execute uma das seguintes ações: 
+    1. Selecione **... (reticências)**  na última coluna e selecione **Desabilitar imagem**. 
+
+        ![Desabilitar uma imagem](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Selecione uma ou mais imagens na lista, marcando as caixas de seleção antes dos nomes de imagem na lista e selecione **Desabilitar imagens selecionadas**. 
+
+        ![Desabilitar várias imagens](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. De modo semelhante, para **habilitar** uma imagem do Marketplace execute uma das seguintes ações: 
+    1. Selecione **... (reticências)**  na última coluna e selecione **Habilitar imagem**. 
+    2. Selecione uma ou mais imagens na lista, marcando as caixas de seleção antes dos nomes de imagem na lista e selecione **Habilitar imagens selecionadas**. 
 
 ## <a name="view-lab-accounts"></a>Exibir contas de laboratório
 1. Entre no [Portal do Azure](https://portal.azure.com).

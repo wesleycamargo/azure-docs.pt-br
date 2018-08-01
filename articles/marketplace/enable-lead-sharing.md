@@ -1,6 +1,6 @@
 ---
-title: Habilitar compartilhamento de clientes potenciais | Azure
-description: Habilitar compartilhamento de clientes potenciais para Azure Marketplace e AppSource são para editores de aplicativo e serviço
+title: Habilitar compartilhamento de cliente potencial no Microsoft Azure Marketplace | Azure
+description: Saiba como habilitar o compartilhamento de clientes potenciais no Microsoft Azure Marketplace e AppSource para editores de serviço e aplicativos.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,51 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 17116b719b82fd894bf6aabf84c798cebbd13649
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825746"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159984"
 ---
-# <a name="enable-lead-sharing"></a>Habilitar compartilhamento de cliente potencial  
-Verifique se o gerenciamento de clientes potenciais está habilitado para sua listagem no marketplace, para que você receba as informações de contato dos seguintes públicos-alvo.
+# <a name="enable-lead-sharing"></a>Habilitar compartilhamento de cliente potencial
+Garantir que o gerenciamento de clientes potenciais está habilitado para sua listagem no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) ou no [Microsoft AppSource](https://appsource.microsoft.com) pode ajudá-lo a receber informações de contato dos públicos a seguir:
 
-| vitrine | audiência |  
-|:--- |:--- |  
-| AppSource | clientes comerciais |  
-| Azure Marketplace | clientes |  
+| Vitrine | Público-alvo |
+|:--- |:--- |
+| AppSource | Clientes comerciais |
+| Azure Marketplace | Todos os clientes |
 
-Seus clientes potenciais fornecem a base de atendimento para as seguintes campanhas, movimentos de vendas pela equipe de vendas em campo e informações sobre como está o desempenho da sua oferta ou do aplicativo. 
+Seus clientes potenciais fornecem a base do atendimento para as campanhas listadas na tabela a seguir, movimentos de vendas pela equipe de vendas de campo e informações sobre como está o desempenho do aplicativo ou da oferta:
 
-| vitrine | campaign |  
-|:--- |:--- |  
-| AppSource | estímulo |  
-| Azure Marketplace | geração de demanda |  
+| Vitrine | Campanha |
+|:--- |:--- |
+| AppSource | Incentivo |
+| Azure Marketplace | Geração sob demanda |
 
-Use as seguintes práticas para os clientes potenciais.  
-*   Qualificar os clientes potenciais e marcá-los como oportunidades de vendas
-*   Incentivar os clientes potenciais a entrar em um pipeline de vendas
-*   Alinhar esses esforços com a sua estratégia global de campanha de marketing 
+Use as seguintes práticas para os clientes potenciais:
+*   Qualifique os clientes potenciais e classificá-los como oportunidades de vendas.
+*   Incentive os clientes potenciais a entrar em um pipeline de vendas.
+*   Alinhar esses esforços com a sua estratégia global de campanha de marketing.
 
-Os clientes potenciais demonstram interesse na listagem a seguir. 
+Os clientes potenciais demonstram interesse na listagem a seguir:
 
-| vitrine | listagem |  
-|:--- |:--- |  
-| AppSource | <table> <tr><td>Aplicativo</td></tr> <tr><td>Serviço de consultoria</td></tr> </table> |  
-| Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Tecnologia</td></tr> </table> |  
+| Vitrine | Listagem |
+|:--- |:--- |
+| AppSource | <table> <tr><td>Aplicativo</td></tr> <tr><td>Serviços de Consultoria</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Tecnologia</td></tr> </table> |
 
-Você deve ter um processo em vigor para acompanhar os clientes potenciais.  
+Você deve ter um processo em vigor para acompanhar os clientes potenciais, conforme descrito na tabela a seguir:
 
-| vitrine | clientes potenciais |  
-|:--- |:--- |  
-| AppSource | <table> <tr><td>seu CRM</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |  
-| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |  
+| Vitrine | Clientes potenciais |
+|:--- |:--- |
+| AppSource | <table> <tr><td>Seu CRM</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>CRM do vendedor de campo da Microsoft</td></tr> </table> |
 
-Os clientes potenciais nas vitrines do marketplace são diferentes dos clientes potenciais qualificados pelo vendedor da Microsoft, que são um recurso do programa de Vendas Conjuntas.  
-*   Para saber mais sobre como acessar o programa de Vendas Conjuntas, visite a página da Microsoft "Promover seus negócios" em [promote-your-business-with-microsoft](./promote-your-business-with-microsoft.md).  
+Os clientes potenciais nas vitrines do Marketplace são diferentes dos clientes potenciais qualificados pelo vendedor da Microsoft, que são um recurso do programa de Venda Conjunta.
+
+Para obter mais informações sobre como acessar o programa de Venda Conjunta, consulte [Promover seu negócio com a Microsoft](./promote-your-business-with-microsoft.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Visite a página [Guia do editor do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
- 
----  
+Revise o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

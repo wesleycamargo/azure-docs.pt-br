@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5106bbbb073908af7e7e8f045fa6fb60e8a306f4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c52c9fc6b47b03b3ca6db96decb8b4777577d00e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316905"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174237"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Execute tarefas simultaneamente para maximizar o uso dos nós de computação do Lote 
 
@@ -56,15 +56,15 @@ Ao usar a propriedade [CloudPool.TaskSchedulingPolicy][task_schedule], você pod
 Como um exemplo de como esse recurso é útil, considere o pool de nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) configurado com um valor de 16 para [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se [CloudPool.TaskSchedulingPolicy][task_schedule] for configurada com um [ComputeNodeFillType][fill_type] igual a *Pack*, ela maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento automático](batch-automatic-scaling.md) removesse os nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
 
 ## <a name="batch-net-example"></a>Exemplo de .NET do Lote
-Esse trecho de código da API [.NET do Lote][api_net] mostra uma solicitação para criar um pool com quatro nós grandes, com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para saber mais sobre como adicionar pools usando a API .NET do Lote, confira [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+Este snippet de código da API [Batch .NET][api_net] mostra uma solicitação para criar um pool que contém quatro nós com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para saber mais sobre como adicionar pools usando a API .NET do Lote, confira [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
         targetDedicatedComputeNodes: 4
-        virtualMachineSize: "large",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 pool.MaxTasksPerComputeNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
@@ -125,13 +125,13 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-### <a name="batchlabs-heat-map"></a>Mapa de calor BatchLabs
-O [BatchLabs][batch_labs] é uma ferramenta de cliente autônomo, gratuito e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. O BatchLabs contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução das tarefas paralelas em cada nó.
+### <a name="batch-explorer-heat-map"></a>Mapa de Calor do Explorador do Lote
+[O Explorador de lotes][batch_labs] é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução das tarefas paralelas em cada nó.
 
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx

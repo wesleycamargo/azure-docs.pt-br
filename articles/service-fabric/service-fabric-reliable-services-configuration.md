@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866171"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249012"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
+| LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo em vez de apenas no tamanho do log. Essa configuração também força a eliminação de entradas excluídas no dicionário confiável. Por isso, ele pode ser usado para garantir que os itens excluídos sejam removidos em tempo hábil. |
 
 ### <a name="sample-configuration-via-code"></a>Amostra de configuração via código
 ```csharp

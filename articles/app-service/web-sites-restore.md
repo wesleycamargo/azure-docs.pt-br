@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: d4b84904db703d1e8e78240cb971250672ef9615
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753278"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160494"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
@@ -49,6 +49,11 @@ A restauração usando backups está disponível para aplicativos que são execu
    
    > [!WARNING]
    > Se você escolher **Substituir**, todos os dados existentes em seu aplicativo atual serão apagados e substituídos. Antes de clicar em **OK**, certifique-se de que isso é exatamente o que você deseja fazer.
+   > 
+   > 
+   
+   > [!WARNING]
+   > Se o Serviço de Aplicativo estiver gravando dados no banco de dados durante a restauração, isso poderá resultar em sintomas como violação de CHAVE PRIMÁRIA e perda de dados. É recomendável parar o Serviço de Aplicativo antes de iniciar a restauração do banco de dados.
    > 
    > 
    

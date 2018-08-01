@@ -11,24 +11,47 @@ ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044587"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247309"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
 Este guia contém informações sobre problemas comuns que você pode ter ao usar o Azure Dev Spaces.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador do Azure Dev Spaces"
+
+Você pode ver esse erro quando algo der errado com a criação do controlador. Se for um erro transitório, a exclusão e a recriação do controlador o corrigirá.
+
+### <a name="try"></a>Experimente:
+
+Para excluir o controlador, use a CLI do Azure Dev Spaces. Não é possível fazê-lo no Visual Studio ou no Cloud Shell. Para instalar a CLI do AZDS, primeiro instale a CLI do Azure e, em seguida, execute este comando:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+E, em seguida, execute este comando para excluir o controlador:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recriar o controlador pode ser feito a partir do CLI ou Visual Studio. Siga as instruções nos tutoriais como se estivesse começando pela primeira vez.
+
+
 ## <a name="error-service-cannot-be-started"></a>Erro "O serviço não pode ser iniciado."
 
 Você pode ver esse erro quando seu código de serviço não pode ser iniciado. Frequentemente, a causa está no código do usuário. Para obter mais informações de diagnóstico, faça as seguintes alterações em suas configurações e comandos:
 
+### <a name="try"></a>Experimente:
+
 Na linha de comando:
 
-1. Quando estiver usando _azds.exe_, use a opção de linha de comando -- verbose e use a opção de linha de comando --output para especificar o formato de saída.
+Quando estiver usando _azds.exe_, use a opção de linha de comando -- verbose e use a opção de linha de comando --output para especificar o formato de saída.
  
     ```cmd
     azds up --verbose --output json

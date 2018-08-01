@@ -1,33 +1,35 @@
 ---
-title: Escolha entre a nuvem ou servidor do Azure MFA | Microsoft Docs
-description: Escolha a solução de segurança de autenticação multifator ideal para você perguntando o que estou tentando proteger e onde os meus usuários estão localizados.
+title: Azure MFA Server ou Serviço, no Local ou na nuvem?
+description: Como Administrador do Azure AD, eu preciso entender qual versão da MFA devo implantar?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 8314d72aa2cc6787d3f65dd48cd693a0ac332c0a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866345"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158436"
 ---
-# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Escolha a solução Autenticação Multifator para você
-Como há vários tipos de MFA (Autenticação Multifator do Azure), precisamos responder a algumas perguntas para descobrir qual versão é a correta para usar.  Essas perguntas são:
+# <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Qual versão do Azure MFA é ideal para minha organização?
+
+Antes de decidir onde e como implantar a MFA (Autenticação Multifator do Microsoft Azure), é necessário responder a três perguntas básicas.
 
 * [O que estou tentando proteger](#what-am-i-trying-to-secure)
 * [Onde os usuários estão localizados](#where-are-the-users-located)
 * [De quais recursos preciso?](#what-features-do-i-need)
 
-As seções a seguir fornecem orientações sobre como determinar a cada uma delas.
+Cada uma das seções a seguir fornece detalhes para ajudá-lo a responder as perguntas anteriores.
 
 ## <a name="what-am-i-trying-to-secure"></a>O que estou tentando proteger?
-Para determinar a solução de verificação em duas etapas correta, precisamos saber o que você está tentando proteger com um segundo método de autenticação.  É um aplicativo no Azure?  Ou um sistema de acesso remoto?  Ao determinar o que estamos tentando proteger, passaremos saber onde a Autenticação Multifator precisa ser habilitada.  
+
+Para determinar a solução de verificação em duas etapas correta, primeiro é necessário responder à pergunta sobre o que você está tentando proteger com um fator de autenticação adicional. É um aplicativo no Azure? Ou um sistema de acesso remoto? Ao determinar o que você está tentando proteger, será possível responder à pergunta sobre onde a Autenticação Multifator deve ser habilitada.
 
 | O que você está tentando proteger | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
@@ -38,17 +40,19 @@ Para determinar a solução de verificação em duas etapas correta, precisamos 
 | Acesso remoto, como VPN, RDG | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Onde os usuários estão localizados
-Em seguida, ver onde se encontram nossos usuários ajuda a determinar a solução correta a ser usada, seja na nuvem ou no local, usando o servidor MFA.
+
+Em seguida, determine onde estão localizados os usuários da sua organização para determinar a solução correta a ser usada, seja na nuvem ou no local, usando o Servidor MFA.
 
 | Local do usuário | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD e AD local usando federação com AD FS |● |● |
-| Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - sem sincronização de senha de hash ou autenticação pass-through |● |● |
-| Azure AD e AD local usando o DirSync, o Azure AD Sync, o Azure AD Connect - com sincronização de senha de hash ou autenticação pass-through |● | |
+| Azure AD e AD local usando o DirSync, o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● |● |
+| Azure AD e AD local usando o Azure AD Connect - sem sincronização de hash de senha ou autenticação de passagem |● | |
 | Active Directory local | |● |
 
 ## <a name="what-features-do-i-need"></a>De quais recursos preciso?
+
 A tabela a seguir compara os recursos disponíveis com a Autenticação Multifator na nuvem e o Servidor de Autenticação Multifator.
 
 | Recurso | MFA na nuvem | Servidor MFA |
@@ -57,13 +61,12 @@ A tabela a seguir compara os recursos disponíveis com a Autenticação Multifat
 | Código de verificação de aplicativo móvel como um segundo fator | ● | ● |
 | Chamada telefônica como um segundo fator | ● | ● |
 | SMS unidirecional como segundo fator | ● | ● |
-| SMS bidirecional como segundo fator | | ● (Preterido)| 
 | Tokens de hardware como segundo fator | | ● |
 | Senhas de aplicativos para clientes do Office 365 que não oferecem suporte a MFA | ● | |
 | Controle do administrador sobre métodos de autenticação | ● | ● |
 | Modo PIN | | ● |
-| Alerta de fraude |● | ● |
-| Relatórios de MFA |● | ● |
+| Alerta de fraude | ● | ● |
+| Relatórios de MFA | ● | ● |
 | Desvio único | | ● |
 | Saudações personalizadas para chamadas telefônicas | ● | ● |
 | ID do chamador personalizável para chamadas telefônicas | ● | ● |

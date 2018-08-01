@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 39c43c079ea4d10686bd656ba2d451ff42aac9f6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 550b53cf40133c8a67306c61cbfa7dae21be4648
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700223"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163455"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -22,8 +22,7 @@ Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêine
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo.
-Para obter mais informações sobre convenções de nomenclatura do Azure, confira as [convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) no Azure Architecture Center.
+Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, consulte [Convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
 
 | Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -31,16 +30,35 @@ Para obter mais informações sobre convenções de nomenclatura do Azure, confi
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
-| Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e o caractere '_' em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
-| Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hífenes em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
+| Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
+| Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
 
-## <a name="image-version-not-supported"></a>Não há suporte para versão da imagem
+## <a name="os-version-of-image-not-supported"></a>Não há suporte para a versão do SO da imagem
 
-Se você especificar uma imagem, cujas Instâncias de Contêiner do Azure não poderá dar suporte, um erro `ImageVersionNotSupported` será retornado. O valor do erro é `The version of image '{0}' is not supported.` e atualmente se aplica às imagens do Windows 1709. Para atenuar esse problema, use uma imagem do Windows LTS. O suporte para imagens do Windows 1709 está em andamento.
+Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azure, um erro `OsVersionNotSupported` será retornado. O erro é semelhante ao seguinte, onde `{0}` é o nome da imagem que você tentou implantar:
+
+```json
+{
+  "error": {
+    "code": "OsVersionNotSupported",
+    "message": "The OS version of image '{0}' is not supported."
+  }
+}
+```
+
+Esse erro geralmente ocorre ao implantar imagens do Windows que baseiam-se em uma versão do SAC (Canal Semestral). Por exemplo, o as versões 1709 e 1803 do Windows são versões de SAC e geram esse erro após a implantação.
+
+As Instâncias de Contêiner do Azure dão suporte a imagens do Windows com base apenas nas versões LTSC (Canal de Manutenção de Longo Prazo). Para atenuar esse problema ao implantar contêineres do Windows, sempre implante imagens baseadas em LTSC.
+
+Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [Visão geral do Canal Semestral do Windows Server][windows-sac-overview].
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
-Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem inicialmente, ele tentará novamente por um período, até eventualmente falhar. Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do comando [az container show][az-container-show]:
+Se as Instâncias de Contêiner do Azure não puderem efetuar pull da imagem inicialmente, elas tentarão novamente durante um período de tempo. Se a operação de pull de imagem continuar a falhar, o ACI eventualmente falhará na implantação e um erro `Failed to pull image` será exibido.
+
+Para resolver esse problema, exclua a instância de contêiner e tente a implantação novamente. Certifique-se de que a imagem existe no registro e que você digitou corretamente o nome da imagem.
+
+Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -71,13 +89,11 @@ Se o Instâncias de Contêiner do Azure não for capaz de efetuar pull da imagem
 ],
 ```
 
-Para resolver, excluir o contêiner e tente novamente realizar a implantação dele, prestando atenção para digitar corretamente o nome da imagem.
-
 ## <a name="container-continually-exits-and-restarts"></a>Contêiner sai e reinicia continuamente
 
 Se o contêiner é executado até a conclusão e reinicia automaticamente, talvez seja necessário definir uma [política de reinício](container-instances-restart-policy.md) de **Em caso de Falha** ou **Nunca**. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinicializações de um contêiner, você pode usar o comando [az container show][az-container-show] na CLI do Azure 2.0. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
+A API de Instâncias de Contêiner inclui uma propriedade `restartCount`. Para verificar o número de reinícios de um contêiner, é possível usar o comando [az container show][az-container-show] na CLI do Azure. No seguinte exemplo de saída (que foi truncado para fins de brevidade), você pode ver a propriedade `restartCount` no final da saída.
 
 ```json
 ...
@@ -131,7 +147,7 @@ Imagens do Windows têm [considerações adicionais](#cached-windows-images).
 
 ### <a name="image-size"></a>Tamanho da imagem
 
-Se o contêiner leva muito tempo para iniciar mas eventualmente tem êxito, comece observando o tamanho da sua imagem de contêiner. Já que o Instâncias de Contêiner do Azure efetua pull de sua imagem de contêiner sob demanda, o tempo de inicialização que você experiencia está diretamente relacionado ao tamanho dela.
+Se o contêiner leva muito tempo para iniciar mas eventualmente tem êxito, comece observando o tamanho da sua imagem de contêiner. Como as Instâncias de Contêiner do Azure efetuam pull da imagem de contêiner sob demanda, o tempo de inicialização efetivo está diretamente relacionado ao tamanho delas.
 
 Você pode exibir o tamanho da sua imagem de contêiner usando o comando `docker images` na CLI do Docker:
 
@@ -158,7 +174,7 @@ Para garantir o menor tempo de inicialização do contêiner do Windows, use uma
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
 
-Contêineres do Windows não podem estar sujeito a nenhuma conectividade de entrada ou saída para até cinco segundos em criação inicial. Após a instalação inicial, a rede de contêiner deverá de retomada adequadamente.
+Contêineres do Windows não podem estar sujeito a nenhuma conectividade de entrada ou saída para até cinco segundos em criação inicial. Após a configuração inicial, a rede de contêineres deverá de retomada apropriadamente.
 
 ## <a name="resource-not-available-error"></a>Erro de recurso não disponível
 
@@ -173,10 +189,16 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
 
+## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível conectar à API do Docker subjacente ou executar contêineres com privilégios
+
+As Instâncias de Contêiner do Azure não expõem acesso direto para a infraestrutura subjacente que hospeda grupos de contêineres. Isso inclui o acesso à API do Docker em execução no host do contêiner e contêineres com privilégios em execução. Se exigir interação com o Docker, verifique a [Documentação de referência do REST](https://aka.ms/aci/rest) para ver o que é compatível com a API do ACI. Se faltar alguma coisa, envie uma solicitação nos [Fóruns de comentários do ACI](https://aka.ms/aci/feedback).
+
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como [recuperar eventos e logs de contêiner](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 
 <!-- LINKS - External -->
+[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/

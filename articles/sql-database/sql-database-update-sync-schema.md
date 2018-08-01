@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a39e060708514fdca11a5d89858486b442a18309
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019580"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237036"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 
@@ -24,7 +24,7 @@ Sincronização de dados SQL permite aos usuários sincronizar dados entre banco
 Este artigo apresenta uma solução para replicar automaticamente as alterações de esquema para todos os pontos de extremidade de sincronização de dados SQL.
 1. Esta solução usa um gatilho DDL para controlar as alterações de esquema.
 2. O gatilho insere os comandos de alteração de esquema em uma tabela de controle.
-3. Essa tabela de tabela de acompanhamento é sincronizada com todos os pontos de extremidade usando o serviço de Sincronização de Dados.
+3. A tabela de controle é sincronizada com todos os pontos de extremidade usando o serviço de Sincronização de Dados.
 4. Os gatilhos DML após a inserção são usados para aplicar as alterações de esquema nos outros pontos de extremidade.
 
 Este artigo usa ALTER TABLE como um exemplo de uma alteração de esquema, mas essa solução também funciona para outros tipos de alterações de esquema.

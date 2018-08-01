@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126316"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145342"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -91,7 +91,7 @@ O HTTPS implementa a autenticação incluindo um token válido no cabeçalho da 
 
 Nome de usuário (a DeviceId diferencia maiúsculas de minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Senha (é possível gerar um token SAS com a ferramenta [device explorer][lnk-device-explorer] ou o comando de extensão da CLI [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+Senha (é possível gerar um token de SAS com a ferramenta [device explorer][lnk-device-explorer], o comando de extensão da CLI [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou a [extensão do kit de ferramentas do IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -270,7 +270,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS usando a ferramenta [device explorer][lnk-device-explorer] do .NET ou a plataforma cruzada, baseada em Python, [A extensão IoT para utilitário de linha de comando da CLI 2.0 do Azure][lnk-IoT-extension-CLI-2.0] ou a [Extensão do Azure IoT Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> É possível gerar um token de SAS com a ferramenta [device explorer][lnk-device-explorer], o comando de extensão da CLI [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou a [extensão do kit de ferramentas do IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 
@@ -415,7 +415,7 @@ Estas são as principais etapas do padrão de serviço do token:
 
 O serviço de token pode definir a expiração do token como desejado. Quando o token expira, o Hub IoT rompe a conexão do dispositivo/módulo. Em seguida, o dispositivo/módulo deve solicitar um novo token ao serviço de token. Um tempo de expiração curto aumenta a carga no dispositivo/módulo e no serviço de token.
 
-Para que um dispositivo/módulo se conecte ao seu hub, você ainda deve adicioná-lo ao registro de identidades do Hub IoT, mesmo se ele estiver usando um token e não uma chave para se conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo/por módulo habilitando ou desabilitando as identidades de dispositivo/módulo no [registro de identidade][lnk-identity-registry]. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
+Para que um dispositivo/módulo conecte-se ao hub, você ainda deverá adicioná-lo ao registro de identidade do Hub IoT — mesmo que esteja usando um token e não uma chave para conectar. Portanto, você pode continuar a usar o controle de acesso por dispositivo/por módulo habilitando ou desabilitando as identidades de dispositivo/módulo no [registro de identidade][lnk-identity-registry]. Essa abordagem reduz os riscos de usar tokens com tempos de expiração longos.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparação com um gateway personalizado
 
@@ -492,8 +492,6 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, consul
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

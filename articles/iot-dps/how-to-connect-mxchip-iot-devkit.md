@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 300bde27f956b449d1e0e73f7efb54a13df27b0c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750359"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145658"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
@@ -67,7 +67,7 @@ Um unique device secret típico é uma cadeia de 64 caracteres como mostrado no 
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
 ```
 
-Cada um dos dois caracteres é usado como valor Hex no cálculo de segurança. O exemplo UDS acima é resolvido para: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
+A cadeia de caracteres é dividida em pares de caracteres que são usados no cálculo de segurança. O exemplo UDS acima é resolvido para: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
 
 Para salvar o unique device secret no Kit de Desenvolvimento:
 
@@ -90,7 +90,7 @@ Para salvar o unique device secret no Kit de Desenvolvimento:
 
 ### <a name="windows"></a>Windows
 
-1. Abra o Explorador de Arquivos e vá para a pasta que contém o código de exemplo de serviço que você clonou anteriormente. Na pasta **.build**, localize e copie **DPS.ino.bin** e **DPS.ino.map** na pasta que contém o código.
+1. Abra o Explorador de Arquivos e vá para a pasta que contém o código de exemplo de serviço que você clonou anteriormente. Na pasta **.build**, localize e copie **DPS.ino.bin** e **DPS.ino.map**.
   ![Arquivos gerados](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
   > [!NOTE]
   > Se você tiver alterado a `built.path` configuração do Arduino para outra pasta, será necessário localizar esses arquivos na pasta configurada.

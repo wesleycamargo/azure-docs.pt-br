@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070837"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173043"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -27,34 +27,21 @@ Este artigo resume as configurações e os componentes com suporte quando você 
 **Interface do usuário** |  **Com suporte/Sem suporte**
 --- | ---
 **Portal do Azure** | Com suporte
-**Portal clássico** | Sem suporte
 **PowerShell** | [Replicação do Azure para o Azure com o PowerShell](azure-to-azure-powershell.md)
 **API REST** | Sem suporte no momento
 **CLI** | Sem suporte no momento
 
 
-## <a name="resource-move-support"></a>Suporte de movimentação de recursos
+## <a name="resource-support"></a>Suporte de recurso
 
-**Tipo de movimentação de recursos** | **Com suporte/Sem suporte** | **Comentários**  
+**Tipo de movimentação de recursos** | **Detalhes** 
 --- | --- | ---
-**Mover cofre entre grupos de recursos** | Sem suporte |Não é possível mover o cofre dos Serviços de Recuperação entre grupos de recursos.
-**Mover Computação, Armazenamento e Rede entre grupos de recursos** | Sem suporte |Se você mover uma máquina virtual (ou seus componentes associados, como armazenamento e rede) depois de habilitar a replicação, precisará desabilitar a replicação e habilitá-la novamente na máquina virtual.
+**Mover cofre entre grupos de recursos** | Sem suporte<br/><br/> Você não pode mover um cofre de serviços de recuperação entre grupos de recursos.
+**Mover recursos de computação/armazenamento/rede entre os grupos de recursos** | Sem suporte.<br/><br/> Se você mover uma VM ou componentes associados, como armazenamento/rede, após a replicação, precisará desabilitar a replicação e reativar a replicação para a VM.
+**Replicar VMs do Azure de uma assinatura para outra para recuperação de desastres** | Sem suporte.
+**Migrar VMs entre assinaturas** | Sem suporte.
+**Migrar máquinas virtuais na mesma região** | Sem suporte.
 
-
-
-## <a name="support-for-deployment-models"></a>Suporte para modelos de implantação
-
-**Modelo de implantação** | **Com suporte/Sem suporte** | **Comentários**  
---- | --- | ---
-**Clássico** | Com suporte | É possível replicar apenas uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina de virtual do Resource Manager. Se você implantar uma VM clássica sem uma rede virtual e diretamente em uma região do Azure, não haverá suporte para essa opção.
-**Resource Manager** | Com suporte |
-
->[!NOTE]
->
-> 1. Não há suporte para a replicação de máquinas virtuais do Azure de uma assinatura para outra em cenários de recuperação de desastre.
-> 2. Não há suporte para migrar máquinas virtuais do Azure entre assinaturas.
-> 3. Não há suporte para migrar máquinas virtuais do Azure dentro da mesma região.
-> 4. Não há suporte para migrar máquinas virtuais do Azure do modelo de implantação clássico para o modelo de implantação do Resource Manager.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões do SO do computador replicado
 
@@ -119,7 +106,7 @@ Debian 8 | 9.15, 9.16 | 3.16.0-4-amd64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default para 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default a 4.4.126-94.22-default |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de arquivos com suporte e configurações de armazenamento de convidado em máquinas virtuais do Azure que executam o sistema operacional Linux
@@ -138,13 +125,20 @@ América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste d
 Europa | Oeste do Reino Unido, Sul do Reino Unido, Norte da Europa, Europa Ocidental, França Central, Sul da França
 Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália
-Azure Government    | Gov. EUA – Virgínia, Gov. EUA – Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
+Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
 Alemanha | Centro da Alemanha, Nordeste da Alemanha
 China | Leste da China, Norte da China
 
 >[!NOTE]
 >
 > Para a região Sul do Brasil, é possível apenas replicar e fazer failover para uma das regiões Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2 e Centro-Norte dos EUA e fazer failback.
+
+## <a name="support-for-vmdisk-management"></a>Suporte para gerenciamento de VM/disco
+
+**Ação** | **Detalhes**
+-- | ---
+Redimensionar o disco na VM replicada | Com suporte
+Adicionar o disco à VM replicada | Sem suporte. Você precisa desabilitar a replicação para a VM, adicione o disco e, em seguida, habilite a replicação novamente.
 
 
 ## <a name="support-for-compute-configuration"></a>Suporte para configuração de Computação

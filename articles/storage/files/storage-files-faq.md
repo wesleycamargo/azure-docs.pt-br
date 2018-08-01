@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866463"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160222"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
-[ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure nos computadores Windows Server usando a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados são usados.
+[ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
 
 Este artigo responde perguntas frequentes sobre funcionalidades e recursos do serviço Arquivos do Azure, inclusive sobre o uso dele em combinação com a Sincronização de Arquivos do Azure. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
@@ -90,8 +90,8 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 * <a id="afs-region-availability"></a>
-**Quais regiões têm suporte para Sincronização de arquivos do Azure (versão prévia)?**  
-    Atualmente, a Sincronização de Arquivos do Azure está disponível no Leste da Austrália, Sudeste da Austrália, Canadá Central, Leste do Canadá, Centro dos EUA, Ásia Oriental, Leste dos EUA, Leste dos EUA 2, Europa Setentrional, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental e Oeste dos EUA. O suporte para regiões mais será adicionado conforme seguirmos trabalhando rumo à disponibilidade geral. Para saber mais, veja [Disponibilidade por região](storage-sync-files-planning.md#region-availability).
+**Quais regiões têm suporte para Sincronização de Arquivos do Azure?**  
+    A lista de regiões disponíveis pode ser encontrada na seção [Disponibilidade de região](storage-sync-files-planning.md#region-availability) da guia de planejamento da Sincronização de Arquivos do Azure. Adicionaremos suporte continuamente para outras regiões, incluindo regiões não públicas.
 
 * <a id="cross-domain-sync"></a>
 **É possível ter servidores ingressados e não ingressados no domínio no mesmo grupo de sincronização?**  
@@ -367,4 +367,4 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 ## <a name="see-also"></a>Consulte também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)](storage-sync-files-troubleshoot.md)
+* [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)
